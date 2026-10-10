@@ -1,5 +1,5 @@
 import {installPartyRuntime} from './buildnow-party-native.mjs';
-import {startPartyJoin} from './buildnow-party-client.js';
+import {startPartyJoin} from './buildnow-party-join.js';
 const partyRuntime=installPartyRuntime();startPartyJoin(partyRuntime);
 import {displaySettings,inspectRuntime,applyGameResolution} from './buildnow-display.mjs';
 import {fetchGameFile} from './five-nights-files.mjs';import {loadBuildNowParts} from './buildnow-files.mjs';
