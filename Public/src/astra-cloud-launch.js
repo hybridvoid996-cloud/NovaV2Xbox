@@ -1,7 +1,7 @@
 // Open the selected game and start its normal provider session once ready.
 (()=>{
  const attached=new WeakSet();
- function attach(doc,item,{onExit,onReady=()=>{},onError=()=>{},signal}={}){
+ function attach(doc,item,{onExit,onReady=()=>{},onStatus=()=>{},onError=()=>{},signal}={}){
   if(signal?.aborted||!item?.name)return false;
   if(attached.has(doc))return true;
   if(!doc.querySelectorAll('button.mp-row[aria-label]').length)return false;
@@ -58,7 +58,7 @@
   observer=new win.MutationObserver(advance);
   observer.observe(doc.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['disabled','aria-disabled']});
   doc.addEventListener('click',preventDismiss,true);doc.addEventListener('keydown',preventDismiss,true);doc.addEventListener('click',streamExit,true);
-  timer=win.setTimeout(()=>{onError('Astra could not select this game. Try another cloud source.');stop()},30000);signal?.addEventListener('abort',stop,{once:true});win.addEventListener('pagehide',pageHidden,{once:true});advance();return true;
+  timer=win.setTimeout(()=>{onStatus('Astra is still loading. Waiting for its game controls…')},30000);signal?.addEventListener('abort',stop,{once:true});win.addEventListener('pagehide',pageHidden,{once:true});advance();return true;
  }
  async function patchRouter(response){
   const text=await new Response(response.body).text();

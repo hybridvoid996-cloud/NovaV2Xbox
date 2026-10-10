@@ -15,11 +15,11 @@ async function create(options={}){
  const {shouldReconnectTransport}=await import('/src/transport-recovery.mjs');
  const registration=await navigator.serviceWorker.register(base+'sw.js',{scope:base,updateViaCache:'none'});
  const worker=await deadline(new Promise(resolve=>{const check=()=>{if(registration.active?.state==='activated')resolve(registration.active)};const watch=()=>{registration.installing?.addEventListener('statechange',check);registration.waiting?.addEventListener('statechange',check);check()};registration.addEventListener('updatefound',watch);watch()}),15000,'The connection worker did not start. Try again.');
- const url=new URL('/api/wisp/',location.origin);url.protocol=location.protocol==='https:'?'wss:':'ws:';
+ const connections=options.phone?[8,6,2]:[32,24,6];const url=new URL('/api/wisp/',location.origin);url.protocol=location.protocol==='https:'?'wss:':'ws:';
  if(!url.pathname.endsWith('/'))url.pathname+='/';
- let remote=new LibcurlTransport.LibcurlClient({wisp:url.href,connections:[32,24,6]});
+ let remote=new LibcurlTransport.LibcurlClient({wisp:url.href,connections});
  let initialization,reconnecting;
- const recover=()=>reconnecting??=(async()=>{options.onRecovery?.('Reconnecting…');remote=new LibcurlTransport.LibcurlClient({wisp:url.href,connections:[32,24,6]});initialization=null;await deadline(remote.init(),15000,'The connection is temporarily unavailable.');options.onRecovery?.('Connection restored.');})().finally(()=>{reconnecting=null});
+ const recover=()=>reconnecting??=(async()=>{options.onRecovery?.('Reconnecting…');remote=new LibcurlTransport.LibcurlClient({wisp:url.href,connections});initialization=null;await deadline(remote.init(),15000,'The connection is temporarily unavailable.');options.onRecovery?.('Connection restored.');})().finally(()=>{reconnecting=null});
  const gsnGateway=options.cloudProvider==='gsn'?window.NovaGSNCloud?.createGateway((...args)=>remote.request(...args),{onRecovery:options.onRecovery}):null;
  const transport={get ready(){return remote.ready},init(){return initialization??=deadline(remote.init(),15000,'The curl connection did not start. Try again.').catch(e=>{initialization=null;throw e})},meta:()=>remote.meta(),connect:(...args)=>remote.connect(...args),async request(target,method,body,headers,signal){
   if(adBlockingEnabled(localStorage)&&isAdRequest(target.href))return {body:'',headers:[['Content-Type','text/plain']],status:200,statusText:'OK'};
