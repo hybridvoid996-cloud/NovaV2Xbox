@@ -14,7 +14,7 @@
     cancelAIMotion();window.NovaMusic?.hide();const id=account()+':'+identity(g);
     if(frame.dataset.session==='true'){frame.hidden=true;frame.removeAttribute('id');}else frame.remove();
     let el=sessions.get(id);
-    if(!el){el=freshFrame();el.dataset.session='true';el.dataset.sessionKind=kind(g);el.src='player.html?kind='+kind(g)+'&id='+encodeURIComponent(g.id);sessions.set(id,el);}
+    if(!el){el=freshFrame();el.dataset.session='true';el.dataset.sessionKind=kind(g);el.src='player.html?kind='+kind(g)+'&id='+encodeURIComponent(g.id)+(document.body.classList.contains('nova-phone')?'&theme=nova-phone':'');sessions.set(id,el);}
     else {sessions.delete(id);sessions.set(id,el);}
     frame=el;frame.id='system';frame.title=g.name;frame.hidden=false;
     panel.classList.remove('full-library');panel.dataset.view=kind(g);panel.hidden=false;content.hidden=true;document.getElementById('panel-title').textContent=g.name;

@@ -12,7 +12,7 @@ export function createPartyAdapter(exports){
   joined(code){const p=lobby();return Boolean(p&&call(41570,0)!==1&&call(41587,0)===1&&call(31576,0)===1&&!new Uint8Array(buffer())[p+265]&&text(call(31578,0))===code);},
   join(code){if(!/^[A-Za-z0-9_-]{1,32}$/.test(code))throw Error('Invalid party code.');if(!this.ready())throw Error('Waiting for the BuildNow party menu and connection.');const p=lobby(),input=word(p+96);if(new Uint8Array(buffer())[p+265])throw Error('BuildNow is already joining a party.');
    const out=exports.tk((code.length+1)*2);if(!valid(out,(code.length+1)*2))throw Error('Party-code workspace unavailable.');
-   try{new Uint16Array(buffer(),out,code.length+1).set([...code].map(x=>x.charCodeAt(0)));const string=call(11650,0,out,0,code.length,0);if(text(string)!==code)throw Error('The party code could not be loaded.');call(81217,input,string,0);call(31509,p,0);}finally{exports.uk(out);}
+   try{const chars=new Uint16Array(buffer(),out,code.length+1);chars.fill(0);chars.set([...code].map(x=>x.charCodeAt(0)));const string=call(103495,out,0,code.length,0);if(text(string)!==code)throw Error('The party code could not be loaded.');if(!type(input,'InputField',33554478,true))throw Error('The party menu changed. Return to the main menu and retry.');call(81217,input,string,0);if(lobby()!==p||word(p+96)!==input)throw Error('The party menu changed while loading the code. Try again.');call(31509,p,0);}finally{exports.uk(out);}
   }
  };
 }
@@ -20,5 +20,5 @@ export function installPartyRuntime(){
  let native=null,verified=false;
  const capture=result=>{const exports=result?.instance?.exports||result?.exports;if(exports?.Ck?.get&&exports?.ek?.buffer&&exports?.tk&&exports?.uk)native=exports;return result;};
  for(const key of ['instantiate','instantiateStreaming']){const original=WebAssembly[key];if(original)WebAssembly[key]=async function(...args){return capture(await original.apply(this,args));};}
- return {async verify(blob){verified=false;if(blob.size!==57704302)return;const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',await blob.arrayBuffer())),n=>n.toString(16).padStart(2,'0')).join('');verified=hash==='a35368963cd340fe951f966b6eecef5b6ee55cb7e223701b5b841edc0f20ecc7';},adapter(){return verified&&native?createPartyAdapter(native):null;}};
+ return {async verify(blob){verified=false;if(blob.size!==57704302)return;const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',await blob.arrayBuffer())),n=>n.toString(16).padStart(2,'0')).join('');verified=hash==='a35368963cd340fe951f966b6eecef5b6ee55cb7e223701b5b841edc0f20ecc7';},adapter(){return verified&&native&&window.novaBuildNowLoaded===true?createPartyAdapter(native):null;}};
 }

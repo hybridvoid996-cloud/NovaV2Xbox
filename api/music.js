@@ -3,7 +3,7 @@ import {randomBytes,randomUUID,createHash} from 'node:crypto';
 import {services} from '../server/voice-service.js';
 import {withSharedBackend} from '../server/shared-backend.mjs';
 import {song,key,joinParty,pruneParty,controlParty,MAX_SONGS,validId} from '../server/music-core.mjs';
-function partyPayload(code,p,time,known){if(!p)return {code,party:null,serverNow:time};const view={revision:p.revision||0,name:p.name||'Listening together',description:p.description||'',owner:p.owner,members:Object.fromEntries(Object.entries(p.members).map(([uid,m])=>[uid,{name:m.name,photo:m.photo}])),queue:p.queue||[],playback:p.playback||null,expiresAt:p.expiresAt};const version=createHash('sha256').update(JSON.stringify(view)).digest('hex');return known===version?{code,unchanged:true,version,serverNow:time}:{code,party:view,version,serverNow:time}}
+function partyPayload(code,p,time,known){if(!p)return {code,party:null,serverNow:time};const view={revision:p.revision||0,name:p.name||'Listening together',description:p.description||'',owner:p.owner,members:Object.fromEntries(Object.entries(p.members).map(([uid,m])=>[uid,{name:m.name,photo:m.photo}])),queue:p.queue||[],messages:Object.values(p.messages||{}).slice(-100),playback:p.playback||null,expiresAt:p.expiresAt};const version=createHash('sha256').update(JSON.stringify(view)).digest('hex');return known===version?{code,unchanged:true,version,serverNow:time}:{code,party:view,version,serverNow:time}}
 const rulesChecked=new WeakMap();
 async function checkRules(db){if(Date.now()-(rulesChecked.get(db)||0)<60000)return;const {rules}=await db.getRulesJSON();const denied=n=>Object.entries(n||{}).every(([k,v])=>['.read','.write'].includes(k)?v===false:!v||typeof v!=='object'||denied(v));if(rules['.read']!==false||rules['.write']!==false||rules.novaMusic?.['.read']!==false||rules.novaMusic?.['.write']!==false||!denied(rules.novaMusic)||Object.entries(rules).some(([k,v])=>k.startsWith('$')&&!denied(v)))throw Error('Publish the private Nova Music database rules first.');rulesChecked.set(db,Date.now())}
 export const createMusicHandler=(service=services,now=Date.now)=>async(req,res)=>{
@@ -18,6 +18,15 @@ export const createMusicHandler=(service=services,now=Date.now)=>async(req,res)=
   let b=req.body;if(!b){let raw='';for await(const c of req){raw+=c;if(Buffer.byteLength(raw)>20000)return reply(413,{error:'Request too large.'})}b=JSON.parse(raw||'{}')}if(typeof b==='string')b=JSON.parse(b);
   if(b.action==='createPlaylist')b.id=randomUUID();
   let action=b.action;const time=now(),libraryRef=db.ref('novaMusic/libraries/'+uid);
+  if(action==='musicFriends'){
+   const friends=(await db.ref('novaChatV2/friends/'+uid).get()).val()||{};
+   const users=await Promise.all(Object.keys(friends).filter(id=>friends[id]&&validId(id)).slice(0,200).map(async id=>{const [a,c]=await Promise.all([db.ref('novaAccounts/'+id).get(),db.ref('novaChatV2/profiles/'+id).get()]);const p=a.val()||c.val();if(!p)return null;return {uid:id,name:p.name||'Nova friend',photo:p.photo||''};}));return reply(200,{friends:users.filter(Boolean)});
+  }
+  if(action==='partyInviteWatch'){
+   const ref=db.ref('novaMusic/invites/'+uid),pack=v=>{const invites=Object.entries(v||{}).filter(([,i])=>i.expiresAt>now()).map(([id,i])=>({id,...i}));return {invites,version:createHash('sha256').update(JSON.stringify(invites)).digest('hex'),serverNow:now()}};
+   const initial=pack((await ref.get()).val());if(initial.version!==b.version||typeof ref.on!=='function')return reply(200,initial);
+   const data=await new Promise(resolve=>{let done=false,timer;const finish=v=>{if(done)return;done=true;clearTimeout(timer);ref.off('value',changed);res.off?.('close',closed);resolve(v)};const changed=s=>{const value=pack(s.val());if(value.version!==b.version)finish(value)};const closed=()=>finish(null);timer=setTimeout(()=>finish(pack((initial.invites||[]).reduce((v,i)=>({...v,[i.id]:i}),{}))),8000);res.on?.('close',closed);ref.on('value',changed,()=>finish({error:'Invitations could not connect.'}));});if(data&&!res.destroyed)return reply(data.error?503:200,{...data,serverWaitMs:Math.max(0,now()-time)});return;
+  }
   if(action==='partyInvites'){const invitations=(await db.ref('novaMusic/invites/'+uid).get()).val()||{};return reply(200,{invites:Object.entries(invitations).filter(([,i])=>i.expiresAt>time).map(([id,i])=>({id,...i}))})}
   if(action==='dismissPartyInvite'){if(!validId(b.id))return reply(400,{error:'Invalid invitation.'});await db.ref('novaMusic/invites/'+uid+'/'+b.id).remove();return reply(200,{ok:true})}
   if(action==='acceptPartyInvite'){if(!validId(b.id))return reply(400,{error:'Invalid invitation.'});const invite=(await db.ref('novaMusic/invites/'+uid+'/'+b.id).get()).val();if(!invite||invite.expiresAt<=time)return reply(410,{error:'This invitation expired.'});b.code=invite.code;b.action='joinParty';action='joinParty';}
@@ -52,14 +61,16 @@ export const createMusicHandler=(service=services,now=Date.now)=>async(req,res)=
    if(!res.destroyed)return reply(result.status,{...result.data,serverWaitMs:Math.max(0,now()-time)});return;
   }
   if(action==='partyStatus'){const p=pruneParty((await partyRef.get()).val(),time);if(!p||!p.members[uid]||p.kicked?.[uid])return reply(410,{error:'This party ended or you were removed.'});return reply(200,partyPayload(code,p,time,b.version))}
-  let newSong;if(action==='addSong')newSong={...song(b.song),addedBy:uid,addedAt:time,queueId:randomUUID()};
+  let newSong;if(action==='addSong')newSong={...song(b.song),addedBy:uid,addedAt:time,queueId:validId(b.requestId)?uid+'_'+b.requestId:randomUUID()};
+  const chatText=action==='partyChat'?String(b.text||'').trim():'';if(action==='partyChat'&&(!chatText||chatText.length>1000))return reply(400,{error:'Write a message of 1–1000 characters.'});const chatId=validId(b.requestId)?uid+'_'+b.requestId:randomUUID();
   await partyRef.get();const r=await partyRef.transaction(current=>{try{error='';if(current===null)return null;let p=pruneParty(current,time);if(!p)throw Error('This party has ended.');if(action==='joinParty'){joined=!p.members[uid];p.revision=(p.revision||0)+1;return joinParty(p,uid,member,time)}if(!p.members[uid]||p.kicked?.[uid])throw Error('You are not in this party.');
    if(action!=='heartbeat')p.revision=(p.revision||0)+1;
    if(action==='leaveParty'){if(p.owner===uid)return null;delete p.members[uid];return p}
    p.members[uid].seenAt=time;
    if(action==='heartbeat'){p.members[uid]={...member,seenAt:time};return p;}
    if(action==='editParty'){if(uid!==p.owner)throw Error('Only the host can edit this party.');const name=String(b.name||'').trim().slice(0,80);if(!name)throw Error('Give your party a name.');p.name=name;p.description=String(b.description||'').trim().slice(0,240);return p;}
-   if(action==='addSong'){p.queue=Object.values(p.queue||{});if(p.queue.length>=200)throw Error('The party queue is full (200 songs).');p.queue.push(newSong);return p}
+   if(action==='partyChat'){p.messages=Object.values(p.messages||{});if(p.messages.some(m=>m.id===chatId))return p;const last=p.messages.filter(m=>m.uid===uid).at(-1);if(last&&time-last.createdAt<500)throw Error('Wait a moment before sending another message.');p.messages.push({id:chatId,uid,name:member.name,photo:member.photo,text:chatText,createdAt:time});p.messages=p.messages.slice(-100);return p;}
+   if(action==='addSong'){p.queue=Object.values(p.queue||{});if(p.queue.some(t=>t.queueId===newSong.queueId&&t.addedBy===uid))return p;if(p.queue.length>=200)throw Error('The party queue is full (200 songs).');p.queue.push(newSong);return p}
    if(action==='kick'){if(uid!==p.owner||b.uid===uid||!Object.hasOwn(p.members,b.uid))throw Error('Only the host can remove a guest.');delete p.members[b.uid];p.kicked||={};p.kicked[b.uid]=true;return p}
    if(action==='control')return controlParty(p,uid,b.control,b.value,time);
    throw Error('Unknown music action.');

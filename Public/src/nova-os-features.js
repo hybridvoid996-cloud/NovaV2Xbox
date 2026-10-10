@@ -1,4 +1,4 @@
-import {mountTodayShop} from './today-shop.js';
+import {mountTodayShop} from './today-shop.js?v=20261010-center40';
 import {OS_APPS,gameKey,searchItems,inviteText} from './os-feature-core.mjs';
 
 export function installOSFeatures({os,catalogs,friends,uid,control,api,message,levels,audioControls,snapshot}){
