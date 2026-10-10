@@ -52,7 +52,7 @@
   let pendingVolume=null,lastOSVolume=null;
   async function command(action,value,internal=false) {
     if(action==='setVolume'){value=Math.max(0,Math.min(1,Number(value)));if(!Number.isFinite(value))return;pendingVolume=value;}
-    try {if(!internal&&novaLibrary&&!novaLibrary.applying&&await novaLibrary.control(action,value))return;const p=player(); if(!p)throw Error('Open Nova Music to connect.'); if(action==='setVolume')pendingVolume=null; const {controlMusic}=await import('./music-controls.mjs');await controlMusic(p,playerDocument,action,value);update();}
+    try {if(!internal&&novaLibrary&&await novaLibrary.control(action,value))return;const p=player(); if(!p)throw Error('Open Nova Music to connect.'); if(action==='setVolume')pendingVolume=null; const {controlMusic}=await import('./music-controls.mjs');await controlMusic(p,playerDocument,action,value);update();}
     catch {artist.textContent='Open Music to resume playback';}
   }
   const watchedMedia = new WeakSet();
@@ -107,7 +107,7 @@
         const walker=doc.createTreeWalker(doc.body,NodeFilter.SHOW_TEXT); let node;
         while((node=walker.nextNode()))if(!['SCRIPT','STYLE'].includes(node.parentElement?.tagName)&&/NEO Music|NEO MUSIC/.test(node.textContent))node.textContent=node.textContent.replace(/NEO Music|NEO MUSIC/g,'Nova Music');
       }
-      if(player()) {if(!libraryDocs.has(playerDocument)){libraryDocs.add(playerDocument);import('./music-library.js?v=20261008-heart9').then(m=>m.mountMusicLibrary({doc:playerDocument,player,playTrack:t=>{const win=playerDocument.defaultView;if(typeof win.playTrack!=='function')throw Error('The player is still loading.');win.playTrack(t)},command,profile:()=>window.novaHomeProfile})).then(value=>novaLibrary=value).catch(error=>{libraryDocs.delete(playerDocument);note.textContent=error.message;console.warn('Nova Music library could not load',error.message)})}ready=true;status.hidden=true;clearTimeout(timer);update();}
+      if(player()) {if(!libraryDocs.has(playerDocument)){libraryDocs.add(playerDocument);import('./music-library.js?v=20261010-party37').then(m=>m.mountMusicLibrary({doc:playerDocument,player,playTrack:t=>{const win=playerDocument.defaultView;if(typeof win.playTrack!=='function')throw Error('The player is still loading.');win.playTrack(t)},command,profile:()=>window.novaHomeProfile})).then(value=>novaLibrary=value).catch(error=>{libraryDocs.delete(playerDocument);note.textContent=error.message;console.warn('Nova Music library could not load',error.message)})}ready=true;status.hidden=true;clearTimeout(timer);update();}
     } catch {}
   }
   async function start() {
