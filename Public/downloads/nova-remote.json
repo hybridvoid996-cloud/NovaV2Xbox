@@ -1,17 +1,17 @@
 {
-  "version": "0.3.0",
+  "version": "0.3.1",
   "filename": "NovaRemote.exe",
-  "size": 111281676,
+  "size": 111282000,
   "parts": [
     {
       "file": "NovaRemote.part1.bin",
       "size": 56000000,
-      "sha256": "924cb277c3f52f66fbb86c46d3eddcdb5962f93e678d358a07d96a3d2ad8537b"
+      "sha256": "159de83074ad6ddcc575c544bedbb00db24b4111df61d2c741b8a4b0a9567caa"
     },
     {
       "file": "NovaRemote.part2.bin",
-      "size": 55281676,
-      "sha256": "0496baf49612f471747504aebc19752b642ed2a25c45cc8af6d8f96539d891db"
+      "size": 55282000,
+      "sha256": "94a4e588445d5ead519c3ee1d0cdd47bf178ff1982cab50ff67a4121d86a88ca"
     }
   ]
 }
