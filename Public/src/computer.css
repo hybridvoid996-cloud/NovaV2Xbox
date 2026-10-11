@@ -24,3 +24,5 @@ body{background:radial-gradient(ellipse at 80% 0%,#20243255,transparent 55%),#08
 .fps-menu button[aria-checked=true]{background:#ffffff20;border-color:#ffffff60}.fps-menu small{display:block!important;padding:8px 0 0!important;font-size:11px;color:#aeb2bd;line-height:1.5}
 
 .network-options{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:16px 0;color:#e3e9f0}.network-options label{font-weight:650}.network-options select{background:#111923;color:#f2f6fc;border:1px solid #ffffff28;border-radius:10px;padding:10px 14px;font:inherit}.network-options small{color:#a6b7c9;font-size:12px}
+
+.performance-note{padding:16px 18px;margin:16px 0;border:1px solid #ffffff1c;border-radius:12px;background:#ffffff05;color:#e3e7ef;font-size:13px;line-height:1.6}.performance-note strong{display:block;font-size:14px}.performance-note p{margin:8px 0;color:#aab4c6;font-size:12px}
