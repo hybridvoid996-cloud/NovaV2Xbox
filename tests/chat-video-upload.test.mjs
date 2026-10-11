@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {checkVideo,MAX_CHAT_VIDEO} from '../Public/src/chat-video-upload.js';
+test('large videos including iPhone MOV accepted without a duration cap',()=>{for(const type of ['video/mp4','video/webm','video/quicktime'])assert.doesNotThrow(()=>checkVideo({type,size:100*1024*1024}));assert.doesNotThrow(()=>checkVideo({type:'video/mp4',size:MAX_CHAT_VIDEO}));});
+test('unsupported and oversized uploads rejected',()=>{for(const file of [{type:'text/html',size:10},{type:'video/mp4',size:MAX_CHAT_VIDEO+1},{type:'video/mp4',size:0}])assert.throws(()=>checkVideo(file));});

@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {streamableEmbed} from '../Public/src/chat-video-links.js';
+test('share and embed links resolve to the Streamable player',()=>{for(const url of ['https://streamable.com/abc123','https://www.streamable.com/abc123?share=1','https://streamable.com/e/abc123'])assert.equal(streamableEmbed(url),'https://streamable.com/e/abc123');});
+test('untrusted hosts and non-video paths cannot become frames',()=>{for(const url of ['http://streamable.com/abc','https://streamable.com.evil.test/abc','https://user@streamable.com/abc','javascript:alert(1)','https://streamable.com/','https://streamable.com/abc/extra'])assert.equal(streamableEmbed(url),null);});
