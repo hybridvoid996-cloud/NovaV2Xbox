@@ -1,22 +1,22 @@
 {
-  "version": "0.2.6",
+  "version": "0.3.0",
   "filename": "NovaRemote.msi",
-  "size": 125677568,
+  "size": 125681664,
   "parts": [
     {
       "file": "NovaRemoteMsi.part1.bin",
       "size": 56000000,
-      "sha256": "590dd99af1bd707bebd420feac319a6370899fa4800a1791cee704c574a887c2"
+      "sha256": "813b7ed097bacebaa287a9957606a45edb29e09830de706d90a6da54179d8b00"
     },
     {
       "file": "NovaRemoteMsi.part2.bin",
       "size": 56000000,
-      "sha256": "df59c33fda3dd2005336b83b974eb67aa277509c6e6b2034fe909f9755087c22"
+      "sha256": "747ab9caea72a723847fbeebde18f36fb628bb7bd14791aa7a707ed84f9a34f7"
     },
     {
       "file": "NovaRemoteMsi.part3.bin",
-      "size": 13677568,
-      "sha256": "883944b3c0cf83a7a30c3df982411be3d28003ec9ab110483404db9acc4a660b"
+      "size": 13681664,
+      "sha256": "a4bb2f7accabe3bb7284da4ecdba9a34208cff4ebd40ab48f35683278475c477"
     }
   ]
 }
