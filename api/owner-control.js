@@ -1,3 +1,4 @@
+import {gameEngagement} from '../server/game-engagement.mjs';
 import {hackShopAction} from '../server/hack-shop.mjs';
 import {buildNowInviteAction,buildNowInviteFeed} from '../server/buildnow-invites.mjs';
 import {gameCatalog,publicStatuses,statusUpdate} from '../server/game-status.mjs';
@@ -30,6 +31,7 @@ if(action.startsWith('buildNowInvite')){const result=await buildNowInviteAction(
 if(action==='syncChatProfile'){if(!protectedOwner&&(await db.ref('novaChatV2/bans/'+who.uid).get()).exists())return reply(403,{error:'Your Chat access is suspended.'});return reply(200,await syncChatProfile(db,who.uid,account,now));}
 if(['leaderboard','leaderboardPulse','leaderboardProfile'].includes(action))return reply(200,await leaderboard(db,who.uid,action,b,now));
 if(['cloudPick','cloudPopular'].includes(action))return reply(200,await cloudPopular(db,who.uid,action,b));
+if(action==='gameEngagement')return reply(200,await gameEngagement(db,who.uid,b));
 if(action==='accountData')return reply(200,await accountData(db,who.uid,b));
 if(action==='giveAllCosmetics'){if(!owner)return reply(403,{error:'Only owners can grant shop items.'});if(!valid(b.uid)||!(await db.ref('novaAccounts/'+b.uid).get()).exists())throw Error('Choose a valid user.');const items=await catalog();await db.ref('novaControl/inventory/'+b.uid).transaction(inventory=>{inventory=inventory||{};for(const item of items)if(!inventory[item.id]?.count)inventory[item.id]={count:1,unlockedAt:now};return inventory});await db.ref('novaControl/audit').push({action:'giveAllCosmetics',actor:who.uid,target:b.uid,count:items.length,at:now});await notifyAccountChange(b.uid,'New cosmetics',(account.name||'Nova Owner')+' granted you the cosmetic collection. Open your inventory to see your items.');return reply(200,{ok:true,count:items.length})}
 if(action==='serverManage')return reply(200,await manageServer(db,who.uid,b));
