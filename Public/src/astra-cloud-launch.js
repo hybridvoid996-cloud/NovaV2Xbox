@@ -58,7 +58,7 @@
   observer=new win.MutationObserver(advance);
   observer.observe(doc.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['disabled','aria-disabled']});
   doc.addEventListener('click',preventDismiss,true);doc.addEventListener('keydown',preventDismiss,true);doc.addEventListener('click',streamExit,true);
-  timer=win.setTimeout(()=>{onStatus('Astra is still loading. Waiting for its game controls…')},30000);signal?.addEventListener('abort',stop,{once:true});win.addEventListener('pagehide',pageHidden,{once:true});advance();return true;
+  timer=win.setTimeout(()=>{if(!chosen){stop();onError?.('This game is not available in Astra’s current library. Try another cloud source.');return}onStatus('Astra is still loading. Waiting for its game controls…')},30000);signal?.addEventListener('abort',stop,{once:true});win.addEventListener('pagehide',pageHidden,{once:true});advance();return true;
  }
  async function patchRouter(response){
   const text=await new Response(response.body).text();

@@ -2,7 +2,7 @@ import { cloudHistory, recordCloudGame } from './cloud-history.js';
 const $ = id => document.getElementById(id);
 const el = (tag, text, cls) => { const node = document.createElement(tag); if (text) node.textContent = text; if (cls) node.className = cls; return node; };
 const storageKey = () => 'nova_cloud_favorites_' + (localStorage.getItem('nova_user') || localStorage.getItem('nova_username') || 'guest');
-const providerNames={astra:'Astra',gsn:'Nova Cloud',ghost:'GhostCloud',achroma:'Achroma - Stratus',synapse:'Achroma - Synapse'};
+const providerNames={gtafile:'Nova Gta File',luna:'Luna',astra:'Astra',gsn:'Nova Cloud',ghost:'GhostCloud',achroma:'Achroma - Stratus',synapse:'Achroma - Synapse'};
 const providerLabel=game=>Object.keys(game.providers||{astra:{}}).filter(id=>providerNames[id]).map(id=>providerNames[id]).join(' + ');
 let games = [], filter = 'all', selected, searchTimer, activeTab = 'explore';
 const saved = () => { try { const rows = JSON.parse(localStorage.getItem(storageKey()) || '[]'); return Array.isArray(rows) ? rows : []; } catch { return []; } };

@@ -5,7 +5,7 @@ import {patchWasm} from '../server/buildnow-engine.mjs';
 import {createToolsRestorer,normalizeTools} from '../server/buildnow-settings.mjs';
 
 test('new round reacquires a living owned avatar even if the previous controller remains allocated',async()=>{
- const f=runtime({hostname:'localhost',offline:false});await f.load();f.api.setFlight(true);f.api.setSilent(true);
+ const f=runtime({hostname:'nova.example',offline:false});await f.load();f.api.setFlight(true);f.api.setSilent(true);
  const first=f.api.snapshot().playerGeneration;f.advance(300);f.setOpponentOwned(true);f.dispatch(1,f.opponent);
  let state=f.api.snapshot();assert.equal(state.playerId,f.opponent);assert.equal(state.hasPlayer,true);assert.equal(state.playerGeneration,first+1);assert.equal(state.flight,false);assert.equal(state.silent,false);
  const config=normalizeTools({enabled:{flight:true,silent:true},engine:{flight:{speed:18}}}),restore=createToolsRestorer(()=>config,()=>f.api);
@@ -15,7 +15,7 @@ test('new round reacquires a living owned avatar even if the previous controller
 });
 
 test('same native pointer with a replacement motor starts a fresh control generation',async()=>{
- const f=runtime({hostname:'localhost',offline:false});await f.load();f.api.setFlight(true);f.api.setSilent(true);const generation=f.api.snapshot().playerGeneration;
+ const f=runtime({hostname:'nova.example',offline:false});await f.load();f.api.setFlight(true);f.api.setSilent(true);const generation=f.api.snapshot().playerGeneration;
  f.writeWord(f.own+180,f.opponentMotor);f.writeWord(f.own+264,2);f.advance(101);f.dispatch(1);
  const state=f.api.snapshot();assert.equal(state.playerId,f.own);assert.equal(state.playerGeneration,generation+1);assert.equal(state.flight,false);assert.equal(state.silent,false);
  createToolsRestorer(()=>normalizeTools({enabled:{flight:true,silent:true}}),()=>f.api).sync(state);
@@ -23,7 +23,7 @@ test('same native pointer with a replacement motor starts a fresh control genera
 });
 
 test('reused controller revives and restores controls after death without overwriting saved intent',async()=>{
- const f=runtime({hostname:'localhost',offline:false});await f.load();const config=normalizeTools({enabled:{flight:true,silent:true}}),restore=createToolsRestorer(()=>config,()=>f.api);
+ const f=runtime({hostname:'nova.example',offline:false});await f.load();const config=normalizeTools({enabled:{flight:true,silent:true}}),restore=createToolsRestorer(()=>config,()=>f.api);
  restore.sync(f.api.snapshot());const generation=f.api.snapshot().playerGeneration;
  f.writeByte(f.own+1331,1);f.advance(101);f.dispatch(1);restore.sync(f.api.snapshot());assert.equal(f.api.snapshot().hasPlayer,false);assert.equal(f.api.snapshot().flight,false);
  f.writeByte(f.own+1331,0);f.writeWord(f.own+264,2);f.advance(101);f.dispatch(1);restore.sync(f.api.snapshot());
@@ -47,4 +47,10 @@ test('flight hook executes after native movement preparation and before the nati
  const patched=patchWasm(bytes,profile);assert(WebAssembly.validate(patched));let velocity=0,nativeCalls=0;const consumed=[];
  const {instance}=await WebAssembly.instantiate(patched,{a:{N:()=>{if(!nativeCalls++)velocity=0;else consumed.push(velocity);},K:()=>{velocity=12;}}});instance.exports.go(1,0);assert.deepEqual(consumed,[12]);
  assert.throws(()=>patchWasm(bytes,{...profile,hooks:[{...profile.hooks[0],before:[0,0,0,0]}]}),/movement boundary/);
+});
+
+test('brief local-player callback stalls keep enabled controls, while expired controllers retire',async()=>{
+ const f=runtime({hostname:'nova.example',offline:false});await f.load();f.api.setFlight(true);f.api.setSilent(true);
+ f.advance(500);let state=f.api.snapshot();assert.equal(state.hasPlayer,true);assert.equal(state.flight,true);assert.equal(state.silent,true);
+ f.advance(1001);state=f.api.snapshot();assert.equal(state.hasPlayer,false);assert.equal(state.flight,false);assert.equal(state.silent,false);
 });

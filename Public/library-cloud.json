@@ -18,6 +18,12 @@
         "name": "Stumble Guys",
         "sourceId": "com.kitkagames.fallbuddies",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Stumble Guys",
+        "sourceId": "com.kitkagames.fallbuddies",
+        "source": "Luna"
       }
     }
   },
@@ -40,6 +46,12 @@
         "name": "Among Us",
         "sourceId": "com.innersloth.spacemafia",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Among Us",
+        "sourceId": "com.innersloth.spacemafia",
+        "source": "Luna"
       }
     }
   },
@@ -62,6 +74,12 @@
         "name": "Call of Duty®: Mobile",
         "sourceId": "com.activision.callofduty.shooter",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Call of Duty®: Mobile",
+        "sourceId": "com.activision.callofduty.shooter",
+        "source": "Luna"
       }
     }
   },
@@ -100,6 +118,12 @@
         "name": "Fortnite",
         "sourceId": "com.epicgames.fortnite",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Fortnite",
+        "sourceId": "com.epicgames.fortnite",
+        "source": "Luna"
       }
     }
   },
@@ -154,6 +178,12 @@
         "name": "Instagram",
         "sourceId": "com.instagram.android",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Instagram",
+        "sourceId": "com.instagram.android",
+        "source": "Luna"
       }
     }
   },
@@ -176,6 +206,12 @@
         "name": "TikTok",
         "sourceId": "com.zhiliaoapp.musically",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "TikTok",
+        "sourceId": "com.zhiliaoapp.musically",
+        "source": "Luna"
       }
     }
   },
@@ -198,6 +234,12 @@
         "name": "Rocket League Sideswipe",
         "sourceId": "com.Psyonix.RL2D",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Rocket League Sideswipe",
+        "sourceId": "com.Psyonix.RL2D",
+        "source": "Luna"
       }
     }
   },
@@ -268,6 +310,12 @@
         "name": "Roblox",
         "sourceId": "com.roblox.client",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Roblox",
+        "sourceId": "com.roblox.client",
+        "source": "Luna"
       }
     }
   },
@@ -290,6 +338,12 @@
         "name": "Clash Royale",
         "sourceId": "com.supercell.clashroyale",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Clash Royale",
+        "sourceId": "com.supercell.clashroyale",
+        "source": "Luna"
       }
     }
   },
@@ -1623,6 +1677,10 @@
         "name": "Grand Theft Auto V",
         "sourceId": "jy0108",
         "source": "Stratus"
+      },
+      "gtafile": {
+        "url": "https://6months.b-cdn.net/gta/",
+        "name": "Grand Theft Auto V"
       }
     }
   },
@@ -5609,6 +5667,12 @@
         "name": "ARK: Survival Evolved",
         "sourceId": "com.studiowildcard.wardrumstudios.ark",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "ARK: Survival Evolved",
+        "sourceId": "com.studiowildcard.wardrumstudios.ark",
+        "source": "Luna"
       }
     }
   },
@@ -8595,6 +8659,12 @@
         "name": "Google Chrome",
         "sourceId": "com.android.chrome",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Google Chrome",
+        "sourceId": "com.android.chrome",
+        "source": "Luna"
       }
     }
   },
@@ -8611,6 +8681,12 @@
         "name": "Brawl Stars",
         "sourceId": "com.supercell.brawlstars",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Brawl Stars",
+        "sourceId": "com.supercell.brawlstars",
+        "source": "Luna"
       }
     }
   },
@@ -8627,6 +8703,12 @@
         "name": "YouTube",
         "sourceId": "com.google.android.youtube",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "YouTube",
+        "sourceId": "com.google.android.youtube",
+        "source": "Luna"
       }
     }
   },
@@ -8643,6 +8725,12 @@
         "name": "EA SPORTS FC Soccer Mobile 26",
         "sourceId": "com.ea.gp.fifamobile",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "EA SPORTS FC Soccer Mobile 26",
+        "sourceId": "com.ea.gp.fifamobile",
+        "source": "Luna"
       }
     }
   },
@@ -8659,6 +8747,12 @@
         "name": "Discord - Talk, Play, Hang Out",
         "sourceId": "com.discord",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Discord - Talk, Play, Hang Out",
+        "sourceId": "com.discord",
+        "source": "Luna"
       }
     }
   },
@@ -8675,6 +8769,12 @@
         "name": "PolyBuzz: Chat with AI Friends",
         "sourceId": "ai.socialapps.speakmaster",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "PolyBuzz: Chat with AI Friends",
+        "sourceId": "ai.socialapps.speakmaster",
+        "source": "Luna"
       }
     }
   },
@@ -8691,6 +8791,12 @@
         "name": "Talkie: Creative AI Community",
         "sourceId": "com.weaver.app.prod",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Talkie: Creative AI Community",
+        "sourceId": "com.weaver.app.prod",
+        "source": "Luna"
       }
     }
   },
@@ -8707,6 +8813,12 @@
         "name": "Genshin Impact",
         "sourceId": "com.miHoYo.GenshinImpact",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Genshin Impact",
+        "sourceId": "com.miHoYo.GenshinImpact",
+        "source": "Luna"
       }
     }
   },
@@ -8723,6 +8835,12 @@
         "name": "Free Fire: 9th Anniversary",
         "sourceId": "com.dts.freefireth",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Free Fire: 9th Anniversary",
+        "sourceId": "com.dts.freefireth",
+        "source": "Luna"
       }
     }
   },
@@ -8739,6 +8857,12 @@
         "name": "eFootball™",
         "sourceId": "jp.konami.pesam",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "eFootball™",
+        "sourceId": "jp.konami.pesam",
+        "source": "Luna"
       }
     }
   },
@@ -8755,6 +8879,12 @@
         "name": "Limbus Company",
         "sourceId": "com.ProjectMoon.LimbusCompany",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Limbus Company",
+        "sourceId": "com.ProjectMoon.LimbusCompany",
+        "source": "Luna"
       }
     }
   },
@@ -8771,6 +8901,12 @@
         "name": "CookieRun: Kingdom",
         "sourceId": "com.devsisters.ck",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "CookieRun: Kingdom",
+        "sourceId": "com.devsisters.ck",
+        "source": "Luna"
       }
     }
   },
@@ -8787,6 +8923,12 @@
         "name": "Madden NFL 27 Mobile Football",
         "sourceId": "com.ea.gp.maddennfl21mobile",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Madden NFL 27 Mobile Football",
+        "sourceId": "com.ea.gp.maddennfl21mobile",
+        "source": "Luna"
       }
     }
   },
@@ -8803,6 +8945,12 @@
         "name": "Spotify: Music and Podcasts",
         "sourceId": "com.spotify.music",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Spotify: Music and Podcasts",
+        "sourceId": "com.spotify.music",
+        "source": "Luna"
       }
     }
   },
@@ -8819,6 +8967,12 @@
         "name": "Pokémon TCG Pocket",
         "sourceId": "jp.pokemon.pokemontcgp",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Pokémon TCG Pocket",
+        "sourceId": "jp.pokemon.pokemontcgp",
+        "source": "Luna"
       }
     }
   },
@@ -8835,6 +8989,12 @@
         "name": "Clash of Clans",
         "sourceId": "com.supercell.clashofclans",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Clash of Clans",
+        "sourceId": "com.supercell.clashofclans",
+        "source": "Luna"
       }
     }
   },
@@ -8851,6 +9011,12 @@
         "name": "Geometry Dash Lite",
         "sourceId": "com.robtopx.geometryjumplite",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Geometry Dash Lite",
+        "sourceId": "com.robtopx.geometryjumplite",
+        "source": "Luna"
       }
     }
   },
@@ -8867,6 +9033,12 @@
         "name": "Honkai: Star Rail",
         "sourceId": "com.HoYoverse.hkrpgoversea",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Honkai: Star Rail",
+        "sourceId": "com.HoYoverse.hkrpgoversea",
+        "source": "Luna"
       }
     }
   },
@@ -8883,6 +9055,12 @@
         "name": "Survivor.io",
         "sourceId": "com.dxx.firenow",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Survivor.io",
+        "sourceId": "com.dxx.firenow",
+        "source": "Luna"
       }
     }
   },
@@ -8899,6 +9077,12 @@
         "name": "ZEPETO: Avatar, Connect & Live",
         "sourceId": "me.zepeto.main",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "ZEPETO: Avatar, Connect & Live",
+        "sourceId": "me.zepeto.main",
+        "source": "Luna"
       }
     }
   },
@@ -8915,6 +9099,12 @@
         "name": "Block Blast!",
         "sourceId": "com.block.juggle",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Block Blast!",
+        "sourceId": "com.block.juggle",
+        "source": "Luna"
       }
     }
   },
@@ -8931,6 +9121,12 @@
         "name": "Mobile Legends: Bang Bang",
         "sourceId": "com.mobile.legends",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Mobile Legends: Bang Bang",
+        "sourceId": "com.mobile.legends",
+        "source": "Luna"
       }
     }
   },
@@ -8947,6 +9143,12 @@
         "name": "BASEBALL 9",
         "sourceId": "us.kr.baseballnine",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "BASEBALL 9",
+        "sourceId": "us.kr.baseballnine",
+        "source": "Luna"
       }
     }
   },
@@ -8963,6 +9165,12 @@
         "name": "Character AI: Chat, Talk, Text",
         "sourceId": "ai.character.app",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Character AI: Chat, Talk, Text",
+        "sourceId": "ai.character.app",
+        "source": "Luna"
       }
     }
   },
@@ -8979,6 +9187,12 @@
         "name": "Plague Inc.",
         "sourceId": "com.miniclip.plagueinc",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Plague Inc.",
+        "sourceId": "com.miniclip.plagueinc",
+        "source": "Luna"
       }
     }
   },
@@ -8995,6 +9209,12 @@
         "name": "The Battle Cats",
         "sourceId": "jp.co.ponos.battlecatsen",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "The Battle Cats",
+        "sourceId": "jp.co.ponos.battlecatsen",
+        "source": "Luna"
       }
     }
   },
@@ -9011,6 +9231,12 @@
         "name": "Umamusume: Pretty Derby",
         "sourceId": "com.cygames.umamusume",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Umamusume: Pretty Derby",
+        "sourceId": "com.cygames.umamusume",
+        "source": "Luna"
       }
     }
   },
@@ -9027,6 +9253,12 @@
         "name": "Aniimo",
         "sourceId": "com.x.aniimos",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Aniimo",
+        "sourceId": "com.x.aniimos",
+        "source": "Luna"
       }
     }
   },
@@ -9043,6 +9275,12 @@
         "name": "Melon Sandbox",
         "sourceId": "com.studio27.MelonPlayground",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Melon Sandbox",
+        "sourceId": "com.studio27.MelonPlayground",
+        "source": "Luna"
       }
     }
   },
@@ -9059,6 +9297,12 @@
         "name": "Wuthering Waves - To Xuanfang",
         "sourceId": "com.kurogame.wutheringwaves.global",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Wuthering Waves - To Xuanfang",
+        "sourceId": "com.kurogame.wutheringwaves.global",
+        "source": "Luna"
       }
     }
   },
@@ -9075,6 +9319,12 @@
         "name": "Love and Deepspace",
         "sourceId": "com.papegames.lysk.en",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Love and Deepspace",
+        "sourceId": "com.papegames.lysk.en",
+        "source": "Luna"
       }
     }
   },
@@ -9091,6 +9341,12 @@
         "name": "PUBG MOBILE",
         "sourceId": "com.tencent.ig",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "PUBG MOBILE",
+        "sourceId": "com.tencent.ig",
+        "source": "Luna"
       }
     }
   },
@@ -9107,6 +9363,12 @@
         "name": "Granny",
         "sourceId": "com.dvloper.granny",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Granny",
+        "sourceId": "com.dvloper.granny",
+        "source": "Luna"
       }
     }
   },
@@ -9123,6 +9385,12 @@
         "name": "Zenless Zone Zero - Anniv.",
         "sourceId": "com.HoYoverse.Nap",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Zenless Zone Zero - Anniv.",
+        "sourceId": "com.HoYoverse.Nap",
+        "source": "Luna"
       }
     }
   },
@@ -9139,6 +9407,12 @@
         "name": "ChatGPT",
         "sourceId": "com.openai.chatgpt",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "ChatGPT",
+        "sourceId": "com.openai.chatgpt",
+        "source": "Luna"
       }
     }
   },
@@ -9155,6 +9429,12 @@
         "name": "Subway Surfers",
         "sourceId": "com.kiloo.subwaysurf",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Subway Surfers",
+        "sourceId": "com.kiloo.subwaysurf",
+        "source": "Luna"
       }
     }
   },
@@ -9171,6 +9451,12 @@
         "name": "DRAGON BALL LEGENDS",
         "sourceId": "com.bandainamcoent.dblegends_ww",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "DRAGON BALL LEGENDS",
+        "sourceId": "com.bandainamcoent.dblegends_ww",
+        "source": "Luna"
       }
     }
   },
@@ -9187,6 +9473,12 @@
         "name": "Pinterest",
         "sourceId": "com.pinterest",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Pinterest",
+        "sourceId": "com.pinterest",
+        "source": "Luna"
       }
     }
   },
@@ -9203,6 +9495,12 @@
         "name": "Plants vs. Zombies™",
         "sourceId": "com.ea.game.pvzfree_row",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Plants vs. Zombies™",
+        "sourceId": "com.ea.game.pvzfree_row",
+        "source": "Luna"
       }
     }
   },
@@ -9219,6 +9517,12 @@
         "name": "My Singing Monsters",
         "sourceId": "com.bigbluebubble.singingmonsters.full",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "My Singing Monsters",
+        "sourceId": "com.bigbluebubble.singingmonsters.full",
+        "source": "Luna"
       }
     }
   },
@@ -9235,6 +9539,12 @@
         "name": "zeta: AI Chat, Story, Play",
         "sourceId": "com.scatterlab.messenger",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "zeta: AI Chat, Story, Play",
+        "sourceId": "com.scatterlab.messenger",
+        "source": "Luna"
       }
     }
   },
@@ -9251,6 +9561,12 @@
         "name": "Delta Force",
         "sourceId": "com.proxima.dfm",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Delta Force",
+        "sourceId": "com.proxima.dfm",
+        "source": "Luna"
       }
     }
   },
@@ -9267,6 +9583,12 @@
         "name": "Friday Night Funkin'",
         "sourceId": "me.funkin.fnf",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Friday Night Funkin'",
+        "sourceId": "me.funkin.fnf",
+        "source": "Luna"
       }
     }
   },
@@ -9283,6 +9605,12 @@
         "name": "RAID: Shadow Legends",
         "sourceId": "com.plarium.raidlegends",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "RAID: Shadow Legends",
+        "sourceId": "com.plarium.raidlegends",
+        "source": "Luna"
       }
     }
   },
@@ -9299,6 +9627,12 @@
         "name": "Disney Twisted-Wonderland",
         "sourceId": "com.aniplex.twst.en",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Disney Twisted-Wonderland",
+        "sourceId": "com.aniplex.twst.en",
+        "source": "Luna"
       }
     }
   },
@@ -9315,6 +9649,12 @@
         "name": "Gacha Life 2",
         "sourceId": "air.com.lunime.gachalife2",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Gacha Life 2",
+        "sourceId": "air.com.lunime.gachalife2",
+        "source": "Luna"
       }
     }
   },
@@ -9331,6 +9671,12 @@
         "name": "NTE: Neverness to Everness",
         "sourceId": "com.hottagames.nte",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "NTE: Neverness to Everness",
+        "sourceId": "com.hottagames.nte",
+        "source": "Luna"
       }
     }
   },
@@ -9347,6 +9693,12 @@
         "name": "Car Parking Multiplayer",
         "sourceId": "com.olzhas.carparking.multyplayer",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Car Parking Multiplayer",
+        "sourceId": "com.olzhas.carparking.multyplayer",
+        "source": "Luna"
       }
     }
   },
@@ -9363,6 +9715,12 @@
         "name": "Retro Bowl",
         "sourceId": "com.newstargames.retrobowl",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Retro Bowl",
+        "sourceId": "com.newstargames.retrobowl",
+        "source": "Luna"
       }
     }
   },
@@ -9379,6 +9737,12 @@
         "name": "Gacha Life",
         "sourceId": "air.com.lunime.gachalife",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Gacha Life",
+        "sourceId": "air.com.lunime.gachalife",
+        "source": "Luna"
       }
     }
   },
@@ -9395,6 +9759,12 @@
         "name": "War Robots Multiplayer Battles",
         "sourceId": "com.pixonic.wwr",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "War Robots Multiplayer Battles",
+        "sourceId": "com.pixonic.wwr",
+        "source": "Luna"
       }
     }
   },
@@ -9411,6 +9781,12 @@
         "name": "Rainbow Six Mobile",
         "sourceId": "com.ubisoft.rainbowsixmobile.r6.fps.pvp.shooter",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Rainbow Six Mobile",
+        "sourceId": "com.ubisoft.rainbowsixmobile.r6.fps.pvp.shooter",
+        "source": "Luna"
       }
     }
   },
@@ -9427,6 +9803,12 @@
         "name": "WhatsApp Messenger",
         "sourceId": "com.whatsapp",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "WhatsApp Messenger",
+        "sourceId": "com.whatsapp",
+        "source": "Luna"
       }
     }
   },
@@ -9443,6 +9825,12 @@
         "name": "Minecraft Education",
         "sourceId": "com.mojang.minecraftedu",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Minecraft Education",
+        "sourceId": "com.mojang.minecraftedu",
+        "source": "Luna"
       }
     }
   },
@@ -9459,6 +9847,12 @@
         "name": "MojoLauncher for Minecraft",
         "sourceId": "git.artdeell.mojo",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "MojoLauncher for Minecraft",
+        "sourceId": "git.artdeell.mojo",
+        "source": "Luna"
       }
     }
   },
@@ -9475,6 +9869,12 @@
         "name": "Free Fire MAX",
         "sourceId": "com.dts.freefiremax",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Free Fire MAX",
+        "sourceId": "com.dts.freefiremax",
+        "source": "Luna"
       }
     }
   },
@@ -9491,6 +9891,12 @@
         "name": "Toca Boca World",
         "sourceId": "com.tocaboca.tocalifeworld",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Toca Boca World",
+        "sourceId": "com.tocaboca.tocalifeworld",
+        "source": "Luna"
       }
     }
   },
@@ -9507,6 +9913,12 @@
         "name": "Where Winds Meet",
         "sourceId": "com.netease.yysls",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Where Winds Meet",
+        "sourceId": "com.netease.yysls",
+        "source": "Luna"
       }
     }
   },
@@ -9523,6 +9935,12 @@
         "name": "WorldBox - Sandbox God Sim",
         "sourceId": "com.mkarpenko.worldbox",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "WorldBox - Sandbox God Sim",
+        "sourceId": "com.mkarpenko.worldbox",
+        "source": "Luna"
       }
     }
   },
@@ -9539,6 +9957,12 @@
         "name": "Plants vs Zombies™ 2",
         "sourceId": "com.ea.game.pvz2_row",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Plants vs Zombies™ 2",
+        "sourceId": "com.ea.game.pvz2_row",
+        "source": "Luna"
       }
     }
   },
@@ -9555,6 +9979,12 @@
         "name": "Chess - Play and Learn Online",
         "sourceId": "com.chess",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Chess - Play and Learn Online",
+        "sourceId": "com.chess",
+        "source": "Luna"
       }
     }
   },
@@ -9571,6 +10001,12 @@
         "name": "Blood Strike x Attack on Titan",
         "sourceId": "com.netease.newspike",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Blood Strike x Attack on Titan",
+        "sourceId": "com.netease.newspike",
+        "source": "Luna"
       }
     }
   },
@@ -9587,6 +10023,12 @@
         "name": "Zalith Launcher 2 for Minecraft",
         "sourceId": "com.movtery.zalithlauncher.v2",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Zalith Launcher 2 for Minecraft",
+        "sourceId": "com.movtery.zalithlauncher.v2",
+        "source": "Luna"
       }
     }
   },
@@ -9603,6 +10045,12 @@
         "name": "Pokémon UNITE",
         "sourceId": "jp.pokemon.pokemonunite",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Pokémon UNITE",
+        "sourceId": "jp.pokemon.pokemonunite",
+        "source": "Luna"
       }
     }
   },
@@ -9619,6 +10067,12 @@
         "name": "Eggy Party: Spooky",
         "sourceId": "com.netease.partyglobal",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Eggy Party: Spooky",
+        "sourceId": "com.netease.partyglobal",
+        "source": "Luna"
       }
     }
   },
@@ -9635,6 +10089,12 @@
         "name": "Arknights",
         "sourceId": "com.YoStarEN.Arknights",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Arknights",
+        "sourceId": "com.YoStarEN.Arknights",
+        "source": "Luna"
       }
     }
   },
@@ -9651,6 +10111,12 @@
         "name": "P5X | Persona5: The Phantom X",
         "sourceId": "com.sega.persona5.the.phantomx.en",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "P5X | Persona5: The Phantom X",
+        "sourceId": "com.sega.persona5.the.phantomx.en",
+        "source": "Luna"
       }
     }
   },
@@ -9667,6 +10133,12 @@
         "name": "ブルーアーカイブ",
         "sourceId": "com.YostarJP.BlueArchive",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "ブルーアーカイブ",
+        "sourceId": "com.YostarJP.BlueArchive",
+        "source": "Luna"
       }
     }
   },
@@ -9683,6 +10155,12 @@
         "name": "EA SPORTS™ NBA LIVE Mobile",
         "sourceId": "com.ea.gp.nbamobile",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "EA SPORTS™ NBA LIVE Mobile",
+        "sourceId": "com.ea.gp.nbamobile",
+        "source": "Luna"
       }
     }
   },
@@ -9699,6 +10177,12 @@
         "name": "HATSUNE MIKU: COLORFUL STAGE!",
         "sourceId": "com.sega.ColorfulStage.en",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "HATSUNE MIKU: COLORFUL STAGE!",
+        "sourceId": "com.sega.ColorfulStage.en",
+        "source": "Luna"
       }
     }
   },
@@ -9715,6 +10199,12 @@
         "name": "学園アイドルマスター",
         "sourceId": "com.bandainamcoent.idolmaster_gakuen",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "学園アイドルマスター",
+        "sourceId": "com.bandainamcoent.idolmaster_gakuen",
+        "source": "Luna"
       }
     }
   },
@@ -9731,6 +10221,12 @@
         "name": "Fall Guys",
         "sourceId": "com.Mediatonic.FallGuys_client",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Fall Guys",
+        "sourceId": "com.Mediatonic.FallGuys_client",
+        "source": "Luna"
       }
     }
   },
@@ -9747,6 +10243,12 @@
         "name": "Reverse: 1999 - 3rd Anniv.",
         "sourceId": "com.bluepoch.m.en.reverse1999",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Reverse: 1999 - 3rd Anniv.",
+        "sourceId": "com.bluepoch.m.en.reverse1999",
+        "source": "Luna"
       }
     }
   },
@@ -9763,6 +10265,12 @@
         "name": "War Thunder Mobile",
         "sourceId": "com.gaijingames.wtm",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "War Thunder Mobile",
+        "sourceId": "com.gaijingames.wtm",
+        "source": "Luna"
       }
     }
   },
@@ -9779,6 +10287,12 @@
         "name": "hololive Dreams",
         "sourceId": "game.qualiarts.hololive.dreams.com",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "hololive Dreams",
+        "sourceId": "game.qualiarts.hololive.dreams.com",
+        "source": "Luna"
       }
     }
   },
@@ -9795,6 +10309,12 @@
         "name": "Hay Day",
         "sourceId": "com.supercell.hayday",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Hay Day",
+        "sourceId": "com.supercell.hayday",
+        "source": "Luna"
       }
     }
   },
@@ -9811,6 +10331,12 @@
         "name": "Honor of Kings",
         "sourceId": "com.levelinfinite.sgameGlobal",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Honor of Kings",
+        "sourceId": "com.levelinfinite.sgameGlobal",
+        "source": "Luna"
       }
     }
   },
@@ -9827,6 +10353,12 @@
         "name": "Arknights: Endfield",
         "sourceId": "com.gryphline.endfield.gp",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Arknights: Endfield",
+        "sourceId": "com.gryphline.endfield.gp",
+        "source": "Luna"
       }
     }
   },
@@ -9843,6 +10375,12 @@
         "name": "Asphalt Legends - Racing Game",
         "sourceId": "com.gameloft.android.ANMP.GloftA9HM",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Asphalt Legends - Racing Game",
+        "sourceId": "com.gameloft.android.ANMP.GloftA9HM",
+        "source": "Luna"
       }
     }
   },
@@ -9859,6 +10397,12 @@
         "name": "Punishing: Gray Raven",
         "sourceId": "com.kurogame.gplay.punishing.grayraven.en",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Punishing: Gray Raven",
+        "sourceId": "com.kurogame.gplay.punishing.grayraven.en",
+        "source": "Luna"
       }
     }
   },
@@ -9875,6 +10419,12 @@
         "name": "Snake Clash!",
         "sourceId": "io.supercent.linkedcubic",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Snake Clash!",
+        "sourceId": "io.supercent.linkedcubic",
+        "source": "Luna"
       }
     }
   },
@@ -9891,6 +10441,12 @@
         "name": "Highrise: Dress Up Avatar Chat",
         "sourceId": "com.pz.life.android",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Highrise: Dress Up Avatar Chat",
+        "sourceId": "com.pz.life.android",
+        "source": "Luna"
       }
     }
   },
@@ -9907,6 +10463,12 @@
         "name": "Solo Leveling:Arise",
         "sourceId": "com.netmarble.sololv",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Solo Leveling:Arise",
+        "sourceId": "com.netmarble.sololv",
+        "source": "Luna"
       }
     }
   },
@@ -9923,6 +10485,12 @@
         "name": "The Seven Deadly Sins",
         "sourceId": "com.netmarble.nanagb",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "The Seven Deadly Sins",
+        "sourceId": "com.netmarble.nanagb",
+        "source": "Luna"
       }
     }
   },
@@ -9939,6 +10507,12 @@
         "name": "LINE: Calls & Messages",
         "sourceId": "jp.naver.line.android",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "LINE: Calls & Messages",
+        "sourceId": "jp.naver.line.android",
+        "source": "Luna"
       }
     }
   },
@@ -9955,6 +10529,12 @@
         "name": "CarX Drift Racing 2",
         "sourceId": "com.carxtech.carxdr2",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "CarX Drift Racing 2",
+        "sourceId": "com.carxtech.carxdr2",
+        "source": "Luna"
       }
     }
   },
@@ -9971,6 +10551,12 @@
         "name": "ONE PIECE Bounty Rush",
         "sourceId": "com.bandainamcoent.opbrww",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "ONE PIECE Bounty Rush",
+        "sourceId": "com.bandainamcoent.opbrww",
+        "source": "Luna"
       }
     }
   },
@@ -9987,6 +10573,12 @@
         "name": "Racing Master",
         "sourceId": "com.netease.dfjssea",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Racing Master",
+        "sourceId": "com.netease.dfjssea",
+        "source": "Luna"
       }
     }
   },
@@ -10003,6 +10595,12 @@
         "name": "Jujutsu Kaisen Phantom Parade",
         "sourceId": "com.bilibilihk.jujutsuphanparagp",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Jujutsu Kaisen Phantom Parade",
+        "sourceId": "com.bilibilihk.jujutsuphanparagp",
+        "source": "Luna"
       }
     }
   },
@@ -10019,6 +10617,12 @@
         "name": "Yu-Gi-Oh! Master Duel",
         "sourceId": "jp.konami.masterduel",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Yu-Gi-Oh! Master Duel",
+        "sourceId": "jp.konami.masterduel",
+        "source": "Luna"
       }
     }
   },
@@ -10035,6 +10639,12 @@
         "name": "GODDESS OF VICTORY: NIKKE",
         "sourceId": "com.proximabeta.nikke",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "GODDESS OF VICTORY: NIKKE",
+        "sourceId": "com.proximabeta.nikke",
+        "source": "Luna"
       }
     }
   },
@@ -10051,6 +10661,12 @@
         "name": "Royal Match",
         "sourceId": "com.dreamgames.royalmatch",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Royal Match",
+        "sourceId": "com.dreamgames.royalmatch",
+        "source": "Luna"
       }
     }
   },
@@ -10067,6 +10683,12 @@
         "name": "Gacha Club",
         "sourceId": "air.com.lunime.gachaclub",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Gacha Club",
+        "sourceId": "air.com.lunime.gachaclub",
+        "source": "Luna"
       }
     }
   },
@@ -10083,6 +10705,12 @@
         "name": "Heartopia",
         "sourceId": "com.xd.xdtglobal.gp",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Heartopia",
+        "sourceId": "com.xd.xdtglobal.gp",
+        "source": "Luna"
       }
     }
   },
@@ -10099,6 +10727,12 @@
         "name": "The Seven Deadly Sins: Origin",
         "sourceId": "com.netmarble.nanaori",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "The Seven Deadly Sins: Origin",
+        "sourceId": "com.netmarble.nanaori",
+        "source": "Luna"
       }
     }
   },
@@ -10115,6 +10749,12 @@
         "name": "Super Sus",
         "sourceId": "com.je.supersus",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Super Sus",
+        "sourceId": "com.je.supersus",
+        "source": "Luna"
       }
     }
   },
@@ -10131,6 +10771,12 @@
         "name": "Fate/Grand Order (English)",
         "sourceId": "com.aniplex.fategrandorder.en",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Fate/Grand Order (English)",
+        "sourceId": "com.aniplex.fategrandorder.en",
+        "source": "Luna"
       }
     }
   },
@@ -10147,6 +10793,12 @@
         "name": "Modern Warships: Naval Battles",
         "sourceId": "com.Shooter.ModernWarships",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Modern Warships: Naval Battles",
+        "sourceId": "com.Shooter.ModernWarships",
+        "source": "Luna"
       }
     }
   },
@@ -10163,6 +10815,12 @@
         "name": "Sky: Children of the Light",
         "sourceId": "com.tgc.sky.android",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Sky: Children of the Light",
+        "sourceId": "com.tgc.sky.android",
+        "source": "Luna"
       }
     }
   },
@@ -10179,6 +10837,12 @@
         "name": "Infinity Nikki",
         "sourceId": "com.infoldgames.infinitynikkien",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Infinity Nikki",
+        "sourceId": "com.infoldgames.infinitynikkien",
+        "source": "Luna"
       }
     }
   },
@@ -10195,6 +10859,12 @@
         "name": "Candy Crush Saga",
         "sourceId": "com.king.candycrushsaga",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Candy Crush Saga",
+        "sourceId": "com.king.candycrushsaga",
+        "source": "Luna"
       }
     }
   },
@@ -10211,6 +10881,12 @@
         "name": "Azur Lane",
         "sourceId": "com.YoStarEN.AzurLane",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Azur Lane",
+        "sourceId": "com.YoStarEN.AzurLane",
+        "source": "Luna"
       }
     }
   },
@@ -10227,6 +10903,12 @@
         "name": "Knives Out",
         "sourceId": "com.netease.ko",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Knives Out",
+        "sourceId": "com.netease.ko",
+        "source": "Luna"
       }
     }
   },
@@ -10243,6 +10925,12 @@
         "name": "Subway Surfers City",
         "sourceId": "com.sybogames.subway.surfers.game",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Subway Surfers City",
+        "sourceId": "com.sybogames.subway.surfers.game",
+        "source": "Luna"
       }
     }
   },
@@ -10259,6 +10947,12 @@
         "name": "Identity V",
         "sourceId": "com.netease.idv.googleplay",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Identity V",
+        "sourceId": "com.netease.idv.googleplay",
+        "source": "Luna"
       }
     }
   },
@@ -10275,6 +10969,12 @@
         "name": "World of Tanks Blitz™",
         "sourceId": "net.wargaming.wot.blitz",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "World of Tanks Blitz™",
+        "sourceId": "net.wargaming.wot.blitz",
+        "source": "Luna"
       }
     }
   },
@@ -10291,6 +10991,12 @@
         "name": "Mech Arena - Shooting Game",
         "sourceId": "com.plarium.mechlegion",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Mech Arena - Shooting Game",
+        "sourceId": "com.plarium.mechlegion",
+        "source": "Luna"
       }
     }
   },
@@ -10307,6 +11013,12 @@
         "name": "Garena® Delta Force",
         "sourceId": "com.garena.game.df",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Garena® Delta Force",
+        "sourceId": "com.garena.game.df",
+        "source": "Luna"
       }
     }
   },
@@ -10323,6 +11035,12 @@
         "name": "TFT: Teamfight Tactics",
         "sourceId": "com.riotgames.league.teamfighttactics",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "TFT: Teamfight Tactics",
+        "sourceId": "com.riotgames.league.teamfighttactics",
+        "source": "Luna"
       }
     }
   },
@@ -10339,6 +11057,12 @@
         "name": "Lost Sword",
         "sourceId": "com.wemadeconnect.aos.lostdgl",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Lost Sword",
+        "sourceId": "com.wemadeconnect.aos.lostdgl",
+        "source": "Luna"
       }
     }
   },
@@ -10355,6 +11079,12 @@
         "name": "OUTERPLANE - Strategy Anime",
         "sourceId": "com.smilegate.outerplane.stove.google",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "OUTERPLANE - Strategy Anime",
+        "sourceId": "com.smilegate.outerplane.stove.google",
+        "source": "Luna"
       }
     }
   },
@@ -10371,6 +11101,12 @@
         "name": "Ace Racer",
         "sourceId": "com.netease.racerna",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Ace Racer",
+        "sourceId": "com.netease.racerna",
+        "source": "Luna"
       }
     }
   },
@@ -10387,6 +11123,12 @@
         "name": "Etheria: Restart",
         "sourceId": "com.xd.etheria.gp.glb",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Etheria: Restart",
+        "sourceId": "com.xd.etheria.gp.glb",
+        "source": "Luna"
       }
     }
   },
@@ -10403,6 +11145,12 @@
         "name": "Hearthstone",
         "sourceId": "com.blizzard.wtcg.hearthstone",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Hearthstone",
+        "sourceId": "com.blizzard.wtcg.hearthstone",
+        "source": "Luna"
       }
     }
   },
@@ -10419,6 +11167,12 @@
         "name": "Chaos Zero Nightmare",
         "sourceId": "com.smilegate.chaoszero.stove.google",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Chaos Zero Nightmare",
+        "sourceId": "com.smilegate.chaoszero.stove.google",
+        "source": "Luna"
       }
     }
   },
@@ -10435,6 +11189,12 @@
         "name": "CookieRun: Crumble - Idle RPG",
         "sourceId": "com.devsisters.cc",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "CookieRun: Crumble - Idle RPG",
+        "sourceId": "com.devsisters.cc",
+        "source": "Luna"
       }
     }
   },
@@ -10451,6 +11211,12 @@
         "name": "Pizza Ready!",
         "sourceId": "io.supercent.pizzaidle",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Pizza Ready!",
+        "sourceId": "io.supercent.pizzaidle",
+        "source": "Luna"
       }
     }
   },
@@ -10467,6 +11233,12 @@
         "name": "Blockman Go",
         "sourceId": "com.sandboxol.blockymods",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Blockman Go",
+        "sourceId": "com.sandboxol.blockymods",
+        "source": "Luna"
       }
     }
   },
@@ -10483,6 +11255,12 @@
         "name": "League of Legends: Wild Rift",
         "sourceId": "com.riotgames.league.wildrift",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "League of Legends: Wild Rift",
+        "sourceId": "com.riotgames.league.wildrift",
+        "source": "Luna"
       }
     }
   },
@@ -10499,6 +11277,12 @@
         "name": "Harry Potter: Magic Awakened™",
         "sourceId": "com.netease.harrypotter.na",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Harry Potter: Magic Awakened™",
+        "sourceId": "com.netease.harrypotter.na",
+        "source": "Luna"
       }
     }
   },
@@ -10515,6 +11299,12 @@
         "name": "Blue Archive",
         "sourceId": "com.nexon.bluearchive",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Blue Archive",
+        "sourceId": "com.nexon.bluearchive",
+        "source": "Luna"
       }
     }
   },
@@ -10531,6 +11321,12 @@
         "name": "Warframe",
         "sourceId": "com.digitalextremes.warframemobile",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Warframe",
+        "sourceId": "com.digitalextremes.warframemobile",
+        "source": "Luna"
       }
     }
   },
@@ -10547,6 +11343,12 @@
         "name": "CookieRun: Tower of Adventures",
         "sourceId": "com.devsisters.cba",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "CookieRun: Tower of Adventures",
+        "sourceId": "com.devsisters.cba",
+        "source": "Luna"
       }
     }
   },
@@ -10563,6 +11365,12 @@
         "name": "Fishing Planet",
         "sourceId": "com.FishingPlanetLLC.FishingPlanet",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Fishing Planet",
+        "sourceId": "com.FishingPlanetLLC.FishingPlanet",
+        "source": "Luna"
       }
     }
   },
@@ -10579,6 +11387,12 @@
         "name": "Gunship Sequel: WW2",
         "sourceId": "com.phanotek.wingsofduty",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Gunship Sequel: WW2",
+        "sourceId": "com.phanotek.wingsofduty",
+        "source": "Luna"
       }
     }
   },
@@ -10595,6 +11409,12 @@
         "name": "Soul Knight",
         "sourceId": "com.ChillyRoom.DungeonShooter",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Soul Knight",
+        "sourceId": "com.ChillyRoom.DungeonShooter",
+        "source": "Luna"
       }
     }
   },
@@ -10611,6 +11431,12 @@
         "name": "Trickcal:Chibi Go",
         "sourceId": "com.bilibili.trickcal",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Trickcal:Chibi Go",
+        "sourceId": "com.bilibili.trickcal",
+        "source": "Luna"
       }
     }
   },
@@ -10627,6 +11453,12 @@
         "name": "Rival Stars Horse Racing",
         "sourceId": "com.pikpok.hrc.play",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Rival Stars Horse Racing",
+        "sourceId": "com.pikpok.hrc.play",
+        "source": "Luna"
       }
     }
   },
@@ -10643,6 +11475,12 @@
         "name": "GIRLS' FRONTLINE 2: EXILIUM",
         "sourceId": "com.haoplay.game.and.exilium",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "GIRLS' FRONTLINE 2: EXILIUM",
+        "sourceId": "com.haoplay.game.and.exilium",
+        "source": "Luna"
       }
     }
   },
@@ -10659,6 +11497,12 @@
         "name": "Once Human",
         "sourceId": "com.h73.jhqyna",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Once Human",
+        "sourceId": "com.h73.jhqyna",
+        "source": "Luna"
       }
     }
   },
@@ -10675,6 +11519,12 @@
         "name": "Soul Knight Prequel",
         "sourceId": "com.chillyroom.soulknightprequel",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Soul Knight Prequel",
+        "sourceId": "com.chillyroom.soulknightprequel",
+        "source": "Luna"
       }
     }
   },
@@ -10691,6 +11541,12 @@
         "name": "MARVEL Future Fight",
         "sourceId": "com.netmarble.mherosgb",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "MARVEL Future Fight",
+        "sourceId": "com.netmarble.mherosgb",
+        "source": "Luna"
       }
     }
   },
@@ -10707,6 +11563,12 @@
         "name": "BLEACH: Soul Resonance",
         "sourceId": "com.bladetw.bd",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "BLEACH: Soul Resonance",
+        "sourceId": "com.bladetw.bd",
+        "source": "Luna"
       }
     }
   },
@@ -10723,6 +11585,12 @@
         "name": "Life Makeover",
         "sourceId": "com.archosaur.seareal.yslzm.gp",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Life Makeover",
+        "sourceId": "com.archosaur.seareal.yslzm.gp",
+        "source": "Luna"
       }
     }
   },
@@ -10739,6 +11607,12 @@
         "name": "SWORD OF JUSTICE",
         "sourceId": "com.netease.nshmsea",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "SWORD OF JUSTICE",
+        "sourceId": "com.netease.nshmsea",
+        "source": "Luna"
       }
     }
   },
@@ -10755,6 +11629,12 @@
         "name": "Shining Nikki-Fashion Makeover",
         "sourceId": "com.papegames.nn4.en",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Shining Nikki-Fashion Makeover",
+        "sourceId": "com.papegames.nn4.en",
+        "source": "Luna"
       }
     }
   },
@@ -10771,6 +11651,12 @@
         "name": "StarSavior",
         "sourceId": "com.studiobside.starMain",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "StarSavior",
+        "sourceId": "com.studiobside.starMain",
+        "source": "Luna"
       }
     }
   },
@@ -10787,6 +11673,12 @@
         "name": "SD Gundam G Generation ETERNAL",
         "sourceId": "com.bandainamcoent.gget_WW",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "SD Gundam G Generation ETERNAL",
+        "sourceId": "com.bandainamcoent.gget_WW",
+        "source": "Luna"
       }
     }
   },
@@ -10803,6 +11695,12 @@
         "name": "Squad Busters",
         "sourceId": "com.supercell.squad",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Squad Busters",
+        "sourceId": "com.supercell.squad",
+        "source": "Luna"
       }
     }
   },
@@ -10819,6 +11717,12 @@
         "name": "Tower of Fantasy",
         "sourceId": "com.levelinfinite.hotta.gp",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Tower of Fantasy",
+        "sourceId": "com.levelinfinite.hotta.gp",
+        "source": "Luna"
       }
     }
   },
@@ -10835,6 +11739,12 @@
         "name": "Magic Chess: Go Go",
         "sourceId": "com.mobilechess.gp",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Magic Chess: Go Go",
+        "sourceId": "com.mobilechess.gp",
+        "source": "Luna"
       }
     }
   },
@@ -10851,6 +11761,12 @@
         "name": "Arena Breakout: Realistic FPS",
         "sourceId": "com.proximabeta.mf.uamo",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Arena Breakout: Realistic FPS",
+        "sourceId": "com.proximabeta.mf.uamo",
+        "source": "Luna"
       }
     }
   },
@@ -10867,6 +11783,12 @@
         "name": "Ninja Turtles: Legends",
         "sourceId": "com.ludia.tmnt",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Ninja Turtles: Legends",
+        "sourceId": "com.ludia.tmnt",
+        "source": "Luna"
       }
     }
   },
@@ -10883,6 +11805,12 @@
         "name": "CAPTAIN TSUBASA: ACE",
         "sourceId": "com.dgames.g65002005.google",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "CAPTAIN TSUBASA: ACE",
+        "sourceId": "com.dgames.g65002005.google",
+        "source": "Luna"
       }
     }
   },
@@ -10899,6 +11827,12 @@
         "name": "Random Dice Defense : PvP TD",
         "sourceId": "com.percent.royaldice",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Random Dice Defense : PvP TD",
+        "sourceId": "com.percent.royaldice",
+        "source": "Luna"
       }
     }
   },
@@ -10915,6 +11849,12 @@
         "name": "HAIKYU!! FLY HIGH",
         "sourceId": "com.garena.game.haikyu",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "HAIKYU!! FLY HIGH",
+        "sourceId": "com.garena.game.haikyu",
+        "source": "Luna"
       }
     }
   },
@@ -10931,6 +11871,12 @@
         "name": "Shadowverse: Worlds Beyond",
         "sourceId": "jp.co.cygames.ShadowverseWorldsBeyond",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Shadowverse: Worlds Beyond",
+        "sourceId": "jp.co.cygames.ShadowverseWorldsBeyond",
+        "source": "Luna"
       }
     }
   },
@@ -10947,6 +11893,12 @@
         "name": "GIRLS' FRONTLINE 2: EXILIUM",
         "sourceId": "com.Sunborn.SnqxExilium.Glo",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "GIRLS' FRONTLINE 2: EXILIUM",
+        "sourceId": "com.Sunborn.SnqxExilium.Glo",
+        "source": "Luna"
       }
     }
   },
@@ -10963,6 +11915,12 @@
         "name": "Lovebrush Chronicles",
         "sourceId": "com.netease.skzdhlrna",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Lovebrush Chronicles",
+        "sourceId": "com.netease.skzdhlrna",
+        "source": "Luna"
       }
     }
   },
@@ -10979,6 +11937,12 @@
         "name": "AFK Journey",
         "sourceId": "com.farlightgames.igame.gp",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "AFK Journey",
+        "sourceId": "com.farlightgames.igame.gp",
+        "source": "Luna"
       }
     }
   },
@@ -10995,6 +11959,12 @@
         "name": "ALLfiring",
         "sourceId": "com.genmugame.prometheus",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "ALLfiring",
+        "sourceId": "com.genmugame.prometheus",
+        "source": "Luna"
       }
     }
   },
@@ -11011,6 +11981,12 @@
         "name": "The Eminence in Shadow RPG",
         "sourceId": "com.crunchyroll.eminenceinshadowrpg",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "The Eminence in Shadow RPG",
+        "sourceId": "com.crunchyroll.eminenceinshadowrpg",
+        "source": "Luna"
       }
     }
   },
@@ -11027,6 +12003,12 @@
         "name": "CookieRun: OvenSmash",
         "sourceId": "com.devsisters.cos",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "CookieRun: OvenSmash",
+        "sourceId": "com.devsisters.cos",
+        "source": "Luna"
       }
     }
   },
@@ -11043,6 +12025,12 @@
         "name": "Just Rally 3: World Tour",
         "sourceId": "com.MassolaRacing.JustRally3",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Just Rally 3: World Tour",
+        "sourceId": "com.MassolaRacing.JustRally3",
+        "source": "Luna"
       }
     }
   },
@@ -11059,6 +12047,12 @@
         "name": "The Division Resurgence",
         "sourceId": "com.ubisoft.the.division.mobile.combat.shooting.open.world.rpg",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "The Division Resurgence",
+        "sourceId": "com.ubisoft.the.division.mobile.combat.shooting.open.world.rpg",
+        "source": "Luna"
       }
     }
   },
@@ -11075,6 +12069,12 @@
         "name": "MONGIL: STAR DIVE",
         "sourceId": "com.netmarble.monster2",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "MONGIL: STAR DIVE",
+        "sourceId": "com.netmarble.monster2",
+        "source": "Luna"
       }
     }
   },
@@ -11091,6 +12091,12 @@
         "name": "Store Manager Simulator 3D",
         "sourceId": "com.dmg.supermarket.simulator",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Store Manager Simulator 3D",
+        "sourceId": "com.dmg.supermarket.simulator",
+        "source": "Luna"
       }
     }
   },
@@ -11107,6 +12113,12 @@
         "name": "Steel And Flesh 2",
         "sourceId": "com.VS.SteelAndFlesh2",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Steel And Flesh 2",
+        "sourceId": "com.VS.SteelAndFlesh2",
+        "source": "Luna"
       }
     }
   },
@@ -11123,6 +12135,12 @@
         "name": "The Legend of Neverland",
         "sourceId": "com.gameark.ggplay.lonsea",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "The Legend of Neverland",
+        "sourceId": "com.gameark.ggplay.lonsea",
+        "source": "Luna"
       }
     }
   },
@@ -11139,6 +12157,12 @@
         "name": "Farlight 84",
         "sourceId": "com.miraclegames.farlight84",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Farlight 84",
+        "sourceId": "com.miraclegames.farlight84",
+        "source": "Luna"
       }
     }
   },
@@ -11155,6 +12179,12 @@
         "name": "ZombsRoyale.io - Battle Royale",
         "sourceId": "com.yangcliu.zombsroyale",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "ZombsRoyale.io - Battle Royale",
+        "sourceId": "com.yangcliu.zombsroyale",
+        "source": "Luna"
       }
     }
   },
@@ -11171,6 +12201,12 @@
         "name": "Tears of Themis",
         "sourceId": "com.miHoYo.tot.glb",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Tears of Themis",
+        "sourceId": "com.miHoYo.tot.glb",
+        "source": "Luna"
       }
     }
   },
@@ -11187,6 +12223,12 @@
         "name": "Path to Nowhere",
         "sourceId": "com.zy.wqmt.global",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Path to Nowhere",
+        "sourceId": "com.zy.wqmt.global",
+        "source": "Luna"
       }
     }
   },
@@ -11203,6 +12245,12 @@
         "name": "MementoMori: AFKRPG",
         "sourceId": "jp.boi.mementomori.android",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "MementoMori: AFKRPG",
+        "sourceId": "jp.boi.mementomori.android",
+        "source": "Luna"
       }
     }
   },
@@ -11219,6 +12267,12 @@
         "name": "Sword of Convallaria",
         "sourceId": "com.xd.ssrpgen",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Sword of Convallaria",
+        "sourceId": "com.xd.ssrpgen",
+        "source": "Luna"
       }
     }
   },
@@ -11235,6 +12289,12 @@
         "name": "Duet Night Abyss",
         "sourceId": "com.panstudio.gplay.duetnightabyss.arpg.global",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Duet Night Abyss",
+        "sourceId": "com.panstudio.gplay.duetnightabyss.arpg.global",
+        "source": "Luna"
       }
     }
   },
@@ -11251,6 +12311,12 @@
         "name": "Life Makeover",
         "sourceId": "com.archosaur.sea.yslzm.gp",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Life Makeover",
+        "sourceId": "com.archosaur.sea.yslzm.gp",
+        "source": "Luna"
       }
     }
   },
@@ -11267,6 +12333,12 @@
         "name": "Honkai Impact 3rd",
         "sourceId": "com.miHoYo.bh3global",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Honkai Impact 3rd",
+        "sourceId": "com.miHoYo.bh3global",
+        "source": "Luna"
       }
     }
   },
@@ -11283,6 +12355,12 @@
         "name": "Resonance Solstice",
         "sourceId": "com.ujoy.reso",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Resonance Solstice",
+        "sourceId": "com.ujoy.reso",
+        "source": "Luna"
       }
     }
   },
@@ -11299,6 +12377,12 @@
         "name": "Mecharashi",
         "sourceId": "com.tentree.gp.un.mecharashi",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Mecharashi",
+        "sourceId": "com.tentree.gp.un.mecharashi",
+        "source": "Luna"
       }
     }
   },
@@ -11315,6 +12399,12 @@
         "name": "Black Desert Mobile",
         "sourceId": "com.pearlabyss.blackdesertm.gl",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Black Desert Mobile",
+        "sourceId": "com.pearlabyss.blackdesertm.gl",
+        "source": "Luna"
       }
     }
   },
@@ -11331,6 +12421,12 @@
         "name": "Girls' Frontline",
         "sourceId": "com.sunborn.girlsfrontline.en",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Girls' Frontline",
+        "sourceId": "com.sunborn.girlsfrontline.en",
+        "source": "Luna"
       }
     }
   },
@@ -11363,6 +12459,44 @@
         "name": "Seven Knights Idle Adventure",
         "sourceId": "com.netmarble.skiagb",
         "source": "Synapse"
+      },
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Seven Knights Idle Adventure",
+        "sourceId": "com.netmarble.skiagb",
+        "source": "Luna"
+      }
+    }
+  },
+  {
+    "id": "luna-ad3eaa81f2b82540",
+    "name": "Clash of Critters",
+    "art": "cloud-covers/luna-ad3eaa81f2b82540.webp",
+    "sourceArt": "https://cloudmoon-1305370474.cos.ap-singapore.myqcloud.com/cloudgame-icon/icon_Clash_of_Critters.webp",
+    "url": "https://luna.loan/",
+    "kind": "cloud",
+    "providers": {
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "Clash of Critters",
+        "sourceId": "com.farlightgames.pgame.gp",
+        "source": "Luna"
+      }
+    }
+  },
+  {
+    "id": "luna-4b6a7c337b0f769f",
+    "name": "MWT: Tank Battles",
+    "art": "cloud-covers/luna-4b6a7c337b0f769f.webp",
+    "sourceArt": "https://cloudmoon-1305370474.cos.ap-singapore.myqcloud.com/game-icons/com.Shooter.ModernWarfront_20260928.webp",
+    "url": "https://luna.loan/",
+    "kind": "cloud",
+    "providers": {
+      "luna": {
+        "url": "https://luna.loan/",
+        "name": "MWT: Tank Battles",
+        "sourceId": "com.Shooter.ModernWarfront",
+        "source": "Luna"
       }
     }
   }

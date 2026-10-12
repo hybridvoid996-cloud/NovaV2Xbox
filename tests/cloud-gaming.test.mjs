@@ -23,7 +23,7 @@ function documentFixture(){
 
 test('every merged catalog entry retains its identity, source attribution and optimized cover',async()=>{
  const games=JSON.parse(await readFile(new URL('Public/library-cloud.json',root),'utf8'));
- assert.equal(games.length,493);assert.equal(new Set(games.map(g=>g.id)).size,493);
+ assert.equal(games.length,495);assert.equal(new Set(games.map(g=>g.id)).size,games.length);assert.equal(games.filter(g=>Object.keys(g.providers).some(p=>p!=='luna')).length,493);
  const astra=games.filter(g=>g.providers.astra),gsn=games.filter(g=>g.providers.gsn);
  assert.equal(astra.length,275);assert.equal(new Set(gsn.map(g=>g.providers.gsn.sourceId)).size,209);
  assert.equal(games.filter(g=>g.providers.gsn&&!g.providers.astra).length,29);

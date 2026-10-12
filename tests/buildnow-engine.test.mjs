@@ -189,7 +189,7 @@ test('runtime refuses invalid patched WASM without claiming controls are ready',
   assert.match(fixture.api.snapshot().message, /failed validation/);
 });
 
-test('runtime requires an offline session and a spawned controller before enabling controls', async () => {
+test('runtime requires a spawned owned controller in every session before enabling controls', async () => {
   const fixture = runtime();
   await fixture.load({observe: false});
   assert.equal(fixture.api.snapshot().ready, true);
@@ -197,10 +197,8 @@ test('runtime requires an offline session and a spawned controller before enabli
   assert.throws(() => fixture.api.setSilent(true), /character to spawn/);
   fixture.dispatch(1);
   fixture.setOffline(false);
-  assert.throws(() => fixture.api.setFlight(true), /offline Aim Training first/);
-  assert.throws(() => fixture.api.setSilent(true), /offline Aim Training first/);
-  assert.equal(fixture.api.snapshot().flight, false);
-  assert.equal(fixture.api.snapshot().silent, false);
+  assert.equal(fixture.api.setFlight(true).flight,true);
+  assert.equal(fixture.api.setSilent(true).silent,true);
 });
 
 const nearVector=(actual,expected)=>actual.forEach((value,index)=>assert(Math.abs(value-expected[index])<1e-5, value+' differs from '+expected[index]));
@@ -283,12 +281,13 @@ test('Disable all clears toggles, native velocity, held keys, and restores norma
   fixture.key('keydown','KeyW');flyTicks(fixture,20);fixture.api.setFlight(false);nearVector(fixture.physicsWrites.at(-1),[0,0,0]);assert.equal(fixture.movement,2);
 });
 
-test('leaving offline training disables active controls and restores movement', async () => {
+test('a mode transition retains controls until the character dies', async () => {
   const fixture = runtime(); await fixture.load(); fixture.api.setFlight(true); fixture.api.setSilent(true);
   fixture.setOffline(false); fixture.advance(101);
   const state = fixture.api.snapshot();
-  assert.equal(state.offline, false); assert.equal(state.flight, false); assert.equal(state.silent, false);
-  assert.equal(fixture.window.NovaLOLVisual.state.silent, false); assert.equal(fixture.movement, 2);
+  assert.equal(state.offline,false);assert.equal(state.flight,true);assert.equal(state.silent,true);
+  fixture.writeByte(fixture.own+1331,1);fixture.advance(101);fixture.dispatch(1);
+  assert.equal(fixture.api.snapshot().flight,false);assert.equal(fixture.api.snapshot().silent,false);assert.equal(fixture.movement,2);
 });
 
 test('offline shot hooks redirect to a registered visible opponent and preserve projectile speed', async () => {
@@ -306,7 +305,7 @@ test('offline shot hooks redirect to a registered visible opponent and preserve 
   assert.equal(fixture.api.snapshot().redirectedShots, 2);
 });
 
-test('shot hooks preserve direction without an eligible opponent, game focus, or offline session', async () => {
+test('shot hooks preserve direction without an eligible opponent, game focus, or a living local character', async () => {
   const fixture = runtime(); await fixture.load(); fixture.dispatch(1, fixture.opponent); fixture.api.setSilent(true);
   fixture.writeVector(fixture.shotOrigin, [10, 0, 10]); fixture.writeVector(fixture.shotVelocity, [0, 0, 50]);
   for (const geometry of [[10, 0, 10], [100, 0, 10]]) {
@@ -317,7 +316,7 @@ test('shot hooks preserve direction without an eligible opponent, game focus, or
   fixture.window.NovaLOLVisual.state.regions = [region(0, [20, 0, 10])];
   fixture.document.hidden = true; fixture.dispatch(4, fixture.weapon, fixture.shotOrigin, fixture.shotVelocity);
   fixture.document.hidden = false; fixture.document.pointerLockElement = null; fixture.dispatch(4, fixture.weapon, fixture.shotOrigin, fixture.shotVelocity);
-  fixture.document.pointerLockElement = {id: 'unity-canvas'}; fixture.setOffline(false); fixture.dispatch(4, fixture.weapon, fixture.shotOrigin, fixture.shotVelocity);
+  fixture.document.pointerLockElement = {id: 'unity-canvas'}; fixture.writeByte(fixture.own+1331,1); fixture.advance(101); fixture.dispatch(1); fixture.dispatch(4, fixture.weapon, fixture.shotOrigin, fixture.shotVelocity);
   assert.deepEqual(fixture.vectorAt(fixture.shotVelocity), [0, 0, 50]);
   assert.equal(fixture.api.snapshot().redirectedShots, 0);
 });

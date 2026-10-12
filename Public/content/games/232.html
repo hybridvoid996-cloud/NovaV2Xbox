@@ -47,7 +47,8 @@
 </style>
 </head>
 <body>
-<script src="https://cdn.jsdelivr.net/gh/u-cvlassrom-y/google@main/ruffle.js"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={...window.RufflePlayer.config,urlRewriteRules:[[ /^https?:\/\/[^?#]*\/pvz\/data\.xml(?:\?.*)?$/,new URL('/content/games/pvz-original-tools.xml',location.href).href ]]};</script>
+<script src="https://unpkg.com/@ruffle-rs/ruffle@0.7.1/ruffle.js"></script>
 
 <object width="100%" height="100%">
     <param name="movie" value="https://cdn.jsdelivr.net/gh/sasa24s/Sphere-compile@95d1d98dc38a920d02e6bbcf61620501b2bacfcb/tables/pvz_9_15.swf">
@@ -58,5 +59,6 @@
 <div id="sidebarad2">
   <div class="sidebar-close" onclick="this.parentElement.style.display='none'">✕</div>
 </div>
+<script type="module" src="/src/pvz-original-tools.js"></script>
 </body>
 </html>

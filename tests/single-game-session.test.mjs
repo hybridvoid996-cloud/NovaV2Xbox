@@ -2,11 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import fs from 'node:fs';
-function setup(){
+function setup(style=''){
  const frames=[];const elements=new Map();
- const element=()=>({dataset:{},classList:{add(){},remove(){}},isConnected:true,hidden:false,src:'',removeAttribute(){},setAttribute(){},append(){},prepend(){},before(f){frames.push(f)},remove(){this.isConnected=false},querySelectorAll(){return []},replaceChildren(){},closest(){return this.detached?{}:null}});
+ const element=()=>({dataset:{},classList:{add(){},remove(){},contains(name){return name===style}},isConnected:true,hidden:false,src:'',removeAttribute(){},setAttribute(){},append(){},prepend(){},before(f){frames.push(f)},remove(){this.isConnected=false},querySelectorAll(){return []},replaceChildren(){},closest(){return this.detached?{}:null}});
  for(const id of ['panel-content','panel-title','tiles'])elements.set(id,element());
- const store=new Map();const context={frame:element(),panel:element(),content:element(),document:{createElement:element,getElementById:id=>elements.get(id),querySelectorAll:()=>[]},localStorage:{getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v)},cancelAIMotion(){},dispatchEvent(){},CustomEvent:class{},addEventListener(){},fetch:()=>new Promise(()=>{}),window:{}};
+ const store=new Map();const context={frame:element(),panel:element(),content:element(),document:{body:element(),createElement:element,getElementById:id=>elements.get(id),querySelectorAll:()=>[]},localStorage:{getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v)},cancelAIMotion(){},dispatchEvent(){},CustomEvent:class{},addEventListener(){},fetch:()=>new Promise(()=>{}),window:{}};
  vm.createContext(context);vm.runInContext(fs.readFileSync(new URL('../Public/src/recent.js',import.meta.url),'utf8'),context);return context;
 }
 test('a new game unloads the detached previous game, including after resume',()=>{
@@ -27,3 +27,5 @@ test('OS detach uses a state preserving move and never appends the live player',
  const source=fs.readFileSync(new URL('../Public/src/nova-os.js',import.meta.url),'utf8');const detach=source.slice(source.indexOf('function detachPlayer()'),source.indexOf('const menuHandle'));
  assert.match(detach,/win\.body\.moveBefore\(iframe,null\)/);assert.doesNotMatch(detach,/win\.body\.append\(iframe\)/);
 });
+
+

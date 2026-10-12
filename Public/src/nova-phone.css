@@ -13,3 +13,5 @@ body.nova-phone .np-dock{width:auto!important;transform:none!important;float:non
 
 /* Open phone apps occupy the full viewport; the boxed close control stays accessible. */
 body.nova-phone #panel{inset:0!important;border:0!important;border-radius:0!important;height:100dvh!important;width:100vw!important;background:#0b111b!important}body.nova-phone #panel>.panel-head{flex:0 0 calc(56px + env(safe-area-inset-top));height:calc(56px + env(safe-area-inset-top))!important;padding:env(safe-area-inset-top) max(12px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left))!important}body.nova-phone #close{display:grid;place-items:center;width:42px;height:42px;padding:0!important;background:#ffffff0d;border:1px solid #ffffff30;border-radius:12px;font-size:24px;flex-shrink:0}body.nova-phone.phone-view-open .np-shell{visibility:hidden}body.nova-phone #panel>iframe{padding-bottom:env(safe-area-inset-bottom);box-sizing:border-box}
+
+.np-chip:has(svg){display:inline-flex;align-items:center;gap:7px}.np-chip svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7}

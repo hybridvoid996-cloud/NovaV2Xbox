@@ -92,3 +92,9 @@ body:has(#panel.full-library:not([hidden])){overflow:hidden}
 .hack-apply{width:calc(100% - 20px);margin:10px;padding:12px;border:1px solid #ed455955;border-radius:10px;color:#ff8492;background:#d8344915;cursor:pointer;font-weight:700}.hack-apply:hover{background:#d8344930;box-shadow:0 0 22px #ed455922}
 
 .lib-grid>article{content-visibility:auto;contain-intrinsic-size:auto 250px}
+
+.library-rail [data-kind=cloudgaming] svg{width:24px;height:24px;flex-shrink:0}.lib-grid .game-card{transition:transform .2s,border-color .2s}.lib-grid .game-card:hover{transform:translateY(-3px)}.lib-launch img{object-fit:cover}.library-rail .rail-links hr{border:0;height:1px;background:#ffffff20;margin:14px 8px}
+
+.library-testing-note{color:#a9b9c9;font-size:12px;line-height:1.6;margin:-8px 0 18px;max-width:740px}.rail-links [data-kind=testing]{color:#a5e0c0}.rail-links [data-kind=testing].active{color:#d2ffe5}
+
+.testing-game-note{margin:9px 8px 0;color:#c6cdd2;font-size:12px;line-height:1.5;max-width:240px}.game-card:has(.testing-game-note){height:auto;overflow:visible}

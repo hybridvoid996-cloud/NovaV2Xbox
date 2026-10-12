@@ -71,3 +71,13 @@ body.performance-mode *,body.performance-mode *:before{animation:none!important;
 .collection .lib-new-badge{position:absolute;top:10px;left:10px;z-index:1;padding:4px 9px;border:1px solid #c0edff60;border-radius:7px;background:#172932df;color:#dcf6ff;font:600 11px "Segoe UI",sans-serif;letter-spacing:.3px;pointer-events:none;box-shadow:0 2px 8px #0003}
 
 .collection .lib-new-badge{top:10px;left:10px;padding:5px 11px;border:1px solid #ffb2b269;border-radius:8px;background:linear-gradient(135deg,#ef4057,#bd1837);color:#fff;font:800 10px "Segoe UI",sans-serif;letter-spacing:1px;text-transform:uppercase;box-shadow:0 3px 12px #ba173945,inset 0 1px #ffffff30}
+
+/* Xbox home navigation only; Nova OS and Phone have their own layouts. */
+body:not(.nova-os):not(.nova-phone)>header>nav{display:flex;align-items:center;gap:5px;padding:7px 9px;border:1px solid #ffffff24;border-radius:17px;background:linear-gradient(125deg,#ffffff10,#15151550);backdrop-filter:blur(22px);box-shadow:inset 0 1px #ffffff12,0 8px 26px #0002;max-width:calc(100vw - 420px);overflow-x:auto;scrollbar-width:none}
+body:not(.nova-os):not(.nova-phone)>header>nav::-webkit-scrollbar{display:none}
+body:not(.nova-os):not(.nova-phone)>header>nav>button{flex:0 0 auto;border:1px solid transparent;border-radius:11px;padding:9px 11px;transition:background .18s,transform .18s,border-color .18s}
+body:not(.nova-os):not(.nova-phone)>header>nav>button:hover{background:#ffffff14;border-color:#ffffff20;transform:translateY(-2px)}
+body:not(.nova-os):not(.nova-phone)>header>nav>button.active{background:#ffffff1b;border-color:#ffffff30;box-shadow:inset 0 -2px #b9e6a0}
+body:not(.nova-os):not(.nova-phone)>header>nav>button[data-page=novamovies]{margin-left:3px}
+@media(max-width:1000px){body:not(.nova-os):not(.nova-phone)>header>nav{max-width:calc(100vw - 250px);gap:2px}body:not(.nova-os):not(.nova-phone)>header>nav>button{padding:8px}}
+@media(prefers-reduced-motion:reduce){body:not(.nova-os):not(.nova-phone)>header>nav>button{transition:none}}

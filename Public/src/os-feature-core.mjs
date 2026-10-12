@@ -1,4 +1,4 @@
-export const OS_APPS=['library','apps','music','chat','novatube','search','ai','computer','settings','owner'];
+export const OS_APPS=['library','apps','music','chat','novatube','novamovies','search','ai','computer','settings','owner'];
 export function gameKey(game){return ['game','cloud','app'].includes(game?.kind)&&game.id!=null?game.kind+':'+game.id:null}
 export function cleanSession(value,now=Date.now()){
  if(!value||value.version!==1||!Number.isFinite(value.at)||now-value.at>7*86400000||value.at>now+60000)return null;

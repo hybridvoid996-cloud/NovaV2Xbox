@@ -31,13 +31,13 @@ function controlsFixture(options) {
 const near=(actual,expected)=>assert(Math.abs(actual-expected)<1e-5,`${actual} differs from ${expected}`);
 const tick=(fixture,elapsed=16)=>{fixture.advance(elapsed);fixture.dispatch(1);};
 
-test('new native controls require a loaded, living, owned offline avatar',async()=>{
+test('new native controls require a loaded, living, owned avatar in every mode',async()=>{
   const fixture=controlsFixture();
   for(const enable of [()=>fixture.api.setBodySpin(true),()=>fixture.api.setWeaponCycle(true)])assert.throws(enable,/still loading/);
   await fixture.load({observe:false});
   for(const enable of [()=>fixture.api.setBodySpin(true),()=>fixture.api.setWeaponCycle(true)])assert.throws(enable,/living character to spawn/);
   fixture.dispatch(1);fixture.setOffline(false);
-  for(const enable of [()=>fixture.api.setBodySpin(true),()=>fixture.api.setWeaponCycle(true)])assert.throws(enable,/offline Aim Training first/);
+  assert.equal(fixture.api.snapshot().controlsAllowed,true);
   fixture.setOffline(true);fixture.writeByte(fixture.own+1331,1);
   for(const enable of [()=>fixture.api.setBodySpin(true),()=>fixture.api.setWeaponCycle(true)])assert.throws(enable,/living character to spawn/);
   fixture.writeByte(fixture.own+1331,0);fixture.writeWord(fixture.weapons+128,fixture.opponent);
@@ -98,8 +98,8 @@ test('spin pauses on focus loss and resumes with a bounded first tick',async()=>
   fixture.document.hasFocus=()=>true;tick(fixture,1000);near(fixture.rotations.at(-1).y,6);
 });
 
-test('offline loss, death, and controller replacement clean up spin and held weapon input',async()=>{
-  for(const retire of ['offline','death','replacement']){
+test('death and controller replacement clean up spin and held weapon input',async()=>{
+  for(const retire of ['death','replacement']){
     const fixture=controlsFixture();await fixture.load();fixture.api.setBodySpin(true);fixture.api.setWeaponCycleOptions({fire:true});fixture.api.setWeaponCycle(true);fixture.dispatch(1);
     assert.equal(fixture.mouse.at(-1).type,'mousedown');
     if(retire==='offline'){fixture.setOffline(false);tick(fixture,101);}
@@ -234,7 +234,7 @@ test('stats refresh after their cache window and disappear with stale or dead ta
   fixture.values.set(fixture.opponentHealth,{health:50,shield:10});fixture.advance(99);assert.equal(fixture.api.matchPlayer([20,0,10]).stats.health,87);fixture.advance(1);assert.equal(fixture.api.matchPlayer([20,0,10]).stats.health,50);
   fixture.writeWord(fixture.opponent+1336,fixture.weapon);fixture.advance(100);assert.equal(fixture.api.matchPlayer([20,0,10]).stats.health,null,'a cached valid component cannot survive invalidation past the cache window');
   fixture.writeByte(fixture.opponent+1331,1);fixture.advance(61);fixture.dispatch(1,fixture.opponent);assert(fixture.api.snapshot().playerStats.every(player=>player.name!=='<b>Δ Player</b>'),'dead opponents are absent from the live list');
-  fixture.advance(251);const snapshot=fixture.api.snapshot();assert.equal(snapshot.ownStats,null);assert.equal(snapshot.playerStats.length,0);assert.equal(fixture.api.matchPlayer([20,0,10]).dead,true,'retained corpse identity remains excluded from the live stats list');
+  fixture.advance(1501);const snapshot=fixture.api.snapshot();assert.equal(snapshot.ownStats,null);assert.equal(snapshot.playerStats.length,0);assert.equal(fixture.api.matchPlayer([20,0,10]).dead,true,'retained corpse identity remains excluded from the live stats list');
   fixture.advance(3501);fixture.api.snapshot();assert.equal(fixture.api.matchPlayer([20,0,10]),null,'corpse stats disappear after the bounded identity retention window');
   const live=statsFixture();await live.load();live.dispatch(1,live.opponent);live.advance(251);assert.equal(live.api.matchPlayer([20,0,10]),null,'a stale live actor cannot remain bindable');assert.equal(live.api.snapshot().playerStats.length,0);
 });
@@ -253,11 +253,12 @@ test('localhost modes permit owned flight, character spin and normal weapon cycl
  }
 });
 
-test('remote online origins cannot enable native testing controls or masquerade as localhost',async()=>{
+test('deployed origins allow verified owned controls in online modes',async()=>{
  for(const hostname of ['nova.example','localhost.example','127.0.0.1.example','0.0.0.0','']){
-  const fixture=controlsFixture({hostname,offline:false});await fixture.load();assert.equal(fixture.api.snapshot().controlsAllowed,false);assert.equal(fixture.api.snapshot().localTesting,false);
-  for(const enable of [()=>fixture.api.setFlight(true),()=>fixture.api.setBodySpin(true),()=>fixture.api.setWeaponCycle(true)])assert.throws(enable,/offline Aim Training/);
-  assert.equal(fixture.rotations.length,0);assert.equal(fixture.switches.length,0);assert.equal(fixture.physicsWrites.length,0);
+  const fixture=controlsFixture({hostname,offline:false});await fixture.load();assert.equal(fixture.api.snapshot().controlsAllowed,true);assert.equal(fixture.api.snapshot().localTesting,false);
+  fixture.api.setFlight(true);fixture.api.setBodySpin(true);fixture.api.setWeaponCycle(true);
+  assert.equal(fixture.api.snapshot().flight,true);assert.equal(fixture.api.snapshot().bodySpin,true);assert.equal(fixture.api.snapshot().weaponCycle,true);
+  fixture.writeByte(fixture.own+1331,1);tick(fixture,101);assert.equal(fixture.api.snapshot().flight,false);
  }
 });
 

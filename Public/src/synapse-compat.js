@@ -18,5 +18,6 @@
   const html=safeBody.replace(/\bloading\(\);/g,"if(typeof loading==='function')loading();").replace(/<head[^>]*>/i,head=>head+'<script>('+install.toString()+')();</script>');
   return {...response,body:html,headers:response.headers.filter(([name])=>!['content-length','content-encoding'].includes(name.toLowerCase()))};
  }
- window.NovaSynapseCompat={install,patchPlayer};
+ async function patchEntry(response){const body=typeof response.body==='string'?response.body:await new Response(response.body).text();const html=body.replace('if (game && parent !== window)', 'if (game)').replace('window.alert = (message) => post("error", { message: String(message) });','/* Keep native errors visible in the direct Nova player. */');return {...response,body:html,headers:response.headers.filter(([name])=>!['content-length','content-encoding'].includes(name.toLowerCase()))}}
+ window.NovaSynapseCompat={install,patchPlayer,patchEntry};
 })();

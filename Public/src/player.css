@@ -63,3 +63,22 @@ body.ready #cloud-controls:not([hidden]),body.cloud-loading #cloud-controls:not(
 body.cloud-loading:not(.picking-cloud) #message{position:static;width:auto;height:auto;margin:16px 0;overflow:visible;clip-path:none;white-space:normal;font-size:13px;color:#c3c8d2}
 body.cloud-loading:not(.picking-cloud) #title{display:block;font-size:23px;margin:6px 0 16px}
 body.cloud-loading #back{display:block}
+
+/* Clear, neutral glass cloud chooser. */
+#cloud-picker{width:min(680px,calc(100vw - 32px));padding:32px;background:linear-gradient(145deg,#222528f5,#101214f5);border-color:#ffffff22;border-radius:24px;scrollbar-color:#62676c transparent;scrollbar-width:thin}
+#cloud-picker::backdrop{background:#050708b8;backdrop-filter:blur(10px)}
+.cloud-choice-game{padding:0 42px 24px 0;margin-bottom:24px;border-bottom:1px solid #ffffff12}
+.cloud-choice-game img{width:64px;height:64px;border-radius:15px}
+#cloud-picker-title{font-size:30px;font-weight:650;letter-spacing:-.8px}
+#cloud-picker-description{max-width:440px;color:#aeb4ba;font-size:13px}
+#cloud-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cloud-option{position:relative;min-width:0;min-height:112px;padding:18px 14px;gap:12px;background:linear-gradient(130deg,#ffffff08,#ffffff03);border-color:#ffffff18;border-radius:16px;transition:background .18s,border-color .18s,transform .18s}
+.cloud-option:hover{background:#ffffff0e;border-color:#ffffff55}
+.cloud-provider-mark{flex:0 0 40px;width:40px;height:40px;border-radius:12px;background:#ffffff0b;border:1px solid #ffffff18;font-size:18px;font-weight:650;color:#e5e8eb}
+.cloud-option strong{font-size:14px;line-height:1.4}.cloud-option small{font-size:11px;line-height:1.5;color:#9ea6ae}.cloud-option>span:last-child{font-size:18px}
+.cloud-choice-note{padding-top:18px;border-top:1px solid #ffffff12;margin-top:24px;color:#929aa2}
+@media(max-width:540px){#cloud-picker{padding:24px}#cloud-options{grid-template-columns:1fr}.cloud-option{min-height:86px}#cloud-picker-title{font-size:27px}}
+@media(prefers-reduced-motion:reduce){#cloud-picker,.cloud-option{animation:none;transition:none}}
+
+/* Show provider queues and connection details instead of an unexplained spinner. */
+body.cloud-loading #message{position:static;width:auto;height:auto;margin:14px 0;overflow:visible;clip-path:none;white-space:normal;max-width:420px}body.cloud-loading #cloud-controls{z-index:5}

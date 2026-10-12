@@ -48,7 +48,7 @@
     const update=()=>{
       if(stopped)return;
       const message=doc.getElementById('status')?.textContent?.trim();if(message)onStatus(message);
-      if(boot.dataset.state==='error'){stop();onError(message||'Nova Cloud could not connect.');return}
+      if(boot.dataset.state==='error'){const detail=/failed to get address from provider|malq.*(?:session|HTTP 500)|altaddress\.org/i.test(message||'')?'Nova Cloud’s session email service is unavailable. Try again later or use Switch cloud to choose another provider.':message;const status=doc.getElementById('status');if(status&&detail)status.textContent=detail;stop();onError(detail||'Nova Cloud could not connect.');return}
       if(boot.hidden){stop();onReady()}
     };
     const observer=new win.MutationObserver(update);attached.set(doc,stop);
