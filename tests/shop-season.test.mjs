@@ -30,7 +30,7 @@ test('roulette uses a real green zero, honest color odds, and consistent number/
  assert.throws(()=>wagerPlan({...base,pick:'both',number:2},[],()=>1),/color/);
 });
 test('invalid games, stakes, unsafe amounts and forged cosmetics fail before settlement',()=>{
- for(const body of [{game:'cheat'},{game:'flip',stake:'coins',coins:-1,choice:'heads'},{game:'dice',stake:'coins',coins:100.5,choice:'low'},{game:'flip',stake:'coins',coins:10001,choice:'heads'},{game:'flip',stake:'cosmetic',item:'missing',choice:'heads'}])assert.throws(()=>wagerPlan(body,[],()=>0));
+ for(const body of [{game:'cheat'},{game:'flip',stake:'coins',coins:-1,choice:'heads'},{game:'dice',stake:'coins',coins:100.5,choice:'low'},{game:'flip',stake:'coins',coins:100001,choice:'heads'},{game:'flip',stake:'cosmetic',item:'missing',choice:'heads'}])assert.throws(()=>wagerPlan(body,[],()=>0));
 });
 test('coins settle at advertised payouts, insufficient funds and daily limits are rejected',()=>{
  const b={game:'flip',stake:'coins',coins:100,choice:'heads'},plan=wagerPlan(b,[],()=>0),root={progress:{u:{coins:500}}};
@@ -60,3 +60,4 @@ test('Halloween has all six rarity tiers, standard cases exclude it, and the end
 });
 
 test('five won crate credits can be opened in one fast bundle without charging coins',async()=>{const f=fixture({novaControl:{shopSeason:{version:SHOP_SEASON,status:'ready'},progress:{u:{coins:500}},crateCredits:{u:{decoration:5}}}});const args={db:f.db,uid:'u',account:{},action:'openCase',b:{kind:'decoration',count:5,useCredits:true,requestId:'eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee'},now:100000,initial:()=>({coins:0})};const result=await storeAction(args);assert.equal(result.rewards.length,5);assert.equal(result.coins,500);assert.equal(f.get('novaControl/crateCredits/u/decoration'),0);assert.equal((await storeAction(args)).rewards.length,5);await assert.rejects(storeAction({...args,b:{...args.b,useCredits:false,requestId:'ffffffff-ffff-ffff-ffff-ffffffffffff'}}),/valid case bundle/)});
+test('raised virtual coin wager cap accepts 100k and rejects amounts above it',()=>{assert.equal(wagerPlan({game:'flip',stake:'coins',coins:100000,choice:'heads'},[],()=>0).coins,100000);assert.throws(()=>wagerPlan({game:'flip',stake:'coins',coins:100001,choice:'heads'},[],()=>0));});

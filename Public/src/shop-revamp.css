@@ -20,3 +20,34 @@ body.chat-reduced-motion .shop-game-preview *,body.chat-reduced-motion .shop-pur
 .shop-crate-grid{max-width:none!important;width:100%!important}.hero-cosmetic-tile:before{content:'N';position:absolute;left:50%;top:35px;transform:translateX(-50%);width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#55759345,#9274963d);border:1px solid #c7dcf529;color:#d4e3ed66;font:700 15px 'Segoe UI';z-index:0}.hero-cosmetic-tile img,.hero-cosmetic-tile small{position:relative;z-index:1}@media(max-height:800px) and (min-width:651px){.shop-season-hero{min-height:215px;padding:23px 30px}.shop-season-hero h1{font-size:36px;margin:10px 0}.shop-season-hero>p{margin:8px 0 0;font-size:12px}.shop-season-hero .coin-balance{margin-top:13px;padding:8px 13px}.shop-hero-gallery{top:25px;height:155px}.hero-cosmetic-tile{height:137px}.hero-cosmetic-tile img{height:106px}.shop-model-button{height:178px!important}.model-showroom{height:173px!important}.shop-model-stage .shop-model-svg{height:187px!important}}
 
 .shop-hacks{margin:32px 0;padding:24px;border:1px solid #ffffff18;border-radius:24px;background:linear-gradient(120deg,#171d18bb,#0f0f0fbb)}.shop-hack-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.shop-hack-card{padding:20px;border:1px solid #ffffff18;background:#ffffff05;border-radius:20px}.shop-hack-card img{width:88px;height:88px;object-fit:cover;border-radius:18px;float:right;margin:0 0 14px 14px}.shop-hack-card h3{font-size:22px}.shop-hack-card button{margin-top:12px}@media(max-width:600px){.shop-hack-grid{grid-template-columns:1fr}}
+
+/* Shared, correctly aligned live cosmetic previews. */
+.shop-item-preview .shop-preview-person{box-sizing:border-box;gap:9px;padding:30px 12px 14px;}
+.shop-item-preview .shop-preview-person>.avatar{position:relative!important;display:grid!important;place-items:center;width:76px!important;height:76px!important;min-width:76px;min-height:76px;flex:0 0 76px!important;aspect-ratio:1;border-radius:50%;overflow:visible;}
+.shop-item-preview .shop-preview-person>.avatar>img:not(.shop-preview-decoration){position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;border-radius:50%;}
+.shop-item-preview.decoration .avatar>.preview-cosmetic.shop-preview-decoration{position:absolute!important;inset:-19%!important;width:138%!important;height:138%!important;max-width:none!important;object-fit:contain!important;border-radius:0!important;z-index:2;}
+.shop-item-preview .shop-preview-person b{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.shop-item-modal .shop-preview-person{padding-top:72px;}
+.shop-item-modal .shop-preview-person>.avatar{width:110px!important;height:110px!important;flex-basis:110px!important;}
+.shop-item-preview.banner{height:210px!important;}
+.shop-item-preview.banner>.preview-cosmetic{height:105px;object-fit:cover;opacity:1;}
+.shop-item-preview.banner:after{content:'';position:absolute;inset:75px 0 0;background:linear-gradient(transparent,#151922 45%);z-index:0;pointer-events:none;}
+.shop-item-preview.banner .shop-preview-person{align-items:flex-start;text-align:left;padding:70px 16px 16px;}
+.shop-item-preview.banner .shop-preview-person>.avatar{width:58px!important;height:58px!important;min-width:58px;min-height:58px;flex-basis:58px!important;border:4px solid #20232c;}
+.shop-item-modal .shop-item-preview.banner{height:300px!important;}
+.shop-item-modal .shop-item-preview.banner>.preview-cosmetic{height:150px;}
+.shop-item-modal .shop-item-preview.banner .shop-preview-person{padding-top:115px;}
+
+/* Readable coin stakes and lightweight motion on laptop screens. */
+.shop-wager-modal{width:min(580px,calc(100vw - 28px))!important;}
+.shop-wager-modal form{gap:10px;}.shop-wager-modal form>label{font-size:12px;font-weight:650;color:#dce6ec;margin-top:5px;}
+.shop-wager-modal .shop-game-preview{height:120px;}.shop-wager-modal .game-preview-visual{transform:scale(.75);}
+.shop-amount-presets{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;}.shop-amount-presets button{border:1px solid #ffffff25;background:#ffffff08;padding:8px 4px;border-radius:9px;font-size:12px;}.shop-amount-presets button:hover{background:#fff2;}
+.shop-wager-balance{font-size:11px;color:#b9c6cf;margin:0;}.shop-stake-summary{display:flex;flex-direction:column;gap:8px;padding:18px;border:1px solid #ffffff24;border-radius:14px;background:#ffffff07;}.shop-stake-summary small{font-size:10px;letter-spacing:1.6px;color:#b6c2cf;}.shop-stake-summary strong{font-size:25px;font-weight:650;}.shop-stake-summary span{font-size:12px;color:#b8c9c6;line-height:1.6;}.shop-wager-modal form>.primary{font-size:14px;padding:14px;background:#ecf0f4;color:#172028;border-radius:12px;}
+.shop-game-card{background:linear-gradient(150deg,#ffffff09,#ffffff02)!important;}.shop-game-card .shop-game-actions .primary{background:#d7e0e9;color:#172028;}.shop-game-card .shop-game-odds{padding:6px 10px;}.shop-game-preview{background:radial-gradient(ellipse at center,#ffffff0b,transparent 70%);}
+body:not(.chat-reduced-motion) .shop-game-preview .mini-wheel{animation:shop-demo-wheel 14s linear infinite!important;}
+body:not(.chat-reduced-motion) .shop-game-preview .mini-coin{animation:shop-demo-coin 6s ease-in-out infinite!important;}
+body:not(.chat-reduced-motion) .shop-game-preview .mini-dice{animation:shop-demo-dice 5s ease-in-out infinite!important;}
+@keyframes shop-demo-wheel{to{transform:rotate(360deg)}}@keyframes shop-demo-coin{0%,30%,100%{transform:rotateY(0)}50%,80%{transform:rotateY(180deg)}}@keyframes shop-demo-dice{0%,100%{transform:rotate(-10deg) translateY(0)}50%{transform:rotate(10deg) translateY(-8px)}}
+@media(prefers-reduced-motion:reduce){body .shop-game-preview .mini-wheel,body .shop-game-preview .mini-coin,body .shop-game-preview .mini-dice{animation:none!important;}}
+.shop-wager-modal form>.shop-game-preview{display:none}.shop-wager-modal form{gap:7px}.shop-wager-modal form>label{margin-top:2px}.shop-wager-modal select,.shop-wager-modal input{padding:9px 12px}.shop-stake-summary{padding:13px;gap:5px}.shop-wager-modal form>.muted{font-size:11px;line-height:1.5;margin:4px 0}.shop-wager-modal .purchase-error:empty{display:none}.shop-wager-modal form>.primary{padding:11px}

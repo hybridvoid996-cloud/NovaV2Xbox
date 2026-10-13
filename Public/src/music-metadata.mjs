@@ -1,3 +1,3 @@
 import {key} from './music-core.mjs';
 export function matchingMetadata(track,results){const id=String(track.id).split(':').at(-1);const normalize=v=>String(v||'').trim().toLowerCase();return results.find(t=>String(t.id).split(':').at(-1)===id&&(t.src||t.source)===(track.src||track.source))||results.find(t=>normalize(t.title)===normalize(track.title)&&normalize(t.artist)===normalize(track.artist))||null}
-export function mergeMetadata(track,found){return {...track,album:track.album||found?.album||'',duration:Number(track.duration)>0?Number(track.duration):Math.max(0,Number(found?.duration)||0)}}
+export function mergeMetadata(track,found){return {...track,...(!track.thumb&&(found?.thumb||found?.thumbnail)?{thumb:found.thumb||found.thumbnail}:{}),album:track.album||found?.album||'',duration:Number(track.duration)>0?Number(track.duration):Math.max(0,Number(found?.duration)||0)}}

@@ -24,7 +24,7 @@ export function wagerPlan(b,items,random=randomInt){
  let item=null;
  if(b.stake==='cosmetic'){
   item=items.find(x=>x.id===b.item);if(!item)throw Error('Choose an owned cosmetic.');
- }else if(b.stake!=='coins'||!Number.isSafeInteger(b.coins)||b.coins<100||b.coins>10000)throw Error('Wager 100–10,000 Nova Coins.');
+ }else if(b.stake!=='coins'||!Number.isSafeInteger(b.coins)||b.coins<100||b.coins>100000)throw Error('Wager 100–100,000 Nova Coins.');
  return {game:b.game,stake:b.stake,coins:item?0:b.coins,item:item?.id||null,won,outcome,odds,multiplier,
   payout:item?0:won?Math.floor(b.coins*multiplier):0,
   crates:item&&won?{kind:item.kind,count:cosmeticCrates[item.rarity]||5}:null};
