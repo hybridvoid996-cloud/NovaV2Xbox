@@ -169,3 +169,30 @@ body.nova-os .os-dock{grid-template-columns:minmax(0,1fr) 1px minmax(0,max-conte
 body.nova-os .library-view .os-testing-tab{display:inline-flex;align-items:center;gap:8px;border:1px solid #a5e0c045;border-radius:8px;padding:8px 12px;color:#d1f4e1}body.nova-os .os-testing-tab svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7}
 
 .nova-game-engagement{display:flex;align-items:center;gap:7px;margin-left:10px;padding-left:10px;border-left:1px solid #ffffff25}.nova-game-engagement>span,.nova-game-engagement>button{display:inline-flex!important;align-items:center;gap:5px;min-width:40px!important;width:auto!important;color:inherit;font-size:11px;padding:4px!important}.nova-game-engagement svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6}.nova-game-engagement button[aria-pressed=true]{color:#9ce0bc!important;background:#9ce0bc18!important}.nova-game-engagement button:disabled{opacity:.5}
+
+/* Give laptop navigation the space between its actual side sections. */
+@media(min-width:761px){
+ body.nova-os .os-dock{grid-template-columns:max-content 1px minmax(0,1fr) max-content;gap:16px;padding:0 20px;}
+ body.nova-os .os-dock-left{overflow:visible;gap:10px;}
+ body.nova-os .os-dock .profile{flex:0 0 176px;width:176px;max-width:none;min-width:176px;gap:10px;padding:7px 6px;overflow:visible;}
+ body.nova-os .os-dock .profile>span:first-child{overflow:visible;flex-shrink:0;}
+ body.nova-os .os-dock .profile>span:nth-child(2){display:block;min-width:0;flex:1;}
+ body.nova-os .os-dock .profile b{max-width:100%;font-size:12px;}
+ body.nova-os .os-dock .profile small{font-size:9px;}
+ body.nova-os .os-dock nav{width:100%;max-width:none;min-width:0;gap:10px;justify-content:safe center;overflow-x:auto;scrollbar-width:none;padding:5px 3px;}
+ body.nova-os .os-dock nav button{width:40px;flex:0 0 40px;height:48px;padding:8px;}
+ body.nova-os .os-shortcuts{gap:6px;}
+ body.nova-os .os-shortcuts>button{width:32px;flex:0 0 32px;}
+ body.nova-os .os-dock-right{gap:10px;padding-left:10px;}
+}
+@media(min-width:761px) and (max-width:1100px){
+ body.nova-os .os-dock{gap:10px;padding:0 12px;}
+ body.nova-os .os-dock .profile{width:152px;min-width:152px;flex-basis:152px;}
+ body.nova-os .os-dock nav{gap:7px;}
+ body.nova-os .os-dock nav button{width:36px;flex-basis:36px;}
+ body.nova-os .os-shortcuts{gap:3px;}
+ body.nova-os .os-shortcuts>button{width:29px;flex-basis:29px;}
+ body.nova-os .os-dock-left{gap:6px;}
+ body.nova-os .os-dock-right{gap:6px;}
+ body.nova-os .os-dock .os-online-peek{display:none;}
+}
