@@ -7596,6 +7596,15 @@
     ]
   },
   {
+    "id": 880,
+    "name": "Skate 3 Rust",
+    "art": "content/covers/880.png",
+    "url": "content/games/880.html",
+    "genres": [
+      "Action"
+    ]
+  },
+  {
     "id": 87,
     "name": "Emulator.JS",
     "art": "content/covers/87.png",
