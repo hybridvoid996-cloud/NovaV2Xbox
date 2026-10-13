@@ -137,7 +137,7 @@ body.nova-os .os-window[data-window="app-search"] iframe{background:transparent!
  body.nova-os .os-dock-right{gap:8px;padding-left:8px}
 }
 /* Maximized immersive apps use the entire screen; restoring them brings the dock back. */
-body.nova-os:has(.os-window:is([data-window=app-chat],[data-window=app-music],[data-window=app-novatube],[data-window=app-search],[data-window=app-ai],[data-window=app-computer],[data-window=app-owner]).os-maximized.os-focused:not([hidden])) .os-dock{visibility:hidden;pointer-events:none}
+body.nova-os:has(.os-window:is([data-window=app-chat],[data-window=app-music],[data-window=app-novatube],[data-window=app-novamovies],[data-window=app-search],[data-window=app-ai],[data-window=app-computer],[data-window=app-owner],[data-window=app-settings]).os-maximized.os-focused:not([hidden])) .os-dock{visibility:hidden;pointer-events:none}
 
 /* App iframes already sit below their window header; use the whole body. */
 body.nova-os .os-window>.os-window-body>iframe,body.nova-os .os-window>.os-window-body>#system{height:100%!important;max-height:none!important;min-height:0;width:100%;display:block;margin:0;border:0}

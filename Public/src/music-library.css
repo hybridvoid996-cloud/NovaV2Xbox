@@ -48,3 +48,11 @@
 .nm-invite-row .nm-member-avatar{flex:0 0 34px!important;width:34px!important;height:34px!important}
 
 @media(max-width:600px){.nova-music-revamp body{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr) 120px!important}.nova-music-revamp .sidebar{width:100%!important;max-height:135px;overflow:auto;border-right:0!important}.nova-music-revamp .music-brand{padding:8px 14px!important}.nova-music-revamp .music-primary-nav,.nova-music-revamp .library-panel{display:flex!important;flex-direction:row!important;flex-wrap:wrap;gap:6px!important;padding:6px 10px!important}.nova-music-revamp .sidebar button{padding:8px!important;min-height:36px}.nova-music-revamp .library-panel>h3{display:none}.nova-music-revamp .main-panel{grid-column:1!important;grid-row:2!important}.nova-music-revamp .spotify-player{grid-column:1!important;grid-row:3!important}.nova-music-revamp .nm-view{padding:14px 12px 140px!important}.nova-music-revamp .nm-hero h1{font-size:27px!important}.nova-music-revamp .nm-cover{width:75px!important}.nova-music-revamp .nm-dialog{max-height:calc(100dvh - 20px)!important}}
+
+/* Fit the desktop music workspace comfortably on laptop displays. */
+@media(min-width:761px) and (max-width:1500px){
+ .nova-music-revamp body{zoom:.85;width:calc(100vw / .85)!important;height:calc(100dvh / .85)!important;min-height:0!important;}
+ .nova-music-revamp .nm-party-body{grid-template-columns:minmax(0,1fr) 280px;}
+ .nova-music-revamp .nm-party-chat{position:sticky;}
+ .nova-music-revamp .nm-view{padding-left:26px;padding-right:26px;}
+}
