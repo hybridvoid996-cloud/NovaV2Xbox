@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {activeUserCount} from '../server/community-stats.mjs';
+test('community count includes recent users once and excludes expired, invalid and future activity',()=>{assert.equal(activeUserCount({a:{at:100000},b:{at:40001},c:{at:40000},d:{at:100001},e:{at:'100000'},f:{}},100000),2);assert.equal(activeUserCount(null,100000),0);});
