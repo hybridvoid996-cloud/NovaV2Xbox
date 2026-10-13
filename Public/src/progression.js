@@ -1,12 +1,12 @@
 (()=>{
 const uid=()=>localStorage.getItem('nova_user'),key=()=> 'nova-progress-'+uid();let lastScan=0,games=[],lastInput=-Infinity,lastTick=performance.now(),state,owner;
 const total=level=>500*(level-1)+125*(level-1)*(level-2);
-function load(){if(owner===uid()&&state)return;owner=uid();state=null;try{state=JSON.parse(localStorage.getItem(key()))}catch{}state=state||{xp:0,coins:0,challenges:[],resetAt:0};if(state.balanceVersion!==4){state.challenges.forEach((c,i)=>{if(!c.claimed){c.minutes=[10,15,20,30][i];c.reward=[100,200,300,500][i]}else c.reward??=c.minutes*25});state.balanceVersion=4;save()}}
+function load(){if(owner===uid()&&state)return;owner=uid();state=null;try{state=JSON.parse(localStorage.getItem(key()))}catch{}state=state||{xp:0,coins:0,challenges:[],resetAt:0};if(state.balanceVersion!==5){state.challenges.forEach((c,i)=>{if(!c.claimed){c.minutes=[10,15,20,30][i];c.reward=[300,600,900,1200][i]}else c.reward??=c.minutes*25});state.balanceVersion=5;save()}}
 function save(){localStorage.setItem(key(),JSON.stringify(state))}
 function generate(){}
 function input(e){if(e.isTrusted)lastInput=performance.now()}
 const watched=new WeakSet();function watch(win,depth=0){try{const doc=win.document;if(!watched.has(doc)){watched.add(doc);doc.addEventListener('load',e=>{if(e.target.tagName==='IFRAME')watch(e.target.contentWindow,depth+1)},true);for(const name of ['pointerdown','pointermove','keydown','touchstart'])doc.addEventListener(name,input,{passive:true,capture:true})}if(depth<5)doc.querySelectorAll('iframe').forEach(f=>watch(f.contentWindow,depth+1))}catch{}}
-let renderedProgress='';const progressSignature=()=>JSON.stringify([state.xp,state.coins,state.challenges,state.resetAt,window.novaProgressError||'']);
+let renderedProgress='';const progressSignature=()=>JSON.stringify([state.xp,state.coins,state.challenges,state.resetAt,Math.ceil((state.resetAt-Date.now())/60000),window.novaProgressError||'']);
 const dialog=document.createElement('dialog');dialog.className='nova-profile-page';document.body.append(dialog);
 function el(tag,text,cls){const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n}
 function open(){render();if(!dialog.open)dialog.showModal()}

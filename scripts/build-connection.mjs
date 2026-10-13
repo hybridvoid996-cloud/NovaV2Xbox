@@ -10,5 +10,5 @@ const adPolicy=(await readFile(new URL('../Public/src/ad-policy.mjs',import.meta
 const adHook=await readFile(new URL('../Public/src/ad-block-inject.js',import.meta.url),'utf8');
 const audioHook=await readFile(new URL('../Public/src/game-audio-inject.js',import.meta.url),'utf8');
 const injectFile=new URL('../Public/~/sj/controller/controller.inject.js',import.meta.url);
-await writeFile(injectFile,'(()=>{'+adPolicy+'\n'+adHook+'})();\n'+audioHook+'\n'+await readFile(injectFile,'utf8'));
+await writeFile(injectFile,await readFile(injectFile,'utf8')+'\n(()=>{'+adPolicy+'\n'+adHook+'})();\n'+audioHook);
 console.log('Built Neon Arcade pinned connection bundles.');
