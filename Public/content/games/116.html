@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script id="nova-analytics-compat">window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){};</script>
+  <head><script src="/src/game-audio-inject.js"></script><script id="nova-analytics-compat">window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){};</script>
     
     
     
@@ -11,7 +11,7 @@
     <title>MX OffRoad Mountain Bike</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-  <style>
+  <style>html,body{margin:0;width:100%;height:100%;overflow:hidden}#unity-container{position:fixed;inset:0;transform:none;width:100%;height:100%}#unity-canvas{width:100%;height:100%}
 
 </style>
 </head>
@@ -32,12 +32,13 @@
     <script>
       const hideFullScreenButton = "1";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/bike.loader.js";
+      const loaderUrl = new URL("/content/runtime/bike-native.loader.js", location.href).href;
       const config = {
-        dataUrl: buildUrl + "/bike.data.unityweb",
+        devicePixelRatio: Math.min(devicePixelRatio || 1, 1.5),
+        dataUrl: "https://raw.githubusercontent.com/freebuisness/assets/main/116/Build/bike.data.unityweb",
         frameworkUrl: buildUrl + "/bike.framework.js.unityweb",
         codeUrl: buildUrl + "/bike.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
+        streamingAssetsUrl: "https://cdn.jsdelivr.net/gh/freebuisness/assets@main/116/StreamingAssets",
         companyName: "RHM",
         productName: "MX OffRoad Mountain Bike",
         productVersion: "1",
@@ -75,6 +76,7 @@
 
       const script = document.createElement("script");
       script.src = loaderUrl;
+      script.onerror = () => { spinner.style.display = "none"; loadingCover.appendChild(Object.assign(document.createElement("p"),{textContent:"Game loader could not download. Refresh to retry."})); };
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           spinner.style.display = "none";

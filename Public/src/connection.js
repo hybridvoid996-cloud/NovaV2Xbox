@@ -1,6 +1,6 @@
 /* Shared Scramjet 2 startup for Search and the standalone game/app player. */
 (()=>{
-const base='/~/sj/',revision='nova-games-20261013-popups49';let resources;const workers=new WeakMap();
+const base='/~/sj/',revision='nova-games-20261014-text53';let resources;const workers=new WeakMap();
 const deadline=(promise,ms,message)=>new Promise((resolve,reject)=>{const id=setTimeout(()=>reject(Error(message)),ms);promise.then(v=>{clearTimeout(id);resolve(v)},e=>{clearTimeout(id);reject(e)})});
 const load=src=>new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=base+src+'?v='+revision;script.onload=resolve;script.onerror=()=>reject(Error('A connection component could not load. Refresh and try again.'));document.head.append(script)});
 async function prepare(){
