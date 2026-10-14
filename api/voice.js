@@ -64,14 +64,11 @@ export const createVoiceHandler=(service=services)=>async function handler(req,r
   if(body.action==='leave'){if(!PUBLIC_VOICE_ROOMS.includes(room)){await ref.child('ended').set('ended');for(const uid of record.allowed||[])await db.ref('novaVoiceInvites/'+uid+'/'+room).remove();}await ref.child('members/'+session).remove();await ref.child('signals/'+session).remove();return res.json({ok:true});}
   if(record.members[session].expires<now)return res.status(409).json({error:'Your voice session expired. Join again.'});
   if(body.action==='poll'){
-   await ref.child('members/'+session+'/expires').set(now+90000);
-   await ref.child('members/'+session+'/muted').set(body.muted===true);
-   await ref.child('members/'+session+'/deafened').set(body.deafened===true);
-   await ref.child('members/'+session+'/screen').set(body.screen===true);record.members[session].screen=body.screen===true;
-   await ref.child('members/'+session+'/camera').set(body.camera===true);record.members[session].camera=body.camera===true;record.members[session].muted=body.muted===true;record.members[session].deafened=body.deafened===true;
+   const state={expires:now+90000,muted:body.muted===true,deafened:body.deafened===true,screen:body.screen===true,camera:body.camera===true};
+   await ref.child('members/'+session).update(state);Object.assign(record.members[session],state);
    const signals=Object.entries(record.signals?.[session]||{}).filter(([,v])=>v.at>now-60000);
    // Explicit acknowledgement prevents dropping signals when a response is lost.
-   for(const id of (Array.isArray(body.ack)?body.ack:[]).slice(0,100))if(/^[\w-]{1,80}$/.test(id))await ref.child('signals/'+session+'/'+id).remove();
+   const ack=[...new Set((Array.isArray(body.ack)?body.ack:[]).slice(0,100).filter(id=>typeof id==='string'&&/^[\w-]{1,80}$/.test(id)))];if(ack.length)await ref.child('signals/'+session).update(Object.fromEntries(ack.map(id=>[id,null])));
    return res.json({members:await visibleMembers(db,record.members,now),signals:signals.map(([id,v])=>({id,...v}))});
   }
   if(body.action==='signal'){

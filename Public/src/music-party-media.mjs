@@ -1,9 +1,9 @@
 import {MUSIC_ORIGIN} from './music-search.mjs';
 export function partyStreamUrl(track){return MUSIC_ORIGIN+'/_o/m/stream/'+encodeURIComponent(String(track.id));}
-export function resetFailedPartySource(media,track){
+export function resetFailedPartySource(media,track,resolve=value=>value){
  if(!media||!track)return false;
  if(!media.error&&(media.currentSrc||media.getAttribute?.('src')||media.src))return false;
- media.crossOrigin='anonymous';media.src=partyStreamUrl(track);media.load();return true;
+ media.crossOrigin='anonymous';media.src=resolve(partyStreamUrl(track));media.load();return true;
 }
 export function partyArtwork(track){
  const value=track?.thumb||track?.thumbnail||track?.art||track?.cover||'';

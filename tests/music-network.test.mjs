@@ -1,0 +1,16 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {createMusicTransport} from '../Public/src/music-network.mjs';
+import {searchMusic} from '../Public/src/music-search.mjs';
+import {resetFailedPartySource,partyStreamUrl} from '../Public/src/music-party-media.mjs';
+const options={prefix:'/~/sj/p/',encode:encodeURIComponent,origin:'https://nova.test'};
+test('song search reaches the provider through the Nova route and retains cancellation',async()=>{let called,init;const controller=new AbortController();const transport=createMusicTransport({...options,request:async(url,settings)=>{called=url;init=settings;return new Response(JSON.stringify([{id:'ytm:abc',title:'Test',thumbnail:'/cover'}]));}});const tracks=await searchMusic('test song',{request:transport.request,signal:controller.signal});assert.equal(new URL(called).origin,'https://nova.test');assert.equal(decodeURIComponent(new URL(called).pathname.slice(options.prefix.length)),'https://cirrusbk6l.planet35.com/_o/m/search?q=test%20song');assert.equal(init.signal,controller.signal);assert.equal(tracks.length,1);});
+test('both host and guest audio recovery use the same routed source, retaining healthy playback',()=>{const transport=createMusicTransport(options);for(const role of ['host','guest']){const media={error:{code:4},src:'broken',load(){this.loads=(this.loads||0)+1;}};assert.equal(resetFailedPartySource(media,{id:'ytm:abc'},transport.url),true);assert.equal(new URL(media.src).origin,'https://nova.test',role);assert.equal(decodeURIComponent(new URL(media.src).pathname.slice(options.prefix.length)),partyStreamUrl({id:'ytm:abc'}));assert.equal(media.loads,1);media.error=null;assert.equal(resetFailedPartySource(media,{id:'ytm:abc'},transport.url),false);assert.equal(media.loads,1);}});
+test('transport does not double encode routes, rejects invalid protocols, and preserves upstream errors',async()=>{const transport=createMusicTransport({...options,request:async()=>new Response('',{status:503})});const routed=transport.url(partyStreamUrl({id:'abc'}));assert.equal(transport.url(routed),routed);assert.throws(()=>transport.url('javascript:alert(1)'),/Unsupported/);await assert.rejects(searchMusic('song',{request:transport.request}),/503/);});
+
+test('the real media-error handler routes native source assignment for host and guest',async()=>{
+ const {readFileSync}=await import('node:fs');const vm=await import('node:vm');const source=readFileSync('Public/src/music-library.js','utf8');const begin=source.indexOf(' const onMediaError='),end=source.indexOf(' const ended=',begin);
+ for(const role of ['host','guest']){let loads=0,plays=0;const transport=createMusicTransport(options);const media={load(){loads++;},play(){plays++;return Promise.resolve();}};class Media{}Object.defineProperty(Media.prototype,'src',{set(value){this.src=value;}});
+ const context={player:()=>({track:()=>({id:'ytm:abc'})}),watched:media,key:t=>t.id,streamRetries:new Set(),streamUrl:transport.url,MUSIC_ORIGIN:'https://cirrusbk6l.planet35.com',HTMLMediaElement:Media,notice(){},party:{owner:role,playback:{playing:true}},queue:[],advancing:false};vm.runInNewContext(source.slice(begin,end)+';onMediaError();',context);
+ assert.equal(new URL(media.src).origin,'https://nova.test',role);assert.equal(loads,1);assert.equal(plays,1);
+ }
+});
