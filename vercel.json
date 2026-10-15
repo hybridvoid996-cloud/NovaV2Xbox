@@ -11,6 +11,14 @@
     "api/remote.js": {
       "maxDuration": 15,
       "excludeFiles": "{Public,remote-agent,tests}/**"
+    },
+    "api/fortnite.js": {
+      "maxDuration": 120,
+      "excludeFiles": "{Public,remote-agent,tests}/**"
+    },
+    "api/music-search.js": {
+      "maxDuration": 30,
+      "excludeFiles": "{Public,remote-agent,tests}/**"
     }
   },
   "outputDirectory": "Public",
@@ -40,6 +48,10 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/game-runtime/fortnite18/:path*",
+      "destination": "/api/fortnite?path=:path*"
+    },
     {
       "destination": "/api/account?novaEndpoint=account-login",
       "source": "/api/account-login"

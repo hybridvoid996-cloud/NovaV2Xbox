@@ -55,7 +55,7 @@
     });
   }
   function openSystem(page){
-    if(!['chat','search','ai','computer','novatube','cloudgaming','settings','leaderboard','admin'].includes(page)){park();return;}
+    if(!['shop','chat','search','ai','computer','novatube','cloudgaming','settings','leaderboard','admin'].includes(page)){park();return;}
     const key=account()+':'+page;
     if(frame.dataset.session==='true'){frame.hidden=true;frame.removeAttribute('id');}else frame.remove();
     if(!pages.has(key)){const el=freshFrame();el.dataset.session='true';pages.set(key,el);}

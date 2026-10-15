@@ -17,3 +17,6 @@ export async function retryVoiceRelay({peer,offerer,iceServers,signal,alive}){
  }finally{peer.restarting=false;}
 }
 export function voicePollDelay(peers){return peers.length&&peers.every(peer=>peer.pc.connectionState==='connected')?2000:1000;}
+
+// Older backends may omit relay flags; derive them from usable ICE entries.
+export function normalizeVoiceConfig(config={}){const iceServers=(Array.isArray(config.iceServers)?config.iceServers:[]).flatMap(server=>{const urls=[].concat(server.urls||[]).filter(u=>typeof u==='string'&&(/^stuns?:/.test(u)||/^turns?:/.test(u)&&!!server.username&&!!server.credential));return urls.length?[{...server,urls}]:[]});const turn=iceServers.flatMap(server=>server.urls.filter(u=>/^turns?:/.test(u)));return {...config,iceServers,relayConfigured:turn.length>0,relayTLSConfigured:turn.some(u=>/^turns:.*:443(?:\?transport=tcp)?$/.test(u))}}

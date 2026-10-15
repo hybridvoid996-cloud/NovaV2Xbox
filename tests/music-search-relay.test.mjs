@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {musicSearchRelay} from '../server/music-search-relay.mjs';
+async function call(q,request){let value;const res={setHeader(){},end(v){value=JSON.parse(v)}};await musicSearchRelay({method:'GET',url:'/api/music-search?q='+encodeURIComponent(q)},res,request);return {status:res.statusCode,value}}
+test('search relay retries a temporary 404 and returns normalized provider results',async()=>{let count=0;const r=await call('yeat',async(url,options)=>{assert.equal(url,'https://cirrusbk6l.planet35.com/_o/m/search?q=yeat');assert.equal(options.headers.Authorization,undefined);return ++count===1?new Response('',{status:404}):Response.json({results:[{id:'song',title:'Recovered'}]})});assert.equal(count,2);assert.equal(r.status,200);assert.equal(r.value[0].title,'Recovered')});
+test('invalid searches do not reach the provider and failed searches stop after two attempts',async()=>{assert.equal((await call('',()=>assert.fail())).status,400);let count=0;assert.equal((await call('test',async()=>{count++;return new Response('',{status:503})})).status,502);assert.equal(count,2)});
+test('malformed upstream payloads return a recoverable error',async()=>{assert.equal((await call('test',async()=>Response.json({error:'not songs'}))).status,502)});

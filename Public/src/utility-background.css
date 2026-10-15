@@ -1,0 +1,5 @@
+/* Embedded utilities share the live Home wallpaper instead of duplicating it. */
+html.nova-embedded-utility,html.nova-embedded-utility body{background:transparent!important;color-scheme:dark}
+.nova-embedded-utility #wallpaper{display:none}
+.nova-embedded-utility main{padding-bottom:110px;text-shadow:0 2px 8px #0009}
+.nova-embedded-utility .intro,.nova-embedded-utility .setup,.nova-embedded-utility .performance-note,.nova-embedded-utility .network-options,.nova-embedded-utility .device{background:#101013bd;border-color:#ffffff20}

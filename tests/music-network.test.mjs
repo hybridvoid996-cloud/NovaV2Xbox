@@ -10,7 +10,7 @@ test('transport does not double encode routes, rejects invalid protocols, and pr
 test('the real media-error handler routes native source assignment for host and guest',async()=>{
  const {readFileSync}=await import('node:fs');const vm=await import('node:vm');const source=readFileSync('Public/src/music-library.js','utf8');const begin=source.indexOf(' const onMediaError='),end=source.indexOf(' const ended=',begin);
  for(const role of ['host','guest']){let loads=0,plays=0;const transport=createMusicTransport(options);const media={load(){loads++;},play(){plays++;return Promise.resolve();}};class Media{}Object.defineProperty(Media.prototype,'src',{set(value){this.src=value;}});
- const context={player:()=>({track:()=>({id:'ytm:abc'})}),watched:media,key:t=>t.id,streamRetries:new Set(),streamUrl:transport.url,MUSIC_ORIGIN:'https://cirrusbk6l.planet35.com',HTMLMediaElement:Media,notice(){},party:{owner:role,playback:{playing:true}},queue:[],advancing:false};vm.runInNewContext(source.slice(begin,end)+';onMediaError();',context);
+ const context={player:()=>({track:()=>({id:'ytm:abc'})}),watched:media,key:t=>t.id,streamRetries:new Set(),streamUrl:transport.url,MUSIC_ORIGIN:'https://cirrusbk6l.planet35.com',HTMLMediaElement:Media,recoveryExhausted:true,notice(){},party:{owner:role,playback:{playing:true}},queue:[],advancing:false};vm.runInNewContext(source.slice(begin,end)+';onMediaError();',context);
  assert.equal(new URL(media.src).origin,'https://nova.test',role);assert.equal(loads,1);assert.equal(plays,1);
  }
 });

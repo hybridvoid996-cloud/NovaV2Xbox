@@ -1,0 +1,2 @@
+export const TUBE_ORIGIN='https://voidgpt.xyz';
+export function tubeURL(value,{base=TUBE_ORIGIN+'/~v/',prefix='',origin=''}={}){try{let url=new URL(value,base);if(url.origin===origin&&prefix&&url.pathname.startsWith(prefix))url=new URL(decodeURIComponent(url.pathname.slice(prefix.length)));else if(url.origin===origin&&url.pathname.startsWith('/~v/'))url=new URL(url.pathname+url.search+url.hash,TUBE_ORIGIN);return url.origin===TUBE_ORIGIN&&url.pathname.startsWith('/~v/')?url:null}catch{return null}}

@@ -1,4 +1,4 @@
-import {retryVoiceRelay,voicePollDelay} from './voice-network.mjs';
+import {retryVoiceRelay,voicePollDelay,normalizeVoiceConfig} from './voice-network.mjs?v=20261015-relay61';
 import {createVoiceRequest} from './voice-request.js';
 import {createMiniCall} from './voice-mini.js';
 import {callNotifications} from './voice-notifications.js';
@@ -42,7 +42,7 @@ export function mountVoice(context){
    stream=await devices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true},video:false});
    if(version!==generation){stream.getTracks().forEach(t=>t.stop());return;}
    if(target)room=(await request({action:'call',target})).room;
-   const session=crypto.randomUUID(),config=await request({action:'join',room,session});joined={room,session};
+   const session=crypto.randomUUID(),config=normalizeVoiceConfig(await request({action:'join',room,session}));joined={room,session};
    if(version!==generation){stream.getTracks().forEach(t=>t.stop());await request({action:'leave',...joined});return;}
    call={room,session,stream,view,iceServers:config.iceServers,relayConfigured:config.relayConfigured,relayTLSConfigured:config.relayTLSConfigured,ack:[],seen:new Set()};audioContext?.resume().catch(()=>{});watchAudio(session,stream);if(audioContext?.state==='suspended')view.querySelector('[data-audio]').hidden=false;view.querySelector('[data-direct]').replaceChildren();view.querySelector('[data-state]').textContent=target?'Ringing…':view===general?'In '+roomName(room):'Private call';controls();status(view,target?'Waiting for your friend to answer…':'Microphone ready · Waiting for another person’s audio connection.');poll(version);
   }catch(e){stream?.getTracks().forEach(t=>t.stop());if(joined)request({action:'leave',...joined}).catch(()=>{});if(version===generation){leave();status(view,e.name==='NotAllowedError'?'Allow microphone access to join the call.':e.message);}}

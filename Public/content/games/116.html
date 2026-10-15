@@ -77,7 +77,9 @@
       const script = document.createElement("script");
       script.src = loaderUrl;
       script.onerror = () => { spinner.style.display = "none"; loadingCover.appendChild(Object.assign(document.createElement("p"),{textContent:"Game loader could not download. Refresh to retry."})); };
-      script.onload = () => {
+      script.onload = async () => {
+        const {createNativeBrotliDecoder} = await import(new URL("/src/native-brotli-client.mjs", location.href).href);
+        window.NovaDecodeBrotli = createNativeBrotliDecoder();
         createUnityInstance(canvas, config, (progress) => {
           spinner.style.display = "none";
           progressBarEmpty.style.display = "";

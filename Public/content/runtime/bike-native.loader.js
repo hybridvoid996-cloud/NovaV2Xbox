@@ -50,6 +50,10 @@ function createUnityInstance(e, t, n) {
         for (var r in w)
             if (w[r].hasUnityMarker(e)) {
                 t && console.log('You can reduce startup time if you configure your web server to add "Content-Encoding: ' + r + '" response header when serving "' + t + '" file.');
+                if (r === 'br' && typeof window.NovaDecodeBrotli === 'function') {
+                    window.NovaDecodeBrotli(e).then(n).catch(error => i(error.message, '', 0));
+                    return;
+                }
                 var o = w[r];
                 if (!o.worker) {
                     var i = URL.createObjectURL(new Blob(["this.require = ", o.require.toString(), "; this.decompress = ", o.decompress.toString(), "; this.onmessage = ", function (e) {
@@ -133,7 +137,7 @@ function createUnityInstance(e, t, n) {
                 type: "application/javascript"
             }));
             return new Promise(function (e, n) {
-                var r = document.create("script");
+                var r = document.createElement("script");
                 r.src = t, r.onload = function () {
                     var n = unityFramework;
                     unityFramework = null, r.onload = null, URL.revokeObjectURL(t), e(n)
@@ -1003,6 +1007,7 @@ function createUnityInstance(e, t, n) {
                         return e ? r(e.folder + "node_modules/" + t) || o(e.parent, t) : null
                     },
                     i = function (e, t) {
+                        t = t.trim();
                         var n = t.match(/^\//) ? null : e ? t.match(/^\.\.?\//) ? r(e.folder + t) : o(e, t) : r(t);
                         if (!n) throw "module not found: " + t;
                         return n.exports || (n.parent = e, n(i.bind(null, n), n, n.exports = {})), n.exports
@@ -1010,7 +1015,7 @@ function createUnityInstance(e, t, n) {
                 return i(null, e)
             },
             decompress: function (e) {
-                this.exports || (this.exports = this.require(" decompress.js"));
+                this.exports || (this.exports = this.require("decompress.js"));
                 try {
                     return this.exports(e)
                 } catch (e) {}

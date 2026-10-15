@@ -1,13 +1,3 @@
-import {isPhoneDevice} from './nova-phone-detect.mjs';
-const phone=isPhoneDevice({userAgent:navigator.userAgent,touchPoints:navigator.maxTouchPoints,coarse:matchMedia('(pointer:coarse)').matches,width:screen.width,height:screen.height});
-import {styleChoices} from './home-style-ui.js';
-let started=false;
-async function apply(style){if(phone){const {initNovaPhone}=await import('./nova-phone.js?v=20261010-phone41');await initNovaPhone();return;}if(style==='os'&&!started){started=true;try{const {initNovaOS}=await import('./nova-os.js');await initNovaOS()}catch(e){started=false;throw e}}}
-async function save(style){if(phone){await apply();return;}if(!['os','xbox'].includes(style))return;localStorage.setItem('nova_home_style',style);dispatchEvent(new Event('storage'));await apply(style);document.getElementById('home-style-welcome')?.remove();const {flush}=await import('./account-data.js');await flush({captureGameSaves:false}).catch(()=>{})}
-async function start(){if(!await window.novaAccountReady)return;for(const key of Object.keys(localStorage))if(key.startsWith('nova_switch_')||key.startsWith('nova-switch-favorites-'))localStorage.removeItem(key);if(localStorage.getItem('nova_home_style')==='switch'){localStorage.setItem('nova_home_style','os');if(!phone){await save('os');return}}if(phone){await apply();return;}const style=localStorage.getItem('nova_home_style');if(['os','xbox'].includes(style)){await apply(style);return}
- const host=document.createElement('section');host.id='home-style-welcome';host.hidden=true;host.setAttribute('aria-label','Choose your Nova home');host.innerHTML='<div class="home-style-intro"><img src="Nova12.png" alt="Nova"><div class="style-kicker">MAKE YOURSELF AT HOME</div><h1>Your Nova. Your style.</h1><p>Same Nova. Same account. Choose the space that feels like yours.</p><small>You can change this anytime in Settings → Display.</small></div>';
- host.querySelector('small').before(styleChoices('',style=>save(style).catch(e=>{host.querySelector('p').textContent='Could not open that style. '+e.message;host.querySelector('p').classList.add('style-error')})));document.body.append(host);
- const show=()=>{if(!document.querySelector('.account-picker')){host.hidden=false;observer.disconnect();host.querySelector('button').focus()}};const observer=new MutationObserver(show);observer.observe(document.body,{childList:true});show();
-}
-addEventListener('message',async e=>{if(e.origin!==location.origin||e.data?.novaAction!=='homeStyleChanged'||!['os','xbox'].includes(e.data.style))return;const source=[...document.querySelectorAll('iframe')].find(f=>f.contentWindow===e.source);if(!source||!new URL(source.src,location.href).pathname.endsWith('/settings.html'))return;await save(e.data.style);location.reload()});
-start().catch(e=>{console.error('Nova home style:',e);window.NovaNotice?.('chat',{title:'Your home could not open',text:'Reload Nova to try again.'})});
+// One active Nova home. Legacy display preferences are intentionally preserved.
+document.documentElement.dataset.novaUi='main';
+document.getElementById('home-style-welcome')?.remove();

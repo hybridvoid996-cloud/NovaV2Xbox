@@ -12,7 +12,7 @@ function render(kind){
  const ranked=rows.some(g=>Number(counts[kind]?.[g.id])>0);
  host.querySelector(`[data-status="${kind}"]`).textContent=failed[kind]?'Community rankings unavailable':ranked?'Most played on Nova':'Discover these while play counts build';
  for(const [index,g] of rows.slice(0,6).entries()){
-  const button=document.createElement('button');button.className='popular-tile';button.type='button';
+  const button=document.createElement('button');button.className='popular-tile';button.type='button';button.dataset.gameKey=kind+':'+g.id;
   const art=document.createElement('div');art.className='popular-art';const img=new Image();img.src=g.art;img.alt='';img.loading='lazy';img.onerror=()=>{img.onerror=null;img.src='Nova12.png'};art.append(img);
   const count=Number(counts[kind]?.[g.id])||0;
   if(count>0){const rank=document.createElement('span');rank.className='popular-rank';rank.textContent=String(index+1).padStart(2,'0');art.append(rank)}

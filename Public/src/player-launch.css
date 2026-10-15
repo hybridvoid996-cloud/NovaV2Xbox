@@ -1,0 +1,21 @@
+/* White-flight launch screen. Animation uses composited transforms and opacity. */
+body{background:#09090c}#loader{background:radial-gradient(ellipse at 50% 43%,#24263166,transparent 48%),#09090c;isolation:isolate}
+#loader:before{content:'';position:absolute;width:min(470px,80vw);height:min(470px,80vw);border:1px solid #ffffff04;border-radius:50%;pointer-events:none;z-index:-1;box-shadow:0 0 0 70px #ffffff02,0 0 0 140px #ffffff01}
+.flight{width:min(650px,94vw);height:210px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent)}
+.ship{width:218px;top:24px;left:50%;animation:nova-flight 3.2s ease-in-out infinite;will-change:transform;transform:translateX(-50%)}
+.ship svg{filter:drop-shadow(0 4px 14px #ffffff12);width:100%;display:block}
+.trail{top:calc(50% - 1px);right:74%;width:145px;height:5px;background:linear-gradient(90deg,transparent,#ffffff30 48%,#fff);border-radius:50%;filter:none;box-shadow:0 0 12px #ffffff35;transform-origin:right center;animation:nova-thrust .65s ease-in-out infinite alternate}
+.trail:before,.trail:after{content:'';position:absolute;right:0;top:50%;height:2px;width:90%;background:linear-gradient(90deg,transparent,#ffffff70);border-radius:50%;transform-origin:right center}.trail:before{rotate:5deg}.trail:after{rotate:-5deg;width:75%}
+.stars{inset:0;background:none;mask-image:none;animation:none;overflow:hidden}
+.stars i{position:absolute;left:100%;top:20%;width:70px;height:1px;background:linear-gradient(90deg,transparent,#ffffff75);animation:nova-streak 1.6s linear infinite;opacity:0;will-change:transform}
+.stars i:nth-child(2){top:74%;width:110px;animation-duration:1.9s;animation-delay:-.8s}.stars i:nth-child(3){top:41%;width:40px;animation-duration:1.3s;animation-delay:-.4s}.stars i:nth-child(4){top:88%;width:55px;animation-duration:2.2s;animation-delay:-1.5s}.stars i:nth-child(5){top:8%;width:35px;animation-duration:2.5s;animation-delay:-.7s}.stars i:nth-child(6){top:59%;width:90px;animation-duration:1.7s;animation-delay:-1.2s}.stars i:nth-child(7){top:32%;width:25px;animation-duration:2.1s;animation-delay:-1.9s}.stars i:nth-child(8){top:96%;width:45px;animation-duration:2.4s;animation-delay:-.2s}
+.loading-copy{max-width:460px}.loading-copy small{color:#a5a6b0}.loading-copy h1{color:#f2f2f6;font-weight:600}.loading-copy p{color:#aaaab6}.track{position:relative;width:min(240px,65vw);height:3px;margin:0 auto;background:#ffffff0d;border:0;box-shadow:0 0 0 1px #ffffff03;overflow:hidden}.track i{background:#f3f3f8;box-shadow:0 0 12px #ffffff40;transform-origin:left center}.track.waiting i{background:linear-gradient(90deg,#91939d,#fff,#91939d);background-size:200%;animation:progress 1.6s linear infinite}
+#loader button:focus-visible{outline-color:#eee}#actions button{background:#1a1a20;border-color:#ffffff24;border-radius:11px;font-size:12px}.loading-copy .hint{color:#777784!important}
+body.leaving .ship{animation:nova-depart .28s cubic-bezier(.4,0,1,1) forwards}body.leaving .trail{width:220px}body.failed .ship{animation:none;opacity:.55;transform:translateX(-50%)}body.failed .trail,body.failed .stars i{animation:none;opacity:0}
+@keyframes nova-flight{0%,100%{transform:translate(-50%,0) rotate(-1deg)}25%{transform:translate(calc(-50% + 4px),-5px) rotate(-2deg)}60%{transform:translate(calc(-50% - 3px),4px) rotate(1deg)}}
+@keyframes nova-thrust{from{transform:scaleX(.72) scaleY(.85);opacity:.5}to{transform:scaleX(1.12) scaleY(1.2);opacity:1}}
+@keyframes nova-streak{0%{transform:translateX(0);opacity:0}12%,75%{opacity:.45}100%{transform:translateX(-760px);opacity:0}}
+@keyframes nova-depart{from{transform:translateX(-50%);opacity:1}to{transform:translateX(160%);opacity:0}}
+@media(max-width:500px){.flight{height:180px}.ship{width:185px;top:23px}.track{width:190px}}
+@media(prefers-reduced-motion:reduce){.ship,.trail,.stars i,.track.waiting i{animation:none!important;will-change:auto}.ship{transform:translateX(-50%)}.stars i{opacity:0}#loader,#stage{transition:none!important}}
+html.reduce-motion .ship,html.reduce-motion .trail,html.reduce-motion .stars i{animation:none!important;will-change:auto}

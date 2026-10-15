@@ -1,4 +1,4 @@
-export function createMusicRecovery({reload,enabled=()=>true,notice=()=>{},exhausted=()=>{},online=()=>true,now=Date.now,schedule=setTimeout,cancel=clearTimeout}){
+export function createMusicRecovery({reload,enabled=()=>true,canResume=()=>true,notice=()=>{},exhausted=()=>{},online=()=>true,now=Date.now,schedule=setTimeout,cancel=clearTimeout}){
  let media=null,key='',attempts=0,timer=null,reloading=false,position=0,intent=false,lastProgress=now(),lastTime=0,healthySince=0,stopped=false,done=false;
  const clear=()=>{if(timer!==null)cancel(timer);timer=null;};
  function reset(){clear();attempts=0;done=false;reloading=false;position=0;lastTime=0;healthySince=0;lastProgress=now();intent=!!media&&(!media.paused||!!media.error);}
@@ -10,7 +10,7 @@ export function createMusicRecovery({reload,enabled=()=>true,notice=()=>{},exhau
   if(attempts>=3){done=true;notice('This song could not load after three retries.');exhausted();return;}
   const current=media,currentKey=key;timer=schedule(()=>{timer=null;if(stopped||media!==current||key!==currentKey||!enabled())return;if(!online()){notice('Waiting for your connection to return…');return;}attempts++;reloading=true;lastProgress=now();notice('Reconnecting song…');try{reload(current,currentKey);}catch{reloading=false;failed();}},[1000,3000,8000][attempts]);
  }
- function ready(){if(!enabled()||!reloading)return;reloading=false;try{if(position>0&&Number.isFinite(media.duration))media.currentTime=Math.min(position,Math.max(0,media.duration-.1));}catch{}lastProgress=now();if(intent){Promise.resolve().then(()=>media.play()).catch(error=>{if(error.name==='NotAllowedError'){intent=false;notice('Press Play to allow audio in your browser.');}else failed();});}}
+ function ready(){if(!enabled()||!reloading)return;reloading=false;try{if(position>0&&Number.isFinite(media.duration))media.currentTime=Math.min(position,Math.max(0,media.duration-.1));}catch{}lastProgress=now();if(intent&&canResume()){Promise.resolve().then(()=>media.play()).catch(error=>{if(error.name==='NotAllowedError'){intent=false;notice('Press Play to allow audio in your browser.');}else failed();});}}
  function progressed(){if(!enabled()||!media)return;const time=Number(media.currentTime)||0;if(Math.abs(time-lastTime)>.05){lastTime=time;position=time;lastProgress=now();if(!healthySince)healthySince=now();if(now()-healthySince>=10000){attempts=0;done=false;}}}
  function play(){if(!enabled())return;intent=true;if(done)attempts=0;done=false;lastProgress=now();if(media.error)failed();}
  function pause(){if(enabled()&&(!reloading||media?.readyState>0)&&!media?.error){intent=false;clear();}}

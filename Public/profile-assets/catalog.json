@@ -1389,5 +1389,53 @@
     "collection": "halloween",
     "src": "/profile-assets/halloween/profileeffect/venombackgrtound.png",
     "thumbnail": "/profile-assets/halloween/thumbs/halloween-venombackgrtound.webp"
+  },
+  {
+    "id": "effect-157",
+    "name": "Glitch",
+    "kind": "effect",
+    "src": "/profile-assets/ProfileEffect/glitch.png",
+    "rarity": "legendary",
+    "thumbnail": "/profile-assets/thumbs/effect-157.webp"
+  },
+  {
+    "id": "effect-158",
+    "name": "Duck",
+    "kind": "effect",
+    "src": "/profile-assets/ProfileEffect/duck.png",
+    "rarity": "uncommon",
+    "thumbnail": "/profile-assets/thumbs/effect-158.webp"
+  },
+  {
+    "id": "effect-159",
+    "name": "Mists",
+    "kind": "effect",
+    "src": "/profile-assets/ProfileEffect/mists.png",
+    "rarity": "epic",
+    "thumbnail": "/profile-assets/thumbs/effect-159.webp"
+  },
+  {
+    "id": "effect-160",
+    "name": "Celestial",
+    "kind": "effect",
+    "src": "/profile-assets/ProfileEffect/celestial.png",
+    "rarity": "mythic",
+    "thumbnail": "/profile-assets/thumbs/effect-160.webp"
+  },
+  {
+    "id": "effect-161",
+    "name": "Hello Kitty",
+    "kind": "effect",
+    "src": "/profile-assets/ProfileEffect/hellokitty.png",
+    "rarity": "epic",
+    "thumbnail": "/profile-assets/thumbs/effect-161.webp"
+  },
+  {
+    "id": "effect-162",
+    "name": "Samurai",
+    "kind": "effect",
+    "src": "/profile-assets/ProfileEffect/samurai.png",
+    "rarity": "legendary",
+    "thumbnail": "/profile-assets/thumbs/effect-162.webp"
   }
 ]

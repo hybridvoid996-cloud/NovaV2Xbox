@@ -18,13 +18,14 @@
   const cover = document.createElement('img'); cover.referrerPolicy='no-referrer'; cover.src = 'Nova12.png'; cover.alt = '';
   const meta = document.createElement('span'), title = document.createElement('b'), artist = document.createElement('small');
   title.textContent = 'Nova Music'; artist.textContent = 'Choose a song'; meta.append(title,artist); info.append(cover,meta);
-  info.onclick = async () => {await document.querySelector('.guide').close(); openPage('music');};
+  info.onclick = async () => {if(info.closest('.nova-runtime-menu'))return;await document.querySelector('.guide').close(); openPage('music');};
   const controls = document.createElement('div'); controls.className = 'music-controls';
   const buttons = {};
   for (const [action,label,glyph] of [['previous','Previous song','previous'],['toggle','Play music','play'],['next','Next song','next']]) {
     const b = document.createElement('button'); b.innerHTML = icon(glyph); b.setAttribute('aria-label',label); b.disabled = true;
     b.onclick = () => command(action); buttons[action] = b; controls.append(b);
   }
+  const heart=document.createElement('button');heart.type='button';heart.className='music-like';heart.disabled=true;heart.setAttribute('aria-label','Add to Liked Songs');heart.setAttribute('aria-pressed','false');heart.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>';heart.onclick=async()=>{if(!novaLibrary)return;heart.disabled=true;try{await novaLibrary.toggleLike();heart.removeAttribute('title')}catch(e){heart.title=e.message}finally{update()}};controls.append(heart);
   const volume = document.createElement('input'); volume.type = 'range'; volume.min = 0; volume.max = 100; volume.value = 70; volume.setAttribute('aria-label','Music volume'); volume.disabled = true;
   volume.oninput = () => command('setVolume',Number(volume.value)/100);
   const volumeIcon = document.createElement('span'); volumeIcon.innerHTML = icon('volume'); controls.append(volumeIcon,volume);
@@ -69,6 +70,7 @@
       });
     }
     title.textContent=track?.name || track?.title || 'Nova Music';
+    const saved=!!novaLibrary?.isLiked();heart.disabled=!track||!novaLibrary;heart.setAttribute('aria-pressed',String(saved));heart.setAttribute('aria-label',saved?'Remove from Liked Songs':'Add to Liked Songs');
     artist.textContent=track?.artist || track?.author || (track ? 'Now playing' : 'Choose a song');
     const artKey=String(track?.id||'')+'|'+(track?.name||track?.title||'');
     if(artKey!==lastArtworkTrack){lastArtworkTrack=artKey;failedArt.clear();renderedArtKey='';renderedArt=null;cover.src=idleArt;}
@@ -97,7 +99,7 @@
     try {
       const doc=view.element.contentDocument; if(!doc?.body)return;
       if(!doc.getElementById('nova-music-glass')) {
-        const style=doc.createElement('style'); style.id='nova-music-glass'; style.textContent=glass+(window.NovaOS?' .sidebar,.top-bar,.spotify-player,.np-inline,.now-playing-bar,.library-panel,.music-primary-nav,.music-brand{background:#18213322!important;border-color:#ffffff26!important;backdrop-filter:none!important}.music-brand-mark{color:#e4edff!important}':''); doc.head.append(style);
+        const style=doc.createElement('style'); style.id='nova-music-glass'; style.textContent=glass+' html,body,.main-panel,.content-area,.np-view{background:transparent!important;background-image:none!important}*,*::before,*::after{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}'+(window.NovaOS?' .sidebar,.top-bar,.spotify-player,.np-inline,.now-playing-bar,.library-panel,.music-primary-nav,.music-brand{background:#18213322!important;border-color:#ffffff26!important;backdrop-filter:none!important}.music-brand-mark{color:#e4edff!important}':''); doc.head.append(style);
         doc.title='Nova Music';
         doc.documentElement.style.setProperty('color-scheme','normal','important');
         doc.documentElement.style.setProperty('background','transparent','important');
@@ -107,7 +109,7 @@
         const walker=doc.createTreeWalker(doc.body,NodeFilter.SHOW_TEXT); let node;
         while((node=walker.nextNode()))if(!['SCRIPT','STYLE'].includes(node.parentElement?.tagName)&&/NEO Music|NEO MUSIC/.test(node.textContent))node.textContent=node.textContent.replace(/NEO Music|NEO MUSIC/g,'Nova Music');
       }
-      if(player()) {if(!libraryDocs.has(playerDocument)){libraryDocs.add(playerDocument);Promise.all([import('./music-library.js?v=20261013-music-recovery52'),import('./music-network.mjs')]).then(([m,network])=>{const transport=network.createMusicTransport({prefix:view.prefix,encode:value=>controller.config.codec.encode(value),origin:location.origin});return m.mountMusicLibrary({doc:playerDocument,searchRequest:transport.request,streamUrl:transport.url,artworkUrl:value=>{if(!value)return '';try{return view.prefix+controller.config.codec.encode(new URL(value,url).href)}catch{return value}},isAlive:()=>!!view?.element?.isConnected,player,playTrack:t=>{const win=playerDocument.defaultView;if(typeof win.playTrack!=='function')throw Error('The player is still loading.');return win.playTrack(t)},command,profile:()=>window.novaHomeProfile});}).then(value=>novaLibrary=value).catch(error=>{libraryDocs.delete(playerDocument);note.textContent=error.message;console.warn('Nova Music library could not load',error.message)})}ready=true;status.hidden=true;clearTimeout(timer);update();}
+      if(player()) {if(!libraryDocs.has(playerDocument)){libraryDocs.add(playerDocument);Promise.all([import('./music-library.js?v=20261015-music-stability60'),import('./music-network.mjs')]).then(([m,network])=>{const transport=network.createMusicTransport({prefix:view.prefix,encode:value=>controller.config.codec.encode(value),origin:location.origin});return m.mountMusicLibrary({doc:playerDocument,searchRequest:transport.request,streamUrl:transport.url,artworkUrl:value=>{if(!value)return '';try{return view.prefix+controller.config.codec.encode(new URL(value,url).href)}catch{return value}},isAlive:()=>!!view?.element?.isConnected,player,playTrack:t=>{const win=playerDocument.defaultView;if(typeof win.playTrack!=='function')throw Error('The player is still loading.');return win.playTrack(t)},command,profile:()=>window.novaHomeProfile});}).then(value=>novaLibrary=value).catch(error=>{libraryDocs.delete(playerDocument);note.textContent=error.message;console.warn('Nova Music library could not load',error.message)})}ready=true;status.hidden=true;clearTimeout(timer);update();}
     } catch {}
   }
   async function start() {
