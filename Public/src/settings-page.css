@@ -10,3 +10,6 @@
 @media(max-width:520px){.settings-shell{display:block;padding:20px 16px}.settings-side{position:relative;height:auto;overflow:visible;padding:0}.settings-brand{margin-bottom:14px}.settings-search{margin-bottom:10px}.settings-side nav{display:flex;overflow:auto;gap:6px;padding-bottom:12px}.settings-side nav button{flex:none;white-space:nowrap}.settings-side nav button svg{width:16px}.side-bottom{display:none}.settings-shell>main{padding-top:12px}.settings-shell>main>header{margin-bottom:12px}.row{gap:12px}.profile-banner{padding:20px;gap:14px}}
 
 .settings-shell{background-image:none!important}.settings-shell>main>header{backdrop-filter:none!important}.settings-side nav button{flex-shrink:0}.settings-side nav{flex-shrink:0}@media(max-height:700px) and (min-width:521px){.side-bottom{display:none}.settings-side nav{gap:3px}.settings-side nav button{min-height:38px;padding:9px 13px}}
+
+/* The selected Nova wallpaper remains visible behind Settings. */
+html.embedded,html.embedded body,html.embedded .settings-shell,html.embedded .settings-shell>main{background:transparent!important;background-image:none!important}html.embedded .card,html.embedded .stat{background:#101014d9!important}html.embedded .profile-banner{background:#1a1a21a6}html.embedded .settings-shell>main>header{text-shadow:0 2px 12px #0008}
