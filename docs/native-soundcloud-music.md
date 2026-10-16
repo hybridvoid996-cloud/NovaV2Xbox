@@ -1,36 +1,21 @@
 # Native Nova Music
 
+Nova renders its own Spotify-style interface with SoundCloud search, artist and release pages, private Nova playlists, likes, queue, listening parties, and one state shared with Nova Menu. Existing music backend authorization and ownership rules remain authoritative.
 
+## Playback
 
-The Home music integration now loads a native Nova interface instead of the old Netlify music application. It uses a single HTML audio element, a pinned local HLS.js build, and the same player state for the app and Nova Menu. music.html is the standalone/pop-out entry. The visual shell has a searchable SoundCloud catalogue, library, real artwork, Nova account identity, now-playing queue, liked songs, playlist creation/rename/pin/delete, shuffle/repeat, seeking, volume and media-session controls.
+Public formats supported by HTML audio/HLS use the same-origin `/api/soundcloud` relay. The fixed HTTPS provider-CDN allowlist applies to audio, artwork, HLS manifests, segments, and standard keys/init references. Metadata is bounded/cached, uses anonymous public provider data, and does not send Nova identity or cookies to SoundCloud. This integration depends on SoundCloud's current anonymous interfaces and can be affected by provider changes, rate limits, and geography.
 
+An unsupported or encrypted format is not evidence that Go+ is required. These songs remain selectable and saveable. The server returns a fixed official widget URL rather than attempting to decrypt protected streams. `nova-music-guest.mjs` uses the documented SoundCloud Widget API in a credentialless iframe with autoplay/encrypted-media permissions. Nova bridges play, pause, seek, duration, position, volume, ended events, and party state. The provider decides guest access and preview duration. A visible player opens when a direct interaction is needed; retries/timeouts are bounded.
 
+The guest fallback connects directly to SoundCloud, so it is not an all-traffic proxy and can still be blocked by school networking or browser media restrictions. No protection, authentication, signup gate, subscription entitlement, or browser security restriction is bypassed. Ads/embedded sponsorship cannot be universally guaranteed absent. The test browser loads Addicted and reports its duration, but does not sustain its protected-format playback; do not claim full playback of that song was verified.
 
-SoundCloud search and stream resolution use anonymous public web data through /api/soundcloud. The service reads only the public apiClient hydration entry, caches it for 20 minutes, refreshes once after authorization expiry, and never sends Nova identity or cookies to SoundCloud. Search results and metadata are bounded/cached. This public web integration depends on SoundCloud's current anonymous interfaces; provider changes, rate limits, region restrictions, or unavailable tracks can still require a retry. BLOCK/SNIP/unstreamable tracks and snipped/DRM transcodings are rejected. No SoundCloud account or subscription access is circumvented.
+## Play/Pause interruption fix
 
+Playback intent is tracked separately from the media element's paused state. Pausing a pending play or replacing its source cancels stale completions. Duplicate Play requests share the pending operation. A current transient AbortError retries once; canceled/stale requests do not overwrite the new song or surface raw browser exceptions. Autoplay denial waits for a click. Metadata listeners are removed when a source changes. Party sync reads the selected transport snapshot, including guest playback, instead of the inactive native audio element.
 
+## Validation and deployment
 
-Audio, HLS manifests, encryption/init references, segments and artwork are served through a fixed HTTPS provider-CDN allowlist. Arbitrary origins, credentials, ports and HTTP are rejected. Redirects are not followed. No SoundCloud page, widget, advertising SDK, registration screen or third-party UI script runs in the Nova client. Advertisements or sponsorship already present in a recording are not removed or promised removable. HLS audio keeps a short buffer and uses one worker; there is no animation-frame or DOM-observer polling loop. One automatic network recovery is allowed per track; later failures expose Retry.
+93 music tests pass, covering private backend/party behavior, catalog identity, guest routing, rapid pause during pending play, stale play rejection, bounded interruption recovery, autoplay denial, and transport state. Real proxied native audio was verified in Nova at readyState 4 with advancing position. Existing HLS.js 1.6.13 remains locally pinned, with its Apache-2.0 license retained. Required-file checks include the guest module. No real invitations, party messages, or playlist mutations were sent during this revision's UI checks.
 
-
-
-Existing private /api/music APIs remain authoritative for likes, playlists, invitations and up-to-five-member parties. SoundCloud identity is sc:<numeric track ID>. Old-provider songs are preserved, but are not falsely treated as SoundCloud recordings. Queue/playback state is host-authoritative, with long polling, 25-second heartbeats, corrected server clock offsets, bounded drift correction, stale-request guards and autoplay recovery. Party audio requires the listener to press Play if browser autoplay rules reject it. Saved-library mutations are serialized.
-
-
-
-Validation: 81 music/SoundCloud tests pass, including the real backend with two isolated accounts, private library enforcement, party ownership and queue synchronization. Browser checks cover actual SoundCloud audio (readyState 4, advancing position), pause, Nova Menu metadata/artwork/progress, isolated playlist creation, saving/liking a track, hosting a playlist and immediate search-row like updates. The 1024px layout has no horizontal overflow. npm run build passes. No real party invitations, party chat messages or playlist writes were sent during UI testing. Temporary UI fixture files are removed after verification.
-
-
-
-Deployment must include Public, api/soundcloud.js, server/soundcloud-service.mjs and the usual API handlers. No new SoundCloud account credentials are required for the current public integration. The endpoint is included in localhost routing and Vercel functions.
-
-
-
-Dependency: HLS.js 1.6.13, Apache-2.0 license retained in Public/vendor/hls-LICENSE.txt. Official references: https://github.com/video-dev/hls.js and https://developers.soundcloud.com/docs/api/guide.
-
-
-
-Catalog revision 106: mixed SoundCloud search now includes verified artists, albums, playlists and songs, with All/Songs/Artists/Albums/Playlists filters. Artist pages load provider tracks and releases; album/playlist pages resolve stub tracks without changing order. Restricted songs remain visible with a Go+/restricted label, disabled playback/save controls, and are excluded from playable queues and imported Nova playlists. Stream resolution still rejects restricted audio. Search and home use compact neutral panels and horizontal shelves; the right panel starts hidden until playback. Home discovery uses recent artist history rather than a fixed lofi query. 86 music tests pass, including catalog identity, restriction visibility, artist pages and album track expansion. Live public Yeat search confirms the verified profile and COCOON release, whose seven songs are restricted.
-
-
-Revision 107 also detects protected-only cbc/ctr-encrypted-hls sources during catalog normalization. These remain visible as SoundCloud player required, rather than failing after a Play click. Standard public HLS stream resolution forwards only the provider-supplied track authorization on the server. Restricted preview durations are not presented as full song lengths.
+Deploy Public (including all music modules), api/soundcloud.js, server/soundcloud-service.mjs and the existing API handlers together. The current frontend cache stamp is 20261016-sc109. Local changes do not update an already-deployed site. SoundCloud Widget API reference: https://developers.soundcloud.com/docs/api/html5-widget
