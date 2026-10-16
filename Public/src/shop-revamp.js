@@ -1,7 +1,7 @@
 import {hackProducts} from './hack-products.mjs';
 import {createShopModel} from './shop-models.js';
 const request=(ctx,action,data)=>ctx.shopRequest?ctx.shopRequest(action,data):import('./control-client.js').then(({control})=>control(action,data));
-import {shopOdds,shopPrices,halloweenEnd,rarityLabel} from './shop-config.mjs';
+import {shopOdds,shopPrices,halloweenEnd,rarityLabel} from './shop-config.mjs?v=20261016-economy95';
 const node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n};
 const reduced=()=>matchMedia('(prefers-reduced-motion:reduce)').matches||document.body.classList.contains('chat-reduced-motion')||localStorage.getItem('nova_reduce_motion')==='true';
 function stylesheet(){document.body.classList.toggle('shop-lite-effects',localStorage.getItem('nova_performance_mode')==='true'||navigator.hardwareConcurrency<=4);if(document.getElementById('shop-revamp-style'))return;const link=node('link');link.id='shop-revamp-style';link.rel='stylesheet';link.href='/src/shop-revamp.css';document.head.append(link)}

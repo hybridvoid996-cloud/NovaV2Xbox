@@ -10,6 +10,7 @@ await writeFile(scramFile,patchProxyText(patchProxyWorklets(patchProxyXHR(patchP
 const adPolicy=(await readFile(new URL('../Public/src/ad-policy.mjs',import.meta.url),'utf8')).replaceAll('export function','function');
 const adHook=await readFile(new URL('../Public/src/ad-block-inject.js',import.meta.url),'utf8');
 const audioHook=await readFile(new URL('../Public/src/game-audio-inject.js',import.meta.url),'utf8');
+const sessionHook=await readFile(new URL('../Public/src/session-inject.js',import.meta.url),'utf8');
 const injectFile=new URL('../Public/~/sj/controller/controller.inject.js',import.meta.url);
-await writeFile(injectFile,await readFile(injectFile,'utf8')+'\n(()=>{'+adPolicy+'\n'+adHook+'})();\n'+audioHook);
+await writeFile(injectFile,await readFile(injectFile,'utf8')+'\n(()=>{'+adPolicy+'\n'+adHook+'})();\n'+audioHook+'\n'+sessionHook);
 console.log('Built Neon Arcade pinned connection bundles.');

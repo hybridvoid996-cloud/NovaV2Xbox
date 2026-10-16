@@ -7608,7 +7608,7 @@
     "id": 881,
     "name": "Fortnite On Browser 1.8",
     "art": "content/covers/881.png",
-    "url": "/game-runtime/fortnite18/fortnite/",
+    "url": "/content/fortnite-browser/fortnite/index.html",
     "genres": [
       "Action"
     ]

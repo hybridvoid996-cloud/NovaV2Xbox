@@ -31,3 +31,5 @@ function adBlockingEnabled(storage){try{return storage.getItem('nova_ad_blocker'
  }
  window.__novaAudioMixer={setVolume(value){volume=clamp(value);for(const gain of gains){if(gain.context.state==='closed'){gains.delete(gain);continue}gain.gain.setValueAtTime(volume,gain.context.currentTime)}},get volume(){return volume}};
 })();
+
+(()=>{try{let host=window.parent;for(let depth=0;depth<8&&host;depth++){if(host.NovaSessionRuntime?.attachChild){host.NovaSessionRuntime.attachChild(window);break}if(host===host.parent)break;host=host.parent}}catch{}})();

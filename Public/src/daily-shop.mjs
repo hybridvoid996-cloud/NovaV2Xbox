@@ -1,6 +1,6 @@
-import {shopPrices,halloweenEnd} from './shop-config.mjs';
+import {cosmeticRarityPrices,cosmeticCategoryMultipliers,halloweenEnd} from './shop-config.mjs?v=20261016-economy95';
 export const DAY=86400000;
-export function cosmeticPrice(item,kind=item.kind){const multiplier={common:2,uncommon:3,epic:6,legendary:10,mythic:20,singularity:40}[item.rarity]||2;return shopPrices[kind][1]*multiplier}
+export function cosmeticPrice(item,kind=item.kind){const base=cosmeticRarityPrices[item.rarity]||cosmeticRarityPrices.common;return Math.round(base*(cosmeticCategoryMultipliers[kind]||1))}
 function hash(value){let n=2166136261;for(const c of value){n^=c.charCodeAt(0);n=Math.imul(n,16777619)}return n>>>0}
 export function dailyShop(items,now=Date.now()){
  const day=Math.floor(now/DAY),endsAt=(day+1)*DAY,groups=[];

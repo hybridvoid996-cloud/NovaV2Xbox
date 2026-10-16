@@ -3,7 +3,7 @@
  const panel=document.getElementById('panel'),video=document.getElementById('bg-video');
  let lastVisible;
  const lightEffects=()=>{const saved=localStorage.getItem('nova_performance_mode');return saved==='true'||(saved!=='false'&&(window.innerWidth<=1500||(navigator.hardwareConcurrency>0&&navigator.hardwareConcurrency<=4)||(navigator.deviceMemory>0&&navigator.deviceMemory<=4)));};
- const staticWallpaper=()=>lightEffects()&&!!video?.poster;
+ const staticWallpaper=()=>localStorage.getItem('nova_performance_mode')==='true'||localStorage.getItem('nova_reduce_motion')==='true';
 
  const backgroundVisible=()=>!document.hidden&&(!panel||panel.hidden)&&!document.querySelector?.('.os-window.os-maximized:not([hidden])');
  function update(){
@@ -11,7 +11,8 @@
   if(visible!==lastVisible){lastVisible=visible;dispatchEvent(new CustomEvent('nova-background-visibility',{detail:{visible}}));}
   if(!video)return;
   if(!visible||staticWallpaper()||video.hidden||localStorage.getItem('nova_grad')||localStorage.getItem('nova_performance_mode')==='true'||localStorage.getItem('nova_reduce_motion')==='true')video.pause();
-  video.style.visibility=staticWallpaper()?'hidden':'';
+  video.style.visibility='';
+  if(staticWallpaper()&&video.readyState>=1&&video.readyState<2&&video.currentTime===0&&video.duration>0)video.currentTime=Math.min(.1,video.duration/2);
   if(visible&&!staticWallpaper()&&!video.hidden&&!localStorage.getItem('nova_grad')&&localStorage.getItem('nova_performance_mode')!=='true'&&localStorage.getItem('nova_reduce_motion')!=='true'&&video.paused)video.play().catch(()=>{});
  }
  window.NovaPerformance={backgroundVisible,update,staticWallpaper};

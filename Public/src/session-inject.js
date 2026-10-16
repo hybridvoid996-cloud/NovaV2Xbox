@@ -1,0 +1,1 @@
+(()=>{try{let host=window.parent;for(let depth=0;depth<8&&host;depth++){if(host.NovaSessionRuntime?.attachChild){host.NovaSessionRuntime.attachChild(window);break}if(host===host.parent)break;host=host.parent}}catch{}})();

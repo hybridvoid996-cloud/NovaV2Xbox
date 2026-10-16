@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {shopPrices} from '../Public/src/shop-config.mjs';
+test('crate bundles remain discounted with a sensible ascending total cost',()=>{for(const row of Object.values(shopPrices)){let previous=0;for(const count of [1,3,7,10]){const cost=row[count];assert.ok(Number.isSafeInteger(cost));assert.ok(cost>previous);if(count>1)assert.ok(cost<count*row[1]);previous=cost}assert.ok(row[1]>=5000)}});
