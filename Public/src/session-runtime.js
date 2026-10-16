@@ -4,7 +4,7 @@
  function install(win){
   try{if(states.has(win.document))return states.get(win.document);const doc=win.document;
    const native={timeout:win.setTimeout.bind(win),clear:win.clearTimeout.bind(win),raf:win.requestAnimationFrame.bind(win),cancel:win.cancelAnimationFrame.bind(win)};
-   doc.documentElement.dataset.novaSessionState='active';let paused=false;const timers=new Map(),frames=new Map(),media=new Set(),contexts=new Set(),runningContexts=new Set(),animations=new Set();
+   doc.documentElement.dataset.novaSessionState='active';const pauseStyle=doc.createElement?.('style');if(pauseStyle){pauseStyle.textContent='html[data-nova-session-state="paused"] *,html[data-nova-session-state="paused"] *::before,html[data-nova-session-state="paused"] *::after{animation-play-state:paused!important}';(doc.head||doc.documentElement).appendChild(pauseStyle)}let paused=false;const timers=new Map(),frames=new Map(),media=new Set(),contexts=new Set(),runningContexts=new Set(),animations=new Set();
    const now=win.performance.now.bind(win.performance);let suspendedTime=0,pauseStarted=0;
    // Preserve the simulation clock so returning does not produce a huge frame delta.
    try{Object.defineProperty(win.performance,'now',{configurable:true,value:()=>now()-suspendedTime-(paused?now()-pauseStarted:0)})}catch{}
@@ -33,8 +33,8 @@
    return state;
   }catch{return null}
  }
- function tree(win,paused,visited=new Set()){if(!win||visited.has(win))return;visited.add(win);try{install(win)?.setSuspended(paused);for(const frame of win.document.querySelectorAll('iframe'))tree(frame.contentWindow,paused,visited)}catch{}}
+ function tree(win,paused,visited=new Set()){if(!win||visited.has(win))return;visited.add(win);try{install(win)?.setSuspended(paused);for(const frame of win.document.querySelectorAll('iframe'))tree(frame.contentWindow,paused||!!frame.hidden,visited)}catch{}}
  window.NovaSessionRuntime={install,tree};
  // Player is the control boundary; the Home interface and Nova Music stay independent.
- if(/\/player\.html$/.test(location.pathname)){const state=install(window);window.NovaSessionRuntime.attachChild=child=>tree(child,state?.paused||false);window.NovaSessionRuntime.setSuspended=value=>tree(window,!!value)}
+ if(/\/(?:player|search|novatube|novamovies)\.html$/.test(location.pathname)){const state=install(window);window.NovaSessionRuntime.attachChild=child=>tree(child,!!state?.paused||[...document.querySelectorAll('iframe')].some(frame=>frame.contentWindow===child&&frame.hidden));window.NovaSessionRuntime.setSuspended=value=>tree(window,!!value)}
 })();
