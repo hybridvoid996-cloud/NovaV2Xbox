@@ -1,4 +1,4 @@
-import {SoundCloudGuestPlayer} from './nova-music-guest.mjs?v=20261016-sc109';
+import {SoundCloudGuestPlayer} from './nova-music-guest.mjs?v=20261016-sc112';
 let hlsScript;
 function loadHLS(){if(window.Hls)return Promise.resolve(window.Hls);return hlsScript??=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='/vendor/hls-1.6.13.min.js';script.onload=()=>resolve(window.Hls);script.onerror=()=>{hlsScript=null;reject(Error('The audio player could not load. Please retry.'))};document.head.append(script)})}
 export const isSoundCloud=t=>!!t&&/^sc:\d{1,20}$/.test(String(t.id));
