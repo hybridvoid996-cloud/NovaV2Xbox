@@ -1,0 +1,77 @@
+import {Readable} from 'node:stream';
+const ORIGIN='https://oda-loves-vng.renaca.com';
+const clean=value=>String(value||'').replace(/[\[(]\s*prod(?:uced)?\.?[^\])]*[\])]/gi,'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\b(?:official (?:audio|video)|lyrics? video)\b/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+export function alternativeMatch(input,candidate){
+ const artist=clean(input.artist),name=clean(input.title).replace(new RegExp('^'+artist+' '),'');
+ const actual=clean(candidate.title),by=clean(candidate.artist);
+ const duration=Number(input.duration),length=Number(candidate.duration);
+ return !!artist&&!!name&&by===artist&&actual===name&&Number.isFinite(duration)&&duration>0&&Number.isFinite(length)&&length>0&&Math.abs(length-duration)<=Math.max(6,Math.min(12,duration*.05))&&/^\d{1,20}$/.test(String(candidate.id));
+}
+export function createAlternativeMusic({request=fetch,now=Date.now}={}){
+ const cache=new Map(),pending=new Map(),metadata=new Map();
+ async function catalog(path,signal){
+  const hit=metadata.get(path);if(hit?.expires>now())return hit.job;
+  const job=request(new URL(path,ORIGIN),{headers:{Accept:'application/json'},redirect:'error',signal}).then(async response=>{if(!response.ok)throw Error('Alternative music is temporarily unavailable.');return response.json()});
+  const entry={job,expires:now()+120000};metadata.set(path,entry);
+  if(metadata.size>100)metadata.delete(metadata.keys().next().value);
+  job.catch(()=>{if(metadata.get(path)===entry)metadata.delete(path)});return job;
+ }
+ async function search(query){
+  const q=String(query||'').trim();if(!q||q.length>160)throw Error('Enter a music search up to 160 characters.');
+  const url=new URL('/~a/api/search',ORIGIN);url.searchParams.set('q',q);
+  const response=await request(url,{headers:{Accept:'application/json'},redirect:'error',signal:AbortSignal.timeout(7000)});if(!response.ok)throw Error('Voidify search is unavailable.');
+  const data=await response.json();return {tracks:(Array.isArray(data.tracks)?data.tracks:[]).filter(t=>/^\d{1,20}$/.test(String(t.id))&&t.title&&t.artist).slice(0,40).map(t=>({id:String(t.id),title:String(t.title).slice(0,200),artist:String(t.artist).slice(0,200),album:String(t.album||'').slice(0,200),duration:Math.max(0,Number(t.duration)||0),art:/^[A-Za-z0-9_+=/-]{1,1000}$/.test(t.art||'')?t.art:''}))};
+ }
+ async function art(req,res,token){
+  if(!/^[A-Za-z0-9_+=/-]{1,1000}$/.test(String(token||'')))throw Error('Invalid cover.');
+  const url=new URL('/~a/img',ORIGIN);url.searchParams.set('u',token);
+  const response=await request(url,{redirect:'error',signal:AbortSignal.timeout(7000)});if(!response.ok||!/^image\/(?:jpeg|png|webp|avif)/i.test(response.headers.get('content-type')||'')){await response.body?.cancel();throw Error('Cover unavailable.');}
+  res.setHeader('Content-Type',response.headers.get('content-type'));res.setHeader('Cache-Control','public, max-age=3600');res.setHeader('Cross-Origin-Resource-Policy','same-origin');
+  if(req.method==='HEAD'){await response.body?.cancel();return res.end()}
+  Readable.fromWeb(response.body).on('error',()=>res.destroy()).pipe(res);
+ }
+ async function find(title,artist,duration){
+  const input={title:String(title||'').trim(),artist:String(artist||'').trim(),duration:Number(duration)};
+  if(!input.title||!input.artist||input.title.length>200||input.artist.length>200||!Number.isFinite(input.duration)||input.duration<=0||input.duration>86400)throw Error('A title, artist and duration are required to match alternative audio.');
+  const key=JSON.stringify(input),hit=cache.get(key);if(hit?.expires>now())return hit.data;if(pending.has(key))return pending.get(key);
+  const job=(async()=>{
+   const signal=AbortSignal.timeout(5000);
+   const data=await catalog('/~a/api/search?q='+encodeURIComponent(input.artist+' '+input.title),signal);
+   const choose=tracks=>(Array.isArray(tracks)?tracks:[]).filter(track=>alternativeMatch(input,track)).sort((a,b)=>Math.abs(Number(a.duration)-input.duration)-Math.abs(Number(b.duration)-input.duration))[0];
+   let match=choose(data.tracks);
+   if(!match){
+    try{
+     const artistData=await catalog('/~a/api/search?q='+encodeURIComponent(input.artist),signal);
+     match=choose(artistData.tracks);
+     if(!match){
+      const albums=[...(Array.isArray(data.albums)?data.albums:[]),...(Array.isArray(artistData.albums)?artistData.albums:[])];
+      const ids=[...new Set(albums.filter(album=>clean(album.artist)===clean(input.artist)&&/^\d{1,20}$/.test(String(album.id))).map(album=>String(album.id)))].slice(0,12);
+      const results=await Promise.allSettled(ids.map(id=>catalog('/~a/api/album/'+id,signal)));
+      match=choose(results.flatMap(result=>result.status==='fulfilled'&&Array.isArray(result.value.tracks)?result.value.tracks:[]));
+     }
+    }catch{/* An unavailable album index must not replace the selected recording. */}
+   }
+   const result=match?{found:true,provider:'Voidify',title:String(match.title),artist:String(match.artist),duration:Number(match.duration),album:String(match.album||''),albumId:/^\d{1,20}$/.test(String(match.albumId))?'void:'+match.albumId:'',thumb:/^[A-Za-z0-9_+=/-]{1,1000}$/.test(match.art||'')?'/api/soundcloud?op=void-art&token='+encodeURIComponent(match.art):'',url:'/api/soundcloud?op=alternate-audio&id='+match.id}:{found:false};
+   if(cache.size>=80)cache.delete(cache.keys().next().value);cache.set(key,{data:result,expires:now()+(match?120000:30000)});return result;
+  })().finally(()=>pending.delete(key));pending.set(key,job);return job;
+ }
+ async function audio(req,res,id){
+  if(!/^\d{1,20}$/.test(String(id)))throw Error('Invalid alternative song.');
+  const headers={};if(req.headers?.range&&/^bytes=\d+-\d*$/.test(req.headers.range))headers.Range=req.headers.range;
+  // The deadline covers connection setup, not the lifetime of the song body.
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),30000);
+  timer.unref?.();res.once?.('close',()=>controller.abort());
+  let response;try{response=await request(new URL('/~a/stream/'+id,ORIGIN),{method:req.method,headers,redirect:'error',signal:controller.signal})}finally{clearTimeout(timer)}
+  if(!response.ok||!/^audio\//i.test(response.headers.get('content-type')||'')){await response.body?.cancel();throw Error('The alternative audio stream is unavailable.');}
+  res.statusCode=response.status;res.setHeader('Content-Type',response.headers.get('content-type'));res.setHeader('Cache-Control','private, max-age=120');res.setHeader('Cross-Origin-Resource-Policy','same-origin');
+  for(const name of ['content-length','content-range','accept-ranges'])if(response.headers.get(name))res.setHeader(name,response.headers.get(name));
+  if(req.method==='HEAD'||!response.body){await response.body?.cancel();return res.end()}
+  const stream=Readable.fromWeb(response.body);res.once?.('close',()=>stream.destroy());stream.on('error',()=>res.destroy()).pipe(res);
+ }
+ async function album(id){
+  if(!/^\d{1,20}$/.test(String(id)))throw Error('Invalid album.');
+  const data=await catalog('/~a/api/album/'+id,AbortSignal.timeout(7000));
+  return {release:{id:'void:'+id,title:String(data.title||'Album'),artist:String(data.artist||''),kind:'album',thumb:data.art?'/api/soundcloud?op=void-art&token='+encodeURIComponent(data.art):'',count:data.tracks?.length||0},tracks:(Array.isArray(data.tracks)?data.tracks:[]).filter(t=>/^\d{1,20}$/.test(String(t.id))).map(t=>({id:'void:'+t.id,src:'void',title:t.title,artist:t.artist,duration:Number(t.duration)||0,album:data.title,albumId:'void:'+id,thumb:t.art?'/api/soundcloud?op=void-art&token='+encodeURIComponent(t.art):'',playable:true}))};
+ }
+ return {find,audio,search,art,album};
+}

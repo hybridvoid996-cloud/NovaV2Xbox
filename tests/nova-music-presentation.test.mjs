@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {musicAppearance} from '../Public/src/nova-music-presentation.mjs';
+test('appearance defaults keep stars opt-in and discard unrecognized values',()=>{assert.deepEqual(musicAppearance(),{stars:false,motion:true,albumColors:true});assert.deepEqual(musicAppearance({stars:true,motion:false,albumColors:false,unsafe:'x'}),{stars:true,motion:false,albumColors:false});assert.equal(musicAppearance({stars:'true'}).stars,false)});

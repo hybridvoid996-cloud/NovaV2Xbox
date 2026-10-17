@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {artworkColors} from '../Public/src/nova-music-ambience.mjs';
+test('artwork colors are subdued and deterministic and transparent images have neutral fallbacks',()=>{const colors=artworkColors(new Uint8ClampedArray([200,100,50,255,200,100,50,255,200,100,50,255]));assert.deepEqual(colors,['72 36 18','72 36 18','72 36 18']);assert.equal(artworkColors(new Uint8ClampedArray([255,0,0,0])).length,3)});

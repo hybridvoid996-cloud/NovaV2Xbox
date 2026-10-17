@@ -16,3 +16,5 @@ body.nova-main .main-mond-clock{top:35%}
 @media(prefers-reduced-motion:reduce){#home-continue{animation:none}.continue-card{transition:none}}
 body.reduce-motion #home-continue{animation:none}body.reduce-motion .continue-card{transition:none}
 
+/* The continuation shelf belongs only to Home, never behind library/app views. */
+body.main-library-page #home-continue,body.nova-content-active #home-continue,body:has(#panel:not([hidden])) #home-continue{display:none!important}

@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {reorderDestination} from '../Public/src/nova-music-reorder.mjs';import {moveSong} from '../server/music-order.mjs';import {key} from '../Public/src/music-core.mjs';
+const tracks=['1','2','3','4'].map(id=>({id:'sc:'+id}));
+function move(from,to,after){const before=reorderDestination(tracks,from,to,after);return moveSong(tracks,key({id:from}),before===null?null:key({id:before})).map(t=>t.id)}
+test('dragging up and down uses insertion edges without losing songs',()=>{assert.deepEqual(move('sc:4','sc:1',false),['sc:4','sc:1','sc:2','sc:3']);assert.deepEqual(move('sc:1','sc:3',true),['sc:2','sc:3','sc:1','sc:4']);assert.deepEqual(move('sc:1','sc:4',true),['sc:2','sc:3','sc:4','sc:1']);assert.deepEqual(move('sc:2','sc:3',false),tracks.map(t=>t.id))});
+test('invalid and self drops have no destination',()=>{assert.equal(reorderDestination(tracks,'sc:1','sc:1'),undefined);assert.equal(reorderDestination(tracks,'missing','sc:1'),undefined)});
