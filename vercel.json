@@ -23,6 +23,10 @@
     "api/soundcloud.js": {
       "maxDuration": 30,
       "excludeFiles": "{Public,remote-agent,tests}/**"
+    },
+    "api/novatube.js": {
+      "maxDuration": 30,
+      "excludeFiles": "{Public,remote-agent,tests}/**"
     }
   },
   "outputDirectory": "Public",

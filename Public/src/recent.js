@@ -75,15 +75,16 @@
     const items=recent.slice(0,5),signature=JSON.stringify(items.map((g,i)=>[identity(g),g.name,g.art,i===0&&enabled&&!!retained(g)?.isConnected]));
     if(continueSignature===signature)return;continueSignature=signature;
     host.replaceChildren();host.hidden=!items.length;if(!items.length)return;
+    const heading=document.createElement('h2');heading.className='continue-heading';heading.textContent='Resume & recent';host.append(heading);
     const row=document.createElement('div');row.className='continue-cards';
     items.forEach((g,i)=>{
       const live=i===0&&enabled&&retained(g)?.isConnected;
-      const b=document.createElement('button');b.type='button';b.className='continue-card'+(i===0?' continue-primary':'');
+      const b=document.createElement('button');b.type='button';b.className='continue-card'+(i===0?' continue-primary':'')+(live?' is-resumable':'');
       const label=(live?'Resume ':'Open ')+g.name;b.setAttribute('aria-label',label);b.title=label;
       const img=document.createElement('img');img.src=g.art||'Nova12.png';img.alt='';img.width=96;img.height=96;img.decoding='async';img.onerror=()=>{img.onerror=null;img.src='Nova12.png'};
       b.append(img);
-      if(live){const play=document.createElement('span');play.className='continue-play';play.textContent='▶';play.setAttribute('aria-hidden','true');b.append(play)}
-      b.onclick=()=>launch(g);row.append(b);
+      if(live){const play=document.createElement('span');play.className='continue-play';play.textContent='▶ Resume';play.setAttribute('aria-hidden','true');b.append(play)}
+      b.onclick=()=>launch(g);const entry=document.createElement('div');entry.className='continue-entry';entry.append(b);if(live){const close=document.createElement('button');close.type='button';close.className='continue-close';close.textContent='×';close.title='Close '+g.name+' fully';close.setAttribute('aria-label','Close '+g.name+' fully');close.onclick=e=>{e.preventDefault();e.stopPropagation();closeRetained(g)};entry.append(close)}row.append(entry);
     });host.append(row);
   }
   function openSystem(page){
@@ -94,9 +95,18 @@
     frame=pages.get(key);frame.dataset.used=String(Date.now());frame.id='system';frame.hidden=false;trimApps();
     syncAll();if(systemCards[page])record({id:page,kind:'system',...systemCards[page]});
   }
+  function closeRetained(g){
+    const el=retained(g);if(!el)return;
+    // Removing the browsing context stops its audio, timers, and nested frames.
+    el.src='about:blank';el.remove();
+    for(const [id,value]of sessions)if(value===el)sessions.delete(id);
+    for(const [id,value]of pages)if(value===el)pages.delete(id);
+    if(!frame.isConnected)frame=freshFrame();
+    renderContinue();
+  }
   function invalidate(g){const id=account()+':'+identity(g),el=sessions.get(id);if(el){el.src='about:blank';el.remove();sessions.delete(id)}if(!frame.isConnected)frame=freshFrame();}
   function stopCurrent(target=frame){for(const [id,el]of sessions)if(el===target){el.src='about:blank';el.remove();sessions.delete(id)}if(!frame.isConnected)frame=freshFrame();}
-  window.NovaRecent={list,record,park,launch,resume,invalidate,openSystem,stopCurrent,syncSessions:syncAll};
+  window.NovaRecent={list,record,closeRetained,park,launch,resume,invalidate,openSystem,stopCurrent,syncSessions:syncAll};
   fetch('home-covers.json').then(r=>r.json()).then(rows=>{defaults=rows;render();}).catch(render);
   addEventListener('storage',render);addEventListener('nova-profile-changed',render);render();window.novaGuideRender?.('home');
 })();

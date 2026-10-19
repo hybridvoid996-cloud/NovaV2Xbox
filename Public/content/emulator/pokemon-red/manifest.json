@@ -2,15 +2,16 @@
   {
     "file": "loader.js",
     "url": "https://cdn.jsdelivr.net/gh/a456pur/seraph@81f551ca0aa8e3d6018d32d8ac5904ac9bc78f76/storage/emulatorjs/data/loader.js",
-    "bytes": 4732,
-    "sha256": "e0c194b0df2c2e5c041940c1926d4ff3d09e9748422412030d8456b24eb5cecc"
+    "bytes": 4962,
+    "sha256": "3e4246c2a83f5d35f85ed239a4d588dc1ee42c2e9a38f6ea051b4b64b3b001db",
+    "patch": "Nova compatibility repairs: fetch binary downloads, prepared local cores and stable archive worker URLs; see scripts/patch-emulator-response.mjs and content/noah-import/emulator-download.js."
   },
   {
     "file": "emulator.min.js",
     "url": "https://cdn.jsdelivr.net/gh/a456pur/seraph@81f551ca0aa8e3d6018d32d8ac5904ac9bc78f76/storage/emulatorjs/data/emulator.min.js",
-    "patch": "Optional developer update check disabled for the local bundle.",
-    "bytes": 295434,
-    "sha256": "8b7d5ccd2dbfdd6250d95c81555ca20c2b317a102a77af8f84eb3eb2f8faa01f"
+    "patch": "Nova compatibility repairs: fetch binary downloads, prepared local cores and stable archive worker URLs; see scripts/patch-emulator-response.mjs and content/noah-import/emulator-download.js.",
+    "bytes": 295413,
+    "sha256": "f8d7f9b1bb5016ca4789c646b2cf27fed8688f4a82a91fb01055e39b7f71b9cc"
   },
   {
     "file": "emulator.min.css",

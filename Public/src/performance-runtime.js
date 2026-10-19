@@ -2,7 +2,8 @@
 (()=>{
  const panel=document.getElementById('panel'),video=document.getElementById('bg-video');
  let lastVisible;
- const lightEffects=()=>{const saved=localStorage.getItem('nova_performance_mode');return saved==='true'||(saved!=='false'&&(window.innerWidth<=1500||(navigator.hardwareConcurrency>0&&navigator.hardwareConcurrency<=4)||(navigator.deviceMemory>0&&navigator.deviceMemory<=4)));};
+ // Device size and reported hardware do not change the default visual experience.
+ const lightEffects=()=>localStorage.getItem('nova_performance_mode')==='true';
  const staticWallpaper=()=>localStorage.getItem('nova_performance_mode')==='true'||localStorage.getItem('nova_reduce_motion')==='true';
 
  const backgroundVisible=()=>{if(document.hidden||document.querySelector?.('.os-window.os-maximized:not([hidden])'))return false;if(!panel||panel.hidden)return true;if(panel.dataset.view==='search'){try{return !document.getElementById('system')?.contentDocument?.getElementById('newtab')?.hidden}catch{return false}}return false};

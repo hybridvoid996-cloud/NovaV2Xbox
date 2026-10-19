@@ -1,0 +1,296 @@
+[
+  {
+    "path": "assets/minesweeper/minesweeper.css",
+    "bytes": 6174,
+    "sha256": "a39d598f2ce8c199ff93909f304a19f1eec9909d3e967be0ac7f844dbe32d062",
+    "source": "https://turbo.freevideogames.org/includes/css/minesweeper.css"
+  },
+  {
+    "path": "assets/minesweeper/screenfull.min.js",
+    "bytes": 2220,
+    "sha256": "6e437f29404be18f3b897841069656b93d962cb0f8834a2127a0d7d6c34e8801",
+    "source": "https://turbo.freevideogames.org/includes/js/screenfull.min.js"
+  },
+  {
+    "path": "assets/minesweeper/core-game-site.css",
+    "bytes": 2352,
+    "sha256": "826a7756a221800c8fd01a0020f6d30fa55094508824e5ae2655607da9ac11c8",
+    "source": "https://turbo.freevideogames.org/includes/css/core-game-site.css"
+  },
+  {
+    "path": "assets/minesweeper/side-navigation.css",
+    "bytes": 5245,
+    "sha256": "379d8ccba85a4bcb915732fc38f0ebad3dffee33bd491ca3ccd596e2b409fa96",
+    "source": "https://turbo.freevideogames.org/includes/css/side-navigation.css"
+  },
+  {
+    "path": "assets/minesweeper/minesweepercookie.js",
+    "bytes": 803,
+    "sha256": "ec0afecd8ce43d1d44fd1f0451f1ac2c75eac5c8037a4c343615bf537364a85f",
+    "source": "https://turbo.freevideogames.org/includes/js/minesweepercookie.js"
+  },
+  {
+    "path": "assets/minesweeper/core-game-site.js",
+    "bytes": 1758,
+    "sha256": "649c094eb6461a9878a8b3829feab05b79ed377cb1b013d78821f73137bb1032",
+    "source": "https://turbo.freevideogames.org/includes/js/core-game-site.js"
+  },
+  {
+    "path": "assets/minesweeper/images/blank.gif",
+    "bytes": 865,
+    "sha256": "e5df9f55291ac34b2a7c434a7d2bd6fa9c44c8628e1dbb9a59dd5da10c3a624c",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/blank.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/bombdeath.gif",
+    "bytes": 879,
+    "sha256": "e5a5e2678e17cb8e1e91ee9c385b69f0ea0ead1e186f6a8c88f685533ecebfcb",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/bombdeath.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/bombflagged.gif",
+    "bytes": 882,
+    "sha256": "dac2e70a8c216e6072627e6310fded27d9290c735fceebc0b8243e770e53c996",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/bombflagged.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/bombmisflagged.gif",
+    "bytes": 897,
+    "sha256": "b9101587f72f507d01b1f665afe19f6cf8abb83aa421a1f046053a29bb907a39",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/bombmisflagged.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/bombquestion.gif",
+    "bytes": 885,
+    "sha256": "e323fba2f6c915f33fc43501b1e2d9a7fd26ae81acaf6449c73c50d218282e4a",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/bombquestion.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/bombrevealed.gif",
+    "bytes": 879,
+    "sha256": "b87c9f419f5da32628797e4b52ef46e4776729b4dbdf1edddb21dc56b4f2f0b2",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/bombrevealed.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/borderbl.gif",
+    "bytes": 835,
+    "sha256": "5ccf00197c43fceebde5bef1248a2c8152b07edc2a87d65b72fce2b4e00af316",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/borderbl.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/borderbr.gif",
+    "bytes": 832,
+    "sha256": "fc2524747a1bfeb273301bf4df3963690b6447cb161ce9b923cfb574149f76ae",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/borderbr.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/borderjointl.gif",
+    "bytes": 834,
+    "sha256": "e394440b5fd7388b7814b8f72fdc89f0effa9f436e6e9548b473aa89abde728a",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/borderjointl.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/borderlr.gif",
+    "bytes": 818,
+    "sha256": "eaa9de50d7144cb5b1effe0a81dc67d2ad97311e586433fee12d6b174402600e",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/borderlr.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/bordertb.gif",
+    "bytes": 815,
+    "sha256": "11a85ddfcaca6d751d922720c6e8309d26b1710966a4de9e5e8377fcfd076cba",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/bordertb.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/borderjointr.gif",
+    "bytes": 833,
+    "sha256": "2d037d2218235c72592548c594ed99ddc2024c7b0dab3adfea211f75ab889e86",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/borderjointr.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/bordertr.gif",
+    "bytes": 835,
+    "sha256": "b66c680a5a6be2e73b087021bbc91359a02eaff09a199def1e03f1f730c386f5",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/bordertr.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/bordertl.gif",
+    "bytes": 833,
+    "sha256": "c87684a458dd27b83d79ad0ab99535e0881b4c41d5b23f14d00cb8f390c07a4f",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/bordertl.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/checked.gif",
+    "bytes": 829,
+    "sha256": "68a6b5d5940b9a2af5240fee5db6fcd021d04a61ba1f534f545c3bbee90559b7",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/checked.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/faceclock.gif",
+    "bytes": 972,
+    "sha256": "5a0716061a450f9824e6f996cd38decfa73b69d1e8195e209ad9c155b140277d",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/faceclock.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/facedead.gif",
+    "bytes": 969,
+    "sha256": "6293dd6297d17696b423097da3739201f85462791e8ad9a0f36e45835e70e8be",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/facedead.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/facewin.gif",
+    "bytes": 973,
+    "sha256": "e01ba580ffe223f20a2b6e99994f00d5e49fd6150a12f10814b912d14cee1ac7",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/facewin.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/facesmile.gif",
+    "bytes": 968,
+    "sha256": "69118f2ccc9eacbf272380be340ded3067bc26053d13f969b2bae5f32f364905",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/facesmile.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/faceooh.gif",
+    "bytes": 981,
+    "sha256": "9dbb8d8c418ac27969fa96015e5b96b216968ec631915bbdfd41deebf0aab8c6",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/faceooh.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/facepirate.gif",
+    "bytes": 977,
+    "sha256": "7a9af7fe4606681350466eb18289a712390c4f45007fd53c1f8508769fad938b",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/facepirate.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/moves0.gif",
+    "bytes": 886,
+    "sha256": "18518afdb3df23de8cc87a577c624e11d3a13699e4ed32aae2ce752c76a61726",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/moves0.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/notchecked.gif",
+    "bytes": 814,
+    "sha256": "c12af782a8a4224de48b392d90af82acdb01b3b52e3794573b35ea29590429aa",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/notchecked.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/open1.gif",
+    "bytes": 864,
+    "sha256": "e56459ba0eee0c378a44dec6be24a1c8de7342a5bb7480fd6ee273fdeade749e",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/open1.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/open0.gif",
+    "bytes": 847,
+    "sha256": "bcf5460ded881362816af3383dd92b0f3790f8f6c7d6837aa6dfa156ed683e34",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/open0.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/open2.gif",
+    "bytes": 870,
+    "sha256": "f8f0b5d0b73a9f7e292a2088176966b0e3a42674bbe00e4116cc6106a4ee0bf2",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/open2.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/open4.gif",
+    "bytes": 871,
+    "sha256": "fc6e50a1d56f2edfc62071ae9f461cbab4940dd460ee0a960997e6a934931c35",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/open4.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/open3.gif",
+    "bytes": 869,
+    "sha256": "4ee2a7629fc8b885a95d67fc61401386f8a1db7fa34e946ae95ab26ab49c613f",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/open3.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/open5.gif",
+    "bytes": 864,
+    "sha256": "9d69a8f669ac2d28da803e113c238c2b3a06f1b7003d20e5f71543e46feeaabb",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/open5.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/open7.gif",
+    "bytes": 865,
+    "sha256": "8b314b01d69539c95f01cf8481947d8b86bd249d3ba02d0cce4008a480dfedc7",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/open7.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/open6.gif",
+    "bytes": 869,
+    "sha256": "a229ab23dedef6ab5af7f04b1012b079b7d9d7e3fc5a3cc56c7ef0fda7124210",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/open6.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/time-.gif",
+    "bytes": 876,
+    "sha256": "3bac1ba62394c0db28980d2dfbf47ec278cee1186aa6e08577f254bc0ded9bc6",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/time-.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/time0.gif",
+    "bytes": 886,
+    "sha256": "c93b0efe15a145b03b5e47c542eb17b08a5a1f2247cb990eb0e6bce701cd1acf",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/time0.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/open8.gif",
+    "bytes": 864,
+    "sha256": "452762d47f13fb4e19d53d6e5701e5120b9c69c1a8b461e482dc89b2ddf494db",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/open8.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/time2.gif",
+    "bytes": 889,
+    "sha256": "376ef457a95007f8a8b77c1edf894253f8c1f4fb9ee3227f65eaafb8711ab0bd",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/time2.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/time1.gif",
+    "bytes": 882,
+    "sha256": "fa7de126324118838e197abc19eca094c45a7a5f26f42010a4ed55e12bb1dc12",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/time1.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/time3.gif",
+    "bytes": 886,
+    "sha256": "1cf5fa2d6e14afba72019bdfc234f0e9efe20b461c2db971fc8068290b21a102",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/time3.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/time4.gif",
+    "bytes": 889,
+    "sha256": "ef48c2eb0285eb474fc48085790c4bca99a9a4881406afde96288ec1f80d4bd1",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/time4.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/time7.gif",
+    "bytes": 886,
+    "sha256": "5821216fc7832c0d36a8523ea5052a10674f44aeea2b3c9fb3e13586cf911171",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/time7.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/time5.gif",
+    "bytes": 886,
+    "sha256": "c2c520799fb6cc9790168ee78e5cd8c49130d8e1749f9dd9768f5278cc94e07a",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/time5.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/time6.gif",
+    "bytes": 886,
+    "sha256": "25f7a7a2a98433d789e8013a802b190f26a258b1ef6445b0383182358de7b4be",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/time6.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/time9.gif",
+    "bytes": 887,
+    "sha256": "01f4bdb231c09b52ceb9b47fd6b09a46f3a4cee0e69f7482b9ef333520dbdb84",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/time9.gif"
+  },
+  {
+    "path": "assets/minesweeper/images/time8.gif",
+    "bytes": 879,
+    "sha256": "cf76db9b4dfebd144be4c918c2964e83233e1e38b29d66ffe8d8b4dd0bb32111",
+    "source": "https://raw.githubusercontent.com/thirstygithub/didactic-guacamole/main/images/time8.gif"
+  }
+]

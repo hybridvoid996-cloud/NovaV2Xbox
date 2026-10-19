@@ -1,0 +1,108 @@
+<!-- Imported from https://noahstutoring.academy/games/504.html; original game authors retain their rights. -->
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<base href="https://cdn.jsdelivr.net/gh/thirstygithub/web-ports@main/hlm2/">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hotline Miami 2</title>
+<style>
+html,body{margin:0;height:100%;overflow:hidden;background:#000;color:#ccc;font:15px system-ui}
+canvas{position:fixed;inset:0;margin:auto;max-width:100%;max-height:100%;aspect-ratio:16/9;image-rendering:pixelated;outline:0}
+#loading{position:fixed;inset:0;display:grid;place-content:center;gap:12px;text-align:center;background:#000}
+#loading h1{margin:0;color:#ec327f;letter-spacing:.04em}
+[hidden]{display:none!important}
+progress{width:min(420px,80vw);accent-color:#ec327f}
+</style>
+<canvas id="canvas" width="1280" height="720" tabindex="0"></canvas>
+<div id="loading"><h1>HOTLINE MIAMI 2</h1><p id="status">Loading...</p><progress id="progress"></progress></div>
+<script src="https://cdn.jsdelivr.net/gh/thirstygithub/web-ports@main/hlm2/app.js"></script>
+<script>
+const canvas = document.getElementById('canvas');
+const loading = document.getElementById('loading');
+const status = document.getElementById('status');
+const progress = document.getElementById('progress');
+const show = text => { status.textContent = text; loading.hidden = false; };
+
+canvas.oncontextmenu = e => e.preventDefault();
+canvas.onclick = () => canvas.focus();
+canvas.ondblclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+
+// app.wasm (977 MB) and app.data (696 MB) are far past the 20 MB jsDelivr per-file
+// cap, so each ships as numbered parts and is stitched into a blob before start-up.
+const SPLIT = {
+  'app.wasm': { path: 'chunks/app.wasm', count: 57, type: 'application/wasm', label: 'game code' },
+  'app.data': { path: 'chunks/app.data', count: 41, type: 'application/octet-stream', label: 'game data' },
+};
+
+// jsDelivr answers a cold request for a large file with a transient 403 ("package size
+// exceeded the configured limit of 50 MB") or an occasional 503, and the same url
+// works on the next attempt, so every part gets a few tries.
+const FETCH_ATTEMPTS = 4;
+async function fetchPart(url) {
+  for (let attempt = 1; ; attempt += 1) {
+    try {
+      const response = await fetch(url);
+      if (response.ok) return response;
+      if (attempt >= FETCH_ATTEMPTS) throw new Error(`Could not load ${url} (HTTP ${response.status})`);
+    } catch (error) {
+      if (attempt >= FETCH_ATTEMPTS) throw error;
+    }
+    await new Promise(resolve => setTimeout(resolve, 300 * attempt));
+  }
+}
+
+async function loadSplit(spec) {
+  const blobs = [];
+  for (let i = 1; i <= spec.count; i += 1) {
+    const name = `${spec.path}.part${String(i).padStart(3, '0')}`;
+    const response = await fetchPart(name);
+    blobs.push(await response.blob());
+    show(`Downloading ${spec.label}... ${Math.round((i / spec.count) * 100)}%`);
+    progress.max = spec.count;
+    progress.value = i;
+  }
+  return URL.createObjectURL(new Blob(blobs, { type: spec.type }));
+}
+
+async function start() {
+  if (!WebAssembly.Suspending) return show('This browser needs WebAssembly JSPI (Chrome or Edge 137+).');
+
+  // Hand the engine blob URLs so its own loader finds the split files under the
+  // names it asks for.
+  const urls = {};
+  for (const [name, spec] of Object.entries(SPLIT)) urls[name] = await loadSplit(spec);
+
+  const app = await createPEModule({
+    canvas, print: console.log, printErr: console.warn,
+    locateFile: path => urls[path] || path,
+    setStatus: text => {
+      const m = /\((\d+)\/(\d+)\)/.exec(text || '');
+      if (m) { progress.max = +m[2]; progress.value = +m[1]; }
+    },
+    preRun: [m => { m.ENV.PEWASM_DESKTOP = '1280x720'; }],
+    onAbort: reason => show('Stopped: ' + reason),
+  });
+
+  // Saves live in IndexedDB: restore before the game starts, write back every few seconds.
+  status.textContent = 'Loading saves...';
+  const FS = app.FS;
+  for (const dir of ['/documents', '/appdata', '/localappdata']) {
+    try { FS.mkdir(dir); } catch {}
+    FS.mount(FS.filesystems.IDBFS, {}, dir);
+  }
+  await new Promise(done => FS.syncfs(true, done));
+  const save = () => FS.syncfs(false, () => {});
+  setInterval(save, 3000);
+  addEventListener('pagehide', save);
+
+  // Hide the loading screen once the first frame is drawn.
+  const wait = setInterval(() => { if (app.peMesaPresents > 0) { loading.hidden = true; clearInterval(wait); } }, 200);
+  canvas.focus();
+  try { await app.ccall('pe_run', 'number', [], [], { async: true }); } catch {}
+  save();
+  show('Thanks for playing. Reload to play again.');
+}
+
+start().catch(e => show('Error: ' + e.message));
+</script></html>
+
+<a href="https://noahstutoring.academy/" target="_blank" rel="noopener" style="position:fixed;right:6px;bottom:3px;font:10px sans-serif;color:#aaa;opacity:.65;z-index:2147483647">Downloaded from Noah’s Tutoring Hub</a>

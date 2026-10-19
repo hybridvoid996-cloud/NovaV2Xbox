@@ -1,6 +1,6 @@
 import {control} from './control-client.js';
-import {preview,equip,load} from './shop-revamp.js';
-export {showStore} from './shop-revamp.js';
+import {preview,equip,load} from './shop-revamp.js?v=20261018-mines179';
+export {showStore} from './shop-revamp.js?v=20261018-mines179';
 const node=(tag,cls,text)=>{const n=document.createElement(tag);n.className=cls||'';if(text!=null)n.textContent=text;return n};
 const title=s=>s[0].toUpperCase()+s.slice(1);
 export function giftNitro(ctx,recipient){const d=ctx.modal('Gift Nova Nitro'),requestId=crypto.randomUUID(),error=node('p','purchase-error');let selected=recipient;d.append(node('p','','Give someone permanent Nitro for 5,000 Nova Coins.'));if(!recipient){const select=node('select','gift-recipient');select.setAttribute('aria-label','Gift recipient');select.append(new Option('Choose a user',''));Object.entries(ctx.state.profiles).filter(([id])=>id!==ctx.state.me.uid).sort((a,b)=>a[1].name.localeCompare(b[1].name)).forEach(([id,p])=>select.append(new Option(p.name,id)));select.onchange=()=>selected=select.value;d.append(select)}else d.append(node('strong','',ctx.person(recipient).name));const buy=ctx.button('Gift Nitro · 5,000 coins',async()=>{buy.disabled=true;error.textContent='';try{if(!selected)throw Error('Choose a user.');await control('giftNitro',{uid:selected,requestId});ctx.toast('Nitro gifted! They will be notified when they sign in.');d.close()}catch(e){error.textContent=e.message}finally{buy.disabled=false}},'primary');d.append(error,buy)}

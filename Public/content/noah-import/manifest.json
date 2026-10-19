@@ -1,0 +1,1548 @@
+{
+  "source": "https://noahstutoring.academy/",
+  "importedAt": "2026-10-17T21:26:19.895293+00:00",
+  "skippedExisting": 333,
+  "failed": [
+    {
+      "id": 992,
+      "title": "Fruit Merge",
+      "source": "https://noahstutoring.academy/h",
+      "ok": false,
+      "error": "Response status code does not indicate success: 404 (Not Found)."
+    }
+  ],
+  "games": [
+    {
+      "id": 884,
+      "title": "Night of the Consumers",
+      "source": "https://noahstutoring.academy/games/507.html",
+      "image": "https://noahstutoring.academy/images/507.jpg",
+      "htmlBytes": 14157,
+      "coverBytes": 161913,
+      "ok": true,
+      "htmlSha256": "a72f86c1cccff72298a135823ef2106ea47ddb6f172ca953be8fefe869af4365",
+      "coverSha256": "5f40beb20c1d8197e23f6a4fa8f4019c9d9acae911a3881035b66008b1c18aea"
+    },
+    {
+      "id": 885,
+      "title": "Hotline Miami 2",
+      "source": "https://noahstutoring.academy/games/504.html",
+      "image": "https://noahstutoring.academy/images/504.jpg",
+      "htmlBytes": 5124,
+      "coverBytes": 63248,
+      "ok": true,
+      "htmlSha256": "f30ddffb4c7433585cfd1fce2fb138a1b94d3d573a12e05452812b36979b3b5c",
+      "coverSha256": "2c77c4a36091f9007d615a44817a20633fb4bc4115e77e8c687b6e2e2fb51c78"
+    },
+    {
+      "id": 886,
+      "title": "Peggle Deluxe",
+      "source": "https://noahstutoring.academy/games/503.html",
+      "image": "https://noahstutoring.academy/images/503.jpg",
+      "htmlBytes": 1160,
+      "coverBytes": 772529,
+      "ok": true,
+      "htmlSha256": "aacdbed70fe438c5821fb7aa99cfde90f6bc804170e7e3546129a9e9dc83ab4f",
+      "coverSha256": "3a16781e3159ef5db8aa8c318c700e73c71dc66e8f12cffdd7ab90828756309d"
+    },
+    {
+      "id": 887,
+      "title": "Crashout Crew",
+      "source": "https://noahstutoring.academy/games/502.html",
+      "image": "https://noahstutoring.academy/images/502.jpg",
+      "htmlBytes": 6528,
+      "coverBytes": 1361870,
+      "ok": true,
+      "htmlSha256": "73da5d7150326851a35e5bef65704615cad375ec44426d9503c896da31e4766e",
+      "coverSha256": "8233110e80041843d44ff97eb101531233b807d48e8b7d3c4774b42325cec2ed"
+    },
+    {
+      "id": 888,
+      "title": "Gamble With Your Friends",
+      "source": "https://noahstutoring.academy/games/501.html",
+      "image": "https://noahstutoring.academy/images/501.jpg",
+      "htmlBytes": 9258,
+      "coverBytes": 131744,
+      "ok": true,
+      "htmlSha256": "2a6bf6f265ad1cd725629f5968957cd1e8347aaaf72ff6149b88705eed72c720",
+      "coverSha256": "29d2edcc17ab1d9ae4995cdeafbbe763f1450315f650397268ecfe1fef4c46a7"
+    },
+    {
+      "id": 889,
+      "title": "Don't Bite Me Bro!",
+      "source": "https://noahstutoring.academy/games/500.html",
+      "image": "https://noahstutoring.academy/images/500.jpg",
+      "htmlBytes": 1039,
+      "coverBytes": 133343,
+      "ok": true,
+      "htmlSha256": "43120be26a9fb431b12a4af1d0d33df48bdb72b45c7d5093a12b3258ef5ba0cb",
+      "coverSha256": "56e5ebba4c086cd6e656896759a648c1e3d9e580695a0ac1cf63042d9be59eb8"
+    },
+    {
+      "id": 890,
+      "title": "NoomiClone",
+      "source": "https://noahstutoring.academy/games/499.html",
+      "image": "https://noahstutoring.academy/images/499.jpg",
+      "htmlBytes": 1625,
+      "coverBytes": 49360,
+      "ok": true,
+      "htmlSha256": "3cad21491c9418d1a154114b18bd3a5dc5cda8b4377d4d3c786390c8323aff11",
+      "coverSha256": "780da2613f2a86a0d561d171cadd25d168d602290c5e5ed58fe6405aaf3bd1a1"
+    },
+    {
+      "id": 891,
+      "title": "Deltarune (fixed)",
+      "source": "https://noahstutoring.academy/games/340.html",
+      "image": "https://noahstutoring.academy/images/341.jpg",
+      "htmlBytes": 179275,
+      "coverBytes": 500170,
+      "ok": true,
+      "htmlSha256": "b66b8c0c1e967e6f3b9601383be738cd44b157ec95a34f24199fc655ba0c05b0",
+      "coverSha256": "41462849a183177fd79f8d7fbd2228759e25b8887486c44605899866f385dcd6"
+    },
+    {
+      "id": 892,
+      "title": "Keep Talking And Nobody Explodes",
+      "source": "https://noahstutoring.academy/games/498.html",
+      "image": "https://noahstutoring.academy/images/498.jpg",
+      "htmlBytes": 1133,
+      "coverBytes": 247611,
+      "ok": true,
+      "htmlSha256": "6fb4546216375504a9b3a5dffe2c617d126932846df0a785802f871559c106b1",
+      "coverSha256": "02136c3a85c77df0168f8e3e1c6aaefa8c07873376efeae102b02659a74219d9"
+    },
+    {
+      "id": 893,
+      "title": "Table Tennis WorldTour",
+      "source": "https://noahstutoring.academy/games/497.html",
+      "image": "https://noahstutoring.academy/images/497.jpg",
+      "htmlBytes": 2224,
+      "coverBytes": 58597,
+      "ok": true,
+      "htmlSha256": "16148e541cd3e20fd0032afc1de43e1a427a963de7bb3eb80e04cec71b7df28e",
+      "coverSha256": "ce285385ace44cbd50b284abbffd2a286e3e1a98964e2219eb3368fb8200fd2a"
+    },
+    {
+      "id": 894,
+      "title": "NANA: DS",
+      "source": "https://noahstutoring.academy/games/496.html",
+      "image": "https://noahstutoring.academy/images/496.jpg",
+      "htmlBytes": 4126,
+      "coverBytes": 20130,
+      "ok": true,
+      "htmlSha256": "002e3d1ee622c9edd966d602d013a419293e871cfde1072973038784cdded255",
+      "coverSha256": "df13a1f6f08bd7474f80897b95d2069fba47a4e26e42dfdac7002623bc69c6f7",
+      "downloadedHtmlSha256": "b3df6b2cc047ff1ad46ed552554655a55602208e1f22afd38a1d991bc4da8457"
+    },
+    {
+      "id": 895,
+      "title": "Kerbal Space Program",
+      "source": "https://noahstutoring.academy/games/494.html",
+      "image": "https://noahstutoring.academy/images/494.jpg",
+      "htmlBytes": 8479,
+      "coverBytes": 244852,
+      "ok": true,
+      "htmlSha256": "5d56e83208f0ed8d3464aeba880ab8a6098a99b4f6a49e9cec2cd42bd75de5e3",
+      "coverSha256": "bb9b3fa2a5fd6978a9227e2c9006b9029f2258c5423cea2631b80d7014bf8a57"
+    },
+    {
+      "id": 896,
+      "title": "Horse Magnifier",
+      "source": "https://noahstutoring.academy/games/489.html",
+      "image": "https://noahstutoring.academy/images/489.jpg",
+      "htmlBytes": 8000,
+      "coverBytes": 34997,
+      "ok": true,
+      "htmlSha256": "d70be11f77cece41c2c1fade1fb516004bbd727dd1d374fa6067118f905b6acd",
+      "coverSha256": "7e7a6b1635cc702c1a72816f8cab0b12fb1db9c06ddba6485d84833d3e7c307e"
+    },
+    {
+      "id": 897,
+      "title": "Mindustry",
+      "source": "https://noahstutoring.academy/games/488.html",
+      "image": "https://noahstutoring.academy/images/488.jpg",
+      "htmlBytes": 118107476,
+      "coverBytes": 86744,
+      "ok": true,
+      "htmlSha256": "910ba389d75ca2c3d7fb077a1267064c638f8a7c548a268613e2991ce3b6a872",
+      "coverSha256": "732630d5eadc4d163321cab4d451cfb7611b8c4518926dd4b31c1febed9882dd"
+    },
+    {
+      "id": 898,
+      "title": "Endacopia (full)",
+      "source": "https://noahstutoring.academy/games/487.html",
+      "image": "https://noahstutoring.academy/images/487.jpg",
+      "htmlBytes": 12119,
+      "coverBytes": 27343,
+      "ok": true,
+      "htmlSha256": "4798d6cf8ccd73a74ce8d31cc3742da4a1af98c372269142341e447922b82b5e",
+      "coverSha256": "29e623775e18fd15347a3ca4e6c493832a71fe42978af1db336db3d447bdabe6"
+    },
+    {
+      "id": 899,
+      "title": "Undertale",
+      "source": "https://noahstutoring.academy/games/478.html",
+      "image": "https://noahstutoring.academy/images/478.png",
+      "htmlBytes": 12830,
+      "coverBytes": 6838,
+      "ok": true,
+      "htmlSha256": "3301f293c6b448b450c9adb83b65482d1b60613c095eeb53d2dd6398d42a63d4",
+      "coverSha256": "1e113744e0481fbb35802611020d88ff4df3330c2f7f86b43e98fee80350c453",
+      "downloadedHtmlSha256": "f4938f980d5cb156dd9cfb522ceaf386fea6a97893e64e08f9449dbe3ae964e6"
+    },
+    {
+      "id": 900,
+      "title": "60 Seconds",
+      "source": "https://noahstutoring.academy/games/479.html",
+      "image": "https://noahstutoring.academy/images/479.png",
+      "htmlBytes": 1062,
+      "coverBytes": 863273,
+      "ok": true,
+      "htmlSha256": "cf5dfd0c54ca239f8d6cd8abec7c3b03d00aa5da43d9ae0785efb1a26b586b06",
+      "coverSha256": "6fc9441acae778029c16f3c0528973e3c228d562246368dfa54e1d21af38a9ec"
+    },
+    {
+      "id": 901,
+      "title": "Kick the Buddy",
+      "source": "https://noahstutoring.academy/games/470.html",
+      "image": "https://noahstutoring.academy/images/470.jpg",
+      "htmlBytes": 1069,
+      "coverBytes": 121820,
+      "ok": true,
+      "htmlSha256": "a35561ecaf3a4fe80a1b3e5e707af79000f68e483050a2673317f392d54e55d9",
+      "coverSha256": "a8c0bd737abcf7e0ace3079283f04eb73d0fbd4778bdd6de1ddc633cc1d72a7e"
+    },
+    {
+      "id": 902,
+      "title": "Webdashers",
+      "source": "https://noahstutoring.academy/games/417.html",
+      "image": "https://noahstutoring.academy/images/490.jpg",
+      "htmlBytes": 4038,
+      "coverBytes": 649651,
+      "ok": true,
+      "htmlSha256": "a2f08c67893207227edf080e2258aac630fa17abfcc487780c20ac796fc33514",
+      "coverSha256": "ea0518bb1b56de2165201854ab8da13ddee99b34c4825c9e3d2f50554ea8bbfa"
+    },
+    {
+      "id": 904,
+      "title": "Cleggy Car",
+      "source": "https://noahstutoring.academy/games/415.html",
+      "image": "https://noahstutoring.academy/images/415.jpg",
+      "htmlBytes": 4357,
+      "coverBytes": 57232,
+      "ok": true,
+      "htmlSha256": "a3c1eeecc24a3d972a2e57f66cb560462925bd4068e5f6c8dab0c3fdea3c43ba",
+      "coverSha256": "e978ae5521b3e4d2b34b2af3961752d8503c13332e988b34dd4e62973e22dd9f"
+    },
+    {
+      "id": 905,
+      "title": "Little Alchemy 2",
+      "source": "https://noahstutoring.academy/games/429.html",
+      "image": "https://noahstutoring.academy/images/429.jpg",
+      "htmlBytes": 6123,
+      "coverBytes": 310527,
+      "ok": true,
+      "htmlSha256": "b5b57838cef32744a56931fa74373fb304ea016538d2a6104047896a10fa67c2",
+      "coverSha256": "779fc7719fa0cc5e9183cb51d928405cec9ac9831ade40b87fc704d348586f93",
+      "downloadedHtmlSha256": "108e2dd46139d2e9802d9c06ba5c2c9985e8429cb70c24aa3f284548bd6db734"
+    },
+    {
+      "id": 906,
+      "title": "Scary Shawarma",
+      "source": "https://noahstutoring.academy/games/430.html",
+      "image": "https://noahstutoring.academy/images/430.jpg",
+      "htmlBytes": 6159,
+      "coverBytes": 142768,
+      "ok": true,
+      "htmlSha256": "3445cf5c39c5e7d6670252e1a14093b9dbd83415fb2b0a308983febdcd8c0822",
+      "coverSha256": "94887ebb0270fbe48ab663cd9d856a798b50aeabdb7c773feb0e8038e228f6f3"
+    },
+    {
+      "id": 908,
+      "title": "The World's Hardest Game 2",
+      "source": "https://noahstutoring.academy/games/404.html",
+      "image": "https://noahstutoring.academy/images/404.jpg",
+      "htmlBytes": 1215,
+      "coverBytes": 40603,
+      "ok": true,
+      "htmlSha256": "5cb8b037de08ebcd9b56ddb962cf7dcc6a646b32613f92e479a58643eac8ad24",
+      "coverSha256": "18330a9bcbdc64483953348bfea91d1b9ceb9fad402b4216ae5aad1191e2bc4e",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 909,
+      "title": "Lumines II",
+      "source": "https://noahstutoring.academy/games/408.html",
+      "image": "https://noahstutoring.academy/images/408.jpg",
+      "htmlBytes": 859,
+      "coverBytes": 28250,
+      "ok": true,
+      "htmlSha256": "05d7deaba484d274473c266ffd35e98f72d9c4589e19fdb8215a6d82163dbdcc",
+      "coverSha256": "837a872039e85c1b71f878223f87e2c111fd305393849e6980242a51b66dc0eb",
+      "repairs": [
+        "Use local prepared emulator cores; reject failed ROM-part downloads.",
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 910,
+      "title": "Customer Support",
+      "source": "https://noahstutoring.academy/games/383.html",
+      "image": "https://noahstutoring.academy/images/383.jpg",
+      "htmlBytes": 2419,
+      "coverBytes": 648358,
+      "ok": true,
+      "htmlSha256": "834d85c2c19604f12d8d81273f8d8c4b476b429ba289ded71e5ab6290c4afd8a",
+      "coverSha256": "1bcc3473aa6b83d6814e96f02ae59fec33e306a99f63408fe792c7e906ee30b2"
+    },
+    {
+      "id": 911,
+      "title": "Fireboy and Watergirl: Forest Temple",
+      "source": "https://noahstutoring.academy/games/385.html",
+      "image": "https://noahstutoring.academy/images/385.jpg",
+      "htmlBytes": 1235,
+      "coverBytes": 1164971,
+      "ok": true,
+      "htmlSha256": "6f8f00311ac29c772583c5f7f3945807dc248c45893a5d6957d1dd0d72cf9c7a",
+      "coverSha256": "9dcb2a35265ba1a7acdf7b84694fe2ca998a4fda7d51d300c8b52cacf6d41d17",
+      "downloadedHtmlSha256": "bce2d810a917dfdf4f6e9744609dcabe6d34d8632ed49c3f18705765dfaf7ace",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 912,
+      "title": "Earn to Die",
+      "source": "https://noahstutoring.academy/games/378.html",
+      "image": "https://noahstutoring.academy/images/378.jpg",
+      "htmlBytes": 1185,
+      "coverBytes": 617289,
+      "ok": true,
+      "htmlSha256": "37f69ac4c20373060fcbf4ce11290ab10f19edf23f56acc5ff05c194f01a7892",
+      "coverSha256": "bf8c092fac86157e494b84b61a167028863c3973d41082a2a3e98e98b4d14fbf",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 913,
+      "title": "Earn to Die 2",
+      "source": "https://noahstutoring.academy/games/379.html",
+      "image": "https://noahstutoring.academy/images/379.jpg",
+      "htmlBytes": 1189,
+      "coverBytes": 279363,
+      "ok": true,
+      "htmlSha256": "a7d9d44787235f67df6241153ee0f02f6282c486db88a69ba4a6b2b89de7349b",
+      "coverSha256": "3d00f131c9e876d1dcf5c9e52f59c481b3aa6966965054aba125da0a7d17e8ca",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 914,
+      "title": "Gacha Life",
+      "source": "https://noahstutoring.academy/games/375.html",
+      "image": "https://noahstutoring.academy/images/375.jpg",
+      "htmlBytes": 1184,
+      "coverBytes": 348506,
+      "ok": true,
+      "htmlSha256": "16bde94127977c0b40970b8ac4aea5f4e801186fafc37d43aa9f007eba7e1de7",
+      "coverSha256": "7e315bd3b8b7500aa0c9784c786439c584457fd84602925702fe5d58418b2781",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 915,
+      "title": "Gacha Verse",
+      "source": "https://noahstutoring.academy/games/376.html",
+      "image": "https://noahstutoring.academy/images/376.jpg",
+      "htmlBytes": 1186,
+      "coverBytes": 94326,
+      "ok": true,
+      "htmlSha256": "df1f24665ea7eca147a63cc11f325ff6b691139136993022e8b082cc546d378c",
+      "coverSha256": "fd5583fe0d62265cb40af36404de678f87596220c8eb77be0b4dc317a1bb71b6",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 916,
+      "title": "Horror Tale",
+      "source": "https://noahstutoring.academy/games/373.html",
+      "image": "https://noahstutoring.academy/images/373.jpg",
+      "htmlBytes": 277107,
+      "coverBytes": 191293,
+      "ok": true,
+      "htmlSha256": "337a4bb19a6d59f65ed5cb051d2d9d37bf20de2375cfda5b92f2f27c364e90e0",
+      "coverSha256": "93c2c3b6e64de9d2704756789829a8b6f4f2be0e1d4d7064fd2963568f28d855"
+    },
+    {
+      "id": 917,
+      "title": "Baby Sniper In Vietnam",
+      "source": "https://noahstutoring.academy/games/363.html",
+      "image": "https://noahstutoring.academy/images/363.jpg",
+      "htmlBytes": 5306,
+      "coverBytes": 57428,
+      "ok": true,
+      "htmlSha256": "844e788e1cc812e97273823551eedd5cca4908c9c23515ef99236d8955bfb2c8",
+      "coverSha256": "2650d46481ea30666d8e1f36a45ec64a686e44949e3676a2f9fd40b76379a432"
+    },
+    {
+      "id": 918,
+      "title": "Little Big Planet",
+      "source": "https://noahstutoring.academy/games/351.html",
+      "image": "https://noahstutoring.academy/images/351.jpg",
+      "htmlBytes": 873,
+      "coverBytes": 780381,
+      "ok": true,
+      "htmlSha256": "3befd5fb1fc1e7a7685c6d07168b4c3e31855457da0e3be097d46cd6e492acb0",
+      "coverSha256": "d564eec0b5d9dcd987d6d3cfed4b69216490c5ac18b3270a44490ea14b62b068",
+      "downloadedHtmlSha256": "7a97a7a70ffaf66ee937a7dc2bf11752847c7b99bbd17c36bdb91ed99f46bfb9",
+      "repairs": [
+        "Use local prepared emulator cores; reject failed ROM-part downloads.",
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 919,
+      "title": "The Binding of Isaac: Rebirth",
+      "source": "https://noahstutoring.academy/games/350.html",
+      "image": "https://noahstutoring.academy/images/350.jpg",
+      "htmlBytes": 896,
+      "coverBytes": 58785,
+      "ok": true,
+      "htmlSha256": "19a7f00a06fbe74b7c8c72ec3611db523169c50fa90aa0bc856e6e1b49fc4251",
+      "coverSha256": "708c456964dd72962c9baf35e4701dcbe885fa6c7728ab34e59a836a5ceb7685",
+      "downloadedHtmlSha256": "ea8a525f43225bd0e5a8f0c946c0a2c7733ef62570bc38de1e0cced3059477c7",
+      "repairs": [
+        "Use local prepared emulator cores; reject failed ROM-part downloads.",
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 920,
+      "title": "Littlest Pet Shop City Friends",
+      "source": "https://noahstutoring.academy/games/348.html",
+      "image": "https://noahstutoring.academy/images/349.jpg",
+      "htmlBytes": 855,
+      "coverBytes": 107767,
+      "ok": true,
+      "htmlSha256": "9edded99788ae8d1f59047f7f8cb3d1137ece0d404850a3c20c71c5b67ea2749",
+      "coverSha256": "6a00eaa523a107633548b61ae7592e331f89ff4ff7dd9a3b346187b2d4f95651",
+      "repairs": [
+        "Use local prepared emulator cores; reject failed ROM-part downloads."
+      ]
+    },
+    {
+      "id": 921,
+      "title": "Dad 'n Me",
+      "source": "https://noahstutoring.academy/games/345.html",
+      "image": "https://noahstutoring.academy/images/346.jpg",
+      "htmlBytes": 1181,
+      "coverBytes": 396585,
+      "ok": true,
+      "htmlSha256": "bbcf187606488c3521381dfa45d0c59ce65410c3b32615459635a65f836d9937",
+      "coverSha256": "aa9f3b267ff59e77fdeaceb871f4ab6ccbbdce138ef76c69f9decfe033615788",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 922,
+      "title": "Earthbound",
+      "source": "https://noahstutoring.academy/games/339.html",
+      "image": "https://noahstutoring.academy/images/340.jpg",
+      "htmlBytes": 814,
+      "coverBytes": 38750,
+      "ok": true,
+      "htmlSha256": "1837aeb9c2dba4483c074a3a134fc14b1b9a6c685028d6ec758c3ca97b0a3bb0",
+      "coverSha256": "5e718341704f31d35727d8251d307f9bc508f71c8667b2370129fea29d06aefb",
+      "downloadedHtmlSha256": "e6f9d77b8d76c4501e4813b73f30c32a6f9a9cc1ad15fec7e4a7a09cbf697c4b"
+    },
+    {
+      "id": 923,
+      "title": "Hamtaro: Ham-Ham Heartbreak",
+      "source": "https://noahstutoring.academy/games/336.html",
+      "image": "https://noahstutoring.academy/images/337.jpg",
+      "htmlBytes": 848,
+      "coverBytes": 694466,
+      "ok": true,
+      "htmlSha256": "b35890b49b0f21b05f199eee35cc16fd0b881e4ddb2492f7d956d22ea21df2de",
+      "coverSha256": "ed2d0b97faedc66bf60a92f1b1e5daf20ad2df23d187e94d8aace5229c37da5b",
+      "downloadedHtmlSha256": "5a33510a05d14facebc77239e7cc435da48ac627d64f1997001893f3b8c48908"
+    },
+    {
+      "id": 924,
+      "title": "Beeswarm Simulator (html version)",
+      "source": "https://noahstutoring.academy/games/312.html",
+      "image": "https://noahstutoring.academy/images/335.jpg",
+      "htmlBytes": 362667,
+      "coverBytes": 84840,
+      "ok": true,
+      "htmlSha256": "274b6a056509395a26017ea7e5893fe41df936438b6b3256a859bc5e0e6db460",
+      "coverSha256": "7112ed539d94eafae70b77b3883b8d3a543c81c439230c385b624abe059186f3"
+    },
+    {
+      "id": 926,
+      "title": "Dungeons & Degenerate Gamblers",
+      "source": "https://noahstutoring.academy/games/173.html",
+      "image": "https://noahstutoring.academy/images/295.jpg",
+      "htmlBytes": 6050,
+      "coverBytes": 44869,
+      "ok": true,
+      "htmlSha256": "cae1d970a011fd2dbbbbdb1aeebecfe03c8e0c860877ba7a1bf03b04ff9e7538",
+      "coverSha256": "e43693f4fd42c4bffae619e68187b18adc358029e8d77766c37b42e632befa41"
+    },
+    {
+      "id": 927,
+      "title": "Minesweeper Classic",
+      "source": "https://noahstutoring.academy/games/162.html",
+      "image": "https://noahstutoring.academy/images/290.jpg",
+      "htmlBytes": 39055,
+      "coverBytes": 396268,
+      "ok": true,
+      "htmlSha256": "1bf0dad032370256e9bdb6c92d1be6b0c408e2cf5154f16ab4616b126db0a16c",
+      "coverSha256": "4ed7bd14d6f71da5d425974281618baf30899d88692b466228438217f480cd1a"
+    },
+    {
+      "id": 929,
+      "title": "Pixel Gun 3D",
+      "source": "https://noahstutoring.academy/games/272.html",
+      "image": "https://noahstutoring.academy/images/280.jpg",
+      "htmlBytes": 873,
+      "coverBytes": 2501149,
+      "ok": true,
+      "htmlSha256": "cdeb8f21599b555f17f63e05712967570e673316ce19bbdf85c33edabc1e5d38",
+      "coverSha256": "15b8e316be30fc0907cdd1c0d8b44508ba2ff5376270eab86e53b0d7c068bba3"
+    },
+    {
+      "id": 931,
+      "title": "Eat The Rich",
+      "source": "https://noahstutoring.academy/games/270.html",
+      "image": "https://noahstutoring.academy/images/278.jpg",
+      "htmlBytes": 879,
+      "coverBytes": 179850,
+      "ok": true,
+      "htmlSha256": "b413fb44b3f30ccf747b2b17bbaf2dfef2d82335266658c30cb4be89833b226c",
+      "coverSha256": "4e50657dbfe57556df4541b24b999849c664d8b082f8665a8e2ace3fb99000f9"
+    },
+    {
+      "id": 932,
+      "title": "Grand Thef Auto Vice City",
+      "source": "https://noahstutoring.academy/games/149.html",
+      "image": "https://noahstutoring.academy/images/272.jpg",
+      "htmlBytes": 8237,
+      "coverBytes": 169085,
+      "ok": true,
+      "htmlSha256": "17679ccebeb78c89fb1249d4ab5799b1b4508fa909c767e100f497b73d67c35e",
+      "coverSha256": "94ee5b82561676a043a69294d26de259bdc4db37010036e28a50d661cab35d50"
+    },
+    {
+      "id": 933,
+      "title": "Heretic",
+      "source": "https://noahstutoring.academy/games/150.html",
+      "image": "https://noahstutoring.academy/images/273.jpg",
+      "htmlBytes": 3375,
+      "coverBytes": 372342,
+      "ok": true,
+      "htmlSha256": "b28171a48f72253f3da9f156b9ae590339cfbd55590b2870fe0b8f1a15980cdf",
+      "coverSha256": "ffedadcc81201172bc913ad9ca1ca06ab4c7e67a16c115456057779baab77cf0"
+    },
+    {
+      "id": 934,
+      "title": "FNF Rewrite",
+      "source": "https://noahstutoring.academy/games/154.html",
+      "image": "https://noahstutoring.academy/images/277.jpg",
+      "htmlBytes": 3056,
+      "coverBytes": 29686,
+      "ok": true,
+      "htmlSha256": "23755a2c0fa2af11101ccd7b2398cbef586d237ee4eda91d69bd6fefd96edc82",
+      "coverSha256": "1058bb3ef047f88d7361395b0ad8f81a0e7fe61bdfb6e377d84c77feb64a446b",
+      "downloadedHtmlSha256": "f6a51502d9cf622e29440581edb09e9933fa2689168dbf158996a3f01347f8b5"
+    },
+    {
+      "id": 935,
+      "title": "Burrito Bison",
+      "source": "https://noahstutoring.academy/games/267.html",
+      "image": "https://noahstutoring.academy/images/130.jpg",
+      "htmlBytes": 2180,
+      "coverBytes": 153271,
+      "ok": true,
+      "htmlSha256": "c411c50710eb13d3a54410b912145796521ba2ae7560fc772bb35a43734b390e",
+      "coverSha256": "629f8ede042da2584992f72d1a41bf0e910a0afa7714f5f137a51292832927d5",
+      "downloadedHtmlSha256": "91eb5afdfc1865af4a7a70813b7e43b96ea9ba3dd1afe9964de7320e96d8e5ab"
+    },
+    {
+      "id": 936,
+      "title": "Daggerfall",
+      "source": "https://noahstutoring.academy/games/136.html",
+      "image": "https://noahstutoring.academy/images/252.jpg",
+      "htmlBytes": 4994,
+      "coverBytes": 70634,
+      "ok": true,
+      "htmlSha256": "0cf89ae512424018fc7c36171c5632b42499750ba1ed20c5a31bf7510eb53c83",
+      "coverSha256": "51e1d574d342040c1e9e37404f7a83874fe552be8fef09432d0ac30ccc6c9346",
+      "downloadedHtmlSha256": "db0e02178bf9742b736deadac73bb72716b2fcfa49a0889a065d1cd7b2622223"
+    },
+    {
+      "id": 937,
+      "title": "Portal",
+      "source": "https://noahstutoring.academy/games/135.html",
+      "image": "https://noahstutoring.academy/images/253.jpg",
+      "htmlBytes": 1473,
+      "coverBytes": 121202,
+      "ok": true,
+      "htmlSha256": "dd30285106d343bfb9b3b3e88510ffc66f58cddb93dabe3481e8f872ba13930d",
+      "coverSha256": "a5c50383b6babae8f2555747b9557ead40e1acc0ad43228814556713d0b90338",
+      "downloadedHtmlSha256": "6c8df19114a84514a6c0c790cb8a3b9f47919a539e4519adfd7a3d37cb3881ab"
+    },
+    {
+      "id": 938,
+      "title": "Call of Duty: World at War",
+      "source": "https://noahstutoring.academy/games/130.html",
+      "image": "https://noahstutoring.academy/images/258.jpg",
+      "htmlBytes": 847,
+      "coverBytes": 103016,
+      "ok": true,
+      "htmlSha256": "d5735db438d0b9dba20e22a06fc40c7b843bc67582615503cfdc4d07af3b0cc1",
+      "coverSha256": "be5979817367eb3d58484158e15827126722fb801d2aaa877ca734c5facc012d",
+      "repairs": [
+        "Use local prepared emulator cores; reject failed ROM-part downloads."
+      ]
+    },
+    {
+      "id": 939,
+      "title": "Call of Duty 4: Modern Warfare",
+      "source": "https://noahstutoring.academy/games/129.html",
+      "image": "https://noahstutoring.academy/images/259.jpg",
+      "htmlBytes": 855,
+      "coverBytes": 102360,
+      "ok": true,
+      "htmlSha256": "5f4bbb9408edc6530ae4134ca27c840682f29215300ac42cd096e9a9dc47007e",
+      "coverSha256": "2387c22fa23a43434dde2a0e46f794ace805609e5d0a62eda12c9c281e7e341a",
+      "repairs": [
+        "Use local prepared emulator cores; reject failed ROM-part downloads."
+      ]
+    },
+    {
+      "id": 940,
+      "title": "Kart Bros",
+      "source": "https://kartbros.io/?ms=1&msstart_sdk_init=eyJwYXJlbnRPcmlnaW4iOiJodHRwczovL3d3dy5tc24uY29tIiwiY2xpZW50SWQiOiIyRDNDRjBEODBGRUQ2RDVDMDFDN0U2MjEwRTlFNkNGRCIsImxvY2FsZSI6ImVuLXVzIiwiZW50cnlQb2ludElkIjoiIiwic3dpdGNoR2FtZVBheWxvYWQiOnsic3dpdGNoZWRUbyI6IjlwOTc4OHM2OTdqYyIsInZhbHVlIjp7fX19#",
+      "image": "https://noahstutoring.academy/images/260.jpg",
+      "htmlBytes": 81923,
+      "coverBytes": 50628,
+      "ok": true,
+      "htmlSha256": "ed992c498e6c8983927d67f8da5ffac2011e1c1d8c7998a54bb498893be7f3c4",
+      "coverSha256": "13c07910c74fb48cfd0bb06b0c80b5883b132eaa3f46b55b8cbc17fc9bb22a6b"
+    },
+    {
+      "id": 941,
+      "title": "FNF Agoti",
+      "source": "https://noahstutoring.academy/games/125.html",
+      "image": "https://noahstutoring.academy/images/249.jpg",
+      "htmlBytes": 3535,
+      "coverBytes": 133080,
+      "ok": true,
+      "htmlSha256": "c6191db11d96e0e0e9a5d109060c75f92b23bc71facaf68cdd1a56a80187f99c",
+      "coverSha256": "7e83318b5fb1250d846e5986187e191a274d10a1a030e87c7a032e714d3154ab"
+    },
+    {
+      "id": 942,
+      "title": "FNF Black Betrayal",
+      "source": "https://noahstutoring.academy/games/124.html",
+      "image": "https://noahstutoring.academy/images/248.jpg",
+      "htmlBytes": 2857,
+      "coverBytes": 254450,
+      "ok": true,
+      "htmlSha256": "0ca50c3584b211b8eb84d2a67140ac5f50cc50ce4709751c2e2673ee6c578176",
+      "coverSha256": "e229dcd87561a9fbb58e766914ceaeaef8e4ff1be15cf4a354376976e68dab04"
+    },
+    {
+      "id": 943,
+      "title": "FNF B-Side",
+      "source": "https://noahstutoring.academy/games/123.html",
+      "image": "https://noahstutoring.academy/images/247.jpg",
+      "htmlBytes": 2881,
+      "coverBytes": 217676,
+      "ok": true,
+      "htmlSha256": "5e9e8963642320d738a0c61e80698816e3778ca88a2b067bd9d7195e3714d928",
+      "coverSha256": "8734f2d7a82ed839e4322ec276f029aa8791633993c19bdda0d946345e16ef2b"
+    },
+    {
+      "id": 944,
+      "title": "FNF Camellia",
+      "source": "https://noahstutoring.academy/games/122.html",
+      "image": "https://noahstutoring.academy/images/246.jpg",
+      "htmlBytes": 3478,
+      "coverBytes": 86169,
+      "ok": true,
+      "htmlSha256": "b830492f59cb32df7873c3a924a849b5c9dcc7c7f1b640f724e9712087b21802",
+      "coverSha256": "bb56ab50370b2580a3c1e4eb65683c62b299721db52a8b3148282a946326551b"
+    },
+    {
+      "id": 945,
+      "title": "FNF Mario Madness",
+      "source": "https://noahstutoring.academy/games/118.html",
+      "image": "https://noahstutoring.academy/images/242.jpg",
+      "htmlBytes": 6507,
+      "coverBytes": 488522,
+      "ok": true,
+      "htmlSha256": "6c162013742c8f85b684382c16b2a3737f02a19ac3e89ca63d92eddf09c0aff7",
+      "coverSha256": "a51d8e31df8c42bbccb7624909def53589a6524b3459e71eb569c69f6e78fff8"
+    },
+    {
+      "id": 946,
+      "title": "FNF Shaggy X Matt",
+      "source": "https://noahstutoring.academy/games/116.html",
+      "image": "https://noahstutoring.academy/images/240.jpg",
+      "htmlBytes": 2911,
+      "coverBytes": 36542,
+      "ok": true,
+      "htmlSha256": "31c36f426bce738fdafb4ebe067977e4762c2749df03aee8320c659bda2e8b5e",
+      "coverSha256": "b49e96051026052dc6097b3c99df4b45c5173d89a299e8d44edf247a64bfe520"
+    },
+    {
+      "id": 947,
+      "title": "FNF Hit Single",
+      "source": "https://noahstutoring.academy/games/113.html",
+      "image": "https://noahstutoring.academy/images/237.jpg",
+      "htmlBytes": 4128,
+      "coverBytes": 1122447,
+      "ok": true,
+      "htmlSha256": "a7d54f47bf3ed670642bd444875f5c25688bb71763c9ff440eb5448a4796e908",
+      "coverSha256": "595365b1d0e0791ef3bce461c5e01466a8c87f103e88e9ddef061c7acd7c9b81"
+    },
+    {
+      "id": 948,
+      "title": "Achillies 2",
+      "source": "https://noahstutoring.academy/games/112.html",
+      "image": "https://noahstutoring.academy/images/236.jpg",
+      "htmlBytes": 1185,
+      "coverBytes": 254174,
+      "ok": true,
+      "htmlSha256": "f77e2343bf760c03295a24a8f0db82bc8eceed6d81ef339dc2e9e95240bf9c7b",
+      "coverSha256": "3be1aaeb955bba4596de7da22aca131aa7604c8d88787274955fa955df27c1e7",
+      "repairs": [
+        "Removed XML/CDATA gadget wrapper that hid the entire game from the proxy HTML parser.",
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 949,
+      "title": "Russian Counter Strike",
+      "source": "https://noahstutoring.academy/games/111.html",
+      "image": "https://noahstutoring.academy/images/235.jpg",
+      "htmlBytes": 5972,
+      "coverBytes": 112470,
+      "ok": true,
+      "htmlSha256": "c79ec3850388f5cdd9335d45298abf795799ab62e217c14b75d6ea7ac5e39d3a",
+      "coverSha256": "2f21c2dc2065f521acb32ddaa41baada7cde0a57eed389b6829ba37caf0f541a",
+      "repairs": [
+        "Removed XML/CDATA gadget wrapper that hid the entire game from the proxy HTML parser."
+      ]
+    },
+    {
+      "id": 950,
+      "title": "Lego Batman 2",
+      "source": "https://noahstutoring.academy/games/108.html",
+      "image": "https://noahstutoring.academy/images/232.jpg",
+      "htmlBytes": 822,
+      "coverBytes": 56986,
+      "ok": true,
+      "htmlSha256": "1d8644fff475213bef1fa1b3b3cd1e17b6ba2d5e5718b094946f6f782215cced",
+      "coverSha256": "7729da2aff5aa23ed7a3844b04dd71fd87154b7db492c8d9b77602f58c688fd3",
+      "repairs": [
+        "Use local prepared emulator cores; reject failed ROM-part downloads."
+      ]
+    },
+    {
+      "id": 951,
+      "title": "Lego Starwars Complete Saga",
+      "source": "https://noahstutoring.academy/games/107.html",
+      "image": "https://noahstutoring.academy/images/231.jpg",
+      "htmlBytes": 849,
+      "coverBytes": 101681,
+      "ok": true,
+      "htmlSha256": "3065304f5e0ad68a556dbf7eb19db204fe28bca760dec297976a93e256764963",
+      "coverSha256": "be4536d20e73223c807544c8766365b2b1575c6d95fde56b25ab700a7d70d4ba",
+      "repairs": [
+        "Use local prepared emulator cores; reject failed ROM-part downloads."
+      ]
+    },
+    {
+      "id": 952,
+      "title": "Madness Interactive",
+      "source": "https://noahstutoring.academy/games/106.html",
+      "image": "https://noahstutoring.academy/images/230.jpg",
+      "htmlBytes": 1201,
+      "coverBytes": 39834,
+      "ok": true,
+      "htmlSha256": "c29d9056e669eceb9550e5aa8880b2ba416958ad57db18065b60377529857314",
+      "coverSha256": "ee1031e073d56b65991b19f26d366f9d2309836480545c94bb92509080fe493f",
+      "repairs": [
+        "Removed XML/CDATA gadget wrapper that hid the entire game from the proxy HTML parser.",
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 953,
+      "title": "Tony Hawks Pro Skater",
+      "source": "https://noahstutoring.academy/games/105.html",
+      "image": "https://noahstutoring.academy/images/229.jpg",
+      "htmlBytes": 838,
+      "coverBytes": 39336,
+      "ok": true,
+      "htmlSha256": "3ccd075318971a40bb2bf370cb55ec06a891608f1d792df0a078da311dd0ba93",
+      "coverSha256": "30763095932a7704d23f552d756a69ed6e6d3faf690f12a2d5ead137491d3814",
+      "repairs": [
+        "Use local prepared emulator cores; reject failed ROM-part downloads."
+      ]
+    },
+    {
+      "id": 954,
+      "title": "Resident Evil 3",
+      "source": "https://noahstutoring.academy/games/103.html",
+      "image": "https://noahstutoring.academy/images/227.jpg",
+      "htmlBytes": 826,
+      "coverBytes": 39506,
+      "ok": true,
+      "htmlSha256": "1c38fcafd853c5f5b058397fd719dbc1f33c10d075e535a082845667044b793c",
+      "coverSha256": "4bb4094857c45252eec2113dcf5e7920eff71d1effecf46a9c01708beb528183",
+      "repairs": [
+        "Use local prepared emulator cores; reject failed ROM-part downloads."
+      ]
+    },
+    {
+      "id": 955,
+      "title": "Scribblenauts",
+      "source": "https://noahstutoring.academy/games/102.html",
+      "image": "https://noahstutoring.academy/images/226.jpg",
+      "htmlBytes": 821,
+      "coverBytes": 55874,
+      "ok": true,
+      "htmlSha256": "910a90980e7cd49ad6a7cecf80072cba67e462b27c4f120fe44d823a38b37963",
+      "coverSha256": "8f19dcc9ba4da9b8af0f00e94084e97f1d7e64ecf2c5275f2f289c4d9d0e794f",
+      "downloadedHtmlSha256": "c823a138ab90b87c30d3e50b71addc1adbdf2e1dafa17e8f0f2b5e58cc1ad97b"
+    },
+    {
+      "id": 956,
+      "title": "Strange Rope Police",
+      "source": "https://noahstutoring.academy/games/100.html",
+      "image": "https://noahstutoring.academy/images/224.jpg",
+      "htmlBytes": 170533,
+      "coverBytes": 40790,
+      "ok": true,
+      "htmlSha256": "317c22675c7ca4bf935f0432ca70e7127ec03e7ee922c2e8cef511299b70b3d4",
+      "coverSha256": "d821b165831540fc6a67d619c5a92c4bd885054358a7efe48c686a7ff2b935aa",
+      "downloadedHtmlSha256": "54156749da6c3f55d896b50791e1f76ed953141bd8716f5985e79564d7ab0190"
+    },
+    {
+      "id": 957,
+      "title": "Street Fighter III",
+      "source": "https://noahstutoring.academy/games/99.html",
+      "image": "https://noahstutoring.academy/images/223.jpg",
+      "htmlBytes": 830,
+      "coverBytes": 122307,
+      "ok": true,
+      "htmlSha256": "96ca2bd9383fdf79d85a525f56b9e5850b7b71265641f9b3101f2bb7ccb71216",
+      "coverSha256": "9f8f7012b80f4733e1187aed464625671240748fed047c3d8cc9600432760bcd",
+      "downloadedHtmlSha256": "6335f857f0351263b93964d8ac1f7d77c6c963caef103e58bd5f231aeecf9e66"
+    },
+    {
+      "id": 958,
+      "title": "Super Liquid Soccer",
+      "source": "https://noahstutoring.academy/games/98.html",
+      "image": "https://noahstutoring.academy/images/222.jpg",
+      "htmlBytes": 6647,
+      "coverBytes": 67926,
+      "ok": true,
+      "htmlSha256": "62356f61e3888ca3455f5ade2879edf375f56345dadfaa403f0d3d50c01bec15",
+      "coverSha256": "8a49773cba8f38bff0fc587cbacb5c95271557ed6e04fc8878ac25428f5b232c"
+    },
+    {
+      "id": 959,
+      "title": "Tempoverdose",
+      "source": "https://noahstutoring.academy/games/97.html",
+      "image": "https://noahstutoring.academy/images/221.jpg",
+      "htmlBytes": 1384,
+      "coverBytes": 18711,
+      "ok": true,
+      "htmlSha256": "a32d3585b675bbfe45afa5cf046a9a33ca7be36d1eaf76de5510676205358153",
+      "coverSha256": "4e8f9221252314f6262c7f96e0a02fab1300e532732f6b7557d6f46b18c8e21f",
+      "downloadedHtmlSha256": "b421855b6b2fd752aabedabddb93e3dacaa2e3f9c5df521976d06884cc48d5c0"
+    },
+    {
+      "id": 960,
+      "title": "Wolfenstein 3D",
+      "source": "https://noahstutoring.academy/games/95.html",
+      "image": "https://noahstutoring.academy/images/219.jpg",
+      "htmlBytes": 4156,
+      "coverBytes": 34560,
+      "ok": true,
+      "htmlSha256": "52d02926b3368253181fc96d24a4f3eead02dd6f8c7ff2e5a999aca66ec78f52",
+      "coverSha256": "05f324b63ac91cbdaaa98dce24f0f4b6be6cf74a2c6f30f4c33328a5dc8f5cd5"
+    },
+    {
+      "id": 961,
+      "title": "Zombotron Reboot",
+      "source": "https://noahstutoring.academy/games/94.html",
+      "image": "https://noahstutoring.academy/images/218.jpg",
+      "htmlBytes": 3236,
+      "coverBytes": 59340,
+      "ok": true,
+      "htmlSha256": "8cf4fb9201d0663bad6eab31c8f82a298518b1395a024b97b91e74316f3bf650",
+      "coverSha256": "da7dd71cebbfc3ccf6e70d967bb873153f226c2f807a32fe9544cf755fa85e20"
+    },
+    {
+      "id": 962,
+      "title": "Mortal Kombat 4",
+      "source": "https://noahstutoring.academy/games/93.html",
+      "image": "https://noahstutoring.academy/images/fuckthis.jpg",
+      "htmlBytes": 825,
+      "coverBytes": 205382,
+      "ok": true,
+      "htmlSha256": "d8599b39c1a3d129637d688921c2b82a80298ce9d47f742abc28f3b827dadfb3",
+      "coverSha256": "59252a626498db67ac6d59d0126ca5deb23188b6cb1cda514990ca7a546302a3",
+      "downloadedHtmlSha256": "e267a0a8741dd189eeb9efab3463fe7f3883076fa84b74ec346d061029aac920"
+    },
+    {
+      "id": 963,
+      "title": "Big Shot Boxing",
+      "source": "https://noahstutoring.academy/games/85.html",
+      "image": "https://noahstutoring.academy/images/211.jpg",
+      "htmlBytes": 1434,
+      "coverBytes": 126168,
+      "ok": true,
+      "htmlSha256": "c44a084bed4693d095d3e22cb7078f110c108795fa426856fe33a7fce3412dd1",
+      "coverSha256": "2bb53712ad9f2c7f700134613fc4cc3f1b9ded5a477fb48efdc231f976fab6dd"
+    },
+    {
+      "id": 964,
+      "title": "Assessment Examination",
+      "source": "https://noahstutoring.academy/games/84.html",
+      "image": "https://noahstutoring.academy/images/210.jpg",
+      "htmlBytes": 7284,
+      "coverBytes": 256803,
+      "ok": true,
+      "htmlSha256": "9ee08cb98663f92236a62fa3f5af883ddef84750dccf7a0bc72896dfb8e0a151",
+      "coverSha256": "78d7849ad712e0ef6d93780623b38cec4e09b57c1e07a4ae3ab6a5b2c55d32d2",
+      "downloadedHtmlSha256": "05d90dce3b486aa8db3b8804656c9044d05d54efcb9bd9ff7ea910974356932d"
+    },
+    {
+      "id": 965,
+      "title": "Douche Bag Life",
+      "source": "https://noahstutoring.academy/games/78.html",
+      "image": "https://noahstutoring.academy/images/203.jpg",
+      "htmlBytes": 1193,
+      "coverBytes": 103348,
+      "ok": true,
+      "htmlSha256": "742df9e6247a463e004e630aa2729f1595f2fb9f28da8fde2a29c5194919778d",
+      "coverSha256": "e0de2b7ad458c6f0cb2230b917c1860b54b623ad81b0c83635ba293f416188ce",
+      "repairs": [
+        "Removed XML/CDATA gadget wrapper that hid the entire game from the proxy HTML parser.",
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 966,
+      "title": "Donkey Kong",
+      "source": "https://noahstutoring.academy/games/77.html",
+      "image": "https://noahstutoring.academy/images/202.jpg",
+      "htmlBytes": 816,
+      "coverBytes": 126219,
+      "ok": true,
+      "htmlSha256": "93bcd6290f1ca0fee3444ad7c34d7b7f85bf699f51915d7a6f7f7dd630f81e39",
+      "coverSha256": "b7333186eb121449216a0b2ec61a6a4811b1c5e3a4ac253d7672ebea7053ca89",
+      "downloadedHtmlSha256": "5bbd75793e993e1fdf1bfe72d210c4f0b572729828da34a8d7f7fd7b88fb73c7"
+    },
+    {
+      "id": 967,
+      "title": "Apple Worm",
+      "source": "https://noahstutoring.academy/games/75.html",
+      "image": "https://noahstutoring.academy/images/201.jpg",
+      "htmlBytes": 1183,
+      "coverBytes": 74501,
+      "ok": true,
+      "htmlSha256": "52cd90b3414194a818cc72401891b4fdbf3a3d494681e3f7480d950db65ee3d4",
+      "coverSha256": "e495ee992646e8f3542594060bc45dc7c38aedd73d07b0b2b87fdc57bf5015f0",
+      "repairs": [
+        "Removed XML/CDATA gadget wrapper that hid the entire game from the proxy HTML parser.",
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 968,
+      "title": "Doki Doki Literature Club",
+      "source": "https://noahstutoring.academy/games/73.html",
+      "image": "https://noahstutoring.academy/images/199.jpg",
+      "htmlBytes": 27019,
+      "coverBytes": 68196,
+      "ok": true,
+      "htmlSha256": "2233e6823c69bc4a26a06a918fa0425377ccd150cff174cd0173d53b6eb5f2d9",
+      "coverSha256": "cba1a47dda1d1ad2772d1937cfce594845a9fa2825623da6b54e88fa6d6c20d5"
+    },
+    {
+      "id": 969,
+      "title": "Toca-Boca-World",
+      "source": "https://ud-gles3games.shared-osj.k8s.n2i.io/?deeplinksURI=null%3A%2F%2F&deeplinksApp=com.tocaboca.tocalifeworld&quotaBytes=89000000&naturalOrientation=portrait&invertNaturalOrientation&forcedNaturalOrientation&jitterBufferMin=0&deeplinksService=true&backOnDisconnected=true&disconnectedMessage=null&api=%7B%22back%22%3Afalse%7D&title=Toca+Boca+World",
+      "image": "https://noahstutoring.academy/images/206.jpg",
+      "htmlBytes": 1886,
+      "coverBytes": 584009,
+      "ok": true,
+      "htmlSha256": "72e9421604b20a1173322b0fb3a70b7fa91e402196f371801914784c63b690ef",
+      "coverSha256": "e2e78a769a58142316ebc0f68b5290c36d43b14a1597e1a17f7ea84cedeec376"
+    },
+    {
+      "id": 970,
+      "title": "Deepest Sword",
+      "source": "https://noahstutoring.academy/games/263.html",
+      "image": "https://noahstutoring.academy/images/8.jpg",
+      "htmlBytes": 1958,
+      "coverBytes": 45000,
+      "ok": true,
+      "htmlSha256": "7e8795e92de39b389f061076ca714bb970bde47f1218dd4f9e785dcfa510d4f6",
+      "coverSha256": "f6f809e1efa2c26a0974933fd81739c7de4493110e2438c972a478b949b898a1"
+    },
+    {
+      "id": 971,
+      "title": "Tomodachi Life",
+      "source": "https://noahstutoring.academy/games/5.html",
+      "image": "https://noahstutoring.academy/images/9.jpg",
+      "htmlBytes": 823,
+      "coverBytes": 693031,
+      "ok": true,
+      "htmlSha256": "7270d77f9d53785f31f85c0cb97374a300f9f5c8fb768579a895e4ee90e87eeb",
+      "coverSha256": "b0a6baedac357d05dc32de8bbc951165144fd7a42cfff3440b048e1d3440172b",
+      "repairs": [
+        "Use local prepared emulator cores; reject failed ROM-part downloads."
+      ]
+    },
+    {
+      "id": 972,
+      "title": "Rocket League",
+      "source": "https://noahstutoring.academy/games/262.html",
+      "image": "https://noahstutoring.academy/images/12.jpg",
+      "htmlBytes": 1592,
+      "coverBytes": 465242,
+      "ok": true,
+      "htmlSha256": "e38cb3b29b1646549e45e51f2ae500f6ab9f2d344caa917bff84406a24058d1b",
+      "coverSha256": "951602e78bd639d167d70d92fabd4405a489b52079d2d88e63d888229254ad2b"
+    },
+    {
+      "id": 973,
+      "title": "Street Fighter II",
+      "source": "https://noahstutoring.academy/games/261.html",
+      "image": "https://noahstutoring.academy/images/13.jpg",
+      "htmlBytes": 828,
+      "coverBytes": 74685,
+      "ok": true,
+      "htmlSha256": "dfc4289c8d2060a4eb425639f263214f1cc9cf23e187660e69cba9369aed3891",
+      "coverSha256": "3504b53da9168fbff69671d4b6f1b116b0f6d740dd72abc8e21f51a81c87be9e",
+      "downloadedHtmlSha256": "eab024acc92841a6a781793bb4d881fe9fe2e1ba40d5faa6eb17cb33a6d67feb"
+    },
+    {
+      "id": 974,
+      "title": "Among Us (real)",
+      "source": "https://ud-gles3games.shared-osj.k8s.n2i.io/?deeplinksURI=null%3A%2F%2F&deeplinksApp=com.innersloth.spacemafia&naturalOrientation=landscape&forcedNaturalOrientation&autofitOnConnect&jitterBufferMin=0&deeplinksService=true&backOnDisconnected=true&disconnectedMessage=null&api=%7B%22back%22%3Afalse%7D&title=Among+Us",
+      "image": "https://noahstutoring.academy/images/17.jpg",
+      "htmlBytes": 1812,
+      "coverBytes": 946008,
+      "ok": true,
+      "htmlSha256": "35f2d8898bb17c385e7024cf4b721b37d368c12a800c7e11911964c5f5a76248",
+      "coverSha256": "1db0c942d679962c7f86acec45185eca786ba90f1bb03f985936adc319096c6c"
+    },
+    {
+      "id": 976,
+      "title": "Clash Royale",
+      "source": "https://noahstutoring.academy/games/andurdingus.html",
+      "image": "https://noahstutoring.academy/images/26.jpg",
+      "htmlBytes": 3880,
+      "coverBytes": 294686,
+      "ok": true,
+      "htmlSha256": "6ab466cd0bcdb19236a0791b4de865e094a39d3c5b90a6ef6fb66e0b33105591",
+      "coverSha256": "4cfaa1f77816a9581c0f229741283a4fb7251b89cb1acc1ed60524c07bb0e279",
+      "downloadedHtmlSha256": "5d18382a1e5dd52fcdff833a77a1a382648a18eda144d900563849766d0bfdaf"
+    },
+    {
+      "id": 977,
+      "title": "Super Falling Fred",
+      "source": "https://noahstutoring.academy/games/256.html",
+      "image": "https://noahstutoring.academy/images/59.jpg",
+      "htmlBytes": 1077,
+      "coverBytes": 602552,
+      "ok": true,
+      "htmlSha256": "c349932bbafdf15f90dbf43803e02f8b2ce7a2e2d19473c3d61f5399be231470",
+      "coverSha256": "ea2bac61913bee6b65fba436670ba2b58df28ee7949a4109454b3b58d9ccc852"
+    },
+    {
+      "id": 978,
+      "title": "Impossible Quiz 2",
+      "source": "https://xoriushourz.github.io/ImpossibleQuiz2/",
+      "image": "https://noahstutoring.academy/images/63.jpg",
+      "htmlBytes": 1198,
+      "coverBytes": 130358,
+      "ok": true,
+      "htmlSha256": "80768509ebc4a5c7d88dd8d17bdf6374125c90113c7a5f5cd26df11414f977ec",
+      "coverSha256": "1061777e8a33d243c3e2470d63edf70a85dc9f5f73f1c5bfb6c31b62ed69f3fc",
+      "downloadedHtmlSha256": "9e9b2599cc921d2e3970c9344f247dd28dbe6b7ea7f06bc350ae7a7517df7358",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 979,
+      "title": "Gun Mayhem 2",
+      "source": "https://noahstutoring.academy/games/251.html",
+      "image": "https://noahstutoring.academy/images/66.jpg",
+      "htmlBytes": 1187,
+      "coverBytes": 55285,
+      "ok": true,
+      "htmlSha256": "86f7c79f4ce36e4ffbfcd821ef84e7f69bc787eabb62855c91ad20724618ad7b",
+      "coverSha256": "8551135aff43f2c2c3e062b7663648781cce5e35a49ed96a9f00393409f3f1b5",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 980,
+      "title": "Gun Mayhem",
+      "source": "https://noahstutoring.academy/games/250.html",
+      "image": "https://noahstutoring.academy/images/67.jpg",
+      "htmlBytes": 1183,
+      "coverBytes": 75481,
+      "ok": true,
+      "htmlSha256": "988e6f0abaccdb9f292cd242c2e6a7b409b000a15a95d99c0feb1adaaad39c05",
+      "coverSha256": "e4b5a72d8ff6fcc61cf95eaa853b68d4e68fe00af60380601d82244522bd9d20",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 981,
+      "title": "Stake Mines",
+      "source": "https://noahstutoring.academy/games/246.html",
+      "image": "https://noahstutoring.academy/images/73.jpg",
+      "htmlBytes": 9595,
+      "coverBytes": 46334,
+      "ok": true,
+      "htmlSha256": "445a9f9bbd657babf3520ba522d46796c3c20a08eb778db71b41ae18f14131aa",
+      "coverSha256": "ff669df4fc7de64ea042515bb095dfe0fbe798d4acbdf724566b777e56fed1d3"
+    },
+    {
+      "id": 982,
+      "title": "Twitch Tetris",
+      "source": "https://godlover89.github.io/Twitch-Tetris/",
+      "image": "https://noahstutoring.academy/images/89.jpg",
+      "htmlBytes": 5307,
+      "coverBytes": 326422,
+      "ok": true,
+      "htmlSha256": "bfab02ec3166d520eef07f12c806669a85627668667538d8e36447bc77cb610e",
+      "coverSha256": "fc0808143dd43a52f6f9ef8b7c1ce660fd62e400cc193166f84be9a573d4c6af",
+      "downloadedHtmlSha256": "fde33422290fc68a973bab895a1d7e980b02e08ebd78025cd3b579b0db1ee794"
+    },
+    {
+      "id": 983,
+      "title": "Ultimate Car Driving Game",
+      "source": "https://noahstutoring.academy/games/237.html",
+      "image": "https://noahstutoring.academy/images/90.jpg",
+      "htmlBytes": 7560,
+      "coverBytes": 107389,
+      "ok": true,
+      "htmlSha256": "70c4e2f94435a87933d57a141c6b28bee0fe88abaa8450392ff41bebcc6710a7",
+      "coverSha256": "c5535833a39647f5a9badb494fbc1ec987fd63471e17f5c4d81bfba2bbae77a7",
+      "downloadedHtmlSha256": "0cc50e4bfe0f476a5ae08687febc1b4a189694d16325313415ac5910c32cc017"
+    },
+    {
+      "id": 984,
+      "title": "Apple Shooter",
+      "source": "https://noahstutoring.academy/games/233.html",
+      "image": "https://noahstutoring.academy/images/94.jpg",
+      "htmlBytes": 1189,
+      "coverBytes": 11943,
+      "ok": true,
+      "htmlSha256": "25e84278025a6aa7da9f184e9e12602412f0a9c1b87d638536da9a5601eef45f",
+      "coverSha256": "427d3230eb9832bec89948424006b7fa1991189f07741a95e0916b6e7733ba51",
+      "downloadedHtmlSha256": "c8a84309c2788e4e6dff7e67dae40871d639f6340d13cb6d4b8ab49b570d6f0b",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 985,
+      "title": "Running Fred",
+      "source": "https://noahstutoring.academy/games/232.html",
+      "image": "https://noahstutoring.academy/images/95.jpg",
+      "htmlBytes": 1479,
+      "coverBytes": 76606,
+      "ok": true,
+      "htmlSha256": "b16a6ddad1dd39c4f8c99c1257bab1ed75331f57b24fa2034f729d457ca97e33",
+      "coverSha256": "e0bc3828452d9f6cf465cc315a06fdb129bdfc610af5a785c79a2e442b6dbbf6"
+    },
+    {
+      "id": 986,
+      "title": "Hextrix",
+      "source": "https://noahstutoring.academy/games/231.html",
+      "image": "https://noahstutoring.academy/images/96.jpg",
+      "htmlBytes": 14467,
+      "coverBytes": 79355,
+      "ok": true,
+      "htmlSha256": "1cff0f9a242791c86c4a8047ae3ca4cdd631f1ba2e867412d094a66dc78416ba",
+      "coverSha256": "8c8ebe998377ee1c3214f6b8c038e63f104fb90dbe01a348f2a699a07e6d149c",
+      "downloadedHtmlSha256": "c639b26b09d5aaa12eaa9d66f4c4a09b95fa6f229f051c1b6a3c44929dc64a1e"
+    },
+    {
+      "id": 987,
+      "title": "Jelly Truck",
+      "source": "https://noahstutoring.academy/games/230.html",
+      "image": "https://noahstutoring.academy/images/97.jpg",
+      "htmlBytes": 7240,
+      "coverBytes": 35581,
+      "ok": true,
+      "htmlSha256": "a09640c66e79ae21379d97eb6daa70e62d7f733ac5c9e355e4f8fc1426c6f1d5",
+      "coverSha256": "d7bf848513e298f4c4d9dc3f77bf4882c0a0a20ea6f40c07ab4008fbdd9ffd42",
+      "downloadedHtmlSha256": "2496f1d0002501c094ede57fa33ea114e741a085270e9909eba4c1398d84213f"
+    },
+    {
+      "id": 988,
+      "title": "Hole.io",
+      "source": "https://noahstutoring.academy/games/228.html",
+      "image": "https://noahstutoring.academy/images/100.jpg",
+      "htmlBytes": 1771,
+      "coverBytes": 95184,
+      "ok": true,
+      "htmlSha256": "c55386a5668dcd5f1fd97f1978b9cd74857dcccb1b2f2f26087d3bd53b291c0e",
+      "coverSha256": "1aa8754e241e635cc5007e21fc9a1402c5b5c24ccd3cc7490a2832af137a52de",
+      "downloadedHtmlSha256": "33577f6465ce755e0f57fdfd78b08f038131367b3663f4c0c58451997bb862ee"
+    },
+    {
+      "id": 989,
+      "title": "Wrassling",
+      "source": "https://noahstutoring.academy/games/227.html",
+      "image": "https://noahstutoring.academy/images/102.jpg",
+      "htmlBytes": 2456,
+      "coverBytes": 19551,
+      "ok": true,
+      "htmlSha256": "cd9dd3a7c77849413ee40c2cc65f7f2bbef8b3251bae171168cebd515f9346e0",
+      "coverSha256": "3eba232833978670f926ae76a0fd525ec47be05dd207c1de2a1d371ce5731c28",
+      "downloadedHtmlSha256": "4704b781e9488a721af6058b616e9d200d0322c296c1ba1dca7ff8d7e3da9d20"
+    },
+    {
+      "id": 990,
+      "title": "Level Devil",
+      "source": "https://noahstutoring.academy/games/225.html",
+      "image": "https://noahstutoring.academy/images/105.jpg",
+      "htmlBytes": 1853,
+      "coverBytes": 28481,
+      "ok": true,
+      "htmlSha256": "1af98dfa3d356bee1a314644d15c9a5d5b2482bbd0a237fb07b7e08a86d6c1e3",
+      "coverSha256": "7f36bcab391a10ccefc6ed616498eba00aaece7ee2727f06aefc6c90c39a2954"
+    },
+    {
+      "id": 991,
+      "title": "Boxing Live 2",
+      "source": "https://noahstutoring.academy/games/223.html",
+      "image": "https://noahstutoring.academy/images/107.jpg",
+      "htmlBytes": 1189,
+      "coverBytes": 17781,
+      "ok": true,
+      "htmlSha256": "727cc2188a88427b0e04f8ef8478d3c93344f32a362b595e839cf1d5fb18f027",
+      "coverSha256": "4127b76327c5622064297e29e34bd19630468d146f395556f01c2c6a018e4a4c",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 993,
+      "title": "Wheelie Bike 2",
+      "source": "https://noahstutoring.academy/games/221.html",
+      "image": "https://noahstutoring.academy/images/111.jpg",
+      "htmlBytes": 1926,
+      "coverBytes": 71870,
+      "ok": true,
+      "htmlSha256": "3e9316483b1410017dc7767df270838d2d0126d35a6e7d189d75c6a7882a4aca",
+      "coverSha256": "c2521e592344e5b9d4b6f3878a1684e15e70540b4329d8e4429086307cf7d481"
+    },
+    {
+      "id": 994,
+      "title": "Stacktris",
+      "source": "https://noahstutoring.academy/games/214.html",
+      "image": "https://noahstutoring.academy/images/123.jpg",
+      "htmlBytes": 2161,
+      "coverBytes": 4607,
+      "ok": true,
+      "htmlSha256": "39fcf61a5a6ea0a158b4e20026fe8a026a9c03e195889040fada9a90928a2755",
+      "coverSha256": "1f6ae68659f7a3829814720fc0ad2dbe60630c517008044d590ba0bb79fb397b"
+    },
+    {
+      "id": 995,
+      "title": "Happy Room",
+      "source": "https://noahstutoring.academy/games/210.html",
+      "image": "https://noahstutoring.academy/images/129.jpg",
+      "htmlBytes": 6016,
+      "coverBytes": 142412,
+      "ok": true,
+      "htmlSha256": "57cc9c1e8e17f5fbb13e15994118e85643d4f9989e7d38cb573753cab24f47fb",
+      "coverSha256": "1bd8bb33f114aeb0d896a93db796ba2a9f2fd9edcec1fb8bb2fb0341a22d6340"
+    },
+    {
+      "id": 996,
+      "title": "Zombocalypse 2",
+      "source": "https://noahstutoring.academy/games/209.html",
+      "image": "https://noahstutoring.academy/images/131.jpg",
+      "htmlBytes": 1192,
+      "coverBytes": 163332,
+      "ok": true,
+      "htmlSha256": "e9eeae01edd06cf94267de6d4da751a57a12b8952c1fad096f921e9d96160ee8",
+      "coverSha256": "4ad0ab400ada444abed79603d584e3f9f8a378981cf851a4231f37fac8c43c7a",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 997,
+      "title": "Club Penguin",
+      "source": "https://play.cplegacy.com/",
+      "image": "https://noahstutoring.academy/images/140.jpg",
+      "htmlBytes": 8728,
+      "coverBytes": 1060116,
+      "ok": true,
+      "htmlSha256": "3221477ce3efb24811ff82eab23f2ca3f4224bcead6d4c819a765b5ad001b454",
+      "coverSha256": "2b5086b78fd6b10ff4263b3c29a6b77b20055081e55fc82e27e26a88b869c57a"
+    },
+    {
+      "id": 998,
+      "title": "Thorns and Balloons",
+      "source": "https://noahsamazingtutoringhelp.github.io/ScienceStudyBuddy/",
+      "image": "https://noahstutoring.academy/images/144.jpg",
+      "htmlBytes": 2123,
+      "coverBytes": 240833,
+      "ok": true,
+      "htmlSha256": "d80ac25e24f307807e46b07eb96d60fd949604c162edc1b7914ec6cd137ea430",
+      "coverSha256": "273bf08052a8e27eeaccb59d7e6381cb060b978c7da9caf4bb7ea4cc375f2930"
+    },
+    {
+      "id": 1000,
+      "title": "Sand Game",
+      "source": "https://noahstutoring.academy/games/187.html",
+      "image": "https://noahstutoring.academy/images/162.jpg",
+      "htmlBytes": 525711,
+      "coverBytes": 27236,
+      "ok": true,
+      "htmlSha256": "8e8b6d850fa60c4ae7bc74e0836805a9431e36bcb9d58057b5be17caa76746e8",
+      "coverSha256": "f818657d9d46fad97fd6a0771a23f2dcf9a71e3292b1947453a9188c2619d572"
+    },
+    {
+      "id": 1001,
+      "title": "Chrome Dino",
+      "source": "https://noahstutoring.academy/games/184.html",
+      "image": "https://noahstutoring.academy/images/170.jpg",
+      "htmlBytes": 89406,
+      "coverBytes": 20072,
+      "ok": true,
+      "htmlSha256": "8a6de4832903061de91af33121a146099e863e8d364c2fabcca8f11162eb90de",
+      "coverSha256": "112b69c1a3521f124ff26ac98341ff6470de3a97fd57baa96b3166bb42a7658a",
+      "downloadedHtmlSha256": "dec8611f6b54f4d29d17436a3542b98c2ef57eea4f7f0d30ad9f81f9710ba82c"
+    },
+    {
+      "id": 1002,
+      "title": "Dodge Ball",
+      "source": "https://noahstutoring.academy/games/401.html",
+      "image": "https://noahstutoring.academy/images/171.jpg",
+      "htmlBytes": 18367068,
+      "coverBytes": 258546,
+      "ok": true,
+      "htmlSha256": "1e83f9131427ef40ce43ab7d17d5c44c75e2a3ad51b2a74b20827bfe60f21b6e",
+      "coverSha256": "d5179b73d3317664441e0ff3e20ca9bcdf32a25be9d40871e4ed8eb2c3d6fab4"
+    },
+    {
+      "id": 1003,
+      "title": "Age of War 2",
+      "source": "https://noahstutoring.academy/games/183.html",
+      "image": "https://noahstutoring.academy/images/172.jpg",
+      "htmlBytes": 1189,
+      "coverBytes": 108655,
+      "ok": true,
+      "htmlSha256": "6f794ed4625544882bf183ed1007a7941114e3bc7d09c9cea24d549391822913",
+      "coverSha256": "726cdd605819b051f8acf00c84299f2d0e2f633801ab0933d0989896a6ffbe58",
+      "repairs": [
+        "Repair138: explicit Play launcher, validated game files and supported emulator runtime."
+      ]
+    },
+    {
+      "id": 1004,
+      "title": "Sprinter",
+      "source": "https://noahstutoring.academy/games/fucker.html",
+      "image": "https://noahstutoring.academy/images/176.jpg",
+      "htmlBytes": 3981,
+      "coverBytes": 20317,
+      "ok": true,
+      "htmlSha256": "21af376cc76ed6afdb144161f1de9bd57b62ae06ff4804cb4bc3d454f8556278",
+      "coverSha256": "aa0d9b508588eebcbdaf35a23806aa11f79a682d86e149fd683db2aecd9945b6",
+      "downloadedHtmlSha256": "d7aafd8e0634299ba8733a55adeeeb8e08fb62aa22da566ecdd5d605607b6bcb"
+    },
+    {
+      "id": 1005,
+      "title": "Short Life",
+      "source": "https://noahstutoring.academy/games/174.html",
+      "image": "https://noahstutoring.academy/images/185.jpg",
+      "htmlBytes": 1286,
+      "coverBytes": 45850,
+      "ok": true,
+      "htmlSha256": "322b2278f6bb5995d4450e769b12fb8936c9d6179d6395191a8ab2ec23026ad3",
+      "coverSha256": "e56a8c8114ac0b99fa4b8e10c9d1fb2e9a32622eb6f1f07d9c7b9c6ccf079b2d",
+      "downloadedHtmlSha256": "93f820f99b189c582b946c9b34f41dbacf04840cd4a7bcd5065cbe0c747e4a60"
+    }
+  ],
+  "repairAudit": {
+    "date": "2026-10-17T22:20:20.351944+00:00",
+    "browserStartupChecks": 119,
+    "changedWrappers": [
+      {
+        "id": 894,
+        "name": "NANA: DS"
+      },
+      {
+        "id": 899,
+        "name": "Undertale"
+      },
+      {
+        "id": 905,
+        "name": "Little Alchemy 2"
+      },
+      {
+        "id": 911,
+        "name": "Fireboy and Watergirl: Forest Temple"
+      },
+      {
+        "id": 918,
+        "name": "Little Big Planet"
+      },
+      {
+        "id": 919,
+        "name": "The Binding of Isaac: Rebirth"
+      },
+      {
+        "id": 922,
+        "name": "Earthbound"
+      },
+      {
+        "id": 923,
+        "name": "Hamtaro: Ham-Ham Heartbreak"
+      },
+      {
+        "id": 934,
+        "name": "FNF Rewrite"
+      },
+      {
+        "id": 935,
+        "name": "Burrito Bison"
+      },
+      {
+        "id": 936,
+        "name": "Daggerfall"
+      },
+      {
+        "id": 937,
+        "name": "Portal"
+      },
+      {
+        "id": 955,
+        "name": "Scribblenauts"
+      },
+      {
+        "id": 956,
+        "name": "Strange Rope Police"
+      },
+      {
+        "id": 957,
+        "name": "Street Fighter III"
+      },
+      {
+        "id": 959,
+        "name": "Tempoverdose"
+      },
+      {
+        "id": 962,
+        "name": "Mortal Kombat 4"
+      },
+      {
+        "id": 964,
+        "name": "Assessment Examination"
+      },
+      {
+        "id": 966,
+        "name": "Donkey Kong"
+      },
+      {
+        "id": 973,
+        "name": "Street Fighter II"
+      },
+      {
+        "id": 976,
+        "name": "Clash Royale"
+      },
+      {
+        "id": 978,
+        "name": "Impossible Quiz 2"
+      },
+      {
+        "id": 982,
+        "name": "Twitch Tetris"
+      },
+      {
+        "id": 983,
+        "name": "Ultimate Car Driving Game"
+      },
+      {
+        "id": 984,
+        "name": "Apple Shooter"
+      },
+      {
+        "id": 986,
+        "name": "Hextrix"
+      },
+      {
+        "id": 987,
+        "name": "Jelly Truck"
+      },
+      {
+        "id": 988,
+        "name": "Hole.io"
+      },
+      {
+        "id": 989,
+        "name": "Wrassling"
+      },
+      {
+        "id": 1001,
+        "name": "Chrome Dino"
+      },
+      {
+        "id": 1004,
+        "name": "Sprinter"
+      },
+      {
+        "id": 1005,
+        "name": "Short Life"
+      }
+    ],
+    "cloudProviderRoutes": [
+      969,
+      974,
+      976
+    ],
+    "notes": "Canvas creation is not proof of gameplay. See docs/game-audit/new-games-repair.md.",
+    "preparedEmulatorCores": 8,
+    "portalRom": {
+      "source": "https://raw.githubusercontent.com/Stinkalistic/junk/main/Portal%2064%20v0.90.z64",
+      "bytes": 11206656,
+      "sha256": "407ea1b7cba1560865322d96005a052f2169ebbabfee0ba9498e034d24e3ddb1"
+    },
+    "publisherFallbacks": {
+      "989": "https://poki.com/en/g/wrassling"
+    }
+  }
+}

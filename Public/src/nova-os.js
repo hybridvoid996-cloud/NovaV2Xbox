@@ -8,7 +8,7 @@ import {playProfileEffect} from './profile-effect.js';
 import {validFile,fileCard} from './chat-files.js';
 import {createWindowManager} from './nova-os-windows.js';
 import {activityTitle,elapsedLabel,normalizeUpdate} from './nova-os-core.mjs';
-import {useLightEffects} from './os-performance.mjs';
+import {useLightEffects} from './os-performance.mjs?v=153';
 import {sameGamePlayers} from './same-game.mjs';
 
 export async function initNovaOS(options={}){

@@ -1,0 +1,468 @@
+[
+  {
+    "id": 901,
+    "name": "Kick the Buddy",
+    "modern": true,
+    "loader": {
+      "files": [
+        {
+          "path": "assets/901-loader.js",
+          "bytes": 26454,
+          "sha256": "34361335e6b685498d8f115c0ee9019daa2173716fd960abaddeb141a1a6b773"
+        }
+      ],
+      "bytes": 26454,
+      "source": "https://cdn.jsdelivr.net/gh/thirstygithub/Buddy@main/Build/28b3d1e66bd62209d17eda502289c7a4.loader.js"
+    },
+    "framework": {
+      "files": [
+        {
+          "path": "assets/901-framework.js",
+          "bytes": 520328,
+          "sha256": "543508ae33e714e269099b299c090dd1f567580e4cb657f7afbafb9398cb0262"
+        }
+      ],
+      "bytes": 525011,
+      "source": "https://cdn.jsdelivr.net/gh/thirstygithub/Buddy@main/Build/ce98e22b32ee0b3ac40e99c9eeb6b1aa.framework.js"
+    },
+    "data": {
+      "files": [
+        {
+          "path": "assets/901-data-raw.data.part1",
+          "bytes": 20971520,
+          "sha256": "8692abbaefd8c53875e560aae9b07e878565ecf5cbbd5aec067fc7b6c70504ae"
+        },
+        {
+          "path": "assets/901-data-raw.data.part2",
+          "bytes": 20971520,
+          "sha256": "6b0db8f21aae28fb6a4fb732d4d1cc58457cf5b27c75d76af71754485b7fc921"
+        },
+        {
+          "path": "assets/901-data-raw.data.part3",
+          "bytes": 12073768,
+          "sha256": "3f31590dcd7e0e09cbee02412ffe344947a62845005655eab12f4c5001d47d83"
+        }
+      ],
+      "bytes": 54016808
+    },
+    "code": {
+      "files": [
+        {
+          "path": "assets/901-code-raw.wasm.part1",
+          "bytes": 20971520,
+          "sha256": "5acd447f57bd531231b863419fe3102524e4616f96f47fbe0dc053f0f6febcdc"
+        },
+        {
+          "path": "assets/901-code-raw.wasm.part2",
+          "bytes": 14032142,
+          "sha256": "4ed094472558c4bcfa5657c787af45f7f86ac14b14182bebd829d926750d6906"
+        }
+      ],
+      "bytes": 35003662
+    }
+  },
+  {
+    "id": 977,
+    "name": "Super Falling Fred",
+    "modern": false,
+    "config": {
+      "companyName": "Dedalord",
+      "productName": "Super Falling Fred",
+      "productVersion": "1.2.0",
+      "dataUrl": "superfallingfred-webgl-120_23.data.unityweb?v=1",
+      "wasmCodeUrl": "superfallingfred-webgl-120_23.wasm.code.unityweb?v=1",
+      "wasmFrameworkUrl": "superfallingfred-webgl-120_23.wasm.framework.unityweb?v=1",
+      "graphicsAPI": [
+        "WebGL 2.0",
+        "WebGL 1.0"
+      ],
+      "webglContextAttributes": {
+        "preserveDrawingBuffer": false
+      },
+      "splashScreenStyle": "Dark",
+      "backgroundColor": "#231F20",
+      "developmentBuild": false,
+      "multithreading": false,
+      "unityVersion": "2019.1.3f1"
+    },
+    "loader": {
+      "files": [
+        {
+          "path": "assets/977-loader.js",
+          "bytes": 208716,
+          "sha256": "399e3e32e77357df64fec5e52827f6a0f7f75ad48217776eaf26f1cdfb6ef808"
+        }
+      ],
+      "bytes": 208716,
+      "source": "https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/falling-fred/patch/js/UnityLoader.2019.2.js"
+    },
+    "framework": {
+      "files": [
+        {
+          "path": "assets/977-framework.js",
+          "bytes": 501502,
+          "sha256": "8a14260a6cc1dd4218772e814edc5c93f416ae44e3e65917d118a5c775f5e5e9"
+        }
+      ],
+      "bytes": 505858,
+      "source": "https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/falling-fred/Build/superfallingfred-webgl-120_23.wasm.framework.unityweb?v=1"
+    },
+    "data": {
+      "files": [
+        {
+          "path": "assets/977-data-raw.data.part1",
+          "bytes": 20971520,
+          "sha256": "f36b52491b74cf8d0162a2d6f971a85a001f081dff618a260b1adbc20bdd621e"
+        },
+        {
+          "path": "assets/977-data-raw.data.part2",
+          "bytes": 10676130,
+          "sha256": "a2eb908510c39e9270f02d215fe9dec04910fcf64e6e39f03a278c0d5aadeff3"
+        }
+      ],
+      "bytes": 31647650
+    },
+    "code": {
+      "files": [
+        {
+          "path": "assets/977-code-raw.wasm.part1",
+          "bytes": 20971520,
+          "sha256": "32ee89e2a8259c2f9515e72bc781c7eaacea01b2e5e6c1e1474aeec02640456a"
+        },
+        {
+          "path": "assets/977-code-raw.wasm.part2",
+          "bytes": 1124294,
+          "sha256": "d175d8ceb66f7b4fa48537126ff2dd98199bf294abff74a1fc662b2754bf5b37"
+        }
+      ],
+      "bytes": 22095814
+    }
+  },
+  {
+    "id": 892,
+    "name": "Keep Talking And Nobody Explodes",
+    "modern": false,
+    "instructions": "If the game asks for its verification code, enter 241.",
+    "config": {
+      "companyName": "Steel Crate Games",
+      "productName": "Keep Talking and Nobody Explodes",
+      "productVersion": "1.9.31",
+      "dataUrl": "ktanefix.WebGL.data.unityweb",
+      "wasmCodeUrl": "ktanefix.WebGL.wasm",
+      "wasmFrameworkUrl": "ktanefix.WebGL.wasm.framework.unityweb",
+      "graphicsAPI": [
+        "WebGL 2.0",
+        "WebGL 1.0"
+      ],
+      "webglContextAttributes": {
+        "preserveDrawingBuffer": false
+      },
+      "splashScreenStyle": "Dark",
+      "backgroundColor": "#231F20",
+      "cacheControl": {
+        "default": "must-revalidate"
+      },
+      "developmentBuild": false,
+      "multithreading": false,
+      "unityVersion": "2019.4.41f1"
+    },
+    "loader": {
+      "files": [
+        {
+          "path": "assets/892-loader.js",
+          "bytes": 159918,
+          "sha256": "e96366c059c55691eb8d0dd7c623aa32b52ea8ce9e7f3b22217b58e1a045e593"
+        }
+      ],
+      "bytes": 159918,
+      "source": "https://cdn.jsdelivr.net/gh/squidward5/ktane-webport@6e7ee2b2947d601c13571cffb70143174ac8cfd2/Build/UnityLoader.js"
+    },
+    "framework": {
+      "files": [
+        {
+          "path": "assets/892-framework.js",
+          "bytes": 597580,
+          "sha256": "e47307a3dfc791ddb8246316f01b0bed28981e0d16e36d3170dd3c0dd22a909b"
+        }
+      ],
+      "bytes": 602917,
+      "source": "https://cdn.jsdelivr.net/gh/squidward5/ktane-webport@6e7ee2b2947d601c13571cffb70143174ac8cfd2/Build/ktanefix.WebGL.wasm.framework.unityweb"
+    },
+    "code": {
+      "files": [
+        {
+          "path": "assets/892-code-raw.wasm.part1",
+          "bytes": 20971520,
+          "sha256": "563e655f33b99d3ceeb793b01c4c4cab0d23149e24096e00215e041ad5c0c9bd"
+        },
+        {
+          "path": "assets/892-code-raw.wasm.part2",
+          "bytes": 16505951,
+          "sha256": "336f90a57a8e91e94d7ff655e0695799d9977391a2385eaa7408312b9b8e152b"
+        }
+      ],
+      "bytes": 37477471,
+      "source": "https://squidward5.github.io/ktane-webport/Build/ktanefix.WebGL.wasm"
+    },
+    "data": {
+      "files": [
+        {
+          "path": "assets/892-data-raw.data.part1",
+          "bytes": 20971520,
+          "sha256": "f2b176ece125ebd9366573d22c7ad73d4c20e5e2a3c05567e29ae3b2b0759c8d"
+        },
+        {
+          "path": "assets/892-data-raw.data.part2",
+          "bytes": 20971520,
+          "sha256": "f6acca323f096799b245ee883b64a68c598ac3a41f186202272b40db7352bda1"
+        },
+        {
+          "path": "assets/892-data-raw.data.part3",
+          "bytes": 20971520,
+          "sha256": "abe4d6a3876a49ef05f47c0cca0fb7821bcbdab163785f474bfb8f5450cf2e48"
+        },
+        {
+          "path": "assets/892-data-raw.data.part4",
+          "bytes": 20971520,
+          "sha256": "03682a6ec5ce8d86c02e4deaec0f19c359bead82875ac9196d76577e30e8a91d"
+        },
+        {
+          "path": "assets/892-data-raw.data.part5",
+          "bytes": 20971520,
+          "sha256": "876f124274095c8b602d9266ec8c6895eb61edceb75a825df03ffd2d6da7d935"
+        },
+        {
+          "path": "assets/892-data-raw.data.part6",
+          "bytes": 20971520,
+          "sha256": "f8e22054e5e085947886f7e776d98d8ccf8e60558a9448adf1b75206fe04d756"
+        },
+        {
+          "path": "assets/892-data-raw.data.part7",
+          "bytes": 20971520,
+          "sha256": "1754e22629e3fc7f41d9ee3970086c3920f8ef6c856a95347bcacf0e3b1a15b3"
+        },
+        {
+          "path": "assets/892-data-raw.data.part8",
+          "bytes": 20971520,
+          "sha256": "66da519f7fdc0a14a74ae5d6d13866b9400bf6bf81d91a397e95ee34d52d9059"
+        },
+        {
+          "path": "assets/892-data-raw.data.part9",
+          "bytes": 20971520,
+          "sha256": "4426980c8b184e69a66bb23643eef636dd5f5d69487fe747689a181c382f821a"
+        },
+        {
+          "path": "assets/892-data-raw.data.part10",
+          "bytes": 20971520,
+          "sha256": "52c03fe5339f86f2852348f7213c2be61e7ab5986eb4e6e4d99d9cda44a3ae52"
+        },
+        {
+          "path": "assets/892-data-raw.data.part11",
+          "bytes": 20971520,
+          "sha256": "3fd91d4330af32dfd10f410695bc58c0b106fd6e4ab2aa957da07323dd4af7fd"
+        },
+        {
+          "path": "assets/892-data-raw.data.part12",
+          "bytes": 20971520,
+          "sha256": "f6e6b173af1277f150c9b68a8698b12c7a7771ab0ed50a04345111eb9c0284f5"
+        },
+        {
+          "path": "assets/892-data-raw.data.part13",
+          "bytes": 11301089,
+          "sha256": "2a119cdb093308b7e06315b0afbcd5b3c5506c184cf7fb29dc2e4dfb752d93b7"
+        }
+      ],
+      "bytes": 262959329
+    }
+  },
+  {
+    "id": 900,
+    "name": "60 Seconds",
+    "modern": true,
+    "data": {
+      "files": [
+        {
+          "path": "assets/900-data.data.part1",
+          "bytes": 20971520,
+          "sha256": "392cc1dea3f14976b3637e3c13ce059592ebbc9ec4d3bd4208a075a132121487"
+        },
+        {
+          "path": "assets/900-data.data.part2",
+          "bytes": 20971520,
+          "sha256": "cc286521e9e27c29e95f2fc8c58942614514f641f0cbdf1a2bf846fe4878483d"
+        },
+        {
+          "path": "assets/900-data.data.part3",
+          "bytes": 20971520,
+          "sha256": "4ea9e7db7343fe592acf3dfa6b793632fe878cee2e0875719b2f42ab0eb4e388"
+        },
+        {
+          "path": "assets/900-data.data.part4",
+          "bytes": 20971520,
+          "sha256": "3363dd01da93542ef43b8a6efefdf56ebc4124272729ceac90ce9c3bd4cd91e6"
+        },
+        {
+          "path": "assets/900-data.data.part5",
+          "bytes": 20971520,
+          "sha256": "c897d299b9ee04251755827d9489357bb413469d69ef3780093f417c878566e6"
+        },
+        {
+          "path": "assets/900-data.data.part6",
+          "bytes": 20971520,
+          "sha256": "76e37e35424b44cc81c17f75d84586174edc113ae74bd23b43a414b8c6402ca9"
+        },
+        {
+          "path": "assets/900-data.data.part7",
+          "bytes": 20971520,
+          "sha256": "b9ff24d03499a3bb04e8c056720d2ffbac5d8e33aa90cf89355614e8ebd06f02"
+        },
+        {
+          "path": "assets/900-data.data.part8",
+          "bytes": 1205520,
+          "sha256": "0cc36e09abe93d23e27e081c1c7a51860db581c2153a8dc09fc95af428e99a20"
+        }
+      ],
+      "bytes": 148006160
+    },
+    "loader": {
+      "files": [
+        {
+          "path": "assets/900-loader.js",
+          "bytes": 104971,
+          "sha256": "ce2f5d3eb1af80b381a3b68aec8827c1153ea0d10b513dad78322a002c39c816"
+        }
+      ],
+      "bytes": 104971
+    },
+    "framework": {
+      "files": [
+        {
+          "path": "assets/900-framework.js",
+          "bytes": 586212,
+          "sha256": "0174ef69e40f223ca23d60259cf8e808bd14c0254b6386ff5e7f5a49cfbea27f"
+        }
+      ],
+      "bytes": 586212
+    },
+    "code": {
+      "files": [
+        {
+          "path": "assets/900-code.wasm.part1",
+          "bytes": 20971520,
+          "sha256": "f2bf9409a73f043c40f570a67520cbf21913d36bbfd6bbaf78edbaa827870738"
+        },
+        {
+          "path": "assets/900-code.wasm.part2",
+          "bytes": 20971520,
+          "sha256": "968270beb325321c9b08a97c02113e77bcb30aa2d8f9b2fe0d3de53be9b71e87"
+        },
+        {
+          "path": "assets/900-code.wasm.part3",
+          "bytes": 10191572,
+          "sha256": "d340f1d48f1f1f55515997d4dea2022449a3efc7b97af1192358ca679e86cb25"
+        }
+      ],
+      "bytes": 52134612
+    }
+  },
+  {
+    "id": 889,
+    "name": "Don't Bite Me Bro!",
+    "modern": false,
+    "asm": true,
+    "instructions": "This older game needs around 1 GB of memory.",
+    "config": {
+      "companyName": "MUIFWEGO",
+      "productName": "Don't Bite Me Bro!",
+      "dataUrl": "Build 9.data.unityweb",
+      "asmCodeUrl": "Build 9.asm.code.unityweb",
+      "asmMemoryUrl": "Build 9.asm.memory.unityweb",
+      "asmFrameworkUrl": "Build 9.asm.framework.unityweb",
+      "TOTAL_MEMORY": 1048576000,
+      "graphicsAPI": [
+        "WebGL 2.0",
+        "WebGL 1.0"
+      ],
+      "webglContextAttributes": {
+        "preserveDrawingBuffer": false
+      },
+      "splashScreenStyle": "Light",
+      "backgroundColor": "#FFFFFF"
+    },
+    "data": {
+      "files": [
+        {
+          "path": "assets/889-data.data.part1",
+          "bytes": 20971520,
+          "sha256": "596c517b71a94778600e4be5457e91b39d591c60b6178b7e83994f8e9ab3da28"
+        },
+        {
+          "path": "assets/889-data.data.part2",
+          "bytes": 20971520,
+          "sha256": "f51e441e803bb8c958c33874a4a5d09d71da435eb071a4f473a08af52800fea0"
+        },
+        {
+          "path": "assets/889-data.data.part3",
+          "bytes": 20971520,
+          "sha256": "cc2b25a3a38ed23e4997ec277f98cca6d037b5e68cfce83a669d9fc4b697c77c"
+        },
+        {
+          "path": "assets/889-data.data.part4",
+          "bytes": 9213753,
+          "sha256": "f1d2a748fb0b8b163f1077f9c92296415eb93d91f70ba5dcbc3a8e838f614c8a"
+        }
+      ],
+      "bytes": 72128313
+    },
+    "loader": {
+      "files": [
+        {
+          "path": "assets/889-loader.js",
+          "bytes": 156034,
+          "sha256": "8229156c45e5531b28824e229edac326ea917d57895e0170aae864ae9f879737"
+        }
+      ],
+      "bytes": 156034
+    },
+    "framework": {
+      "files": [
+        {
+          "path": "assets/889-framework.js",
+          "bytes": 464322,
+          "sha256": "c4efb9bc584d553b0552f3e9d5dc3db26cb144a85324e55f76590a86a40bfc16"
+        }
+      ],
+      "bytes": 464322
+    },
+    "code": {
+      "files": [
+        {
+          "path": "assets/889-memory.data",
+          "bytes": 2693190,
+          "sha256": "49379b6bdb2e92e68043007098eb3877bb4803319155308fbe1e56e53b46aa73"
+        }
+      ],
+      "bytes": 2693190
+    },
+    "asmCode": {
+      "files": [
+        {
+          "path": "assets/889-asm-code.js.part1",
+          "bytes": 20971520,
+          "sha256": "2fea2e21cd2321676f175eca824a81167c32f6da2e867f0db206871a99b8fa6d"
+        },
+        {
+          "path": "assets/889-asm-code.js.part2",
+          "bytes": 20971520,
+          "sha256": "483cac8b3932302e781460bfc2939cfae4ee21fa5811c768573c5fffceb33072"
+        },
+        {
+          "path": "assets/889-asm-code.js.part3",
+          "bytes": 6760201,
+          "sha256": "45e3e075c17b416ccfe1cdb04ba74a762c2db9f61d7a1aca13b38803405a1f6e"
+        }
+      ],
+      "bytes": 48703241
+    }
+  }
+]

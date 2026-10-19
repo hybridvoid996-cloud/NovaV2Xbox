@@ -1,0 +1,547 @@
+{
+  "source": "https://gointospace.app/",
+  "createdAt": "2026-10-17T23:04:34.119559+00:00",
+  "existingGamesSkipped": 7,
+  "listingsSkipped": 18,
+  "games": [
+    {
+      "name": "Pokemon Academy Life Forever",
+      "url": "https://truffled.lol/gamefile/pokemonacademy.html",
+      "image": "https://truffled.lol/png/games/pokemonacademy.webp",
+      "source": "Truffled",
+      "id": 1007,
+      "core": null,
+      "rom": null,
+      "cover": "covers/1007.png",
+      "coverSha256": "bb5c4b34bf7ca17dae0748c07df5cd7d5ba6cce7a31dff46a555a1ad98a1f945"
+    },
+    {
+      "name": "Pokemon Blue",
+      "url": "https://truffled.lol/gamefile/blue.html",
+      "image": "https://truffled.lol/png/games/blue.webp",
+      "source": "Truffled",
+      "id": 1008,
+      "core": "gb",
+      "rom": "https://cdn.jsdelivr.net/gh/bubbls/UGS-file-encryption@cf2db6e9366385521ac2ce4e87b8d364aac61a37/Pokemon%20-%20Blue%20Version%20(USA%2C%20Europe)%20(SGB%20Enhanced).zip",
+      "cover": "covers/1008.webp",
+      "coverSha256": "3bbbf9fe458434d6cbe6430e2fdcdd25f78dc59a5613093538166374279ecb90",
+      "romFileName": "Pokemon - Blue Version (USA, Europe) (SGB Enhanced).gb",
+      "romBytes": 1048576,
+      "romSha256": "2a951313c2640e8c2cb21f25d1db019ae6245d9c7121f754fa61afd7bee6452d",
+      "files": [
+        {
+          "path": "roms/1008.gb",
+          "bytes": 1048576,
+          "sha256": "2a951313c2640e8c2cb21f25d1db019ae6245d9c7121f754fa61afd7bee6452d"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Crystal",
+      "url": "https://truffled.lol/gamefile/blob.html",
+      "image": "https://truffled.lol/png/games/crystal.webp",
+      "source": "Truffled",
+      "id": 1009,
+      "core": "gb",
+      "rom": "https://cdn.jsdelivr.net/gh/bubbls/UGS-file-encryption@13a9d8a407ade461b08ed56b0a683f22ae1aef96/Pokemon%20-%20Crystal%20Version%20(USA).zip",
+      "cover": "covers/1009.webp",
+      "coverSha256": "10ff5fffafcba99aea55f6eecefca0b17362b1dd8b5ff43031ee11d73006f435",
+      "romFileName": "Pokemon - Crystal Version (USA).gbc",
+      "romBytes": 2097152,
+      "romSha256": "d6702e353dcbe2d2c69183046c878ef13a0dae4006e8cdff521cca83dd1582fe",
+      "files": [
+        {
+          "path": "roms/1009.gbc",
+          "bytes": 2097152,
+          "sha256": "d6702e353dcbe2d2c69183046c878ef13a0dae4006e8cdff521cca83dd1582fe"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Gold",
+      "url": "https://truffled.lol/gamefile/gold.html",
+      "image": "https://truffled.lol/png/games/gold.webp",
+      "source": "Truffled",
+      "id": 1010,
+      "core": "gb",
+      "rom": "https://cdn.jsdelivr.net/gh/bubbls/UGS-file-encryption@13a9d8a407ade461b08ed56b0a683f22ae1aef96/Pokemon%20-%20Gold%20Version%20(USA%2C%20Europe)%20(SGB%20Enhanced)%20(GB%20Compatible).zip",
+      "cover": "covers/1010.webp",
+      "coverSha256": "ff9017e44299942fccb3d580556908f2dd05de4830a16253dc4c3a51ba91fbec",
+      "romFileName": "Pokemon - Gold Version (USA, Europe) (SGB Enhanced) (GB Compatible).gbc",
+      "romBytes": 2097152,
+      "romSha256": "fb0016d27b1e5374e1ec9fcad60e6628d8646103b5313ca683417f52b97e7e4e",
+      "files": [
+        {
+          "path": "roms/1010.gbc",
+          "bytes": 2097152,
+          "sha256": "fb0016d27b1e5374e1ec9fcad60e6628d8646103b5313ca683417f52b97e7e4e"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Stadium",
+      "url": "https://truffled.lol/gamefile/pokestad.html",
+      "image": "https://truffled.lol/png/games/pokestad.webp",
+      "source": "Truffled",
+      "id": 1011,
+      "core": "n64",
+      "rom": "https://cdn.jsdelivr.net/gh/bubbls/ugss@5d2e292acbf7a14471aca79275acd8f34ced61ff/Pokemon%20Stadium%20(USA)/Pokemon%20Stadium%20(USA).z64",
+      "parts": 2,
+      "cover": "covers/1011.webp",
+      "coverSha256": "e931817e6b9fcc4f90c788cfa67a3d2dc42d02839879a5dc08dab22d48b2af65",
+      "romFileName": "Pokemon%20Stadium%20(USA).z64",
+      "romBytes": 33554432,
+      "romSha256": "502f6082a6436012a8b61419435dec1388869a90ed870e87e2d7bee88f831519",
+      "files": [
+        {
+          "path": "roms/1011.z64.part1",
+          "bytes": 20971520,
+          "sha256": "0f3c19b7062715dc6674832db07e8517c68692a55e8752e45882cc21bac2f987"
+        },
+        {
+          "path": "roms/1011.z64.part2",
+          "bytes": 12582912,
+          "sha256": "9b1cff152c85c0e89bf05cc807d459a5123f5f7dfea0294eb4fc9c3538cc8b11"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Stadium 2",
+      "url": "https://truffled.lol/gamefile/pokestad2.html",
+      "image": "https://truffled.lol/png/games/pokestad2.webp",
+      "source": "Truffled",
+      "id": 1012,
+      "core": "n64",
+      "rom": "https://cdn.jsdelivr.net/gh/ap-math-class/exams@main/n64/Pokemon%20Stadium%202%20(USA).iso",
+      "parts": 3,
+      "cover": "covers/1012.jpg",
+      "coverSha256": "1b2986c55b44ea0bcc8f55dd0526963e6eeed6ed076b4b20922f0e9e24d2c18b",
+      "romFileName": "Pokemon Stadium 2 (USA).z64",
+      "romBytes": 67108864,
+      "romSha256": "8160abe7d4b9734317000c44e9f882efefe4cc6359eacded98be62f2811e40a9",
+      "files": [
+        {
+          "path": "roms/1012.z64.part1",
+          "bytes": 20971520,
+          "sha256": "66f0aeb46529df4eea4d7565be26072e6a663f4b21890d019abfa2adeb2f6b44"
+        },
+        {
+          "path": "roms/1012.z64.part2",
+          "bytes": 20971520,
+          "sha256": "327de8543112c84f2cf9129b6f3f2dbea9765fc16267ccbc98c4340a7f0f4257"
+        },
+        {
+          "path": "roms/1012.z64.part3",
+          "bytes": 20971520,
+          "sha256": "294dae721b8eb9b7bced7c46e9547bf580102d1388c32d92c7ac6a3e87f5ab1a"
+        },
+        {
+          "path": "roms/1012.z64.part4",
+          "bytes": 4194304,
+          "sha256": "db92df28d70c656e2f06f48f58633d6473ae11db88c7d156f3fdea55053999f2"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Scarlet and Violet GBA",
+      "url": "https://selenite.cc/resources/semag/pokemonsavgba/",
+      "image": "https://selenite.cc/resources/semag/pokemonsavgba/pokemon.jpg",
+      "source": "Selenite",
+      "id": 1013,
+      "core": "gba",
+      "rom": "https://selenite.cc/resources/semag/pokemonsavgba/pag.gba",
+      "cover": "covers/1013.jpg",
+      "coverSha256": "90e9f000a1d16c7118b99d284584ce0be856c0b0e2f3b1200c594bcf6a15ca05",
+      "romFileName": "pag.gba",
+      "romBytes": 16777216,
+      "romSha256": "37b4c10670e639d36a2fb6e63490e546dcbc0ac5b40a68f8aca32313dcc31a77",
+      "files": [
+        {
+          "path": "roms/1013.gba",
+          "bytes": 16777216,
+          "sha256": "37b4c10670e639d36a2fb6e63490e546dcbc0ac5b40a68f8aca32313dcc31a77"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Yellow",
+      "url": "https://selenite.cc/resources/semag/pokemonyellow/",
+      "image": "https://selenite.cc/resources/semag/pokemonyellow/pokemon-yellow---button-1558057648010.webp",
+      "source": "Selenite",
+      "id": 1014,
+      "core": "gb",
+      "rom": "https://selenite.cc/resources/semag/pokemonyellow/yellow.gb",
+      "cover": "covers/1014.webp",
+      "coverSha256": "885b7eb9ae17108f452cf8f540272ffbd21848605df819ceec6599088671dddf",
+      "romFileName": "yellow.gb",
+      "romBytes": 1048576,
+      "romSha256": "8cbaa499397e4f1a679c992ea9382a2dd7942ab398b48c19829c2d9529de47bf",
+      "files": [
+        {
+          "path": "roms/1014.gb",
+          "bytes": 1048576,
+          "sha256": "8cbaa499397e4f1a679c992ea9382a2dd7942ab398b48c19829c2d9529de47bf"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Unbound",
+      "url": "https://selenite.cc/resources/semag/pokemonunbound/",
+      "image": "https://selenite.cc/resources/semag/pokemonunbound/pokemon-unbound.jpg",
+      "source": "Selenite",
+      "id": 1015,
+      "core": "gba",
+      "rom": "https://selenite.cc/resources/semag/pokemonunbound/pokemonunbound.zip",
+      "cover": "covers/1015.jpg",
+      "coverSha256": "af3ef8d7212fe7b33673b5bf4cd3e56f45179d9dbf339988e5e3ce0ad770e5ff",
+      "romFileName": "Pokemon Unbound v2.1.1.1.gba",
+      "romBytes": 33554432,
+      "romSha256": "7aa25bbf568f7cfcf6ee1cf2e9e6ff637350b3d0705c2375cabb6baa7d9739f7",
+      "files": [
+        {
+          "path": "roms/1015.gba.part1",
+          "bytes": 20971520,
+          "sha256": "efc7dda73141823f15b1729bedc56e4007567cca66de11262e01db9f11c2a83f"
+        },
+        {
+          "path": "roms/1015.gba.part2",
+          "bytes": 12582912,
+          "sha256": "25ece25708b8b57749bc037c4d81107089e31546190dbcf44dae78032760c715"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Emerald Crest",
+      "url": "https://selenite.cc/resources/semag/pokemonemeraldcrest/",
+      "image": "https://selenite.cc/resources/semag/pokemonemeraldcrest/pokemonemerald-sq-1644346782465.webp",
+      "source": "Selenite",
+      "id": 1016,
+      "core": "gba",
+      "rom": "https://selenite.cc/resources/semag/pokemonemeraldcrest/emerald (patched).gba",
+      "cover": "covers/1016.webp",
+      "coverSha256": "acd6a5fe2b531ad06f697fe8684d3d2072af538fa8434b435b8179cbabff34cc",
+      "romFileName": "emerald (patched).gba",
+      "romBytes": 32628444,
+      "romSha256": "3ed3f02d6b2ed8a862551b5b169adcbe608077ab99009e1ca3702c2da2ab7e54",
+      "files": [
+        {
+          "path": "roms/1016.gba.part1",
+          "bytes": 20971520,
+          "sha256": "3b12b7c553319aaa702df37ea428bc76fcc7536f393c30d877c5b9c8c73e0198"
+        },
+        {
+          "path": "roms/1016.gba.part2",
+          "bytes": 11656924,
+          "sha256": "c6f2ddf7edd50cd0feeb857113409dfe27c0cfd4d9b664f7074b398f7e46e629"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon SoulSilver",
+      "url": "https://selenite.cc/resources/semag/pokemonsoulsilver/",
+      "image": "https://selenite.cc/resources/semag/pokemonsoulsilver/pokemon-soulsilver-version_cmaq.600.webp",
+      "source": "Selenite",
+      "id": 1017,
+      "core": "nds",
+      "rom": "https://selenite.cc/resources/semag/pokemonsoulsilver/pokemon-soulsilver.zip",
+      "cover": "covers/1017.webp",
+      "coverSha256": "1ccb94dbaf39d3bd449b3ebf397418947e455eb850679a2f5264e5ea9c4454ca",
+      "romFileName": "Pokemon - SoulSilver Version (USA, Australia).nds",
+      "romBytes": 134217728,
+      "romSha256": "51d0f94a16af7d77c067b4cb7d821ba890a13203a2e2c76049623332c0582e20",
+      "files": [
+        {
+          "path": "roms/1017.nds.part1",
+          "bytes": 20971520,
+          "sha256": "656d41d20a3e22016898b75dcd47a8e11df77c0c5f96773d189022d98732fa81"
+        },
+        {
+          "path": "roms/1017.nds.part2",
+          "bytes": 20971520,
+          "sha256": "c3c2b71a7d3fbf49bd97bf07abc24a3e0b13aee4594bd6e179ad3437a6d8fed1"
+        },
+        {
+          "path": "roms/1017.nds.part3",
+          "bytes": 20971520,
+          "sha256": "8a5dd2c60f0c28e14a94cc729e30e52a33e9a7b57af99ee1bdd7347f17fe1872"
+        },
+        {
+          "path": "roms/1017.nds.part4",
+          "bytes": 20971520,
+          "sha256": "e091dc4516120cbe6012ba98190156313608a3046a10b86869a46aa41173dd5e"
+        },
+        {
+          "path": "roms/1017.nds.part5",
+          "bytes": 20971520,
+          "sha256": "ce4b308b48afad71f0227ed6a3a1d376788d456c59d7ae1f0bf6d91f2cb93c77"
+        },
+        {
+          "path": "roms/1017.nds.part6",
+          "bytes": 20971520,
+          "sha256": "01d01a07d8e657eb29300088626a24b7b3728f96970674d7bc9eaad1497b00cb"
+        },
+        {
+          "path": "roms/1017.nds.part7",
+          "bytes": 8388608,
+          "sha256": "5797d4d7adc73f6d85ed2940fa7c5c495c349b173006b705a63e87ee08fc23a3"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Snap",
+      "url": "https://selenite.cc/resources/semag/pokemonsnap/",
+      "image": "https://selenite.cc/resources/semag/pokemonsnap/pokemonsnap.jpeg",
+      "source": "Selenite",
+      "id": 1018,
+      "core": "n64",
+      "rom": "https://selenite.cc/resources/semag/pokemonsnap/Pokemon Snap (USA).zip",
+      "cover": "covers/1018.jpg",
+      "coverSha256": "d6fe7399cebc07dd54c7cbab1dd0bfbd242dce7e0f24915e4cef043b2c82a257",
+      "romFileName": "Pokemon Snap (USA).n64",
+      "romBytes": 16777216,
+      "romSha256": "26c3e1dc3fb4fd687623c8f8e3115b7671b5d1a556034607e4434ab8ad90ddab",
+      "files": [
+        {
+          "path": "roms/1018.z64",
+          "bytes": 16777216,
+          "sha256": "26c3e1dc3fb4fd687623c8f8e3115b7671b5d1a556034607e4434ab8ad90ddab"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Silver",
+      "url": "https://selenite.cc/resources/semag/pokemonsilver/",
+      "image": "https://selenite.cc/resources/semag/pokemonsilver/pokemon-silver---button-1558057647925.jpg",
+      "source": "Selenite",
+      "id": 1019,
+      "core": "gb",
+      "rom": "https://selenite.cc/resources/semag/pokemonsilver/silver.gbc",
+      "cover": "covers/1019.jpg",
+      "coverSha256": "82d5c8d70c643daf5f3b92e44f48d03483e78b2604d61a5632ae05405ecb4a4b",
+      "romFileName": "silver.gbc",
+      "romBytes": 2097152,
+      "romSha256": "72b190859a59623cbef6c49d601f8de52c1d2331b4f08a8d2acc17274fc19a8c",
+      "files": [
+        {
+          "path": "roms/1019.gbc",
+          "bytes": 2097152,
+          "sha256": "72b190859a59623cbef6c49d601f8de52c1d2331b4f08a8d2acc17274fc19a8c"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Sapphire",
+      "url": "https://selenite.cc/resources/semag/pokemonsapphire/",
+      "image": "https://selenite.cc/resources/semag/pokemonsapphire/pokemonsapphire.jpg",
+      "source": "Selenite",
+      "id": 1020,
+      "core": "gba",
+      "rom": "https://selenite.cc/resources/semag/pokemonsapphire/sapphire.gba",
+      "cover": "covers/1020.jpg",
+      "coverSha256": "57ad9677aef248e5377e5ba52c6c97a6934c1e7ca499433596f44f3c80cf657f",
+      "romFileName": "sapphire.gba",
+      "romBytes": 16777216,
+      "romSha256": "02ca41513580a8b780989dee428df747b52a0b1a55bec617886b4059eb1152fb",
+      "files": [
+        {
+          "path": "roms/1020.gba",
+          "bytes": 16777216,
+          "sha256": "02ca41513580a8b780989dee428df747b52a0b1a55bec617886b4059eb1152fb"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Ruby",
+      "url": "https://selenite.cc/resources/semag/pokemonruby/",
+      "image": "https://selenite.cc/resources/semag/pokemonruby/pokemonruby.jpeg",
+      "source": "Selenite",
+      "id": 1021,
+      "core": "gba",
+      "rom": "https://selenite.cc/resources/semag/pokemonruby/ruby.gba",
+      "cover": "covers/1021.jpg",
+      "coverSha256": "eb4fe8135ce11f9980f34e456884ea982ef3c24e4e70fe4dfcefdeb708c09496",
+      "romFileName": "ruby.gba",
+      "romBytes": 16777216,
+      "romSha256": "53d591215de2cab847d14fbcf8c516f0128cfa8556f1236065e0535aa5936d4e",
+      "files": [
+        {
+          "path": "roms/1021.gba",
+          "bytes": 16777216,
+          "sha256": "53d591215de2cab847d14fbcf8c516f0128cfa8556f1236065e0535aa5936d4e"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Platinum",
+      "url": "https://selenite.cc/resources/semag/pokemonplatinum/",
+      "image": "https://selenite.cc/resources/semag/pokemonplatinum/pokemonplatinum.jpeg",
+      "source": "Selenite",
+      "id": 1022,
+      "core": "nds",
+      "rom": "https://selenite.cc/resources/semag/pokemonplatinum/pokemon-platinum.zip",
+      "cover": "covers/1022.jpg",
+      "coverSha256": "672c5d85ecaf064fe4c0e4bf43653bcbbaad969aac54be1da6e919d579dbd964",
+      "romFileName": "Pokemon - Platinum Version (USA) (Rev 1).nds",
+      "romBytes": 134217728,
+      "romSha256": "fbce4c4def0c7797f8dd238a3d7a5e48b4a7e3abd86890ac65f6321cef781bdb",
+      "files": [
+        {
+          "path": "roms/1022.nds.part1",
+          "bytes": 20971520,
+          "sha256": "87744acde7fa3ff1bda6816b6e4058190cdc5444759bcef7a51b0ed43d6421a6"
+        },
+        {
+          "path": "roms/1022.nds.part2",
+          "bytes": 20971520,
+          "sha256": "e4356bc54a22d5fa1306e6123a7a25e557b37b96959880af614873e816eaec11"
+        },
+        {
+          "path": "roms/1022.nds.part3",
+          "bytes": 20971520,
+          "sha256": "283b680db526b7d5e57932d83af742b2d485337e2f03b32c6bf604feb8af659b"
+        },
+        {
+          "path": "roms/1022.nds.part4",
+          "bytes": 20971520,
+          "sha256": "0faf1f362c9a1e3854c387355ed1a0451e348e3979d5ce97f47aef2bf5653088"
+        },
+        {
+          "path": "roms/1022.nds.part5",
+          "bytes": 20971520,
+          "sha256": "9de2f284b5e2652a848da01042fc883d38141d7c2e8f91c9b4a8e95251a8ff8b"
+        },
+        {
+          "path": "roms/1022.nds.part6",
+          "bytes": 20971520,
+          "sha256": "3256ee369d24ef50c15a53b6b1ea17584f81dfd2d3b7b04c7f958c4706b93fc2"
+        },
+        {
+          "path": "roms/1022.nds.part7",
+          "bytes": 8388608,
+          "sha256": "9f9b02f5ee6cbef5e018c1ee424095fc21a842ea6968c0d36114b5930dab2ba1"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Mystery Dungeon",
+      "url": "https://selenite.cc/resources/semag/pokemonmysterydungeon/",
+      "image": "https://selenite.cc/resources/semag/pokemonmysterydungeon/pokemonmysterydungeon.png",
+      "source": "Selenite",
+      "id": 1023,
+      "core": "gba",
+      "rom": "https://selenite.cc/resources/semag/pokemonmysterydungeon/pokemonmysterydungeon.zip",
+      "cover": "covers/1023.png",
+      "coverSha256": "6c7e2fdbff266dff21f1ae3516ab44aaad2716001372d0eed89790d2f7c7a235",
+      "romFileName": "Pokemon Mystery Dungeon - Red Rescue Team (USA, Australia).gba",
+      "romBytes": 33554432,
+      "romSha256": "ad316814c77ed083734d816ebcde2ece390efae8d15bcb6c66d7c2862d82eb68",
+      "files": [
+        {
+          "path": "roms/1023.gba.part1",
+          "bytes": 20971520,
+          "sha256": "4595ba0503d053cca1fc4a7f2262f67743cbbd5b8377ee0d884b975fb4f8d815"
+        },
+        {
+          "path": "roms/1023.gba.part2",
+          "bytes": 12582912,
+          "sha256": "5b980627a3549b329c2b15ca837c2f41fd56473214448c233f2e1a7096af7ffe"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon Diamond",
+      "url": "https://selenite.cc/resources/semag/pokemondiamond/",
+      "image": "https://selenite.cc/resources/semag/pokemondiamond/logo.avif",
+      "source": "Selenite",
+      "id": 1024,
+      "core": "nds",
+      "rom": "https://selenite.cc/resources/semag/pokemondiamond/pokemon-diamond.zip",
+      "cover": "covers/1024.avif",
+      "coverSha256": "162164a1fad8af0d0a8a4b783f73e0d8cd14da9951fa21aad12839ce6e60d82e",
+      "romFileName": "Pokemon - Diamond Version (USA) (Rev 5).nds",
+      "romBytes": 67108864,
+      "romSha256": "e29bc6ebe431d7a6b238267b6b1521fec4a3bc14f2fa348798062f870c738454",
+      "files": [
+        {
+          "path": "roms/1024.nds.part1",
+          "bytes": 20971520,
+          "sha256": "beef16d179835134003fa3c6796a98506f37c8f04f3dd0fc531c5032b3a5a53e"
+        },
+        {
+          "path": "roms/1024.nds.part2",
+          "bytes": 20971520,
+          "sha256": "34ef4a89213d6b1eeec393b429015af7110d01e701f1db674116378a6a557962"
+        },
+        {
+          "path": "roms/1024.nds.part3",
+          "bytes": 20971520,
+          "sha256": "bd86e93a54b762dac3bb85b01b45c732c64257ff82b59e9ccc6c7edc6a554293"
+        },
+        {
+          "path": "roms/1024.nds.part4",
+          "bytes": 4194304,
+          "sha256": "cd3517473707d59c3d915b52a3e16213cadce80d9ffb2b4371958fb7acb51a08"
+        }
+      ]
+    },
+    {
+      "name": "Pokemon LeafGreen",
+      "url": "https://selenite.cc/resources/semag/pokemonleafgreen/",
+      "image": "https://selenite.cc/resources/semag/pokemonleafgreen/leafgreen.jpeg",
+      "source": "Selenite",
+      "id": 1025,
+      "core": "gba",
+      "rom": "https://selenite.cc/resources/semag/pokemonleafgreen/leafgreen.gba",
+      "cover": "covers/1025.jpg",
+      "coverSha256": "f301823feefee7ba182277e44283606dc9566d272d179faba2bac731496ad11e",
+      "romFileName": "leafgreen.gba",
+      "romBytes": 16777216,
+      "romSha256": "136d75e48ef4212f6188387d317964f9746ad46f54f2792289d1717064911f64",
+      "files": [
+        {
+          "path": "roms/1025.gba",
+          "bytes": 16777216,
+          "sha256": "136d75e48ef4212f6188387d317964f9746ad46f54f2792289d1717064911f64"
+        }
+      ]
+    }
+  ],
+  "academyFiles": [
+    {
+      "path": "academy/game.zip.part1",
+      "bytes": 19922944,
+      "sha256": "d4956fa8da0eb681ab6b4783033487ae0927ccf2e8d2e4d93faf2d48d514ab5c"
+    },
+    {
+      "path": "academy/game.zip.part2",
+      "bytes": 10091783,
+      "sha256": "85ec87f8b98733f67898d376dcc7f6e6d5c543f90c503b72af52dcf0cf070d5a"
+    },
+    {
+      "path": "academy/renpy-pre.js",
+      "bytes": 30560,
+      "sha256": "bf4e9074f7078f542f79288597250d383105fca1b2f890bb0ebe7bfdf3176795"
+    },
+    {
+      "path": "academy/renpy.data",
+      "bytes": 15110306,
+      "sha256": "9c042216f28e63d1ade301a102ea73f33bc36b93b6c0e1b4197949bd57e107b1"
+    },
+    {
+      "path": "academy/renpy.js",
+      "bytes": 396118,
+      "sha256": "cbae93c146c100c930976475d56b274b0c42fe4935567df5a3bb0f05bccf0612"
+    },
+    {
+      "path": "academy/renpy.wasm.part1",
+      "bytes": 19922944,
+      "sha256": "670073cd79d92e8721644a1b0c48f298182ef26facbd85372c149396b67d109e"
+    },
+    {
+      "path": "academy/renpy.wasm.part2",
+      "bytes": 2009424,
+      "sha256": "ae18c387d4456fff8c2e180f56bb9cd687f21460c7ba7073104ab6a22e4da098"
+    }
+  ],
+  "academyProgressiveAssets": "https://cdn.jsdelivr.net/gh/bubbls/ports@main/Pokemon-Academy-Life-Forever/game/"
+}

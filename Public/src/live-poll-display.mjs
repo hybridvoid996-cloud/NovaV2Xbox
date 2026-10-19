@@ -1,0 +1,2 @@
+export function pollCountdown(live,now=Date.now()){const remaining=Math.max(0,Number(live.expiresAt)-now),duration=Math.max(1,Number(live.expiresAt)-Number(live.at||now));return {seconds:Math.ceil(remaining/1000),percent:Math.min(100,remaining/duration*100),urgent:remaining<=10000}}
+export function pollOptionTone(label,index,count){const word=String(label).trim().toLowerCase();if(/^(no|nope|nah|against|disagree|false)$/.test(word))return 'red';if(/^(yes|yep|yeah|for|agree|true)$/.test(word))return 'green';return count===2?(index===0?'green':'red'):'neutral'}

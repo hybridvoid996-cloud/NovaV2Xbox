@@ -1,0 +1,1214 @@
+{
+  "games": [
+    {
+      "id": 920,
+      "name": "Littlest Pet Shop City Friends",
+      "core": "nds",
+      "romBytes": 67108864,
+      "romSha256": "b23ad96b65ae29dec549ed53d29b34071c6f8d58bfb4c64dadf72ea45a2d9bac",
+      "files": [
+        {
+          "path": "assets/920-game.nds.part1",
+          "bytes": 20971520,
+          "sha256": "fc692ccb42f220a341421baa4381d1c53ef5a81ec2c48dd57e0c6da007eccfa2"
+        },
+        {
+          "path": "assets/920-game.nds.part2",
+          "bytes": 20971520,
+          "sha256": "3aff90707ba18f8a666825de06d54004d39086244c0605a448eb97525f32b4dd"
+        },
+        {
+          "path": "assets/920-game.nds.part3",
+          "bytes": 20971520,
+          "sha256": "338f734d9dc3a551dcabfbe0797d8570665e2d663573193a37fdc366d6993fca"
+        },
+        {
+          "path": "assets/920-game.nds.part4",
+          "bytes": 4194304,
+          "sha256": "5df569a9fc525b77bb3bf7543f72388ce85c90e0bbec7bbf024978bdcf407215"
+        }
+      ],
+      "saveName": "Castlevania: Symphony of the Night"
+    },
+    {
+      "id": 938,
+      "name": "Call of Duty: World at War",
+      "core": "nds",
+      "romBytes": 67108864,
+      "romSha256": "b9bb073863e4e332468cd295c48c0d03421a4221a8697e48e4001ebae6a90210",
+      "files": [
+        {
+          "path": "assets/938-game.nds.part1",
+          "bytes": 20971520,
+          "sha256": "e47ed19bf77e656c17f256ea2c3474a740a6a89fd67c448ed14e465984d22a58"
+        },
+        {
+          "path": "assets/938-game.nds.part2",
+          "bytes": 20971520,
+          "sha256": "56a8b8003b22b347225f5a77899c799b4b5516a889a46e6bb6fc6a4ce42a0f61"
+        },
+        {
+          "path": "assets/938-game.nds.part3",
+          "bytes": 20971520,
+          "sha256": "0c34030cf1f38ef2b0b213b1bf1563d3c413ffe6050311c2e170f391d1c34842"
+        },
+        {
+          "path": "assets/938-game.nds.part4",
+          "bytes": 4194304,
+          "sha256": "3f416d71505e6ac19b885b852d3199779122c90116007d0bdabd2d65ae6a301a"
+        }
+      ],
+      "saveName": "Call of Duty - World at War (USA)"
+    },
+    {
+      "id": 939,
+      "name": "Call of Duty 4: Modern Warfare",
+      "core": "nds",
+      "romBytes": 67108864,
+      "romSha256": "b4085ae1284919f58d5efa9de517cb9efd990499b49d943a3ced33500dc92b9b",
+      "files": [
+        {
+          "path": "assets/939-game.nds.part1",
+          "bytes": 20971520,
+          "sha256": "1aa225aface0c60caa7ba8aae63d1644933177d4de7c2cffef65249c4b36d2f7"
+        },
+        {
+          "path": "assets/939-game.nds.part2",
+          "bytes": 20971520,
+          "sha256": "1baad2496a8ada26bfa44ba2dbf8e6d0dd7cc47d35037078f9a26d76cd3b4f62"
+        },
+        {
+          "path": "assets/939-game.nds.part3",
+          "bytes": 20971520,
+          "sha256": "71a3e9fb8f915ac7a1b6aae88ad514e463db1263330f9fc7409d88f761c09917"
+        },
+        {
+          "path": "assets/939-game.nds.part4",
+          "bytes": 4194304,
+          "sha256": "c6e7748863f599b850fb1e902c98051b65563df362c9d5b83ea37c2e0e015c1c"
+        }
+      ],
+      "saveName": "Call of Duty 4 - Modern Warfare (USA)"
+    },
+    {
+      "id": 951,
+      "name": "Lego Starwars Complete Saga",
+      "core": "nds",
+      "romBytes": 67108864,
+      "romSha256": "354004fbf17f5a95ad4546ec64e47bb036f5d78c946daa021e4636abf00fda1a",
+      "files": [
+        {
+          "path": "assets/951-game.nds.part1",
+          "bytes": 20971520,
+          "sha256": "b041812098a27d8db49921b674b961ce1d830d96b7f01c7c7fa662ddf126cebf"
+        },
+        {
+          "path": "assets/951-game.nds.part2",
+          "bytes": 20971520,
+          "sha256": "bbb20cda6db6d2fbbf90487ab9216b4dde888cd6bf4c6ffffc2e1dd463fcbbd9"
+        },
+        {
+          "path": "assets/951-game.nds.part3",
+          "bytes": 20971520,
+          "sha256": "6ea58ffec9615ebb3982939f1c950ace3040874a4bd35f0f0c5cdf8e7dde1e99"
+        },
+        {
+          "path": "assets/951-game.nds.part4",
+          "bytes": 4194304,
+          "sha256": "c7087e9dc578e1b4994cc0a6a7bc6e4baa75d6ff10a44a98c012559876287b9f"
+        }
+      ],
+      "saveName": "LEGO Star Wars - The Complete Saga (USA)"
+    },
+    {
+      "id": 950,
+      "name": "Lego Batman 2",
+      "core": "nds",
+      "romBytes": 134217728,
+      "romSha256": "89f17554818502019cab53cb4e3055d79411f81edf838df561e4aaa6ddad1e20",
+      "files": [
+        {
+          "path": "assets/950-game.nds.part1",
+          "bytes": 20971520,
+          "sha256": "d948eabb209fbaa23baa0cb1078c716819903ebbfbb61d2a90f2707a88fb21df"
+        },
+        {
+          "path": "assets/950-game.nds.part2",
+          "bytes": 20971520,
+          "sha256": "0d2e54cf0017e0dca38f09d76ef83d0e4e3032d62b4a7280188d5565c5f02ae3"
+        },
+        {
+          "path": "assets/950-game.nds.part3",
+          "bytes": 20971520,
+          "sha256": "33891dd04d691b9a7513ec502e90ee680d99bed5fbffaf52556c9b853d3ad6f9"
+        },
+        {
+          "path": "assets/950-game.nds.part4",
+          "bytes": 20971520,
+          "sha256": "7a241ec55a1deea7415b04e371d056e6f194df969a951fcdade6c4bae9f201e0"
+        },
+        {
+          "path": "assets/950-game.nds.part5",
+          "bytes": 20971520,
+          "sha256": "cf0633571d84397b6ff529b836a5e3aa2b21f5ac76bdf9437fd5e1e9a3dc64dc"
+        },
+        {
+          "path": "assets/950-game.nds.part6",
+          "bytes": 20971520,
+          "sha256": "123c52cf4faf204bd9908db8f57691f962a3f23790f3ebb34847122d23272365"
+        },
+        {
+          "path": "assets/950-game.nds.part7",
+          "bytes": 8388608,
+          "sha256": "9f9b02f5ee6cbef5e018c1ee424095fc21a842ea6968c0d36114b5930dab2ba1"
+        }
+      ],
+      "saveName": "LEGO Batman 2 - DC Super Heroes (USA)"
+    },
+    {
+      "id": 971,
+      "name": "Tomodachi Life",
+      "core": "nds",
+      "romBytes": 67108864,
+      "romSha256": "8ddd8ce9fb3c53fe9e3d06bddf6d00f4eccaad210222ffd594de3bc12764bfb0",
+      "files": [
+        {
+          "path": "assets/971-game.nds.part1",
+          "bytes": 20971520,
+          "sha256": "07a9b49d286c909c61fd1b18846783adb6e2caa7ca5d1f66eabd954f7a0cb0ee"
+        },
+        {
+          "path": "assets/971-game.nds.part2",
+          "bytes": 20971520,
+          "sha256": "da696d0ddaaa804d7979add1cbe92b1cfe97474a15862d2f7da3062df1a10cd3"
+        },
+        {
+          "path": "assets/971-game.nds.part3",
+          "bytes": 20971520,
+          "sha256": "45ee390588191092aa50bd95ae9465e444e1722e5538b999e69ae23293b0027b"
+        },
+        {
+          "path": "assets/971-game.nds.part4",
+          "bytes": 4194304,
+          "sha256": "cd3517473707d59c3d915b52a3e16213cadce80d9ffb2b4371958fb7acb51a08"
+        }
+      ],
+      "saveName": "Tomodachi Collection"
+    },
+    {
+      "id": 953,
+      "name": "Tony Hawks Pro Skater",
+      "core": "psx",
+      "romBytes": 343606536,
+      "romSha256": "58e5dcb5b262c49f72fa9d5cd5e06f8f5e4add62551b46df1080aca334c62ac6",
+      "files": [
+        {
+          "path": "assets/953-game.chd.part1",
+          "bytes": 20971520,
+          "sha256": "5c688b6bb1fef9986fdf874a55d8561c1a3af0e45f6a73897404cf7ae4014b54"
+        },
+        {
+          "path": "assets/953-game.chd.part2",
+          "bytes": 20971520,
+          "sha256": "c1c4f3b65ad99bfb8ac3d4cb10e74808e6b0380ae5de5aac0fcb1c6f2aa7c899"
+        },
+        {
+          "path": "assets/953-game.chd.part3",
+          "bytes": 20971520,
+          "sha256": "eb2039085829743bb0ab80c410c32f7f418b4ebecbecd4c6d0d87bb854e6e07d"
+        },
+        {
+          "path": "assets/953-game.chd.part4",
+          "bytes": 20971520,
+          "sha256": "f5e23b1e6630bec0100d3560beb3dcca020dd0a97aa7327973110901960e1c43"
+        },
+        {
+          "path": "assets/953-game.chd.part5",
+          "bytes": 20971520,
+          "sha256": "a4bef2980434b19e37950fba430542e78591057c4c68798dbbf9b3643dc593c0"
+        },
+        {
+          "path": "assets/953-game.chd.part6",
+          "bytes": 20971520,
+          "sha256": "991538658e4948df79577080e827ea55d959a03f387bf4d68630baf152b9b2a0"
+        },
+        {
+          "path": "assets/953-game.chd.part7",
+          "bytes": 20971520,
+          "sha256": "0acad011fd64ccea6a5f4f1892d57546a707a3c5c5dac1b325012d657345aa10"
+        },
+        {
+          "path": "assets/953-game.chd.part8",
+          "bytes": 20971520,
+          "sha256": "44138cba93f1149a15cdfb7030ecfc6cdd4b1529d74ab6d395ed3464723011c1"
+        },
+        {
+          "path": "assets/953-game.chd.part9",
+          "bytes": 20971520,
+          "sha256": "e76d97bc3261fc4b85deaf5c2136e664442d050944e54a15482cc16114b7b5b5"
+        },
+        {
+          "path": "assets/953-game.chd.part10",
+          "bytes": 20971520,
+          "sha256": "383093912e0ad1934e1d5e2ece22fe214a7adc4177e36b22f295bdf2153eacf1"
+        },
+        {
+          "path": "assets/953-game.chd.part11",
+          "bytes": 20971520,
+          "sha256": "aa1c3bf67443c8ae72c3e4112226122792e29158de700163b77a2c561db9c3fd"
+        },
+        {
+          "path": "assets/953-game.chd.part12",
+          "bytes": 20971520,
+          "sha256": "aac92c96b7575ee944668c0626c66371fcbeb510fbb19a8cc23d9a7cc1173891"
+        },
+        {
+          "path": "assets/953-game.chd.part13",
+          "bytes": 20971520,
+          "sha256": "896157323aa4f446b17490db1dc6ca8caff38b8fd5fdd2a17af7ed9d98bee48c"
+        },
+        {
+          "path": "assets/953-game.chd.part14",
+          "bytes": 20971520,
+          "sha256": "6e938998585286a63b19baa3c7f6fe25b68c6db325bd1c97c066f1e5c1c3b822"
+        },
+        {
+          "path": "assets/953-game.chd.part15",
+          "bytes": 20971520,
+          "sha256": "5b08a20a16859dcf91c7deace8617e7f621c4415ca5d8cb1aea9db4567c28b9b"
+        },
+        {
+          "path": "assets/953-game.chd.part16",
+          "bytes": 20971520,
+          "sha256": "cfe33af8e669bc5d276339b8c3e846997016a336fc7e56b1f787c3415b24216e"
+        },
+        {
+          "path": "assets/953-game.chd.part17",
+          "bytes": 8062216,
+          "sha256": "b14a0fd183100e355a87bb28d9834b360319ac7403e57122bbbd718fcd5bfa2a"
+        }
+      ],
+      "saveName": "Tony Hawk's Pro Skater (USA).chd"
+    },
+    {
+      "id": 954,
+      "name": "Resident Evil 3",
+      "core": "psx",
+      "romBytes": 368776661,
+      "romSha256": "7d53e807e50e710e86df3b52c269363469b503c64b50dc2d967d07a9fb813764",
+      "files": [
+        {
+          "path": "assets/954-game.chd.part1",
+          "bytes": 20971520,
+          "sha256": "19b07f12924d5eefdbc5c6a6b5094148e111eef8b6565873fd1011203021ed7f"
+        },
+        {
+          "path": "assets/954-game.chd.part2",
+          "bytes": 20971520,
+          "sha256": "c6c584c0f1173024b646e2a37b64e775b183a5690cca62ded1bd62d01bb1a262"
+        },
+        {
+          "path": "assets/954-game.chd.part3",
+          "bytes": 20971520,
+          "sha256": "1ea44489a4244e1b590b5fb6bed6c9450d81b7a4a4ef69b15a20fbb56450759b"
+        },
+        {
+          "path": "assets/954-game.chd.part4",
+          "bytes": 20971520,
+          "sha256": "99846a2988af955be9ead51e2b493cc087395aa25591e94404edf0e4e2e7ae1b"
+        },
+        {
+          "path": "assets/954-game.chd.part5",
+          "bytes": 20971520,
+          "sha256": "55ee1af83ba9f9e00969b6859cf88474950479964e10a0e29315af0510525d10"
+        },
+        {
+          "path": "assets/954-game.chd.part6",
+          "bytes": 20971520,
+          "sha256": "fea1492e83817776a4cf85f21296d2dc1ff1a9ec92d8eddc1f08df59d2b1c15b"
+        },
+        {
+          "path": "assets/954-game.chd.part7",
+          "bytes": 20971520,
+          "sha256": "b06804bd01cd54e666146bdb1909273e1483ef9e22565f604edaec64ee23ebfb"
+        },
+        {
+          "path": "assets/954-game.chd.part8",
+          "bytes": 20971520,
+          "sha256": "9e26ee02d7cfe2d487a7cc50a1d531d2380be0ef826e64b321561bc2e3da0cb4"
+        },
+        {
+          "path": "assets/954-game.chd.part9",
+          "bytes": 20971520,
+          "sha256": "2196bea20ba9d8d2feb07ba629fe844b8242e015f3b5c78f16ddbfce5857b6c1"
+        },
+        {
+          "path": "assets/954-game.chd.part10",
+          "bytes": 20971520,
+          "sha256": "09de88a65c04cdb38089ec03513069299b34018f1ad2b0c0ec88ff9213a43dd4"
+        },
+        {
+          "path": "assets/954-game.chd.part11",
+          "bytes": 20971520,
+          "sha256": "c78f4d8baa2de5b7697898c7a804db1e213a7a9b886645352d2b426951b69135"
+        },
+        {
+          "path": "assets/954-game.chd.part12",
+          "bytes": 20971520,
+          "sha256": "b138ca41ded7b6c9b4596daf1eab7e9fe0c3c629ae1de77a1ba8122be706e8b2"
+        },
+        {
+          "path": "assets/954-game.chd.part13",
+          "bytes": 20971520,
+          "sha256": "e6e543b043315fbdeda324d4a521b66ae1db454cda4fa81b093984036706562b"
+        },
+        {
+          "path": "assets/954-game.chd.part14",
+          "bytes": 20971520,
+          "sha256": "283b39de71810099fa23544c6e25c08306cc152590c9d3463616fb10f1b50720"
+        },
+        {
+          "path": "assets/954-game.chd.part15",
+          "bytes": 20971520,
+          "sha256": "fb601b4b494ef5b9699d668e6081b308ba393c7bc50eeb875085f118a957d292"
+        },
+        {
+          "path": "assets/954-game.chd.part16",
+          "bytes": 20971520,
+          "sha256": "f991d1ed0b64488b4c581d492b87e18bfbb4210b2a0d76d93ca12b5906ecffef"
+        },
+        {
+          "path": "assets/954-game.chd.part17",
+          "bytes": 20971520,
+          "sha256": "c9605cd92720d48e04d09de28c6ddfb00804d63e28d4ab8f7780495d2b59c5c6"
+        },
+        {
+          "path": "assets/954-game.chd.part18",
+          "bytes": 12260821,
+          "sha256": "a120ba0df2fe9acc9d729d78ca1ef227902ab49e7ddfe04d49d7207556e0e48a"
+        }
+      ],
+      "saveName": "Resident Evil 3.chd"
+    },
+    {
+      "id": 922,
+      "name": "Earthbound",
+      "core": "snes",
+      "romBytes": 3145728,
+      "romSha256": "a8fe2226728002786d68c27ddddf0b90a894db52e4dfe268fdf72a68cae5f02e",
+      "files": [
+        {
+          "path": "assets/922-game.sfc",
+          "bytes": 3145728,
+          "sha256": "a8fe2226728002786d68c27ddddf0b90a894db52e4dfe268fdf72a68cae5f02e"
+        }
+      ],
+      "saveName": "nova-import-922"
+    },
+    {
+      "id": 923,
+      "name": "Hamtaro: Ham-Ham Heartbreak",
+      "core": "gba",
+      "romBytes": 8388608,
+      "romSha256": "06f359a322fdba920c35ee0c794f1520a7f1b52827e372dd69c5fff648e6ae3d",
+      "files": [
+        {
+          "path": "assets/923-game.gba",
+          "bytes": 8388608,
+          "sha256": "06f359a322fdba920c35ee0c794f1520a7f1b52827e372dd69c5fff648e6ae3d"
+        }
+      ],
+      "saveName": "nova-import-923"
+    },
+    {
+      "id": 955,
+      "name": "Scribblenauts",
+      "core": "nds",
+      "romBytes": 33554432,
+      "romSha256": "876ece326931608e2a18ab24b22497ed3189238d4514f2a4c047d37d38fc2ec2",
+      "files": [
+        {
+          "path": "assets/955-game.nds.part1",
+          "bytes": 20971520,
+          "sha256": "53a7c31c027c6e602e414ed76c579d7dfc64a549b21ed50876ac0838312346f2"
+        },
+        {
+          "path": "assets/955-game.nds.part2",
+          "bytes": 12582912,
+          "sha256": "9c33c6857ad55d72ab5e2cfb829ce76e227b87cd96729587982e1d19b2369def"
+        }
+      ],
+      "saveName": "nova-import-955"
+    },
+    {
+      "id": 957,
+      "name": "Street Fighter III",
+      "core": "gba",
+      "romBytes": 8388608,
+      "romSha256": "9b2170fc6b440a7c7f5bf2ad4103e5f97ff5bd0b07a1b50fda09d268f2623cec",
+      "files": [
+        {
+          "path": "assets/957-game.gba",
+          "bytes": 8388608,
+          "sha256": "9b2170fc6b440a7c7f5bf2ad4103e5f97ff5bd0b07a1b50fda09d268f2623cec"
+        }
+      ],
+      "saveName": "nova-import-957"
+    },
+    {
+      "id": 962,
+      "name": "Mortal Kombat 4",
+      "core": "n64",
+      "romBytes": 16777216,
+      "romSha256": "afb2d4b8f57189ff20fea6a71bf6e9873bc785e07a39121bc593caf5401746da",
+      "files": [
+        {
+          "path": "assets/962-game.n64",
+          "bytes": 16777216,
+          "sha256": "afb2d4b8f57189ff20fea6a71bf6e9873bc785e07a39121bc593caf5401746da"
+        }
+      ],
+      "saveName": "nova-import-962"
+    },
+    {
+      "id": 966,
+      "name": "Donkey Kong",
+      "core": "nes",
+      "romBytes": 24592,
+      "romSha256": "226c6f698f60b0a07157bd031004820789469884615fef7bdd862c3157e89d27",
+      "files": [
+        {
+          "path": "assets/966-game.nes",
+          "bytes": 24592,
+          "sha256": "226c6f698f60b0a07157bd031004820789469884615fef7bdd862c3157e89d27"
+        }
+      ],
+      "saveName": "nova-import-966"
+    },
+    {
+      "id": 973,
+      "name": "Street Fighter II",
+      "core": "snes",
+      "romBytes": 2621440,
+      "romSha256": "3e487f8ba48c0b5e31744e3281d6bce375089db6075c8eb3d9a929376b817381",
+      "files": [
+        {
+          "path": "assets/973-game.sfc",
+          "bytes": 2621440,
+          "sha256": "3e487f8ba48c0b5e31744e3281d6bce375089db6075c8eb3d9a929376b817381"
+        }
+      ],
+      "saveName": "nova-import-973"
+    },
+    {
+      "id": 918,
+      "name": "Little Big Planet",
+      "core": "psp",
+      "saveName": "Little Big Planet.iso",
+      "romBytes": 1506869248,
+      "romSha256": "19ca286f3c5991a3d47e120588ac4ba22d789a59ba30b9c303e7af8714541b28",
+      "files": [
+        {
+          "path": "assets/918-game.iso.part1",
+          "bytes": 20971520,
+          "sha256": "34f3bf55c07e6a9147d41156facbd0ad10c0ceb5dedb5e5a5a0284da15bc3b3c"
+        },
+        {
+          "path": "assets/918-game.iso.part2",
+          "bytes": 20971520,
+          "sha256": "775fb116b21df34b0642a49e49c1f163790c0ee82c5ea337738ff6fd33878245"
+        },
+        {
+          "path": "assets/918-game.iso.part3",
+          "bytes": 20971520,
+          "sha256": "cd52d81e25f372e6fa4db2c0dfceb59862c1969cab17096da352b34950c973cc"
+        },
+        {
+          "path": "assets/918-game.iso.part4",
+          "bytes": 20971520,
+          "sha256": "cd52d81e25f372e6fa4db2c0dfceb59862c1969cab17096da352b34950c973cc"
+        },
+        {
+          "path": "assets/918-game.iso.part5",
+          "bytes": 20971520,
+          "sha256": "cd52d81e25f372e6fa4db2c0dfceb59862c1969cab17096da352b34950c973cc"
+        },
+        {
+          "path": "assets/918-game.iso.part6",
+          "bytes": 20971520,
+          "sha256": "b02b16230596290d1ec9622aae653760dd28eaa4663787da28089758087c1d51"
+        },
+        {
+          "path": "assets/918-game.iso.part7",
+          "bytes": 20971520,
+          "sha256": "cc30973949c6ad62d2ebaf58bfd58c1efa15084526b1690602afc79800d45a4f"
+        },
+        {
+          "path": "assets/918-game.iso.part8",
+          "bytes": 20971520,
+          "sha256": "b5db86c2a07ccc57afb4f23bca2e41dcd0f65a9de93592b8cc5250fc969c7d3b"
+        },
+        {
+          "path": "assets/918-game.iso.part9",
+          "bytes": 20971520,
+          "sha256": "86a4af9388f1587c7c7cdc925eefb97f56e61ba8fccc0ef969d6a3905b53a1a9"
+        },
+        {
+          "path": "assets/918-game.iso.part10",
+          "bytes": 20971520,
+          "sha256": "83c5beb89359ec6378521334c14ffe8793e5690228ca6df546c9bca93a053566"
+        },
+        {
+          "path": "assets/918-game.iso.part11",
+          "bytes": 20971520,
+          "sha256": "c56eebe1e631988fb5e0a48c7abdd03e1ae68423480ee0293ab770a37049909d"
+        },
+        {
+          "path": "assets/918-game.iso.part12",
+          "bytes": 20971520,
+          "sha256": "53a3241671a4e99c0d38274c64e311282fcfbae64e26d67442b9eba99cd0b2f7"
+        },
+        {
+          "path": "assets/918-game.iso.part13",
+          "bytes": 20971520,
+          "sha256": "46eef2c62517e70c8afdda4783b3d245c25f640043a4be807424ca26fd32ccab"
+        },
+        {
+          "path": "assets/918-game.iso.part14",
+          "bytes": 20971520,
+          "sha256": "c2208833c9214bf11b48ed980f5509a3b2dfaf83612d624f19979cb48c0779b9"
+        },
+        {
+          "path": "assets/918-game.iso.part15",
+          "bytes": 20971520,
+          "sha256": "76bfa0b66a75ac735701f19a930046e7ed4a42c9934b4478dd11be4150de9fb7"
+        },
+        {
+          "path": "assets/918-game.iso.part16",
+          "bytes": 20971520,
+          "sha256": "9e0955bbab06aec92e7b52799352f5d47cee20ea34b87a3218b94c9389ca346e"
+        },
+        {
+          "path": "assets/918-game.iso.part17",
+          "bytes": 20971520,
+          "sha256": "3aab6801a8dbfd944747c3fb4d685dffc01b6c532c0fde5bbe8c7d4d931cb413"
+        },
+        {
+          "path": "assets/918-game.iso.part18",
+          "bytes": 20971520,
+          "sha256": "1a99299cc4246b078c17166209f3a9447b5b79c13df716d8143ae6911be2e76b"
+        },
+        {
+          "path": "assets/918-game.iso.part19",
+          "bytes": 20971520,
+          "sha256": "ae564922f5250f510ef3c8aaf19017957864436480d0752f9bad376b960dea10"
+        },
+        {
+          "path": "assets/918-game.iso.part20",
+          "bytes": 20971520,
+          "sha256": "2598be49f90ef4c4def9e859205156684a093efdca8bf8cda439c230de7efda4"
+        },
+        {
+          "path": "assets/918-game.iso.part21",
+          "bytes": 20971520,
+          "sha256": "e7c766bc93e246372e76c725ebfc5b9c9dd7c78eb8bee76cc0ae676fd07729d8"
+        },
+        {
+          "path": "assets/918-game.iso.part22",
+          "bytes": 20971520,
+          "sha256": "aa85fb003517cd03cc74b234f48d095b05de73ae5323e6c3f9d07f78d7ca489b"
+        },
+        {
+          "path": "assets/918-game.iso.part23",
+          "bytes": 20971520,
+          "sha256": "ede8f363b56857b6a753c282e5aa4b23a656c48277bbd372e47881d664c48e45"
+        },
+        {
+          "path": "assets/918-game.iso.part24",
+          "bytes": 20971520,
+          "sha256": "f88281eb84d1fa85ee783458f8cba3071a7cce13e009df7d4a260d25242cd017"
+        },
+        {
+          "path": "assets/918-game.iso.part25",
+          "bytes": 20971520,
+          "sha256": "dd4dd65804884188f7d290c82c42fa7249b200b602277196e48e90a13f362e51"
+        },
+        {
+          "path": "assets/918-game.iso.part26",
+          "bytes": 20971520,
+          "sha256": "fe90c6309835f6f849ba51bbfdb0ab061a368c926144464f06d58a520c331be5"
+        },
+        {
+          "path": "assets/918-game.iso.part27",
+          "bytes": 20971520,
+          "sha256": "b2a120a7ba8b662d3643a88b8767b82465d35df0b1d29ba49311e4314be12de0"
+        },
+        {
+          "path": "assets/918-game.iso.part28",
+          "bytes": 20971520,
+          "sha256": "610e5e7abf3201cd40aeef71b612c05ff9313ba3ac6b833467e57d482b0a178d"
+        },
+        {
+          "path": "assets/918-game.iso.part29",
+          "bytes": 20971520,
+          "sha256": "a987e11120879d7e837e68171a32e7d64eb0f7f68063a6bcbf30eb3151dcdef3"
+        },
+        {
+          "path": "assets/918-game.iso.part30",
+          "bytes": 20971520,
+          "sha256": "e3dbe0eb65076d85d9530304221b67dd238b03b2a1d2b443a15327b107f901a5"
+        },
+        {
+          "path": "assets/918-game.iso.part31",
+          "bytes": 20971520,
+          "sha256": "ac903ae82a0b61272ef5442b500fe9b08a431640bb97b90c4d26a2e478f8f3d4"
+        },
+        {
+          "path": "assets/918-game.iso.part32",
+          "bytes": 20971520,
+          "sha256": "7fb9337bb973347ab0a99953b1b1301e0dff45836ae9ab44c0e9b998fdc4077b"
+        },
+        {
+          "path": "assets/918-game.iso.part33",
+          "bytes": 20971520,
+          "sha256": "d0c7b5b887d2cb65cb0c04d18548b45db53ee82b2a76e4c047e441dd56099bee"
+        },
+        {
+          "path": "assets/918-game.iso.part34",
+          "bytes": 20971520,
+          "sha256": "1a3653cdd31899056511049c08c22840ba1cd3064d4a140cf3227fdaa4d3b1c8"
+        },
+        {
+          "path": "assets/918-game.iso.part35",
+          "bytes": 20971520,
+          "sha256": "ce22b9e2b30ff0da1ffcdfe9e3bbb2ae73dca7e8fc1e07a25917cdd028db7b74"
+        },
+        {
+          "path": "assets/918-game.iso.part36",
+          "bytes": 20971520,
+          "sha256": "2600708c91bcf44585a89d2c34239dc25308c1ff7fe0422a9ff3543a1897fe97"
+        },
+        {
+          "path": "assets/918-game.iso.part37",
+          "bytes": 20971520,
+          "sha256": "445581a65d63dde21a84dd110418e1263a4a23db0d7fc8ec37c5cd5f23c93a20"
+        },
+        {
+          "path": "assets/918-game.iso.part38",
+          "bytes": 20971520,
+          "sha256": "7e0aee0dadda45d4a0e952c28d46227e4e2b5f71603f67208cf105cd1a317210"
+        },
+        {
+          "path": "assets/918-game.iso.part39",
+          "bytes": 20971520,
+          "sha256": "8ea75c02294a0839dcb8ec554f12fb5bad15756e834531c20c4f6aa9373054ce"
+        },
+        {
+          "path": "assets/918-game.iso.part40",
+          "bytes": 20971520,
+          "sha256": "e682787a99ada9a82ae936b6d8720d222940d59a1d7c67d89ccb3f5f01793306"
+        },
+        {
+          "path": "assets/918-game.iso.part41",
+          "bytes": 20971520,
+          "sha256": "48ce2a058558c7a92665f1197087141da668462bfbee2fc873310c911ea51d2b"
+        },
+        {
+          "path": "assets/918-game.iso.part42",
+          "bytes": 20971520,
+          "sha256": "86a6ef292c140556e43d29528b366180c82ac75cb074894d8015f61ac5de97ce"
+        },
+        {
+          "path": "assets/918-game.iso.part43",
+          "bytes": 20971520,
+          "sha256": "5dd957c9955c7ce14339c46bd7ce346ea253d5bcdad7e423ee6e51ffe9b4dc7b"
+        },
+        {
+          "path": "assets/918-game.iso.part44",
+          "bytes": 20971520,
+          "sha256": "dd333be1b35f0d8cfb2226e1915aa92733c809d54f74c1553b4e05243d245b5f"
+        },
+        {
+          "path": "assets/918-game.iso.part45",
+          "bytes": 20971520,
+          "sha256": "3cc9bf3a160ea45abca17db645e2d2703af8a2111298d9aecc1ce038a2179e19"
+        },
+        {
+          "path": "assets/918-game.iso.part46",
+          "bytes": 20971520,
+          "sha256": "4d4309cc72a9ffc8903817370279201a35523aa5aa6cfc4c78bbb2ab85ff7740"
+        },
+        {
+          "path": "assets/918-game.iso.part47",
+          "bytes": 20971520,
+          "sha256": "3cb1580b66f7bafaae7810c92a905777bf0f3c5ccd0b2c1e26fa83b0b8dc01af"
+        },
+        {
+          "path": "assets/918-game.iso.part48",
+          "bytes": 20971520,
+          "sha256": "82e9759606bfa7e0a14cdfcd21c9874c063b8bcddc201dd647659fb97846023c"
+        },
+        {
+          "path": "assets/918-game.iso.part49",
+          "bytes": 20971520,
+          "sha256": "1025222bec35eabd7be343a828242118d84ad2bd44895546d0acb6c6db49fbbe"
+        },
+        {
+          "path": "assets/918-game.iso.part50",
+          "bytes": 20971520,
+          "sha256": "a982d38e12dfc0ddaae4b4790c299e01a64ad52106a4293d9b42f5e0a606a70d"
+        },
+        {
+          "path": "assets/918-game.iso.part51",
+          "bytes": 20971520,
+          "sha256": "830da7688e6049bd5bc531f63fe12abd8196489818c419c9531f4e3678acc056"
+        },
+        {
+          "path": "assets/918-game.iso.part52",
+          "bytes": 20971520,
+          "sha256": "60f59859e217a0218b2d8d48755d391324f749cad0aaf14157088bad5479d3a8"
+        },
+        {
+          "path": "assets/918-game.iso.part53",
+          "bytes": 20971520,
+          "sha256": "68d993d27ff4baef331915de43ae79f6f890163252eeaae577417756a0726baa"
+        },
+        {
+          "path": "assets/918-game.iso.part54",
+          "bytes": 20971520,
+          "sha256": "5c4ee52dbdf90ea53f6ad3bcadaf982b9308606b311e2594be90424b3abe33de"
+        },
+        {
+          "path": "assets/918-game.iso.part55",
+          "bytes": 20971520,
+          "sha256": "1b68dd254306364648efcf071a10d8676407b1b8408d72d09bbfa61bd8acd263"
+        },
+        {
+          "path": "assets/918-game.iso.part56",
+          "bytes": 20971520,
+          "sha256": "2772d406a77540b861280bcd40fb10ec5f05de209caeebb1420a17ae233c84f2"
+        },
+        {
+          "path": "assets/918-game.iso.part57",
+          "bytes": 20971520,
+          "sha256": "07d59e8aab4d96684110b82492843832d8da7abf4e30876e04827ec6abddaf44"
+        },
+        {
+          "path": "assets/918-game.iso.part58",
+          "bytes": 20971520,
+          "sha256": "a1a70cbf16774e8b14bfd35205a6649cc0fa2bd450c8f31316718028ef26acdf"
+        },
+        {
+          "path": "assets/918-game.iso.part59",
+          "bytes": 20971520,
+          "sha256": "cebcefd1b575b6ab3d807aa5fd97ee0c3296d3e84c6a8c98ce5d7e38d6d2a54c"
+        },
+        {
+          "path": "assets/918-game.iso.part60",
+          "bytes": 20971520,
+          "sha256": "f4fe74ff1b61da6e1db82da437537bf8e4eae260b365c9a2668d6b32109f1129"
+        },
+        {
+          "path": "assets/918-game.iso.part61",
+          "bytes": 20971520,
+          "sha256": "bf26303c7a155c503100bf7a87d83145a15107e1c384a2a730f235a18260077c"
+        },
+        {
+          "path": "assets/918-game.iso.part62",
+          "bytes": 20971520,
+          "sha256": "10e1dd3396aa042a353144f4bc824067c1eb8f9685df8f7ed6e063b9cd6bc119"
+        },
+        {
+          "path": "assets/918-game.iso.part63",
+          "bytes": 20971520,
+          "sha256": "6991f6440c74401f59043a0048931e6b6f37d9128de4c6afde45a7c786eeaaee"
+        },
+        {
+          "path": "assets/918-game.iso.part64",
+          "bytes": 20971520,
+          "sha256": "459a37f3f35ed4721829532d80341c5f504494a1c739db0e737a862eca5f2455"
+        },
+        {
+          "path": "assets/918-game.iso.part65",
+          "bytes": 20971520,
+          "sha256": "56b22577abdb846aab469ca4d11ef7b901a64c8d4956a881ba762fd95eb428e5"
+        },
+        {
+          "path": "assets/918-game.iso.part66",
+          "bytes": 20971520,
+          "sha256": "7f147804c8d5aa18c707320d2f039c7fff61773605eef1ea37fa3bed231687f7"
+        },
+        {
+          "path": "assets/918-game.iso.part67",
+          "bytes": 20971520,
+          "sha256": "ac8830776ae3112e4b858876c392dcdc8c4462dae23fda30b754738eeefed876"
+        },
+        {
+          "path": "assets/918-game.iso.part68",
+          "bytes": 20971520,
+          "sha256": "1e8b05c1efc96ddbf923c90f731a28f5f29c3e8669f749fc14ed876895f00286"
+        },
+        {
+          "path": "assets/918-game.iso.part69",
+          "bytes": 20971520,
+          "sha256": "3b62024b42117f37bbe92729348a6b03227ad8b920e30852c89af5b15ff1a427"
+        },
+        {
+          "path": "assets/918-game.iso.part70",
+          "bytes": 20971520,
+          "sha256": "0f9d74ca38d304afc5c4eb10fc28906dca6ddc0cec81ef36b0e868ca9370e791"
+        },
+        {
+          "path": "assets/918-game.iso.part71",
+          "bytes": 20971520,
+          "sha256": "c688dbbba4315564c7915e68f806e6e4519231c906ca92e30678bf3c66a73dc3"
+        },
+        {
+          "path": "assets/918-game.iso.part72",
+          "bytes": 17891328,
+          "sha256": "b014a81a7d0319cb6d0b274de634a2673725deb7054fe41dbccc5975fceb5744"
+        }
+      ]
+    },
+    {
+      "id": 919,
+      "name": "The Binding of Isaac: Rebirth",
+      "core": "psp",
+      "saveName": "TBOIRPSP0301.iso",
+      "romBytes": 134742016,
+      "romSha256": "bf31cfa1a81d857545071a45a9d4e61ccbb98ce39b26e60ef47215bb22573420",
+      "files": [
+        {
+          "path": "assets/919-game.iso.part1",
+          "bytes": 20971520,
+          "sha256": "e5a390fcaa12df8b1ff26e9dd2e6e6789262d8b9f647d91faefc766d26cd1515"
+        },
+        {
+          "path": "assets/919-game.iso.part2",
+          "bytes": 20971520,
+          "sha256": "cd52d81e25f372e6fa4db2c0dfceb59862c1969cab17096da352b34950c973cc"
+        },
+        {
+          "path": "assets/919-game.iso.part3",
+          "bytes": 20971520,
+          "sha256": "cd52d81e25f372e6fa4db2c0dfceb59862c1969cab17096da352b34950c973cc"
+        },
+        {
+          "path": "assets/919-game.iso.part4",
+          "bytes": 20971520,
+          "sha256": "cd52d81e25f372e6fa4db2c0dfceb59862c1969cab17096da352b34950c973cc"
+        },
+        {
+          "path": "assets/919-game.iso.part5",
+          "bytes": 20971520,
+          "sha256": "cd52d81e25f372e6fa4db2c0dfceb59862c1969cab17096da352b34950c973cc"
+        },
+        {
+          "path": "assets/919-game.iso.part6",
+          "bytes": 20971520,
+          "sha256": "8cbe023bdaabf18addea56f916a043b0749c0a4f4aacf7412abd8d843ed6d96f"
+        },
+        {
+          "path": "assets/919-game.iso.part7",
+          "bytes": 8912896,
+          "sha256": "4d0434d2143b49422af6f83aabbf898f7b34997d84330bcab8a037191b9f2ef5"
+        }
+      ]
+    },
+    {
+      "id": 909,
+      "name": "Lumines II",
+      "core": "psp",
+      "saveName": "lumines2.iso",
+      "romBytes": 1179385856,
+      "romSha256": "8cfa8846441aaa846cf354eae5028b6c5dfba422c93cfef0c89809e38fd7c459",
+      "files": [
+        {
+          "path": "assets/909-game.iso.part1",
+          "bytes": 20971520,
+          "sha256": "4f65f7c602f17fb921e41a331f48bcaeb508aab6489df6a9f6ff9d6cd3e5c19a"
+        },
+        {
+          "path": "assets/909-game.iso.part2",
+          "bytes": 20971520,
+          "sha256": "26c3bb00a5c50da5d2d3a0d629a6a5f630c4c956cb98b9c413b19d513caed95f"
+        },
+        {
+          "path": "assets/909-game.iso.part3",
+          "bytes": 20971520,
+          "sha256": "1a4612ea1765c717dd5c266f65027d470f1951e6f09a6584cbc97b7097839623"
+        },
+        {
+          "path": "assets/909-game.iso.part4",
+          "bytes": 20971520,
+          "sha256": "95286a0aab21875559d711a507d229d9ff8db2ca25e93a56df7a84119b52fdc1"
+        },
+        {
+          "path": "assets/909-game.iso.part5",
+          "bytes": 20971520,
+          "sha256": "52b600d428df374a07ebbc17464c682dab12f9ceb80c5c0b5c0f5ddb1c5e234f"
+        },
+        {
+          "path": "assets/909-game.iso.part6",
+          "bytes": 20971520,
+          "sha256": "1f47ab9b392ab9050fb642c3925fc4374ca4af02c9348cd0ee98583acd02d346"
+        },
+        {
+          "path": "assets/909-game.iso.part7",
+          "bytes": 20971520,
+          "sha256": "3eb72f233ca279ca4a04792c2e377d0989118670a197f5c9ff3bd4ca90ffb9b8"
+        },
+        {
+          "path": "assets/909-game.iso.part8",
+          "bytes": 20971520,
+          "sha256": "5ed473447a1c47ac1b3853603bf405d2413a65ae0ffb6de1598b6d9fc5c946f0"
+        },
+        {
+          "path": "assets/909-game.iso.part9",
+          "bytes": 20971520,
+          "sha256": "ec0ffab622673aca3367323ad3456d324725f56d58e3569ad609b0799c7bed5a"
+        },
+        {
+          "path": "assets/909-game.iso.part10",
+          "bytes": 20971520,
+          "sha256": "71ffcb5113f037b4d927c7555d5339427c00f50c2ee959f26f3fbfa64b3dff12"
+        },
+        {
+          "path": "assets/909-game.iso.part11",
+          "bytes": 20971520,
+          "sha256": "f88728fdbd72ca32b426abca36c4ed1a8bdf589bd0d18ebbcd0e0e1f03246dbb"
+        },
+        {
+          "path": "assets/909-game.iso.part12",
+          "bytes": 20971520,
+          "sha256": "fdd8ea74e6b8bbb2053d1d7fe0233134abe52d86990ac651710a7d8b4e2e72e3"
+        },
+        {
+          "path": "assets/909-game.iso.part13",
+          "bytes": 20971520,
+          "sha256": "793762146821d2bfefd73f9807b04c6c0452faaeb7b6c5c536ad6de9816da38d"
+        },
+        {
+          "path": "assets/909-game.iso.part14",
+          "bytes": 20971520,
+          "sha256": "ef8b0bf5f426504147119a835058ed9589e63160cf1ac02c110f2f0d6250c8fc"
+        },
+        {
+          "path": "assets/909-game.iso.part15",
+          "bytes": 20971520,
+          "sha256": "5915029fea3003776057e1b4b1fff266e4dbfb525efd8d0b56414dac5335c1fb"
+        },
+        {
+          "path": "assets/909-game.iso.part16",
+          "bytes": 20971520,
+          "sha256": "b03a7368acc2d2bc306168f98126918782040c52a787906d0493128d48076c12"
+        },
+        {
+          "path": "assets/909-game.iso.part17",
+          "bytes": 20971520,
+          "sha256": "5897542ac1775feb2fb7afe905a4294273a4cd27ee93f9476b20362ced95e203"
+        },
+        {
+          "path": "assets/909-game.iso.part18",
+          "bytes": 20971520,
+          "sha256": "c28c53ea544bdc23121daa74eaf98a94d4e3f0f3ccb1d38baa7f617b264cd071"
+        },
+        {
+          "path": "assets/909-game.iso.part19",
+          "bytes": 20971520,
+          "sha256": "d52cdb67a538a576f1b63ec71765db60bf1c11137933f0011ac9acd673ce59aa"
+        },
+        {
+          "path": "assets/909-game.iso.part20",
+          "bytes": 20971520,
+          "sha256": "45eec77556fb9ac15506c2ce82cdbc9cae388f4ae6600fddd0ccaf11c7dfc85b"
+        },
+        {
+          "path": "assets/909-game.iso.part21",
+          "bytes": 20971520,
+          "sha256": "283252c92e719038e8afcf36ea1107713ea02827581f933b7ba4e8074c0951f4"
+        },
+        {
+          "path": "assets/909-game.iso.part22",
+          "bytes": 20971520,
+          "sha256": "359572f29671dd2786c28aa2b98d504d6a5f3e6372d8169e95735eee1573da45"
+        },
+        {
+          "path": "assets/909-game.iso.part23",
+          "bytes": 20971520,
+          "sha256": "b198527501ef5c8bd894bc5f9cd7a657f3c390cc23f1bbf5c2def85e0b2345a9"
+        },
+        {
+          "path": "assets/909-game.iso.part24",
+          "bytes": 20971520,
+          "sha256": "d1aec94a90fc51091027f73efb59518a69edf3fd4c3a3a479952b92762dc025d"
+        },
+        {
+          "path": "assets/909-game.iso.part25",
+          "bytes": 20971520,
+          "sha256": "3f6c1838a1927407fe5405e89de497d5aeaa8a59232445ca3964631dcbee8530"
+        },
+        {
+          "path": "assets/909-game.iso.part26",
+          "bytes": 20971520,
+          "sha256": "a5c246a27d6e83e5f1bf4ae1729e43f3227746245c03601b97fcd6e29b3972cb"
+        },
+        {
+          "path": "assets/909-game.iso.part27",
+          "bytes": 20971520,
+          "sha256": "622f080ee54ab1bee66c0dbe67fdf982f1e3060c0b95f4f28112c1d2ee3fb7eb"
+        },
+        {
+          "path": "assets/909-game.iso.part28",
+          "bytes": 20971520,
+          "sha256": "6426ec7ebc28b95215a1f13e23762d510a9c3790d6d697ab3185b398c1a43727"
+        },
+        {
+          "path": "assets/909-game.iso.part29",
+          "bytes": 20971520,
+          "sha256": "59ebc2f66903a1915ee1ea0c08e9650607058710763e573f042537534ea90a8b"
+        },
+        {
+          "path": "assets/909-game.iso.part30",
+          "bytes": 20971520,
+          "sha256": "13a1d57ba77ba93088f399fda83c0d1ff9237e104ee55b6eebfd09f9f0c24b81"
+        },
+        {
+          "path": "assets/909-game.iso.part31",
+          "bytes": 20971520,
+          "sha256": "7bf87260aea29a9b742c6aaf00b98a68f38bbb9d245180f0ef707bbdf38f784f"
+        },
+        {
+          "path": "assets/909-game.iso.part32",
+          "bytes": 20971520,
+          "sha256": "c66746378b9e238c5dd16866306d0946a89d13650359bb0ccb20c97cbc6d90fc"
+        },
+        {
+          "path": "assets/909-game.iso.part33",
+          "bytes": 20971520,
+          "sha256": "86fa1e472029fea479b42add2df1631a051dbddd624b2268616e6a3b6b8f666b"
+        },
+        {
+          "path": "assets/909-game.iso.part34",
+          "bytes": 20971520,
+          "sha256": "7b1fdf226db8737ebf4d3fe9c3f2e4d2b1becd97ee35b3c224227ffb50c3d58a"
+        },
+        {
+          "path": "assets/909-game.iso.part35",
+          "bytes": 20971520,
+          "sha256": "f68903d5164a72552bcf50ccc604ce4c9549273aa1f63b67d049dc2ece31d198"
+        },
+        {
+          "path": "assets/909-game.iso.part36",
+          "bytes": 20971520,
+          "sha256": "949f9db783e2ed345fb4d66ea30c4b0a5ff2c3ac5bab5a12ca501de3a1d300fc"
+        },
+        {
+          "path": "assets/909-game.iso.part37",
+          "bytes": 20971520,
+          "sha256": "70ee9cc46a4c02c1c25c284535390171f2223d5d3fc3f351a95653e4b6fa8b1f"
+        },
+        {
+          "path": "assets/909-game.iso.part38",
+          "bytes": 20971520,
+          "sha256": "6216d17adc646108a3b1ffcd466b17afe0ac741ada5f635ab7147d4a9616ef4c"
+        },
+        {
+          "path": "assets/909-game.iso.part39",
+          "bytes": 20971520,
+          "sha256": "cb02c5624bfaf3b0711c6dabc48434828783243f9b31cee4b8d0d30e7bb99b3f"
+        },
+        {
+          "path": "assets/909-game.iso.part40",
+          "bytes": 20971520,
+          "sha256": "f834af6c03acf92ec50952cad8df9513015051b7769d6b715a1648cf397f896f"
+        },
+        {
+          "path": "assets/909-game.iso.part41",
+          "bytes": 20971520,
+          "sha256": "b6e32aef7ef64c19a84ea75d7f52172c3cafa2a8b2f56b887f453856234f33bc"
+        },
+        {
+          "path": "assets/909-game.iso.part42",
+          "bytes": 20971520,
+          "sha256": "45d2a20f23086e9f9cdf8aa4912f1713b21812dbe5124ff0f8aab796d99d59ef"
+        },
+        {
+          "path": "assets/909-game.iso.part43",
+          "bytes": 20971520,
+          "sha256": "754e0feba2e69acb9c89bef4626d8a26beaeb3bd5b79e3bfdb742bab737f99f1"
+        },
+        {
+          "path": "assets/909-game.iso.part44",
+          "bytes": 20971520,
+          "sha256": "15d58bc63f18f2cdf1ec017e842b5fbf29669e5893adbbf737c29678ba582f12"
+        },
+        {
+          "path": "assets/909-game.iso.part45",
+          "bytes": 20971520,
+          "sha256": "a5cdcaef14cb7a0ec86957e085ca549e03e0521548d6ea43896c2eb1968d1a52"
+        },
+        {
+          "path": "assets/909-game.iso.part46",
+          "bytes": 20971520,
+          "sha256": "2de29706babb729e40594befa26cdb919ba404f24222d5982f63851e02bf56b5"
+        },
+        {
+          "path": "assets/909-game.iso.part47",
+          "bytes": 20971520,
+          "sha256": "f7b9364d2d9a4a52f80fe6976abe234597f3afe74bbe3e3e79744cb0369a2be6"
+        },
+        {
+          "path": "assets/909-game.iso.part48",
+          "bytes": 20971520,
+          "sha256": "7de560f654b3242219e61a750b1dc4ffa0b2b739a4df8b535ff98c0a2d6c0536"
+        },
+        {
+          "path": "assets/909-game.iso.part49",
+          "bytes": 20971520,
+          "sha256": "312238d3cf6b7bfd8ab98f7accd386b37b80df7a86a5ec7606d0c48d10a30dba"
+        },
+        {
+          "path": "assets/909-game.iso.part50",
+          "bytes": 20971520,
+          "sha256": "98730408410ee738a8282ebfbff1120d190b9b69e19f1a854f6cd91733d420fa"
+        },
+        {
+          "path": "assets/909-game.iso.part51",
+          "bytes": 20971520,
+          "sha256": "baa2a9295e092bc45cfe5d2bd6f5272e68eaa51866e11455e722ccdff8ecce04"
+        },
+        {
+          "path": "assets/909-game.iso.part52",
+          "bytes": 20971520,
+          "sha256": "886e54a5cd76584957dd266091b40ab71b61fd1428928dda0eecce4d1e09a855"
+        },
+        {
+          "path": "assets/909-game.iso.part53",
+          "bytes": 20971520,
+          "sha256": "f0398c072902b374b3b6e7c6464c49b7753d30bee64179ca4daf634cab3c01fb"
+        },
+        {
+          "path": "assets/909-game.iso.part54",
+          "bytes": 20971520,
+          "sha256": "fcd14add272a42b76ab2ec1c07e14a72ab9cb050cda4efd1315abb6cebb41980"
+        },
+        {
+          "path": "assets/909-game.iso.part55",
+          "bytes": 20971520,
+          "sha256": "e0bfffc126d5edfff3b7bdf577c327c8781b29ebf850f17b86a25963ebae56be"
+        },
+        {
+          "path": "assets/909-game.iso.part56",
+          "bytes": 20971520,
+          "sha256": "fffb69125171a6af1a7b2fd1233c151340ffc7f120b50905dad745947fea197f"
+        },
+        {
+          "path": "assets/909-game.iso.part57",
+          "bytes": 4980736,
+          "sha256": "c6cddf4c57c3a7333b08efc827f3fda1238aa497c087bf9abe40140d770b0741"
+        }
+      ]
+    }
+  ]
+}

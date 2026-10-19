@@ -1,0 +1,321 @@
+/* Site and Game Specific CSS File */
+/* Copyright © 2005-2023 The Free Video Games Project */
+
+/* Over-ride global background color on a site-specific basis */
+html, body {
+	background-color: #0e0e0e;
+}
+
+/* Old Game CSS */
+
+.menu_margin { margin-bottom: 5px; } /* force margins around the menu title */
+.menu_title { font-family: helvetica; font-size: 12px; }
+.menu_item { font-family: helvetica; font-size: 12px; }
+.menu_item a {text-decoration: none; cursor: default;} /* Remove underline from menus */
+.menu_item a:link, a:visited, a:active { color: #000000; }
+.menu_item a:hover { color: #0000CC; }
+.menu_divider { font-family: helvetica; font-size: 2px; }
+.focus_box { width: 30; position: absolute; z-index: -2; top: 10; left: -200;}
+
+/* New Game CSS */
+
+#minesweepergame {
+	position:absolute;
+	background-color: #C0C0C0;
+	padding:5px;
+	border-radius: 10px;
+}	
+#gametable {font-size: 1px; line-height: 0;}
+#top-display-outer {
+	display: flex;
+	justify-content: space-between;
+}
+#top-display {
+	display: flex;
+	justify-content: space-between;
+	width:100%;
+}
+#game-container {
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Sub Pages */
+
+
+/* Hide the scrollbar but make it still scrollable */
+html {
+	overflow: scroll;
+	overflow-x: hidden;
+	scrollbar-width: none; /* for Firefox */
+	-ms-overflow-style: none; /* for Internet Explorer, Edge */
+
+}
+
+/* for Chrome and Safari  */
+::-webkit-scrollbar {
+	width: 0;  /* Remove scrollbar space */
+	background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
+#page-container {
+background-color: #0e0e0e;
+}
+
+#page-column {
+max-width: 800px;
+max-height: 100vh;
+font-size: 1.1em;
+padding-left: 10vw;
+padding-right: 10vw;
+}
+
+
+
+#page-column p {
+display: block;
+margin-top: 1em;
+margin-bottom: 1em;
+margin-left: 0;
+margin-right: 0;
+}
+
+#page-column a:link {color: #2785c5;}
+#page-column a:hover {color: #2785c5;}
+#page-column a:visited {color: #2785c5;}
+
+#page-column h1 {
+color: #2785c5;
+display: block;
+font-size: 2em;
+margin-top: 0.5em;
+margin-bottom: 0.5em;
+margin-left: 0;
+margin-right: 0;
+font-weight: bold;
+}
+
+#page-column h2 {
+color: #2785c5;
+display: block;
+font-size: 1.5em;
+margin-top: 1.5em;
+margin-bottom: 0.5em;
+margin-left: 0;
+margin-right: 0;
+font-weight: bold;	
+}
+
+#page-column ul {
+display: block;
+list-style-type: disc;
+margin-top: 1em;
+margin-bottom: 1 em;
+margin-left: 0;
+margin-right: 0;
+padding-left: 40px;	
+}
+
+#page-column li {
+display: list-item;
+text-align: justify;
+padding-bottom: 20px;
+}
+
+
+/* Modal CSS */
+
+#win-modal {display: none;}
+#win-modal-background {display: none;}
+
+#pb-modal {display: none;}
+#pb-modal-background {display: none;}
+
+#custom-modal {display: none;}
+#custom-modal-background {display: none;}
+
+#firsttimemobile-modal {display: none;}
+#firsttimemobile-modal-background {display: none;}
+
+.modal {
+  width: 400px;
+  max-width: 100%;
+  height: 200px;
+  max-height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  /* Use this for centering if unknown width/height */
+  transform: translate(-50%, -50%);
+  /* If known, negative margins are probably better (less chance of blurry text). */
+  /* margin: -200px 0 0 -200px; */
+  background: white;
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+}
+
+.large-modal {
+  width: 600px;
+  max-width: 100%;
+  height: 400px;
+  max-height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  /* Use this for centering if unknown width/height */
+  transform: translate(-50%, -50%);
+  /* If known, negative margins are probably better (less chance of blurry text). */
+  /* margin: -200px 0 0 -200px; */
+  background: white;
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+  opacity: 0.75;
+  border-radius: 25px;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-guts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  padding: 20px 50px 20px 20px;
+  font-family: 'Open Sans', sans serif;
+}
+
+
+.modal-guts h1 {
+color: #2785c5;
+display: block;
+font-size: 2em;
+margin-top: 0.5em;
+margin-bottom: 0.5em;
+margin-left: 0;
+margin-right: 0;
+font-weight: 900;
+}
+
+.modal-guts p {
+display: block;
+margin-top: 1em;
+margin-bottom: 1em;
+margin-left: 0;
+margin-right: 0;
+}
+
+.modal-guts li {
+display: list-item;
+text-align: justify;
+padding-bottom: 10px;
+padding-left: 10px;
+padding-right: 10px;
+margin-left: 10px;
+margin-right: 10px;
+}
+
+
+.modal .close-button {
+  position: absolute;
+  /* don't need to go crazy with z-index here, just sits over .modal-guts */
+  z-index: 1;
+  top: 10px;
+  /* needs to look OK with or without scrollbar */
+  right: 20px;
+  border: 0;
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  font-size: 1.3rem;
+}
+
+.large-modal .close-button {
+  position: absolute;
+  /* don't need to go crazy with z-index here, just sits over .modal-guts */
+  z-index: 1;
+  top: 10px;
+  /* needs to look OK with or without scrollbar */
+  right: 20px;
+  border: 0;
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  font-size: 1.3rem;
+}
+
+.open-button {
+  border: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: lightgreen;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 21px;
+}
+
+
+
+/* Ads */
+#rightad {
+  position:fixed;
+  z-index: 50;
+  right: 5px;
+  top: 75px;
+  top: max(75px, calc((100vh - 600px)/2));
+  height: 600px;
+  overflow: hidden;
+}
+#leftad {
+  position:fixed;
+  z-index: 50;
+  left: 5px;
+  top: 75px;
+  top: max(75px, calc((100vh - 600px)/2));
+  height: 600px;
+  overflow: hidden;
+}
+
+/* Ad Related Media Queries */
+@media screen and (min-width: 0px) and (max-width: 1000px) {
+  #rightad {
+  display: none;
+  }
+  #leftad {
+  display: none;
+  }
+}
+@media screen and (min-width: 1001px) and (max-width: 1549px) {
+  #rightad {
+  width: 160px;
+  }
+  #leftad {
+  width: 160px;
+  }
+}
+@media screen and (min-width: 1550px) {
+  #rightad {
+  width: 300px;
+  }
+  #leftad {
+  width: 300px;
+  }
+}
+
+
+
+/* Keep the legacy keyboard-focus helper outside the visible game. */
+.focus_box{left:-10000px!important;top:0px!important;width:30px!important}

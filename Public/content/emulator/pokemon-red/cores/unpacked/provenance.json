@@ -1,0 +1,70 @@
+{
+  "source": "https://cdn.jsdelivr.net/gh/a456pur/seraph@81f551ca0aa8e3d6018d32d8ac5904ac9bc78f76/storage/emulatorjs/data/cores/",
+  "method": "Existing vendored 7z archives extracted without executing game code.",
+  "cores": [
+    {
+      "core": "fceumm",
+      "archiveSha256": "e4110ff8cca16bbe094d7c1c6cc4b281ec4648f9daaa56cb538fabf99da6292a",
+      "files": {
+        "js": "6f662275d521547133de3b9f15d7633bba291afcb5ebca82e14826da5e7b32d9",
+        "wasm": "d2b519e496d248463d8fb999683ad9e99c5384e6938828d9e24c43e167798fd9"
+      }
+    },
+    {
+      "core": "gambatte",
+      "archiveSha256": "ec2a008bbc38096e58334ebc31b09b89571f5a41e142eb9099bcee82426c7c8a",
+      "files": {
+        "js": "efb665e829420d18d68e3df989fedda1127ffaf8ee6312be7f15045388427743",
+        "wasm": "73f20b679b4ee5e0e9dde14bf91694ae763b73f32f1da2fc6c309f9693bfaeb0"
+      }
+    },
+    {
+      "core": "genesis_plus_gx",
+      "archiveSha256": "e36616fe09839c7f744484fc10e94d24fc60343ef970a3e4fa472d46a30487b3",
+      "files": {
+        "js": "66775b52683fecedc68bcdc64fd9e3e00633d4283d5fa73cfc184cbd928b9b60",
+        "wasm": "c852ea20bf69a28605b6b2ec4f148d0eee4165f412cf6b5d618b4429d8ba23af"
+      }
+    },
+    {
+      "core": "melonds",
+      "archiveSha256": "b50c439f6889a822ea298c92c01b57033e891befb640bfd8c1781d4d9e333abb",
+      "files": {
+        "js": "454ee2d0bac3d035b987ce3c0ffa897feb2c76dbf19010bba1c3c209e025fd38",
+        "wasm": "f754af5296d7d4db4ca34b8c6e25a06c909d812635a5b4784dada62e72b8e0d3"
+      }
+    },
+    {
+      "core": "mgba",
+      "archiveSha256": "73973e3f879728527bb0b0c75395168c38ae8249a929dac5d5c6bce4308dbd0f",
+      "files": {
+        "js": "b84df204589ad5be5e4b3502bfde88d0e93ec6c7bb177172e9a0c798567c6e07",
+        "wasm": "fd05d310e18eb60c7c474afda94aea2fa0f1e73ec44bf57a375691327b5ae9c4"
+      }
+    },
+    {
+      "core": "mupen64plus_next",
+      "archiveSha256": "186976564ec6aa0b9b2d338153c7ba3ca868d28720c76317c6d7a212b23a5b1e",
+      "files": {
+        "js": "a025b0fccd0d671a52d62339323c90665b41ed9c3f53ee7413b7a5262d6e2481",
+        "wasm": "9ec1e16fc3cb0ca8f87fe35b8fa82689c5ffa23ff62a1237bf26e1809c5d8592"
+      }
+    },
+    {
+      "core": "pcsx_rearmed",
+      "archiveSha256": "11ac63cc19ea0e63d6dcbcf3c178cfa3e31c0f392cddba5c9a2eecbe909c79b6",
+      "files": {
+        "js": "5db221feeabff5c41b7b5dfb0d35953dfbf76f4a9357ff225ac636c621d5d9b9",
+        "wasm": "17f2ed0e9c82bf73fa56fa6a39f0268ad0309f3cb7f9ad26e8dc974672333710"
+      }
+    },
+    {
+      "core": "snes9x",
+      "archiveSha256": "965b983d4323da0852c9d619f0c83c83967d77c9ea4461602cfb7c61844251a8",
+      "files": {
+        "js": "8e98c1efee43dede0e8ede5e228f9080e17226171e219729cb3505ec9672d55c",
+        "wasm": "c82e39203285123c11b31792c44d08ee1dda489cf6ec901febe8882b578b13ba"
+      }
+    }
+  ]
+}

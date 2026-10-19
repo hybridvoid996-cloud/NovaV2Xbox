@@ -13,19 +13,6 @@
     "artSource": "https://i5.walmartimages.ca/images/Enlarge/__8/408/8408.jpg"
   },
   {
-    "id": "testing-cs-surf",
-    "name": "CS Surf",
-    "url": "https://surfd.net/",
-    "genres": [
-      "Surfing"
-    ],
-    "art": "testing-covers/testing-cs-surf.png",
-    "kind": "game",
-    "testing": true,
-    "testingNote": "Map loads. Mouse capture needs testing in a desktop browser.",
-    "artSource": "https://surfd.net/social/surfd-card-v2.png"
-  },
-  {
     "id": "testing-modern-warfare-2",
     "name": "Modern Warfare 2",
     "url": "https://ovz-game-production.up.railway.app/",
@@ -37,18 +24,5 @@
     "testing": true,
     "testingNote": "Menu loads. Game-file delivery failed in our proxy test.",
     "artSource": "https://m.media-amazon.com/images/M/MV5BM2EyNjJhZjctYWQxNC00ZDY2LWI3NjMtZWY3Y2ExMjliNDRhXkEyXkFqcGc%40._V1_.jpg"
-  },
-  {
-    "id": "testing-bo1-zombies",
-    "name": "BO1 Zombies",
-    "url": "https://vel.gg/bo1z",
-    "genres": [
-      "Zombies"
-    ],
-    "art": "testing-covers/testing-bo1-zombies.png",
-    "kind": "game",
-    "testing": true,
-    "testingNote": "Menu loads. Map selection failed in our proxy test.",
-    "artSource": "https://vel.gg/bo1z/art/og-mapselect.png"
   }
 ]

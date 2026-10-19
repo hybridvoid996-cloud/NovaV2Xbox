@@ -1,3 +1,4 @@
+import {announcementProfile} from './announcement-profile.mjs';
 import {lobbyDetails} from '../Public/src/buildnow-party-info.mjs';
 import {randomUUID} from 'node:crypto';
 export const partyCode=value=>{const code=String(value||'').trim();if(!/^[A-Za-z0-9_-]{1,32}$/.test(code))throw Error('Enter a valid BuildNow party code (1–32 letters or numbers).');return code;};
@@ -8,7 +9,7 @@ export async function buildNowInviteFeed({db,uid,now=Date.now()}){
  const lobby=invite.lobby&&Number.isFinite(invite.lobby.at)&&now-invite.lobby.at>=0&&now-invite.lobby.at<=15000?lobbyDetails(invite.lobby):null;
  const own=(await db.ref('novaControl/buildNowInviteReplies/'+invite.id+'/'+uid).get()).val();
  const isHost=uid===invite.author,joins=isHost?Object.entries((await db.ref('novaControl/buildNowInviteReplies/'+invite.id).get()).val()||{}).filter(([,value])=>value.phase==='joined').map(([uid,value])=>({uid,name:value.name,photo:value.photo||'',joinedAt:value.joinedAt})).sort((a,b)=>a.joinedAt-b.joinedAt).slice(-500):[];
- return {invite:{id:invite.id,name:invite.name,photo:invite.photo,expiresAt:invite.expiresAt,author:invite.author,code:isHost?invite.code:undefined,phase:own?.phase||null,isHost,lobby},joins};
+ return {invite:{profile:await announcementProfile(db,invite.author,now),id:invite.id,name:invite.name,photo:invite.photo,expiresAt:invite.expiresAt,author:invite.author,code:isHost?invite.code:undefined,phase:own?.phase||null,isHost,lobby},joins};
 }
 export async function buildNowInviteAction({action,b,db,uid,account,owner,now=Date.now()}){
  if(!action.startsWith('buildNowInvite'))return null;

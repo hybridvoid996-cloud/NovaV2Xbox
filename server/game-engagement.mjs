@@ -1,6 +1,15 @@
 import {readFile} from 'node:fs/promises';
-let catalog;
-async function known(kind,id){catalog??=Promise.all(['games','cloud','testing'].map(async name=>[name,JSON.parse(await readFile(new URL('../Public/library-'+name+'.json',import.meta.url),'utf8'))]));return (await catalog).some(([name,rows])=>(kind==='cloud'?name==='cloud':name!=='cloud')&&rows.some(g=>String(g.id)===id));}
+export function createKnownGameLookup(load=async name=>JSON.parse(await readFile(new URL('../Public/library-'+name+'.json',import.meta.url),'utf8'))){
+ let catalog,loadedAt=0;
+ return async(kind,id)=>{
+  const matches=rows=>rows.some(([name,games])=>(kind==='cloud'?name==='cloud':name!=='cloud')&&games.some(g=>String(g.id)===id));
+  if(!catalog||Date.now()-loadedAt>30000||!matches(catalog)){
+   catalog=await Promise.all(['games','cloud','testing'].map(async name=>[name,await load(name)]));loadedAt=Date.now();
+  }
+  return matches(catalog);
+ };
+}
+const known=createKnownGameLookup();
 export function changeEngagement(record,uid,event){
  record={...(record||{})};record.views=Number.isSafeInteger(record.views)&&record.views>=0?record.views:Object.keys(record.viewers||{}).length;delete record.viewers;record.votes={...record.votes};
  if(event==='view')record.views++;

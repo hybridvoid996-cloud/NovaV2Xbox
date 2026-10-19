@@ -1,5 +1,7 @@
+// Older libraries cached availability as a permanent denial. Let the current provider decide.
+export const refreshMusicAccess=t=>t&&/^sc:\d{1,20}$/.test(String(t.id))&&t.playable===false?{...t,playable:true,playbackMode:'soundcloud',availability:'SoundCloud playback'}:t;
 import {partyClockOffset} from './music-party-sync.mjs';
-export function normalizeLibrary(value){const playlists={};for(const [key,p]of Object.entries(value?.playlists||{})){if(!p||typeof p!=='object')continue;const id=Array.isArray(value.playlists)?p.id:key;if(!id)continue;playlists[id]={...p,id,songs:Object.values(p.songs||{}).filter(Boolean)}}return {liked:Object.values(value?.liked||{}).filter(Boolean),playlists};}
+export function normalizeLibrary(value){const playlists={};for(const [key,p]of Object.entries(value?.playlists||{})){if(!p||typeof p!=='object')continue;const id=Array.isArray(value.playlists)?p.id:key;if(!id)continue;playlists[id]={...p,id,songs:Object.values(p.songs||{}).filter(Boolean).map(refreshMusicAccess)}}return {liked:Object.values(value?.liked||{}).filter(Boolean).map(refreshMusicAccess),playlists};}
 export class NovaMusicService extends EventTarget{
  constructor({requestMusic=null,uid=()=>this.storage.getItem('nova_user'),request=fetch,storage=localStorage,session=sessionStorage}={}){super();this.storage=storage;this.session=session;this.requestMusic=requestMusic;this.uid=uid;this.request=(...args)=>request(...args);this.library={liked:[],playlists:{}};this.party=null;this.code='';this.version='';this.offset=0;this.generation=0;this.error='';this.chain=Promise.resolve()}
  emit(){this.dispatchEvent(new Event('change'))}

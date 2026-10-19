@@ -1,7 +1,7 @@
 /* The new shared Nova home. Legacy home styles remain in their own files. */
 body.nova-main{--accent:#bd8cff;--main-glass:rgba(19,17,26,.88);--main-edge:rgba(214,189,255,.15);background:#0f0d16;color:#eee6ff;min-height:100dvh}
 body.nova-main .shade{background:linear-gradient(180deg,#100a1b45,#110b1d12 45%,#0c071a55)}
-body.nova-main header:not(.main-popup header){position:relative;z-index:10;display:flex;align-items:center;flex-wrap:nowrap;gap:18px;width:calc(100% - 48px);max-width:1440px;min-height:78px;margin:22px auto 0;padding:12px 20px;border:1px solid var(--main-edge);border-radius:26px;background:var(--main-glass);box-shadow:0 15px 50px #05020c35}
+body.nova-main>header:not(.main-popup header){position:relative;z-index:10;display:flex;align-items:center;flex-wrap:nowrap;gap:18px;width:calc(100% - 48px);max-width:1440px;min-height:78px;margin:22px auto 0;padding:12px 20px;border:1px solid var(--main-edge);border-radius:26px;background:var(--main-glass);box-shadow:0 15px 50px #05020c35}
 body.nova-main header nav{order:0;flex:1;min-width:0;display:flex;align-items:center;justify-content:flex-start;gap:9px;overflow-x:auto;scrollbar-width:none;padding:3px;border:0!important;background:none!important;box-shadow:none!important}
 body.nova-main header nav::-webkit-scrollbar{display:none}
 body.nova-main nav button{position:relative;display:grid;place-items:center;flex:none;width:46px;min-width:46px;height:46px;padding:10px;border:0;border-radius:15px;background:transparent;color:#c0a4e0;transition:background .2s,color .2s,box-shadow .2s,transform .2s}

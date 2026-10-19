@@ -43,7 +43,8 @@
         await loadScript('socket.io.min.js');
         await loadStyle('emulator.css');
     } else {
-        await loadScript('emulator.min.js');
+        await loadScript('emulator.min.js?v=20261017-workers136');
+        await loadScript('../../noah-import/emulator-download.js?v=20261017-directcores136');
         await loadStyle('emulator.min.css');
         
     }

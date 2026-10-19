@@ -63,3 +63,5 @@ body.nova-main .main-dock-music .music-controls input,body.nova-main .main-dock-
 @media(max-width:700px){body.nova-main .main-dock.has-music{flex-wrap:wrap;justify-content:center;width:max-content;max-width:calc(100vw - 20px)}body.nova-main .main-dock-music{flex-basis:100%;display:flex;justify-content:center;border-left:0;border-top:1px solid #ffffff20;margin:4px 0 0;padding:9px 0 0}}
 
 body.nova-main .main-dock-music .music-track:disabled{opacity:1!important}body.nova-main .main-dock-music .music-track b,body.nova-main .main-dock-music .music-track small{position:static!important;opacity:1!important}body.nova-main .main-dock-music .music-controls svg{width:13px!important;height:13px!important}body.nova-main .main-dock-music .music-controls .music-like[aria-pressed=true] svg{fill:#ff79ac;stroke:#ff79ac}
+
+.runtime-engagement .engagement-count{display:inline-block!important;min-width:1ch;font-variant-numeric:tabular-nums}.runtime-engagement button[aria-pressed=true]{color:#8de3ac!important;border:1px solid #8de3ac55}

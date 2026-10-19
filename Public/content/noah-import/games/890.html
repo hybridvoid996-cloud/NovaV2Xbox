@@ -1,0 +1,29 @@
+<!-- Imported from https://noahstutoring.academy/games/499.html; original game authors retain their rights. -->
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <base href="https://cdn.jsdelivr.net/gh/thirstygithub/web-ports@main/noomi/">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | NoomiClone</title>
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/thirstygithub/web-ports@main/noomi/TemplateData/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/thirstygithub/web-ports@main/noomi/TemplateData/style.css">
+    <script src="https://cdn.jsdelivr.net/gh/thirstygithub/web-ports@main/noomi/TemplateData/UnityProgress.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/thirstygithub/web-ports@main/noomi/Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/webgl 4.json", {onProgress: UnityProgress});
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 1280px; height: 720px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+        <div class="title">NoomiClone</div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<a href="https://noahstutoring.academy/" target="_blank" rel="noopener" style="position:fixed;right:6px;bottom:3px;font:10px sans-serif;color:#aaa;opacity:.65;z-index:2147483647">Downloaded from Noah’s Tutoring Hub</a>

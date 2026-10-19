@@ -1,0 +1,34 @@
+{
+  "fceumm": {
+    "js": "fceumm_libretro.js",
+    "wasm": "fceumm_libretro.wasm"
+  },
+  "gambatte": {
+    "js": "gambatte_libretro.js",
+    "wasm": "gambatte_libretro.wasm"
+  },
+  "genesis_plus_gx": {
+    "js": "genesis_plus_gx_libretro.js",
+    "wasm": "genesis_plus_gx_libretro.wasm"
+  },
+  "melonds": {
+    "js": "melonds_libretro.js",
+    "wasm": "melonds_libretro.wasm"
+  },
+  "mgba": {
+    "js": "mgba_libretro.js",
+    "wasm": "mgba_libretro.wasm"
+  },
+  "mupen64plus_next": {
+    "js": "mupen64plus_next_libretro.js",
+    "wasm": "mupen64plus_next_libretro.wasm"
+  },
+  "pcsx_rearmed": {
+    "js": "pcsx_rearmed_libretro.js",
+    "wasm": "pcsx_rearmed_libretro.wasm"
+  },
+  "snes9x": {
+    "js": "snes9x_libretro.js",
+    "wasm": "snes9x_libretro.wasm"
+  }
+}

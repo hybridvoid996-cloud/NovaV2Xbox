@@ -1,5 +1,5 @@
 import {installPartyRuntime} from './buildnow-party-native.mjs?v=20261010-invite39';
-import {startPartyJoin} from './buildnow-party-join.js?v=20261010-invite39';
+import {startPartyJoin} from './buildnow-party-join.js?v=20261018-admin160';
 const partyRuntime=installPartyRuntime();window.NovaBuildNowParty={snapshot:()=>partyRuntime.adapter()?.snapshot()||null};startPartyJoin(partyRuntime);
 import {displaySettings,inspectRuntime,applyGameResolution} from './buildnow-display.mjs';
 import {fetchGameFile} from './five-nights-files.mjs';import {loadBuildNowParts} from './buildnow-files.mjs';
