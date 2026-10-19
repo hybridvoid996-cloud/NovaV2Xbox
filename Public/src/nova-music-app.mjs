@@ -7,7 +7,7 @@ import {createMusicSearch} from './nova-music-search.mjs?v=20261018-search156';
 import {renderPlaylist} from './nova-music-playlist.mjs?v=20261017-drag125';
 import {createLyricsView} from './nova-music-lyrics.mjs?v=20261018-lyrics167';
 import {key as songKey} from './music-core.mjs';
-import {NovaMusicEngine,isMusicTrack} from './nova-music-engine.mjs?v=20261018-playback155';
+import {NovaMusicEngine,isMusicTrack} from './nova-music-engine.mjs?v=20261019-playback187';
 
 import {NovaMusicService,refreshMusicAccess} from './nova-music-service.mjs?v=20261018-playback155';
 

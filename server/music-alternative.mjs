@@ -1,5 +1,7 @@
 import {Readable} from 'node:stream';
 const ORIGIN='https://oda-loves-vng.renaca.com';
+// Keep each progressive audio response below hosted function payload limits.
+export function alternativeRange(value){const match=/^bytes=(\d+)-(\d*)$/.exec(value||'bytes=0-');if(!match)throw Error('Unsupported audio range.');const start=Number(match[1]),requested=match[2]?Number(match[2]):Infinity;if(!Number.isSafeInteger(start)||start<0||(requested!==Infinity&&!Number.isSafeInteger(requested))||requested<start)throw Error('Unsupported audio range.');return `bytes=${start}-${Math.min(start+1048575,requested)}`}
 const clean=value=>String(value||'').replace(/[\[(]\s*prod(?:uced)?\.?[^\])]*[\])]/gi,'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\b(?:official (?:audio|video)|lyrics? video)\b/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 export function alternativeMatch(input,candidate){
  const artist=clean(input.artist),name=clean(input.title).replace(new RegExp('^'+artist+' '),'');
@@ -57,14 +59,19 @@ export function createAlternativeMusic({request=fetch,now=Date.now}={}){
  }
  async function audio(req,res,id){
   if(!/^\d{1,20}$/.test(String(id)))throw Error('Invalid alternative song.');
-  const headers={};if(req.headers?.range&&/^bytes=\d+-\d*$/.test(req.headers.range))headers.Range=req.headers.range;
+  let range;try{range=alternativeRange(req.headers?.range)}catch{res.statusCode=416;return res.end()}
+  const headers={Range:range};
   // The deadline covers connection setup, not the lifetime of the song body.
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),30000);
   timer.unref?.();res.once?.('close',()=>controller.abort());
   let response;try{response=await request(new URL('/~a/stream/'+id,ORIGIN),{method:req.method,headers,redirect:'error',signal:controller.signal})}finally{clearTimeout(timer)}
   if(!response.ok||!/^audio\//i.test(response.headers.get('content-type')||'')){await response.body?.cancel();throw Error('The alternative audio stream is unavailable.');}
+  const actualRange=/^bytes (\d+)-(\d+)\/(\d+)$/.exec(response.headers.get('content-range')||'');
+  if(response.status===206&&(!actualRange||Number(actualRange[1])!==Number(range.slice(6).split('-')[0])||Number(actualRange[2])<Number(actualRange[1])||Number(actualRange[2])-Number(actualRange[1])+1>1048576)){await response.body?.cancel();throw Error('The alternative audio range is invalid.');}
+  if(req.method!=='HEAD'&&response.status===200&&(!Number.isSafeInteger(Number(response.headers.get('content-length')))||!response.headers.get('content-length')||Number(response.headers.get('content-length'))>4194304)){await response.body?.cancel();throw Error('The audio provider did not support resumable playback.');}
   res.statusCode=response.status;res.setHeader('Content-Type',response.headers.get('content-type'));res.setHeader('Cache-Control','private, max-age=120');res.setHeader('Cross-Origin-Resource-Policy','same-origin');
   for(const name of ['content-length','content-range','accept-ranges'])if(response.headers.get(name))res.setHeader(name,response.headers.get(name));
+  if(actualRange&&!response.headers.get('content-length'))res.setHeader('Content-Length',String(Number(actualRange[2])-Number(actualRange[1])+1));
   if(req.method==='HEAD'||!response.body){await response.body?.cancel();return res.end()}
   const stream=Readable.fromWeb(response.body);res.once?.('close',()=>stream.destroy());stream.on('error',()=>res.destroy()).pipe(res);
  }

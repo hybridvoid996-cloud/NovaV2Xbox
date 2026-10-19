@@ -10,3 +10,5 @@ html:not(.reduce-motion) body:not(.failed) #loader .stars i{animation-name:nova-
 @media(max-width:1500px){#loader .ship svg{filter:none}#loader .trail{box-shadow:none}#loader .flight{mask-image:none}}
 body.ready #loader .stars i,body.failed #loader .stars i,body.motion-hidden #loader .stars i,body.motion-hidden #loader .ship,body.motion-hidden #loader .trail{animation-play-state:paused!important}
 body.reduce-motion header nav button,body.reduce-motion header .main-profile,body.reduce-motion .main-dock>button{transition:none!important;transform:none!important}
+
+@media(prefers-reduced-motion:reduce){html:not(.reduce-motion) body:not(.failed):not(.leaving) #loader .ship,html:not(.reduce-motion) body:not(.failed) #loader .trail,html:not(.reduce-motion) body:not(.failed) #loader .stars i{animation:none!important}}

@@ -9,3 +9,10 @@ html.nova-os-embedded,html.nova-os-embedded body{background:transparent!importan
 
 /* Match the Search iframe canvas to its transparent OS host. */
 html.nova-os-embedded.nova-os-search,html.nova-os-embedded.nova-os-search body{background:transparent!important;background-image:none!important;color-scheme:normal!important}html.nova-os-embedded.nova-os-search main,html.nova-os-embedded.nova-os-search #frames{background:transparent!important}
+
+/* The windowed player keeps Nova's flight animation on laptop displays. */
+.nova-os-embedded .os-player-loading #loader{gap:0;padding:20px 12px;overflow:auto}
+.nova-os-embedded .os-player-loading .flight{display:block;flex:0 0 auto;width:min(650px,94vw);height:clamp(140px,28vh,210px)}
+.nova-os-embedded .os-player-loading .loading-copy{position:relative;inset:auto;transform:none;flex:0 0 auto;width:min(420px,90vw)}
+.nova-os-embedded .os-player-loading .os-loading-art{display:none}
+@media(max-height:600px){.nova-os-embedded .os-player-loading .flight{height:140px}.nova-os-embedded .os-player-loading .ship{width:185px;top:5px}.nova-os-embedded .os-player-loading .loading-copy h1{font-size:19px;margin:0 0 8px}.nova-os-embedded .os-player-loading .track{margin:12px auto}}

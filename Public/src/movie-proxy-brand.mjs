@@ -2,14 +2,17 @@ import {novaMovieLogo} from './movie-logo.mjs';
 import {movieCinemaCSS} from './movie-cinema-theme.mjs?v=20261018-cinema169';
 function movieRuntime(config){
  let volume=1;
- const send=action=>parent.postMessage({novaAction:action,token:config.session},'*');
+ const send=(action,data={})=>parent.postMessage({...data,novaAction:action,token:config.session},'*');
  function brand(){if(!document.body)return;if(!document.getElementById('nova-cinema-theme')){const style=document.createElement('style');style.id='nova-cinema-theme';style.textContent=config.css;document.head.append(style)}for(const link of document.querySelectorAll('header button,header a,nav button,nav a')){if(link.dataset.novaBrand||!/^(?:fx)?framextv$/i.test(link.textContent.replace(/\s/g,'')))continue;link.dataset.novaBrand='true';const logo=document.createElement('img');logo.src=config.logo;logo.alt='Nova';const name=document.createElement('span');name.textContent='Nova Movies';link.replaceChildren(logo,name)}
  const hero=document.querySelector('div[class*="select-none"][class*="min-h-"]:has(img)');if(hero)hero.dataset.novaCinemaHero='';
  if(!document.getElementById('nova-cinema-profile')&&config.profile){const button=document.createElement('button');button.id='nova-cinema-profile';button.type='button';button.setAttribute('aria-label','Your Nova profile');const img=document.createElement('img');img.alt='';img.src=/^(https?:|data:image\/)/.test(config.profile.photo||'')?config.profile.photo:config.logo;const name=document.createElement('span');name.textContent=config.profile.name||'Nova player';button.append(img,name);button.onclick=()=>send('novaMovieProfile');document.body.append(button)}
  const profile=document.getElementById('nova-cinema-profile');if(profile)profile.hidden=/\/(watch|embed)(?:\/|$)/.test(location.pathname);
- document.title=document.title.replace(/frameXTV/gi,'Nova Movies');if(document.querySelector('video,iframe,header,nav,main button'))send('novaMovieReady')}
+ document.title=document.title.replace(/frameXTV/gi,'Nova Movies');if(document.querySelector('video,iframe,[data-player],.vds-player'))send('novaMovieReady')}
  function audio(){document.querySelectorAll('video,audio').forEach(m=>{m.volume=volume});document.querySelectorAll('iframe').forEach(f=>f.contentWindow?.postMessage({novaAction:'novaMovieVolume',volume},'*'))}
  addEventListener('message',e=>{if(e.source!==parent||e.data?.novaAction!=='novaMovieVolume'||!Number.isFinite(e.data.volume))return;volume=Math.max(0,Math.min(1,e.data.volume));audio()});document.addEventListener('play',audio,true);
+ document.addEventListener('timeupdate',e=>{if(e.target instanceof HTMLMediaElement&&Number.isFinite(e.target.currentTime))send('novaMovieTime',{currentTime:e.target.currentTime})},true);
+ document.addEventListener('error',e=>{if(e.target instanceof HTMLMediaElement&&e.target.error)send('novaMovieError')},true);
+ addEventListener('message',e=>{if(!Array.from(document.querySelectorAll('iframe')).some(f=>f.contentWindow===e.source))return;const d=e.data;if(d?.token===config.session&&['novaMovieReady','novaMovieTime','novaMovieError','novaMovieProfile'].includes(d.novaAction)){if(d.novaAction==='novaMovieTime'&&!Number.isFinite(d.currentTime))return;send(d.novaAction,d)}else if(d?.type==='timeupdate'&&Number.isFinite(d.currentTime))send('novaMovieTime',{currentTime:d.currentTime})});
  brand();setInterval(()=>{brand();audio()},1500);
 }
 export async function brandMovieResponse(response,target={}){

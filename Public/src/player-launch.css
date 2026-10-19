@@ -19,3 +19,8 @@ body.leaving .ship{animation:nova-depart .28s cubic-bezier(.4,0,1,1) forwards}bo
 @media(max-width:500px){.flight{height:180px}.ship{width:185px;top:23px}.track{width:190px}}
 @media(prefers-reduced-motion:reduce){.ship,.trail,.stars i,.track.waiting i{animation:none!important;will-change:auto}.ship{transform:translateX(-50%)}.stars i{opacity:0}#loader,#stage{transition:none!important}}
 html.reduce-motion .ship,html.reduce-motion .trail,html.reduce-motion .stars i{animation:none!important;will-change:auto}
+
+/* Keep the flight canvas in view when a laptop window is short or zoomed. */
+#loader .flight{flex-shrink:0}
+@media(max-height:600px){#loader{padding:16px 12px;overflow:auto}#loader .flight{height:150px}#loader .ship{width:185px;top:8px}.loading-copy h1{font-size:21px;margin:8px 0}.loading-copy p{margin:8px 0}#actions{margin-top:12px}}
+@media(prefers-reduced-motion:reduce){html:not(.reduce-motion) body #loader .ship,html:not(.reduce-motion) body #loader .trail,html:not(.reduce-motion) body #loader .stars i{animation:none!important}}
