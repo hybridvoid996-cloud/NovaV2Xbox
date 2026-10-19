@@ -2,7 +2,7 @@
 .member-list:has(.nova-profile-card){display:flex;flex-direction:column;gap:10px;height:100%;overflow:auto;box-sizing:border-box}
 .member-list>.nova-profile-card{flex:1 0 auto;min-height:470px;border-radius:14px;background:#111116}
 .member-list .profile-expand{flex:none;margin-top:auto;height:40px;border-radius:10px;background:#ffffff08;border:1px solid #ffffff16}
-.nova-profile-effect{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:2}
+.nova-profile-effect{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center top;pointer-events:none;z-index:2}
 .nova-profile-body,.nova-profile-hover{position:relative;z-index:3}
 .nova-profile-hover{position:absolute}
 .chat-modal .modal-close,.nova-mini-profile .modal-close,.settings-modal .modal-close{display:grid;place-items:center;width:34px;height:34px;padding:0;border:1px solid #ffffff12;border-radius:50%;background:#ffffff0b;color:#bfc0cb;font-size:23px;line-height:1;transition:background .18s,transform .18s}

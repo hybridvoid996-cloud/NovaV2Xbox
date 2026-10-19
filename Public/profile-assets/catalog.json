@@ -1437,5 +1437,158 @@
     "src": "/profile-assets/ProfileEffect/samurai.png",
     "rarity": "legendary",
     "thumbnail": "/profile-assets/thumbs/effect-162.webp"
+  },
+  {
+    "id": "animated-wave-shark-frenzy",
+    "name": "Shark Frenzy",
+    "kind": "decoration",
+    "rarity": "legendary",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/shark-frenzy.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-shark-frenzy.webp"
+  },
+  {
+    "id": "animated-wave-symbiote-embrace",
+    "name": "Symbiote Embrace",
+    "kind": "effect",
+    "rarity": "mythic",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/symbiote-embrace.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-symbiote-embrace.webp"
+  },
+  {
+    "id": "animated-wave-web-slinger",
+    "name": "Web Slinger",
+    "kind": "banner",
+    "rarity": "epic",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/web-slinger.webp",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-web-slinger.webp"
+  },
+  {
+    "id": "animated-wave-soulfire-crown",
+    "name": "Soulfire Crown",
+    "kind": "decoration",
+    "rarity": "mythic",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/soulfire-crown.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-soulfire-crown.webp"
+  },
+  {
+    "id": "animated-wave-soulfire-procession",
+    "name": "Soulfire Procession",
+    "kind": "banner",
+    "rarity": "legendary",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/soulfire-procession.webp",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-soulfire-procession.webp"
+  },
+  {
+    "id": "animated-wave-silken-snare",
+    "name": "Silken Snare",
+    "kind": "decoration",
+    "rarity": "epic",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/silken-snare.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-silken-snare.webp"
+  },
+  {
+    "id": "animated-wave-deep-blue",
+    "name": "Deep Blue",
+    "kind": "effect",
+    "rarity": "epic",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/deep-blue.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-deep-blue.webp"
+  },
+  {
+    "id": "animated-wave-inferno-skulls",
+    "name": "Inferno Skulls",
+    "kind": "decoration",
+    "rarity": "legendary",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/inferno-skulls.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-inferno-skulls.webp"
+  },
+  {
+    "id": "animated-wave-scarlet-fracture",
+    "name": "Scarlet Fracture",
+    "kind": "banner",
+    "rarity": "epic",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/scarlet-fracture.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-scarlet-fracture.webp"
+  },
+  {
+    "id": "animated-wave-raven-moon",
+    "name": "Raven Moon",
+    "kind": "banner",
+    "rarity": "legendary",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/raven-moon.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-raven-moon.webp"
+  },
+  {
+    "id": "animated-wave-starlight-clouds",
+    "name": "Starlight Clouds",
+    "kind": "decoration",
+    "rarity": "epic",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/starlight-clouds.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-starlight-clouds.webp"
+  },
+  {
+    "id": "animated-wave-ember-vortex",
+    "name": "Ember Vortex",
+    "kind": "decoration",
+    "rarity": "legendary",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/ember-vortex.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-ember-vortex.webp"
+  },
+  {
+    "id": "animated-wave-bloodweave",
+    "name": "Bloodweave",
+    "kind": "decoration",
+    "rarity": "mythic",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/bloodweave.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-bloodweave.webp"
+  },
+  {
+    "id": "animated-wave-tidal-ravens",
+    "name": "Tidal Ravens",
+    "kind": "decoration",
+    "rarity": "legendary",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/tidal-ravens.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-tidal-ravens.webp"
+  },
+  {
+    "id": "animated-wave-eclipse-flock",
+    "name": "Eclipse Flock",
+    "kind": "effect",
+    "rarity": "singularity",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/eclipse-flock.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-eclipse-flock.webp"
+  },
+  {
+    "id": "animated-wave-starfall-tide",
+    "name": "Starfall Tide",
+    "kind": "effect",
+    "rarity": "mythic",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/starfall-tide.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-starfall-tide.webp"
+  },
+  {
+    "id": "animated-wave-ravenstorm",
+    "name": "Ravenstorm",
+    "kind": "effect",
+    "rarity": "legendary",
+    "collection": "animated-wave",
+    "src": "/profile-assets/animated-wave/ravenstorm.png",
+    "thumbnail": "/profile-assets/thumbs/animated-wave-ravenstorm.webp"
   }
 ]
