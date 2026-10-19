@@ -12,3 +12,6 @@ body.ready #loader .stars i,body.failed #loader .stars i,body.motion-hidden #loa
 body.reduce-motion header nav button,body.reduce-motion header .main-profile,body.reduce-motion .main-dock>button{transition:none!important;transform:none!important}
 
 @media(prefers-reduced-motion:reduce){html:not(.reduce-motion) body:not(.failed):not(.leaving) #loader .ship,html:not(.reduce-motion) body:not(.failed) #loader .trail,html:not(.reduce-motion) body:not(.failed) #loader .stars i{animation:none!important}}
+
+/* Keep laptop transitions composited instead of re-blurring the wallpaper each frame. */
+@media(min-width:701px) and (max-width:1500px){body.nova-main :is(.main-popup,.main-runtime-menu,.main-audio-extension,.main-dock,.nova-notice,.nova-settings-modal){backdrop-filter:none!important;-webkit-backdrop-filter:none!important}body.nova-main .main-popup{background:#17141bf5}.nova-boot-orb:after{will-change:transform}.main-popup img,.main-dock img{backface-visibility:hidden}}

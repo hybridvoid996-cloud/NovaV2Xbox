@@ -181,6 +181,7 @@ var EngineLoader = {
 
     // load and start engine script (asm.js or wasm.js)
     loadAndRunScriptAsync: function(src, estimatedSize, fromProgress, toProgress) {
+        if(src.endsWith("MonkeyMart_wasm.js"))src += "?v=20261019-recovery193";
         FileLoader.load(src, "text", estimatedSize,
             function(loaded, total) { Progress.calculateProgress(fromProgress, toProgress, loaded, total); },
             function(error) { throw error; },
