@@ -65,3 +65,9 @@ body.nova-main .main-dock-music .music-controls input,body.nova-main .main-dock-
 body.nova-main .main-dock-music .music-track:disabled{opacity:1!important}body.nova-main .main-dock-music .music-track b,body.nova-main .main-dock-music .music-track small{position:static!important;opacity:1!important}body.nova-main .main-dock-music .music-controls svg{width:13px!important;height:13px!important}body.nova-main .main-dock-music .music-controls .music-like[aria-pressed=true] svg{fill:#ff79ac;stroke:#ff79ac}
 
 .runtime-engagement .engagement-count{display:inline-block!important;min-width:1ch;font-variant-numeric:tabular-nums}.runtime-engagement button[aria-pressed=true]{color:#8de3ac!important;border:1px solid #8de3ac55}
+/* Song artwork and text must not inherit circular navigation button styling. */
+body.nova-main :is(.main-dock,.nova-runtime-menu) .runtime-music button.music-track{box-sizing:border-box;display:flex;align-items:center;justify-content:flex-start;width:100%;min-width:0;height:38px;min-height:0;padding:3px;gap:8px;border:0;border-radius:8px;background:transparent;box-shadow:none;transform:none;text-align:left;cursor:pointer;overflow:hidden}
+body.nova-main :is(.main-dock,.nova-runtime-menu) .runtime-music button.music-track>img{position:static;display:block;width:30px;height:30px;min-width:30px;max-width:30px;flex:0 0 30px;aspect-ratio:1;object-fit:cover;border:0;border-radius:6px;transform:none}
+body.nova-main :is(.main-dock,.nova-runtime-menu) .runtime-music button.music-track:hover{background:#ffffff08;box-shadow:none;transform:none}
+body.nova-main :is(.main-dock,.nova-runtime-menu) .runtime-music button.music-track:focus:not(:focus-visible){outline:none}
+body.nova-main :is(.main-dock,.nova-runtime-menu) .runtime-music button.music-track:focus-visible{outline:1px solid #b5bdd8!important;outline-offset:-1px}

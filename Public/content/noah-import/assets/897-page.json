@@ -1,0 +1,23 @@
+{
+  "encoding": "gzip",
+  "bytes": 118107476,
+  "sha256": "910ba389d75ca2c3d7fb077a1267064c638f8a7c548a268613e2991ce3b6a872",
+  "parts": [
+    {
+      "file": "897-page.gz.part1",
+      "bytes": 20971520
+    },
+    {
+      "file": "897-page.gz.part2",
+      "bytes": 20971520
+    },
+    {
+      "file": "897-page.gz.part3",
+      "bytes": 20971520
+    },
+    {
+      "file": "897-page.gz.part4",
+      "bytes": 12215754
+    }
+  ]
+}

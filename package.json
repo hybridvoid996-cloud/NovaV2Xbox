@@ -1,8 +1,9 @@
 {
   "private": true,
   "dependencies": {
+    "@mercuryworkshop/wisp-js": "0.4.1",
     "firebase-admin": "^13.0.0",
-    "@mercuryworkshop/wisp-js": "0.4.1"
+    "youtubei.js": "18.2.0"
   },
   "scripts": {
     "build": "node scripts/stamp-library-new.mjs && node scripts/build-connection.mjs && node scripts/check-systems.mjs",
@@ -12,9 +13,9 @@
     "catalog:stamp": "node scripts/stamp-library-new.mjs"
   },
   "devDependencies": {
+    "@mercuryworkshop/libcurl-transport": "2.0.5",
     "@mercuryworkshop/scramjet": "2.0.67-alpha.2",
     "@mercuryworkshop/scramjet-controller": "0.0.14",
-    "@mercuryworkshop/scramjet-utils": "0.0.3",
-    "@mercuryworkshop/libcurl-transport": "2.0.5"
+    "@mercuryworkshop/scramjet-utils": "0.0.3"
   }
 }

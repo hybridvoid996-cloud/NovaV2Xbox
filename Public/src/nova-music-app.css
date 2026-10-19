@@ -141,3 +141,24 @@ body.nova-main #panel[data-view="music"]:not([hidden])~.nova-runtime-menu{bottom
 
 /* Slow album-color currents: compositor motion only, no per-frame JavaScript. */
 .nmc .nmc-lyrics-view{background:#0e1117!important}.nmc .nmc-lyrics-view:before{inset:-14%;background:radial-gradient(ellipse at 16% 72%,rgb(var(--nmc-art-0)/.95),transparent 62%),radial-gradient(ellipse at 87% 18%,rgb(var(--nmc-art-1)/.9),transparent 62%),radial-gradient(ellipse at 60% 90%,rgb(var(--nmc-art-2)/.75),transparent 68%);filter:saturate(1.6) brightness(1.35);opacity:.9;animation:nmc-lyrics-current 28s ease-in-out infinite alternate;transform-origin:center;will-change:transform}.nmc .nmc-lyrics-view:after{content:'';position:absolute;inset:-12%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 65% 30%,rgb(var(--nmc-art-0)/.4),transparent 48%),radial-gradient(ellipse at 25% 65%,rgb(var(--nmc-art-1)/.5),transparent 55%);filter:saturate(1.7);opacity:.6;animation:nmc-lyrics-undertone 37s ease-in-out infinite alternate;will-change:transform}@keyframes nmc-lyrics-current{0%{transform:translate(-3%,2%) rotate(-5deg) scale(1.02)}50%{transform:translate(3%,-3%) rotate(3deg) scale(1.06)}100%{transform:translate(1%,4%) rotate(8deg) scale(1.03)}}@keyframes nmc-lyrics-undertone{0%{transform:translate(4%,-3%) rotate(7deg) scale(1)}100%{transform:translate(-4%,3%) rotate(-8deg) scale(1.08)}}.nmc.nmc-motion-paused .nmc-lyrics-view:before,.nmc.nmc-motion-paused .nmc-lyrics-view:after{animation-play-state:paused}.nmc.nmc-quiet .nmc-lyrics-view:before,.nmc.nmc-quiet .nmc-lyrics-view:after{animation:none;will-change:auto}.nmc.nmc-neutral .nmc-lyrics-view:before,.nmc.nmc-neutral .nmc-lyrics-view:after{filter:saturate(0);opacity:.4}@media(prefers-reduced-motion:reduce){.nmc .nmc-lyrics-view:before,.nmc .nmc-lyrics-view:after{animation:none;will-change:auto}}
+/* The same music app can float above an activity without replacing its frame. */
+.nova-music-window{position:fixed;inset:0;margin:auto;width:min(1080px,calc(100vw - 48px));height:min(740px,calc(100dvh - 130px));max-width:none;max-height:none;padding:0;overflow:hidden;border:1px solid #ffffff26;border-radius:20px;background:#101014;color:#f2f2f6;box-shadow:0 30px 110px #000a,0 0 0 1px #0006;z-index:10100;color-scheme:dark}
+.nova-music-window[open]{display:flex;flex-direction:column}
+.nova-music-window>header{display:flex;align-items:center;gap:18px;flex:0 0 52px;padding:0 16px 0 22px;border-bottom:1px solid #ffffff12;background:linear-gradient(100deg,#202026,#151519);font:13px 'Segoe UI',sans-serif}
+.nova-music-window>header strong{font-weight:650;letter-spacing:-.2px}
+.nova-music-window>header span{font-size:10px;color:#92929e}
+.nova-music-window>header button{display:grid;place-items:center;width:30px;height:30px;margin-left:auto;padding:0;border:1px solid #ffffff10;border-radius:9px;background:#ffffff06;color:#b8b8c3;font:22px 'Segoe UI',sans-serif;cursor:pointer;transition:background .15s,color .15s}
+.nova-music-window>header button:hover{background:#ffffff15;color:white}
+.nova-music-window>header button:focus-visible{outline:2px solid #c4caff;outline-offset:3px}
+.nova-music-window-body{position:relative;flex:1;min-height:0;width:100%;overflow:hidden}
+.nova-music-window .nmc{grid-template-columns:190px minmax(0,1fr);grid-template-areas:'top top' 'side content' 'player player';background:#101013;grid-template-rows:62px minmax(0,1fr) 88px}
+.nova-music-window .nmc-right{display:none}
+.nova-music-window .nmc-brand{width:176px;font-size:15px}
+.nova-music-window .nmc-source{display:none}
+.nova-music-window .nmc-content{container-type:inline-size}
+.nova-music-window .nmc h1{font-size:28px}
+.nova-music-window .nmc-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+.runtime-music .music-track:not(:disabled):hover,.main-dock-music .music-track:not(:disabled):hover{background:#ffffff08;border-radius:8px}
+@media(max-width:720px){.nova-music-window{width:calc(100vw - 20px);height:calc(100dvh - 100px);border-radius:15px}.nova-music-window>header{padding-left:14px}.nova-music-window>header span{display:none}.nova-music-window .nmc{grid-template-columns:minmax(0,1fr);grid-template-areas:'top' 'content' 'player';grid-template-rows:58px minmax(0,1fr) 118px}.nova-music-window .nmc-sidebar,.nova-music-window .nmc-brand{display:none}}
+@media(max-height:520px){.nova-music-window{height:calc(100dvh - 30px);width:calc(100vw - 30px)}.nova-music-window>header{flex-basis:42px}}
+@media(prefers-reduced-motion:reduce){.nova-music-window>header button{transition:none}}
