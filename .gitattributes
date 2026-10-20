@@ -1,0 +1,7 @@
+
+# Defold archives are byte-counted by archive_files.json. Never normalize their line endings.
+*.projectc binary
+*.arci binary
+*.arcd binary
+*.dmanifest binary
+*.der binary

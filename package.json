@@ -3,10 +3,11 @@
   "dependencies": {
     "@mercuryworkshop/wisp-js": "0.4.1",
     "firebase-admin": "^13.0.0",
+    "ws": "^8.22.0",
     "youtubei.js": "18.2.0"
   },
   "scripts": {
-    "build": "node scripts/stamp-library-new.mjs && node scripts/build-connection.mjs && node scripts/check-systems.mjs",
+    "build": "node scripts/check-game-archives.mjs && node scripts/stamp-library-new.mjs && node scripts/build-connection.mjs && node scripts/check-systems.mjs",
     "start:transport": "node scripts/patch-wisp.mjs && node server/search-wisp.mjs",
     "start": "node server.mjs",
     "test:connection": "node --test tests/connection.test.mjs",

@@ -27,6 +27,10 @@
     "api/novatube.js": {
       "maxDuration": 30,
       "excludeFiles": "{Public,remote-agent,tests}/**"
+    },
+    "api/zombs-socket.js": {
+      "maxDuration": 300,
+      "excludeFiles": "{Public,remote-agent,tests}/**"
     }
   },
   "outputDirectory": "Public",

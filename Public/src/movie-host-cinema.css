@@ -1,0 +1,5 @@
+/* Restore the normal Nova window as soon as the viewer returns to title details. */
+body.nova-cinema-active #panel:not(.full-library){position:fixed!important;inset:0!important;width:100%!important;height:100%!important;z-index:20000!important;border:0!important;border-radius:0!important;animation:none!important;transform:none!important;background:#030303!important;padding:0!important}
+body.nova-cinema-active #panel>.panel-head{display:none!important}
+body.nova-cinema-active #system{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border:0!important;border-radius:0!important}
+body.nova-cinema-active :is(.main-runtime-menu,.main-runtime-handle,.main-dock,body>header){visibility:hidden!important;pointer-events:none!important}

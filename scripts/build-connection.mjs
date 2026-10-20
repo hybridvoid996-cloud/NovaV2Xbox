@@ -1,3 +1,4 @@
+import {patchProxyWebSocket} from './patch-proxy-websocket.mjs';
 import {patchProxyText} from './patch-proxy-text.mjs';
 import {patchProxyWorklets} from './patch-proxy-worklets.mjs';
 import {patchProxyXHR} from './patch-proxy-xhr.mjs';
@@ -12,5 +13,5 @@ const adHook=await readFile(new URL('../Public/src/ad-block-inject.js',import.me
 const audioHook=await readFile(new URL('../Public/src/game-audio-inject.js',import.meta.url),'utf8');
 const sessionHook=await readFile(new URL('../Public/src/session-inject.js',import.meta.url),'utf8');
 const injectFile=new URL('../Public/~/sj/controller/controller.inject.js',import.meta.url);
-await writeFile(injectFile,await readFile(injectFile,'utf8')+'\n(()=>{'+adPolicy+'\n'+adHook+'})();\n'+audioHook+'\n'+sessionHook);
+await writeFile(injectFile,patchProxyWebSocket(await readFile(injectFile,'utf8'))+'\n(()=>{'+adPolicy+'\n'+adHook+'})();\n'+audioHook+'\n'+sessionHook);
 console.log('Built Neon Arcade pinned connection bundles.');
