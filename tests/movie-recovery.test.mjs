@@ -6,3 +6,13 @@ test('repeated connection failures stop after three attempts',async()=>{const c=
 test('leaving during a connection disposes its late frame and cancels pending retries',async()=>{const c=clock();let resolve,disposed=0,calls=0;const player=createMovieRecovery({...c,launch:()=>{calls++;return new Promise(r=>resolve=r)},onState(){}});player.start();await flush();player.stop();resolve(()=>disposed++);await flush();assert.equal(disposed,1);c.advance(100000);await flush();assert.equal(calls,1)});
 
 test('a confirmed lost player can reconnect after readiness, while ordinary late request failures do not interrupt it',async()=>{const c=clock(),launches=[],states=[];const player=createMovieRecovery({...c,launch:args=>launches.push(args)&&(()=>{}),onState:s=>states.push(s)});player.start();await flush();launches[0].ready();launches[0].fail();c.advance(50000);await flush();assert.equal(launches.length,1);launches[0].lost();c.advance(1000);await flush();assert.equal(launches.length,2);assert.equal(states.at(-1),'loading');player.stop()});
+
+test('useful startup progress keeps a slow laptop player alive, with a bounded total wait',async()=>{
+ const c=clock(),launches=[],states=[];
+ const player=createMovieRecovery({...c,launch:args=>{launches.push(args)},onState:s=>states.push(s)});
+ player.start();await flush();
+ c.advance(20000);launches[0].progress();c.advance(20000);launches[0].progress();
+ assert.equal(launches.length,1);assert.equal(states.at(-1),'loading');
+ c.advance(20000);assert.equal(states.at(-1),'reconnecting');
+ c.advance(1000);await flush();assert.equal(launches.length,2);player.stop();
+});
