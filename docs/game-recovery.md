@@ -20,3 +20,10 @@ Large archives, ROM downloads and media do not get the short startup deadline. L
 Specific compatibility adapters still apply. Zombs.io and Zombs Royale keep their specialized request policy (`gameRequestPolicy: 'specialized'`) while receiving the shared frame monitor; adding startup request wrappers changed their behavior in live comparison tests. A generic handler cannot create missing game files, add unsupported browser APIs or repair an offline upstream server. `game-health.mjs` contains the shared classification and request policy; `game-health-runtime.mjs` handles frame observation and bounded startup recovery.
 
 Checks: `node --test tests/game-health.test.mjs` and `node tests/game-health-ui.cjs`. The UI test covers the actual native-game launcher as well as startup retry, active-session protection, socket semantics and graphics restoration.
+
+## Engine and hosting regressions
+
+- The pinned proxy event patch preserves native `(event, callback, capture)` identity. Without it, a legacy feature test in Royale installs an old-browser event shim that drops mouse and keyboard listeners. Check `tests/proxy-events.test.mjs` after upgrading Scramjet.
+- Zombs.io's graphics preference is set before its app bundle executes. Its checkbox change handler reloads the page, so startup code must never fire that event to select compatible rendering.
+- The match relay preserves binary packets when a hosted adapter omits the optional `ws` message flag. Its allowlist includes Royale's official gateway and regional probes; gameplay tickets and authentication remain provider-owned.
+- Monkey Mart writes native progress to `monkeymart_config` in localStorage, not its otherwise working Defold IDBFS mount. That key is included in Nova's per-account backup and restore policy.
