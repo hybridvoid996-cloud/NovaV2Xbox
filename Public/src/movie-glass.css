@@ -113,3 +113,14 @@ html:not(.reduce-motion) .movie-simple-spinner{animation:movie-simple-spin .8s l
 @media(max-width:600px){.cinema-nav{margin:8px 12px 0;border-radius:18px;padding:12px;gap:10px}.cinema-brand{gap:6px}.cinema-brand>span{font-size:16px}.cinema-monogram{width:27px;height:27px;font-size:16px}.cinema-search{max-width:150px;min-width:75px;padding:7px 9px}.cinema-search input{font-size:11px}.cinema-person img{width:27px;height:27px}.cinema-nav nav{justify-content:flex-start;gap:3px}.cinema-nav nav button{padding:9px 11px;font-size:11px}.cinema-main{padding-top:16px}.cinema-hero{margin:0 12px 28px;border-radius:22px;height:470px}.cinema-hero-copy{padding:24px;width:100%}.cinema-hero h1{font-size:42px}.cinema-hero p{font-size:12px}.cinema-row{padding:0 16px}.cinema-row-head h2{font-size:20px}.cinema-card{flex-basis:calc((100% - 16px)/2.4)}.is-ranked-row .cinema-card{flex-basis:84%}.nova-title-page{padding:0 16px 30px}.movie-profile-content{padding:26px;max-width:calc(100vw - 32px);box-sizing:border-box}}
 @media(max-height:600px){.movie-profile-content{padding:22px 40px}.movie-profile-content h1{font-size:32px}}
 @media(prefers-reduced-motion:reduce){.cinema-nav nav button,.movie-profile-tile{transition:none}}
+/* The library and profile chooser share the user's Nova wallpaper. */
+body{isolation:isolate}
+#movie-wallpaper{position:fixed;inset:-45px;z-index:-1;pointer-events:none;background:#141419;filter:blur(28px) brightness(.55);transform:scale(1.06)}
+#movie-wallpaper img,#movie-wallpaper video{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+#movie-catalog{background:linear-gradient(180deg,#08080955,#080809b0)}
+#movie-profiles{background:radial-gradient(ellipse at 50% 35%,#ffffff06,transparent 65%),#08080965;backdrop-filter:none}
+#movie-profiles .movie-profile-content{background:linear-gradient(135deg,#ffffff14,#ffffff05);border-color:#ffffff25;box-shadow:inset 0 1px #ffffff18,0 30px 80px #0005;backdrop-filter:blur(12px)}
+#loading{background:#080809b5}
+body.movie-watch-open #movie-wallpaper{visibility:hidden}
+.cinema-hero-controls{position:absolute;right:26px;bottom:25px;display:flex;align-items:center;gap:8px;padding:6px;border:1px solid #ffffff20;border-radius:15px;background:#11111190;backdrop-filter:blur(12px);z-index:2}.cinema-hero-controls[hidden]{display:none}.cinema-hero-arrow{border:0;background:transparent;color:#eee;width:32px;height:32px;padding:0;border-radius:9px;font-size:22px}.cinema-hero-arrow:hover{background:#ffffff18;transform:none}.cinema-hero-arrow:last-child{font-size:12px}.cinema-hero-count{font-size:10px;color:#ddd;min-width:40px;text-align:center;font-variant-numeric:tabular-nums}@media(max-width:600px){.cinema-hero-controls{right:16px;bottom:14px}.cinema-hero-copy{padding-bottom:70px}}
+.cinema-hero-previous{pointer-events:none}.cinema-hero-controls{gap:4px}

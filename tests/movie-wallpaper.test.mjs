@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {movieWallpaper} from '../Public/src/movie-wallpaper.mjs';
+const storage=values=>({getItem:key=>values[key]??null});
+test('movies share uploaded wallpaper and Nova gradients',()=>{assert.equal(movieWallpaper(storage({nova_wallpaper:'/preset.jpg',nova_wallpaper_upload:'data:image/png;base64,abc'}),{}).source,'data:image/png;base64,abc');assert.deepEqual(movieWallpaper(storage({nova_grad:JSON.stringify({dir:'135deg',c1:'#112233',c2:'#445566',c3:'#778899'})}),{}),{gradient:'linear-gradient(135deg,#112233,#445566,#778899)'});});
+test('video wallpapers use their Nova poster to avoid an extra playing video behind movies',()=>{assert.deepEqual(movieWallpaper(storage({nova_wallpaper:'/backgrounds/test.mp4'}),{NovaWallpaperPoster:()=>'/poster.jpg'}),{source:'/poster.jpg',video:false});});

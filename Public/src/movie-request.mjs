@@ -3,6 +3,7 @@ export async function requestMovieResource(request,args,{timeout=12000}={}){
  const [url,method,body,headers,signal]=args;
  const startup=/^(GET|HEAD)$/.test(method)&&!headers.some(([name])=>name.toLowerCase()==='range')&&(/\/watch(?:\/|$)|\/embed(?:\/|$)|\/api\//.test(url.pathname)||/\.(?:html|js|json|m3u8)$/.test(url.pathname));
  if(!startup)return request(...args);
+ if(timeout===12000&&/\/api\/stream(?:\/|$)/.test(url.pathname))timeout=Math.max(timeout,45000);
  const abort=new AbortController();let timer;
  const cancel=()=>abort.abort(signal?.reason);
  if(signal?.aborted)cancel();else signal?.addEventListener('abort',cancel,{once:true});

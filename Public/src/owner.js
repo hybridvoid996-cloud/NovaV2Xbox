@@ -1,7 +1,7 @@
 import {mountPollResults} from './owner-poll-results.mjs?v=20261018-polls161';
 import {activityRange,activityPoints} from './activity-range.mjs';
 let chartRange='today',chartCustom='';
-import {mountGameStatus} from './game-status.js';
+import {mountGameStatus} from './game-status.js?v=20261020-review227';
 document.documentElement.classList.toggle('embedded',new URLSearchParams(location.search).has('embedded'));
 import {control} from './control-client.js';
 import {playerStats} from './player-stats.js';

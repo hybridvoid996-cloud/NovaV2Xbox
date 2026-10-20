@@ -16,3 +16,5 @@ test('useful startup progress keeps a slow laptop player alive, with a bounded t
  c.advance(20000);assert.equal(states.at(-1),'reconnecting');
  c.advance(1000);await flush();assert.equal(launches.length,2);player.stop();
 });
+
+test('an interactive player waiting for Play is never replaced by startup timers',async()=>{const c=clock(),launches=[],states=[];const player=createMovieRecovery({...c,launch:args=>{launches.push(args)},onState:s=>states.push(s)});player.start();await flush();launches[0].hold();launches[0].progress();c.advance(200000);await flush();assert.equal(launches.length,1);assert.equal(states.at(-1),'interactive');launches[0].ready();assert.equal(states.at(-1),'ready');player.stop()});
