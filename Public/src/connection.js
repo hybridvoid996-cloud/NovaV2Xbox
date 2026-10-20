@@ -16,7 +16,8 @@ async function create(options={}){
  const worker=await deadline(new Promise(resolve=>{const check=()=>{if(registration.active?.state==='activated')resolve(registration.active)};const watch=()=>{registration.installing?.addEventListener('statechange',check);registration.waiting?.addEventListener('statechange',check);check()};registration.addEventListener('updatefound',watch);watch()}),15000,'The connection worker did not start. Try again.');
  const gameHealth=options.gameRecovery&&options.gameRequestPolicy!=='specialized'?await import('/src/game-health.mjs?v=20261020-health209'):null;
  const movieRequests=options.movieBrand?await import('/src/movie-request.mjs?v=20261020-movie213'):null;
- const {isZombsMatchSocket,connectZombsSocket}=await import('/src/zombs-socket.mjs?v=20261020-games212');
+ const {isZombsMatchSocket,connectZombsSocket,warmZombsRelay}=await import('/src/zombs-socket.mjs?v=20261020-games215');
+ if(options.gameRequestPolicy==='specialized')void warmZombsRelay();
  const connections=options.phone?[8,6,2]:[32,24,6];const url=new URL('/api/wisp/',location.origin);url.protocol=location.protocol==='https:'?'wss:':'ws:';
  if(!url.pathname.endsWith('/'))url.pathname+='/';
  let remote=new LibcurlTransport.LibcurlClient({wisp:url.href,connections});

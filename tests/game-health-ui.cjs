@@ -28,10 +28,15 @@ const {chromium}=require('C:/Users/willi/.cache/codex-runtimes/codex-primary-run
   await game.locator('#loading-screen').evaluate(node=>node.remove());
   await page.evaluate(()=>{reloads=0;startHealth()});await page.waitForTimeout(60);
   await game.getByRole('button',{name:'Play game'}).click();
+  const before=await page.evaluate(()=>statuses.length);
+  await page.evaluate(()=>{health.report({kind:'connection',retry:true,message:'Optional request failed'});health.report({kind:'asset',retry:false,message:'Optional image missing'})});
+  await game.locator('body').evaluate(()=>{const ws=new WebSocket('wss://probe.test');ws.dispatchEvent(new CloseEvent('close',{code:1006}));dispatchEvent(new ErrorEvent('error',{error:new Error('Optional widget failed')}))});
+  await page.waitForTimeout(900);assert.equal(await page.evaluate(()=>statuses.length),before,'Working game ignores unrelated request, script and probe errors');assert.equal(await page.evaluate(()=>reloads),0);
+
   await game.locator('body').evaluate(()=>dispatchEvent(new ErrorEvent('error',{error:new Error('WebAssembly CompileError')})));
   await page.waitForTimeout(900);assert.equal(await page.evaluate(()=>reloads),0,'Active sessions must not reload');
   await game.locator('body').evaluate(()=>{const ws=new WebSocket('wss://game.test/socket');if(!(ws instanceof WebSocket)||WebSocket.OPEN!==1)throw Error('Socket interface changed');const bytes=new Uint8Array([1,2]);ws.send(bytes);if(ws.lastSent!==bytes)throw Error('Packet changed');ws.dispatchEvent(new Event('open'));ws.dispatchEvent(new CloseEvent('close',{code:1006}))});
-  assert.equal(await page.evaluate(()=>statuses.at(-1).kind),'socket');
+  assert.notEqual(await page.evaluate(()=>statuses.at(-1).kind),'socket','An optional socket closing must not flag a working game');
   const restored=await game.locator('canvas').evaluate(canvas=>{const event=new Event('webglcontextlost',{bubbles:true,cancelable:true});canvas.dispatchEvent(event);canvas.dispatchEvent(new Event('webglcontextrestored'));return event.defaultPrevented});
   assert(restored);assert.equal(await page.evaluate(()=>statuses.at(-1).kind),'restored');
   await page.evaluate(()=>health.stop());

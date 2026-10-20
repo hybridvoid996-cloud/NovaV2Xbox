@@ -51,3 +51,17 @@ test('an abnormal upstream disconnect is reported as a failure rather than a suc
  const bridge=createZombsSocketServer({openUpstream(){const upstream=new EventEmitter();upstream.readyState=WebSocket.OPEN;upstream.terminate=()=>{};upstream.close=()=>{};queueMicrotask(()=>{upstream.emit('open');setTimeout(()=>upstream.emit('close',1006),10)});return upstream}});
  let client;try{bridge.listen(0,'127.0.0.1');await once(bridge,'listening');const origin='http://127.0.0.1:'+bridge.address().port;client=new WebSocket(origin.replace('http:','ws:')+'/api/zombs-socket?target='+encodeURIComponent(target),{origin});await once(client,'open');const closed=once(client,'close');client.send(JSON.stringify({type:'connect',cookie:''}));const [code,reason]=await closed;assert.equal(code,1011);assert.match(reason.toString(),/unexpectedly/)}finally{client?.terminate();await new Promise(resolve=>bridge.close(resolve))}
 });
+
+test('initial relay failures retry once before exposing an open game connection',async()=>{
+ const sockets=[],events=[];
+ class Socket{constructor(){this.readyState=1;sockets.push(this)}send(){}close(){this.readyState=3}}
+ const [,close]=connectZombsSocket(target,[],[],()=>events.push('open'),()=>{},()=>events.push('close'),()=>events.push('error'),{WebSocketClass:Socket,origin:'https://nova.test'});
+ await new Promise(resolve=>setTimeout(resolve,0));sockets[0].onerror();sockets[0].onclose({code:1011,reason:''});
+ await new Promise(resolve=>setTimeout(resolve,180));assert.equal(sockets.length,2);assert.deepEqual(events,[]);
+ sockets[1].onmessage({data:'{"type":"ready"}'});assert.deepEqual(events,['open']);
+ sockets[1].onclose({code:1006,reason:''});await new Promise(resolve=>setTimeout(resolve,180));assert.equal(sockets.length,2,'Never reconnect a live match behind the game’s back');assert.deepEqual(events,['open','close']);close();
+});
+test('warming the relay never opens an upstream match',async()=>{
+ let opened=0;const bridge=createZombsSocketServer({openUpstream(){opened++;throw Error('unexpected')}});
+ try{bridge.listen(0,'127.0.0.1');await once(bridge,'listening');const response=await fetch('http://127.0.0.1:'+bridge.address().port+'/api/zombs-socket?warm=1');assert.equal(response.status,204);assert.equal(opened,0)}finally{await new Promise(resolve=>bridge.close(resolve))}
+});

@@ -4,17 +4,17 @@ export function connectZombsSocket(url,protocols,headers,onopen,onmessage,onclos
  const bridge=new URL('/api/zombs-socket',origin);
  bridge.protocol=bridge.protocol==='https:'?'wss:':'ws:';
  bridge.searchParams.set('target',new URL(url).href);
- let socket,opened=false,ended=false,closing=false;
+ let socket,opened=false,ended=false,closing=false,retries=0,retryTimer;
  const cookie=headers.find(([name])=>name.toLowerCase()==='cookie')?.[1]||'';
  const finish=(code,reason)=>{if(ended)return;ended=true;onclose(code,reason)};
  const close=(code=1000,reason='')=>{
   if(ended||closing)return;
-  closing=true;opened=false;
+  closing=true;opened=false;clearTimeout(retryTimer);
   if(!socket){finish(code,reason);return}
   try{socket.close(code,reason)}catch{socket.close()}
  };
  // Finish compilation before starting the server's time-sensitive join challenge.
- Promise.resolve().then(engineReady).then(()=>{
+ const connect=()=>{
   if(ended||closing)return;
   socket=new WebSocketClass(bridge.href);
   socket.binaryType='arraybuffer';
@@ -29,8 +29,19 @@ export function connectZombsSocket(url,protocols,headers,onopen,onmessage,onclos
    // Deliver in native event order, without holding join packets behind async work.
    onmessage(event.data)
   };
-  socket.onerror=()=>{if(!ended&&!closing)onerror('The Nova match relay could not connect. Try another region.')};
-  socket.onclose=event=>finish(event.code,event.reason);
- }).catch(error=>{if(ended||closing)return;onerror(error.message);close()});
+  socket.onerror=()=>{if(!ended&&!closing&&opened)onerror('The Nova match relay could not connect. Try another region.')};
+  socket.onclose=event=>{
+   if(!ended&&!closing&&!opened&&retries<1&&[1006,1011,1013].includes(event.code)){retries++;retryTimer=setTimeout(connect,150);return}
+   if(!ended&&!closing&&!opened&&event.code!==1000)onerror('The Nova match relay could not connect. Try another region.');
+   finish(event.code,event.reason)
+  };
+ };
+ Promise.resolve().then(engineReady).then(connect).catch(error=>{if(ended||closing)return;onerror(error.message);close()});
  return [data=>{if(!ended&&!closing&&opened&&socket?.readyState===1)socket.send(data)},close]
+}
+
+// Wake the hosted relay while the menu loads, without opening a match socket.
+export async function warmZombsRelay(request=fetch){
+ const abort=new AbortController(),timer=setTimeout(()=>abort.abort(),8000);
+ try{await request('/api/zombs-socket?warm=1',{cache:'no-store',credentials:'omit',signal:abort.signal})}catch{}finally{clearTimeout(timer)}
 }
