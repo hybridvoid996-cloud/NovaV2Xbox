@@ -1,3 +1,36 @@
 import {waitForZombsEngine} from './zombs-engine-ready.mjs?v=20261020-socket206';
 export function isZombsMatchSocket(url){try{const u=new URL(url);if(u.protocol!=='wss:'||u.port&&u.port!=='443'||u.hash||u.username||u.password)return false;const match=/^zombs-[a-f0-9]{6,32}-\d{1,3}\.eggs\.gg$/.test(u.hostname)&&u.pathname==='/'&&!u.search;const ping=/^pinger-(?:uswest|useast|europe|asia|oceania)\.eggs\.gg$/.test(u.hostname)&&u.pathname==='/'&&!u.search;const gateway=u.hostname==='mason-ipv4.zombsroyale.io'&&u.pathname==='/gateway/'&&u.searchParams.get('EIO')==='4'&&u.searchParams.get('transport')==='websocket'&&[...u.searchParams.keys()].length===2;return match||ping||gateway}catch{return false}}
-export function connectZombsSocket(url,protocols,headers,onopen,onmessage,onclose,onerror,{WebSocketClass=WebSocket,origin=location.origin,engineReady=()=>typeof document==='undefined'?Promise.resolve():waitForZombsEngine()}={}){const bridge=new URL('/api/zombs-socket',origin);bridge.protocol=bridge.protocol==='https:'?'wss:':'ws:';bridge.searchParams.set('target',new URL(url).href);const socket=new WebSocketClass(bridge.href);socket.binaryType='arraybuffer';let opened=false,incoming=Promise.resolve(),engine;const cookie=headers.find(([name])=>name.toLowerCase()==='cookie')?.[1]||'';socket.onopen=()=>socket.send(JSON.stringify({type:'connect',cookie}));socket.onmessage=event=>{if(!opened){try{if(JSON.parse(event.data).type!=='ready')throw Error();opened=true;onopen('','')}catch{onerror('The Nova match relay could not connect.');socket.close()}return}incoming=incoming.then(()=>engine??=engineReady()).then(()=>onmessage(event.data)).catch(error=>{onerror(error.message);socket.close()})};socket.onerror=()=>onerror('The Nova match relay could not connect. Try another region.');socket.onclose=event=>onclose(event.code,event.reason);return [data=>socket.send(data),(code=1000,reason='')=>{try{socket.close(code,reason)}catch{socket.close()}}]}
+export function connectZombsSocket(url,protocols,headers,onopen,onmessage,onclose,onerror,{WebSocketClass=WebSocket,origin=location.origin,engineReady=()=>typeof document==='undefined'?Promise.resolve():waitForZombsEngine()}={}){
+ const bridge=new URL('/api/zombs-socket',origin);
+ bridge.protocol=bridge.protocol==='https:'?'wss:':'ws:';
+ bridge.searchParams.set('target',new URL(url).href);
+ let socket,opened=false,ended=false,closing=false;
+ const cookie=headers.find(([name])=>name.toLowerCase()==='cookie')?.[1]||'';
+ const finish=(code,reason)=>{if(ended)return;ended=true;onclose(code,reason)};
+ const close=(code=1000,reason='')=>{
+  if(ended||closing)return;
+  closing=true;opened=false;
+  if(!socket){finish(code,reason);return}
+  try{socket.close(code,reason)}catch{socket.close()}
+ };
+ // Finish compilation before starting the server's time-sensitive join challenge.
+ Promise.resolve().then(engineReady).then(()=>{
+  if(ended||closing)return;
+  socket=new WebSocketClass(bridge.href);
+  socket.binaryType='arraybuffer';
+  socket.onopen=()=>{if(!ended&&!closing)socket.send(JSON.stringify({type:'connect',cookie}))};
+  socket.onmessage=event=>{
+   if(ended||closing||socket.readyState!==1)return;
+   if(!opened){
+    try{if(JSON.parse(event.data).type!=='ready')throw Error()}
+    catch{onerror('The Nova match relay could not connect.');close();return}
+    opened=true;onopen('','');return
+   }
+   // Deliver in native event order, without holding join packets behind async work.
+   onmessage(event.data)
+  };
+  socket.onerror=()=>{if(!ended&&!closing)onerror('The Nova match relay could not connect. Try another region.')};
+  socket.onclose=event=>finish(event.code,event.reason);
+ }).catch(error=>{if(ended||closing)return;onerror(error.message);close()});
+ return [data=>{if(!ended&&!closing&&opened&&socket?.readyState===1)socket.send(data)},close]
+}
