@@ -6,7 +6,7 @@ export async function requestMovieResource(request,args,{timeout=12000}={}){
  const abort=new AbortController();let timer;
  const cancel=()=>abort.abort(signal?.reason);
  if(signal?.aborted)cancel();else signal?.addEventListener('abort',cancel,{once:true});
- try{return await Promise.race([request(url,method,body,headers,abort.signal),new Promise((_,reject)=>{timer=setTimeout(()=>{const error=Error('Movie startup request timed out');error.name='MovieRequestTimeout';reject(error);abort.abort(error)},timeout)})])}
+ try{return await Promise.race([(async()=>{for(let attempt=0;;attempt++){const response=await request(url,method,body,headers,abort.signal);if(attempt||![408,502,503,504].includes(response.status)||abort.signal.aborted)return response;try{await response.body?.cancel?.()}catch{}}})(),new Promise((_,reject)=>{timer=setTimeout(()=>{const error=Error('Movie startup request timed out');error.name='MovieRequestTimeout';reject(error);abort.abort(error)},timeout)})])}
  finally{clearTimeout(timer);signal?.removeEventListener('abort',cancel)}
 }
 

@@ -2,6 +2,15 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {requestMovieResource} from '../Public/src/movie-request.mjs';
 
+test('a transient provider gateway failure retries once within the startup deadline',async()=>{
+ let calls=0;
+ const result=await requestMovieResource(async()=>({status:++calls===1?502:200}),[new URL('https://cno.to/watch/1'),'GET',null,[],undefined]);
+ assert.equal(calls,2);assert.equal(result.status,200);
+ calls=0;
+ const failed=await requestMovieResource(async()=>{calls++;return {status:503}},[new URL('https://cno.to/watch/1'),'GET',null,[],undefined]);
+ assert.equal(calls,2);assert.equal(failed.status,503);
+});
+
 test('a stalled startup request expires and aborts its underlying connection',async()=>{
  let signal;
  await assert.rejects(requestMovieResource((...args)=>{signal=args[4];return new Promise(()=>{})},[new URL('https://cno.to/api/stream/1'),'GET',null,[],undefined],{timeout:10}),{name:'MovieRequestTimeout'});
