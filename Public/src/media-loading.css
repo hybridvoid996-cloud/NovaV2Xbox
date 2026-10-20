@@ -14,4 +14,4 @@
 #nova-music[hidden] .nova-media-mark,#nova-music[hidden] .nova-media-loader::after,#panel[hidden] .nova-media-mark,#panel[hidden] .nova-media-loader::after{animation-play-state:paused}
 @keyframes nova-media-spin{0%,15%{transform:rotate(0deg)}85%,100%{transform:rotate(360deg)}}
 @keyframes nova-media-progress{0%{transform:translateX(-110%)}100%{transform:translateX(330%)}}
-@media(prefers-reduced-motion:reduce){.nova-media-mark,.nova-media-loader::after{animation:none}.nova-media-loader::after{width:100%;opacity:.65}.nova-media-loading button{transition:none}}
+@media(prefers-reduced-motion:reduce){@scope (:root:not(.nova-motion-enabled)){.nova-media-mark,.nova-media-loader::after{animation:none}.nova-media-loader::after{width:100%;opacity:.65}.nova-media-loading button{transition:none}}}

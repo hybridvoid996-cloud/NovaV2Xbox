@@ -11,14 +11,21 @@ html:not(.reduce-motion) body:not(.failed) #loader .stars i{animation-name:nova-
 body.ready #loader .stars i,body.failed #loader .stars i,body.motion-hidden #loader .stars i,body.motion-hidden #loader .ship,body.motion-hidden #loader .trail{animation-play-state:paused!important}
 body.reduce-motion header nav button,body.reduce-motion header .main-profile,body.reduce-motion .main-dock>button{transition:none!important;transform:none!important}
 
-@media(prefers-reduced-motion:reduce){html:not(.reduce-motion) body:not(.failed):not(.leaving) #loader .ship,html:not(.reduce-motion) body:not(.failed) #loader .trail,html:not(.reduce-motion) body:not(.failed) #loader .stars i{animation:none!important}}
+@media(prefers-reduced-motion:reduce){@scope (:root:not(.nova-motion-enabled)){html:not(.reduce-motion) body:not(.failed):not(.leaving) #loader .ship,html:not(.reduce-motion) body:not(.failed) #loader .trail,html:not(.reduce-motion) body:not(.failed) #loader .stars i{animation:none!important}}}
 
 /* Keep laptop transitions composited instead of re-blurring the wallpaper each frame. */
 @media(min-width:701px) and (max-width:1500px){body.nova-main :is(.main-popup,.main-runtime-menu,.main-audio-extension,.main-dock,.nova-notice,.nova-settings-modal){backdrop-filter:none!important;-webkit-backdrop-filter:none!important}body.nova-main .main-popup{background:#17141bf5}.nova-boot-orb:after{will-change:transform}.main-popup img,.main-dock img{backface-visibility:hidden}}
 /* Some laptops report system reduced motion even though Nova animations are enabled. */
-body.nova-main:not(.reduce-motion):not(.boot-error) .nova-boot-spinner{animation:nova-boot-spin 1s linear infinite!important}
+html:not(.reduce-motion) body.nova-main:not(.reduce-motion) #nova-home-boot:not(.boot-error) .nova-boot-spinner{animation-name:nova-boot-spin!important;animation-duration:1s!important;animation-timing-function:linear!important;animation-iteration-count:infinite!important}
 body.nova-main:not(.reduce-motion) :is(.main-popup,.main-runtime-menu,.main-audio-extension){transition:opacity .18s ease,transform .18s ease!important}
 body.nova-main:not(.reduce-motion) .main-profile-recent img{transition:transform .2s ease!important}
 html:not(.reduce-motion) body:not(.failed):not(.leaving):not(.motion-hidden) #loader .ship{animation:nova-flight 3.2s ease-in-out infinite!important}
 html:not(.reduce-motion) body:not(.failed):not(.motion-hidden) #loader .trail{animation:nova-thrust .8s ease-in-out infinite alternate!important}
 html:not(.reduce-motion) body:not(.failed):not(.motion-hidden) #loader .stars i{animation-name:nova-streak!important;animation-duration:2s!important;animation-timing-function:linear!important;animation-iteration-count:infinite!important}
+
+/* Explicit Nova preferences and visibility also apply to restored laptop motion. */
+html.reduce-motion body.nova-main *,html.reduce-motion body.nova-main *::before,html.reduce-motion body.nova-main *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+body.nova-main #nova-home-boot.boot-error .nova-boot-spinner{animation:none!important}
+html.nova-page-hidden body.nova-main *,html.nova-page-hidden body.nova-main *::before,html.nova-page-hidden body.nova-main *::after{animation-play-state:paused!important}
+
+html.reduce-motion body.nova-main #nova-home-boot .nova-boot-spinner{animation:none!important}

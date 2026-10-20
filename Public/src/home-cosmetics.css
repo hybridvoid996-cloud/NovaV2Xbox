@@ -28,4 +28,4 @@
 .nova-profile-page.nova-home-has-banner .np-hero{padding-top:60px}.np-hero .np-avatar{flex:0 0 100px;margin-right:6px}
 @keyframes home-nitro-orbit{to{transform:rotate(360deg)}}@keyframes home-nitro-glow{50%{box-shadow:0 0 18px #b998ff88;opacity:.5}}
 @media(max-width:850px){header .profile>span+span{display:block!important}header .profile{max-width:55vw}header .profile b{display:block;max-width:38vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}header .profile small{font-size:10px}.nova-home-coins{display:inline}}
-@media(prefers-reduced-motion:reduce){.nova-home-avatar::after{animation:none!important}.xg-friend.nova-home-surface,.nova-profile-page .profile-close{transition:none}}
+@media(prefers-reduced-motion:reduce){@scope (:root:not(.nova-motion-enabled)){.nova-home-avatar::after{animation:none!important}.xg-friend.nova-home-surface,.nova-profile-page .profile-close{transition:none}}}
