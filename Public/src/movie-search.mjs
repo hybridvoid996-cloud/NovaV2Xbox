@@ -1,0 +1,33 @@
+const normalize=value=>String(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+export function rankMovieMatches(items,query){
+ const q=normalize(query),distance=(a,b)=>{let row=Array.from({length:b.length+1},(_,i)=>i);for(let i=1;i<=a.length;i++){const next=[i];for(let j=1;j<=b.length;j++)next[j]=Math.min(next[j-1]+1,row[j]+1,row[j-1]+(a[i-1]===b[j-1]?0:1));row=next}return row[b.length]};
+ const score=item=>{const title=normalize(item.title);return title===q?-3:title.startsWith(q)?-2:title.includes(q)?-1:distance(q,title.slice(0,q.length+1))/Math.max(q.length,1)};
+ return items.slice().sort((a,b)=>score(a)-score(b)||a.title.localeCompare(b.title));
+}
+
+export function mountMovieSearch({form,input,user,storage,request,normalizeItem,art,onSelect,onSearch,localItems=()=>[]}){
+ const el=(tag,cls,text)=>{const n=document.createElement(tag);n.className=cls;if(text!==undefined)n.textContent=text;return n};
+ const panel=el('div','cinema-search-popover'),heading=el('div','cinema-search-heading'),list=el('div','cinema-search-matches'),foot=el('div','cinema-search-foot','↑ ↓ to browse · Enter to select · Esc to close');
+ panel.hidden=true;panel.id='movie-search-suggestions';list.setAttribute('role','listbox');list.id='movie-search-options';list.setAttribute('aria-label','Movie search suggestions');panel.append(heading,list,foot);form.append(panel);
+ input.setAttribute('role','combobox');input.setAttribute('aria-autocomplete','list');input.setAttribute('aria-controls',list.id);input.setAttribute('aria-expanded','false');input.autocomplete='off';
+ const key='nova-movie-searches:'+user;let recent=[],timer,controller,generation=0,selected=-1;
+ try{recent=JSON.parse(storage.getItem(key)||'[]').filter(x=>typeof x==='string').slice(0,8)}catch{}
+ const persist=()=>{try{storage.setItem(key,JSON.stringify(recent))}catch{}};
+ const remember=q=>{q=q.trim().slice(0,120);if(q){recent=[q,...recent.filter(x=>x.toLowerCase()!==q.toLowerCase())].slice(0,8);persist()}};
+ const hide=()=>{clearTimeout(timer);controller?.abort();generation++;panel.hidden=true;input.setAttribute('aria-expanded','false');input.removeAttribute('aria-activedescendant');selected=-1};
+ const show=()=>{panel.style.setProperty('--search-popover-top',(form.getBoundingClientRect().bottom+10)+'px');panel.hidden=false;input.setAttribute('aria-expanded','true');selected=-1};
+ const button=(label,run)=>{const b=el('button','',label);b.type='button';b.onclick=run;return b};
+ function history(){heading.replaceChildren(el('span','','RECENT SEARCHES'));list.replaceChildren();if(recent.length){const clear=button('Clear',()=>{recent=[];persist();history()});heading.append(clear);for(const q of recent){const b=button('',()=>{input.value=q;remember(q);hide();onSearch()});b.className='cinema-search-recent';b.append(el('span','','↻'),el('strong','',q),el('span','','↗'));list.append(b)}}else list.append(el('p','cinema-search-empty','Your recent searches will appear here.'));decorate();show()}
+ function decorate(){[...list.querySelectorAll('button')].forEach((b,i)=>{b.id='movie-search-option-'+i;b.setAttribute('role','option');b.setAttribute('aria-selected','false')})}
+ function results(values,q){heading.replaceChildren(el('span','','CLOSEST MATCHES'));list.replaceChildren();for(const item of rankMovieMatches(values,q).slice(0,7)){const b=button('',()=>{remember(q);hide();onSelect(item)}),image=el('img','');b.className='cinema-search-match';image.src=art(item.poster||item.backdrop);image.alt='';image.onerror=()=>{image.onerror=null;image.src='/Nova12.png'};const copy=el('span','');copy.append(el('strong','',item.title),el('small','',[item.year,item.type==='tv'?'TV series':item.type==='anime'?'Anime':'Movie'].filter(Boolean).join(' · ')));b.append(image,copy,el('span','cinema-search-open','↗'));list.append(b)}if(!values.length)list.append(el('p','cinema-search-empty','No close matches yet. Try another title.'));const all=button('See all results for “'+q+'”',()=>{remember(q);hide();onSearch()});all.className='cinema-search-all';list.append(all);decorate();show()}
+ async function suggest(){const q=input.value.trim().slice(0,120),token=++generation;controller?.abort();if(!q){history();return}controller=new AbortController();heading.replaceChildren(el('span','','FINDING YOUR NEXT WATCH…'));list.replaceChildren();show();try{const response=await request('/api/movies?op=search&q='+encodeURIComponent(q),{signal:controller.signal});const data=await response.json();if(token!==generation)return;if(!response.ok)throw Error(data.error||'Search unavailable');const candidates=[...(data.results||[]).map(normalizeItem).filter(Boolean),...localItems().filter(item=>normalize(item.title).includes(normalize(q)))],seen=new Set();results(candidates.filter(item=>{const id=item.type+':'+item.id;if(seen.has(id))return false;seen.add(id);return true}),q)}catch(error){if(token!==generation||error.name==='AbortError')return;heading.replaceChildren(el('span','','SEARCH'));list.replaceChildren(el('p','cinema-search-empty','Search couldn’t connect. Press Enter to retry.'));show()}}
+ input.oninput=()=>{clearTimeout(timer);controller?.abort();generation++;timer=setTimeout(suggest,280)};
+ input.addEventListener('focus',()=>{if(input.value.trim())suggest();else history()});
+ input.addEventListener('keydown',event=>{if(event.key==='Escape'){generation++;controller?.abort();hide();return}if(panel.hidden)return;const options=[...list.querySelectorAll('button')];if(['ArrowDown','ArrowUp'].includes(event.key)&&options.length){event.preventDefault();selected=selected<0?(event.key==='ArrowDown'?0:options.length-1):(selected+(event.key==='ArrowDown'?1:-1)+options.length)%options.length;options.forEach((b,i)=>b.setAttribute('aria-selected',String(i===selected)));input.setAttribute('aria-activedescendant',options[selected].id);options[selected].scrollIntoView({block:'nearest'})}else if(event.key==='Enter'&&selected>=0){event.preventDefault();options[selected]?.click()}});
+ form.addEventListener('focusout',()=>queueMicrotask(()=>{if(!form.contains(document.activeElement))hide()}));
+ panel.addEventListener('pointerdown',event=>{if(event.target.closest('button'))event.preventDefault()});
+ panel.addEventListener('keydown',event=>{if(event.key==='Escape'){hide();input.focus();hide()}});
+ const outside=event=>{if(!form.contains(event.target)){generation++;controller?.abort();hide()}};document.addEventListener('pointerdown',outside);
+ addEventListener('pagehide',()=>{clearTimeout(timer);controller?.abort();document.removeEventListener('pointerdown',outside)},{once:true});
+ return {hide,remember};
+}

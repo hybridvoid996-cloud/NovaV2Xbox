@@ -29,7 +29,9 @@ export async function activate(user,{fresh=false}={}){
  const recoverRead=async readValue=>{try{return await readValue()}catch(error){if(!isUnreadableRecord(error))throw error;storageErrors.push(error);return {};}};
  const previous=localStorage.getItem(OWNER)||localStorage.getItem('nova_user');
  const originalGameManifest=localStorage.getItem('nova_game_save_manifest');
- if(previous)try{await capture();await captureWebSession(previous)}catch(error){restoring=false;if(previous===user.uid){uid=user.uid;baseline=snapshot();pending=(await recoverRead(()=>read(uid))).pending||{};if(storageErrors.length)pending={...baseline,...pending};localStorage.setItem(OWNER,uid);await saveLocal();dispatchEvent(new CustomEvent('nova-sync-status',{detail:{state:'limited',message:error.message}}));return;}throw error;}
+ // Cloud I/O can run while local saves are captured. Apply it only after ownership checks.
+ const cloudTask=request(user,'load').then(data=>({data}),error=>({error}));
+ if(previous)try{await capture();if(previous!==user.uid)await captureWebSession(previous)}catch(error){restoring=false;if(previous===user.uid){uid=user.uid;baseline=snapshot();pending=(await recoverRead(()=>read(uid))).pending||{};if(storageErrors.length)pending={...baseline,...pending};localStorage.setItem(OWNER,uid);await saveLocal();dispatchEvent(new CustomEvent('nova-sync-status',{detail:{state:'limited',message:error.message}}));return;}throw error;}
  if(previous&&previous!==user.uid){const prior=await recoverRead(()=>read(previous)),values=snapshot(),queued={...(prior.pending||{})};for(const key of new Set([...Object.keys(prior.values||{}),...Object.keys(values)]))if(prior.values?.[key]!==values[key])queued[key]=values[key]??null;await writeCache(META+previous,{values,pending:queued,localPin:localStorage.getItem('nova_pin')});}
  const targetReadStart=storageErrors.length;
  const local=await recoverRead(()=>read(user.uid));if(!local.values){const legacy=await recoverRead(()=>archived(user.uid));if(Object.keys(legacy||{}).length)local.values=legacy;}const targetUnreadable=storageErrors.length>targetReadStart;if(!fresh&&previous===user.uid&&localStorage.getItem('nova_pin'))local.localPin=localStorage.getItem('nova_pin');let values=local.values||{};pending=local.pending||{};
@@ -38,7 +40,7 @@ export async function activate(user,{fresh=false}={}){
  if(!fresh&&!local.values&&previous===user.uid){values=snapshot();pending={...values,...pending};}
  if(fresh){values={};pending={};}
  let cloudError;
- try{const cloud=await request(user,'load');values=Object.fromEntries((cloud.entries||[]).filter(e=>managed(e.key)&&typeof e.value==='string').map(e=>[e.key,e.value]));for(const [key,value]of Object.entries(pending)){if(value===null)delete values[key];else values[key]=value;}}
+ try{const result=await cloudTask;if(result.error)throw result.error;const cloud=result.data;values=Object.fromEntries((cloud.entries||[]).filter(e=>managed(e.key)&&typeof e.value==='string').map(e=>[e.key,e.value]));for(const [key,value]of Object.entries(pending)){if(value===null)delete values[key];else values[key]=value;}}
  catch(error){cloudError=error;}
  // Never clear the previous user's data when the target backup is unreadable
  // and its cloud copy is unavailable. The current owner can keep using live data.

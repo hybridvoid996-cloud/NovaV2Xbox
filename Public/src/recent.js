@@ -2,7 +2,7 @@
   'use strict';
   const pages=new Map();const sessions=new Map();let defaults=[];
   const pausedPages=new Set(['search','novatube','novamovies']);
-  const systemCards={search:{name:'Nova Search',art:'Nova12.png'},novatube:{name:'NovaTube',art:'Img/app/Youtube.png'},novamovies:{name:'Nova Movies',art:'Nova12.png'}};
+  const systemCards={search:{name:'Nova Search',art:'/src/page-icons/search.svg'},novatube:{name:'NovaTube',art:'/src/page-icons/novatube.svg'},novamovies:{name:'Nova Movies',art:'/src/page-icons/movies.svg'}};
   function syncSessions(){for(const [id,el]of sessions){const split=el.hasAttribute('data-split-primary')||el.classList.contains('split-secondary-frame');const active=!document.hidden&&!panel.hidden&&!el.hidden&&(el===frame||split);if(!active&&localStorage.getItem('nova_resume_game')==='false'){el.src='about:blank';el.remove();sessions.delete(id);continue}const paused=!active;el.dataset.novaSuspended=String(paused);try{el.contentWindow.NovaSessionRuntime?.setSuspended(paused)}catch{}}}
   function syncPages(){for(const [,el]of pages){if(!pausedPages.has(el.dataset.systemPage))continue;const active=!document.hidden&&!panel.hidden&&!el.hidden&&el===frame;if(!active&&localStorage.getItem('nova_resume_game')==='false'){el.src='about:blank';el.remove();for(const [key,value]of pages)if(value===el)pages.delete(key);continue}el.dataset.novaSuspended=String(!active);try{el.contentWindow.NovaSessionRuntime?.setSuspended(!active)}catch{}}}
   const syncAll=()=>{syncSessions();syncPages();renderContinue()};
@@ -13,7 +13,8 @@
   const key=()=> 'nova-v2-recent-'+account();
   const kind=g=>g.kind==='system'?'system':g.kind==='cloud'?'cloud':g.kind==='app'||g._kind==='apps'?'app':'game';
   const identity=g=>kind(g)+':'+g.id;
-  function list(){try{const rows=JSON.parse(localStorage.getItem(key())||'[]');return Array.isArray(rows)?rows.filter(g=>g&&g.id!=null&&typeof g.name==='string').slice(0,12):[]}catch{return []}}
+  const pageIcon={search:'search',music:'music',novamovies:'movies',novatube:'novatube',chat:'chat',ai:'ai',computer:'computer',shop:'shop',settings:'settings',leaderboard:'leaderboard'};
+  function list(){try{const rows=JSON.parse(localStorage.getItem(key())||'[]');return Array.isArray(rows)?rows.filter(g=>g&&g.id!=null&&typeof g.name==='string').slice(0,12).map(g=>g.kind==='system'&&pageIcon[g.id]?{...g,art:'/src/page-icons/'+pageIcon[g.id]+'.svg'}:g):[]}catch{return []}}
   function record(g){const item={id:g.id,name:g.name,art:g.art,kind:kind(g),playedAt:Date.now()};const rows=[item,...list().filter(x=>identity(x)!==identity(item))].slice(0,12);localStorage.setItem(key(),JSON.stringify(rows));render();window.novaGuideRender?.('home');}
   function freshFrame(){const el=document.createElement('iframe');el.id='system';el.title='Nova';el.allow='microphone; camera; autoplay; fullscreen; display-capture';el.hidden=true;document.getElementById('panel-content').before(el);return el;}
   function park(){if(frame.dataset.session!=='true')return;frame.hidden=true;frame.removeAttribute('id');frame=freshFrame();}
@@ -61,7 +62,7 @@
       b.setAttribute('aria-label',(recent.length&&i===0?'Resume ':'Open ')+g.name);
       const img=document.createElement('img');img.src=g.art||'Nova12.png';img.alt='';img.onerror=()=>{img.onerror=null;img.src='Nova12.png';};
       const caption=document.createElement('span');const name=document.createElement('b');name.textContent=g.name;caption.append(name);
-      if(recent.length&&i===0){const label=document.createElement('small');label.textContent='▶ Resume '+(kind(g)==='app'?'app':'game');caption.prepend(label);}
+      if(recent.length&&i===0){const label=document.createElement('small');label.textContent='▶ Resume '+(kind(g)==='system'?'page':kind(g)==='app'?'app':'game');caption.prepend(label);}
       b.append(img,caption);b.onclick=()=>window.NovaRecent.launch(g);const select=()=>{host.querySelectorAll('.tile').forEach(x=>x.classList.toggle('selected',x===b));};b.onmouseenter=select;b.onfocus=select;host.append(b);
     });renderContinue();
   }

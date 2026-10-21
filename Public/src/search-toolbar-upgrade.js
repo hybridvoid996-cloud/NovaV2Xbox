@@ -1,6 +1,6 @@
 (()=>{
  const toolbar=document.querySelector('.toolbar'),form=document.querySelector('#address-form');if(!toolbar||!form)return;
- const style=document.createElement('link');style.rel='stylesheet';style.href='/src/search-toolbar-upgrade.css';document.head.append(style);
+ 
  const nav=document.createElement('div');nav.className='search-nav-pill';for(const id of ['back','reload','forward','home'])nav.append(document.getElementById(id));toolbar.prepend(nav);
  const paths={back:'m14 6-6 6 6 6',forward:'m10 6 6 6-6 6',reload:'M20 7v5h-5M20 12a8 8 0 1 0-2 5',home:'m3 10 9-7 9 7v11h-6v-7H9v7H3Z',preferences:'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10 2 2M5 19l2-2M17 7l2-2'};for(const [id,path]of Object.entries(paths)){const button=document.getElementById(id);button.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+path+'"/></svg>';button.title=button.getAttribute('aria-label');}
  const provider=document.createElement('button');provider.type='button';provider.className='search-provider';provider.setAttribute('aria-label','Change search engine');provider.setAttribute('aria-expanded','false');form.prepend(provider);

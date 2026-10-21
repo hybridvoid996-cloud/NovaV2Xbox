@@ -72,7 +72,7 @@ export const createRemoteHandler=(service=services)=>async(req,res)=>{
     if(action==='remove')browserOnly();if(device.session)await db.ref(root+'sessions/'+device.session).update({status:'ended',expires:now});
     if(action==='remove')await write('devices/'+device.id,null);else await db.ref(root+'devices/'+device.id).update({enabled:false,session:null});return reply(200,{ok:true});
    }
-   browserOnly();const networkMode=b.networkMode==='relay'?'relay':'auto';if(networkMode==='relay'&&!remoteRelay().relayTLSConfigured)throw failure('Restricted Wi-Fi mode needs a configured TURN/TLS relay on port 443. Ask the Nova owner to finish relay setup.',503);if(!device.enabled||now-device.lastSeen>=30000)throw failure('Computer is offline or remote access is disabled.');
+   browserOnly();const networkMode=b.networkMode==='relay'?'relay':'auto';if(networkMode==='relay'&&!remoteRelay().relayConfigured)throw failure('Nova’s remote desktop relay is unavailable. Try Automatic connection mode.',503);if(!device.enabled||now-device.lastSeen>=30000)throw failure('Computer is offline or remote access is disabled.');
    const id=secret();const lock=await db.ref(root+'devices/'+device.id).transaction(d=>d===null?null:d&&d.uid===uid&&d.enabled&&now-d.lastSeen<30000&&(!d.session||d.sessionUntil<=now)?{...d,session:id,sessionUntil:now+45000}:undefined);
    if(!lock.committed||lock.snapshot.val()?.session!==id)throw failure('This computer already has a connection request or session.',409);
    await write('sessions/'+id,{uid,device:device.id,status:'requested',networkMode,viewer:clean(b.viewer,100)||'Nova browser',expires:now+45000,createdAt:now,signals:{}});return reply(200,{session:id,expires:now+45000});
