@@ -144,7 +144,7 @@
         dataUrl: "Build/3ae170f9d395b548fa307a66f21ebe76.data",
         frameworkUrl: "Build/bea9fc514d9cf8693efadf381e76c86b.framework.js",
         codeUrl: "Build/9beab804395830ecf57a828380aefc6a.wasm",
-        streamingAssetsUrl: "StreamingAssets",
+        streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
         companyName: "Bit Gun.io",
         productName: "Bit Gun.io",
         productVersion: "1.0.0"

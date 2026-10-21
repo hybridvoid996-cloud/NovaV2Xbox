@@ -2,7 +2,7 @@
 
 <html lang="en-us">
 <head><script id="nova-analytics-compat">window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){};</script>
-<base href="https://cdn.jsdelivr.net/axo323lotl-bit/elitecomposite@main/evolving-bombs-3d/">
+<base href="https://cdn.jsdelivr.net/gh/axo323lotl-bit/elitecomposite@main/evolving-bombs-3d/">
 <meta charset="utf-8"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
@@ -94,7 +94,7 @@
             dataUrl: buildUrl + "/EvolvingBombs.data.unityweb",
             frameworkUrl: buildUrl + "/EvolvingBombs.framework.js.unityweb",
             codeUrl: buildUrl + "/EvolvingBombs.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
+        streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
             companyName: "Butcher's Games",
             productName: "Evolving Bomb",
             productVersion: "1.0"

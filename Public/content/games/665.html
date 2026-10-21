@@ -106,7 +106,7 @@
       dataUrl: buildUrl + "/mtu.data",
       frameworkUrl: buildUrl + "/mtu.framework.js",
         codeUrl: buildUrl + "/mtu.wasm",
-      streamingAssetsUrl: "StreamingAssets",
+      streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
       companyName: "Lihuhu",
       productName: "Match Triple 3D",
       productVersion: "1.0.0",

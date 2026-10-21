@@ -132,7 +132,7 @@
         dataUrl: dataUrl,
         frameworkUrl: "Build/adgac.framework.js",
         codeUrl: wasmUrl,
-        streamingAssetsUrl: "StreamingAssets",
+        streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
         companyName: "Pontypants",
         productName: "A Difficult Game About Climbing",
         productVersion: "1.2.61",

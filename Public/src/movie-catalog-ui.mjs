@@ -1,5 +1,5 @@
 import {mountMovieSearch} from './movie-search.mjs?v=20261020-search231';
-import {createMovieRequest} from './movie-request.mjs?v=20261020-nova204';
+import {createMovieRequest} from './movie-request.mjs?v=20261020-movies241';
 import {createTitleView} from './movie-title-view.mjs?v=20261020-nova204';
 export function movieItem(raw){const id=String(raw.id||raw.tmdb_id||'');if(!/^[A-Za-z0-9_-]{1,80}$/.test(id))return null;const image=v=>{if(!v)return '';if(v.startsWith('/'))v='https://image.tmdb.org/t/p/w780'+v;try{const u=new URL(v);return u.protocol==='https:'&&['image.tmdb.org','s4.anilist.co'].includes(u.hostname)?u.href:''}catch{return ''}};return {id,title:String(raw.title||raw.name||'Untitled'),type:raw.type==='tv'||raw.media_type==='tv'?'tv':raw.type==='anime'?'anime':'movie',year:String(raw.year||raw.release_date?.slice(0,4)||raw.first_air_date?.slice(0,4)||''),rating:String(raw.rating||raw.vote_average||''),overview:String(raw.overview||raw.synopsis||''),poster:image(raw.poster||raw.image||raw.poster_path),backdrop:image(raw.backdrop||raw.backdrop_path)}}
 export function mountMovieCatalog({host,onWatch,onProfile,storage=localStorage,user='guest',request=fetch,onLeave=()=>{}}){

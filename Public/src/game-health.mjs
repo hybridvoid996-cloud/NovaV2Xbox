@@ -31,7 +31,8 @@ export async function requestGameResource(request,args,{timeout=20000,onIssue=()
    const accept=headers.find(([name])=>name.toLowerCase()==='accept')?.[1]||'';
    const bounded=!headers.some(([name])=>name.toLowerCase()==='range')&&(/\.(?:js|json|html)$/.test(url.pathname)||accept.includes('text/html')||url.pathname==='/');
    const operation=request(url,method,body,headers,bounded?abort.signal:signal);
-   const response=bounded?await Promise.race([operation,new Promise((_,reject)=>{timer=setTimeout(()=>{const error=Error('Game startup request timed out');reject(error);abort.abort(error)},timeout)})]):await operation;
+   let response=bounded?await Promise.race([operation,new Promise((_,reject)=>{timer=setTimeout(()=>{const error=Error('Game startup request timed out');reject(error);abort.abort(error)},timeout)})]):await operation;
+   const github=url.hostname==='cdn.jsdelivr.net'&&url.pathname.match(/^\/gh\/([^/]+)\/([^/@]+)@([^/]+)\/(.+)$/);if(response.status===403&&github){const text=typeof response.body==='string'?response.body:await new Response(response.body).text();response={...response,body:text};if(/File size exceeded the configured limit/i.test(text)){const mirror=new URL('https://raw.githubusercontent.com/'+github[1]+'/'+github[2]+'/'+github[3]+'/'+github[4]);response=await request(mirror,method,body,headers.filter(([name])=>!['authorization','cookie'].includes(name.toLowerCase())),signal)}}
    if([408,502,503,504].includes(response.status)&&attempt===0&&!signal?.aborted){await delay(300);continue}
    if(response.status>=400)onIssue({kind:'asset',retry:false,message:response.status===404?'A required game file was not found.':'A game server returned an error.',status:response.status});
    else onProgress();

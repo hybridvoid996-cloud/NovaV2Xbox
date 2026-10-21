@@ -72,7 +72,7 @@
       dataUrl: buildUrl + "/bend.data",
       frameworkUrl: buildUrl + "/bend.framework.js",
       codeUrl: buildUrl + "/bend.wasm",
-      streamingAssetsUrl: "StreamingAssets",
+      streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
       companyName: "crackers",
       productName: "Bendy and the Ink Machine",
       productVersion: "0.0.2",

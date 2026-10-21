@@ -144,7 +144,7 @@
         dataUrl: "Build/BankRobbery3.data",
         frameworkUrl: "Build/BankRobbery3.framework.js",
         codeUrl: "Build/BankRobbery3.wasm",
-        streamingAssetsUrl: "StreamingAssets",
+        streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
         companyName: "Bank Robbery 3",
         productName: "Bank Robbery 3",
         productVersion: "1.0.0"

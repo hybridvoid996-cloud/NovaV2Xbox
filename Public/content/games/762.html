@@ -235,7 +235,7 @@
           codeUrl:
             assembledBlobs["Build/CheeseRollingWeb.wasm"] ||
             buildUrl + "/CheeseRollingWeb.wasm",
-          streamingAssetsUrl: "StreamingAssets",
+          streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
           companyName: "The Interviewed",
           productName: "CheeseRolling",
           productVersion: "v1.5.1",

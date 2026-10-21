@@ -2,7 +2,7 @@
 
 <html lang="en-us">
 <head><script id="nova-analytics-compat">window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){};</script>
-<base href="https://cdn.jsdelivr.net/axo323lotl-bit/elitecomposite@main/money-rush/">
+<base href="https://cdn.jsdelivr.net/gh/axo323lotl-bit/elitecomposite@main/money-rush/">
 <meta charset="utf-8"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
@@ -94,7 +94,7 @@
             dataUrl: buildUrl + "/Build.data.unityweb",
             frameworkUrl: buildUrl + "/Build.framework.js.unityweb",
             codeUrl: buildUrl + "/Build.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
+        streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
             companyName: "Pocket Snake",
             productName: "Money Roller",
             productVersion: "0.1"

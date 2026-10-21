@@ -46,7 +46,7 @@
             dataUrl: buildUrl + "/CheeseChompers3DWeb.data.unityweb",
             frameworkUrl: buildUrl + "/CheeseChompers3DWeb.framework.js.unityweb",
             codeUrl: buildUrl + "/CheeseChompers3DWeb.wasm.unityweb",
-            streamingAssetsUrl: "StreamingAssets",
+            streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
             companyName: "DefaultCompany",
             productName: "CheeseChompers 3D",
             productVersion: "0.1",

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html style="width:100%;height:100%;background-color:black;">
 	<head><script id="nova-analytics-compat">window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){};</script>
-    <base href="https://cdn.jsdelivr.net/Theprocat27/Eaglercraft_1.8.8@main/">
+    <base href="https://raw.githubusercontent.com/Theprocat27/Eaglercraft_1.8.8/main/">
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 		<meta name="description" content="Play minecraft 1.8 in your browser" />
@@ -27,8 +27,8 @@
 					window.eaglercraftXOpts = {
 						demoMode: false,
 						container: "game_frame",
-						assetsURI: "assets.epk",
-						localesURI: "lang/",
+						assetsURI: new URL('assets.epk',document.baseURI).href,
+						localesURI: new URL('lang/',document.baseURI).href,
 						worldsDB: "worlds",
 						servers: [
 							/* example: { addr: "ws://localhost:8081/", name: "Local test server" } */

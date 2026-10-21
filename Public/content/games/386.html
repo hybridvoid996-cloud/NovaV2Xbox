@@ -94,7 +94,7 @@
             dataUrl: buildUrl + "/DiamondDiggerBuild.data",
             frameworkUrl: buildUrl + "/DiamondDiggerBuild.framework.js",
             codeUrl: buildUrl + "/DiamondDiggerBuild.wasm",
-        streamingAssetsUrl: "StreamingAssets",
+        streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
             companyName: "DefaultCompany",
             productName: "Diamond-Digger",
             productVersion: "0.1.0"

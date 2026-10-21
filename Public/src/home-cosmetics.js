@@ -14,7 +14,7 @@ function avatar(host,p={},showEffect=true){
 function surface(host,p={},chat=false){
  host.classList.add('nova-home-surface');host.dataset.profileTheme=p.profileTheme||'default';
  host.querySelectorAll(':scope > .nova-home-effect, :scope > .nova-home-banner').forEach(n=>n.remove());
- const banner=chat?(asset(p.chatBanner,'banner')||asset(p.banner,'banner')):(typeof p.banner==='string'&&/^https?:|^data:image\//.test(p.banner)?p.banner:'');
+ const banner=chat?(asset(p.chatBanner,'banner')||asset(p.banner,'banner')||(typeof p.banner==='string'&&/^(https:|data:image\/)/.test(p.banner)?p.banner:'')):(typeof p.banner==='string'&&/^https?:|^data:image\//.test(p.banner)?p.banner:'');
  host.classList.toggle('nova-home-has-banner',!!banner);if(banner)host.prepend(image(banner,'nova-home-banner'));
  const effect=asset(p.effect,'effect');if(effect)host.prepend(image(effect,'nova-home-effect'));
 }

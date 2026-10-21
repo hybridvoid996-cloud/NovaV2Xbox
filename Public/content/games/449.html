@@ -106,7 +106,7 @@
       dataUrl: buildUrl + "/Build.data",
       frameworkUrl: buildUrl + "/Build.framework.js",
         codeUrl: buildUrl + "/Build.wasm",
-      streamingAssetsUrl: "StreamingAssets",
+      streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
       companyName: "Paradyme",
       productName: "City Smash",
       productVersion: "0.1.0",

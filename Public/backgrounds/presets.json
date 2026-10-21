@@ -376,5 +376,23 @@
     "src": "/backgrounds/yuji-itadori-blue-flame-live-wallpaper.mp4",
     "type": "video",
     "poster": "/backgrounds/thumbnails/yuji-itadori-blue-flame-live-wallpaper.jpg"
+  },
+  {
+    "name": "Juice WRLD",
+    "src": "/backgrounds/juice-wrld.3840x2160.mp4",
+    "type": "video",
+    "poster": "/backgrounds/thumbnails/juice-wrld.3840x2160.jpg"
+  },
+  {
+    "name": "Juice WRLD Cartoon",
+    "src": "/backgrounds/juice-wrld-cartoon.3840x2160.mp4",
+    "type": "video",
+    "poster": "/backgrounds/thumbnails/juice-wrld-cartoon.3840x2160.jpg"
+  },
+  {
+    "name": "Juice WRLD Rapper",
+    "src": "/backgrounds/juice-wrld-rapper.3840x2160.mp4",
+    "type": "video",
+    "poster": "/backgrounds/thumbnails/juice-wrld-rapper.3840x2160.jpg"
   }
 ]

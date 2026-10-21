@@ -90,7 +90,7 @@
             dataUrl: buildUrl + "/Builds.data",
             frameworkUrl: buildUrl + "/Builds.framework.js",
             codeUrl: buildUrl + "/Builds.wasm",
-        streamingAssetsUrl: "StreamingAssets",
+        streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
             companyName: "DefaultCompany",
             productName: "Monster-Box",
             productVersion: "0.29"
