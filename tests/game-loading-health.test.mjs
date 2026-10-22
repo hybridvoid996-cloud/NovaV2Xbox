@@ -1,6 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createLoadingWatch} from '../Public/src/game-loading-health.mjs';
+import {createLoadingWatch,readGameLoading} from '../Public/src/game-loading-health.mjs';
+
+test('unavailable and detached frame documents do not crash the health monitor',()=>{
+ assert.equal(readGameLoading(null),null);
+ assert.equal(readGameLoading(undefined),null);
+ assert.equal(readGameLoading({querySelectorAll(){throw Error('Detached document must not be inspected')},defaultView:null}),null);
+});
 test('a confirmed loading screen with no progress gets a bounded startup recovery',()=>{
  let time=0;const watch=createLoadingWatch({now:()=>time}),state={signature:'20%',error:false};
  assert.equal(watch.sample(state),null);time=89999;assert.equal(watch.sample(state),null);

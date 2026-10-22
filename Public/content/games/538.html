@@ -111,7 +111,9 @@ body {
 			<div id="status-notice"></div>
 		</div>
 
-		<script src="index.js"></script>
+		<script src="https://nova-content.invalid/content/noah-import/split-assets.js"></script>
+<script>NovaSplitAssets.install(Object.fromEntries(Object.entries({"index.wasm":["index.wasm.part1","index.wasm.part2","index.wasm.part3"],"index.pck":["index.pck.part1","index.pck.part2"]}).map(([key,parts])=>[key,parts.map(part=>new URL(part,document.baseURI).href)])));</script>
+<script src="index.js"></script>
 		<script>
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":22647776,"index.wasm":43699190},"focusCanvas":true,"gdextensionLibs":[]};
 const GODOT_THREADS_ENABLED = false;

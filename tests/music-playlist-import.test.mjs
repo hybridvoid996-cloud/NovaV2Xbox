@@ -1,6 +1,16 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {playlistSource,parsePlaylistPage,readPlaylist} from '../server/music-playlist-import.mjs';
-import {matchImportedTrack,matchPlaylist} from '../Public/src/nova-music-import.mjs';
+import {matchImportedTrack,matchPlaylist,fallbackRecording} from '../Public/src/nova-music-import.mjs';
+
+test('Noah recordings retain identity, metadata and source when imported and saved',async()=>{
+ const source={title:'Song',artist:'Artist',duration:120,thumb:'https://i1.sndcdn.com/cover.jpg'};
+ const matched=fallbackRecording(source,{found:true,duration:121,url:'/api/soundcloud?op=noah-audio&id=123'});
+ assert.equal(matched.id,'noah:123');assert.equal(matched.src,'noah');assert.equal(matched.thumb,source.thumb);
+ assert.equal(matchImportedTrack(source,[matched]),matched);
+ const rows=await matchPlaylist([source],{search:async()=>[matched]});assert.equal(rows[0].reason,'Noah');
+ const {song}=await import('../Public/src/music-core.mjs');assert.equal(song(matched).id,'noah:123');assert.equal(song(matched).src,'noah');
+ assert.equal(fallbackRecording(source,{found:true,url:'https://evil.test/media'}),null);
+});
 test('playlist URL validation permits only provider playlist paths',()=>{
  assert.equal(playlistSource('https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M?si=x').provider,'Spotify');
  assert.equal(playlistSource('https://soundcloud.com/a/sets/b').provider,'SoundCloud');

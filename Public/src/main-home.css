@@ -196,3 +196,17 @@ body.nova-main .main-audio-extension{height:38px}.main-audio-open .main-audio-ex
 .main-dm-unread{flex:none;display:grid;place-items:center;min-width:21px;height:21px;padding:0 6px;border-radius:20px;background:#fff;color:#080808;font-size:11px;font-weight:800;box-shadow:0 2px 12px #ffffff20}.main-dm-unread[hidden]{display:none}.main-person-row.has-unread{border-color:#ffffff40;background-color:#ffffff0b}.main-person-row.has-unread strong{font-weight:850}
 
 .main-profile-view{isolation:isolate;overflow:hidden}.main-profile-view>.nova-home-effect{inset:0 0 auto auto;width:min(360px,48%);height:330px;object-fit:contain;object-position:right top;opacity:.16;mask-image:linear-gradient(#000 35%,transparent);pointer-events:none}.main-profile-view>.nova-home-banner{height:170px;opacity:.5}.main-profile-view .main-profile-hero{min-height:145px}.main-profile-view .nova-home-avatar-effect{object-fit:contain!important}
+
+/* Quiet, compact people cards shared by Nova Personal and Messages. */
+body.nova-main .main-person-row{box-sizing:border-box;min-height:60px;padding:9px 11px!important;gap:9px;border-radius:11px;overflow:hidden}
+body.nova-main .main-person-row>.main-person-avatar{width:32px;height:32px;flex:0 0 32px}
+body.nova-main .main-person-row>span:nth-child(2){gap:3px;min-width:0;overflow:hidden}
+body.nova-main .main-person-row strong{font-size:12px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.nova-main .main-person-row small{font-size:10px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.nova-main .main-person-row .nova-listening-row{display:flex;align-items:center;gap:5px;min-width:0;margin:0}
+body.nova-main .main-person-row .nova-listening-row img{width:17px;height:17px;border-radius:4px;flex:none}
+body.nova-main .main-person-row>.nova-home-banner{opacity:.25!important;mask-image:linear-gradient(90deg,transparent,#000)}
+body.nova-main .main-person-row>.nova-home-effect{inset:0 0 0 auto;width:90px;height:100%;object-fit:contain;object-position:right center;opacity:.22!important}
+body.nova-main .main-person-row.nova-home-has-banner:before{background:linear-gradient(90deg,#09090be8,#09090b99 60%,#09090b44)}
+
+body.nova-main .main-person-row{min-height:60px!important}body.nova-main .main-person-row .nova-listening-row{font-size:10px;line-height:17px;height:17px}body.nova-main .main-person-row>.main-person-avatar{margin:0!important}

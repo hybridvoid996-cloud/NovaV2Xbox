@@ -1,0 +1,180 @@
+{
+  "snapshot": {
+    "provider": "noah",
+    "playing": true,
+    "position": 36.483282,
+    "title": "ODESZA",
+    "source": "Noah playback"
+  },
+  "errors": [],
+  "requests": [
+    {
+      "op": "catalog",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "album-info",
+      "exclude": null
+    },
+    {
+      "op": "lyrics",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "alternate-audio",
+      "exclude": null
+    },
+    {
+      "op": "alternate-audio",
+      "exclude": null
+    },
+    {
+      "op": "alternate-audio",
+      "exclude": null
+    },
+    {
+      "op": "fallback",
+      "exclude": "void"
+    },
+    {
+      "op": "noah-audio",
+      "exclude": null
+    },
+    {
+      "op": "noah-audio",
+      "exclude": null
+    },
+    {
+      "op": "noah-audio",
+      "exclude": null
+    },
+    {
+      "op": "catalog",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "noah-collection",
+      "exclude": null
+    },
+    {
+      "op": "catalog",
+      "exclude": null
+    },
+    {
+      "op": "noah-artist",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    },
+    {
+      "op": "asset",
+      "exclude": null
+    }
+  ]
+}

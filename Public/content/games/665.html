@@ -103,7 +103,7 @@
     var buildUrl = "Build";
     var loaderUrl = buildUrl + "/mtu.loader.js";
     var config = {
-      dataUrl: buildUrl + "/mtu.data",
+      dataUrl: buildUrl + "/mtu.data.zip",
       frameworkUrl: buildUrl + "/mtu.framework.js",
         codeUrl: buildUrl + "/mtu.wasm",
       streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
@@ -187,34 +187,8 @@
         });
     }
 
-    async function LoadWASM(callback)
-    {
-      // After Data file is checked decompress and check WASM file, followed by our callback
-      var codeUrl = config.codeUrl;
-      var shouldDecompress = true;
-
-      // check if .zip already exists in the URL, if it doesnt check if a .zip file exists
-      if (!codeUrl.includes(subZipStr)) {
-        if (await UrlExists(codeUrl + subZipStr)) {
-          codeUrl = codeUrl + subZipStr;
-        } else {
-          shouldDecompress = false;
-        }
-      }
-
-      // decompress if using a zip file, otherwise just load regular wasm file
-      if (shouldDecompress) {
-        // Decompress the file based on the type, WASM, JS, etc.
-        // if you need more types please add a const above and modify the type logic below.
-        var blobTypeWASM = GetBlobType(codeUrl);
-        DecompressFile(codeUrl, blobTypeWASM, (file) => {
-          config.codeUrl = file;
-          callback();
-        });
-      } else {
-        callback();
-      }
-    }
+    // This export ships its WASM uncompressed; avoid probing a nonexistent ZIP.
+    async function LoadWASM(callback) { callback(); }
 
     function GetBlobType(urlToCheck) {
       // if you need more types please add a const above and modify the type logic below.
@@ -271,7 +245,7 @@
     }
 
     // Path 1: Use this path if no decompression of your .wasm, .data, .js files are needed
-    InitUnitySection();
+    loadResources(InitUnitySection);
 
     // Path 2: Use this path to Load resources (.wasm, .data) that are Zipped and need to be decompressed
     // if you dont use compresseion its best to comment out Path 1 and uncomment Path 2.

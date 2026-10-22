@@ -10,7 +10,7 @@
 
   <title>YT Game Wrapper WebGL Template</title>
   <link rel="stylesheet" href="TemplateData/style.css" nonce="_64KQA6KUarKeMBGRRuM3w">
-  <script src="https://nova-content.invalid/content/runtime/nova-ytgame.js" nonce="_64KQA6KUarKeMBGRRuM3w">// Load YT Game API code</script>
+  <script src="https://nova-content.invalid/content/runtime/nova-ytgame.js?v=20261021-bolt248" data-nova-playable-host="true" nonce="_64KQA6KUarKeMBGRRuM3w">// Load standalone host API</script>
 <style>
 #sidebarad1,
 #sidebarad2 {
@@ -66,6 +66,12 @@
   </div>
 
   <script src="unarchiver.min.js" nonce="_64KQA6KUarKeMBGRRuM3w">// used for decompression if zip files are used</script>
+  <script src="lib/jszip.min.js"></script>
+  <script>
+    // This export's stack-based library discovery loses its URL through a proxy.
+    // Both build archives are ZIPs; load their decoder from the explicit base URL.
+    Unarchiver.loadedFormats.zip = Promise.resolve();
+  </script>
   <script nonce="_64KQA6KUarKeMBGRRuM3w"> // Logic for Unity contianer
     var container = document.querySelector("#unity-container");
     var canvas = document.querySelector("#unity-canvas");
@@ -103,9 +109,9 @@
     var buildUrl = "Build";
     var loaderUrl = buildUrl + "/Build.loader.js";
     var config = {
-      dataUrl: buildUrl + "/Build.data",
+      dataUrl: buildUrl + "/Build.data.zip",
       frameworkUrl: buildUrl + "/Build.framework.js",
-        codeUrl: buildUrl + "/Build.wasm",
+        codeUrl: buildUrl + "/Build.wasm.zip",
       streamingAssetsUrl: new URL('StreamingAssets', document.baseURI).href,
       companyName: "Paradyme",
       productName: "City Smash",

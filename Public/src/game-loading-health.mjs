@@ -1,5 +1,6 @@
 // Inspect loader UI, not the game canvas: a still canvas alone is not a failure.
 export function readGameLoading(doc){
+ if(!doc?.querySelectorAll||!doc.defaultView)return null;
  const selectors='#unity-loading-bar,#unity-loading-container,#loading-screen,#loadingScreen,#loading-overlay,#loading,#loader,[role="progressbar"],progress';
  for(const node of doc.querySelectorAll(selectors)){
   if(node.hidden||node.closest('[hidden]'))continue;

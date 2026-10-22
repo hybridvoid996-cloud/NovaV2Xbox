@@ -22,6 +22,11 @@ export function reserveGameRetry(storage,key,now=Date.now()){
 export async function requestGameResource(request,args,{timeout=20000,onIssue=()=>{},onProgress=()=>{},delay=ms=>new Promise(r=>setTimeout(r,ms))}={}){
  const [url,method,body,headers,signal]=args;
  if(!['GET','HEAD'].includes(method))return request(...args);
+ // Split export loaders use HEAD to discover parts. The transport can misread
+ // bodyless CDN replies as truncated transfers; a one-byte range proves existence.
+ const probe=method==='HEAD'&&url.hostname==='cdn.jsdelivr.net'&&/\.part\d+$/.test(url.pathname);
+ const requestMethod=probe?'GET':method;
+ const requestHeaders=probe?[...headers.filter(([name])=>name.toLowerCase()!=='range'),['Range','bytes=0-0']]:headers;
  for(let attempt=0;;attempt++){
   const abort=new AbortController();let timer;
   const cancel=()=>abort.abort(signal?.reason);
@@ -30,11 +35,12 @@ export async function requestGameResource(request,args,{timeout=20000,onIssue=()
    // Large ROMs, archives and media may legitimately take minutes on a laptop.
    const accept=headers.find(([name])=>name.toLowerCase()==='accept')?.[1]||'';
    const bounded=!headers.some(([name])=>name.toLowerCase()==='range')&&(/\.(?:js|json|html)$/.test(url.pathname)||accept.includes('text/html')||url.pathname==='/');
-   const operation=request(url,method,body,headers,bounded?abort.signal:signal);
+   const operation=request(url,requestMethod,body,requestHeaders,bounded?abort.signal:signal);
    let response=bounded?await Promise.race([operation,new Promise((_,reject)=>{timer=setTimeout(()=>{const error=Error('Game startup request timed out');reject(error);abort.abort(error)},timeout)})]):await operation;
-   const github=url.hostname==='cdn.jsdelivr.net'&&url.pathname.match(/^\/gh\/([^/]+)\/([^/@]+)@([^/]+)\/(.+)$/);if(response.status===403&&github){const text=typeof response.body==='string'?response.body:await new Response(response.body).text();response={...response,body:text};if(/File size exceeded the configured limit/i.test(text)){const mirror=new URL('https://raw.githubusercontent.com/'+github[1]+'/'+github[2]+'/'+github[3]+'/'+github[4]);response=await request(mirror,method,body,headers.filter(([name])=>!['authorization','cookie'].includes(name.toLowerCase())),signal)}}
+   const github=url.hostname==='cdn.jsdelivr.net'&&url.pathname.match(/^\/gh\/([^/]+)\/([^/@]+)@([^/]+)\/(.+)$/);if(response.status===403&&github){const text=typeof response.body==='string'?response.body:await new Response(response.body).text();response={...response,body:text};if(/File size exceeded the configured limit/i.test(text)){const mirror=new URL('https://raw.githubusercontent.com/'+github[1]+'/'+github[2]+'/'+github[3]+'/'+github[4]);response=await request(mirror,requestMethod,body,requestHeaders.filter(([name])=>!['authorization','cookie'].includes(name.toLowerCase())),signal)}}
    if([408,502,503,504].includes(response.status)&&attempt===0&&!signal?.aborted){await delay(300);continue}
-   if(response.status>=400)onIssue({kind:'asset',retry:false,message:response.status===404?'A required game file was not found.':'A game server returned an error.',status:response.status});
+   if(probe){const total=response.headers.find(([name])=>name.toLowerCase()==='content-range')?.[1]?.match(/\/(\d+)$/)?.[1];response={...response,status:response.status===206?200:response.status,body:new Uint8Array(),headers:response.headers.filter(([name])=>!['content-range',...(total?['content-length']:[])].includes(name.toLowerCase())).concat(total?[['Content-Length',total]]:[])}}
+   if(response.status>=400&&method!=='HEAD')onIssue({kind:'asset',retry:false,message:response.status===404?'A required game file was not found.':'A game server returned an error.',status:response.status});
    else onProgress();
    return gameAssetResponse(url,response);
   }catch(error){if(attempt||signal?.aborted||!classifyGameIssue(error).retry)throw error;await delay(300)}

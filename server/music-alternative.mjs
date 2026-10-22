@@ -5,7 +5,7 @@ export function alternativeRange(value){const match=/^bytes=(\d+)-(\d*)$/.exec(v
 const clean=value=>String(value||'').replace(/[\[(]\s*prod(?:uced)?\.?[^\])]*[\])]/gi,'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\b(?:official (?:audio|video)|lyrics? video)\b/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 export function alternativeMatch(input,candidate){
  const artist=clean(input.artist),name=clean(input.title).replace(new RegExp('^'+artist+' '),'');
- const actual=clean(candidate.title),by=clean(candidate.artist);
+ const by=clean(candidate.artist),actual=clean(candidate.title).replace(new RegExp('^'+by+' '),'');
  const duration=Number(input.duration),length=Number(candidate.duration);
  return !!artist&&!!name&&by===artist&&actual===name&&Number.isFinite(duration)&&duration>0&&Number.isFinite(length)&&length>0&&Math.abs(length-duration)<=Math.max(6,Math.min(12,duration*.05))&&/^\d{1,20}$/.test(String(candidate.id));
 }

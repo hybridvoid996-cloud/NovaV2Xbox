@@ -302,7 +302,7 @@
             ".validate": "newData.isString() && newData.val().length <= 128"
           },
           "activityKind": {
-            ".validate": "newData.val() === 'game' || newData.val() === 'app' || newData.val() === 'cloud'"
+            ".validate": "newData.val() === 'game' || newData.val() === 'app' || newData.val() === 'cloud' || newData.val() === 'movie' || newData.val() === 'search'"
           },
           "activityStartedAt": {
             ".validate": "newData.isNumber() && newData.val() > 0 && newData.val() <= now + 60000"

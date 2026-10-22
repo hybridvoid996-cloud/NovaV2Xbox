@@ -5060,11 +5060,13 @@
   {
     "id": 624,
     "name": "Happy Wheels",
-    "art": "content/covers/624.png",
-    "url": "content/games/624.html",
+    "art": "content/noah-import/covers/624-noah.jpg",
+    "url": "https://noahstutoring.academy/games/139.html",
     "genres": [
-      "Other"
-    ]
+      "Racing",
+      "Platformer"
+    ],
+    "addedAt": "2026-10-22T00:00:00.000Z"
   },
   {
     "id": 625,
@@ -8050,20 +8052,23 @@
   {
     "id": 918,
     "name": "Little Big Planet",
-    "art": "content/noah-import/covers/918.jpg",
-    "url": "content/noah-import/games/918.html?v=20261017-repair138",
+    "art": "content/noah-import/covers/918-noah.jpg",
+    "url": "https://noahstutoring.academy/games/351.html",
     "genres": [
-      "Other"
-    ]
+      "Platformer"
+    ],
+    "addedAt": "2026-10-22T00:00:00.000Z"
   },
   {
     "id": 919,
     "name": "The Binding of Isaac: Rebirth",
-    "art": "content/noah-import/covers/919.jpg",
-    "url": "content/noah-import/games/919.html?v=20261017-repair138",
+    "art": "content/noah-import/covers/919-noah.jpg",
+    "url": "https://noahstutoring.academy/games/350.html",
     "genres": [
-      "Other"
-    ]
+      "Action",
+      "Roguelike"
+    ],
+    "addedAt": "2026-10-22T00:00:00.000Z"
   },
   {
     "id": 920,
@@ -9081,5 +9086,16 @@
       "Multiplayer"
     ],
     "addedAt": "2026-10-18T00:00:00.000Z"
+  },
+  {
+    "id": 1035,
+    "name": "Muddy Heights",
+    "url": "https://noahstutoring.academy/games/509.html",
+    "art": "content/noah-import/covers/1035-noah.jpg",
+    "genres": [
+      "Arcade",
+      "Simulation"
+    ],
+    "addedAt": "2026-10-22T00:00:00.000Z"
   }
 ]

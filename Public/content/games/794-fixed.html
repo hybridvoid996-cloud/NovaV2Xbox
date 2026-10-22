@@ -41,14 +41,17 @@
                 w = maxW;
                 h = Math.floor((maxW / 4) * 3);
             }
-            document.querySelector("#GameCanvas").style.width = w + "px";
-            document.querySelector("#GameCanvas").style.height = h + "px";
-            document.querySelector("#GameVideo").style.width = w + "px";
-            document.querySelector("#GameVideo").style.height = h + "px";
-            document.querySelector("#UpperCanvas").style.width = w + "px";
-            document.querySelector("#UpperCanvas").style.height = h + "px";
+            for (const canvas of document.querySelectorAll('#GameCanvas,#GameVideo,#UpperCanvas')) {
+                canvas.style.width = w + 'px';
+                canvas.style.height = h + 'px';
+            }
         }
-        setInterval(applycanvasmode, 100);
+        // Refit when the engine creates its canvas and when the viewport changes.
+        const canvasObserver = new MutationObserver(applycanvasmode);
+        canvasObserver.observe(document.body, {childList:true,subtree:true});
+        window.addEventListener('resize',applycanvasmode);
+        window.addEventListener('pagehide',()=>canvasObserver.disconnect(),{once:true});
+        applycanvasmode();
 
         // support mobile ----------------------------------------------------------------
         (function() {

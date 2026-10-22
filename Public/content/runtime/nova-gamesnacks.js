@@ -1,0 +1,2 @@
+// Standalone API for the exported GameSnacks game. No external ads or rewards.
+(()=>{const noop=()=>{};const listeners=new Set();window.GAMESNACKS={gameReady:noop,gameOver:noop,levelComplete:noop,sendScore:noop,isAudioEnabled:()=>true,subscribeToAudioUpdates(fn){if(typeof fn==='function')listeners.add(fn);return ()=>listeners.delete(fn)},rewardedAdOpportunity(options){options?.adBreakDone?.({breakStatus:'notReady'})}}})();

@@ -1,5 +1,5 @@
 import {classifyGameIssue,reserveGameRetry} from './game-health.mjs?v=20261020-health209';
-import {readGameLoading,createLoadingWatch} from './game-loading-health.mjs?v=20261020-health210';
+import {readGameLoading,createLoadingWatch} from './game-loading-health.mjs?v=20261021-games249';
 
 // Observe each accessible frame, including native emulators, without replacing engine APIs.
 export function attachGameHealth(frame,{key,signal,onStatus=()=>{},reload=()=>location.reload(),storage=sessionStorage,interval=500}={}){
