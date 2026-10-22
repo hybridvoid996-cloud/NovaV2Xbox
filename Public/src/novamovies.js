@@ -3,7 +3,7 @@ import {mountMovieWallpaper} from './movie-wallpaper.mjs?v=20261020-wall223';
 import {readMoviePlayback} from './movie-playback-state.mjs?v=20261020-movie216';
 import {createMovieRecovery} from './movie-recovery.mjs?v=20261020-movie224';
 import {movieEmbedPath} from './movie-title-view.mjs?v=20261020-nova204';
-import {mountMovieCatalog} from './movie-catalog-ui.mjs?v=20261022-motion255';
+import {mountMovieCatalog} from './movie-catalog-ui.mjs?v=20261022-anime262';
 import {novaMovieLogo} from './movie-logo.mjs';
 import {decorateMovieDocument} from './movie-cinema-theme.mjs?v=20261018-cinema169';
 const loading=document.getElementById('loading'),status=document.getElementById('status'),retry=document.getElementById('retry'),profiles=document.getElementById('movie-profiles'),profileArt=document.getElementById('movie-profile-art'),profileName=document.getElementById('movie-profile-name');

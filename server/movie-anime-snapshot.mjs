@@ -1,0 +1,2 @@
+import {readFile} from 'node:fs/promises';
+export async function animeSnapshot(id){const data=JSON.parse(await readFile(new URL('../Public/content/cinema-series.json',import.meta.url),'utf8'));if(!id)return {...data,cached:true};const item=Object.values(data.rails).flatMap(rail=>rail.results).find(item=>String(item.id)===String(id));if(!item)return null;return {...item,cached:true,episodeItems:[],seasons:item.episodes?[{id:item.id,number:1,name:'Episodes',episodeCount:item.episodes}]:[]}}
