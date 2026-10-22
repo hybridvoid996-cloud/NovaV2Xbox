@@ -3,14 +3,14 @@ import {readGameLoading,createLoadingWatch} from './game-loading-health.mjs?v=20
 
 // Observe each accessible frame, including native emulators, without replacing engine APIs.
 export function attachGameHealth(frame,{key,signal,onStatus=()=>{},reload=()=>location.reload(),storage=sessionStorage,interval=500}={}){
- const attached=new WeakSet(),loadingWatches=new WeakMap(),stops=[];let interacted=false,lastProgress=Date.now(),lastIssue='',retrying=false;
+ const attached=new WeakSet(),loadingWatches=new WeakMap(),loadingStates=new WeakMap(),stops=[];let interacted=false,lastProgress=Date.now(),lastIssue='',retrying=false,slowNotice=false;
  const progress=()=>{lastProgress=Date.now();for(const doc of loadingDocs){loadingWatches.get(doc)?.progress()}};
  const loadingDocs=new Set();
  const report=issue=>{
   if(signal?.aborted||retrying)return;
   // Optional ads, telemetry and region probes can fail while gameplay is healthy.
   if(['connection','socket','asset'].includes(issue.kind)&&![...loadingDocs].some(doc=>readGameLoading(doc)?.error)&&!issue.confirmed)return;
-  if(issue.kind===lastIssue)return;lastIssue=issue.kind;
+  if(issue.kind===lastIssue)return;lastIssue=issue.kind;slowNotice=false;
   onStatus(interacted&&issue.retry?issue.message.replace(/Retrying (?:its )?startup…/i,'Use Retry game to reconnect.'):issue.message,issue.kind);
   if(issue.retry&&!interacted&&reserveGameRetry(storage,key)){retrying=true;const timer=setTimeout(()=>{if(!signal?.aborted)reload()},800);stops.push(()=>clearTimeout(timer))}
  };
@@ -37,12 +37,15 @@ export function attachGameHealth(frame,{key,signal,onStatus=()=>{},reload=()=>lo
    }
   }
   for(const child of doc.querySelectorAll('iframe'))if(child.contentWindow)watch(child.contentWindow);
-  const loadingIssue=loadingWatches.get(doc)?.sample(readGameLoading(doc));
-  if(loadingIssue){const detail=readGameLoading(doc);const known=classifyGameIssue(detail?.text);report(known.kind==='asset'||known.kind==='memory'||known.kind==='isolation'?known:loadingIssue)}
+  const loadingState=readGameLoading(doc);
+  if(loadingState&&loadingStates.get(doc)!==loadingState.signature)lastProgress=Date.now();
+  loadingStates.set(doc,loadingState?.signature??null);
+  const loadingIssue=loadingWatches.get(doc)?.sample(loadingState);
+  if(loadingIssue){const known=classifyGameIssue(loadingState?.text);report(known.kind==='asset'||known.kind==='memory'||known.kind==='isolation'?known:loadingIssue)}
   const text=(doc.body?.textContent||'').slice(0,3001).trim();
   if(text.length<3000&&/^(?:Internal Service Worker Error:|Scramjet Error:)/.test(text))report({...classifyGameIssue('connection '+text),confirmed:true});
  }catch{}};
- const tick=()=>{if(signal?.aborted)return;if(document.hidden){progress();return}watch(frame.contentWindow);if(!interacted&&readGameLoading(frame.contentDocument)&&Date.now()-lastProgress>90000){lastProgress=Date.now();onStatus('The game is taking longer than expected. You can keep waiting or retry.','slow')}};
+ const tick=()=>{if(signal?.aborted)return;if(document.hidden){progress();return}watch(frame.contentWindow);const loading=[...loadingDocs].some(doc=>readGameLoading(doc));if(!loading&&!retrying&&(slowNotice||lastIssue==='loading')){slowNotice=false;lastIssue='';onStatus('Game loading finished.','restored')}if(!interacted&&loading&&Date.now()-lastProgress>90000){lastProgress=Date.now();slowNotice=true;onStatus('The game is taking longer than expected. You can keep waiting or retry.','slow')}};
  const timer=setInterval(tick,interval);tick();
  document.addEventListener('visibilitychange',progress);
  const online=()=>{if(!interacted&&[...loadingDocs].some(doc=>readGameLoading(doc)))report({confirmed:true,kind:'connection',retry:true,message:'You’re back online. Reconnecting the game…'})};window.addEventListener('online',online);

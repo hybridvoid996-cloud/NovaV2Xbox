@@ -26,6 +26,19 @@ const {chromium}=require('C:/Users/willi/.cache/codex-runtimes/codex-primary-run
   await game.locator('body').evaluate(()=>{const loader=document.createElement('section');loader.id='loading-screen';loader.textContent='Failed to download game data';document.body.append(loader)});
   await page.waitForFunction(()=>reloads===1);assert.equal(await page.evaluate(()=>statuses.at(-1).kind),'loading');
   await game.locator('#loading-screen').evaluate(node=>node.remove());
+  await page.evaluate(()=>{
+   health.stop();reloads=0;window.realHealthNow=Date.now;window.healthClock=Date.now();Date.now=()=>healthClock;
+   const loader=document.createElement('section');loader.id='loading-screen';loader.textContent='Downloading game data 10%';document.querySelector('iframe').contentDocument.body.append(loader);startHealth();
+  });
+  await page.waitForTimeout(80);
+  const loadingCount=await page.evaluate(()=>statuses.length);
+  await page.evaluate(()=>{document.querySelector('iframe').contentDocument.querySelector('#loading-screen').textContent='Downloading game data 20%';healthClock+=95000});
+  await page.waitForTimeout(80);
+  assert.equal(await page.evaluate(()=>statuses.length),loadingCount,'Advancing loader percentages must not trigger the generic slow notice');
+  await page.evaluate(()=>{health.report({kind:'loading',retry:false,message:'Waiting for game data'});document.querySelector('iframe').contentDocument.querySelector('#loading-screen').remove()});
+  await page.waitForFunction(()=>statuses.at(-1).kind==='restored');
+  assert.equal(await page.evaluate(()=>reloads),0,'Finishing an active download must not reload the game');
+  await page.evaluate(()=>{health.stop();Date.now=realHealthNow});
   await page.evaluate(()=>{reloads=0;startHealth()});await page.waitForTimeout(60);
   await game.getByRole('button',{name:'Play game'}).click();
   const before=await page.evaluate(()=>statuses.length);
