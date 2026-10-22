@@ -81,7 +81,7 @@
         baseUrl + "SREK.data.unityweb.part3"
       ];
 
-      Promise.all(partUrls.map(url => fetch(url).then(res => res.arrayBuffer())))
+      Promise.all(partUrls.map(url => fetch(url).then(async res => {if(!res.ok||/text\/html/i.test(res.headers.get('content-type')||''))throw Error('A required game part could not download. Please retry.');const bytes=await res.arrayBuffer();if(!bytes.byteLength)throw Error('A game part was empty. Please retry.');return bytes})))
         .then(buffers => {
           const blob = new Blob(buffers, { type: 'application/octet-stream' });
           config.dataUrl = URL.createObjectURL(blob);

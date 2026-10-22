@@ -26,6 +26,7 @@ const output = process.env.NOVA_REVIEW_OUTPUT || 'docs/game-audit/followup/';
      return route.fulfill({contentType: relative.endsWith('.html') ? 'text/html' : 'text/javascript', headers: {'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Embedder-Policy': 'credentialless'}, body});
     });
    }
+   if(process.env.NOVA_REVIEW_LOGS==='1')await page.addInitScript(()=>addEventListener('error',event=>{const e=event.error;if(e)console.log('NOVA_RUNTIME_EXCEPTION '+JSON.stringify({name:e.name,status:e.status,message:e.message,stack:e.stack}))}));
    const errors = [], failures = [], requests = [], consoleErrors = [], frames = [], pending = new Set(), logs = [];
    const actions = plans[id] || [];
    let autoStarted;
@@ -36,10 +37,10 @@ const output = process.env.NOVA_REVIEW_OUTPUT || 'docs/game-audit/followup/';
    page.on('requestfailed', r => pending.delete(r));
    page.on('requestfailed', r => requests.push({url: r.url(), error: r.failure()?.errorText}));
    page.on('response', r => {if (r.status() >= 400) failures.push({status: r.status(), url: r.url()});});
-   page.on('console', m => {if (m.type() === 'error') consoleErrors.push(m.text().slice(0, 1000));if(process.env.NOVA_REVIEW_LOGS==='1'&&logs.length<200)logs.push({type:m.type(),text:m.text().slice(0,1000)})});
+   page.on('console', m => {if (m.type() === 'error') consoleErrors.push(m.text().slice(0, 1000));if(process.env.NOVA_REVIEW_LOGS==='1'&&!m.text().includes('unrewriteUrl')&&logs.length<500)logs.push({type:m.type(),text:m.text().slice(0,1000)})});
    try {
     await page.goto(base + '/player.html?kind=game&id=' + id, {waitUntil: 'domcontentloaded', timeout: 60000});
-    await page.waitForTimeout(Number(process.env.NOVA_REVIEW_WAIT_MS) || 30000);
+    if(process.env.NOVA_REVIEW_GESTURE==='1'){await page.waitForTimeout(2000);await page.mouse.click(512,320)}await page.waitForTimeout(Number(process.env.NOVA_REVIEW_WAIT_MS) || 30000);
     await page.screenshot({path:output+id+'-startup.png',timeout:10000}).catch(()=>{});
     if(process.env.NOVA_REVIEW_AUTO_START==='1'){
      for(const frame of page.frames().slice(1)){
@@ -53,6 +54,7 @@ const output = process.env.NOVA_REVIEW_OUTPUT || 'docs/game-audit/followup/';
      }
     }
     for (const action of actions) {
+     if (action.selector) await page.frameLocator('iframe').locator(action.selector).click({timeout:30000});
      if (action.button) await page.frameLocator('iframe').getByRole('button', {name: action.button, exact: true}).click({timeout: 15000});
      if (action.click) await page.mouse.click(...action.click, {delay: 150});
      if (action.move) await page.mouse.move(...action.move);

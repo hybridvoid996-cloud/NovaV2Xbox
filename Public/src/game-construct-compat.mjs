@@ -6,11 +6,21 @@ export async function repairConstructBase(url, response, {gameId} = {}) {
  const runner = (String(gameId) === '573' && url.pathname.endsWith('/man-runner-2048/Build/fc45fdbdcee54ae8144d7a2834b15283.framework.js')) || (String(gameId) === '562' && url.pathname.includes('/boom-slingers-reboom/Build/') && url.pathname.endsWith('.framework.js'));
  const fear = String(gameId) === '794' && url.pathname.endsWith('/js/plugins/physical_attack_animation.js');
  const mountain = (String(gameId) === '774' && url.pathname.endsWith('/files/scripts/main.js')) || (String(gameId) === '209' && url.pathname.endsWith('/draw-the-hill/scripts/main.js'));
+ const celesteBundle = String(gameId) === '623' && url.hostname === 'cdn.jsdelivr.net' && /^\/gh\/web-ports\/celeste@4f043a5ce121b74dc54ce56d74f213a2eeea6b4e\/bundle\.js$/.test(url.pathname);
+ const celesteNative = String(gameId) === '623' && url.hostname === 'cdn.jsdelivr.net' && /^\/gh\/web-ports\/celeste@[^/]+\/_framework\/dotnet\.native\.[^/]+\.js$/.test(url.pathname);
+ const celeste = String(gameId) === '623' && url.hostname === 'cdn.jsdelivr.net' && /^\/gh\/web-ports\/celeste@[^/]+\/_framework\/dotnet\.runtime\.[^/]+\.js$/.test(url.pathname);
  const holiday = String(gameId) === '214' && url.hostname === 'cdn.jsdelivr.net' && url.pathname === '/gh/ubg42/CutTheRopeGames@main/holiday/scripts/libraries.js';
- if (response.status !== 200 || !(construct || choppy || monster || runner || mountain || fear || holiday)) return response;
+ if (response.status !== 200 || !(construct || choppy || monster || runner || mountain || fear || holiday || celeste || celesteNative || celesteBundle)) return response;
  const source = typeof response.body === 'string' ? response.body : await new Response(response.body).text();
  let body;
- if (holiday) {
+ if (celesteBundle) {
+  body=source.replace("const res = await fetch(url);\n      if (!res.ok) throw new Error(\"Failed to fetch: \" + url);\n\n      const buf = await res.arrayBuffer();","const buf = await (async()=>{const expected=i===29?7950231:20866662;let failure;for(let attempt=0;attempt<3;attempt++){try{const source=attempt===1?'https://raw.githubusercontent.com/web-ports/celeste/4f043a5ce121b74dc54ce56d74f213a2eeea6b4e/'+url:url;const response=await fetch(source,attempt?{cache:'reload'}:{});if(!response.ok)throw Error('Game part returned HTTP '+response.status);const bytes=await response.arrayBuffer();if(bytes.byteLength!==expected)throw Error('Game part '+(i+1)+' is incomplete ('+bytes.byteLength+' / '+expected+' bytes)');return bytes}catch(error){failure=error}}throw failure})();");
+ } else if (celesteNative) {
+  body=source.replace(/assert\(([^,\n]+)\);/g,(match,condition)=>'assert('+condition+','+JSON.stringify('Celeste native check: '+condition)+');').replace('function abort(what) {', 'function abort(what) {console.error("Celeste engine abort:",String(what));');
+ } else if (celeste) {
+  // Keep a valid statement body when the proxy removes debugger statements.
+  body = source.replaceAll('globalThis.dotnetDebugger)debugger}', 'globalThis.dotnetDebugger){debugger;}}');
+ } else if (holiday) {
   // The page already loads jQuery. Keep its plugins without initializing a
   // second obsolete copy inside the combined legacy library closure.
   const start = source.indexOf('/*! jQuery v2.0.3');
