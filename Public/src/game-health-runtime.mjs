@@ -6,6 +6,8 @@ export function attachGameHealth(frame,{key,signal,onStatus=()=>{},reload=()=>lo
  const attached=new WeakSet(),loadingWatches=new WeakMap(),loadingStates=new WeakMap(),stops=[];let interacted=false,lastProgress=Date.now(),lastIssue='',retrying=false,slowNotice=false;
  const progress=()=>{lastProgress=Date.now();for(const doc of loadingDocs){loadingWatches.get(doc)?.progress()}};
  const loadingDocs=new Set();
+ const isEngineScript=url=>/\.loader\.js(?:[?#]|%3f|$)/i.test(String(url||''));
+ const missingEngine=()=>({confirmed:true,kind:'asset',retry:false,message:'A required game engine file is unavailable from its host. The game files need updating.'});
  const report=issue=>{
   if(signal?.aborted||retrying)return;
   // Optional ads, telemetry and region probes can fail while gameplay is healthy.
@@ -19,10 +21,10 @@ export function attachGameHealth(frame,{key,signal,onStatus=()=>{},reload=()=>lo
   if(!attached.has(doc)){
    attached.add(doc);lastProgress=Date.now();
    loadingWatches.set(doc,createLoadingWatch());loadingDocs.add(doc);
-   if(typeof win.PerformanceObserver==='function'){try{const observer=new win.PerformanceObserver(entries=>{if(entries.getEntries().some(entry=>entry.initiatorType!=='beacon'))progress()});observer.observe({type:'resource'});stops.push(()=>observer.disconnect())}catch{}}
+   if(typeof win.PerformanceObserver==='function'){try{const observer=new win.PerformanceObserver(entries=>{const resources=entries.getEntries();if(resources.some(entry=>entry.initiatorType!=='beacon'))progress();if(readGameLoading(doc)&&resources.some(entry=>entry.responseStatus>=400&&isEngineScript(entry.name)))report(missingEngine())});observer.observe({type:'resource',buffered:true});stops.push(()=>observer.disconnect())}catch{}}
    const listen=(target,event,fn,options)=>{target.addEventListener(event,fn,options);stops.push(()=>target.removeEventListener(event,fn,options))};
    listen(doc,'pointerdown',()=>{interacted=true},true);listen(doc,'keydown',()=>{interacted=true},true);
-   listen(win,'error',event=>{if(event.error){const issue=classifyGameIssue(event.error);if(issue.kind!=='unknown')report(issue)}else if(event.target?.tagName==='SCRIPT'&&!event.target.async&&!event.target.defer)report({kind:'connection',retry:true,message:'A game script did not download. Retrying startup…'})},true);
+   listen(win,'error',event=>{if(event.error){const issue=classifyGameIssue(event.error);if(issue.kind!=='unknown')report(issue)}else if(event.target?.tagName==='SCRIPT'){if(isEngineScript(event.target.src)&&readGameLoading(doc))report(missingEngine());else if(!event.target.async&&!event.target.defer)report({kind:'connection',retry:true,message:'A game script did not download. Retrying startup…'})}},true);
    listen(win,'unhandledrejection',event=>{const issue=classifyGameIssue(event.reason);if(issue.kind!=='unknown')report(issue)});
    listen(doc,'webglcontextlost',event=>{event.preventDefault();onStatus('Graphics were interrupted. Waiting for the browser to restore them…','graphics');const timer=setTimeout(()=>report(classifyGameIssue('WebGL context lost')),5000);stops.push(()=>clearTimeout(timer));const restore=()=>{clearTimeout(timer);onStatus('Graphics restored.','restored')};event.target.addEventListener('webglcontextrestored',restore,{once:true});stops.push(()=>event.target.removeEventListener('webglcontextrestored',restore))},true);
    listen(doc,'load',progress,true);

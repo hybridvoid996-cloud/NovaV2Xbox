@@ -6,6 +6,7 @@ const {chromium}=require('C:/Users/willi/.cache/codex-runtimes/codex-primary-run
   const page=await browser.newPage(),errors=[];page.on('pageerror',error=>errors.push(error.message));
   await page.route('https://nova.test/**',route=>{
    const url=new URL(route.request().url());
+   if(url.pathname==='/missing.loader.js')return route.fulfill({status:404,contentType:'text/javascript',body:''});
    if(url.pathname==='/search-config.js')return route.fulfill({contentType:'text/javascript',body:fs.readFileSync('Public/search-config.js')});
    if(url.pathname.startsWith('/src/'))return route.fulfill({contentType:url.pathname.endsWith('.css')?'text/css':'text/javascript',body:fs.readFileSync(path.join('Public',url.pathname))});
    if(url.pathname==='/library-games.json')return route.fulfill({contentType:'application/json',body:JSON.stringify([{id:882,name:'Recovery fixture',url:'/content/monkey-mart/index.html'}])});
@@ -39,6 +40,13 @@ const {chromium}=require('C:/Users/willi/.cache/codex-runtimes/codex-primary-run
   await page.waitForFunction(()=>statuses.at(-1).kind==='restored');
   assert.equal(await page.evaluate(()=>reloads),0,'Finishing an active download must not reload the game');
   await page.evaluate(()=>{health.stop();Date.now=realHealthNow});
+  await page.evaluate(()=>{const doc=document.querySelector('iframe').contentDocument,loader=doc.createElement('section'),script=doc.createElement('script');loader.id='loading-screen';loader.textContent='Loading game files';script.src='/missing.loader.js';doc.body.append(loader,script)});
+  await page.waitForTimeout(100);
+  await page.evaluate(()=>startHealth());
+  await page.waitForFunction(()=>statuses.at(-1).kind==='asset');
+  assert.match(await page.evaluate(()=>statuses.at(-1).message),/engine file is unavailable/);
+  assert.equal(await page.evaluate(()=>reloads),0,'A missing engine must not cause an automatic reload loop');
+  await game.locator('#loading-screen').evaluate(node=>node.remove());
   await page.evaluate(()=>{reloads=0;startHealth()});await page.waitForTimeout(60);
   await game.getByRole('button',{name:'Play game'}).click();
   const before=await page.evaluate(()=>statuses.length);
