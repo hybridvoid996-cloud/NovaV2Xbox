@@ -1,6 +1,8 @@
 import {novaMovieLogo} from './movie-logo.mjs';
+import {createMovieStallRecovery} from './movie-stall.mjs';
 import {movieCinemaCSS} from './movie-cinema-theme.mjs?v=20261018-cinema169';
-function movieRuntime(config){
+function movieRuntime(config,createMovieStallRecovery){
+ const recoverStall=createMovieStallRecovery({exhausted:()=>send('novaMovieStalled')});
  let volume=1,lastRoute='',catalogAnnounced=false;
  window.__novaMoviePlaybackHealthy=()=>Array.from(document.querySelectorAll('video')).some(v=>!v.error&&v.readyState>=2&&(v.paused||Date.now()-(v.__novaProgressAt||0)<10000));
  const cno=config.provider==='cno';
@@ -17,14 +19,14 @@ function movieRuntime(config){
  document.addEventListener('timeupdate',e=>{if(e.target instanceof HTMLMediaElement&&e.target.tagName==='VIDEO'&&Number.isFinite(e.target.currentTime)){e.target.__novaProgressAt=Date.now();send('novaMovieTime',{currentTime:e.target.currentTime,duration:Number.isFinite(e.target.duration)?e.target.duration:null,ended:e.target.ended})}},true);
  document.addEventListener('ended',e=>{if(e.target instanceof HTMLMediaElement&&e.target.tagName==='VIDEO')send('novaMovieTime',{currentTime:e.target.currentTime,duration:Number.isFinite(e.target.duration)?e.target.duration:null,ended:true})},true);
  document.addEventListener('error',e=>{if(e.target instanceof HTMLMediaElement&&e.target.tagName==='VIDEO'&&e.target.error)send('novaMovieError')},true);
- addEventListener('message',e=>{const child=Array.from(document.querySelectorAll('iframe')).find(f=>f.contentWindow===e.source);if(!child)return;const rect=child.getBoundingClientRect?.();if(rect&&(rect.width<innerWidth*.5||rect.height<innerHeight*.4))return;const d=e.data;if(d?.token===config.session&&['novaMovieReady','novaMovieInteractive','novaMovieTime','novaMovieError','novaMovieProfile'].includes(d.novaAction)){if(d.novaAction==='novaMovieTime'&&!Number.isFinite(d.currentTime))return;send(d.novaAction,d)}else if(d?.type==='timeupdate'&&Number.isFinite(d.currentTime))send('novaMovieTime',{currentTime:d.currentTime,duration:Number.isFinite(d.duration)?d.duration:null,ended:d.ended===true})});
+ addEventListener('message',e=>{const child=Array.from(document.querySelectorAll('iframe')).find(f=>f.contentWindow===e.source);if(!child)return;const rect=child.getBoundingClientRect?.();if(rect&&(rect.width<innerWidth*.5||rect.height<innerHeight*.4))return;const d=e.data;if(d?.token===config.session&&['novaMovieReady','novaMovieInteractive','novaMovieTime','novaMovieError','novaMovieStalled','novaMovieProfile'].includes(d.novaAction)){if(d.novaAction==='novaMovieTime'&&!Number.isFinite(d.currentTime))return;send(d.novaAction,d)}else if(d?.type==='timeupdate'&&Number.isFinite(d.currentTime))send('novaMovieTime',{currentTime:d.currentTime,duration:Number.isFinite(d.duration)?d.duration:null,ended:d.ended===true})});
  addEventListener('message',e=>{if(e.source===parent&&e.data?.novaAction==='novaMoviePause')document.querySelectorAll('video,audio').forEach(m=>m.pause())});
- brand();setInterval(()=>{brand();audio()},1500);
+ brand();setInterval(()=>{brand();audio();for(const video of document.querySelectorAll('video'))recoverStall(video)},1500);
 }
 export async function brandMovieResponse(response,target={}){
  if(response.status!==200||!response.headers.some(([k,v])=>k.toLowerCase()==='content-type'&&v.includes('text/html')))return response;
  const body=typeof response.body==='string'?response.body:await new Response(response.body).text();
  const config=JSON.stringify({logo:novaMovieLogo,css:movieCinemaCSS,session:target.session||'',provider:target.provider||'',profile:{name:String(target.profile?.name||'Nova player').slice(0,80),photo:String(target.profile?.photo||'').slice(0,200000)}}).replace(/</g,'\\u003c');
- const script='<script>('+movieRuntime.toString()+')('+config+');</script>';
+ const script='<script>('+movieRuntime.toString()+')('+config+','+createMovieStallRecovery.toString()+');</script>';
  return {...response,body:body+script,headers:response.headers.filter(([k])=>!['content-length','content-encoding'].includes(k.toLowerCase()))};
 }

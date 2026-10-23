@@ -1,10 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createNoahMusic,normalizeNoahTrack} from '../server/music-noah.mjs';
-import {createMusicProviderHandler,mergeMusicCatalog} from '../server/music-providers.mjs';
+import {createMusicProviderHandler,mergeMusicCatalog,rankMusicCatalog} from '../server/music-providers.mjs';
 const row={id:'123',title:'Artist - Song',artist:'Artist',artists:[{id:'9',name:'Artist'}],album:{id:'scgroup',title:'Electronic',cover:'https://i1.sndcdn.com/cover.jpg'},duration:120,allowStreaming:true};
 const result=items=>Response.json({data:{items}});
 const response=()=>({headers:{},setHeader(k,v){this.headers[k.toLowerCase()]=v},end(body){this.body=body}});
+test('original recordings rank above covers unless the query asks for a cover',()=>{
+ const catalog={tracks:[{id:'sc:1',title:'Rock With You (Cover)',artist:'Michael Jackson'},{id:'void:2',title:'Rock with You',artist:'Michael Jackson'}]};
+ assert.equal(rankMusicCatalog(catalog,'Rock with you by Michael Jackson').tracks[0].id,'void:2');
+ assert.equal(rankMusicCatalog(catalog,'Rock with you Michael Jackson cover').tracks[0].id,'sc:1');
+ assert.equal(catalog.tracks[0].id,'sc:1');
+});
 
 test('Noah metadata preserves recording identity and does not claim genre groups are albums',()=>{
  const t=normalizeNoahTrack(row);assert.equal(t.id,'noah:123');assert.equal(t.artist,'Artist');assert.equal(t.duration,120);assert.equal(t.album,'');assert.equal(t.thumb,row.album.cover);
@@ -65,4 +71,12 @@ test('a failed secondary catalog does not break SoundCloud and Noah survives a p
  const run=async(service,noah)=>{const h=createMusicProviderHandler({primary(){},service,noah}),res=response();await h({method:'GET',url:'/api/soundcloud?op=catalog&q=Artist'},res);return {status:res.statusCode,data:JSON.parse(res.body)}};
  const good={async catalog(){return {tracks:[{id:'sc:1'}],artists:[],releases:[]}}},bad={async catalog(){throw Error('offline')}};
  assert.equal((await run(good,bad)).status,200);assert.equal((await run(bad,good)).data.tracks[0].id,'sc:1');assert.equal((await run(bad,bad)).status,502);
+});
+
+test('successful SoundCloud searches also include Noah and playable Void tracks',async()=>{
+ for(const op of ['catalog','search']){
+  const handler=createMusicProviderHandler({primary(){throw Error('Unexpected primary')},service:{catalog:async()=>({tracks:[{id:'sc:1',title:'Song'}]}),search:async()=>({tracks:[{id:'sc:1',title:'Song'}]})},noah:{catalog:async()=>({tracks:[{id:'noah:2',title:'Song'}]}),search:async()=>({tracks:[{id:'noah:2',title:'Song'}]})},alternative:{search:async()=>({tracks:[{id:'3',title:'Song',artist:'Artist',art:'abc'}]})}});
+  const res=response();await handler({method:'GET',url:'/api/soundcloud?op='+op+'&q=Song'},res);
+  const data=JSON.parse(res.body);assert.equal(res.statusCode,200);assert.deepEqual(data.tracks.map(t=>t.id),['sc:1','noah:2','void:3']);assert.equal(data.tracks[2].thumb,'/api/soundcloud?op=void-art&token=abc');
+ }
 });

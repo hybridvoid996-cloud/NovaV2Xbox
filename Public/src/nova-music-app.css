@@ -187,3 +187,5 @@ html.reduce-motion .nmc-boot-spotify{animation:none;transform:translateX(-130px)
 
 /* Keep the artist title and badge aligned despite card typography rules. */
 .nmc .nmc-artist-name{display:flex;align-items:center;gap:7px;min-width:0;letter-spacing:normal}.nmc .nmc-artist-label{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nmc .nmc-verified{flex:0 0 auto;letter-spacing:normal;line-height:1}.nmc .nmc-search-top .nmc-track-card>.nmc-artist-name{font-size:clamp(24px,2.2vw,32px);line-height:1.2;font-weight:750;margin:0 0 8px}
+
+.nmc-play-toggle{position:relative}.nmc-play-toggle.is-buffering{outline:none}.nmc-play-toggle.is-buffering:after{content:"";position:absolute;inset:-5px;border:2px solid #ffffff30;border-top-color:#fff;border-radius:50%;animation:nmc-buffer-spin .8s linear infinite;pointer-events:none}@keyframes nmc-buffer-spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.nmc-play-toggle.is-buffering:after{animation:none;border-style:dashed}}
