@@ -1,1 +1,3 @@
 export function importedGameAsset(value){const u=new URL(value);if(u.origin==='https://130291037-114506095424113735.preview.editmysite.com'&&u.pathname==='/uploads/b/8156145-746889060530413966/files/set.js')return '/content/runtime/nova-poki.js';if(u.origin==='https://cdn.jsdelivr.net'&&decodeURIComponent(u.pathname)==='/gh/bubbls/UGS-Assets@main/eggy car/ima3.js')return 'empty-script';return null}
+const rocketSdkRoot='/fork-so-the-site-i-take-wont-be-deleted/bulbasaurchat.github.io/main/games/blumgi-rocket-main/blumgi-rocket-main/patch/';
+export function rocketSdkAsset(value){const u=new URL(value);return u.hostname==='raw.githubusercontent.com'&&u.pathname===rocketSdkRoot+'poki-sdk.js'?'/content/runtime/nova-poki.js':null}
