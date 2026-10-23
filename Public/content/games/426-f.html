@@ -400,17 +400,9 @@
       <div id="messages">
       </div>
     </div>
-	<!-- Ads Stuff for games that need it -->
-   <script async
-     data-ad-client="ca-pub-123"
-     data-ad-frequency-hint="30s"
-     data-adbreak-test="on"
-     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
-   </script>
-
    <script>
      window.adsbygoogle = window.adsbygoogle || [];
-     adConfig = function(o) {adsbygoogle.push(o);}
+     adConfig = function() {};
    </script>
 
 <script>
@@ -467,11 +459,11 @@
           return originalOpen.call(this, method, url, ...rest);
       };
       let index = document.createElement("script");
-      index.src = "index.js";
+      index.src = "index.js"; index.async = false;
       document.body.appendChild(index);
 
       let runner = document.createElement("script");
-      runner.src = "runner.js";
+      runner.src = "runner.js"; runner.async = false;
       document.body.appendChild(runner);
   }).catch(error => {
       console.error("Failed to merge files:", error);

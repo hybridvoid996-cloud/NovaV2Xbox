@@ -1,4 +1,13 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {repairConstructBase} from '../Public/src/game-construct-compat.mjs';
+test('Bendy and Andy native startup is limited to each exact first-party wrapper',async()=>{
+ const {nativeGameURL}=await import('../Public/src/native-game-frame.mjs');
+ for(const [id,path] of [[215,'/content/games/215-f.html'],[426,'/content/games/426-f.html']]){
+  assert.equal(nativeGameURL({id,url:path},'game','https://nova.example/player.html'),'https://nova.example'+path);
+  assert.equal(nativeGameURL({id,url:'https://other.test'+path},'game','https://nova.example/player.html'),null);
+  assert.equal(nativeGameURL({id,url:'/content/games/other.html'},'game','https://nova.example/player.html'),null);
+  assert.equal(nativeGameURL({id,url:path},'app','https://nova.example/player.html'),null);
+ }
+});
 test('Celeste native startup is limited to its exact first-party wrapper',async()=>{
  const {nativeGameURL}=await import('../Public/src/native-game-frame.mjs');
  const base='https://nova.example/player.html';

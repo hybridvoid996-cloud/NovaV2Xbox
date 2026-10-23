@@ -40,20 +40,22 @@ const output = process.env.NOVA_REVIEW_OUTPUT || 'docs/game-audit/followup/';
    page.on('console', m => {if (m.type() === 'error') consoleErrors.push(m.text().slice(0, 1000));if(process.env.NOVA_REVIEW_LOGS==='1'&&!m.text().includes('unrewriteUrl')&&logs.length<500)logs.push({type:m.type(),text:m.text().slice(0,1000)})});
    try {
     await page.goto(base + '/player.html?kind=game&id=' + id, {waitUntil: 'domcontentloaded', timeout: 60000});
-    if(process.env.NOVA_REVIEW_GESTURE==='1'){await page.waitForTimeout(2000);await page.mouse.click(512,320)}await page.waitForTimeout(Number(process.env.NOVA_REVIEW_WAIT_MS) || 30000);
-    await page.screenshot({path:output+id+'-startup.png',timeout:10000}).catch(()=>{});
+    if(process.env.NOVA_REVIEW_GESTURE==='1'){await page.waitForTimeout(2000);await page.mouse.click(512,320)}
+    if(process.env.NOVA_REVIEW_AUTO_START==='1')await page.waitForTimeout(2000);
     if(process.env.NOVA_REVIEW_AUTO_START==='1'){
      for(const frame of page.frames().slice(1)){
       const text=await frame.locator('body').innerText({timeout:3000}).catch(()=>'');
       if(/accept.*terms|terms and conditions|I agree/i.test(text))continue;
       const buttons=frame.getByRole('button',{name:/^(Play|Start|Start game|New game)$/i});
       for(let n=0;n<await buttons.count();n++)if(await buttons.nth(n).isVisible()&&await buttons.nth(n).isEnabled()){
-       autoStarted=await buttons.nth(n).innerText();await buttons.nth(n).click({timeout:5000});await page.waitForTimeout(12000);break;
+       autoStarted=await buttons.nth(n).innerText();await buttons.nth(n).click({timeout:5000});break;
       }
       if(autoStarted)break;
      }
     }
-    for (const action of actions) {
+    await page.waitForTimeout(Number(process.env.NOVA_REVIEW_WAIT_MS) || 30000);
+    await page.screenshot({path:output+id+'-startup.png',timeout:10000}).catch(()=>{});
+    for (const action of actions) { await page.bringToFront();
      if (action.selector) await page.frameLocator('iframe').locator(action.selector).click({timeout:30000});
      if (action.button) await page.frameLocator('iframe').getByRole('button', {name: action.button, exact: true}).click({timeout: 15000});
      if (action.click) await page.mouse.click(...action.click, {delay: 150});

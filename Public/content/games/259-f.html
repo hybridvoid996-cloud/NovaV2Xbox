@@ -5,7 +5,7 @@
     <html lang=en-us>
 
     <head><script id="nova-analytics-compat">window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){};</script>
-        <base href="https://cdn.jsdelivr.net/gh/giorgirick2-gif/game-webports-onawebsite@main/class-of-09/">
+        <base href="https://cdn.jsdelivr.net/gh/giorgirick2-gif/game-webports-onawebsite@b3042ae7a56b2ede39ea4b4371b1d0ab3af8828a/class-of-09/">
         <meta charset=utf-8>
         <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
         <title>Class of '09</title>
@@ -205,7 +205,11 @@
                             resolve(mergedFileUrl);
                             return;
                         }
-                        fetch(fileParts[index]).then((response) => response.arrayBuffer()).then((data) => {
+                        fetch(fileParts[index]).then((response) => {
+                            if (!response.ok) throw Error('Game archive returned HTTP ' + response.status);
+                            return response.arrayBuffer();
+                        }).then((data) => {
+                            if (data.byteLength !== 14194460) throw Error('Game archive part is incomplete.');
                             buffers.push(data);
                             fetchPart(index + 1);
                         }).catch(reject);
@@ -224,12 +228,27 @@
             mergeFiles(getParts("game.zip", 1, 2)).then(async url => {
                 window.gameZipUrl = url;
                 let renpypre = document.createElement("script");
-                renpypre.src = "https://cdn.jsdelivr.net/gh/giorgirick2-gif/game-webports-onawebsite@725a19f20c3f376529284c9f86299581719e8d19/class-of-09/renpy-pre.js"
+                renpypre.src = "https://cdn.jsdelivr.net/gh/giorgirick2-gif/game-webports-onawebsite@b3042ae7a56b2ede39ea4b4371b1d0ab3af8828a/class-of-09/renpy-pre.js"
                 let renpy = document.createElement("script");
-                renpy.src = "https://cdn.jsdelivr.net/gh/giorgirick2-gif/game-webports-onawebsite@725a19f20c3f376529284c9f86299581719e8d19/class-of-09/renpy.js"
-                document.body.appendChild(renpypre);
-                document.body.appendChild(renpy);
+                renpy.src = "https://cdn.jsdelivr.net/gh/giorgirick2-gif/game-webports-onawebsite@b3042ae7a56b2ede39ea4b4371b1d0ab3af8828a/class-of-09/renpy.js"
+                await new Promise((resolve, reject) => {
+                    renpypre.onload = resolve;
+                    renpypre.onerror = () => reject(Error('The game bootstrap could not load.'));
+                    document.body.appendChild(renpypre);
+                });
+                await new Promise((resolve, reject) => {
+                    renpy.onload = resolve;
+                    renpy.onerror = () => reject(Error('The game engine could not load.'));
+                    document.body.appendChild(renpy);
+                });
+            }).catch(error => {
+                const message = document.createElement('p');
+                message.setAttribute('role', 'alert');
+                message.style.cssText = 'position:fixed;inset:40% 10% auto;z-index:100;color:white;background:#17171d;padding:24px;text-align:center';
+                message.textContent = 'Game files could not load. ' + error.message;
+                document.body.appendChild(message);
             });
+            addEventListener('pagehide', () => { if (window.gameZipUrl) URL.revokeObjectURL(window.gameZipUrl); }, {once:true});
         </script>
         <canvas id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas><img id=presplash>
         <div id=ContextContainer><a id=ContextButton>≡</a><br>
