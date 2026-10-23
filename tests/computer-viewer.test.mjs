@@ -7,7 +7,8 @@ function harness({relayConfigured=true}={}){
  const channel={label:'nova-input',readyState:'open',bufferedAmount:0,send:value=>packets.push(JSON.parse(value)),close(){this.readyState='closed'}};
  class Peer{constructor(config){this.config=config;peer=this;this.connectionState='connected';this.remoteDescription=null}async setRemoteDescription(v){this.remoteDescription=v}async createAnswer(){return{type:'answer',sdp:'test'}}async setLocalDescription(v){this.localDescription=v}async addIceCandidate(){}async getStats(){return new Map([['video',{type:'inbound-rtp',kind:'video',framesPerSecond:58}]])}close(){this.closed=true}}
  const context={console,auth:{onAuthStateChanged:fn=>{authListener=fn}},document:{getElementById:get,hidden:false,body:{classList:classes},addEventListener:(name,fn)=>listeners.set(name,fn)},navigator:{userAgent:'test'},performance:{now:()=>2000},location:{origin:'https://nova.test'},parent:{},matchMedia:()=>({matches:false}),RTCPeerConnection:Peer,MediaStream:class{},setInterval:(fn,delay)=>{const id=next++;intervals.set(id,{fn,delay});return id},clearInterval:id=>intervals.delete(id),setTimeout:(fn,delay)=>{const id=next++;timeouts.set(id,{fn,delay});return id},clearTimeout:id=>timeouts.delete(id),addEventListener:(name,fn)=>listeners.set(name,fn),fetch:async(url,options)=>{if(url.startsWith('/downloads'))return{ok:true,json:async()=>({parts:[]})};const body=JSON.parse(options.body);requests.push(body);const data=body.action==='list'?{devices:[]}:body.action==='connect'?{session:'s'}:body.action==='poll'?{offset:1,status:'active',signals:[{type:'offer',sdp:'test'}],iceServers:[],relayConfigured}:{};return{ok:true,json:async()=>data}}};
- vm.runInNewContext(source+'\nglobalThis.testViewer={connectDevice,stop,send};',context);
+ context.window=context;context.parent=context;
+ vm.runInNewContext(source+'\nglobalThis.testViewer={connectDevice,stop,send,lockEscape,remoteFullscreenChanged};',context);
  return {context,get,listeners,intervals,timeouts,requests,packets,channel,peer:()=>peer,login:async()=>{authListener({uid:'u',getIdToken:async()=> 'token'});await new Promise(resolve=>setImmediate(resolve))}};
 }
 test('remote viewer suspends the list, uses low delay, reports actual FPS and disconnects cleanly',async()=>{
@@ -34,3 +35,23 @@ test('a temporarily failed poll retries without tearing down the viewer',async()
 test('connection timeout explains a missing relay without silently returning to the device list',async()=>{const h=harness({relayConfigured:false});await h.login();await h.context.testViewer.connectDevice({id:'pc',name:'PC'});h.peer().connectionState='connecting';[...h.timeouts.values()].find(t=>t.delay===45000).fn();await new Promise(resolve=>setImmediate(resolve));assert.equal(h.peer().closed,true);assert.match(h.get('notice').textContent,/No TURN relay is configured/);assert.equal(h.get('session').hidden,true)});
 
 test('restricted Wi-Fi choice reaches the server and forces relay candidates',async()=>{const h=harness();await h.login();h.get('network-mode').value='relay';const old=h.context.fetch;h.context.fetch=async(url,options)=>{const response=await old(url,options);if(JSON.parse(options?.body||'{}').action==='poll'){const data=await response.json();return {...response,json:async()=>({...data,iceTransportPolicy:'relay'})}}return response};await h.context.testViewer.connectDevice({id:'pc',name:'PC'});assert.equal(h.requests.find(r=>r.action==='connect').networkMode,'relay');assert.equal(h.peer().config.iceTransportPolicy,'relay')});
+
+test('fullscreen locks only Escape, forwards short presses, and releases keys on exit',async()=>{
+ const h=harness();await h.login();await h.context.testViewer.connectDevice({id:'pc',name:'PC'});h.peer().ondatachannel({channel:h.channel});
+ const locks=[];let unlocks=0;h.context.navigator.keyboard={lock:async keys=>locks.push([...keys]),unlock:()=>unlocks++};h.context.document.fullscreenElement=h.get('session');
+ await h.context.testViewer.lockEscape();assert.deepEqual(locks,[['Escape']]);
+ const desktop=h.get('desktop');let prevented=0;desktop.onkeydown({key:'Escape',code:'Escape',preventDefault(){prevented++}});desktop.onkeyup({key:'Escape',code:'Escape',preventDefault(){prevented++}});
+ assert.deepEqual(h.packets.slice(-2),[{type:'key',code:'Escape',down:true},{type:'key',code:'Escape',down:false}]);assert.equal(prevented,2);
+ h.context.document.fullscreenElement=null;h.context.testViewer.remoteFullscreenChanged();assert.equal(unlocks,1);assert.equal(h.packets.at(-1).type,'release');
+});
+test('a denied keyboard lock keeps Escape usable and can be retried on a click',async()=>{
+ const h=harness();await h.login();await h.context.testViewer.connectDevice({id:'pc',name:'PC'});h.peer().ondatachannel({channel:h.channel});h.context.document.fullscreenElement=h.get('session');
+ let calls=0;h.context.navigator.keyboard={lock:async()=>{if(++calls===1)throw Error('Denied')},unlock(){}};
+ await h.context.testViewer.lockEscape();h.get('desktop').onkeydown({key:'Escape'});assert.equal(h.packets.at(-1).type,'release');
+ await h.context.testViewer.lockEscape();h.get('desktop').onkeydown({key:'Escape',code:'Escape',preventDefault(){}});assert.equal(h.packets.at(-1).type,'key');assert.equal(calls,2);
+});
+test('embedded remote fullscreen locks the containing top-level window',async()=>{
+ const h=harness();await h.login();await h.context.testViewer.connectDevice({id:'pc',name:'PC'});
+ const iframe={};let calls=0;const top={document:{fullscreenElement:iframe},navigator:{keyboard:{lock:async keys=>{assert.deepEqual([...keys],['Escape']);calls++},unlock(){}}}};top.parent=top;h.context.parent=top;h.context.frameElement=iframe;h.context.document.fullscreenElement=h.get('session');h.context.navigator.keyboard={lock(){throw Error('Keyboard lock must run in the top-level window')}};
+ await h.context.testViewer.lockEscape();assert.equal(calls,1);h.context.document.exitFullscreen=async()=>{};h.context.testViewer.stop();
+});
