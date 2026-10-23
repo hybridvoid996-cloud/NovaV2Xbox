@@ -1,5 +1,6 @@
 // Repair identified export defects before the proxy rewrites their JavaScript.
 export async function repairConstructBase(url, response, {gameId} = {}) {
+ const rocketRawScript = String(gameId) === '353' && url.hostname === 'raw.githubusercontent.com' && url.pathname.startsWith('/fork-so-the-site-i-take-wont-be-deleted/bulbasaurchat.github.io/main/games/blumgi-rocket-main/blumgi-rocket-main/') && url.pathname.endsWith('.js');
  const construct = url.pathname.endsWith('/scripts/main.js') && /(?:blumgi-rocket|catgunner|draw-the-hill)/.test(url.pathname);
  const choppy = /\/choppy(?:%20| )orc\/coffee\.js$/.test(url.pathname);
  const monster = url.pathname.endsWith('/monster-tracks/webapp/index.js');
@@ -10,11 +11,13 @@ export async function repairConstructBase(url, response, {gameId} = {}) {
  const celesteNative = String(gameId) === '623' && url.hostname === 'cdn.jsdelivr.net' && /^\/gh\/web-ports\/celeste@[^/]+\/_framework\/dotnet\.native\.[^/]+\.js$/.test(url.pathname);
  const celeste = String(gameId) === '623' && url.hostname === 'cdn.jsdelivr.net' && /^\/gh\/web-ports\/celeste@[^/]+\/_framework\/dotnet\.runtime\.[^/]+\.js$/.test(url.pathname);
  const holiday = String(gameId) === '214' && url.hostname === 'cdn.jsdelivr.net' && url.pathname === '/gh/ubg42/CutTheRopeGames@main/holiday/scripts/libraries.js';
- if (response.status !== 200 || !(construct || choppy || monster || runner || mountain || fear || holiday || celeste || celesteNative || celesteBundle)) return response;
+ if (response.status !== 200 || !(rocketRawScript || construct || choppy || monster || runner || mountain || fear || holiday || celeste || celesteNative || celesteBundle)) return response;
  const source = typeof response.body === 'string' ? response.body : await new Response(response.body).text();
  let body;
  if (celesteBundle) {
   body=source.replace("const res = await fetch(url);\n      if (!res.ok) throw new Error(\"Failed to fetch: \" + url);\n\n      const buf = await res.arrayBuffer();","const buf = await (async()=>{const expected=i===29?7950231:20866662;let failure;for(let attempt=0;attempt<3;attempt++){try{const source=attempt===1?'https://raw.githubusercontent.com/web-ports/celeste/4f043a5ce121b74dc54ce56d74f213a2eeea6b4e/'+url:url;const response=await fetch(source,attempt?{cache:'reload'}:{});if(!response.ok)throw Error('Game part returned HTTP '+response.status);const bytes=await response.arrayBuffer();if(bytes.byteLength!==expected)throw Error('Game part '+(i+1)+' is incomplete ('+bytes.byteLength+' / '+expected+' bytes)');return bytes}catch(error){failure=error}}throw failure})();");
+  // Blob joins the archive parts in order without a second 613 MB JS allocation.
+  body=body.replace(/\/\/ Merge\r?\n\s*let totalLen = buffers\.reduce\([\s\S]*?window\.assetblob = URL\.createObjectURL\(new Blob\(\[merged\]\)\);/,"window.assetblob = URL.createObjectURL(new Blob(buffers, {type:'application/octet-stream'}));\n    buffers.length = 0;");
  } else if (celesteNative) {
   body=source.replace(/assert\(([^,\n]+)\);/g,(match,condition)=>'assert('+condition+','+JSON.stringify('Celeste native check: '+condition)+');').replace('function abort(what) {', 'function abort(what) {console.error("Celeste engine abort:",String(what));');
  } else if (celeste) {
@@ -45,5 +48,7 @@ export async function repairConstructBase(url, response, {gameId} = {}) {
  } else {
   body = source.replace(/new (?:self\.|window\.)?RuntimeInterface\(\{/g, match => match + 'baseUrl:document.baseURI,');
  }
- return {...response, body, headers: response.headers.filter(([name]) => !['content-length', 'content-encoding'].includes(name.toLowerCase()))};
+ const headers = response.headers.filter(([name]) => !['content-length', 'content-encoding', ...(rocketRawScript ? ['content-type'] : [])].includes(name.toLowerCase()));
+ if (rocketRawScript) headers.push(['Content-Type', 'application/javascript; charset=utf-8']);
+ return {...response, body, headers};
 }

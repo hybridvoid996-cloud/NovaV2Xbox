@@ -1,4 +1,27 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {repairConstructBase} from '../Public/src/game-construct-compat.mjs';
+test('Celeste native startup is limited to its exact first-party wrapper',async()=>{
+ const {nativeGameURL}=await import('../Public/src/native-game-frame.mjs');
+ const base='https://nova.example/player.html';
+ assert.equal(nativeGameURL({id:623,url:'content/games/623-work.html'},'game',base),'https://nova.example/content/games/623-work.html');
+ for(const url of ['https://external.example/content/games/623-work.html','content/games/other.html'])assert.equal(nativeGameURL({id:623,url},'game',base),null);
+ assert.equal(nativeGameURL({id:623,url:'content/games/623-work.html'},'app',base),null);
+});
+test('Celeste joins archive parts without allocating another full-size JavaScript buffer',async()=>{
+ const source='// Merge\n let totalLen = buffers.reduce((s,b)=>s+b.byteLength,0); let merged=new Uint8Array(totalLen); let off=0; for(const b of buffers){merged.set(new Uint8Array(b),off);off+=b.byteLength;} window.assetblob = URL.createObjectURL(new Blob([merged]));';
+ const result=await repairConstructBase(new URL('https://cdn.jsdelivr.net/gh/web-ports/celeste@4f043a5ce121b74dc54ce56d74f213a2eeea6b4e/bundle.js'),{status:200,body:source,headers:[]},{gameId:623});
+ const {default:vm}=await import('node:vm');let archive;
+ const buffers=[Uint8Array.from([1,2]).buffer,Uint8Array.from([3,4]).buffer];
+ vm.runInNewContext(result.body,{buffers,Blob,window:{},URL:{createObjectURL(blob){archive=blob;return 'blob:archive'}},Uint8Array:function(){throw Error('Full archive allocation is forbidden')}});
+ assert.deepEqual(Array.from(new Uint8Array(await archive.arrayBuffer())),[1,2,3,4]);assert.equal(buffers.length,0);
+});
+test('Blumgi Rocket repository modules retain an executable JavaScript MIME type',async()=>{
+ const url=new URL('https://raw.githubusercontent.com/fork-so-the-site-i-take-wont-be-deleted/bulbasaurchat.github.io/main/games/blumgi-rocket-main/blumgi-rocket-main/scripts/c3runtime.js');
+ const response={status:200,body:'export const runtime=true;',headers:[['content-type','text/plain'],['content-length','26']]};
+ const result=await repairConstructBase(url,response,{gameId:353});
+ assert.equal(result.body,response.body);
+ assert.deepEqual(result.headers,[['Content-Type','application/javascript; charset=utf-8']]);
+ assert.equal(await repairConstructBase(url,response,{gameId:354}),response);
+});
 test('Construct workers and assets resolve against the export base rather than Nova',async()=>{const response={status:200,body:'new self.RuntimeInterface({useWorker:false,scriptFolder:"scripts/"})',headers:[['content-length','12'],['content-type','text/javascript']]};const result=await repairConstructBase(new URL('https://cdn.jsdelivr.net/gh/o/r@main/blumgi-rocket/scripts/main.js'),response);assert.match(result.body,/baseUrl:document.baseURI/);assert.ok(!result.headers.some(([key])=>key==='content-length'));assert.equal(await repairConstructBase(new URL('https://cdn.jsdelivr.net/gh/o/r@main/working-game/scripts/main.js'),response),response)});
 test('Choppy Orc keeps its fake clock and installs controls when native timing is read-only',async()=>{const response={status:200,body:'window.performance.now = function() {\n      return _gthis.fakeTime;\n    }; window.controlsInstalled=true;',headers:[]};const r=await repairConstructBase(new URL('https://cdn.jsdelivr.net/gh/o/r@main/choppy%20orc/coffee.js'),response);const {default:vm}=await import('node:vm');const performance={};Object.defineProperty(performance,'now',{value:()=>1,configurable:true,writable:false});const context={window:{performance},_gthis:{fakeTime:42}};vm.runInNewContext(r.body,context);assert.equal(context.window.performance.now(),42);assert.equal(context.window.controlsInstalled,true)});
 test('Monster Tracks uses its original repository for CDN-rejected large data',async()=>{const response={status:200,body:'const asset="https://cdn.jsdelivr.net/gh/genizy/google-class/monster-tracks/webapp/index.data";',headers:[]};const r=await repairConstructBase(new URL('https://cdn.jsdelivr.net/gh/taskmaster773/google-class/monster-tracks/webapp/index.js'),response);assert.match(r.body,/raw.githubusercontent.com\/genizy\/google-class\/main\/monster-tracks\/webapp\/index.data/)});
