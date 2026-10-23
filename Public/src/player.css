@@ -82,3 +82,7 @@ body.cloud-loading #back{display:block}
 
 /* Show provider queues and connection details instead of an unexplained spinner. */
 body.cloud-loading #message{position:static;width:auto;height:auto;margin:14px 0;overflow:visible;clip-path:none;white-space:normal;max-width:420px}body.cloud-loading #cloud-controls{z-index:5}
+
+/* BitLife's original UI requires a portrait viewport, including on wide screens. */
+body.portrait-game #stage > iframe{width:min(100vw,56.25vh)!important;left:50%!important;right:auto!important;transform:translateX(-50%);height:100%!important}
+
