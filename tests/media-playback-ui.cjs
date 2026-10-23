@@ -12,20 +12,29 @@ const {chromium}=require('C:/Users/willi/.cache/codex-runtimes/codex-primary-run
    if(u.pathname.startsWith('/src/')){const file='Public'+u.pathname;return route.fulfill({body:fs.readFileSync(file),contentType:u.pathname.endsWith('.css')?'text/css':'text/javascript'})}
    return route.fulfill({body:''});
   });
+  await page.clock.install();
   await page.goto('https://media.test/novatube.html?v=aqz-KE-bpKQ');
   await page.locator('#tube-player iframe').waitFor();
-  assert.match(await page.locator('#tube-player iframe').getAttribute('src'),/^https:\/\/www.youtube-nocookie.com\/embed\/aqz-KE-bpKQ/);
+  assert.match(await page.locator('#tube-player iframe').getAttribute('src'),/^https:\/\/www.youtube.com\/embed\/aqz-KE-bpKQ/);
   await page.exposeFunction('recordProxy',()=>proxyCalls++);
   await page.evaluate(()=>{window.NovaConnection={create:async()=>{await window.recordProxy();return {createFrame(){const element=document.createElement('iframe');return {element,go(){element.src='/~/sj/p/fixture'}}}}}}});
   await page.getByRole('button',{name:'Use proxy playback',exact:true}).click();
   await page.waitForFunction(()=>document.querySelector('#tube-player iframe')?.getAttribute('src')==='/~/sj/p/fixture');
   assert.equal(proxyCalls,1);
   await page.getByRole('button',{name:'Use regular playback',exact:true}).click();
-  assert.match(await page.locator('#tube-player iframe').getAttribute('src'),/^https:\/\/www.youtube-nocookie.com\/embed\//);
+  assert.match(await page.locator('#tube-player iframe').getAttribute('src'),/^https:\/\/www.youtube.com\/embed\//);
   assert.equal(await page.locator('#tube-player iframe').count(),1);
+  await page.clock.fastForward(12001);
+  await page.waitForFunction(()=>document.querySelector('#tube-player iframe')?.getAttribute('src')==='/~/sj/p/fixture');
+  assert.equal(proxyCalls,2);
+  await page.getByRole('button',{name:'Use regular playback',exact:true}).click();
+  await page.evaluate(()=>dispatchEvent(new MessageEvent('message',{source:document.querySelector('#tube-player iframe').contentWindow,origin:'https://www.youtube.com',data:JSON.stringify({event:'onReady'})})));
+  await page.clock.fastForward(25000);
+  assert.match(await page.locator('#tube-player iframe').getAttribute('src'),/^https:\/\/www.youtube\.com\/embed\//);
+  assert.equal(proxyCalls,2);
   await page.addStyleTag({content:fs.readFileSync('Public/src/nova-music-app.css','utf8')});
   await page.evaluate(()=>{const b=document.createElement('button');b.className='nmc-play-toggle is-buffering';b.id='buffer-test';document.body.append(b)});
   assert.equal(await page.locator('#buffer-test').evaluate(n=>getComputedStyle(n,'::after').animationName),'nmc-buffer-spin');
-  console.log('PASS: regular YouTube default, explicit proxy switch, switching back leaves one player, music buffering animation.');
+  console.log('PASS: standard YouTube domain, explicit proxy switch, blocked-player fallback, healthy-player stability, music buffering animation.');
  }finally{await browser.close()}
 })().catch(error=>{console.error(error);process.exitCode=1});
