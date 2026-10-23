@@ -1,26 +1,27 @@
 const bounded=(work,ms)=>{let timer;return Promise.race([work,new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Music catalog timed out.')),ms);timer.unref?.()})]).finally(()=>clearTimeout(timer))};
 
-export function mergeMusicCatalog(primary={},extra={}){
- const tracks=(primary.tracks||[]).map(t=>({...t})),seen=new Set(tracks.map(t=>t.id));
- for(const row of extra.tracks||[]){
-  const original=tracks.find(t=>t.id==='sc:'+row.id?.replace(/^noah:/,''));
-  if(original){original.album ||= row.album;original.thumb ||= row.thumb;continue;}
-  if(!seen.has(row.id)){tracks.push(row);seen.add(row.id)}
- }
- const artists=[...(primary.artists||[])],names=new Set(artists.map(a=>a.title.toLowerCase()));
- for(const artist of extra.artists||[])if(!names.has(artist.title.toLowerCase())){artists.push(artist);names.add(artist.title.toLowerCase())}
- return {tracks,artists,releases:[...(primary.releases||[]),...(extra.releases||[])]};
-}
-
-export function rankMusicCatalog(catalog,query){
- const words=value=>String(value||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().match(/[a-z0-9]+/g)||[];
- const wanted=new Set(words(query).filter(word=>word!=='by'));
- const variants=new Set(['remix','cover','slowed','sped','acapella','tribute','karaoke','live']);
- const score=track=>{const tokens=new Set(words(track.title+' '+track.artist));const hits=[...wanted].filter(word=>tokens.has(word)).length;const extras=[...tokens].filter(word=>!wanted.has(word));return hits*10/Math.max(1,wanted.size)-extras.length*.08-extras.filter(word=>variants.has(word)).length*3};
- return {...catalog,tracks:[...(catalog.tracks||[])].sort((a,b)=>score(b)-score(a))};
-}
+import {mergeMusicCatalog,rankMusicCatalog,normalizeMusicQuery} from './music-catalog.mjs';
+export {mergeMusicCatalog,rankMusicCatalog} from './music-catalog.mjs';
 
 export function createMusicProviderHandler({primary,service,alternative,noah}){
+ const cache=new Map();
+ async function unified(query,mode='catalog'){
+  const q=normalizeMusicQuery(query).slice(0,160),key=mode+':'+q.toLowerCase(),hit=cache.get(key);
+  if(hit?.expires>Date.now())return hit.job;
+  const entry={expires:Date.now()+45000};
+  entry.job=(async()=>{
+   const primaryMode=mode==='catalog'?'catalog':mode==='import-search'?'importSearch':'search';
+   const secondaryMode=mode==='catalog'?'catalog':'search';
+   const results=await Promise.allSettled([
+    bounded(Promise.resolve().then(()=>service[primaryMode](q)),4500),
+    bounded(Promise.resolve().then(()=>noah[secondaryMode](q)),4500),
+    bounded(Promise.resolve().then(()=>alternative.catalog?alternative.catalog(q):alternative.search(q).then(data=>({tracks:(data.tracks||[]).map(t=>({...t,id:'void:'+t.id,src:'void',thumb:t.art?'/api/soundcloud?op=void-art&token='+encodeURIComponent(t.art):'',playable:true}))}))),4500)
+   ]);
+   if(results.every(result=>result.status==='rejected'))throw Error('Music search is temporarily unavailable. Please retry.');
+   if(results.some(result=>result.status==='rejected'))entry.expires=Date.now()+10000;
+   return {...rankMusicCatalog(results.reduce((catalog,result)=>result.status==='fulfilled'?mergeMusicCatalog(catalog,result.value):catalog,{}),q),catalogSources:results.flatMap((r,i)=>r.status==='fulfilled'?[['SoundCloud','Noah','Void'][i]]:[])};
+  })();cache.set(key,entry);if(cache.size>80)cache.delete(cache.keys().next().value);entry.job.catch(()=>{if(cache.get(key)===entry)cache.delete(key)});return entry.job;
+ }
  return async(req,res)=>{
   if(!['GET','HEAD'].includes(req.method))return primary(req,res);
   const params=new URL(req.url,'http://nova.local').searchParams,op=params.get('op')||'search';
@@ -33,20 +34,19 @@ export function createMusicProviderHandler({primary,service,alternative,noah}){
    if(op==='noah-art')return await noah.art(req,res,params.get('url'));
    if(op==='suggest'){
     const q=params.get('q');if(!q?.trim()||q.length>160)return reply(400,{error:'Enter a music search up to 160 characters.'});
-    try{return reply(200,await bounded(service.suggest(q),2000))}
-    catch{const data=await noah.catalog(q);return reply(200,{queries:[q,...data.tracks.slice(0,3).map(t=>t.title.slice(0,160))],artists:data.artists.slice(0,2),releases:data.releases.slice(0,2)})}
+    try{const data=await bounded(unified(q),2000);return reply(200,{queries:[q,...data.tracks.slice(0,3).map(t=>t.title.slice(0,160))],artists:data.artists.slice(0,2),releases:data.releases.slice(0,2)})}catch{return reply(200,{queries:[q],artists:[],releases:[]})}
    }
-   if(op==='catalog'){
+   if(['catalog','search','import-search'].includes(op)){
     const q=params.get('q');if(!q?.trim()||q.length>160)return reply(400,{error:'Enter a music search up to 160 characters.'});
-    const results=await Promise.allSettled([bounded(service.catalog(q),6000),bounded(noah.catalog(q),3500),bounded(Promise.resolve().then(()=>alternative.search(q)).then(data=>({tracks:(data.tracks||[]).map(t=>({...t,id:'void:'+t.id,src:'void',thumb:t.art?'/api/soundcloud?op=void-art&token='+encodeURIComponent(t.art):'',playable:true}))})),3500)]);
-    if(results.every(x=>x.status==='rejected'))throw Error('Music search is temporarily unavailable. Please retry.');
-    return reply(200,rankMusicCatalog(results.reduce((catalog,result)=>result.status==='fulfilled'?mergeMusicCatalog(catalog,result.value):catalog,{}),q));
+    return reply(200,await unified(q,op));
    }
-   if(op==='search'||op==='import-search'){
-    const q=params.get('q');if(!q?.trim()||q.length>160)return reply(400,{error:'Enter a music search up to 160 characters.'});
-    const results=await Promise.allSettled([bounded(op==='search'?service.search(q):service.importSearch(q),6000),bounded(noah.search(q),3500),bounded(Promise.resolve().then(()=>alternative.search(q)).then(data=>({tracks:(data.tracks||[]).map(t=>({...t,id:'void:'+t.id,src:'void',thumb:t.art?'/api/soundcloud?op=void-art&token='+encodeURIComponent(t.art):'',playable:true}))})),3500)]);
-    if(results.every(result=>result.status==='rejected'))throw Error('Music search is temporarily unavailable. Please retry.');
-    return reply(200,rankMusicCatalog(results.reduce((catalog,result)=>result.status==='fulfilled'?mergeMusicCatalog(catalog,result.value):catalog,{}),q));
+   if(['collection','artist'].includes(op)){
+    const id=String(params.get('id')||'');let data;
+    if(id.startsWith('noah:'))data=await noah[op](id);
+    else if(id.startsWith('void:'))data=await alternative[op==='collection'?'album':'artist'](id.slice(5));
+    else data=await service[op](id);
+    if(op==='artist'&&data.artist?.title){try{const extra=await unified(data.artist.title);const merged=mergeMusicCatalog(data,extra);data={...data,...merged,artist:{...data.artist,verified:data.artist.verified||merged.artists.some(a=>a.title.toLowerCase()===data.artist.title.toLowerCase()&&a.verified)}}}catch{}}
+    return reply(200,data);
    }
    if(op==='fallback'){
     const title=params.get('title'),artist=params.get('artist'),duration=Number(params.get('duration'));
@@ -61,8 +61,6 @@ export function createMusicProviderHandler({primary,service,alternative,noah}){
     const match=await alternative.find(params.get('title'),params.get('artist'),Number(params.get('duration')));
     return reply(200,{album:match.album||'',albumId:match.albumId||''});
    }
-   // Noah search IDs never go to SoundCloud's numeric artist/playlist routes.
-   if(['collection','artist'].includes(op)&&String(params.get('id')).startsWith('noah:'))return reply(400,{error:'Use the Noah collection request.'});
    return primary(req,res);
   }catch(error){if(res.headersSent)return res.destroy();return reply(502,{error:error.message||'Music could not connect. Please retry.'})}
  };

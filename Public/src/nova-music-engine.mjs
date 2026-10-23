@@ -35,10 +35,10 @@ export class NovaMusicEngine extends EventTarget{
   this.fallbackGeneration=generation;clearTimeout(this.primaryTimer);this.primaryTimer=null;
   const work=(async()=>{this.busy=true;this.error='';this.emit();try{
    const query=new URLSearchParams({op:'fallback',title:track.title||'',artist:track.artist||'',duration:String(track.duration||this.snapshot.duration||0),exclude:[...this.attemptedProviders].join(',')});
-   const response=await this.request('/api/soundcloud?'+query,{signal:AbortSignal.any([this.abort.signal,AbortSignal.timeout(9000)])});const data=await response.json();
+   const known=(track.sources||[]).find(source=>/^(void|noah):\d{1,20}$/.test(source.id)&&!this.attemptedProviders.has(source.id.split(':')[0]));const response=known?null:await this.request('/api/soundcloud?'+query,{signal:AbortSignal.any([this.abort.signal,AbortSignal.timeout(9000)])});const data=known?{found:true,url:'/api/soundcloud?op='+(known.id.startsWith('noah:')?'noah-audio':'alternate-audio')+'&id='+known.id.split(':')[1]}:await response.json();
    if(generation!==this.generation)return false;
    if(this.snapshot.playing&&this.snapshot.position>Number(position||0)+.25){this.fallbackGeneration=null;this.busy=false;this.emit();return true}
-   if(!response.ok||!data.found||!/^\/api\/soundcloud\?op=(?:alternate-audio|noah-audio)&id=\d{1,20}$/.test(data.url))throw Error('No matching alternative audio.');
+   if((response&&!response.ok)||!data.found||!/^\/api\/soundcloud\?op=(?:alternate-audio|noah-audio)&id=\d{1,20}$/.test(data.url))throw Error('No matching alternative audio.');
    const provider=data.url.includes('op=noah-audio')?'noah':'void';
    if(this.attemptedProviders.has(provider))throw Error('This audio route already failed.');
    this.attemptedProviders.add(provider);this.alternativeProvider=provider;this.reconnects=0;

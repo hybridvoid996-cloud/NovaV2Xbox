@@ -1,6 +1,12 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {NovaMusicEngine,safeTrack} from '../Public/src/nova-music-engine.mjs';
 class Audio extends EventTarget{constructor(){super();this.paused=true;this.ended=false;this.duration=120;this.currentTime=0;this.volume=.7;this.currentSrc=''}setAttribute(){}removeAttribute(){this.currentSrc=''}load(){}canPlayType(){return 'probably'}pause(){this.paused=true;this.dispatchEvent(new Event('pause'))}async play(){this.paused=false;this.dispatchEvent(new Event('play'))}set src(v){this.currentSrc=v}}
 const track=id=>({id:'sc:'+id,title:'Track '+id,duration:120}),reply=t=>Response.json({track:t,url:'/audio',hls:false});
+test('merged recordings switch directly to a retained source without another catalog lookup',async()=>{
+ const audio=new Audio(),engine=new NovaMusicEngine({audio,request:async()=>{throw Error('No catalog lookup is needed')}});
+ await engine.load({id:'void:1',title:'Song',artist:'Artist',duration:120,sources:[{id:'void:1'},{id:'noah:2'}]});
+ audio.currentTime=30;engine.reconnects=2;audio.dispatchEvent(new Event('error'));await new Promise(resolve=>setImmediate(resolve));
+ assert.equal(audio.currentSrc,'/api/soundcloud?op=noah-audio&id=2');audio.currentTime=0;audio.dispatchEvent(new Event('loadedmetadata'));await Promise.resolve();assert.equal(audio.currentTime,30);assert.equal(engine.track.id,'void:1');engine.destroy();
+});
 
 test('restricted SoundCloud audio waits for a full alternative rather than starting a preview widget',async()=>{
  let resolveFallback,widgets=0;

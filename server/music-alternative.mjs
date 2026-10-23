@@ -1,5 +1,10 @@
 import {Readable} from 'node:stream';
 const ORIGIN='https://oda-loves-vng.renaca.com';
+const numeric=value=>/^\d{1,20}$/.test(String(value||''));
+const cover=value=>/^[A-Za-z0-9_+=/-]{1,1000}$/.test(value||'')?'/api/soundcloud?op=void-art&token='+encodeURIComponent(value):'';
+const voidTrack=t=>numeric(t?.id)&&t.title&&t.artist?{id:'void:'+t.id,src:'void',provider:'Void',title:String(t.title).slice(0,200),artist:String(t.artist).slice(0,200),duration:Number(t.duration)||0,album:String(t.album||''),albumId:numeric(t.albumId)?'void:'+t.albumId:'',thumb:cover(t.art),playable:true}:null;
+const voidAlbum=a=>numeric(a?.id)&&a.title&&a.artist?{id:'void:'+a.id,title:String(a.title).slice(0,200),artist:String(a.artist).slice(0,200),thumb:cover(a.art),kind:'album',provider:'Void',year:String(a.year||''),count:Number(a.trackCount)||0}:null;
+const voidArtist=a=>numeric(a?.id)&&(a.name||a.title)?{id:'void:'+a.id,title:String(a.name||a.title).slice(0,200),kind:'artist',provider:'Void',thumb:cover(a.art),verified:false,followers:0}:null;
 // Keep each progressive audio response below hosted function payload limits.
 export function alternativeRange(value){const match=/^bytes=(\d+)-(\d*)$/.exec(value||'bytes=0-');if(!match)throw Error('Unsupported audio range.');const start=Number(match[1]),requested=match[2]?Number(match[2]):Infinity;if(!Number.isSafeInteger(start)||start<0||(requested!==Infinity&&!Number.isSafeInteger(requested))||requested<start)throw Error('Unsupported audio range.');return `bytes=${start}-${Math.min(start+1048575,requested)}`}
 const clean=value=>String(value||'').replace(/[\[(]\s*prod(?:uced)?\.?[^\])]*[\])]/gi,'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\b(?:official (?:audio|video)|lyrics? video)\b/g,'').replace(/[^a-z0-9]+/g,' ').trim();
@@ -23,6 +28,17 @@ export function createAlternativeMusic({request=fetch,now=Date.now}={}){
   const url=new URL('/~a/api/search',ORIGIN);url.searchParams.set('q',q);
   const response=await request(url,{headers:{Accept:'application/json'},redirect:'error',signal:AbortSignal.timeout(7000)});if(!response.ok)throw Error('Voidify search is unavailable.');
   const data=await response.json();return {tracks:(Array.isArray(data.tracks)?data.tracks:[]).filter(t=>/^\d{1,20}$/.test(String(t.id))&&t.title&&t.artist).slice(0,40).map(t=>({id:String(t.id),title:String(t.title).slice(0,200),artist:String(t.artist).slice(0,200),album:String(t.album||'').slice(0,200),duration:Math.max(0,Number(t.duration)||0),art:/^[A-Za-z0-9_+=/-]{1,1000}$/.test(t.art||'')?t.art:''}))};
+ }
+ async function searchCatalog(query){
+  const q=String(query||'').trim();if(!q||q.length>160)throw Error('Enter a music search up to 160 characters.');
+  const data=await catalog('/~a/api/search?q='+encodeURIComponent(q),AbortSignal.timeout(7000));
+  return {tracks:(data.tracks||[]).slice(0,80).map((t,index)=>{const track=voidTrack(t);return track?{...track,catalogRank:index}:null}).filter(Boolean),releases:(data.albums||[]).slice(0,60).map(voidAlbum).filter(Boolean),artists:(data.artists||[]).slice(0,20).map(voidArtist).filter(Boolean)};
+ }
+ async function artist(id){
+  if(!numeric(id))throw Error('Invalid artist.');
+  const data=await catalog('/~a/api/artist/'+id,AbortSignal.timeout(7000));
+  const item=voidArtist({...data,id});if(!item)throw Error('This artist is unavailable.');
+  return {artist:item,tracks:(data.topTracks||data.tracks||[]).slice(0,100).map(voidTrack).filter(Boolean),releases:(data.albums||[]).slice(0,100).map(voidAlbum).filter(Boolean)};
  }
  async function art(req,res,token){
   if(!/^[A-Za-z0-9_+=/-]{1,1000}$/.test(String(token||'')))throw Error('Invalid cover.');
@@ -78,7 +94,7 @@ export function createAlternativeMusic({request=fetch,now=Date.now}={}){
  async function album(id){
   if(!/^\d{1,20}$/.test(String(id)))throw Error('Invalid album.');
   const data=await catalog('/~a/api/album/'+id,AbortSignal.timeout(7000));
-  return {release:{id:'void:'+id,title:String(data.title||'Album'),artist:String(data.artist||''),kind:'album',thumb:data.art?'/api/soundcloud?op=void-art&token='+encodeURIComponent(data.art):'',count:data.tracks?.length||0},tracks:(Array.isArray(data.tracks)?data.tracks:[]).filter(t=>/^\d{1,20}$/.test(String(t.id))).map(t=>({id:'void:'+t.id,src:'void',title:t.title,artist:t.artist,duration:Number(t.duration)||0,album:data.title,albumId:'void:'+id,thumb:t.art?'/api/soundcloud?op=void-art&token='+encodeURIComponent(t.art):'',playable:true}))};
+  return {release:voidAlbum({...data,id,trackCount:data.trackCount||data.tracks?.length}),tracks:(data.tracks||[]).map(t=>voidTrack({...t,album:data.title,albumId:id})).filter(Boolean)};
  }
- return {find,audio,search,art,album};
+ return {find,audio,search,catalog:searchCatalog,artist,art,album};
 }

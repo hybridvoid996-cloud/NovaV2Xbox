@@ -60,7 +60,7 @@ test('Noah artwork cannot proxy arbitrary hosts or credentials',async()=>{
 test('catalog merge prefers native IDs and verified metadata without mutating cached results',()=>{
  const original={tracks:[{id:'sc:123',title:'Song',album:'',thumb:''}],artists:[{id:'9',title:'Artist',verified:true}],releases:[]};
  const merged=mergeMusicCatalog(original,{tracks:[normalizeNoahTrack(row),normalizeNoahTrack({...row,id:'124'})],artists:[{title:'Artist',verified:false}],releases:[]});
- assert.deepEqual(merged.tracks.map(t=>t.id),['sc:123','noah:124']);assert.equal(merged.artists.length,1);assert.equal(merged.artists[0].verified,true);assert.equal(original.tracks[0].thumb,'');
+ assert.equal(merged.tracks.length,1);assert.deepEqual(merged.tracks[0].sources.map(t=>t.id),['sc:123','noah:123','noah:124']);assert.equal(merged.artists.length,1);assert.equal(merged.artists[0].verified,true);assert.equal(original.tracks[0].thumb,'');
 });
 test('provider fallback survives Void failure and never retries an excluded route',async()=>{
  let voidCalls=0;const handler=createMusicProviderHandler({primary(){throw Error('Unexpected primary')},service:{},alternative:{async find(){voidCalls++;throw Error('offline')}},noah:{async find(){return {found:true,url:'/api/soundcloud?op=noah-audio&id=123'}}}});
