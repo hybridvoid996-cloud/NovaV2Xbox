@@ -20,3 +20,6 @@ body.nova-light-effects :is(header,.profile,.tile,.feature,.xg-music,.xg-status,
 body.nova-light-effects :is(#panel,.os-window,.xbox-menu,.settings-modal){backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 body.nova-light-effects .popular-section{content-visibility:auto;contain-intrinsic-size:auto 360px}
 body.nova-light-effects :is(.tile,.feature,.popular-tile){transition-property:transform,opacity,border-color!important}
+/* Avoid compositing desktop glass over every game frame; game/app styling stays intact. */
+body.nova-game-active :is(.os-dock,.os-ribbon,.os-window.os-player,.os-window.os-player>.os-titlebar,.os-window.os-player>.panel-head){backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important}body.nova-game-active .os-window.os-player{transition:none!important}body.nova-game-active :is(.os-dock,.os-ribbon){background-color:#101725d9}
+body.nova-game-active .os-window.os-detached-player,body.nova-game-active .os-window.os-detached-player>.os-titlebar{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;transition:none!important}

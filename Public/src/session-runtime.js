@@ -8,7 +8,7 @@
    const now=win.performance.now.bind(win.performance);let suspendedTime=0,pauseStarted=0;
    // Preserve the simulation clock so returning does not produce a huge frame delta.
    try{Object.defineProperty(win.performance,'now',{configurable:true,value:()=>now()-suspendedTime-(paused?now()-pauseStarted:0)})}catch{}
-   function arm(task){task.started=now();task.native=native.timeout(()=>{task.native=null;if(paused)return;if(!task.repeat)timers.delete(task.id);try{typeof task.fn==='function'?task.fn.apply(win,task.args):win.eval(String(task.fn))}finally{if(task.repeat&&timers.has(task.id)&&!paused){task.remaining=task.delay;arm(task)}}},task.remaining)}
+   function arm(task){task.started=now();task.native=native.timeout(()=>{task.native=null;if(paused)return;if(!task.repeat)timers.delete(task.id);else{task.remaining=task.delay;arm(task)}typeof task.fn==='function'?task.fn.apply(win,task.args):win.eval(String(task.fn))},task.remaining)}
    function schedule(fn,delay,args,repeat){const number=Number(delay),ms=Number.isFinite(number)?Math.min(2147483647,Math.max(repeat?1:0,number)):0;const task={id:null,fn,args,delay:ms,remaining:ms,repeat,native:null};if(!paused){arm(task);task.id=task.native}else{task.id=native.timeout(()=>{},2147483647);native.clear(task.id)}timers.set(task.id,task);return task.id}
    win.setTimeout=(fn,delay,...args)=>schedule(fn,delay,args,false);win.setInterval=(fn,delay,...args)=>schedule(fn,delay,args,true);
    const clear=key=>{const task=timers.get(key);if(task){if(task.native!==null)native.clear(task.native);timers.delete(key)}else native.clear(key)};win.clearTimeout=win.clearInterval=clear;

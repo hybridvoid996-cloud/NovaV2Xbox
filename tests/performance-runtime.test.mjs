@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
 
+test('detached games pause desktop work and restore it when closed without touching game media',()=>{let active=false,paused=true;const classes=new Map(),handlers={};const video={hidden:false,style:{},get paused(){return paused},pause(){paused=true},play(){paused=false;return Promise.resolve()},addEventListener(){}};const document={hidden:false,getElementById:id=>id==='panel'?{hidden:true}:video,querySelector:s=>s.includes('os-detached-player')&&active?{}:null,body:{classList:{toggle:(k,v)=>classes.set(k,v)}},addEventListener(){}};const context={document,localStorage:{getItem:()=>null},MutationObserver:class{observe(){}},addEventListener:(name,fn)=>handlers[name]=fn,dispatchEvent(){},CustomEvent:class{}};context.window=context;vm.runInNewContext(readFileSync('Public/src/performance-runtime.js','utf8'),context);assert.equal(paused,false);active=true;handlers['nova-os-windows']();assert.equal(paused,true);assert.equal(classes.get('nova-content-active'),true);assert.equal(classes.get('nova-game-active'),true);active=false;handlers['nova-os-windows']();assert.equal(paused,false);assert.equal(classes.get('nova-game-active'),false)});
+
 test('background lifecycle pauses decoration and deduplicates visibility events',()=>{
  const panel={hidden:true,dataset:{}},events=[],classes=new Map(),handlers={};let plays=0,pauses=0,observer;
  const video={hidden:false,style:{},paused:true,pause(){pauses++;this.paused=true},play(){plays++;this.paused=false;return Promise.resolve()},addEventListener(type,fn){handlers[type]=fn}};

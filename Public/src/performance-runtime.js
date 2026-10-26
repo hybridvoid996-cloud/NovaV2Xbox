@@ -6,9 +6,10 @@
  const lightEffects=()=>localStorage.getItem('nova_performance_mode')==='true';
  const staticWallpaper=()=>localStorage.getItem('nova_performance_mode')==='true'||localStorage.getItem('nova_reduce_motion')==='true';
 
- const backgroundVisible=()=>{if(document.hidden||document.querySelector?.('.os-window.os-maximized:not([hidden])'))return false;if(!panel||panel.hidden)return true;if(panel.dataset.view==='search'){try{return !document.getElementById('system')?.contentDocument?.getElementById('newtab')?.hidden}catch{return false}}return false};
+ const visiblePlayer=()=>!!document.querySelector?.('.os-window:is(.os-player,.os-detached-player):not([hidden])');
+ const backgroundVisible=()=>{if(document.hidden||visiblePlayer()||document.querySelector?.('.os-window.os-maximized:not([hidden])'))return false;if(!panel||panel.hidden)return true;if(panel.dataset.view==='search'){try{return !document.getElementById('system')?.contentDocument?.getElementById('newtab')?.hidden}catch{return false}}return false};
  function update(){
-  const visible=backgroundVisible();document.body.classList.toggle('nova-light-effects',lightEffects());document.body.classList.toggle('nova-content-active',document.hidden||!!panel&&!panel.hidden);
+  const visible=backgroundVisible(),activePlayer=visiblePlayer();document.body.classList.toggle('nova-game-active',activePlayer);document.body.classList.toggle('nova-light-effects',lightEffects());document.body.classList.toggle('nova-content-active',document.hidden||!!panel&&!panel.hidden||activePlayer);
   if(visible!==lastVisible){lastVisible=visible;dispatchEvent(new CustomEvent('nova-background-visibility',{detail:{visible}}));}
   if(!video)return;
   if(!visible||staticWallpaper()||video.hidden||localStorage.getItem('nova_grad')||localStorage.getItem('nova_performance_mode')==='true'||localStorage.getItem('nova_reduce_motion')==='true')video.pause();

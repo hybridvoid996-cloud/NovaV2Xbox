@@ -16,12 +16,12 @@ export function attachGameHealth(frame,{key,signal,onStatus=()=>{},reload=()=>lo
   onStatus(interacted&&issue.retry?issue.message.replace(/Retrying (?:its )?startup…/i,'Use Retry game to reconnect.'):issue.message,issue.kind);
   if(issue.retry&&!interacted&&reserveGameRetry(storage,key)){retrying=true;const timer=setTimeout(()=>{if(!signal?.aborted)reload()},800);stops.push(()=>clearTimeout(timer))}
  };
- const watch=win=>{try{
+ const watch=(win,visited)=>{try{
   const doc=win.document;if(!doc?.documentElement||doc.URL==='about:blank')return;
-  if(!attached.has(doc)){
+  visited.add(doc);if(!attached.has(doc)){
    attached.add(doc);lastProgress=Date.now();
    loadingWatches.set(doc,createLoadingWatch());loadingDocs.add(doc);
-   if(typeof win.PerformanceObserver==='function'){try{const observer=new win.PerformanceObserver(entries=>{const resources=entries.getEntries();if(resources.some(entry=>entry.initiatorType!=='beacon'))progress();if(readGameLoading(doc)&&resources.some(entry=>entry.responseStatus>=400&&isEngineScript(entry.name)))report(missingEngine())});observer.observe({type:'resource',buffered:true});stops.push(()=>observer.disconnect())}catch{}}
+   if(typeof win.PerformanceObserver==='function'){try{const observer=new win.PerformanceObserver(entries=>{const resources=entries.getEntries();if(resources.some(entry=>entry.initiatorType!=='beacon'))progress();if(resources.some(entry=>entry.responseStatus>=400&&isEngineScript(entry.name))&&readGameLoading(doc))report(missingEngine())});observer.observe({type:'resource',buffered:true});stops.push(()=>observer.disconnect())}catch{}}
    const listen=(target,event,fn,options)=>{target.addEventListener(event,fn,options);stops.push(()=>target.removeEventListener(event,fn,options))};
    listen(doc,'pointerdown',()=>{interacted=true},true);listen(doc,'keydown',()=>{interacted=true},true);
    listen(win,'error',event=>{if(event.error){const issue=classifyGameIssue(event.error);if(issue.kind!=='unknown')report(issue)}else if(event.target?.tagName==='SCRIPT'){if(isEngineScript(event.target.src)&&readGameLoading(doc))report(missingEngine());else if(!event.target.async&&!event.target.defer)report({kind:'connection',retry:true,message:'A game script did not download. Retrying startup…'})}},true);
@@ -38,19 +38,21 @@ export function attachGameHealth(frame,{key,signal,onStatus=()=>{},reload=()=>lo
     win.WebSocket=monitored;stops.push(()=>{if(win.WebSocket===monitored)win.WebSocket=original});
    }
   }
-  for(const child of doc.querySelectorAll('iframe'))if(child.contentWindow)watch(child.contentWindow);
+  for(const child of doc.querySelectorAll('iframe'))if(child.contentWindow)watch(child.contentWindow,visited);
   const loadingState=readGameLoading(doc);
   if(loadingState&&loadingStates.get(doc)!==loadingState.signature)lastProgress=Date.now();
   loadingStates.set(doc,loadingState?.signature??null);
   const loadingIssue=loadingWatches.get(doc)?.sample(loadingState);
   if(loadingIssue){const known=classifyGameIssue(loadingState?.text);report(known.kind==='asset'||known.kind==='memory'||known.kind==='isolation'?known:loadingIssue)}
-  const text=(doc.body?.textContent||'').slice(0,3001).trim();
+  // Avoid copying megabytes of inline game/engine source into a string each scan.
+  let text='';if(!doc.querySelector('canvas,video')&&doc.createTreeWalker){const walker=doc.createTreeWalker(doc.body,4);let node,count=0;while((node=walker.nextNode())&&count++<120&&text.length<=3000){if(!node.parentElement?.closest('script,style,noscript'))text+=node.textContent.slice(0,3001-text.length)}text=text.trim()}
   if(text.length<3000&&/^(?:Internal Service Worker Error:|Scramjet Error:)/.test(text))report({...classifyGameIssue('connection '+text),confirmed:true});
  }catch{}};
- const tick=()=>{if(signal?.aborted)return;if(document.hidden){progress();return}watch(frame.contentWindow);const loading=[...loadingDocs].some(doc=>readGameLoading(doc));if(!loading&&!retrying&&(slowNotice||lastIssue==='loading')){slowNotice=false;lastIssue='';onStatus('Game loading finished.','restored')}if(!interacted&&loading&&Date.now()-lastProgress>90000){lastProgress=Date.now();slowNotice=true;onStatus('The game is taking longer than expected. You can keep waiting or retry.','slow')}};
- const timer=setInterval(tick,interval);tick();
+ let timer,stopped=false,healthy=0;
+ const tick=()=>{if(stopped||signal?.aborted)return;if(document.hidden){progress();timer=setTimeout(tick,3000);return}const visited=new Set();watch(frame.contentWindow,visited);for(const doc of loadingDocs)if(!visited.has(doc))loadingDocs.delete(doc);const loading=[...loadingDocs].some(doc=>loadingStates.get(doc)!=null);healthy=loading?0:healthy+1;if(!loading&&!retrying&&(slowNotice||lastIssue==='loading')){slowNotice=false;lastIssue='';onStatus('Game loading finished.','restored')}if(!interacted&&loading&&Date.now()-lastProgress>90000){lastProgress=Date.now();slowNotice=true;onStatus('The game is taking longer than expected. You can keep waiting or retry.','slow')}timer=setTimeout(tick,healthy>=3?4000:interval)};
+ tick();
  document.addEventListener('visibilitychange',progress);
  const online=()=>{if(!interacted&&[...loadingDocs].some(doc=>readGameLoading(doc)))report({confirmed:true,kind:'connection',retry:true,message:'You’re back online. Reconnecting the game…'})};window.addEventListener('online',online);
- const stop=()=>{clearInterval(timer);document.removeEventListener('visibilitychange',progress);window.removeEventListener('online',online);stops.splice(0).forEach(fn=>fn());loadingDocs.clear()};signal?.addEventListener('abort',stop,{once:true});
+ const stop=()=>{stopped=true;clearTimeout(timer);document.removeEventListener('visibilitychange',progress);window.removeEventListener('online',online);stops.splice(0).forEach(fn=>fn());loadingDocs.clear()};signal?.addEventListener('abort',stop,{once:true});
  return {report,progress,stop};
 }
