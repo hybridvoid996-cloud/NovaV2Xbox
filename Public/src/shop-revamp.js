@@ -6,13 +6,13 @@ import {shopOdds,shopPrices,halloweenEnd,rarityLabel} from './shop-config.mjs?v=
 const node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n};
 const reduced=()=>matchMedia('(prefers-reduced-motion:reduce)').matches||document.body.classList.contains('chat-reduced-motion')||localStorage.getItem('nova_reduce_motion')==='true';
 function stylesheet(){document.body.classList.toggle('shop-lite-effects',localStorage.getItem('nova_performance_mode')==='true');if(document.getElementById('shop-revamp-style'))return;const link=node('link');link.id='shop-revamp-style';link.rel='stylesheet';link.href='/src/shop-revamp.css?v=20261022-mines259';document.head.append(link)}
-export function preview(item,ctx,live=false){stylesheet();
+export function preview(item,ctx,live=false){if(ctx.profilePreview)return ctx.profilePreview(item,live);stylesheet();
  const host=node('div','case-item-preview shop-item-preview '+item.kind),profile=node('div','shop-preview-person');
  const avatar=ctx.avatar(ctx.state.me.uid,'large');avatar.classList.remove('nitro-anim-orbit','nitro-anim-shimmer');avatar.querySelectorAll('.decoration').forEach(n=>n.remove());
  profile.append(avatar,node('b','',ctx.person(ctx.state.me.uid).name),node('small','','Your Nova profile'));host.append(profile);
  const image=node('img','preview-cosmetic');image.src=item.src||item.thumbnail;image.alt=item.name;image.loading='lazy';image.decoding='async';if(item.kind==='decoration'){image.classList.add('shop-preview-decoration');avatar.append(image)}else host.append(image);return host;
 }
-export async function equip(ctx,item){await request(ctx,'equipCosmetic',{id:item.id});const profile=ctx.state.profiles[ctx.state.me.uid];if(profile)profile[item.kind==='banner'?'chatBanner':item.kind]=item.id}
+export async function equip(ctx,item){await request(ctx,'equipCosmetic',{id:item.id});const profile=ctx.state.profiles[ctx.state.me.uid];if(profile)profile[item.kind==='banner'?'chatBanner':item.kind]=item.id;dispatchEvent(new CustomEvent('nova-shop-equipped',{detail:{id:item.id}}))}
 export async function load(ctx,host){const data=await request(ctx,'storeStatus');ctx.state.store=data;host?.querySelectorAll('[data-coins]').forEach(n=>n.textContent=data.coins.toLocaleString()+' Nova Coins');host?.dispatchEvent(new CustomEvent('store-updated',{detail:data}));return data}
 const crate=createShopModel;
 function itemPreview(item,ctx,owned=false){const d=ctx.modal(item.name);d.classList.add('shop-item-modal','rarity-'+item.rarity);d.append(preview(item,ctx,true),node('small','shop-rarity',rarityLabel(item.rarity)+' · '+item.kind),node('p','muted','Previewed on your profile.'));if(owned)d.append(ctx.button('Equip cosmetic',ctx.task(async()=>{await equip(ctx,item);ctx.toast(item.name+' equipped.');d.close()}),'primary'))}

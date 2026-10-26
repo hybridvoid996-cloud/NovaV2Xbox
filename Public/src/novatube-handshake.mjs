@@ -1,0 +1,5 @@
+export function createTubeHandshake({frame,origin='*',schedule=setInterval,cancel=clearInterval}){
+ let timer,stopped=false,responded=false;
+ const send=()=>{if(stopped||responded)return;try{frame.contentWindow?.postMessage(JSON.stringify({event:'listening',id:'nova-tube'}),origin);for(const event of ['onError','onStateChange'])frame.contentWindow?.postMessage(JSON.stringify({event:'command',func:'addEventListener',args:[event]}),origin)}catch{}};
+ return {start(){if(stopped||responded)return;cancel(timer);send();timer=schedule(send,500)},accept(data){const info=data?.info;const valid=data?.event==='onReady'||data?.event==='onStateChange'&&[-1,0,1,2,3,5].includes(Number(info))||['infoDelivery','initialDelivery'].includes(data?.event)&&info&&typeof info==='object'&&(Number.isFinite(info.currentTime)||Number.isFinite(info.duration)||[-1,0,1,2,3,5].includes(info.playerState)||typeof info.videoData?.video_id==='string');if(!valid||responded||stopped)return false;responded=true;cancel(timer);return true},stop(){stopped=true;cancel(timer)}};
+}
