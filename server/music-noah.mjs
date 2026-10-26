@@ -21,7 +21,7 @@ export function normalizeNoahTrack(row){
  // Noah's current album cards also include genres/uploader groupings. Only
  // explicit albums supply an album name; other groups become collections.
  const realAlbum=row.album?.type==='ALBUM'||row.album?.isAlbum===true;
- return {id:'noah:'+row.id,src:'noah',title:text(row.title),artist,duration,thumb:artwork(row.album?.cover||row.cover),album:realAlbum?text(row.album.title):'',albumId:'',isrc:/^[A-Z0-9]{12}$/i.test(row.isrc||'')?row.isrc:'',playable:true,provider:'Noah'};
+ return {id:'noah:'+row.id,src:'noah',title:text(row.title),artist,duration,thumb:artwork(row.album?.cover||row.cover),album:realAlbum?text(row.album.title):'',albumId:'',releaseDate:text(row.releaseDate||row.release_date||''),isrc:/^[A-Z0-9]{12}$/i.test(row.isrc||'')?row.isrc:'',playable:true,provider:'Noah'};
 }
 export function createNoahMusic({request=fetch,now=Date.now}={}){
  const cache=new Map();
@@ -43,7 +43,7 @@ export function createNoahMusic({request=fetch,now=Date.now}={}){
    const t=normalizeNoahTrack(row),group=String(row.album?.id||'');
    if(/^[A-Za-z0-9_-]{1,120}$/.test(group)&&!groups.has(group)){
     const members=items.filter(x=>String(x.album?.id)===group);
-    groups.set(group,{id:contextId('collection',q,group),title:text(row.album?.title)||t.artist+' tracks',artist:t.artist,thumb:t.thumb,kind:row.album?.isAlbum===true||row.album?.type==='ALBUM'?'album':'playlist',count:members.length,provider:'Noah',partial:true});
+    groups.set(group,{id:contextId('collection',q,group),title:text(row.album?.title)||t.artist+' tracks',artist:t.artist,thumb:t.thumb,kind:row.album?.isAlbum===true||row.album?.type==='ALBUM'?'album':'playlist',count:members.length,releaseDate:text(row.album?.releaseDate||row.album?.release_date||''),provider:'Noah',partial:true});
    }
    for(const a of (Array.isArray(row.artists)?row.artists:[]).slice(0,8)){const name=text(a?.name),id=String(a?.id||'');if(name&&numeric(id)&&!artists.has(id))artists.set(id,{id:contextId('artist',name.slice(0,160),id),title:name,kind:'artist',thumb:t.thumb,verified:false,followers:0,provider:'Noah'});}
   }

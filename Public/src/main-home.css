@@ -210,3 +210,5 @@ body.nova-main .main-person-row>.nova-home-effect{inset:0 0 0 auto;width:90px;he
 body.nova-main .main-person-row.nova-home-has-banner:before{background:linear-gradient(90deg,#09090be8,#09090b99 60%,#09090b44)}
 
 body.nova-main .main-person-row{min-height:60px!important}body.nova-main .main-person-row .nova-listening-row{font-size:10px;line-height:17px;height:17px}body.nova-main .main-person-row>.main-person-avatar{margin:0!important}
+
+[data-page="computer"][hidden]{display:none!important}

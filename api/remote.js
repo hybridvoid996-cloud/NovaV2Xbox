@@ -1,4 +1,5 @@
 import {remoteRelay} from '../server/remote-relay.mjs';
+import {canUseComputer} from '../server/computer-access.mjs';
 import {withSharedBackend} from '../server/shared-backend.mjs';
 import {services} from '../server/voice-service.js';
 import {randomBytes,createHash,timingSafeEqual} from 'node:crypto';
@@ -29,6 +30,7 @@ export const createRemoteHandler=(service=services)=>async(req,res)=>{
    if(!pair||pair.expires<now||!matches(b.token,pair.tokenHash))throw failure('Pairing expired. Start again.',401);
    if(action==='pairPoll')return reply(200,{claimed:!!pair.uid,owner:pair.owner||null});
    if(!pair.uid)throw failure('Approve the pairing code in your Nova account first.');
+   if(!(await canUseComputer(db,pair.uid))||(await db.ref('novaControl/siteBans/'+pair.uid).get()).exists())throw failure('Nova Computer is currently available to owners and admins only.',403);
    // Only the local agent holding its private pairing token can finish registration.
    const credential=secret(),id='NOVA-'+randomBytes(16).toString('hex').toUpperCase();
    const claim=await db.ref(root+'pairing/'+b.code).transaction(value=>value===null?null:value&&!value.finished&&value.expires>now&&value.uid===pair.uid?{...value,finished:true}:undefined);
@@ -42,6 +44,7 @@ export const createRemoteHandler=(service=services)=>async(req,res)=>{
    if(!device||!matches(token,device.tokenHash))throw failure('Device access revoked.',401);device={...device,id};uid=device.uid;agent=true;
   }else{let who;try{who=await auth.verifyIdToken(bearer,true)}catch{throw failure('Sign into Nova again.',401)}if(who.firebase?.sign_in_provider==='anonymous')throw failure('Use a Nova account.',403);uid=who.uid;}
   if(!(await db.ref('novaAccounts/'+uid).get()).exists()||(await db.ref('novaControl/siteBans/'+uid).get()).exists())throw failure('Account access unavailable.',403);
+  if(!(await canUseComputer(db,uid)))throw failure('Nova Computer is currently available to owners and admins only.',403);
   const browserOnly=()=>{if(agent)throw failure('Use your Nova account for this action.',403)};
   const agentOnly=()=>{if(!agent)throw failure('Only the paired computer can approve this action.',403)};
   if(action==='registerDevice'){

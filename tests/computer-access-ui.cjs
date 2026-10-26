@@ -1,0 +1,11 @@
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const {chromium}=require('C:/Users/willi/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+(async()=>{const browser=await chromium.launch({channel:'msedge',headless:true});try{
+ const page=await browser.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.route('**/*',route=>{const u=new URL(route.request().url());if(u.hostname!=='computer.test')return route.abort();if(u.pathname==='/computer.html')return route.fulfill({body:'<html>Computer fixture</html>',contentType:'text/html'});if(u.pathname==='/'){const html=fs.readFileSync('Public/home.html','utf8').replace(/<script[\s\S]*?<\/script>/g,'');return route.fulfill({contentType:'text/html',body:html.replace('</body>','<script>window.NovaWallpaperIsVideo=()=>false;document.getElementById("nova-home-boot").remove();localStorage.setItem("nova_reduce_motion","true");</script><script src="/src/home.js"></script></body>')})}const p='Public'+u.pathname;if(fs.existsSync(p)&&fs.statSync(p).isFile())return route.fulfill({body:fs.readFileSync(p),contentType:p.endsWith('.js')?'text/javascript':p.endsWith('.css')?'text/css':'image/png'});return route.fulfill({body:''})});
+ await page.goto('https://computer.test/');const icon=page.locator('[data-page="computer"]');await icon.waitFor({state:'attached'});assert.equal(await icon.isVisible(),false);
+ await page.evaluate(()=>openPage('computer'));assert.equal(await page.locator('#panel').isVisible(),false);
+ for(const role of ['owner','admin']){await page.evaluate(role=>{window.novaHomeProfile={role};dispatchEvent(new Event('nova-profile-changed'))},role);assert.equal(await icon.isVisible(),true)}
+ await page.evaluate(()=>{window.novaHomeProfile={role:'member',computerAccess:true};dispatchEvent(new Event('nova-profile-changed'))});assert.equal(await icon.isVisible(),true);
+ await page.evaluate(()=>{window.novaHomeProfile={role:'moderator'};dispatchEvent(new Event('nova-profile-changed'))});assert.equal(await icon.isVisible(),false);assert.deepEqual(errors,[]);console.log('PASS: Computer hidden by default and for members/moderators; owner/admin access visible; denied launch blocked.');
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1});

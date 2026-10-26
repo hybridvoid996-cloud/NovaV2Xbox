@@ -11,20 +11,23 @@ function sameRecording(a,b){
  if(a.isrc&&b.isrc&&a.isrc.toUpperCase()===b.isrc.toUpperCase())return true;
  return a.duration>0&&b.duration>0&&Math.abs(a.duration-b.duration)<=3;
 }
+const covers=(...items)=>[...new Set(items.flatMap(item=>[item.thumb,...(Array.isArray(item.thumbs)?item.thumbs:[])]).filter(value=>typeof value==='string'&&value))].slice(0,6);
+const knownDate=(...items)=>items.map(item=>item.releaseDate).find(value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}/.test(value))||'';
 const priority=t=>String(t.id).startsWith('void:')?3:String(t.id).startsWith('noah:')?2:1;
 export function mergeMusicCatalog(primary={},extra={}){
  const tracks=[];
  for(const row of [...(primary.tracks||[]),...(extra.tracks||[])]){
   const index=tracks.findIndex(t=>sameRecording(t,row));
-  if(index<0){tracks.push({...row,sources:sources(row).map(s=>({...s}))});continue}
+  if(index<0){tracks.push({...row,thumbs:covers(row),sources:sources(row).map(s=>({...s}))});continue}
   const old=tracks[index],preferred=priority(row)>priority(old)?row:old,other=preferred===row?old:row;
-  tracks[index]={...other,...preferred,album:preferred.album||other.album||'',albumId:preferred.albumId||other.albumId||'',thumb:preferred.thumb||other.thumb||'',sources:combinedSources(old,row)};
+  tracks[index]={...other,...preferred,album:preferred.album||other.album||'',albumId:preferred.albumId||other.albumId||'',thumb:preferred.thumb||other.thumb||'',thumbs:covers(preferred,other),releaseDate:knownDate(preferred,other),publishedAt:preferred.publishedAt||other.publishedAt||'',sources:combinedSources(old,row)};
   // Keep the native SoundCloud identity for identical Noah/SoundCloud IDs.
   if(/^sc:/.test(old.id)&&row.id==='noah:'+old.id.slice(3))tracks[index].id=old.id;
  }
- function mergeCards(key,match){const items=[];for(const row of [...(primary[key]||[]),...(extra[key]||[])]){const index=items.findIndex(item=>item.id===row.id||match(item,row));if(index<0){items.push({...row,sources:sources(row).map(s=>({...s}))});continue}const old=items[index];const prefer=key==='releases'&&row.kind==='album'&&priority(row)>priority(old);items[index]={...old,...(prefer?row:{}),thumb:(prefer?row.thumb:old.thumb)||row.thumb||'',verified:!!(old.verified||row.verified),sources:combinedSources(old,row)};}return items}
+ function mergeCards(key,match){const items=[];for(const row of [...(primary[key]||[]),...(extra[key]||[])]){const index=items.findIndex(item=>item.id===row.id||match(item,row));if(index<0){items.push({...row,thumbs:covers(row),sources:sources(row).map(s=>({...s}))});continue}const old=items[index];const prefer=key==='releases'&&row.kind==='album'&&priority(row)>priority(old);items[index]={...old,...(prefer?row:{}),thumb:(prefer?row.thumb:old.thumb)||row.thumb||'',thumbs:covers(prefer?row:old,prefer?old:row),releaseDate:knownDate(old,row),publishedAt:old.publishedAt||row.publishedAt||'',verified:!!(old.verified||row.verified),sources:combinedSources(old,row)};}return items}
  const artists=mergeCards('artists',(a,b)=>!!clean(a.title)&&clean(a.title)===clean(b.title));
  const releases=mergeCards('releases',(a,b)=>a.kind===b.kind&&a.kind==='album'&&!!clean(a.artist)&&clean(a.artist)===clean(b.artist)&&clean(a.title)===clean(b.title));
+ for(const release of releases){const members=tracks.filter(t=>t.albumId===release.id||t.album&&clean(t.album)===clean(release.title)&&clean(t.artist)===clean(release.artist));release.thumbs=covers(release,...members);release.thumb ||= release.thumbs[0]||''}
  return {tracks,artists,releases};
 }
 export function rankMusicCatalog(catalog,query){

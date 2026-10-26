@@ -14,7 +14,7 @@
   const kind=g=>g.kind==='system'?'system':g.kind==='cloud'?'cloud':g.kind==='app'||g._kind==='apps'?'app':'game';
   const identity=g=>kind(g)+':'+g.id;
   const pageIcon={search:'search',music:'music',novamovies:'movies',novatube:'novatube',chat:'chat',ai:'ai',computer:'computer',shop:'shop',settings:'settings',leaderboard:'leaderboard'};
-  function list(){try{const rows=JSON.parse(localStorage.getItem(key())||'[]');return Array.isArray(rows)?rows.filter(g=>g&&g.id!=null&&typeof g.name==='string').slice(0,12).map(g=>g.kind==='system'&&pageIcon[g.id]?{...g,art:'/src/page-icons/'+pageIcon[g.id]+'.svg'}:g):[]}catch{return []}}
+  function list(){try{const rows=JSON.parse(localStorage.getItem(key())||'[]');return Array.isArray(rows)?rows.filter(g=>(g?.id!=='computer'||window.NovaComputerAllowed?.())&&g&&g.id!=null&&typeof g.name==='string').slice(0,12).map(g=>g.kind==='system'&&pageIcon[g.id]?{...g,art:'/src/page-icons/'+pageIcon[g.id]+'.svg'}:g):[]}catch{return []}}
   function record(g){const item={id:g.id,name:g.name,art:g.art,kind:kind(g),playedAt:Date.now()};const rows=[item,...list().filter(x=>identity(x)!==identity(item))].slice(0,12);localStorage.setItem(key(),JSON.stringify(rows));render();window.novaGuideRender?.('home');}
   function freshFrame(){const el=document.createElement('iframe');el.id='system';el.title='Nova';el.allow='microphone; camera; autoplay; fullscreen; display-capture';el.hidden=true;document.getElementById('panel-content').before(el);return el;}
   function park(){if(frame.dataset.session!=='true')return;frame.hidden=true;frame.removeAttribute('id');frame=freshFrame();}
@@ -88,7 +88,7 @@
       b.onclick=()=>launch(g);const entry=document.createElement('div');entry.className='continue-entry';entry.append(b);if(live){const close=document.createElement('button');close.type='button';close.className='continue-close';close.textContent='×';close.title='Close '+g.name+' fully';close.setAttribute('aria-label','Close '+g.name+' fully');close.onclick=e=>{e.preventDefault();e.stopPropagation();closeRetained(g)};entry.append(close)}row.append(entry);
     });host.append(row);
   }
-  function openSystem(page){
+  function openSystem(page){if(page==='computer'&&!window.NovaComputerAllowed?.())return;
     if(!['shop','chat','search','ai','computer','novatube','novamovies','cloudgaming','settings','leaderboard','admin'].includes(page)){park();return;}
     const key=account()+':'+page;
     if(frame.dataset.session==='true'){frame.hidden=true;frame.removeAttribute('id');}else frame.remove();

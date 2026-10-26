@@ -1,5 +1,10 @@
-import {auth} from './account-firebase.js';
-import {signInWithEmailAndPassword,signInWithCustomToken,signOut} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+import {auth as mainAuth,app} from './account-firebase.js';
+import {initializeApp,getApps} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+import {getAuth,setPersistence,inMemoryPersistence,updateCurrentUser,signInWithEmailAndPassword,signInWithCustomToken,signOut} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+// Pairing may use another account without signing every Nova tab out.
+const approvalApp=getApps().find(a=>a.name==='nova-remote-approval')||initializeApp(app.options,'nova-remote-approval');
+const auth=getAuth(approvalApp);await auth.authStateReady();await setPersistence(auth,inMemoryPersistence);
+if(mainAuth.currentUser&&!mainAuth.currentUser.isAnonymous)await updateCurrentUser(auth,mainAuth.currentUser);
 const $=id=>document.getElementById(id),code=new URLSearchParams(location.search).get('code');let user;
 if(!/^[A-F0-9]{18}$/.test(code||'')){$('status').textContent='Open this page using the browser login button in Nova Remote.';$('login').hidden=true}else auth.onAuthStateChanged(value=>{user=value;$('login').hidden=!!value;$('confirm').hidden=!value;$('name').textContent=value?.displayName||value?.email||'Your Nova account'});
 $('login').onsubmit=async event=>{event.preventDefault();const button=event.submitter;button.disabled=true;try{const identifier=$('identifier').value.trim(),password=$('password').value;if(identifier.includes('@'))await signInWithEmailAndPassword(auth,identifier,password);else{const r=await fetch('/api/account-login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:identifier,password})}),data=await r.json();if(!r.ok)throw Error(data.error||'Could not log in.');await signInWithCustomToken(auth,data.token)}$('status').textContent='Choose Connect to authorize your Windows launcher.'}catch(e){$('status').textContent=e.code?.startsWith('auth/')?'Could not log in. Check your account details.':e.message}finally{$('password').value='';button.disabled=false}};

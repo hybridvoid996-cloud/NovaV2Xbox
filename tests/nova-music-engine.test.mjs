@@ -1,10 +1,18 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {NovaMusicEngine,safeTrack} from '../Public/src/nova-music-engine.mjs';
 class Audio extends EventTarget{constructor(){super();this.paused=true;this.ended=false;this.duration=120;this.currentTime=0;this.volume=.7;this.currentSrc=''}setAttribute(){}removeAttribute(){this.currentSrc=''}load(){}canPlayType(){return 'probably'}pause(){this.paused=true;this.dispatchEvent(new Event('pause'))}async play(){this.paused=false;this.dispatchEvent(new Event('play'))}set src(v){this.currentSrc=v}}
 const track=id=>({id:'sc:'+id,title:'Track '+id,duration:120}),reply=t=>Response.json({track:t,url:'/audio',hls:false});
+test('a SoundCloud catalog identity starts its known Void or Noah audio without waiting on SoundCloud',async()=>{
+ for(const provider of ['void','noah']){
+  const audio=new Audio(),engine=new NovaMusicEngine({audio,request:async()=>{throw Error('SoundCloud must not be queried')}});
+  const selected={...track(1),sources:[{id:'sc:1'},{id:provider+':2'}]};
+  await engine.prepare(selected);await engine.load(selected);
+  assert.equal(audio.currentSrc,'/api/soundcloud?op='+(provider==='void'?'alternate-audio':'noah-audio')+'&id=2');assert.equal(engine.track.id,'sc:1');assert.equal(engine.snapshot.playing,true);assert.equal(engine.snapshot.provider,provider==='void'?'alternative':'noah');engine.destroy();
+ }
+});
 test('merged recordings switch directly to a retained source without another catalog lookup',async()=>{
  const audio=new Audio(),engine=new NovaMusicEngine({audio,request:async()=>{throw Error('No catalog lookup is needed')}});
  await engine.load({id:'void:1',title:'Song',artist:'Artist',duration:120,sources:[{id:'void:1'},{id:'noah:2'}]});
- audio.currentTime=30;engine.reconnects=2;audio.dispatchEvent(new Event('error'));await new Promise(resolve=>setImmediate(resolve));
+ audio.currentTime=30;audio.dispatchEvent(new Event('error'));await new Promise(resolve=>setImmediate(resolve));
  assert.equal(audio.currentSrc,'/api/soundcloud?op=noah-audio&id=2');audio.currentTime=0;audio.dispatchEvent(new Event('loadedmetadata'));await Promise.resolve();assert.equal(audio.currentTime,30);assert.equal(engine.track.id,'void:1');engine.destroy();
 });
 

@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {createRemoteHandler} from '../api/remote.js';
-function setup(coldTransactions=false){const data={novaAccounts:{alice:{name:'Alice'},bob:{name:'Bob'}}};let rules={'.read':false,'.write':false,novaRemote:{'.read':false,'.write':false}};
+function setup(coldTransactions=false){const data={novaChatV2:{roles:{alice:'owner',bob:'admin'}},novaAccounts:{alice:{name:'Alice'},bob:{name:'Bob'}}};let rules={'.read':false,'.write':false,novaRemote:{'.read':false,'.write':false}};
  const get=p=>p.split('/').reduce((v,k)=>v?.[k],data)??null,set=(p,v)=>{let row=data;const keys=p.split('/');for(const k of keys.slice(0,-1))row=row[k]??={};if(v===null)delete row[keys.at(-1)];else row[keys.at(-1)]=structuredClone(v)};
  const query=(p,key)=>{let equal,end,limit=Infinity;const q={equalTo(v){equal=v;return q},endAt(v){end=v;return q},limitToFirst(v){limit=v;return q},get:async()=>snap(Object.fromEntries(Object.entries(get(p)||{}).filter(([,row])=>equal!==undefined?row[key]===equal:row[key]<=end).slice(0,limit)))};return q};
  const snap=value=>({val:()=>structuredClone(value),exists:()=>value!==null});const db={getRulesJSON:async()=>({rules}),ref:p=>({orderByChild:key=>query(p,key),get:async()=>snap(get(p)),set:async v=>set(p,v),update:async v=>{for(const [k,value]of Object.entries(v))set(p+'/'+k,value)},transaction:async fn=>{if(coldTransactions&&get(p)!==null&&fn(null)===undefined)return {committed:false,snapshot:snap(null)};const value=fn(structuredClone(get(p)));if(value===undefined)return {committed:false,snapshot:snap(get(p))};set(p,value);return {committed:true,snapshot:snap(value)}}})};
@@ -28,4 +28,14 @@ test("account login registers a private disabled computer without a pairing code
 
 test('retrying the same offer is idempotent but replacing its SDP is rejected',async()=>{const s=setup(),d=await s.pair();await s.call('enable',{},d.auth);const {session}=await s.call('connect',{id:d.id});await s.call('approve',{session},d.auth);const body={session,signal:{type:'offer',sdp:'same'}};assert.equal((await s.call('signal',body,d.auth)).httpStatus,200);assert.equal((await s.call('signal',body,d.auth)).httpStatus,200);assert.equal((await s.call('poll',{session})).signals.length,1);assert.equal((await s.call('signal',{session,signal:{type:'offer',sdp:'different'}},d.auth)).httpStatus,429);});
 
-test('restricted Wi-Fi fails before reserving a session when TLS relay configuration is missing',async()=>{const saved=process.env.NOVA_TURN_URL;delete process.env.NOVA_TURN_URL;try{const s=setup(),d=await s.pair();await s.call('enable',{},d.auth);const r=await s.call('connect',{id:d.id,networkMode:'relay'});assert.equal(r.httpStatus,503);assert.match(r.error,/TURN\/TLS/);assert.equal(s.get('novaRemote/devices/'+d.id).session,undefined)}finally{if(saved===undefined)delete process.env.NOVA_TURN_URL;else process.env.NOVA_TURN_URL=saved}});
+test('restricted Wi-Fi fails before reserving a session when TLS relay configuration is missing',async()=>{const saved=process.env.NOVA_COMPUTER_TURN_URL;delete process.env.NOVA_COMPUTER_TURN_URL;try{const s=setup(),d=await s.pair();await s.call('enable',{},d.auth);const r=await s.call('connect',{id:d.id,networkMode:'relay'});assert.equal(r.httpStatus,503);assert.match(r.error,/relay is unavailable/);assert.equal(s.get('novaRemote/devices/'+d.id).session,undefined)}finally{if(saved===undefined)delete process.env.NOVA_COMPUTER_TURN_URL;else process.env.NOVA_COMPUTER_TURN_URL=saved}});
+
+test('members and moderators cannot use Computer, regardless of account profile labels',async()=>{
+ const s=setup();s.set('novaAccounts/bob/role','owner');
+ for(const role of ['member','moderator']){s.set('novaChatV2/roles/bob',role);for(const action of ['list','registerDevice','pairClaim','connect'])assert.equal((await s.call(action,{id:'fake',code:'fake'},'bob')).httpStatus,403)}
+ s.set('novaChatV2/staffAccess/bob',{administrator:true});assert.equal((await s.call('list',{},'bob')).httpStatus,200);
+});
+test('demotion revokes both existing device tokens and unfinished pairings',async()=>{
+ const s=setup(),d=await s.pair(),pending=await s.call('pairStart',{},'');await s.call('pairClaim',{code:pending.code});
+ s.set('novaChatV2/roles/alice','member');assert.equal((await s.call('heartbeat',{},d.auth)).httpStatus,403);assert.equal((await s.call('list')).httpStatus,403);assert.equal((await s.call('pairFinish',{code:pending.code,token:pending.token},'')).httpStatus,403);
+});

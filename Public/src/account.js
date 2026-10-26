@@ -1,6 +1,6 @@
 import {loginAccount} from './account-login-client.mjs';
 import {activate,flush} from './account-data.js';
-import {remember,slots} from './account-slots.js';
+import {remember,slots,restoreSavedAccount} from './account-slots.js';
 import {auth,db} from './account-firebase.js';
 import {createUserWithEmailAndPassword,signInWithCustomToken,signInWithEmailAndPassword,sendPasswordResetEmail,updateProfile,setPersistence,browserLocalPersistence,signOut} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
 import {ref,get,update} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
@@ -69,6 +69,8 @@ async function renderCloaks(pane){try{await cloakReady;if(!pane.isConnected)retu
 function cloakIcon(value){return cloakPresets.some(p=>p.icon===value)?value:safeImage(value)}
 function safeImage(value){const url=new URL(value);if(url.protocol!=='https:')throw Error('Use an HTTPS image link.');return url.href}
 async function advance(skip){if(busy)return;busy=true;$('#step-next').disabled=true;try{if(step===0){const name=$('#setup-name').value.trim();if(!/^[a-zA-Z0-9_ -]{2,24}$/.test(name))throw Error('Choose 2–24 letters, numbers, spaces, underscores or hyphens.');record.name=name;await updateProfile(user,{displayName:name})}if(step===1){if(skip)record.photo='';else if($('#photo-url').value.trim())record.photo=safeImage($('#photo-url').value.trim())}if(step===2&&skip){delete record.preferences.nova_grad;delete record.preferences.nova_wallpaper;document.body.style.removeProperty('--setup-wallpaper');document.body.classList.remove('wallpaper-preview');document.getElementById('setup-wallpaper-video')?.remove()}if(step===3){if(skip){delete record.preferences.nova_cloak_title;delete record.preferences.nova_cloak_icon}else{record.preferences.nova_cloak_title=$('#cloak-title').value.trim();record.preferences.nova_cloak_icon=$('#cloak-icon').value.trim()?cloakIcon($('#cloak-icon').value.trim()):''}}if(step===4)record.onboardingComplete=true;await save();if(step===4){await completeEntry(true);return}step++;await showStep()}catch(e){$('.step-error').textContent=/^(Use an HTTPS|Choose 2)/.test(e.message||'')?e.message:errorText(e);$('#step-next').disabled=false}finally{busy=false}}
-if(new URLSearchParams(location.search).has('logout')){await flush().catch(()=>{});await signOut(auth);localStorage.removeItem('nova_user');localStorage.removeItem('nova_username');}
+const entryQuery=new URLSearchParams(location.search);
+if(entryQuery.has('logout')){entryQuery.delete('logout');history.replaceState(null,'',location.pathname+(entryQuery.size?'?'+entryQuery:'')+location.hash);localStorage.setItem('nova-login-handoff-signed-out','1');await flush().catch(()=>{});await signOut(auth);localStorage.removeItem('nova_user');localStorage.removeItem('nova_username');}
+else if(!entryQuery.has('add')&&!entryQuery.has('local-login')&&!sessionStorage.getItem('nova-adding-account')&&!localStorage.getItem('nova-login-handoff-signed-out')){await auth.authStateReady();if(!auth.currentUser)await restoreSavedAccount().catch(()=>null);if(auth.currentUser&&!auth.currentUser.isAnonymous){user=auth.currentUser;try{await loadRecord();if(record.onboardingComplete)await enter();else await showStep()}catch(error){$('#account-error').textContent='Your session is still signed in, but Nova could not load your profile. Check your connection and reload to retry.'}}}
 
 if(new URLSearchParams(location.search).has('add')&&slots().length>=2)location.replace('home.html');
