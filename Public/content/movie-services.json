@@ -1,0 +1,198 @@
+{
+  "2": {
+    "name": "Apple TV Store",
+    "logo": "https://image.tmdb.org/t/p/w185/qdEGArH3lKfFnAtYXMkSYk5wxuG.png"
+  },
+  "3": {
+    "name": "Google Play Movies",
+    "logo": "https://image.tmdb.org/t/p/w185/aZRENwYILujqs0RVOZutTh0BVGV.png"
+  },
+  "7": {
+    "name": "Fandango At Home",
+    "logo": "https://image.tmdb.org/t/p/w185/wpOt6x0dRxTrIzuBosto4LGd7E9.png"
+  },
+  "8": {
+    "name": "Netflix",
+    "logo": "https://image.tmdb.org/t/p/w185/rK1KljqmbvO9HQa1PBFLILWah72.png"
+  },
+  "9": {
+    "name": "Amazon Prime Video",
+    "logo": "https://image.tmdb.org/t/p/w185/gMZdpavHmxFNnLpMHwVxfqeux2g.png"
+  },
+  "10": {
+    "name": "Amazon Video",
+    "logo": "https://image.tmdb.org/t/p/w185/jn6TLbtaTZntTRX9UYucHJvpQx1.png"
+  },
+  "15": {
+    "name": "Hulu",
+    "logo": "https://image.tmdb.org/t/p/w185/44uAnmSqvA4yBOdbPWN8YgQHjWm.png"
+  },
+  "34": {
+    "name": "MGM Plus",
+    "logo": "https://image.tmdb.org/t/p/w185/q63Uzpu7JAs566vA2G23Lk7LcID.png"
+  },
+  "43": {
+    "name": "Starz",
+    "logo": "https://image.tmdb.org/t/p/w185/h25xjouKmiSmFiiqw0aDXbxGZo7.png"
+  },
+  "79": {
+    "name": "NBC",
+    "logo": "https://image.tmdb.org/t/p/w185/geRNAmvuPF6hOLExMHLKpt7bGBD.png"
+  },
+  "123": {
+    "name": "FXNow",
+    "logo": "https://image.tmdb.org/t/p/w185/a7ZF6Ng3d6KDMylLUMH1OjAeTqW.png"
+  },
+  "192": {
+    "name": "YouTube",
+    "logo": "https://image.tmdb.org/t/p/w185/5Maob4o5w8oZnNeYpCDyVFD3M7X.png"
+  },
+  "207": {
+    "name": "The Roku Channel",
+    "logo": "https://image.tmdb.org/t/p/w185/b7uhrYJtAe7b1ieJGg705vTbwrX.png"
+  },
+  "212": {
+    "name": "Hoopla",
+    "logo": "https://image.tmdb.org/t/p/w185/gtjNBzAoGgUtYzt0UKXmwG34WWL.png"
+  },
+  "257": {
+    "name": "fuboTV",
+    "logo": "https://image.tmdb.org/t/p/w185/3wF8xISfVlcrc8X3jaa3uMUFGAr.png"
+  },
+  "283": {
+    "name": "Crunchyroll",
+    "logo": "https://image.tmdb.org/t/p/w185/uFL3c4Cq8M6WoLymlC5Y8bmGytV.png"
+  },
+  "322": {
+    "name": "USA Network",
+    "logo": "https://image.tmdb.org/t/p/w185/7Z4egOqWISqraA0SS5CldDzRyh3.png"
+  },
+  "331": {
+    "name": "FlixFling",
+    "logo": "https://image.tmdb.org/t/p/w185/hkw2s2Su8EyifB9EbbQP64Fj1xA.png"
+  },
+  "337": {
+    "name": "Disney Plus",
+    "logo": "https://image.tmdb.org/t/p/w185/5eZ872CghnHFLB1j8grszbrx0dx.png"
+  },
+  "350": {
+    "name": "Apple TV",
+    "logo": "https://image.tmdb.org/t/p/w185/9icYBfYFcwgCbky5VdGUIKJ4C5i.png"
+  },
+  "386": {
+    "name": "Peacock Premium",
+    "logo": "https://image.tmdb.org/t/p/w185/a1UIdq5BrkcAxnxcUhFsNbXnxeu.png"
+  },
+  "387": {
+    "name": "Peacock Premium Plus",
+    "logo": "https://image.tmdb.org/t/p/w185/yrEwyMzEKdqAoGhaWUARtIxByol.png"
+  },
+  "486": {
+    "name": "Spectrum On Demand",
+    "logo": "https://image.tmdb.org/t/p/w185/6qPtM96UZkt3Bu4ZFPsDeHFWUZ2.png"
+  },
+  "526": {
+    "name": "AMC+",
+    "logo": "https://image.tmdb.org/t/p/w185/wsCUflcmL4dCkzBUaGP8cj1cTkh.png"
+  },
+  "528": {
+    "name": "AMC+ Amazon Channel",
+    "logo": "https://image.tmdb.org/t/p/w185/tg5ufQ1GkYDCMxSSxemfeKWcvRe.png"
+  },
+  "538": {
+    "name": "Plex",
+    "logo": "https://image.tmdb.org/t/p/w185/blAEhvx3XX8sV0fFVFk88FFjubs.png"
+  },
+  "582": {
+    "name": "Paramount+ Amazon Channel",
+    "logo": "https://image.tmdb.org/t/p/w185/bxX0YVOCY7bI85BKRlJAAQ2EjUR.png"
+  },
+  "583": {
+    "name": "MGM+ Amazon Channel",
+    "logo": "https://image.tmdb.org/t/p/w185/gk7O3l9qHttE9F3hgDNnhbhlOs7.png"
+  },
+  "613": {
+    "name": "Amazon Prime Video Free with Ads",
+    "logo": "https://image.tmdb.org/t/p/w185/fuVBtr57kxnYzOILZ38xqSmBeyR.png"
+  },
+  "633": {
+    "name": "Paramount+ Roku Premium Channel",
+    "logo": "https://image.tmdb.org/t/p/w185/tnZCMxbcKdxuVmjxefyXCaip7q3.png"
+  },
+  "634": {
+    "name": "Starz Roku Premium Channel",
+    "logo": "https://image.tmdb.org/t/p/w185/tKembbxL7cYdDvFK70xBecbN0G8.png"
+  },
+  "635": {
+    "name": "AMC+ Roku Premium Channel",
+    "logo": "https://image.tmdb.org/t/p/w185/xMyod7PSWlER7Q8FLDqVckKeyyB.png"
+  },
+  "636": {
+    "name": "MGM Plus Roku Premium Channel",
+    "logo": "https://image.tmdb.org/t/p/w185/surh9i8VYeeq9186fKHnUg5Q5dg.png"
+  },
+  "1794": {
+    "name": "Starz Amazon Channel",
+    "logo": "https://image.tmdb.org/t/p/w185/adymMNlhhLlJl5xccRCrsh3OehD.png"
+  },
+  "1796": {
+    "name": "Netflix Standard with Ads",
+    "logo": "https://image.tmdb.org/t/p/w185/eGUwOOIxcazwEBxqJpSN5sWEu6V.png"
+  },
+  "1825": {
+    "name": "HBO Max Amazon Channel",
+    "logo": "https://image.tmdb.org/t/p/w185/64fLWeSyZ1KQZhIdvTdy4QHeWty.png"
+  },
+  "1854": {
+    "name": "AMC Plus Apple TV channel",
+    "logo": "https://image.tmdb.org/t/p/w185/wLl5LRLVC6UOSaUlsmuzY0H9LS1.png"
+  },
+  "1855": {
+    "name": "Starz Apple TV channel",
+    "logo": "https://image.tmdb.org/t/p/w185/lgxDo2a3iGr617vm1rf0k5Hc8jz.png"
+  },
+  "1898": {
+    "name": "Amazon MX Player",
+    "logo": "https://image.tmdb.org/t/p/w185/46U3TOB3PhVDjA7qaFOuYSaGMiq.png"
+  },
+  "1899": {
+    "name": "HBO Max",
+    "logo": "https://image.tmdb.org/t/p/w185/skypuy7SXuugIQeYg0IglmzoKaS.png"
+  },
+  "1968": {
+    "name": "Crunchyroll Amazon Channel",
+    "logo": "https://image.tmdb.org/t/p/w185/qHLLmKo7udRgiSnIASVTwP2IxfJ.png"
+  },
+  "2100": {
+    "name": "Amazon Prime Video with Ads",
+    "logo": "https://image.tmdb.org/t/p/w185/tpwTT1FpWqLLhxUfAuDavIXDDfI.png"
+  },
+  "2243": {
+    "name": "Apple TV Amazon Channel",
+    "logo": "https://image.tmdb.org/t/p/w185/rerVCu9auZrgxTTiZu1criqrQzg.png"
+  },
+  "2303": {
+    "name": "Paramount Plus Premium",
+    "logo": "https://image.tmdb.org/t/p/w185/4N4BMd0Mm0kHAmF7RZgL5lW3cwc.png"
+  },
+  "2383": {
+    "name": "Philo",
+    "logo": "https://image.tmdb.org/t/p/w185/mfbhzQwmQKjm7bLZPF5CTeu3Ilc.png"
+  },
+  "2528": {
+    "name": "YouTube TV",
+    "logo": "https://image.tmdb.org/t/p/w185/48bVXEIyCLSL9pZUQ7gB9ToyWto.png"
+  },
+  "2554": {
+    "name": "FOX One Amazon Channel",
+    "logo": "https://image.tmdb.org/t/p/w185/b3KR9gzy7QkvLNyNzUROavLpsrq.png"
+  },
+  "2616": {
+    "name": "Paramount Plus Essential",
+    "logo": "https://image.tmdb.org/t/p/w185/uPWQPyF4nqwtfPNmGcFcenU57HG.png"
+  },
+  "2784": {
+    "name": "JustWatch TV Store",
+    "logo": "https://image.tmdb.org/t/p/w185/aaFIYn2NGPCo0rpLiWokbvNqNJd.png"
+  }
+}

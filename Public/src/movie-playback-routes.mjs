@@ -4,7 +4,8 @@ export function moviePlaybackRoutes(item){
  if(item.type==='anime')return ['https://framextv.xyz'+embed];
  if(!['movie','tv'].includes(item.type))throw Error('Unsupported title type');
  const first=item.type==='tv'?'/watch/show/'+embed.split('/').slice(3).join('/'):'/watch/'+item.id;
- return ['https://cno.to'+first,'https://framextv.xyz'+embed];
+ const cinejoy='https://cinejoy.pk'+(item.type==='tv'?'/watch/tv/'+embed.split('/').slice(3).join('/'):'/watch/movie/'+item.id);
+ return item.playbackSource==='cinejoy'?[cinejoy,'https://cno.to'+first,'https://framextv.xyz'+embed]:['https://cno.to'+first,'https://framextv.xyz'+embed,cinejoy];
 }
 export function movieEntryFailed(target,status,entry){
  if(status<400)return false;
