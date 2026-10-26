@@ -12,7 +12,7 @@ const app=getApps().length?getApp():initializeApp({
  });const db=getDatabase(app);let key,unsubscribe,profileSignature='';
 function paint(value={}){
  const chat=chatProfiles[chatAuth.currentUser?.uid]||{},id=chatAuth.currentUser?.uid;
- const p={...chat,name:chat.name||value.displayName||value.username||'Guest',photo:chat.photo||value.profilePic||''};
+ const p={...chat,uid:id||null,name:chat.name||value.displayName||value.username||'Guest',photo:chat.photo||value.profilePic||''};
  if(id){const list=rolesFor(id,{profiles:chatProfiles,roles:chatRoles,customRoles,memberRoles});p.computerAccess=list.some(role=>['owner','admin'].includes(role.id)||role.permission==='administrator');p.nameRole=nameRoleFor(id,{profiles:chatProfiles,roles:chatRoles,customRoles,memberRoles})}
  p.role=id?(chatRoles[id]||'member'):'member';p.online=!!id;p.status=chat.status|| (id?'online':'offline');
  const signature=JSON.stringify(p);if(signature===profileSignature)return;profileSignature=signature;window.novaHomeProfile=p;
