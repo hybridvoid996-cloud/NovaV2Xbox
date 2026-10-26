@@ -817,6 +817,10 @@
     "novaMusic": {
       ".read": false,
       ".write": false
+    },
+    "novaAccountRecovery": {
+      ".read": false,
+      ".write": false
     }
   }
 }

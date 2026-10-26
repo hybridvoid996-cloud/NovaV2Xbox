@@ -1,3 +1,4 @@
+import {issueAccountRecovery,revokeAccountRecovery} from '../server/account-recovery.mjs';
 import {announceCode,codeAnnouncementFeed} from '../server/code-announcements.mjs';
 import {ownerPollResults} from '../server/poll-results.mjs';
 import {announcementProfile} from '../server/announcement-profile.mjs';
@@ -62,6 +63,7 @@ if(action==='leaveGroup'){if(!valid(b.id))throw Error('Choose a valid group.');c
 if(action==='staffReply'||action==='reply'||action==='deleteFeedback'){if(!['owner','admin','moderator'].includes(role.val()))return reply(403,{error:'Staff only.'});if(!valid(b.uid)||!valid(b.id))throw Error('Invalid submission.');const ticket=(await db.ref('novaChatV2/feedback/'+b.uid+'/'+b.id).get()).val();if(!ticket)throw Error('Submission not found.');if(action==='deleteFeedback'){await db.ref('novaChatV2/feedback/'+b.uid+'/'+b.id).remove();await db.ref('novaChatV2/feedbackReplies/'+b.uid+'/'+b.id).remove()}else{const message=text(b.text);if(!message)throw Error('Enter a reply.');const id=randomUUID();await db.ref('novaChatV2/feedbackReplies/'+b.uid+'/'+b.id+'/'+id).set({author:who.uid,text:message,createdAt:now});await db.ref('novaChatV2/botMessages/'+b.uid+'/'+id).set({author:'nova-bot',text:message,subject:ticket.subject,kind:ticket.kind,staffName:account.name,staffRole:role.val(),createdAt:now})}await db.ref('novaControl/audit').push({actor:who.uid,action,target:b.uid,at:now});return reply(200,{ok:true})}
 if(action==='buildNowTools'){if(!owner&&baseRole.val()!=='Buildgghacks')return reply(403,{error:'Buildgghacks testing access is required.'});const {buildNowTools}=await import('../server/buildnow-tools.mjs');return reply(200,{code:await buildNowTools()})}
 if(!owner)return reply(403,{error:'Only owners can use this panel.'});
+if(action==='recoveryIssue'||action==='recoveryRevoke'){try{return reply(200,await (action==='recoveryIssue'?issueAccountRecovery:revokeAccountRecovery)({db,auth,uid:b.uid,issuer:who.uid,now}))}catch(error){return reply(error.status||503,{error:error.status?error.message:'Account recovery could not be prepared. Please retry.'})}}
 if(action==='accountDetails'){
  if(!valid(b.uid))throw Error('Choose a valid account.');const profile=(await db.ref('novaAccounts/'+b.uid).get()).val();if(!profile)throw Error('Choose a valid account.');
  const user=await auth.getUser(b.uid);
