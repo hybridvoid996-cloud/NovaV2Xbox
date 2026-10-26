@@ -1,0 +1,85 @@
+{
+  "mode": "direct",
+  "metrics": {
+    "median": 8.334999999999127,
+    "p95": 12.514999999999418,
+    "slow": 0,
+    "longTasks": 0,
+    "longTaskMs": 0
+  },
+  "hottest": [
+    [
+      " (program)",
+      1011
+    ],
+    [
+      " wasm-to-js",
+      215
+    ],
+    [
+      "blob:http://127.0.0.1:8794/4b8916fa-f95f-44f5-a1ac-e14c352b295b _emscripten_get_canvas_element_size",
+      199
+    ],
+    [
+      " drawElements",
+      109
+    ],
+    [
+      "blob:http://127.0.0.1:8794/4b8916fa-f95f-44f5-a1ac-e14c352b295b Pointer_stringify",
+      103
+    ],
+    [
+      " (idle)",
+      89
+    ],
+    [
+      " setValueAtTime",
+      77
+    ],
+    [
+      "blob:http://127.0.0.1:8794/4b8916fa-f95f-44f5-a1ac-e14c352b295b _emscripten_get_now",
+      76
+    ],
+    [
+      "wasm://wasm/04d1b332 wasm-function[10567]",
+      74
+    ],
+    [
+      " getGamepads",
+      72
+    ],
+    [
+      "blob:http://127.0.0.1:8794/4b8916fa-f95f-44f5-a1ac-e14c352b295b _emscripten_get_canvas_element_size_calling_thread",
+      69
+    ],
+    [
+      " uniform4fv",
+      66
+    ],
+    [
+      " fenceSync",
+      60
+    ],
+    [
+      " vertexAttribPointer",
+      55
+    ],
+    [
+      "wasm://wasm/04d1b332 wasm-function[9657]",
+      50
+    ],
+    [
+      " bindTexture",
+      49
+    ],
+    [
+      " requestAnimationFrame",
+      48
+    ],
+    [
+      "wasm://wasm/04d1b332 wasm-function[5511]",
+      44
+    ]
+  ],
+  "errors": []
+}

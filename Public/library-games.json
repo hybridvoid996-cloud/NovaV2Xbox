@@ -9097,5 +9097,49 @@
       "Simulation"
     ],
     "addedAt": "2026-10-22T00:00:00.000Z"
+  },
+  {
+    "id": 1036,
+    "name": "Horsey Game",
+    "url": "/content/noah-import/games/1036.html",
+    "art": "content/noah-import/covers/1036-noah.jpg",
+    "genres": [
+      "Simulation",
+      "Adventure"
+    ],
+    "addedAt": "2026-10-26T00:00:00.000Z"
+  },
+  {
+    "id": 1037,
+    "name": "DEEEER Simulator",
+    "url": "/content/noah-import/games/1037.html",
+    "art": "content/noah-import/covers/1037-noah.jpg",
+    "genres": [
+      "Simulation",
+      "Action"
+    ],
+    "addedAt": "2026-10-26T00:00:00.000Z"
+  },
+  {
+    "id": 1038,
+    "name": "Castle Crashers",
+    "url": "/content/noah-import/games/1038.html",
+    "art": "content/noah-import/covers/1038-noah.jpg",
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
+    "addedAt": "2026-10-26T00:00:00.000Z"
+  },
+  {
+    "id": 1039,
+    "name": "Minecraft Legacy Webassembly",
+    "url": "/content/noah-import/games/1039.html",
+    "art": "content/noah-import/covers/1039-noah.png",
+    "genres": [
+      "Sandbox",
+      "Adventure"
+    ],
+    "addedAt": "2026-10-26T00:00:00.000Z"
   }
 ]

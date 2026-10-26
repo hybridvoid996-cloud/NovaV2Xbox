@@ -1,0 +1,85 @@
+{
+  "mode": "proxy",
+  "metrics": {
+    "median": 8.345000000001164,
+    "p95": 12.525000000001455,
+    "slow": 1,
+    "longTasks": 0,
+    "longTaskMs": 0
+  },
+  "hottest": [
+    [
+      " (program)",
+      1182
+    ],
+    [
+      " wasm-to-js",
+      191
+    ],
+    [
+      "http://127.0.0.1:8794/~/sj/p/o5cv0h0b/4d8ukv6z/blob:https://nova-content.invalid/b9333f08-fb61-47d0-987b-ac22071d464c _emscripten_get_canvas_element_size",
+      175
+    ],
+    [
+      " drawElements",
+      90
+    ],
+    [
+      "http://127.0.0.1:8794/~/sj/p/o5cv0h0b/4d8ukv6z/blob:https://nova-content.invalid/b9333f08-fb61-47d0-987b-ac22071d464c Pointer_stringify",
+      78
+    ],
+    [
+      " (idle)",
+      73
+    ],
+    [
+      "http://127.0.0.1:8794/~/sj/p/o5cv0h0b/4d8ukv6z/blob:https://nova-content.invalid/b9333f08-fb61-47d0-987b-ac22071d464c _emscripten_get_now",
+      70
+    ],
+    [
+      "wasm://wasm/04d1b332 wasm-function[10567]",
+      67
+    ],
+    [
+      " getGamepads",
+      64
+    ],
+    [
+      " setValueAtTime",
+      63
+    ],
+    [
+      " vertexAttribPointer",
+      63
+    ],
+    [
+      "http://127.0.0.1:8794/~/sj/scram/scramjet.js?v=nova-games-20261020-events229 ",
+      61
+    ],
+    [
+      " uniform4fv",
+      53
+    ],
+    [
+      "http://127.0.0.1:8794/~/sj/p/o5cv0h0b/4d8ukv6z/blob:https://nova-content.invalid/b9333f08-fb61-47d0-987b-ac22071d464c _JS_SystemInfo_GetCanvasClientSize",
+      53
+    ],
+    [
+      "wasm://wasm/04d1b332 wasm-function[9657]",
+      48
+    ],
+    [
+      " requestAnimationFrame",
+      46
+    ],
+    [
+      "wasm://wasm/04d1b332 wasm-function[5511]",
+      46
+    ],
+    [
+      " bufferSubData",
+      46
+    ]
+  ],
+  "errors": []
+}

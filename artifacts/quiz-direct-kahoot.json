@@ -1,0 +1,45 @@
+{
+  "id": "kahoot",
+  "frames": [
+    {
+      "url": "https://kahootx-client.x-network.lol/",
+      "text": "New page\n\nEnter Game PIN\n\nJump to main content\nSelect language\nEN\nEnglish (US)\nPIN\nJoin\n\nGet started for FREE at kahoot.com\n\nTerms | Privacy | Cookie notice",
+      "buttons": [
+        {
+          "text": "Jump to main content",
+          "aria": null,
+          "title": ""
+        },
+        {
+          "text": "EN\nEnglish (US)",
+          "aria": null,
+          "title": ""
+        },
+        {
+          "text": "Join",
+          "aria": null,
+          "title": ""
+        }
+      ],
+      "inputs": [
+        {
+          "placeholder": "Enter PIN",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "url": "about:blank",
+      "text": "",
+      "buttons": [],
+      "inputs": []
+    }
+  ],
+  "errors": [],
+  "failed": [
+    [
+      429,
+      "https://sentry.io/api/1396500/envelope/?sentry_version=7&sentry_key=5ab18dd2256e4809906e4c5aceab2c60&sentry_client=sentry.javascript.react%2F10.32.1"
+    ]
+  ]
+}

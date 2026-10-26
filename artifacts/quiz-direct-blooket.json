@@ -1,0 +1,69 @@
+{
+  "id": "blooket",
+  "frames": [
+    {
+      "url": "https://x-client.x-network.lol/play",
+      "text": "Blooket\nJoin a Game\nLog In\nBlooket\nX-GUI\n8.5.5x\nX\nX\n-GUI\nSearch\nGamemodes\nFavorites\nLeaderboard\nLogs\nAlt Manager\nConfigs\nClient Blooks\nCustom Modules\nChangelog\nSettings\nGlobal\nExtras\nCustom Modules\nHost\nCandy Quest\nCrypto Hack\nFishing Frenzy\nTower Defense 2\nMonster Brawl\nDeceptive Dinos\nBattle Royale\nTower Defense\nCafé\nCafé (Solo Mode)\nFactory\nRacing\nBlook Rush\nFlappy Blook\nBusy Bees\nMini Mine\nStar Grazer\nLaser Tag\nCoco Cabana\nTag or Treat\nClaw Mania\nGamemodes",
+      "buttons": [
+        {
+          "text": "",
+          "aria": "Submit",
+          "title": ""
+        }
+      ],
+      "inputs": [
+        {
+          "placeholder": "",
+          "type": "hidden"
+        },
+        {
+          "placeholder": "",
+          "type": "hidden"
+        },
+        {
+          "placeholder": "",
+          "type": "hidden"
+        },
+        {
+          "placeholder": "",
+          "type": "hidden"
+        },
+        {
+          "placeholder": "Game ID",
+          "type": "tel"
+        },
+        {
+          "placeholder": "",
+          "type": "hidden"
+        }
+      ]
+    },
+    {
+      "url": "about:blank",
+      "text": "",
+      "buttons": [],
+      "inputs": []
+    },
+    {
+      "url": "about:blank",
+      "text": "",
+      "buttons": [],
+      "inputs": []
+    },
+    {
+      "url": "about:blank",
+      "text": "",
+      "buttons": [],
+      "inputs": []
+    }
+  ],
+  "errors": [
+    "Looks like your website URL has changed. To ensure the proper functioning of your banner, update the registered URL on your CookieYes account (navigate to the Organizations & Sites page (https://app.cookieyes.com/settings/organizations-and-sites) and"
+  ],
+  "failed": [
+    [
+      403,
+      "https://x-client.x-network.lol/_b/id.blooket.com/login?_rsc=1lhdr"
+    ]
+  ]
+}

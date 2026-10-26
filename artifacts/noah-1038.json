@@ -1,0 +1,32 @@
+{
+  "id": "1038",
+  "frames": [
+    {
+      "url": "http://127.0.0.1:8794/player.html?kind=game&id=1038",
+      "isolated": true,
+      "text": "",
+      "canvas": null
+    },
+    {
+      "url": "http://127.0.0.1:8794/~/sj/p/6e9nmty9/brhrq3no/https%3A%2F%2Fnova-content.invalid%2Fcontent%2Fnoah-import%2Fgames%2F1038.html",
+      "isolated": true,
+      "text": "",
+      "renderedFrames": 5987,
+      "canvas": {
+        "width": 1280,
+        "height": 720
+      }
+    }
+  ],
+  "errors": [],
+  "logs": [
+    "log: running libcurl.js v0.7.4",
+    "warning: %cI -> b%c detected quirky document structure parsing @ https://nova-content.invalid/content/noah-import/games/1038.html! \n  \tbackground-color: #f80;\n  \tcolor: #fff;\n  \tpadding: 4px;\n  \tfont-weight: bold;\n  \tfont-family: monospace;\n  \tfont-size: 0.9em;\n   ",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "warning: PEWASM: initialize /images/module0.img at 0x1763be",
+    "warning: PEWASM: d3d9 device on WebGL2 (s3tc 1)",
+    "warning: PEWASM: main thread preempted after 75 ms at 0",
+    "warning: PEWASM: main thread preempted after 886 ms at 0"
+  ],
+  "failures": []
+}

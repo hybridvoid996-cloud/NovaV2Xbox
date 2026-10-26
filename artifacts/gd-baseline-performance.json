@@ -1,0 +1,85 @@
+{
+  "mode": "baseline",
+  "metrics": {
+    "median": 25.05500000000029,
+    "p95": 62.48500000000058,
+    "slow": 178,
+    "longTasks": 34,
+    "longTaskMs": 2090
+  },
+  "hottest": [
+    [
+      " (program)",
+      763
+    ],
+    [
+      "wasm://wasm/04d1b332 wasm-function[13739]",
+      241
+    ],
+    [
+      " wasm-to-js",
+      184
+    ],
+    [
+      "http://127.0.0.1:8794/~/sj/p/pjrwa0n6/4at7ml4r/blob:https://nova-content.invalid/2d1d94a5-3824-46d3-8724-6a5d579d11fc _emscripten_get_canvas_element_size",
+      164
+    ],
+    [
+      " bufferSubData",
+      152
+    ],
+    [
+      " bindBuffer",
+      92
+    ],
+    [
+      "wasm://wasm/04d1b332 wasm-function[466]",
+      86
+    ],
+    [
+      "http://127.0.0.1:8794/~/sj/p/pjrwa0n6/4at7ml4r/blob:https://nova-content.invalid/2d1d94a5-3824-46d3-8724-6a5d579d11fc _emscripten_get_now",
+      67
+    ],
+    [
+      " drawElements",
+      62
+    ],
+    [
+      "http://127.0.0.1:8794/~/sj/scram/scramjet.js?v=nova-games-20261020-events229 ",
+      59
+    ],
+    [
+      "http://127.0.0.1:8794/~/sj/p/pjrwa0n6/4at7ml4r/blob:https://nova-content.invalid/2d1d94a5-3824-46d3-8724-6a5d579d11fc _emscripten_get_canvas_element_size_calling_thread",
+      55
+    ],
+    [
+      " uniform4fv",
+      50
+    ],
+    [
+      " (idle)",
+      50
+    ],
+    [
+      " get location",
+      45
+    ],
+    [
+      "http://127.0.0.1:8794/~/sj/p/pjrwa0n6/4at7ml4r/blob:https://nova-content.invalid/2d1d94a5-3824-46d3-8724-6a5d579d11fc invoke_vi",
+      43
+    ],
+    [
+      "http://127.0.0.1:8794/~/sj/p/pjrwa0n6/4at7ml4r/blob:https://nova-content.invalid/2d1d94a5-3824-46d3-8724-6a5d579d11fc _JS_SystemInfo_GetCanvasClientSize",
+      42
+    ],
+    [
+      "wasm://wasm/04d1b332 wasm-function[13825]",
+      42
+    ],
+    [
+      " bindTexture",
+      41
+    ]
+  ],
+  "errors": []
+}

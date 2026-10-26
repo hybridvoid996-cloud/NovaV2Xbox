@@ -3,7 +3,7 @@ import {shopProfilePreview,setupShopShowroom} from './shop-showroom.mjs?v=202610
 import {control} from './control-client.js';
 import {auth,db} from './account-firebase.js';
 import {get,ref} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
-import {showStore,preview,equip,load} from './shop-revamp.js?v=20261025-shop297';
+import {showStore,preview,equip,load} from './shop-revamp.js?v=20261026-tools312';
 import {dailyShop} from './daily-shop.mjs?v=20261025-shop297';
 document.documentElement.classList.toggle('shop-embedded',parent!==window);if(parent===window)try{mountMovieWallpaper();document.getElementById('movie-wallpaper').id='shop-wallpaper'}catch{}
 const $=s=>document.querySelector(s),node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n},labels={decoration:'Avatar decorations',effect:'Profile effects',banner:'Chat banners',halloween:'Halloween collection'},kindLabel={decoration:'Avatar decoration',effect:'Profile effect',banner:'Chat banner'},host=$('#legacy-shop');let rotation,liveDaily=false,refreshing=false,toastTimer;

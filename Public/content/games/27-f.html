@@ -7,7 +7,7 @@
 
 <html lang="en-US">
 
-<head><script id="nova-analytics-compat">window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){};</script>
+<head><script src="/src/game-audio-inject.js"></script><script src="/src/session-runtime.js?v=20261026-gd309"></script><script src="/src/session-inject.js?v=20261026-gd309"></script><script src="/src/unity-render-budget.js?v=20261026-gd309"></script><script id="nova-analytics-compat">window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){};</script>
   <base href="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/gdlite/">
     <title>Geometry Dash</title>
     <link rel="icon" type="image/png" href="https://e3334afd.cf-nate.pages.dev/0/g/geodash/game/splash.png">
@@ -208,6 +208,7 @@
                     loader.querySelector(".spinner").style.display = "none";
                 }
                 gameInstance.progress.style.transform = `scaleX(${progress})`;
+                if(progress===1)window.NovaUnityRenderBudget.bind(gameInstance.Module);
                 if (progress === 1 && !gameInstance.removeTimeout) {
                     gameInstance.removeTimeout = setTimeout(function() {
                         loader.style.display = "none";

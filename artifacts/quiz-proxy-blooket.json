@@ -1,0 +1,88 @@
+{
+  "id": "blooket",
+  "frames": [
+    {
+      "url": "http://127.0.0.1:8794/hack-client.html?product=blooket",
+      "tools": [],
+      "text": "Blooket Hacks\nThird-party client · Nova account unlock\nBack to shop\nRetry connection",
+      "buttons": [
+        {
+          "text": "Retry connection",
+          "aria": null,
+          "title": ""
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "url": "http://127.0.0.1:8794/~/sj/p/pxsehxnw/vuaxfhjp/https%3A%2F%2Fx-client.x-network.lol%2Fplay?%24io=https%3A%2F%2Fx-client.x-network.lol",
+      "tools": [
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "text": "Blooket\nJoin a Game\nLog In\nBlooket\nX-GUI\n8.5.5x\nX\nX\n-GUI\nSearch\nGamemodes\nFavorites\nLeaderboard\nLogs\nAlt Manager\nConfigs\nClient Blooks\nCustom Modules\nChangelog\nSettings\nGlobal\nExtras\nCustom Modules\nHost\nCandy Quest\nCrypto Hack\nFishing Frenzy\nTower Defense 2\nMonster Brawl\nDeceptive Dinos\nBattle Royale\nTower Defense\nCafé\nCafé (Solo Mode)\nFactory\nRacing\nBlook Rush\nFlappy Blook\nBusy Bees\nMini Mine\nStar Grazer\nLaser Tag\nCoco Cabana\nTag or Treat\nClaw Mania\nGamemodes",
+      "buttons": [
+        {
+          "text": "",
+          "aria": "Submit",
+          "title": ""
+        }
+      ],
+      "inputs": [
+        {
+          "placeholder": "",
+          "type": "hidden"
+        },
+        {
+          "placeholder": "",
+          "type": "hidden"
+        },
+        {
+          "placeholder": "",
+          "type": "hidden"
+        },
+        {
+          "placeholder": "",
+          "type": "hidden"
+        },
+        {
+          "placeholder": "Game ID",
+          "type": "tel"
+        },
+        {
+          "placeholder": "",
+          "type": "hidden"
+        }
+      ]
+    },
+    {
+      "url": "about:blank",
+      "tools": [],
+      "text": "",
+      "buttons": [],
+      "inputs": []
+    },
+    {
+      "url": "about:blank",
+      "tools": [],
+      "text": "",
+      "buttons": [],
+      "inputs": []
+    }
+  ],
+  "errors": [
+    "Looks like your website URL has changed. To ensure the proper functioning of your banner, update the registered URL on your CookieYes account (navigate to the Organizations & Sites page (https://app.cookieyes.com/settings/organizations-and-sites) and"
+  ],
+  "failed": [
+    [
+      404,
+      "http://127.0.0.1:8794/~/sj/p/pxsehxnw/vuaxfhjp/https%3A%2F%2Fx-client.x-network.lol%2Fcdn-cgi%2Fchallenge-platform%2Fscripts%2Fjsd%2Fmain.js?%24io=null"
+    ],
+    [
+      403,
+      "http://127.0.0.1:8794/~/sj/p/pxsehxnw/vuaxfhjp/https%3A%2F%2Fx-client.x-network.lol%2F_b%2Fid.blooket.com%2Flogin%3F_rsc%3D1lhdr?%24mode=cors&%24io=https%3A%2F%2Fx-client.x-network"
+    ]
+  ]
+}

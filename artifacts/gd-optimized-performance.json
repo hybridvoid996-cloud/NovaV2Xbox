@@ -1,0 +1,85 @@
+{
+  "mode": "optimized",
+  "metrics": {
+    "median": 4.225000000005821,
+    "p95": 29.150000000001455,
+    "slow": 102,
+    "longTasks": 0,
+    "longTaskMs": 0
+  },
+  "hottest": [
+    [
+      " (program)",
+      1213
+    ],
+    [
+      "wasm://wasm/04d1b332 wasm-function[13739]",
+      304
+    ],
+    [
+      " (idle)",
+      192
+    ],
+    [
+      "wasm://wasm/04d1b332 wasm-function[466]",
+      133
+    ],
+    [
+      " wasm-to-js",
+      132
+    ],
+    [
+      "blob:http://127.0.0.1:8794/ae7868a8-098c-420e-800c-7c38132cd960 _emscripten_get_canvas_element_size",
+      122
+    ],
+    [
+      " bufferSubData",
+      121
+    ],
+    [
+      "blob:http://127.0.0.1:8794/ae7868a8-098c-420e-800c-7c38132cd960 _emscripten_get_now",
+      81
+    ],
+    [
+      " bindBuffer",
+      68
+    ],
+    [
+      " drawElements",
+      57
+    ],
+    [
+      "blob:http://127.0.0.1:8794/ae7868a8-098c-420e-800c-7c38132cd960 Pointer_stringify",
+      54
+    ],
+    [
+      "wasm://wasm/04d1b332 wasm-function[13825]",
+      53
+    ],
+    [
+      "blob:http://127.0.0.1:8794/ae7868a8-098c-420e-800c-7c38132cd960 _JS_SystemInfo_GetCanvasClientSize",
+      50
+    ],
+    [
+      " uniform4fv",
+      47
+    ],
+    [
+      " bindTexture",
+      45
+    ],
+    [
+      "blob:http://127.0.0.1:8794/ae7868a8-098c-420e-800c-7c38132cd960 _emscripten_get_canvas_element_size_calling_thread",
+      43
+    ],
+    [
+      " requestAnimationFrame",
+      42
+    ],
+    [
+      "wasm://wasm/04d1b332 wasm-function[10567]",
+      42
+    ]
+  ],
+  "errors": []
+}

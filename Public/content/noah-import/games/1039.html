@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<title>Minecraft Console Edition</title>
+<style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#000}
+#canvas{display:block;width:100vw;height:100vh;padding:0;border:0;outline:0;background:#000;touch-action:none}
+#loadBar{position:fixed;left:0;bottom:0;width:0%;height:4px;background:#fff;z-index:9999;pointer-events:none;transition:width .2s linear}
+#loadText{position:fixed;left:0;bottom:10px;width:100%;text-align:center;color:#fff;font:12px/1.4 system-ui,sans-serif;z-index:9999;pointer-events:none;opacity:.8}
+</style>
+</head>
+<script> alert("This amazing port was made by 98corbins, all credit goes to him and thanks for letting me use ur port") </script>
+<body>
+<canvas id="canvas" tabindex="0"></canvas>
+<div id="loadBar"></div>
+<div id="loadText">Connecting...</div>
+<script>
+var BASE='https://cdn.jsdelivr.net/gh/thirstygithub/mclegacyweb@650fd9009931508867082abd90a52919342ac931/';
+var gameCanvas=document.getElementById('canvas');
+var getGameContext=gameCanvas.getContext.bind(gameCanvas);
+gameCanvas.getContext=function(type,options){
+  if(type==='webgl2'||type==='webgl'||type==='experimental-webgl')
+    options=Object.assign({},options,{preserveDrawingBuffer:true});
+  return getGameContext(type,options);
+};
+gameCanvas.addEventListener('contextmenu',function(event){event.preventDefault()});
+gameCanvas.addEventListener('pointerdown',function(){gameCanvas.focus()});
+var bar=document.getElementById('loadBar');
+var label=document.getElementById('loadText');
+function setStatus(text){
+  if(!text)return;
+  var pct=/\((\d+)%\)/.exec(text);
+  if(pct)bar.style.width=Math.min(100,Number(pct[1]))+'%';
+  if(/Loading|Preparing|Compiling|Unpacking|Downloading/i.test(text))label.textContent=text;
+}
+var Module={
+  canvas:gameCanvas,
+  locateFile:function(name){return BASE+name},
+  mainScriptUrlOrBlob:null,
+  print:function(){console.log.apply(console,arguments)},
+  printErr:function(){console.error.apply(console,arguments)},
+  setStatus:setStatus,
+  onRuntimeInitialized:function(){
+    if(bar.parentNode)bar.parentNode.removeChild(bar);
+    if(label.parentNode)label.parentNode.removeChild(label);
+  }
+};
+(function(){
+  if(!self.crossOriginIsolated){
+    var box=document.createElement('div');
+    box.style.cssText='position:fixed;inset:0;padding:32px;box-sizing:border-box;color:#fff;font:14px/1.6 system-ui,sans-serif;background:#111;overflow:auto';
+    box.innerHTML='<h2 style="margin:0 0 12px">Cross-origin isolation required</h2>'+
+      '<p>This build runs wasm threads, so the page must be served with '+
+      '<code>Cross-Origin-Opener-Policy: same-origin</code> and '+
+      '<code>Cross-Origin-Embedder-Policy: require-corp</code>'+
+      (location.protocol==='file:'?' \u2014 opening the file by double-click can never work.':' \u2014 this origin does not send them.')+'</p>'+
+      '<p>Locally:</p>'+
+      '<pre style="background:#000;padding:12px;border-radius:6px">python serve_iso.py --root . --port 8124</pre>'+
+      '<p style="opacity:.7">then open http://127.0.0.1:8124/mcl.html</p>';
+    document.body.appendChild(box);
+    if(bar.parentNode)bar.parentNode.removeChild(bar);
+    if(label.parentNode)label.parentNode.removeChild(label);
+    return;
+  }
+  var LANES=4;
+  function size(bytes){
+    return bytes>=1048576?(bytes/1048576).toFixed(0)+' MB':Math.max(1,Math.round(bytes/1024))+' KB';
+  }
+  function delay(ms){
+    return new Promise(function(resolve){setTimeout(resolve,ms)});
+  }
+  function fetchWithRetry(name,tries){
+    var attempt=0;
+    function run(){
+      attempt++;
+      var url=BASE+name+(attempt>1?('?retry='+attempt+'-'+Date.now()):'');
+      return fetch(url,{cache:'no-store'}).then(function(response){
+        if(response.ok)return response;
+        if(attempt<tries)return delay(attempt*700).then(run);
+        throw new Error(name+': HTTP '+response.status);
+      },function(error){
+        if(attempt<tries)return delay(attempt*700).then(run);
+        throw error;
+      });
+    }
+    return run();
+  }
+  function toHex(digest){
+    var view=new Uint8Array(digest),out='';
+    for(var i=0;i<view.length;i++)out+=view[i].toString(16).padStart(2,'0');
+    return out;
+  }
+  function loadData(){
+    return fetchWithRetry('Minecraft.Client.data.parts.json',5).then(function(response){
+      return response.json();
+    }).then(function(manifest){
+      var total=manifest.size;
+      var buffer=new Uint8Array(total);
+      var offsets=[],offset=0;
+      manifest.parts.forEach(function(part){offsets.push(offset);offset+=part.size});
+      if(offset!==total)throw new Error('manifest size mismatch');
+      var done=0,lane=0;
+      function nextPart(){
+        var index=lane++;
+        if(index>=manifest.parts.length)return Promise.resolve();
+        var part=manifest.parts[index];
+        return fetchWithRetry(part.name,5).then(function(response){
+          return response.arrayBuffer();
+        }).then(function(data){
+          var bytes=new Uint8Array(data);
+          if(bytes.length!==part.size)throw new Error(part.name+': length mismatch');
+          buffer.set(bytes,offsets[index]);
+          done+=bytes.length;
+          bar.style.width=(100*done/total).toFixed(1)+'%';
+          label.textContent='Downloading data... '+size(done)+' / '+size(total);
+          if(!(window.crypto&&crypto.subtle))return;
+          return crypto.subtle.digest('SHA-256',bytes).then(function(digest){
+            if(toHex(digest)!==part.sha256)throw new Error(part.name+': checksum mismatch');
+          });
+        }).then(nextPart);
+      }
+      var lanes=[];
+      for(var i=0;i<LANES;i++)lanes.push(nextPart());
+      return Promise.all(lanes).then(function(){return buffer});
+    });
+  }
+  loadData().then(function(buffer){
+    Module.getPreloadedPackage=function(){return buffer.buffer};
+    label.textContent='Starting...';
+    return fetchWithRetry('Minecraft.Client.js',5).then(function(response){
+      return response.text();
+    }).then(function(source){
+      var head='self.Module=Object.assign(self.Module||{},{locateFile:function(name){return '+JSON.stringify(BASE)+'+name}});\n';
+      var url=URL.createObjectURL(new Blob([head,source],{type:'text/javascript'}));
+      Module.mainScriptUrlOrBlob=url;
+      var tag=document.createElement('script');
+      tag.async=true;
+      tag.src=url;
+      tag.onerror=function(){label.textContent='Could not start the game'};
+      document.body.appendChild(tag);
+    });
+  }).catch(function(error){
+    label.textContent='Load failed: '+error.message;
+    console.error(error);
+  });
+})();
+</script>
+</body>
+</html>

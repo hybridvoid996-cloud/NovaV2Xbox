@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>DEEEER Simulator</title>
+<style>
+html,body{margin:0;padding:0;height:100%;background:#0d0f12;overflow:hidden}
+#unity-canvas{width:100%;height:100%;display:block;background:#000;outline:none}
+#overlay{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;font:15px/1.4 system-ui,sans-serif;color:#e8e8e8;background:#0d0f12}
+#overlay h1{margin:0;font-size:22px;letter-spacing:.5px}
+#bar{width:min(420px,80vw);height:10px;border-radius:5px;background:#2a2e35;overflow:hidden}
+#fill{width:0%;height:100%;background:#f2a541;transition:width .15s}
+#status{opacity:.8;min-height:1.4em;text-align:center;max-width:80vw}
+#fs{position:fixed;right:12px;bottom:12px;padding:6px 10px;border:0;border-radius:6px;background:rgba(0,0,0,.55);color:#fff;font:13px system-ui,sans-serif;cursor:pointer;display:none}
+#err{color:#ff8c8c}
+</style>
+</head>
+<body>
+<canvas id="unity-canvas" tabindex="-1"></canvas>
+<div id="overlay">
+  <h1>DEEEER Simulator</h1>
+  <div id="bar"><div id="fill"></div></div>
+  <div id="status">Loading...</div>
+</div>
+<button id="fs" title="Fullscreen">Fullscreen</button>
+
+<script>
+(async function () {
+  const REPO = 'https://cdn.jsdelivr.net/gh/AlexBoops/DEEEER-Simulator-Port@65828a1b161e7517f5dfe19753559d48efc15159';
+  const BUILD = REPO + '/Build';
+  const LANES = 4;
+
+  const canvas = document.getElementById('unity-canvas');
+  const fill = document.getElementById('fill');
+  const status = document.getElementById('status');
+  const overlay = document.getElementById('overlay');
+
+  const setStatus = (text, isError) => {
+    status.innerHTML = isError ? '<span id="err">' + text + '</span>' : text;
+  };
+
+  async function fetchBinary(url, tries = 6) {
+    for (let attempt = 1; attempt <= tries; attempt++) {
+      try {
+        const response = await fetch(attempt > 1 ? url + '?r=' + attempt : url, { cache: 'no-store' });
+        if (response.ok) {
+          const type = response.headers.get('content-type') || '';
+          if (!type.includes('text/html')) {
+            const buffer = await response.arrayBuffer();
+            if (buffer.byteLength > 0) return buffer;
+          }
+        }
+      } catch (error) {}
+      if (attempt < tries) await new Promise(done => setTimeout(done, 700 * attempt));
+    }
+    throw new Error('could not download ' + url.split('/').pop());
+  }
+
+  let parts = {};
+  try {
+    const response = await fetch(BUILD + '/parts.json', { cache: 'no-store' });
+    if (response.ok) parts = await response.json();
+  } catch (error) {}
+
+  async function assemble(name, mime) {
+    const list = parts[name];
+    if (!list || !list.length) {
+      const single = await fetchBinary(BUILD + '/' + name);
+      return URL.createObjectURL(new Blob([single], { type: mime }));
+    }
+    const buffers = new Array(list.length);
+    let lane = 0, done = 0;
+    async function worker() {
+      while (lane < list.length) {
+        const index = lane++;
+        buffers[index] = await fetchBinary(BUILD + '/' + list[index]);
+        done++;
+        setStatus('Downloading ' + name + ' (' + done + '/' + list.length + ')');
+        fill.style.width = (60 * done / (list.length * 2)).toFixed(1) + '%';
+      }
+    }
+    const lanes = [];
+    for (let i = 0; i < LANES; i++) lanes.push(worker());
+    await Promise.all(lanes);
+    let total = 0;
+    for (const buffer of buffers) total += buffer.byteLength;
+    const joined = new Uint8Array(total);
+    let offset = 0;
+    for (const buffer of buffers) {
+      joined.set(new Uint8Array(buffer), offset);
+      offset += buffer.byteLength;
+    }
+    return URL.createObjectURL(new Blob([joined], { type: mime }));
+  }
+
+  try {
+    setStatus('Preparing download...');
+    const dataUrl = await assemble('WebBuild.data', 'application/octet-stream');
+    const codeUrl = await assemble('WebBuild.wasm', 'application/wasm');
+    setStatus('Downloading engine...');
+    const frameworkBlob = await fetchBinary(BUILD + '/WebBuild.framework.js');
+    const frameworkUrl = URL.createObjectURL(new Blob([frameworkBlob], { type: 'application/javascript' }));
+
+    const config = {
+      dataUrl,
+      frameworkUrl,
+      codeUrl,
+      streamingAssetsUrl: REPO + '/StreamingAssets',
+      companyName: 'Gibier Games',
+      productName: 'DEEEER Simulator',
+      productVersion: '6.4.0',
+      matchWebGLToCanvasSize: true,
+      devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2)
+    };
+
+    const tag = document.createElement('script');
+    tag.src = BUILD + '/WebBuild.loader.js';
+    tag.crossOrigin = 'anonymous';
+    tag.onerror = () => setStatus('Could not load the Unity loader from the CDN', true);
+    tag.onload = () => {
+      createUnityInstance(canvas, config, progress => {
+        fill.style.width = (60 + 40 * progress).toFixed(1) + '%';
+        setStatus(progress < 1 ? 'Starting... ' + Math.round(progress * 100) + '%' : 'Ready');
+      }).then(instance => {
+        window.unityInstance = instance;
+        overlay.style.display = 'none';
+        const button = document.getElementById('fs');
+        button.style.display = 'block';
+        button.onclick = () => instance.SetFullscreen(1);
+        canvas.focus();
+      }).catch(message => setStatus(String(message), true));
+    };
+    document.body.appendChild(tag);
+  } catch (error) {
+    setStatus('Download failed: ' + error.message, true);
+  }
+
+  addEventListener('keydown', event => {
+    if ([' ', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Tab'].indexOf(event.key) >= 0) event.preventDefault();
+  }, { passive: false });
+  canvas.addEventListener('click', () => canvas.focus());
+  canvas.addEventListener('contextmenu', event => event.preventDefault());
+})();
+</script>
+</body>
+</html>

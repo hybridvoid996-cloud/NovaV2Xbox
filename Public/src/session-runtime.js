@@ -36,5 +36,5 @@
  function tree(win,paused,visited=new Set()){if(!win||visited.has(win))return;visited.add(win);try{install(win)?.setSuspended(paused);for(const frame of win.document.querySelectorAll('iframe'))tree(frame.contentWindow,paused||!!frame.hidden,visited)}catch{}}
  window.NovaSessionRuntime={install,tree};
  // Player is the control boundary; the Home interface and Nova Music stay independent.
- if(/\/(?:player|search|novatube|novamovies)\.html$/.test(location.pathname)){const state=install(window);window.NovaSessionRuntime.attachChild=child=>tree(child,!!state?.paused||[...document.querySelectorAll('iframe')].some(frame=>frame.contentWindow===child&&frame.hidden));window.NovaSessionRuntime.setSuspended=value=>tree(window,!!value)}
+ if(/\/(?:player|search|novatube|novamovies|hack-client)\.html$/.test(location.pathname)){const state=install(window);window.NovaSessionRuntime.attachChild=child=>tree(child,!!state?.paused||[...document.querySelectorAll('iframe')].some(frame=>frame.contentWindow===child&&frame.hidden));window.NovaSessionRuntime.setSuspended=value=>tree(window,!!value)}
 })();

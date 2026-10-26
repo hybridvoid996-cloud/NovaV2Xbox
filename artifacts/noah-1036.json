@@ -1,0 +1,89 @@
+{
+  "id": "1036",
+  "frames": [
+    {
+      "url": "http://127.0.0.1:8794/player.html?kind=game&id=1036",
+      "isolated": true,
+      "text": "",
+      "canvas": null
+    },
+    {
+      "url": "http://127.0.0.1:8794/~/sj/p/da3wpys0/b0zamt7l/https%3A%2F%2Fnova-content.invalid%2Fcontent%2Fnoah-import%2Fgames%2F1036.html",
+      "isolated": true,
+      "text": "65 fps",
+      "horseyStats": {
+        "fps": 64.65602992080207,
+        "busy": 0.9928530219469373,
+        "c": {
+          "reads": 0,
+          "fetches": 0,
+          "fetchKB": 0,
+          "fetchMs": 0,
+          "switches": 724,
+          "sleeps": 148882,
+          "sleepMs": 212177.6531339994,
+          "yieldMs": 7.024999994784594
+        }
+      },
+      "canvas": {
+        "width": 960,
+        "height": 540
+      }
+    }
+  ],
+  "errors": [],
+  "logs": [
+    "log: running libcurl.js v0.7.4",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "log: [web] guest memory at 0 (512 MB), command line: \"C:\\game\\horsey.exe\"",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "log: [thr] 1004 '' fn 102cfce8 -> cooperative",
+    "log: [gfx] WebGL runs on a worker thread (OffscreenCanvas)",
+    "log: [wnd] SetWindowPos(10010, after fffffffffffffffe, 160,90 960x540, flags 0x213) from 1022c8dd",
+    "log: [wnd] SetWindowPos(10010, after 0, 0,0 0x0, flags 0x237) from 1022b5f9",
+    "log: [d3d11] D3D11CreateDevice(adapter=1057fc90 flags=21) -> FL b_0",
+    "log: [d3d11] swap chain 960x540 fmt 87 hwnd 10010",
+    "log: [dxgi] SetRotation(1) -> S_OK",
+    "log: [dxgi] GetBuffer(0, ID3D11Texture2D) -> 1057f930",
+    "log: [d3d11] ID3D11RenderTargetView on the back buffer -> 1057f8f0",
+    "log: [thr] 1008 '' fn 102cfce8 -> cooperative",
+    "log: [wasapi] clsid 9503debc 2fe5 7c46 8e3dc4579291692e",
+    "log: [wasapi] MMDeviceEnumerator created",
+    "log: [wasapi] Initialize(mode 0, flags 0x88040000, 882 frames, 44100 Hz 2 ch float) device yes",
+    "log: [thr] 100c '' fn 7f003450 -> cooperative",
+    "log: [thr] 1010 '' fn 102cfce8 -> cooperative",
+    "log: [thr] 1010 'SDLAudioP15' fn 102cfce8 priority 15",
+    "log: [gfx worker] ready",
+    "log: [gfx worker] WebGL2 context ready, parallel shader compile on",
+    "log: [thr] 1014 '' fn 102cfce8 -> cooperative",
+    "log: [mem] frame 1: guest pages 174 MB | textures 25 (0 MB shadows), buffers 4 (0 MB), views 24/1/0, shaders 1/2",
+    "log: [gfx worker] canvas 960x540/960x540",
+    "log: [gl] frame 1 (11 draws total)",
+    "log: [gl] frame 301 (3311 draws total)",
+    "log: [mem] frame 601: guest pages 183 MB | textures 25 (0 MB shadows), buffers 11 (1 MB), views 24/1/0, shaders 1/2",
+    "log: [gl] frame 601 (6358 draws total)",
+    "log: [gl] frame 901 (9358 draws total)",
+    "log: [mem] frame 1201: guest pages 183 MB | textures 25 (0 MB shadows), buffers 11 (1 MB), views 24/1/0, shaders 1/2",
+    "log: [gl] frame 1201 (12358 draws total)"
+  ],
+  "failures": [
+    {
+      "status": 404,
+      "url": "http://127.0.0.1:8794/~/sj/p/da3wpys0/b0zamt7l/https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fwoahhcrackers%2FHorseyGameWeb%4090db495570cf97ec265f2adae069465219c4613f%2Fpreload.json?%24mode=cors&%24io=https%3A"
+    },
+    {
+      "status": 404,
+      "url": "http://127.0.0.1:8794/~/sj/p/da3wpys0/b0zamt7l/https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fwoahhcrackers%2FHorseyGameWeb%4090db495570cf97ec265f2adae069465219c4613f%2Fprograms.json?%24mode=cors&%24io=https%3"
+    },
+    {
+      "status": 404,
+      "url": "http://127.0.0.1:8794/~/sj/p/da3wpys0/b0zamt7l/https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fwoahhcrackers%2FHorseyGameWeb%4090db495570cf97ec265f2adae069465219c4613f%2Fprograms.json?%24mode=cors&%24io=https%3"
+    },
+    {
+      "status": 404,
+      "url": "http://127.0.0.1:8794/~/sj/p/da3wpys0/b0zamt7l/https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fwoahhcrackers%2FHorseyGameWeb%4090db495570cf97ec265f2adae069465219c4613f%2Fpatches.json?%24mode=cors&%24io=https%3A"
+    }
+  ]
+}

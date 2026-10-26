@@ -1,0 +1,69 @@
+{
+  "id": "kahoot",
+  "frames": [
+    {
+      "url": "http://127.0.0.1:8794/hack-client.html?product=kahoot",
+      "tools": [],
+      "text": "Kahoot Hacks\nThird-party client · Nova account unlock\nBack to shop\nRetry connection",
+      "buttons": [
+        {
+          "text": "Retry connection",
+          "aria": null,
+          "title": ""
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "url": "http://127.0.0.1:8794/~/sj/p/zweb64om/394jbree/https%3A%2F%2Fkahootx-client.x-network.lol%2F?%24io=https%3A%2F%2Fkahootx-client.x-network.lol",
+      "tools": [
+        {
+          "id": "kahootx-host-outer",
+          "text": ""
+        }
+      ],
+      "text": "New page\n\nEnter Game PIN\n\nJump to main content\nSelect language\nEN\nEnglish (US)\nPIN\nJoin\n\nGet started for FREE at kahoot.com\n\nTerms | Privacy | Cookie notice",
+      "buttons": [
+        {
+          "text": "Jump to main content",
+          "aria": null,
+          "title": ""
+        },
+        {
+          "text": "EN\nEnglish (US)",
+          "aria": null,
+          "title": ""
+        },
+        {
+          "text": "Join",
+          "aria": null,
+          "title": ""
+        }
+      ],
+      "inputs": [
+        {
+          "placeholder": "Enter PIN",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "url": "about:blank",
+      "tools": [],
+      "text": "",
+      "buttons": [],
+      "inputs": []
+    }
+  ],
+  "errors": [],
+  "failed": [
+    [
+      404,
+      "http://127.0.0.1:8794/~/sj/p/zweb64om/394jbree/https%3A%2F%2Fkahootx-client.x-network.lol%2Fcdn-cgi%2Fchallenge-platform%2Fscripts%2Fjsd%2Fmain.js?%24io=null"
+    ],
+    [
+      429,
+      "http://127.0.0.1:8794/~/sj/p/zweb64om/394jbree/https%3A%2F%2Fsentry.io%2Fapi%2F1396500%2Fenvelope%2F%3Fsentry_version%3D7%26sentry_key%3D5ab18dd2256e4809906e4c5aceab2c60%26sentry_c"
+    ]
+  ]
+}
