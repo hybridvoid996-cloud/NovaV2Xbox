@@ -1,6 +1,6 @@
 import {auth} from './account-firebase.js';
 import {control} from './control-client.js';
-import {installStreakButton,updateStreak,openDailyRewards,device} from './daily-rewards-ui.mjs?v=20261027-profile329';
+import {installStreakButton,updateStreak,openDailyRewards,device} from './daily-rewards-ui.mjs?v=20261027-invite330';
 if(location.pathname.endsWith('/home.html')){
  let state,inflight,claiming=false,owner='',lastError='',shownDay=null;
  async function refresh(){if(inflight)return inflight;if(!auth.currentUser||auth.currentUser.isAnonymous)throw Error('Sign in to see your daily streak.');const current=auth.currentUser.uid;inflight=control('dailyRewardsStatus',{device:device()}).then(data=>{if(auth.currentUser?.uid!==current)return data;state=data;updateStreak(data);lastError='';return data}).catch(e=>{lastError=e.message;throw e}).finally(()=>inflight=null);return inflight}

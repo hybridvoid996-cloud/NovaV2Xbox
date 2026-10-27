@@ -12,7 +12,7 @@ const handler=createSoundCloudHandler({request:async(url,options)=>{
  const u=new URL(url);
  // Force primary/Void outages in this isolated test, while Noah and its media
  // use their actual public network responses. No signed-in session is involved.
- if(['soundcloud.com','api-v2.soundcloud.com','oda-loves-vng.renaca.com'].includes(u.hostname))throw Error('Simulated provider outage');
+ if(['soundcloud.com','api-v2.soundcloud.com','vng.lol'].includes(u.hostname))throw Error('Simulated provider outage');
  return fetch(url,options);
 }});
 const html=`<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="/src/nova-music-app.css?v=20261021-provider242"><style>html,body{margin:0;height:100%;background:#080809}</style></head><body><div id="music"></div><script type="module">

@@ -23,7 +23,12 @@ test('existing accounts, returning visitors, same-device accounts, expired links
  for(const extra of [{creationTime:now-1},{firstVisit:false},{device:'device-a'},{emailHash:'used-mail'}]){const root=invite();root.referrals.mailboxes['used-mail']='someone';assert.throws(()=>claim(root,extra));assert.equal(root.progress.sender.coins,100)}
  assert.throws(()=>claim(invite(),{},now+8*DAY),/expired/);assert.throws(()=>settleReferral(invite(),'sender',{token,device:'device-b',creationTime:now+1,firstVisit:true},now+100),/own invite/);
 });
-test('one bonus per new account and three successful friends per inviter/day',()=>{
- let root=invite();claim(root);for(let n=1;n<=3;n++){const t=String(n).repeat(32);root=createReferral(root,'sender',{token:t,device:'device-a'},now+2000);const apply=()=>settleReferral(root,'friend'+n,{token:t,device:'device-'+n,creationTime:now+2500,firstVisit:true,emailHash:'mail-'+n},now+3000);if(n<3)apply();else assert.throws(apply,/three-friend/)}
- const t='f'.repeat(32);root=createReferral(root,'sender',{token:t,device:'device-a'},now+4000);assert.throws(()=>settleReferral(root,'new-user',{token:t,device:'new-device',creationTime:now+4500,firstVisit:true},now+5000),/already used/);
+test('successful invites enforce a rolling seven-day cooldown across old pending links',()=>{
+ let root=invite();const second='b'.repeat(32);createReferral(root,'sender',{token:second,device:'device-a'},now+100);claim(root);const before=root.progress.sender.coins;
+ assert.throws(()=>createReferral(root,'sender',{token:'c'.repeat(32),device:'device-a'},now+2*DAY),/seven days/);
+ assert.throws(()=>settleReferral(root,'friend2',{token:second,device:'device-c',creationTime:now+500,firstVisit:true},now+2000),/cooldown/);assert.equal(root.progress.sender.coins,before);assert.equal(root.referrals.claimed.friend2,undefined);
+ const ready=now+1000+7*DAY;createReferral(root,'sender',{token:'d'.repeat(32),device:'device-a'},ready);settleReferral(root,'friend3',{token:'d'.repeat(32),device:'device-d',creationTime:ready+100,firstVisit:true},ready+1000);assert.equal(root.progress.sender.coins,before+300000);
 });
+test('a qualifying signup can retry after an outage without becoming an old account',()=>{const root=claim(invite(),{},now+3*DAY);assert.equal(root.progress['new-user'].coins,300000)});
+
+test('streak flame colors advance at each milestone',async()=>{const {flameTier}=await import('../Public/src/streak-core.mjs');const milestones=[1,7,14,30,60,100,365];assert.equal(new Set(milestones.map(n=>flameTier(n).color)).size,7);assert.equal(flameTier(6).name,'Ember');assert.equal(flameTier(7).name,'Gold');assert.equal(flameTier(30).name,'Violet');assert.equal(flameTier(365).name,'Nova')});

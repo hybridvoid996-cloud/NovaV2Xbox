@@ -1,5 +1,6 @@
+import {requestMusicAsset} from './music-asset-request.mjs';
 import {Readable} from 'node:stream';
-const ORIGIN='https://oda-loves-vng.renaca.com';
+const ORIGIN='https://vng.lol';
 const numeric=value=>/^\d{1,20}$/.test(String(value||''));
 const cover=value=>/^[A-Za-z0-9_+=/-]{1,1000}$/.test(value||'')?'/api/soundcloud?op=void-art&token='+encodeURIComponent(value):'';
 const voidTrack=t=>numeric(t?.id)&&t.title&&t.artist?{id:'void:'+t.id,src:'void',provider:'Void',releaseDate:String(t.releaseDate||t.release_date||''),title:String(t.title).slice(0,200),artist:String(t.artist).slice(0,200),duration:Number(t.duration)||0,album:String(t.album||''),albumId:numeric(t.albumId)?'void:'+t.albumId:'',thumb:cover(t.art),playable:true}:null;
@@ -78,9 +79,7 @@ export function createAlternativeMusic({request=fetch,now=Date.now}={}){
   let range;try{range=alternativeRange(req.headers?.range)}catch{res.statusCode=416;return res.end()}
   const headers={Range:range};
   // The deadline covers connection setup, not the lifetime of the song body.
-  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),30000);
-  timer.unref?.();res.once?.('close',()=>controller.abort());
-  let response;try{response=await request(new URL('/~a/stream/'+id,ORIGIN),{method:req.method,headers,redirect:'error',signal:controller.signal})}finally{clearTimeout(timer)}
+  const response=await requestMusicAsset(request,new URL('/~a/stream/'+id,ORIGIN),{method:req.method,headers,res,timeout:20000});
   if(!response.ok||!/^audio\//i.test(response.headers.get('content-type')||'')){await response.body?.cancel();throw Error('The alternative audio stream is unavailable.');}
   const actualRange=/^bytes (\d+)-(\d+)\/(\d+)$/.exec(response.headers.get('content-range')||'');
   if(response.status===206&&(!actualRange||Number(actualRange[1])!==Number(range.slice(6).split('-')[0])||Number(actualRange[2])<Number(actualRange[1])||Number(actualRange[2])-Number(actualRange[1])+1>1048576)){await response.body?.cancel();throw Error('The alternative audio range is invalid.');}

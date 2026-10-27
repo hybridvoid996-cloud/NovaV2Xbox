@@ -23,6 +23,7 @@ public static class NovaInput {
      case "key": Key(Convert.ToInt32(p["vk"]),Convert.ToBoolean(p["down"]));break;
      case "wheel": Wheel(Convert.ToInt32(p["delta"]));break;
      case "release": Release();break;
+     case "probe": Console.WriteLine("NOVA_INPUT_PROBE:"+Convert.ToInt64(p["id"]));break;
     }
    } catch(FormatException) {} catch(ArgumentException) {} catch(KeyNotFoundException) {} }
   } finally {Release();}

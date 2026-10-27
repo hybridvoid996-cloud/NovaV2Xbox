@@ -1,0 +1,6 @@
+{
+  "samples": 29,
+  "medianMs": 0.15789999999992688,
+  "p95Ms": 0.29529999999999745,
+  "note": "Local input-helper pipe round trip only; excludes network, capture and display."
+}

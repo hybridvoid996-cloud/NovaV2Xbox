@@ -1,0 +1,40 @@
+✔ server uses auth creation metadata, credits both sides once, and persists both notifications (3.355ms)
+✔ spoofed client creation times cannot qualify an old auth account; brand-new inviters cannot create chains (1.4599ms)
+✔ daily endpoint stores server-confirmed balance and repeats pay nothing (0.3337ms)
+✔ only one pending invite can award during a week; safe retries bypass cooldown without repaying (1.2032ms)
+✔ daily claims pay 1k, 2k, 3k once each and use server UTC boundaries (0.9401ms)
+✔ missing a day loses the streak and restoration charges 350k once without missed rewards (0.7911ms)
+✔ restoring after today’s fresh claim keeps that reward unchanged and refuses insufficient funds (0.3491ms)
+✔ first-time signup awards both users atomically and repeat redemption never pays twice (1.6086ms)
+✔ existing accounts, returning visitors, same-device accounts, expired links and self-invites cannot be paid (0.4771ms)
+✔ successful invites enforce a rolling seven-day cooldown across old pending links (0.4496ms)
+✔ a qualifying signup can retry after an outage without becoming an old account (0.1346ms)
+✔ streak flame colors advance at each milestone (0.2302ms)
+✔ all Nova accounts are ranked and paginated without exposing private account fields (20.104ms)
+✔ per-game rankings are separate, empty games stay empty, and search preserves global rank (1.5599ms)
+✔ activity is server timed, caps gaps, separates games and does not double-count concurrent tabs (0.6325ms)
+✔ profile view exposes only public fields (0.8467ms)
+✔ game rank roles track only positive verified standings, top three and deterministic ties (0.5575ms)
+✔ app playtime is tracked separately and can select an app top player (0.8609ms)
+✔ public profiles include every assigned custom role and Nitro badge (0.6952ms)
+✔ uploaded public banners preserve the complete image rather than truncating at 2000 characters (0.3469ms)
+✔ profile and standings retain equipped effects and saved rank, streak and recent media (0.5175ms)
+✔ server atomically awards promotion coins and levels once, without granting staff permissions (8.5648ms)
+✔ live rank board includes Rookie accounts, sorts by ELO, paginates and excludes private fields (1.632ms)
+✔ unknown games cannot earn rank and public placement never exposes account fields (0.6216ms)
+✔ recent music is bounded, deduplicated and rejects unsafe artwork (0.5081ms)
+✔ recent movie activity needs playback, stays bounded and never writes another account (0.6947ms)
+✔ copies forward auth and body to fixed primary (1.086ms)
+✔ primary and independently configured sites use local handler (0.2382ms)
+✔ loops and oversized requests are rejected (1.1571ms)
+✔ failures hide details and unknown endpoints cannot forward (0.4328ms)
+✔ upstream payment and HTML errors never masquerade as JSON (0.3094ms)
+✔ an older primary rank API reports the required deployment without hiding unrelated errors (0.3662ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 120.6528

@@ -1,4 +1,4 @@
-import {mountStreakProfile} from './daily-rewards-ui.mjs?v=20261027-profile329';
+import {mountStreakProfile} from './daily-rewards-ui.mjs?v=20261027-invite330';
 import {NOVA_RANKS,rankSummary,rankBadgeSVG,RANK_DAILY_SECONDS} from './nova-rank-core.mjs?v=20261027-rank324';
 import {control} from './control-client.js';
 const node=(tag,cls,text)=>{const n=document.createElement(tag);n.className=cls||'';if(text!=null)n.textContent=text;return n};

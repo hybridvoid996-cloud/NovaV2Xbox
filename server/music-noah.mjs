@@ -1,3 +1,4 @@
+import {requestMusicAsset} from './music-asset-request.mjs';
 import {Readable} from 'node:stream';
 import {alternativeMatch,alternativeRange} from './music-alternative.mjs';
 
@@ -75,8 +76,7 @@ export function createNoahMusic({request=fetch,now=Date.now}={}){
   // Only a full, unprotected direct response from the documented public relay
   // is supported. Never follow arbitrary stream URLs or encrypted manifests.
   if(data.kind!=='direct'||data.presentation!=='FULL'||data.provider!=='soundcloud'||!new RegExp('^/api/music/file/'+id+'\\.(?:m4a|mp3)$').test(data.streamUrl||''))throw Error('Noah has no supported full audio for this song.');
-  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),15000);timer.unref?.();res.once?.('close',()=>controller.abort());
-  let response;try{response=await request(new URL(data.streamUrl,ORIGIN),{method:req.method,headers:{Range:range},redirect:'error',signal:controller.signal})}finally{clearTimeout(timer)}
+  const response=await requestMusicAsset(request,new URL(data.streamUrl,ORIGIN),{method:req.method,headers:{Range:range},res,timeout:15000});
   const actual=/^bytes (\d+)-(\d+)\/(\d+)$/.exec(response.headers.get('content-range')||''),[start,end]=range.slice(6).split('-').map(Number);
   if(response.status!==206||!/^audio\//i.test(response.headers.get('content-type')||'')||!actual||!actual.slice(1).every(v=>Number.isSafeInteger(Number(v)))||Number(actual[1])!==start||Number(actual[2])<start||Number(actual[2])>end||Number(actual[2])>=Number(actual[3])){await response.body?.cancel();throw Error('Noah could not provide resumable audio.');}
   res.statusCode=206;res.setHeader('Content-Type',response.headers.get('content-type'));res.setHeader('Content-Range',response.headers.get('content-range'));res.setHeader('Content-Length',String(Number(actual[2])-Number(actual[1])+1));res.setHeader('Accept-Ranges','bytes');res.setHeader('Cache-Control','private, max-age=60');res.setHeader('Cross-Origin-Resource-Policy','same-origin');

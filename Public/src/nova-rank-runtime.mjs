@@ -1,4 +1,4 @@
-import {installRankIcon,paintRankIcon} from './nova-rank-hub.mjs?v=20261027-rank324';
+import {installRankIcon,paintRankIcon} from './nova-rank-hub.mjs?v=20261027-invite330';
 import {NOVA_RANKS} from './nova-rank-core.mjs?v=20261027-rank324';
 import {auth} from './account-firebase.js';
 import {control} from './control-client.js';
