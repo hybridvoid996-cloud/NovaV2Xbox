@@ -16,3 +16,6 @@ export function restoreStreak(progress,now){
  delete s.recoverable;s.restoredAt=now;p.streak=s;p.coins-=STREAK_RESTORE_COST;return p;
 }
 export function flameSVG(){return '<svg viewBox="0 0 32 40" fill="none" aria-hidden="true"><path d="M18 1c2 9-4 11-1 17 2-1 4-4 4-6 9 8 12 17 5 24-5 5-15 5-21-1C-3 27 5 16 8 13c-1 7 3 8 5 6C17 15 12 9 18 1Z" fill="currentColor"/><path d="M17 23c1 5 7 7 3 13-2 3-7 3-9 0-3-5 2-8 6-13Z" fill="#fff" fill-opacity=".55"/></svg>'}
+
+export const INVITE_COOLDOWN=7*86400000;
+export function flameTier(count=0){return count>=365?{name:'Nova',color:'#fff1d0'}:count>=100?{name:'Aurora',color:'#58f0cf'}:count>=60?{name:'Blue',color:'#70b8ff'}:count>=30?{name:'Violet',color:'#bd8cff'}:count>=14?{name:'Rose',color:'#ff7faa'}:count>=7?{name:'Gold',color:'#ffd35a'}:{name:'Ember',color:'#ff9d39'}}

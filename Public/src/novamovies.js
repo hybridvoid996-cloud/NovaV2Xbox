@@ -50,3 +50,5 @@ addEventListener('message',event=>{if(!view||event.source!==view.element.content
 retry.onclick=()=>playbackMount&&playbackURL?start():loadCatalog();addEventListener('message',event=>{if(event.origin!==location.origin||event.source!==parent||event.data?.novaAction!=='novaMovieVolume')return;const volume=Number(event.data.volume);if(Number.isFinite(volume))view?.element.contentWindow?.postMessage({novaAction:'novaMovieVolume',volume:Math.max(0,Math.min(1,volume))},'*')});
 const poll=setInterval(brand,1500),profilePoll=setInterval(()=>{const outer=shell();if(outer&&JSON.stringify(profile)!==JSON.stringify(outer.novaHomeProfile)){profile={...outer.novaHomeProfile};paintProfile()}},5000);
 addEventListener('pagehide',()=>{disposed=true;recovery.stop();clearInterval(poll);clearInterval(profilePoll);clearTimeout(timer);cancelAnimationFrame(frameTick);observer?.disconnect()},{once:true});loadCatalog();
+
+addEventListener('nova-movie-progress',e=>{const outer=shell();if(outer)outer.dispatchEvent(new CustomEvent('nova-recent-movie',{detail:e.detail}))});

@@ -1,4 +1,4 @@
-import {mountRankProfile} from './nova-rank-ui.mjs?v=20261027-rank324';
+import {mountRankProfile} from './nova-rank-ui.mjs?v=20261027-profile329';
 import {activityLabel} from './shared-activity.mjs?v=20261022-social254';
 import {unseenUpdates} from './notice-memory.mjs?v=20261019-notices192';
 import {placeMusicCard} from './music-card-placement.mjs';

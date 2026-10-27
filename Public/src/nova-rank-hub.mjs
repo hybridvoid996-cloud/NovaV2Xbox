@@ -1,7 +1,7 @@
 import {flameSVG} from './streak-core.mjs?v=20261027-streak327';
 import {control} from './control-client.js';
 import {rankBadgeSVG,rankSummary} from './nova-rank-core.mjs?v=20261027-rank324';
-import {rankPanel,showRankGuide} from './nova-rank-ui.mjs?v=20261027-rank324';
+import {rankPanel,showRankGuide} from './nova-rank-ui.mjs?v=20261027-profile329';
 const el=(tag,cls,text)=>{const n=document.createElement(tag);n.className=cls||'';if(text!=null)n.textContent=text;return n};
 let dialog,topButton,current=rankSummary();
 export function paintRankIcon(summary){current=summary||current;if(topButton){topButton.innerHTML=rankBadgeSVG(current.rank,38);topButton.title=current.rank.name+' · '+current.elo.toLocaleString()+' ELO';topButton.style.setProperty('--rank-color',current.rank.color)}}

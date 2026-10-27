@@ -1,0 +1,37 @@
+✔ all Nova accounts are ranked and paginated without exposing private account fields (32.6266ms)
+✔ per-game rankings are separate, empty games stay empty, and search preserves global rank (2.6926ms)
+✔ activity is server timed, caps gaps, separates games and does not double-count concurrent tabs (1.0553ms)
+✔ profile view exposes only public fields (1.5561ms)
+✔ game rank roles track only positive verified standings, top three and deterministic ties (0.6644ms)
+✔ app playtime is tracked separately and can select an app top player (1.3729ms)
+✔ public profiles include every assigned custom role and Nitro badge (1.0098ms)
+✔ uploaded public banners preserve the complete image rather than truncating at 2000 characters (0.719ms)
+✔ profile and standings retain equipped effects and saved rank, streak and recent media (0.9164ms)
+✔ Continue Watching uses real progress, excludes finished titles, and is private per account (2.3965ms)
+✔ saved episode and timestamp survive reopening and collection edits remain account scoped (6.5305ms)
+✔ invalid playback samples do not replace saved progress (0.2241ms)
+✔ catalog merging deduplicates by type and ID and fills missing metadata (0.5515ms)
+✔ watch stats count elapsed playback, ignore seeks, and include movies, TV and anime (0.8537ms)
+✔ server atomically awards promotion coins and levels once, without granting staff permissions (12ms)
+✔ live rank board includes Rookie accounts, sorts by ELO, paginates and excludes private fields (2.6071ms)
+✔ unknown games cannot earn rank and public placement never exposes account fields (0.7751ms)
+✔ recent music is bounded, deduplicated and rejects unsafe artwork (0.8818ms)
+✔ recent movie activity needs playback, stays bounded and never writes another account (1.2147ms)
+✔ only consecutive active, same-game pulses earn bounded server time (3.0884ms)
+✔ rank rewards are emitted exactly once and daily earning is capped (2.2101ms)
+✔ ELO ladder has distinct increasing requirements and champion requires Master and first place (0.333ms)
+✔ manual repeated movement keys count, while synthetic events, key autorepeat and mouse jiggling do not (0.2869ms)
+✔ copies forward auth and body to fixed primary (1.8618ms)
+✔ primary and independently configured sites use local handler (0.4032ms)
+✔ loops and oversized requests are rejected (1.6722ms)
+✔ failures hide details and unknown endpoints cannot forward (0.5153ms)
+✔ upstream payment and HTML errors never masquerade as JSON (0.65ms)
+✔ an older primary rank API reports the required deployment without hiding unrelated errors (0.6602ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 142.4194
