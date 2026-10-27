@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'Stop'
-Add-Type -TypeDefinition @"
+Add-Type -ReferencedAssemblies System.Web.Extensions -TypeDefinition @"
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -12,6 +12,21 @@ public static class NovaInput {
  [DllImport("user32.dll")] public static extern bool SetProcessDPIAware();
  [DllImport("user32.dll")] static extern bool SetCursorPos(int x,int y);
  [DllImport("user32.dll")] static extern int GetSystemMetrics(int index);
+ public static void Run() {
+  var json=new System.Web.Script.Serialization.JavaScriptSerializer(); string line;
+  try { while((line=Console.ReadLine())!=null) {
+   try { var p=json.Deserialize<Dictionary<string,object>>(line); string type=Convert.ToString(p["type"]);
+    switch(type) {
+     case "move": Move(Convert.ToDouble(p["x"]),Convert.ToDouble(p["y"])); break;
+     case "relative": Relative(Convert.ToInt32(p["dx"]),Convert.ToInt32(p["dy"])); break;
+     case "button": if(!Convert.ToBoolean(p["locked"]))Move(Convert.ToDouble(p["x"]),Convert.ToDouble(p["y"]));Button(Convert.ToInt32(p["button"]),Convert.ToBoolean(p["down"]));break;
+     case "key": Key(Convert.ToInt32(p["vk"]),Convert.ToBoolean(p["down"]));break;
+     case "wheel": Wheel(Convert.ToInt32(p["delta"]));break;
+     case "release": Release();break;
+    }
+   } catch(FormatException) {} catch(ArgumentException) {} catch(KeyNotFoundException) {} }
+  } finally {Release();}
+ }
  static HashSet<int> held=new HashSet<int>(); static HashSet<int> buttons=new HashSet<int>();
  static void Send(INPUT input){SendInput(1,new[]{input},Marshal.SizeOf(typeof(INPUT)));}
  public static void Move(double x,double y){SetCursorPos((int)(x*(GetSystemMetrics(0)-1)),(int)(y*(GetSystemMetrics(1)-1)));}
@@ -24,16 +39,4 @@ public static class NovaInput {
 "@
 [NovaInput]::SetProcessDPIAware() | Out-Null
 [Console]::WriteLine('NOVA_INPUT_READY')
-try {
- while ($null -ne ($novaInputLine = [Console]::ReadLine())) {
-  $novaPacket = $novaInputLine | ConvertFrom-Json
-  switch ($novaPacket.type) {
-   'move' {[NovaInput]::Move($novaPacket.x,$novaPacket.y)}
-   'relative' {[NovaInput]::Relative($novaPacket.dx,$novaPacket.dy)}
-   'button' {if (-not $novaPacket.locked) {[NovaInput]::Move($novaPacket.x,$novaPacket.y)};[NovaInput]::Button($novaPacket.button,$novaPacket.down)}
-   'key' {[NovaInput]::Key($novaPacket.vk,$novaPacket.down)}
-   'wheel' {[NovaInput]::Wheel($novaPacket.delta)}
-   'release' {[NovaInput]::Release()}
-  }
- }
-} finally {[NovaInput]::Release()}
+[NovaInput]::Run()

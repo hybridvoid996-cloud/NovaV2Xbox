@@ -1,0 +1,20 @@
+✔ Mines debits once and never returns hidden board data (1.6738ms)
+✔ safe picks and collection settle once with the displayed multiplier (2.1718ms)
+✔ mine loss pays nothing and stale rounds cannot affect a new round (0.7716ms)
+✔ invalid stakes, daily limits and maximum payouts are checked (0.4359ms)
+✔ rebalanced Mines caps multipliers and settles automatically at the cap (0.5813ms)
+✔ Mines refuses stakes above 100000 but permits an eleventh round (0.5749ms)
+✔ new rounds survive database omission of empty picks and retries never debit twice (0.3998ms)
+✔ status and collection safely restore an active zero-pick round (0.2717ms)
+✔ committed transaction responses tolerate empty arrays removed by the database (1.4603ms)
+✔ 100K stakes pay up to 300K and settlement publishes exactly one shared result (0.3509ms)
+✔ a lost round publishes its stake and balance without leaking unrevealed tiles (0.4218ms)
+✔ opening Mines reads only the round and balance without a global transaction (0.3633ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 195.5173

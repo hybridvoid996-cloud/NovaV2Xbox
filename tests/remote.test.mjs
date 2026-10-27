@@ -39,3 +39,5 @@ test('demotion revokes both existing device tokens and unfinished pairings',asyn
  const s=setup(),d=await s.pair(),pending=await s.call('pairStart',{},'');await s.call('pairClaim',{code:pending.code});
  s.set('novaChatV2/roles/alice','member');assert.equal((await s.call('heartbeat',{},d.auth)).httpStatus,403);assert.equal((await s.call('list')).httpStatus,403);assert.equal((await s.call('pairFinish',{code:pending.code,token:pending.token},'')).httpStatus,403);
 });
+
+test('a delayed disconnect for an older session cannot kick the new viewer',async()=>{const s=setup(true),d=await s.pair();await s.call('enable',{},d.auth);const old=await s.call('connect',{id:d.id});await s.call('disconnect',{session:old.session});const next=await s.call('connect',{id:d.id});assert.equal(next.httpStatus,200);await s.call('approve',{session:next.session},d.auth);await s.call('disconnect',{session:old.session});assert.equal(s.get('novaRemote/devices/'+d.id).session,next.session);assert.equal((await s.call('poll',{session:next.session})).httpStatus,200)});

@@ -1,5 +1,5 @@
 import {sharedActivity} from './shared-activity.mjs';
-import {rolesFor,nameRoleFor} from './chat-server.js';
+import {rolesFor,nameRoleFor} from './chat-server.js?v=20261027-rank324';
 import {watchMemberGroups} from './chat-group-list.js';
 import {initializeApp,getApps,getApp} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
 import {getDatabase,ref,onValue,query,orderByChild,equalTo} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';

@@ -1,0 +1,30 @@
+(node:6640) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/willi/OneDrive/Documents/NovaV2/server/voice-service.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\willi\OneDrive\Documents\NovaV2\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ pairing requires both an account claim and a private local-agent token (3.808ms)
+✔ registration hashes credentials, disables access by default, and keeps devices private (1.7261ms)
+✔ knowledge of a device ID cannot authorize access or change its settings (1.097ms)
+✔ remote sessions require local enablement and host approval, then enforce signal direction (2.397ms)
+✔ disable, remove, expiration and bans all revoke an active session (3.376ms)
+✔ disconnect cannot be undone by a delayed approval and simultaneous requests are rejected (0.905ms)
+✔ open database rules fail closed and pairing abuse is limited (0.5128ms)
+✔ session signals reject malformed payloads and are bounded (1.0741ms)
+✔ only the registered computer can approve its session (0.9137ms)
+✔ cold Firebase transactions still pair and approve a computer (0.7784ms)
+✔ pre-approval heartbeat cannot terminate the newly approved session (1.1923ms)
+✔ screen capture accepts Electron desktop media permission without granting camera or microphone (0.9232ms)
+✔ account login registers a private disabled computer without a pairing code (0.9883ms)
+✔ retrying the same offer is idempotent but replacing its SDP is rejected (0.9768ms)
+✔ restricted Wi-Fi fails before reserving a session when TLS relay configuration is missing (0.5515ms)
+✔ members and moderators cannot use Computer, regardless of account profile labels (0.5842ms)
+✔ demotion revokes both existing device tokens and unfinished pairings (0.4763ms)
+✔ a delayed disconnect for an older session cannot kick the new viewer (0.7144ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 309.2228

@@ -33,7 +33,7 @@ if (home) {
   addEventListener('pagehide', () => { home.removeEventListener('nova-profile-changed', sync); home.removeEventListener('nova-server-progress', sync); }, { once: true });
 } else {
   try {
-    const [{ auth, db }, { ref, onValue }, { rolesFor }, { control }] = await Promise.all([import('./account-firebase.js'), import('https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js'), import('./chat-server.js'), import('./control-client.js')]);
+    const [{ auth, db }, { ref, onValue }, { rolesFor }, { control }] = await Promise.all([import('./account-firebase.js'), import('https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js'), import('./chat-server.js?v=20261027-rank324'), import('./control-client.js')]);
     auth.onAuthStateChanged(user => {
       stops.forEach(stop => stop()); stops = []; roleList = [];
       if (!user || user.isAnonymous) { profile = { name: 'Nova player', online: false }; coins = undefined; paint(); return; }

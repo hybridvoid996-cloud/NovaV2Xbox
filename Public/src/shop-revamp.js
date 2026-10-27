@@ -1,4 +1,4 @@
-import {openMines} from './shop-mines.js?v=20261022-mines259';
+import {openMines} from './shop-mines.js?v=20261027-perf328';
 import {hackProducts} from './hack-products.mjs?v=20261026-tools312';
 import {createShopModel} from './shop-models.js';
 const request=(ctx,action,data)=>ctx.shopRequest?ctx.shopRequest(action,data):import('./control-client.js').then(({control})=>control(action,data));

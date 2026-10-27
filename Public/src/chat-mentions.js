@@ -1,4 +1,4 @@
-import {rolesFor,paintName} from './chat-server.js';
+import {rolesFor,paintName} from './chat-server.js?v=20261027-rank324';
 export function mentionPicker(input,state,person){
  const menu=document.createElement('div');menu.className='nova-mention-picker';menu.hidden=true;menu.setAttribute('role','listbox');input.parentElement.append(menu);let items=[],index=0,match;
  const draw=()=>{menu.replaceChildren();items.forEach((item,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('role','option');b.setAttribute('aria-selected',i===index);b.textContent=item.label;b.onmousedown=e=>e.preventDefault();b.onclick=()=>choose(item);menu.append(b)});menu.hidden=!items.length};

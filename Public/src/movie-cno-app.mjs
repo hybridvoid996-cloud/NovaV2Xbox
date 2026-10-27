@@ -1,4 +1,4 @@
-import {createMovieRecovery} from './movie-recovery.mjs?v=20261020-cno203';
+import {createMovieRecovery} from './movie-recovery.mjs?v=20261027-achcroma326';
 import {novaMovieLogo} from './movie-logo.mjs';
 const loading=document.getElementById('loading'),status=document.getElementById('status'),retry=document.getElementById('retry'),cancel=document.getElementById('movie-cancel-loading'),profiles=document.getElementById('movie-profiles');
 const mount=document.createElement('main');mount.id='nova-cno-app';document.body.prepend(mount);

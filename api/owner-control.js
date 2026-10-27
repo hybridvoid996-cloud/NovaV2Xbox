@@ -1,3 +1,5 @@
+import {dailyRewards} from '../server/daily-rewards.mjs';
+import {rankAction} from '../server/nova-ranks.mjs';
 import {livePollVoters} from '../server/live-poll-voters.mjs';
 import {issueAccountRecovery,revokeAccountRecovery} from '../server/account-recovery.mjs';
 import {announceCode,codeAnnouncementFeed} from '../server/code-announcements.mjs';
@@ -35,6 +37,8 @@ if(action==='gameStatuses')return reply(200,{statuses:publicStatuses((await db.r
 if(action==='status')return reply(200,{owner,buildNowTools:!ban.exists()&&(owner||baseRole.val()==='Buildgghacks'),ban:protectedOwner?null:ban.val(),progress:(await db.ref('novaControl/progress/'+who.uid).get()).val()});
 if(action==='appeal'){const reason=text(b.reason,2000);if(reason.length<10)throw Error('Explain your appeal in at least 10 characters.');await db.ref('novaControl/appeals/'+who.uid).set({uid:who.uid,name:account.name,reason,scope:b.scope==='chat'?'chat':'nova',at:now,status:'pending'});return reply(200,{ok:true})}
 if(ban.exists()&&!protectedOwner)return reply(403,{error:'Your Nova access is suspended.'});
+if(['streakClaim','streakRestore','dailyRewardsStatus','streakProfile','friendInviteCreate','friendInviteClaim'].includes(action))return reply(200,await dailyRewards({db,auth,uid:who.uid,account,action,b,now}));
+if(['rankPulse','rankProfile','rankMusic','rankBoard'].includes(action))return reply(200,await rankAction(db,who.uid,action,b,now));
 if(['buyHack','hackAccess'].includes(action))return reply(200,await hackShopAction({db,uid:who.uid,action,b,now,initial}));
 if(action.startsWith('buildNowInvite')){const result=await buildNowInviteAction({action,b,db,uid:who.uid,account,owner,now});return reply(result.status,result.body);}
 if(action==='syncChatProfile'){if(!protectedOwner&&(await db.ref('novaChatV2/bans/'+who.uid).get()).exists())return reply(403,{error:'Your Chat access is suspended.'});return reply(200,await syncChatProfile(db,who.uid,account,now));}

@@ -74,3 +74,5 @@ html.reduce-motion .mines-tile{animation:none!important;transition:none!importan
 html.reduce-motion .mines-tile svg{animation:none!important}
 @media(prefers-reduced-motion:reduce){html:not(.nova-motion-enabled) .mines-tile svg{animation:none}}
 @media(max-width:650px){.mines-layout{grid-template-columns:1fr}.mines-controls{padding:14px}.mines-board-wrap{padding:14px}.mines-board{width:min(100%,390px)}.mines-controls .mines-intro{display:none}.mines-profit{padding:10px}.mines-controls .mines-rules{font-size:10px}}
+
+.mines-board .mines-tile.is-pending{border-color:#ffffff80;box-shadow:inset 0 0 0 1px #ffffff30,0 4px #070e17}.mines-board .mines-tile.is-pending>span{animation:mines-pending .6s ease-in-out infinite alternate}@keyframes mines-pending{to{opacity:.35;transform:scale(.85)}}.reduce-motion .mines-board .mines-tile.is-pending>span{animation:none}

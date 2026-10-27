@@ -1,4 +1,4 @@
-import {showStore} from './shop-revamp.js?v=20261022-mines259';
+import {showStore} from './shop-revamp.js?v=20261027-perf328';
 import {shopPrices,shopOdds} from './shop-config.mjs';
 const assets=await fetch('/profile-assets/catalog.json').then(r=>{if(!r.ok)throw Error('Preview assets could not load.');return r.json()});
 const shop=document.getElementById('shop'),mode=document.getElementById('demo-mode'),profile={name:'Nova Preview',photo:''};

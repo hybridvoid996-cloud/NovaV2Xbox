@@ -1,0 +1,12 @@
+import {auth} from './account-firebase.js';
+import {control} from './control-client.js';
+import {installStreakButton,updateStreak,openDailyRewards,device} from './daily-rewards-ui.mjs?v=20261027-streak327';
+if(window===top&&location.pathname.endsWith('/home.html')){
+ let state,inflight,claiming=false,owner='',lastError='',shownDay=null;
+ async function refresh(){if(inflight)return inflight;if(!auth.currentUser||auth.currentUser.isAnonymous)throw Error('Sign in to see your daily streak.');const current=auth.currentUser.uid;inflight=control('dailyRewardsStatus',{device:device()}).then(data=>{if(auth.currentUser?.uid!==current)return data;state=data;updateStreak(data);lastError='';return data}).catch(e=>{lastError=e.message;throw e}).finally(()=>inflight=null);return inflight}
+ async function invite(){const pending=window.NovaReferralEntry;if(claiming||!pending?.token)return;claiming=true;try{const result=await control('friendInviteClaim',{token:pending.token,firstVisit:pending.firstVisit===true,device:device()});sessionStorage.removeItem('nova-referral-pending');delete pending.token;window.NovaNotice?.('chat',{label:'Welcome to Nova',title:'You received 300,000 Nova Coins',text:result.inviterName+' invited you to Nova. Have fun!'})}catch(e){if(!/unavailable|Unknown action|deployed|limit|network|fetch/i.test(e.message)){sessionStorage.removeItem('nova-referral-pending');delete pending.token;window.NovaNotice?.('chat',{label:'Friend invite',title:'Invite could not be applied',text:e.message})}}finally{claiming=false}}
+ auth.onAuthStateChanged(user=>{state=null;shownDay=null;lastError='';owner=user?.uid||'';if(!user||user.isAnonymous)return;installStreakButton(refresh);invite().finally(()=>refresh().catch(()=>{}))});
+ setInterval(()=>{if(!auth.currentUser||document.hidden)return;installStreakButton(refresh);if(!/Unknown action|needs to be deployed/i.test(lastError)){invite();refresh().catch(()=>{})}},30000);
+ setInterval(()=>{if(!state||!auth.currentUser||document.hidden||!state.streak.claimable||shownDay===state.streak.today)return;if(document.querySelector('dialog[open],#nova-home-boot:not([hidden]),#home-style-welcome:not([hidden]),.os-window:not([hidden]),#panel:not([hidden])'))return;const key='nova-streak-reveal-v1:'+owner;if(sessionStorage.getItem(key)===String(state.streak.today))return;shownDay=state.streak.today;sessionStorage.setItem(key,String(shownDay));openDailyRewards()},4000);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh().catch(()=>{})});
+}

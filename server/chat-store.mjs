@@ -14,6 +14,7 @@ export const catalog=()=>readFile(new URL('../Public/profile-assets/catalog.json
 export function draw(items,kind,count){return Array.from({length:count},()=>{let roll=randomInt(1000000),rarity;for(const [name,weight]of odds){roll-=weight;if(roll<0){rarity=name;break}}const pool=items.filter(a=>(kind==='halloween'?a.collection==='halloween':a.kind===kind&&a.collection!=='halloween')&&a.rarity===rarity);if(!pool.length)throw Error('This case is unavailable.');return pool[randomInt(pool.length)]})}
 const boostCount=(root,now)=>new Set([...Object.keys(root.boosters||{}),...Object.entries(root.nitro||{}).filter(([,n])=>n===true||n?.until>now).map(([id])=>id)]).size;
 export async function storeAction({db,uid,account,action,b,now,initial}){
+ if(action==='storeMines'&&b.op==='status')return minesAction({db,uid,b,now,initial});
  if(['storeStatus','openCase','equipCosmetic','storeGamble','storeMines','buyDailyCosmetic'].includes(action))await ensureShopSeason(db,now,await catalog());
  if(action==='buyDailyCosmetic'){
  const items=await catalog();let failure;

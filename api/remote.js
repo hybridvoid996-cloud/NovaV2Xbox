@@ -64,7 +64,7 @@ export const createRemoteHandler=(service=services)=>async(req,res)=>{
    const all=(await db.ref(root+'devices').orderByChild('uid').equalTo(uid).get()).val()||{};return reply(200,{relayConfigured:remoteRelay().relayConfigured,relayTLSConfigured:remoteRelay().relayTLSConfigured,devices:Object.entries(all).filter(([,d])=>d.uid===uid).map(([id,d])=>publicDevice({...d,id}))});}
   if(action==='heartbeat'){
    agentOnly();await db.ref(root+'devices/'+device.id).update({lastSeen:now});let session=device.session?await read('sessions/'+device.session):null;
-   if(session&&(session.expires<=now||session.status==='ended'||!device.enabled)){await db.ref(root+'devices/'+device.id).update({session:null});session=null;}
+   if(session&&(session.expires<=now||session.status==='ended'||!device.enabled)){await db.ref(root+'devices/'+device.id).transaction(row=>row===null?null:row?.session===device.session?{...row,session:null,sessionUntil:null}:undefined);session=null;}
    const account=(await db.ref('novaAccounts/'+uid).get()).val();return reply(200,{profile:{uid,name:clean(account.name,60)||'Nova player',photo:clean(account.photo,2000)},device:publicDevice({...device,lastSeen:now}),session:session?{id:device.session,status:session.status,viewer:session.viewer,expires:session.expires}:null});
   }
   if(['rename','remove','disable','enable','connect'].includes(action)){
@@ -83,7 +83,7 @@ export const createRemoteHandler=(service=services)=>async(req,res)=>{
   if(!safe(b.session))throw failure('Invalid session.');const session=await read('sessions/'+b.session);
   if(!session||session.uid!==uid||(agent&&session.device!==device.id))throw failure('Session not found.',404);
   const current=await read('devices/'+session.device);if(!current||current.uid!==uid)throw failure('Computer access revoked.',403);
-  if(action==='disconnect'){await db.ref(root+'sessions/'+b.session).update({status:'ended',expires:now,signals:null});await db.ref(root+'devices/'+session.device).update({session:null,sessionUntil:null});return reply(200,{ok:true});}
+  if(action==='disconnect'){await db.ref(root+'sessions/'+b.session).update({status:'ended',expires:now,signals:null});await db.ref(root+'devices/'+session.device).transaction(row=>row===null?null:row?.session===b.session?{...row,session:null,sessionUntil:null}:undefined);return reply(200,{ok:true});}
   if(session.expires<=now||session.status==='ended'||!current.enabled||current.session!==b.session)throw failure('Session ended.',410);
   if(action==='approve'){
    agentOnly();if(session.status!=='requested')throw failure('Session has already been approved.',409);

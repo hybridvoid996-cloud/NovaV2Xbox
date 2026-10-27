@@ -7,8 +7,8 @@ export function createMovieRecovery({launch,onState,timeout=25000,maxStartup=600
   const token=++generation;clear();attempt++;let phase='loading',interactive=false;
   const current=()=>token===generation&&phase!=='failed';
   function fail(allowReady=false){if(!current()||phase!=='loading'&&!(allowReady&&phase==='ready'))return;phase='failed';cancel(timer);cancel(limit);cleanup?.();cleanup=undefined;
-   if(attempt>=maxAttempts){onState('error',attempt);return}
-   onState('reconnecting',attempt+1);timer=schedule(()=>{if(token===generation)run()},1000*attempt);
+   if(attempt>=(typeof maxAttempts==='function'?maxAttempts():maxAttempts)){onState('error',attempt);return}
+   onState('reconnecting',attempt+1);timer=schedule(()=>{if(token===generation)run()},Math.min(2000,1000*attempt));
   }
   const ready=()=>{if(!current()||phase!=='loading')return;phase='ready';cancel(timer);cancel(limit);onState('ready',attempt)};
   const hold=()=>{if(!current()||phase!=='loading')return;interactive=true;cancel(timer);onState('interactive',attempt)};

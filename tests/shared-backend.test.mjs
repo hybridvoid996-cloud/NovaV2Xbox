@@ -13,3 +13,6 @@ test('upstream payment and HTML errors never masquerade as JSON',async()=>{
   assert.equal(res.statusCode,503);assert.ok(JSON.parse(res.body).error.includes(status===402?'Vercel':'unavailable'));
  }
 });
+test('an older primary rank API reports the required deployment without hiding unrelated errors',async()=>{
+ for(const action of ['rankBoard','rankPulse','status']){const res=response();const handler=withSharedBackend('owner-control',()=>assert.fail(),{env:{},request:async()=>({status:400,text:async()=>JSON.stringify({error:'Unknown action.'})})});await handler({method:'POST',headers:{host:'127.0.0.1:8794'},body:{action}},res);assert.equal(res.statusCode,action==='status'?400:503);assert.match(JSON.parse(res.body).error,action==='status'?/Unknown action/:/deployed to the main account server/)}
+});
