@@ -1,0 +1,29 @@
+✔ unfinished challenges expire after exactly seven hours (0.6059ms)
+✔ finishing challenges does not move the reset time (0.1159ms)
+✔ legacy unscheduled challenges and owner resets start a fresh cycle (0.1022ms)
+✔ nine deterministic challenges mix games, apps, cloud and watching with higher rewards (46.058ms)
+✔ game time counts only its own kind and pays exactly once (0.697ms)
+✔ app time counts only its own kind and pays exactly once (0.1731ms)
+✔ cloud time counts only its own kind and pays exactly once (0.2008ms)
+✔ watching requires advancing video and does not pay for paused time or large seeks (0.312ms)
+✔ show and anime playback count toward the series challenge (0.2946ms)
+✔ invalid activities, switching sessions and out-of-order pulses cannot create time (0.1579ms)
+✔ seven-hour reset preserves balances and never pays an old completion again (0.2328ms)
+✔ challenge IDs match whether stored as numbers or strings (0.6706ms)
+✔ reset countdown decreases and shows a refresh state at expiry (0.1698ms)
+✔ clicking a challenge launches its exact catalog game and has a player fallback (18.9207ms)
+✔ app and cloud challenges use their own catalogs and launch kinds (0.5793ms)
+✔ watching challenges open Nova Movies without looking for a game ID (0.2515ms)
+✔ movie inspection compatibility is limited to the public provider app bundle (1.5226ms)
+✔ updates are remembered per account and only new revisions become unread (0.2876ms)
+✔ challenge resets notify once per cycle, including returning after an offline reset (0.1648ms)
+✔ higher rewards preserve completed payouts, balances, and unfinished progress (0.6279ms)
+✔ Monkey Mart retries WebGL 1 when WebGL 2 cannot create a context (5.5026ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 131.3265

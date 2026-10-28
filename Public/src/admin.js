@@ -1,4 +1,4 @@
-import * as api from './chat-v2-service.js';
+import * as api from './chat-v2-service.js?v=20261027-chat345';
 import {auth} from './account-firebase.js';
 import {playerStats} from './player-stats.js';
 const $=s=>document.querySelector(s),view=$('#view');let me,roles={},bans={},users=[],next=null,tab='users',stopView=()=>{},generation=0,loaded=false;

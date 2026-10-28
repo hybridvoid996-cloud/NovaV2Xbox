@@ -27,7 +27,7 @@ export async function initNovaOS(options={}){
  const button=(text,action,cls='os-btn')=>{const b=el('button',text,cls);b.type='button';b.onclick=action;return b};
  const message=(text)=>{window.NovaNotice?.('chat',{sender:'nova-os',label:'Nova OS',title:'Nova',text});};
  const errorText=e=>/FIREBASE_SERVICE_ACCOUNT_JSON|PERMISSION_DENIED/.test(e.message||'')?'This information is temporarily unavailable. Your saved account data is unchanged.':e.message||'Could not connect. Try again.';
- let apiPromise;const api=()=>apiPromise??=import('./chat-v2-service.js');const control=async(action,data={})=>{if(preview)throw Error('Sample preview — account services are disabled.');return (await import('./control-client.js')).control(action,data)};
+ let apiPromise;const api=()=>apiPromise??=import('./chat-v2-service.js?v=20261027-chat345');const control=async(action,data={})=>{if(preview)throw Error('Sample preview — account services are disabled.');return (await import('./control-client.js')).control(action,data)};
  let catalogsPromise;const catalogs=()=>catalogsPromise??=Promise.all(['games','apps','cloud'].map(async(kind)=>{const r=await fetch('library-'+kind+'.json');if(!r.ok)throw Error('The collection could not load.');return (await r.json()).map(g=>({...g,kind:kind==='games'?'game':kind==='apps'?'app':'cloud'}))})).then(x=>x.flat());
  const uid=()=>localStorage.getItem('nova_user');
  const members=()=>preview?options.members||[]:window.novaOSMembers||[];

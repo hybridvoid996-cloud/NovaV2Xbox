@@ -195,3 +195,58 @@ html.reduce-motion .nmc-boot-spotify{animation:none;transform:translateX(-130px)
 .nmc-release-bell{position:relative;flex:none}.nmc-release-count{position:absolute;top:0;right:-2px;min-width:14px;height:14px;border-radius:12px;background:#e3f3e9;color:#102218;font-size:8px;font-weight:800;display:grid;place-items:center;padding:0 3px;border:2px solid #101113}.nmc-release-count[hidden]{display:none}.nmc-release-new{display:inline-flex;align-items:center;flex:none;font-size:8px!important;font-weight:800;letter-spacing:.7px;padding:3px 6px;border-radius:5px;background:#d5efe2;color:#173127!important;margin-right:6px}.nmc-release-updates{display:grid;gap:9px}.nmc .nmc-release-update{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px;background:#ffffff06;border:1px solid #ffffff12;border-radius:12px;transition:background .15s}.nmc-release-update:hover{background:#ffffff10}.nmc-release-update img{width:54px;height:54px;border-radius:7px;object-fit:cover;flex:none}.nmc-release-update>span{display:grid;gap:4px;min-width:0}.nmc-release-update strong{font-size:13px}.nmc-release-update small{font-size:10px;color:#aeb7b2}.nmc-release-update strong,.nmc-release-update small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
 .nmc-release-dropdown{position:fixed;z-index:250;width:min(370px,calc(100vw - 24px));max-height:min(470px,70vh);overflow:auto;box-sizing:border-box;padding:14px;background:#121416f5;backdrop-filter:blur(22px);border:1px solid #ffffff24;border-radius:16px;box-shadow:0 18px 60px #0009;animation:nmc-enter .16s ease}.nmc-release-dropdown-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.nmc-release-dropdown-head strong{font-size:13px}.nmc-release-dropdown>p{font-size:12px;line-height:1.6;margin:15px 5px}.nmc-release-dropdown .nmc-release-update{color:#eee}@media(prefers-reduced-motion:reduce){.nmc-release-dropdown{animation:none}}
+/* Compact library rail, shared by desktop and laptop layouts. */
+.nmc{--nmc-side-width:clamp(184px,16vw,238px)}
+.nmc .nmc-sidebar-toggle{flex:none}
+.nmc .nmc-library-heading>span{flex:1;margin-left:7px}
+.nmc.nmc-compact-sidebar{--nmc-side-width:72px;grid-template-columns:72px minmax(0,1fr) 260px}
+.nmc.nmc-compact-sidebar.nmc-no-right{grid-template-columns:72px minmax(0,1fr)}
+.nmc-compact-sidebar .nmc-side-nav{padding:8px 5px}
+.nmc-compact-sidebar .nmc-nav-button{justify-content:center;padding:10px}
+.nmc-compact-sidebar .nmc-nav-button>span,.nmc-compact-sidebar .nmc-library-heading>span,.nmc-compact-sidebar .nmc-library-entry>span:not(.nmc-liked-cover){display:none}
+.nmc-compact-sidebar .nmc-library-heading{flex-direction:column;padding:8px 3px;gap:5px}
+.nmc-compact-sidebar .nmc-library-heading>button:last-child:not(.nmc-sidebar-toggle){display:none}
+.nmc-compact-sidebar .nmc-library-list{padding:0 4px 10px;scrollbar-width:none}
+.nmc-compact-sidebar .nmc-library-entry{padding:5px;justify-content:center}
+.nmc-compact-sidebar .nmc-library-entry>img,.nmc-compact-sidebar .nmc-library-entry>.nmc-liked-cover{width:46px;height:46px;flex:none;border-radius:8px;object-fit:cover}
+.nmc .nmc-right{scrollbar-width:thin;scrollbar-color:#ffffff30 transparent}
+.nmc .nmc-now-art{aspect-ratio:1;object-fit:cover;border-radius:12px}
+.nmc .nmc-right>h2{font-size:clamp(18px,1.5vw,23px);line-height:1.25;overflow-wrap:anywhere}
+.nmc .nmc-card-grid{content-visibility:auto;contain-intrinsic-size:auto 320px}
+.nmc .nmc-library-entry{transition:background .18s,transform .18s}
+.nmc .nmc-library-entry:hover{transform:translateY(-2px);background:#ffffff10}
+@media(min-width:761px){
+ .nmc:not(.nmc-no-right){grid-template-columns:var(--nmc-side-width) minmax(0,1fr) clamp(210px,20vw,280px);grid-template-areas:'top top top' 'side content right' 'player player player'}
+ .nmc:not(.nmc-no-right) .nmc-right{display:block;position:relative;inset:auto;width:auto;min-width:0;box-shadow:none}
+ .nmc.nmc-no-right{grid-template-columns:var(--nmc-side-width) minmax(0,1fr)}
+ .nmc .nmc-side-nav,.nmc .nmc-side-library,.nmc .nmc-right{backdrop-filter:none}
+ .nmc .nmc-right{padding:18px}
+ .nmc .nmc-sidebar{overflow:hidden}
+ .nmc:not(.nmc-quiet) .nmc-sidebar{animation:nmc-rail-in .22s ease-out}
+}
+@keyframes nmc-rail-in{from{opacity:.6;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+@media(max-width:760px){.nmc.nmc-compact-sidebar,.nmc.nmc-compact-sidebar.nmc-no-right{grid-template-columns:64px minmax(0,1fr)}.nmc .nmc-sidebar-toggle{display:none}}
+@media(prefers-reduced-motion:reduce){.nmc .nmc-sidebar{animation:none!important}.nmc .nmc-library-entry{transition:none}}
+/* Neutral glass library rail with clear, roomy click targets. */
+.nmc .nmc-side-nav,.nmc .nmc-side-library{border:1px solid #ffffff12;border-radius:18px;background:linear-gradient(145deg,#ffffff08,transparent 40%),#09090bc9;box-shadow:inset 0 1px 0 #ffffff08,0 8px 24px #0002}
+.nmc .nmc-sidebar-toggle{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:8px;border:1px solid #ffffff14;border-radius:12px;background:#ffffff08;color:#d6d6dc;cursor:pointer}
+.nmc .nmc-sidebar-toggle:hover{background:#ffffff16;color:#fff;border-color:#ffffff30}
+.nmc .nmc-sidebar-toggle svg{width:19px;height:19px}
+.nmc .nmc-sidebar-toggle[aria-expanded=false] svg{transform:rotate(-8deg)}
+.nmc .nmc-nav-button{position:relative;border-radius:12px;min-height:42px}
+.nmc .nmc-nav-button.active{background:linear-gradient(120deg,#ffffff14,#ffffff04);box-shadow:inset 0 0 0 1px #ffffff15}
+.nmc .nmc-nav-button:active,.nmc .nmc-library-entry:active{transform:scale(.94)}
+.nmc-compact-sidebar .nmc-side-nav{padding:8px 6px;display:grid;gap:4px}
+.nmc-compact-sidebar .nmc-library-heading{padding:10px 4px 8px;gap:8px}
+.nmc-compact-sidebar .nmc-library-entry{padding:6px 5px;margin-bottom:3px;border-radius:12px}
+.nmc-compact-sidebar .nmc-library-entry>img,.nmc-compact-sidebar .nmc-library-entry>.nmc-liked-cover{width:44px;height:44px;border-radius:10px;box-shadow:0 3px 10px #0004}
+.nmc .nmc-library-entry:hover{background:#ffffff0e;box-shadow:inset 0 0 0 1px #ffffff12}
+.nmc .nmc-library-list{overscroll-behavior:contain}
+.nmc.nmc-compact-sidebar .nmc-side-nav .nmc-nav-button>svg{width:20px;height:20px}
+.nmc .nmc-sidebar{animation:none!important}
+/* Developer Music experiment: trails only, preserving every existing background. */
+.nmc .nmc-shooting-stars{position:absolute;inset:66px 0 92px;z-index:2;overflow:hidden;pointer-events:none;contain:strict;border-radius:16px}
+.nmc .nmc-shooting-stars>i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px #ffffff0a,0 0 12px #ffffff40;opacity:0;animation:nmc-shooting-trail var(--duration) var(--delay) linear infinite}
+.nmc .nmc-shooting-stars>i:before{content:'';position:absolute;top:50%;transform:translateY(-50%);width:clamp(100px,18vw,260px);height:1px;background:linear-gradient(90deg,#ffffffbb,transparent)}
+.nmc.nmc-motion-paused .nmc-shooting-stars>i{animation-play-state:paused}
+@keyframes nmc-shooting-trail{0%{transform:rotate(315deg) translateX(0);opacity:.8}70%{opacity:.8}100%{transform:rotate(315deg) translateX(-1400px);opacity:0}}

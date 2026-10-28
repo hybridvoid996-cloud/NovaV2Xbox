@@ -38,9 +38,9 @@ test('a failed Void route switches to Noah at the saved position and retains the
  audio.currentTime=0;audio.dispatchEvent(new Event('loadedmetadata'));await Promise.resolve();assert.equal(audio.currentTime,35);assert.equal(engine.snapshot.provider,'noah');assert.equal(engine.track.id,'void:123');assert.equal(engine.snapshot.playing,true);engine.destroy();
 });
 test('Noah can recover to Void, and exhausted routes do not create a fallback loop',async()=>{
- const audio=new Audio();let calls=0;const engine=new NovaMusicEngine({audio,request:async url=>{calls++;assert.equal(new URL(url,'https://nova.test').searchParams.get('exclude'),'noah');return Response.json({found:true,url:'/api/soundcloud?op=alternate-audio&id=456'})}});
+ const audio=new Audio();let calls=0;const engine=new NovaMusicEngine({audio,request:async url=>{calls++;if(calls>1){assert.equal(new URL(url,'https://nova.test').searchParams.get('exclude'),'noah,void');return Response.json({found:false})}assert.equal(new URL(url,'https://nova.test').searchParams.get('exclude'),'noah');return Response.json({found:true,url:'/api/soundcloud?op=alternate-audio&id=456'})}});
  await engine.load({id:'noah:123',title:'Song',artist:'Artist',duration:120});engine.reconnects=2;audio.dispatchEvent(new Event('error'));await new Promise(resolve=>setImmediate(resolve));assert.equal(engine.snapshot.provider,'alternative');
- engine.reconnects=2;audio.dispatchEvent(new Event('error'));await new Promise(resolve=>setImmediate(resolve));assert.equal(calls,1);assert.equal(engine.busy,false);engine.destroy();
+ engine.reconnects=2;audio.dispatchEvent(new Event('error'));await new Promise(resolve=>setImmediate(resolve));assert.equal(calls,2);audio.dispatchEvent(new Event('error'));await new Promise(resolve=>setImmediate(resolve));assert.equal(calls,2);assert.equal(engine.busy,false);engine.destroy();
 });
 test('a stale failed fallback cannot replace a new track error state',async()=>{
  const audio=new Audio();let fail;

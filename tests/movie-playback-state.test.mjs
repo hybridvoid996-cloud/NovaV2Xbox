@@ -18,3 +18,17 @@ test('inaccessible frames do not prevent checking another provider frame',()=>{
  const blocked={getBoundingClientRect:()=>rect(),get contentDocument(){throw Error('different origin')}};
  assert.equal(readMoviePlayback(frame(doc([],[blocked,frame(doc([video()]))]))).ready,true);
 });
+test('a nested Vercel error is detected even without provider scripts',()=>{
+ const broken=doc();broken.body={innerText:'404 NOT_FOUND Code: DEPLOYMENT_NOT_FOUND'};
+ const state=readMoviePlayback(frame(doc([],[frame(broken)])));
+ assert.equal(state.providerError,true);assert.equal(state.error,true);assert.equal(state.ready,false);
+});
+test('a broken secondary frame cannot interrupt healthy playback',()=>{
+ const broken=doc();broken.body={innerText:'404 NOT_FOUND'};
+ const state=readMoviePlayback(frame(doc([video()],[frame(broken)])));
+ assert.equal(state.ready,true);assert.equal(state.error,false);
+});
+test('a failed player after playback remains recoverable',()=>{
+ const broken=doc();broken.title='404: This page could not be found.';
+ assert.equal(readMoviePlayback(frame(broken)).providerError,true);
+});

@@ -15,6 +15,13 @@ const {chromium}=require('C:/Users/willi/.cache/codex-runtimes/codex-primary-run
    const path='Public'+u.pathname;if(fs.existsSync(path)&&fs.statSync(path).isFile())return route.fulfill({body:fs.readFileSync(path),contentType:/\.(mjs|js)$/.test(path)?'text/javascript':path.endsWith('.css')?'text/css':'image/png'});return route.fulfill({status:404,body:''});
   });
   await page.goto('https://music.test/');await page.waitForFunction(()=>!!window.app);
+  await page.getByRole('button',{name:'Collapse sidebar',exact:true}).click();
+  await page.waitForTimeout(280);assert.equal(await page.locator('.nmc-sidebar').evaluate(e=>Math.round(e.getBoundingClientRect().width)),72);
+  await page.getByRole('button',{name:'Expand sidebar',exact:true}).click();
+  await page.locator('.nmc-content').click({position:{x:15,y:15}});assert(await page.locator('.nmc').evaluate(e=>e.classList.contains('nmc-compact-sidebar')));
+  await page.setViewportSize({width:1100,height:720});await page.getByRole('button',{name:'Show now playing',exact:true}).click();
+  await page.waitForTimeout(350);const layout=await page.evaluate(()=>{const c=document.querySelector('.nmc-content').getBoundingClientRect(),r=document.querySelector('.nmc-right').getBoundingClientRect();return {overlap:c.right>r.left+1,right:r.right,width:innerWidth}});assert.equal(layout.overlap,false);assert(layout.right<=layout.width);
+  await page.setViewportSize({width:1366,height:900});
   const search=page.getByRole('combobox');await search.fill('Rock with U');await search.press('Enter');await page.locator('.nmc-catalog-summary').waitFor();
   assert.equal(await page.locator('.nmc-results .nmc-track-row').count(),1);assert.equal(await page.locator('.nmc-results .nmc-source-badge').textContent(),'3 sources');assert.equal(await page.locator('.nmc-catalog-source').count(),3);
   await page.getByRole('button',{name:'Albums',exact:true}).click();assert.equal(await page.getByRole('button',{name:'Open Off the Wall',exact:true}).count(),1);assert.equal(await page.locator('.nmc-results .nmc-release-new').textContent(),'NEW');await page.waitForFunction(()=>{const img=document.querySelector('.nmc-results .nmc-track-card img');return img?.complete&&img.naturalWidth>0&&img.src.includes('op=asset')});

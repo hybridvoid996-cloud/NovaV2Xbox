@@ -1,0 +1,155 @@
+✔ unfinished challenges expire after exactly seven hours (0.703ms)
+✔ finishing challenges does not move the reset time (0.1281ms)
+✔ legacy unscheduled challenges and owner resets start a fresh cycle (0.1ms)
+✔ challenge IDs match whether stored as numbers or strings (0.6669ms)
+✔ reset countdown decreases and shows a refresh state at expiry (0.1687ms)
+✔ clicking a challenge launches its exact catalog game and has a player fallback (19.19ms)
+(node:7524) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/willi/OneDrive/Documents/NovaV2/Public/src/nitro-themes.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\willi\OneDrive\Documents\NovaV2\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ nonowners cannot read dashboard or grant themselves rewards (6.771ms)
+✔ invalid authentication rejected (0.2189ms)
+✔ recovery code issuance is owner-only and never exposes a session token to the owner (2.305ms)
+✔ only owners can read account emails; the response excludes passwords and hashes (3.254ms)
+✔ codes redeem once and keep grants atomic (12.7592ms)
+✔ chat bans are separate from Nova bans and appeals restore correct scope (0.6688ms)
+✔ owner accounts cannot be demoted or banned (0.5853ms)
+✔ event multipliers capped and challenges reset through a version (0.7177ms)
+✔ pulse creates nine mixed challenges and does not award idle XP (51.496ms)
+✔ public poll results do not expose voter account IDs (0.686ms)
+✔ Chat writes reject site-banned and muted accounts (1.0021ms)
+✔ live broadcasts enforce ownership and one vote with private ballots (1.3426ms)
+✔ votes stay isolated when a new live poll replaces the old one (0.4533ms)
+✔ only existing owners can grant full owner access (0.8171ms)
+✔ today timeline records concurrent rises and drops rather than cumulative visitors (0.614ms)
+✔ codes with hash and underscore create and redeem case-insensitively once (0.8768ms)
+✔ staff replies deliver private bot messages and reject nonstaff impersonation (0.3214ms)
+✔ leaving groups removes membership and index and transfers ownership (0.2959ms)
+✔ staff commands enforce privilege and owner protection (0.492ms)
+✔ profiles validate media and gradients require a server Nitro entitlement (0.6506ms)
+✔ Nitro charges once, preserves staff role and counts one server boost (8.1268ms)
+✖ Case purchases enforce funds, bundles, inventory and retry safety (6.6134ms)
+✔ case tiers expose exact odds and have rewards in every category (2.4605ms)
+✖ cold Firebase cache does not reject an existing 200090 coin balance (5.9061ms)
+✔ cold cache still rejects a genuinely insufficient balance without a debit (2.3992ms)
+✔ Nitro gifts charge sender once, notify recipient, and preserve roles (8.6989ms)
+✔ chat banner equip preserves uploaded profile banner and removes separately (2.7197ms)
+✔ only owners create server roles and assigned permissions enforce commands (1.3753ms)
+✔ profile gradients require Nitro and client rules protect custom privileges (2.6237ms)
+✔ account backups are private to the authenticated user and do not change economy state (0.8278ms)
+✔ giveall requires an owner and grants every cosmetic once without taking coins (4.131ms)
+✔ cloud picks count unique authenticated users and ignore caller-supplied identity (3.7638ms)
+✔ cloud rankings reject unknown titles, invalid authentication and suspended users (0.4384ms)
+✔ cloud rankings sort real counts, omit unknown titles and have no fabricated defaults (0.2854ms)
+✔ another owner cannot ban, mute, or demote either named owner account (2.161ms)
+✔ permanent protected UIDs ignore name or role changes and clear old bans (1.7892ms)
+✔ copying the owner name does not grant protection or owner access (0.1693ms)
+✔ the owner Players directory includes every account and its saved coins and XP level (0.2995ms)
+✔ custom Nitro themes validate colors, persist across status reads, and expire safely (0.959ms)
+✔ equipping a name color accepts only owned roles and leaves authority unchanged (0.4835ms)
+✔ administrative rewards notify only the affected account through its private inbox (0.2655ms)
+✔ community events expose verified owner identity and can only be ended by owners (0.3202ms)
+✔ owner grants notify the recipient with owner name and reward amounts (0.2809ms)
+✔ online gifts notify only eligible accounts after granting coins (0.3813ms)
+✔ community votes reach owner results once and public feeds reveal only the caller choice (0.7506ms)
+✔ permanent owners can demote other owners but both protected UIDs remain immutable (3.3243ms)
+✔ owner sets exact level and coins while preserving challenges and rejects invalid values (1.0461ms)
+✔ inventory previews include equipped items and single removal clears only matching equipped cosmetics (6.5726ms)
+✔ clear inventory removes all owned items and equipped references while preserving unrelated account data (1.5588ms)
+✔ members and ordinary admins cannot read or modify owner inventory controls (0.4481ms)
+✔ cold Firebase inventory cache does not abort removal or unequipping (2.2882ms)
+✖ existing unfinished challenges get doubled once without paying completed rewards again (23.9254ms)
+✔ showcase saves only the authenticated user and validates catalog games (5.6445ms)
+✔ Nova wagers use the authenticated wallet, not a caller-supplied target, and cannot reroll a receipt (9.7361ms)
+✔ game statuses are owner-only to update and safe for members to read (2.7348ms)
+✔ BuildNow tools require a verified owner (121.3214ms)
+✔ Buildgghacks is owner-granted, revocable and does not grant staff access (19.121ms)
+✔ BuildNow access rejects invalid authentication and unrelated staff roles (0.4024ms)
+✔ owner BuildNow invitations reach regular members and distinguish acceptance from confirmed joining (1.8523ms)
+✔ owner party invites validate codes, expire, revoke and prevent nonowners from ending invitations (1.0061ms)
+✔ live BuildNow counts are host-only, code-bound, expire quickly, and prevent accepting full or closed lobbies (0.9537ms)
+✔ giveall confirms the six new effects and rejects outdated catalog requests (3.25ms)
+✔ giveall initializes a season before granting, so opening the shop cannot erase the grant (4.4853ms)
+✔ new codes announce once through Nova Bot and online feed while redemption stays once per account (0.928ms)
+✔ profile edits publish uploaded images and identity to public and account records (0.2509ms)
+ℹ tests 71
+ℹ suites 0
+ℹ pass 68
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 851.8183
+
+✖ failing tests:
+
+test at tests\owner-control.test.mjs:43:1
+✖ Case purchases enforce funds, bundles, inventory and retry safety (6.6134ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  400 !== 200
+  
+      at TestContext.<anonymous> (file:///C:/Users/willi/OneDrive/Documents/NovaV2/tests/owner-control.test.mjs:43:400)
+      at async Test.run (node:internal/test_runner/test:1404:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 400,
+    expected: 200,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\owner-control.test.mjs:47:1
+✖ cold Firebase cache does not reject an existing 200090 coin balance (5.9061ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  186590 !== 198940
+  
+      at TestContext.<anonymous> (file:///C:/Users/willi/OneDrive/Documents/NovaV2/tests/owner-control.test.mjs:47:405)
+      at async Test.run (node:internal/test_runner/test:1404:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 186590,
+    expected: 198940,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\owner-control.test.mjs:168:1
+✖ existing unfinished challenges get doubled once without paying completed rewards again (23.9254ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   25000,
+  +   40000,
+  +   60000,
+  +   80000,
+  +   100000,
+  +   125000,
+  +   150000,
+  +   175000,
+  +   225000
+  -   50,
+  -   200
+    ]
+  
+      at TestContext.<anonymous> (file:///C:/Users/willi/OneDrive/Documents/NovaV2/tests/owner-control.test.mjs:168:389)
+      at async Test.run (node:internal/test_runner/test:1404:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [
+       25000,  40000,
+       60000,  80000,
+      100000, 125000,
+      150000, 175000,
+      225000
+    ],
+    expected: [ 50, 200 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

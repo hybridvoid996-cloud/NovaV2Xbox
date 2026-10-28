@@ -1,3 +1,4 @@
+import {recentArtwork} from '../Public/src/recent-artwork.mjs';
 import {streakStatus} from '../Public/src/streak-core.mjs';
 import {advanceRank,rankSummary,NOVA_RANKS} from '../Public/src/nova-rank-core.mjs';
 import {leaderboardGames} from './leaderboard.mjs';
@@ -27,12 +28,12 @@ export async function rankAction(db,uid,action,b,now=Date.now()){
  if(action==='rankMovie'){
   const id=String(b.id||'').slice(0,100),type=['movie','tv','anime'].includes(b.type)?b.type:null,name=typeof b.name==='string'?b.name.trim().slice(0,150):'';
   if(!id||!type||!name||!Number.isFinite(b.position)||b.position<5)throw Error('Watch a title before sharing it.');
-  const art=typeof b.art==='string'&&b.art.length<2000&&b.art.startsWith('https://')?b.art:'';
+  const art=recentArtwork(b.art,'movie');
   const item={id,type,name,art,at:now,season:Math.max(0,Math.floor(Number(b.season)||0)),episode:Math.max(0,Math.floor(Number(b.episode)||0))};
   await db.ref('novaChatV2/profiles/'+uid+'/recentMovies').transaction(old=>[item,...(Array.isArray(old)?old:[]).filter(m=>m.id!==id||m.type!==type)].slice(0,5));return {ok:true};
  }
  if(action==='rankMusic'){
-  const name=typeof b.name==='string'?b.name.trim().slice(0,150):'';if(!name)throw Error('Choose a song.');const artist=typeof b.artist==='string'?b.artist.slice(0,150):'',art=typeof b.art==='string'&&b.art.length<2000&&/^https:\/\//.test(b.art)?b.art:'';
+  const name=typeof b.name==='string'?b.name.trim().slice(0,150):'';if(!name)throw Error('Choose a song.');const artist=typeof b.artist==='string'?b.artist.slice(0,150):'',art=recentArtwork(b.art,'music');
   await db.ref('novaChatV2/profiles/'+uid+'/recentMusic').transaction(old=>[{name,artist,art,at:now},...(Array.isArray(old)?old:[]).filter(m=>m.name!==name||m.artist!==artist)].slice(0,5));return {ok:true};
  }
 }

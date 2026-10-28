@@ -212,3 +212,15 @@ body.nova-main .main-person-row.nova-home-has-banner:before{background:linear-gr
 body.nova-main .main-person-row{min-height:60px!important}body.nova-main .main-person-row .nova-listening-row{font-size:10px;line-height:17px;height:17px}body.nova-main .main-person-row>.main-person-avatar{margin:0!important}
 
 [data-page="computer"][hidden]{display:none!important}
+
+/* Familiar media marks, monochrome until hover or keyboard focus. */
+body.nova-main header nav button[data-page=music]{--nav-brand:#1ed760}
+body.nova-main header nav button[data-page=novatube]{--nav-brand:#ff0033}
+body.nova-main header nav button[data-page=novamovies]{--nav-brand:#e50914}
+body.nova-main header nav button:is([data-page=music],[data-page=novatube],[data-page=novamovies]) svg{transition:transform .2s ease,color .2s ease;stroke:none}
+body.nova-main header nav button:is([data-page=music],[data-page=novatube],[data-page=novamovies]):is(:hover,:focus-visible){color:var(--nav-brand)!important;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--nav-brand) 25%,transparent),0 0 16px color-mix(in srgb,var(--nav-brand) 12%,transparent)!important;background:#ffffff08!important}
+body.nova-main header nav button:is([data-page=music],[data-page=novatube],[data-page=novamovies]):is(:hover,:focus-visible) svg{transform:translateY(-1px) scale(1.08)}
+body.nova-main header nav button[data-page=novatube]:is(:hover,:focus-visible){--nav-brand-cutout:#fff}
+@media(prefers-reduced-motion:reduce){body.nova-main header nav button svg{transition:none!important}}
+
+body.nova-main header nav button[data-page=novamovies] svg{width:25px;height:25px;filter:drop-shadow(0 1px 1px #0003)}

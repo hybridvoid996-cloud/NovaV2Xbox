@@ -3,7 +3,7 @@ import {ref,get,set,update,remove,push,onValue,query,limitToLast,serverTimestamp
 export const ROOT='novaChatV2';
 export async function login(){await auth.authStateReady();const u=auth.currentUser;if(!u||u.isAnonymous)throw Error('Sign in with your new Nova account to use Chat.');const s=await get(ref(db,'novaAccounts/'+u.uid));if(!s.exists())throw Error('Complete your Nova account setup first.');return {uid:u.uid,email:u.email,...s.val()}}
 export const read=async path=>(await get(ref(db,ROOT+'/'+path))).val();
-export const write=(path,value)=>set(ref(db,ROOT+'/'+path),value);
+export const write=async(path,value)=>{const match=/^requests\/([^/]+)\/([^/]+)$/.exec(path);if(value&&match&&match[2]===auth.currentUser?.uid){const {control}=await import('./control-client.js');return control('chatFriendRequest',{uid:match[1]})}return set(ref(db,ROOT+'/'+path),value)};
 export const patch=values=>update(ref(db,ROOT),values);
 export const del=path=>remove(ref(db,ROOT+'/'+path));
 export async function send(path,value,options={}){const message=push(ref(db,ROOT+'/'+path));if(options.slowMode>0&&/^channels\/[^/]+\/messages$/.test(path)){try{await set(ref(db,ROOT+'/channelSendClock/'+path.split('/')[1]+'/'+auth.currentUser.uid),{at:serverTimestamp(),key:message.key})}catch{throw Error('Slow mode: wait before sending again. If this is your first message, the owner needs to publish the updated chat rules.')}}try{await set(ref(db,ROOT+'/sendClock/'+auth.currentUser.uid),{at:serverTimestamp(),key:message.key,path})}catch(e){if(e.code==='PERMISSION_DENIED')throw Error('Please wait two seconds before sending again. If this persists, check the chat rules.');throw e}await set(message,{...value,createdAt:serverTimestamp()})}

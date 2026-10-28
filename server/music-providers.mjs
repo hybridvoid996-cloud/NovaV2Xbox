@@ -1,3 +1,4 @@
+import {findPublicRecording} from './music-public-match.mjs';
 const bounded=(work,ms)=>{let timer;return Promise.race([work,new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Music catalog timed out.')),ms);timer.unref?.()})]).finally(()=>clearTimeout(timer))};
 
 import {mergeMusicCatalog,rankMusicCatalog,normalizeMusicQuery} from './music-catalog.mjs';
@@ -54,7 +55,7 @@ export function createMusicProviderHandler({primary,service,alternative,noah}){
     const exclude=new Set((params.get('exclude')||'').split(','));
     const providers=[...(!exclude.has('void')?[()=>alternative.find(title,artist,duration)]:[]),...(!exclude.has('noah')?[()=>noah.find(title,artist,duration)]:[])];
     const attempts=providers.map(async find=>{const data=await find();if(!data.found)throw Error('No matching recording.');return data});
-    const found=await Promise.any(attempts).catch(()=>({found:false}));
+    let found=await Promise.any(attempts).catch(()=>({found:false}));if(!found.found&&!exclude.has('sc')&&service.search&&service.stream)found=await bounded(findPublicRecording(service,{title,artist,duration,id:params.get('id')}),5000).catch(()=>({found:false}));
     return reply(200,found);
    }
    if(op==='album-info'&&/^noah:\d{1,20}$/.test(params.get('id')||'')){
