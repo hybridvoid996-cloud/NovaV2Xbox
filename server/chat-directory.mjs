@@ -7,6 +7,7 @@ export async function chatDirectoryAction(db,uid,action,b,now=Date.now()){
   const users=rows.map(([id,a])=>({uid:id,name:String(a.name||'Nova member').slice(0,100),photo:typeof a.photo==='string'&&/^(https:\/\/|data:image\/(?:png|jpeg|webp|gif);base64,)/.test(a.photo)&&a.photo.length<100000?a.photo:'',joined:Number(a.createdAt)||0}));
   return {users,next:rows.length===80?rows.at(-1)[0]:null};
  }
+ if(action==='chatMutualFriends'){const other=b.uid;if(!valid(other))throw Error('Choose a Nova profile.');const [mine,theirs]=await Promise.all([db.ref('novaChatV2/friends/'+uid).get(),db.ref('novaChatV2/friends/'+other).get()]);const own=mine.val()||{},target=theirs.val()||{};return {friends:Object.keys(own).filter(id=>own[id]&&target[id]&&id!==uid&&id!==other).slice(0,200)}}
  if(action==='chatRequests')return {requests:(await db.ref('novaChatV2/messageRequests/'+uid).get()).val()||{}};
  const other=b.uid;if(!valid(other)||other===uid)throw Error('Choose another Nova user.');
  if(action==='chatFriendRequest'){const account=(await db.ref('novaAccounts/'+other).get()).val();if(!account||(await db.ref('novaChatV2/bans/'+other).get()).exists())throw Error('This user is unavailable.');await syncChatProfile(db,other,account,now);if(!(await db.ref('novaChatV2/friends/'+uid+'/'+other).get()).val())await db.ref('novaChatV2/requests/'+other+'/'+uid).set({createdAt:now});return {ok:true}}

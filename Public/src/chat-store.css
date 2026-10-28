@@ -1,4 +1,4 @@
-@import url("./profile-refresh.css?v=20261027-profile329");
+@import url("./profile-refresh.css?v=20261028-profile357");
 /* Settings and collection: soft depth, clear selection, restrained motion. */
 .member-list:has(.nova-profile-card){display:flex;flex-direction:column;gap:10px;height:100%;overflow:auto;box-sizing:border-box}
 .member-list>.nova-profile-card{flex:1 0 auto;min-height:470px;border-radius:14px;background:#111116}

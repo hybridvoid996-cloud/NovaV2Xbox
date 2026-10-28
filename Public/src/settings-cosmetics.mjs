@@ -1,4 +1,4 @@
-import {cosmeticsSettings} from './chat-store.js?v=20261028-detail347';
+import {cosmeticsSettings} from './chat-store.js?v=20261028-nitro358';
 export async function mountSettingsCosmetics(host,{uid,profile,notice}){
  host.classList.add('nova-settings-cosmetics');host.replaceChildren();const title=document.createElement('p');title.className='description';title.textContent='Your collection. Your signature. Choose an unlocked style to wear across Nova.';host.append(title);
  const mount=host.dataset.cosmeticsMount;const response=await fetch('/profile-assets/catalog.json');if(!response.ok)throw Error('Your cosmetic collection could not load. Please retry.');const assets=await response.json();if(!host.isConnected||host.dataset.cosmeticsMount!==mount)return;

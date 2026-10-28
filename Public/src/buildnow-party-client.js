@@ -1,3 +1,4 @@
+import {notificationAllowed} from './notification-preferences.mjs?v=20261028-notify361';
 import {announcementIdentity} from './announcement-identity.mjs?v=20261018-poll165';
 import {mountNoticeTheme} from './nova-notice-theme.mjs?v=20261018-poll165';
 import {lobbySummary} from './buildnow-party-info.mjs';
@@ -14,6 +15,7 @@ export function mountBuildNowInvites(){
  const hide=()=>{if(host.hidden||exitTimer)return;host.classList.add('is-leaving');exitTimer=setTimeout(()=>{host.hidden=true;host.classList.remove('is-leaving');exitTimer=null;try{host.hidePopover()}catch{}},matchMedia('(prefers-reduced-motion:reduce)').matches?0:240)};
  const launch=async()=>{const response=await fetch('/library-games.json');if(!response.ok)throw Error('The game library could not load.');const game=(await response.json()).find(g=>Number(g.id)===581);if(!game)throw Error('BuildNow is unavailable in the library.');if(window.NovaRecent?.launch)window.NovaRecent.launch({...game,kind:'game'});else location.href='/player.html?kind=game&id=581';};
  return data=>{
+  if(!notificationAllowed('game')){hide();return}
   const invite=data?.invite,uid=auth.currentUser?.uid||'';
   if(invite?.isHost){for(const join of data.joins||[]){const key=invite.id+':'+join.uid;let recorded=false;try{recorded=localStorage.getItem('nova-buildnow-notified-'+uid+'-'+key)==='true';}catch{}if(seen.has(key)||recorded||!window.NovaNotice)continue;seen.add(key);try{localStorage.setItem('nova-buildnow-notified-'+uid+'-'+key,'true');}catch{}window.NovaNotice?.('chat',{sender:'buildnow-'+join.uid,label:'BuildNow · owner invite',title:join.name||'Nova member',text:'Joined your BuildNow GG lobby through your owner invitation.',art:join.photo||'',hint:'View lobby joins',action:()=>window.openPage?.('owner')});}hide();return;}
   if(!invite||invite.expiresAt<=Date.now()||['declined','joined'].includes(invite.phase)){hide();current='';return;}

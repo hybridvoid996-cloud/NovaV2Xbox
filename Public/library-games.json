@@ -9141,5 +9141,38 @@
       "Adventure"
     ],
     "addedAt": "2026-10-26T00:00:00.000Z"
+  },
+  {
+    "id": 1040,
+    "name": "Cyberpunk 2077 (Real)",
+    "url": "https://cyberpunk2077.lol/game",
+    "art": "content/covers/1040.jpg",
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
+    "addedAt": "2026-10-28T10:54:52.604Z"
+  },
+  {
+    "id": 1041,
+    "name": "Terraria (Real)",
+    "url": "https://playterraria.lol/game/",
+    "art": "content/covers/1041.jpg",
+    "genres": [
+      "Sandbox",
+      "Adventure"
+    ],
+    "addedAt": "2026-10-28T10:54:52.608Z"
+  },
+  {
+    "id": 1042,
+    "name": "Grand Theft Auto: Vice City",
+    "url": "/content/games/1042.html",
+    "art": "content/covers/1042.jpg",
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
+    "addedAt": "2026-10-28T10:54:52.608Z"
   }
 ]

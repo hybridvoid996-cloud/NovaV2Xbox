@@ -23,3 +23,5 @@ body[data-theme=light]{--bg:#f8f8fa;--panel:#ededf1;--text:#24242c;color:#24242c
 /* Profile effects use their portrait artwork ratio instead of squeezing into a fixed-height box. */
 .nova-profile-card>.nova-profile-effect{inset:0 0 auto;width:100%;height:auto;max-height:none;object-fit:contain!important;object-position:center top;opacity:.55;z-index:2;pointer-events:none;mask-image:linear-gradient(#000 0%,#000 72%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0%,#000 72%,transparent 100%)}
 .nova-profile-card .nova-profile-body{isolation:isolate}.nova-profile-card .nova-profile-body>h2,.nova-profile-card .nova-profile-bio{text-shadow:0 1px 5px #0009}
+
+.game-achievement-role[hidden]{display:none!important}.game-ranks-more{display:block!important;width:100%;margin-top:8px;padding:8px 10px!important;border:1px solid #ffffff18!important;border-radius:7px!important;background:#ffffff06!important;color:#aeb6c9!important;font:500 11px Segoe UI,sans-serif!important;text-align:left;cursor:pointer}.game-ranks-more:hover{background:#ffffff10!important;color:#fff!important}

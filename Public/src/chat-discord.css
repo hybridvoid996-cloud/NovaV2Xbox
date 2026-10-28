@@ -121,3 +121,140 @@ body .loading .chat-loading-mark{animation:discord-detail-load 2.5s cubic-bezier
 @media(prefers-reduced-motion:reduce){body .loading .chat-loading-mark{animation:none!important}}
 body .nova-profile-current-activity{display:block;font-size:11px;line-height:1.5;margin-top:4px;color:#a9adba}
 body .conversation.members-overlay{position:relative;grid-template-columns:minmax(0,1fr)}body .conversation.members-overlay>.member-list{display:block!important;position:absolute;right:0;top:0;bottom:0;width:240px;z-index:10;background:#0e0e11;border-left:1px solid #ffffff20;box-shadow:-15px 0 40px #0006}
+
+body.nova-chat-redesign .topbar>.tabs button:last-child{background:#5865f2!important;color:#fff!important}body.nova-chat-redesign .topbar>.tabs button:last-child:hover{background:#4752c4!important}body.nova-chat-redesign .topbar>.tabs button:last-child.selected{background:#5865f21a!important;color:#aeb5ff!important}body.nova-chat-redesign .topbar>.tabs{flex-wrap:nowrap!important;min-width:0}body.nova-chat-redesign .topbar>.tabs button{flex:none}
+/* Compact DM identity card: one clear hierarchy, full-size avatar, quiet achievements. */
+body .nova-profile-avatar>.avatar{display:flex!important;align-items:center;justify-content:center;position:relative;width:76px!important;height:76px!important;min-width:76px;flex:none;font-size:28px!important;line-height:1;border-radius:50%;border:5px solid #141417;overflow:visible;background:#25262c;box-sizing:border-box}
+body .nova-profile-avatar>.avatar:has(>img:not(.decoration)){font-size:0!important}
+body .nova-profile-avatar>.avatar>img:not(.decoration){position:absolute;inset:0;width:100%!important;height:100%!important;border-radius:50%;object-fit:cover;display:block}
+body .nova-profile-avatar>.avatar>.decoration{position:absolute;width:126%!important;height:126%!important;max-width:none;left:-13%;top:-13%;object-fit:contain;pointer-events:none;z-index:2}
+body .member-list:has(.nova-profile-card){padding:12px!important;background:#0c0c0f;scrollbar-width:thin;scrollbar-color:#34343e transparent}
+body .member-list>.nova-profile-card{border:1px solid #ffffff12;border-radius:12px;background:#141417;box-shadow:none}
+body .member-list .nova-profile-banner{height:96px;background:linear-gradient(125deg,#3a3b44,#292930)}
+body .member-list .nova-profile-body{padding:0 15px 17px!important;overflow:hidden}
+body .member-list .nova-profile-avatar{margin-top:-32px!important;margin-bottom:10px;z-index:2;width:76px;height:76px}
+body .member-list .nova-profile-body>h2{font-size:18px!important;line-height:1.3!important;letter-spacing:-.3px;margin:8px 0 4px!important;overflow-wrap:anywhere;font-weight:650}
+body .member-list .nova-profile-body>small.muted{display:block;font-size:11px;line-height:1.4;margin-bottom:12px;color:#8d909c}
+body .member-list .nova-profile-body>h4{font-size:9px!important;letter-spacing:.6px;margin:17px 0 8px!important;color:#9296a3;font-weight:600}
+body .member-list .nova-profile-body .nova-role-pill{border:1px solid #ffffff14;background:#ffffff03;padding:4px 7px;border-radius:5px;font-size:10px;line-height:1.4;max-width:100%;box-sizing:border-box;vertical-align:middle}
+body .member-list .nova-profile-body .game-achievement-role{display:flex;align-items:center;gap:6px;min-height:30px;margin:5px 0;white-space:normal;line-height:1.35;border-radius:6px;padding:5px 7px;width:100%;background:#1b1b20;border-color:#ffffff0c}
+body .member-list .game-achievement-role>img{width:22px!important;height:22px!important;min-width:22px;border-radius:4px;object-fit:cover;margin:0!important}
+body .member-list .game-achievement-role[hidden]{display:none!important}
+body .member-list .game-ranks-more{font-size:10px!important;color:#a6abc0!important;padding:7px 8px!important;background:transparent!important;border-color:#ffffff10!important;margin:7px 0 0}
+body .member-list .nova-private-note{min-height:45px!important;height:45px;max-height:100px;border:1px solid #ffffff09;background:#101013!important;font-size:11px!important;border-radius:6px;padding:8px!important;line-height:1.5}
+body .member-list .ns-profile-streak{display:flex;align-items:center;gap:7px;padding:9px 10px!important;margin:14px 0 0!important;border:1px solid #ffffff0e;background:#ffffff02;border-radius:8px;font-size:10px!important;box-shadow:none}
+body .member-list .ns-profile-streak strong{font-size:10px!important;font-weight:500}body .member-list .ns-profile-streak svg{width:20px;height:20px}
+body .member-list .nova-rank-panel{padding:12px!important;margin:10px 0 0!important;border-radius:9px!important;backdrop-filter:none;background:linear-gradient(130deg,#ffffff04,transparent),#121216;border-color:#ffffff10;box-shadow:none;font-size:11px}
+body .member-list .nova-rank-top{gap:10px!important}body .member-list .nova-rank-crest{width:42px!important;min-width:42px;filter:none}body .member-list .nova-rank-crest svg{width:42px!important;height:48px!important}body .member-list .nova-rank-heading small{font-size:7px!important;letter-spacing:1px}body .member-list .nova-rank-heading h3{font-size:17px!important;margin:2px 0!important}body .member-list .nova-rank-heading span{font-size:10px!important}body .member-list .nova-rank-panel progress{margin:10px 0 7px!important;height:4px}body .member-list .nova-rank-panel>p{font-size:10px;margin:5px 0}body .member-list .nova-rank-reward{display:none}body .member-list .nova-rank-link{font-size:9px!important;padding:5px 0!important;background:none!important;border:0!important;text-align:left;color:#9da4b5}
+body .member-list>.profile-expand{padding:9px!important;margin-top:10px;font-size:11px;border-radius:7px;background:#ffffff06!important;border-color:#ffffff15!important}
+body .member-list .nova-profile-body{overflow:visible!important}body .member-list .nova-profile-avatar{position:relative;isolation:isolate}body .member-list .nova-profile-body .nova-role-pill{overflow-wrap:anywhere}
+/* Full-width account dock, spanning the server rail and conversation sidebar. */
+body.nova-chat-redesign{--chat-account-width:376px}
+body.nova-chat-redesign .sidebar{padding-bottom:74px!important}
+body.nova-chat-redesign .server-rail{padding-bottom:80px!important}
+body.nova-chat-redesign .rail-bottom{margin-bottom:72px}
+body.nova-chat-redesign #self.self{position:fixed!important;left:8px!important;bottom:8px!important;right:auto!important;top:auto!important;width:calc(var(--chat-account-width) - 16px)!important;height:58px!important;min-height:58px!important;margin:0!important;padding:7px 10px!important;border:1px solid #ffffff1b!important;border-radius:9px!important;z-index:1000;background:linear-gradient(110deg,#151519f5,#0b0b0ef5)!important;box-shadow:0 -4px 20px #0002,inset 0 1px #ffffff05}
+body.nova-chat-redesign #self .self-profile{display:flex;align-items:center;flex:1;gap:10px;min-width:0;padding:2px 4px;border-radius:6px;background:none;border:0;text-align:left;height:42px;overflow:hidden}
+body.nova-chat-redesign #self .self-profile:hover{background:#ffffff08}
+body.nova-chat-redesign #self .avatar{width:34px!important;height:34px!important;min-width:34px;flex:none}
+body.nova-chat-redesign #self .person-label{display:flex;flex-direction:column;justify-content:center;min-width:0;gap:1px;overflow:hidden}
+body.nova-chat-redesign #self .person-label b{font-size:13px!important;line-height:1.3;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;max-width:235px}
+body.nova-chat-redesign #self .person-label small{font-size:10px!important;color:#9296a1;white-space:nowrap;max-width:220px;overflow:hidden;text-overflow:ellipsis}
+body.nova-chat-redesign #self .settings-button{width:36px!important;height:36px!important;min-width:36px;border:0!important;background:transparent!important;color:#9da1ac!important;padding:8px!important;border-radius:7px!important;display:grid;place-items:center;transition:background .15s,color .15s}
+body.nova-chat-redesign #self .settings-button:hover{background:#ffffff0c!important;color:#eee!important}
+body.nova-chat-redesign #self .settings-button .ui-icon{width:21px!important;height:21px!important;stroke-width:1.9;transition:transform .25s}
+body.nova-chat-redesign #self .settings-button:hover .ui-icon{transform:rotate(32deg)}
+body .chat-account-popover{width:326px!important;border-radius:12px!important;background:#111114!important;border:1px solid #ffffff20!important;box-shadow:0 15px 55px #0009;scrollbar-width:thin}
+body .chat-account-popover .nova-profile-card{max-height:none!important;overflow:hidden;border-radius:11px 11px 0 0!important}
+body .chat-account-popover .nova-profile-banner{height:90px!important}
+body .chat-account-popover .nova-profile-body{padding:0 16px 16px!important;overflow:visible!important}
+body .chat-account-popover .nova-profile-avatar{height:70px;width:70px;margin-top:-30px!important;margin-bottom:6px}
+body .chat-account-popover .nova-profile-avatar>.avatar{width:70px!important;height:70px!important;min-width:70px;border-width:5px}
+body .chat-account-popover .nova-profile-body>h2{margin:8px 0 5px!important;font-size:19px!important;line-height:1.3}
+body .chat-account-popover .nova-profile-body>small{display:block;font-size:11px;line-height:1.5;color:#8f939f}
+body .chat-account-popover .nova-profile-body>:not(.nova-profile-avatar):not(h2):not(small):not(.nova-profile-bio):not(.nova-adopt-tag){display:none!important}
+body .chat-account-popover .nova-profile-body>small:not(:first-of-type){display:none!important}
+body .chat-account-popover .nova-profile-bio{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:12px;line-height:1.6;margin:10px 0 0;color:#c2c5ce}
+body .account-popover-controls{padding:7px;border-top:1px solid #ffffff0c;gap:3px}
+body .account-popover-controls button{padding:10px 11px;font-size:12px!important;font-weight:500;border-radius:6px!important;min-height:36px}
+body .account-popover-controls button:first-child{border-bottom:1px solid #ffffff10;margin-bottom:4px}
+body .account-popover-controls button:hover{background:#5865f2!important;color:#fff}
+@media(max-width:1200px){body.nova-chat-redesign{--chat-account-width:314px}}
+@media(max-width:760px){body.nova-chat-redesign{--chat-account-width:252px}body.nova-chat-redesign #self .person-label b{max-width:150px}}
+@media(max-width:520px){body.nova-chat-redesign{--chat-account-width:100vw}body.nova-chat-redesign #self.self{left:6px!important;width:calc(100vw - 12px)!important}body .chat-account-popover{width:min(326px,calc(100vw - 16px))!important}}
+@media(prefers-reduced-motion:reduce){body.nova-chat-redesign #self .settings-button .ui-icon{transition:none;transform:none!important}}
+/* Focused profile surfaces: identity on the left, details on the right. */
+body.nova-chat-redesign .nova-full-profile{height:min(740px,88dvh)!important;max-height:88dvh!important;overflow:hidden!important;padding:22px!important;grid-template-columns:minmax(290px,350px) minmax(0,1fr)!important;grid-template-rows:20px 42px 42px minmax(0,1fr)!important;gap:12px 26px;background:linear-gradient(120deg,#19191ee8,#101014f5)!important;border-color:#ffffff1a!important}
+body .nova-full-profile>.modal-head{padding:0!important;min-height:20px;height:20px!important;justify-content:flex-end}
+body .nova-full-profile>.modal-head>h2{display:none}
+body .nova-full-profile>.modal-head .modal-close{width:27px;height:27px;font-size:20px;line-height:1;background:#ffffff08;border:1px solid #ffffff13;border-radius:8px}
+body .nova-full-profile>.nova-profile-card{grid-row:2/6!important;border-radius:13px!important;max-height:100%!important;height:100%;overflow:auto;scrollbar-width:thin;scrollbar-color:#494952 transparent;background:#212127;border:1px solid #ffffff10}
+body .nova-full-profile .nova-profile-banner{height:136px!important}
+body .nova-full-profile .nova-profile-body{padding:0 19px 20px!important;overflow:visible}
+body .nova-full-profile .nova-profile-avatar{margin-top:-34px!important;min-height:76px;margin-bottom:11px}
+body .nova-full-profile .nova-profile-body>h2{font-size:21px!important;line-height:1.35;margin:8px 0 4px!important}
+body .nova-full-profile .nova-profile-bio{font-size:12px;line-height:1.65;margin:12px 0 17px;white-space:pre-wrap}
+body .nova-full-profile .profile-role-pills{display:flex;flex-wrap:wrap;gap:5px;margin:0!important}
+body .nova-full-profile .nova-role-pill{margin:0!important;padding:4px 7px!important;font-size:10px!important;line-height:1.4;border-radius:5px!important;background:#ffffff04;border-color:#ffffff17}
+body .nova-full-profile .nova-profile-body>h4{font-size:9px;letter-spacing:.7px;margin:20px 0 8px!important;color:#a5a9b5}
+body .nova-full-profile>.profile-detail-tabs{gap:20px;padding:0;border-bottom:1px solid #ffffff12}
+body .nova-full-profile>.profile-detail-tabs button{font-size:12px;letter-spacing:0;font-weight:550;padding:11px 0}
+body .nova-full-profile>.nova-profile-actions{gap:8px;align-items:start;padding:0!important}
+body .nova-full-profile>.nova-profile-actions button{padding:8px 12px;font-size:11px;border-radius:7px;background:#ffffff0a!important;border-color:#ffffff17!important}
+body .nova-full-profile>.profile-detail-panel,body .nova-full-profile>.nova-profile-activity{overflow:auto!important;max-height:100%;min-height:0;scrollbar-width:thin;scrollbar-color:#40404b transparent;padding:0 4px 15px 0!important;background:transparent!important;border:0!important;text-align:left;display:block}
+body .nova-full-profile .profile-detail-panel>h3{font-size:12px;color:#b0b4bf;margin:8px 0 13px}
+body .nova-full-profile .profile-board-game{padding:12px;border-radius:11px;gap:13px;margin:9px 0;background:linear-gradient(130deg,#ffffff06,transparent),#222228;border:1px solid #ffffff0c;min-height:85px}
+body .nova-full-profile .profile-board-game img{width:57px;height:64px;object-fit:cover;border-radius:7px;flex:none}
+body .nova-full-profile .profile-board-game strong{font-size:12px;line-height:1.5;font-weight:550;color:#d2d5df}
+.profile-mutual-friend{display:flex;align-items:center;gap:12px;width:100%;background:#ffffff04;border:1px solid #ffffff0d;border-radius:9px;padding:10px 12px;color:#d9dce5;margin:7px 0;text-align:left}.profile-mutual-friend .avatar{width:32px;height:32px}.profile-mutual-friend strong{font-size:12px;font-weight:500}
+body .nova-mini-profile{width:320px!important;max-height:min(650px,calc(100dvh - 28px))!important;overflow:auto!important;scrollbar-width:thin;scrollbar-color:#3e3e49 transparent;background:#17171bea!important;backdrop-filter:blur(14px);border:1px solid #ffffff24!important;border-radius:12px!important;box-shadow:0 15px 55px #0008}
+body .nova-mini-profile .nova-profile-card{background:transparent;border:0;border-radius:11px 11px 0 0}
+body .nova-mini-profile .nova-profile-banner{height:105px!important}
+body .nova-mini-profile .nova-profile-avatar{margin-top:-31px!important;height:70px;margin-bottom:8px}
+body .nova-mini-profile .nova-profile-avatar>.avatar{width:70px!important;height:70px!important;min-width:70px}
+body .nova-mini-profile .nova-profile-body{padding:0 15px 15px!important;overflow:visible}
+body .nova-mini-profile .nova-profile-body>h2{font-size:18px!important;margin:8px 0 4px!important;line-height:1.4}
+body .nova-mini-profile .nova-profile-bio{font-size:12px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:11px 0}
+body .nova-mini-profile .profile-role-pills{display:flex;gap:5px;flex-wrap:wrap;margin-top:12px}
+body .nova-mini-profile .nova-role-pill{font-size:9px!important;border-radius:5px;padding:4px 6px!important;margin:0!important;line-height:1.4}
+body .nova-mini-profile .nova-private-note,body .nova-mini-profile .nova-profile-body>h4,body .nova-mini-profile .nova-profile-body>small.muted:not(:first-of-type),body .nova-mini-profile .nova-rank-profile-slot,body .nova-mini-profile .ns-profile-streak{display:none!important}
+body .nova-mini-profile .nova-profile-actions{padding:0 14px 12px!important;gap:7px;margin:0;display:flex;flex-wrap:wrap}
+body .nova-mini-profile .nova-profile-actions button{padding:7px 10px!important;font-size:10px!important;border-radius:6px;background:#ffffff09!important;border-color:#ffffff13!important}
+.mini-profile-message{display:flex;align-items:center;gap:8px;margin:0 13px 13px;padding:6px 8px;background:#ffffff09;border:1px solid #ffffff10;border-radius:8px}.mini-profile-message input{flex:1;width:0;min-width:0;background:transparent!important;padding:5px!important;border:0!important;font-size:11px;color:#d1d5e0;outline:none}.mini-profile-message button{width:27px;height:27px;padding:3px;background:#ffffff0c;border:0;border-radius:6px;color:#d0d3de;font-size:16px}.mini-profile-message button:hover{background:#5865f2;color:white}
+body .nova-full-profile .game-achievement-role,body .nova-mini-profile .game-achievement-role,body .nova-full-profile .game-ranks-more,body .nova-mini-profile .game-ranks-more{display:none!important}
+@media(max-width:760px){body.nova-chat-redesign .nova-full-profile{display:block;height:88dvh!important;overflow:auto!important;padding:16px!important}body .nova-full-profile>.nova-profile-card{height:auto;max-height:none!important;margin-top:12px}body .nova-full-profile>.profile-detail-panel,body .nova-full-profile>.nova-profile-activity{max-height:none;margin-top:18px}body .nova-full-profile>.nova-profile-actions{margin:12px 0!important}}
+/* Each settings column owns its scroll area; no shorter nested height cap. */
+body .chat-modal.chat-settings-detail{height:calc(100dvh - 40px)!important;max-height:calc(100dvh - 40px)!important;max-width:calc(100vw - 32px)!important;margin:auto!important;box-sizing:border-box;overflow:hidden!important}
+body .chat-modal.chat-settings-detail .settings-layout{height:100%!important;max-height:none!important;min-height:0!important;overflow:hidden!important;grid-template-rows:minmax(0,1fr)!important}
+body .chat-modal.chat-settings-detail .settings-body{height:100%!important;max-height:none!important;min-height:0!important;box-sizing:border-box;overflow-y:auto!important;overflow-x:hidden!important;padding-bottom:60px!important;overscroll-behavior:contain;scroll-padding-block:75px 50px}
+body .chat-modal.chat-settings-detail .settings-layout>nav{height:100%!important;max-height:none!important;min-height:0!important;padding-bottom:35px!important;box-sizing:border-box;overflow-y:auto!important;overflow-x:hidden!important}
+body .chat-settings-detail .profile-settings-columns{min-height:0;align-items:start}
+body .chat-settings-detail .settings-body>section:last-child,body .chat-settings-detail .settings-body>div:last-child{margin-bottom:16px}
+body.nova-chat-redesign .role-gradient-name{background-image:linear-gradient(105deg,var(--role-from,#a7afc4),var(--role-to,#eeeeff),var(--role-from,#a7afc4))!important;background-size:220% 100%!important;background-clip:text!important;-webkit-background-clip:text!important;color:transparent!important;-webkit-text-fill-color:transparent!important}
+@media(max-height:650px){body .chat-modal.chat-settings-detail{height:calc(100dvh - 20px)!important;max-height:calc(100dvh - 20px)!important}body .chat-modal.chat-settings-detail .settings-body{padding-top:70px!important;padding-bottom:45px!important}}
+/* Verified identity marks and Nitro personalization. */
+.identity-badges{display:inline-flex;align-items:center;gap:4px;margin-left:5px;vertical-align:middle;line-height:1;white-space:nowrap}.identity-badge{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:5px;background:#ffffff07;color:#b9b2ff;flex:none}.identity-badge svg{width:13px;height:13px;fill:currentColor;stroke:none}.badge-owner{color:#8496ff;background:#5865f21c}.badge-admin,.badge-moderator{color:#78c9ff;background:#4ca8ff15}.badge-nitro{color:#e8a6ff;background:#bd70ff13}.badge-nova{color:#c5c9ff;background:#aaaaff14}.message-meta .identity-badges{margin:0 3px}.nova-profile-body>.identity-badges{margin:4px 0 8px;gap:5px}.person-label b .identity-badge{width:14px;height:14px}.person-label b .identity-badge svg{width:11px;height:11px}
+body .nova-profile-card.nitro-custom-border{border:2px solid var(--nitro-border-from)!important;box-shadow:inset 0 0 0 1px var(--nitro-border-to),0 0 12px color-mix(in srgb,var(--nitro-border-from) 15%,transparent)!important}
+body .avatar.nitro-custom-border{border:3px solid transparent!important;background:linear-gradient(#17171b,#17171b) padding-box,linear-gradient(140deg,var(--nitro-border-from),var(--nitro-border-to)) border-box!important;box-shadow:0 0 8px color-mix(in srgb,var(--nitro-border-from) 20%,transparent)}
+.nitro-profile-controls{margin:22px 0;padding:20px;border:1px solid #ffffff15;border-radius:10px;background:#ffffff03}.nitro-profile-controls>h3{font-size:11px;letter-spacing:.8px;color:#c6b5e4;margin:0 0 15px}.nitro-profile-controls>input{width:100%;box-sizing:border-box}.nitro-border-row{display:flex!important;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #ffffff0a;font-size:12px;color:#b4b8c4}.nitro-border-row input[type=color]{width:32px!important;min-width:32px;height:28px!important;padding:2px!important;border:1px solid #ffffff20!important;border-radius:5px;cursor:pointer}.nitro-border-row input[type=checkbox]{margin-left:auto}.nitro-profile-controls>button{margin-top:15px;padding:9px 14px;border-radius:6px}.adopt-nova-prompt{border:1px solid #a6adff22;background:#5865f20d;color:#bcc3fa;font-size:9px;padding:6px 9px;border-radius:6px;white-space:nowrap}
+body .nova-mini-profile{height:min(570px,calc(100dvh - 28px))!important;display:flex!important;flex-direction:column;overflow:hidden!important}body .nova-mini-profile>.nova-profile-card{flex:1;min-height:0;overflow:auto;scrollbar-width:thin}body .nova-mini-profile>.nova-profile-actions,body .nova-mini-profile>.mini-profile-message{flex:none}.nova-mini-profile .profile-role-pills{gap:6px!important}.nova-mini-profile .nova-profile-bio{-webkit-line-clamp:4!important}.nova-mini-profile .nova-profile-body>.identity-badges{display:inline-flex!important}
+body .nova-profile-card .nova-rank-profile-slot{display:inline-block;vertical-align:middle;margin:10px 8px 0 0!important}body .nova-profile-card .nova-rank-panel{padding:0!important;margin:0!important;background:none!important;border:0!important;box-shadow:none!important;backdrop-filter:none;display:inline-block}body .nova-profile-card .nova-rank-top{gap:0}body .nova-profile-card .nova-rank-heading,body .nova-profile-card .nova-rank-panel>progress,body .nova-profile-card .nova-rank-panel>p,body .nova-profile-card .nova-rank-panel>small,body .nova-profile-card .nova-rank-panel>button,body .nova-profile-card .nova-rank-music{display:none!important}body .nova-profile-card .nova-rank-crest,body .nova-profile-card .nova-rank-crest svg{width:32px!important;height:36px!important;filter:none!important}body .nova-profile-card .ns-profile-streak{display:inline-flex!important;vertical-align:middle;align-items:center;gap:5px;padding:5px 8px!important;margin:10px 0 0!important;background:#ffffff04;border:1px solid #ffffff0e;border-radius:8px;font-size:12px}body .nova-profile-card .ns-profile-streak>strong{display:none}body .nova-profile-card .ns-profile-streak:after{content:attr(data-count);font-size:12px;font-weight:600}body .nova-profile-card .ns-profile-streak svg{width:20px;height:22px}
+.nitro-update-notice{max-width:460px}.nitro-update-notice>p{font-size:13px;line-height:1.7;color:#a7adbc}.nitro-update-notice>button{background:#5865f2;color:white;border:0;border-radius:7px;padding:10px 18px}
+@media(max-width:1100px){.adopt-nova-prompt{max-width:125px;white-space:normal;line-height:1.4;font-size:8px}}@media(max-width:760px){.adopt-nova-prompt{display:none}}
+
+/* Keep role color dots beside, rather than over, their labels. */
+body .nova-profile-card .profile-role-pills .nova-role-pill{display:inline-flex!important;align-items:center;gap:6px;padding:4px 7px!important;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-transform:none}
+body .nova-profile-card .profile-role-pills .nova-role-pill:before{position:static!important;transform:none!important;flex:0 0 7px;width:7px;height:7px}
+body .nova-mini-profile .nova-profile-card .nova-rank-profile-slot{display:inline-block!important}
+body .nova-profile-card.nitro-custom-border{position:relative;border:0!important;box-shadow:0 0 12px color-mix(in srgb,var(--nitro-border-from) 15%,transparent)!important}
+body .nova-profile-card.nitro-custom-border:after{content:'';position:absolute;inset:0;padding:2px;border-radius:inherit;background:linear-gradient(145deg,var(--nitro-border-from),var(--nitro-border-to));mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;pointer-events:none;z-index:8}
+
+/* Profile shortcuts stay clear of the banner and scroll with neither column. */
+.profile-header-actions{display:flex;align-items:center;gap:6px;z-index:20;flex:none}
+body .nova-mini-profile>.profile-header-actions{position:absolute;top:10px;right:10px;padding:3px;border-radius:24px;background:#08080b38;backdrop-filter:blur(14px);border:1px solid #ffffff18}
+body .profile-header-actions .profile-header-icon,body .profile-header-actions .modal-close{position:static!important;display:grid!important;place-items:center;width:29px!important;height:29px!important;padding:6px!important;margin:0!important;border:1px solid #ffffff25!important;border-radius:50%!important;background:#11111685!important;color:#f0f0f5!important;box-sizing:border-box;cursor:pointer;transition:background .16s,transform .16s,border-color .16s}
+.profile-header-icon svg{width:16px;height:16px;pointer-events:none}
+body .profile-header-actions button:hover{background:#ffffff25!important;border-color:#ffffff70!important;transform:translateY(-1px)}body .profile-header-actions button:active{transform:scale(.9)}body .profile-header-actions button:focus-visible{outline:2px solid #aeb4ff;outline-offset:2px}
+body .nova-mini-profile .nova-profile-hover{display:none!important}
+body .nova-full-profile>.modal-head{display:flex;align-items:center;justify-content:space-between}
+@media(prefers-reduced-motion:reduce){.profile-header-actions button{transition:none!important}}

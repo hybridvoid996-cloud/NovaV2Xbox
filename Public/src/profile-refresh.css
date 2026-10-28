@@ -20,3 +20,14 @@
 @media(prefers-reduced-motion:reduce){.nova-home-name,.role-gradient-name{animation:none}.main-profile-media-row,.main-profile-ranks button{transition:none}}
 
 .main-profile-view>.ns-profile-streak{width:auto!important;max-width:none;justify-self:stretch;justify-content:center}.main-profile-view .nova-rank-crest svg{width:52px!important;height:52px!important}.main-profile-view .nova-rank-panel>p{margin:9px 0}.main-profile-view .nova-rank-panel .nova-rank-link{padding:4px 0;margin-top:0}
+/* Edge-to-edge profile surface; decorative effects cover the full content area. */
+body.nova-main .main-profile-window .main-popup-body{padding:0!important;flex:1;min-height:0;overflow:auto;scrollbar-width:thin;scrollbar-color:#45454f transparent;background:transparent}
+body.nova-main .main-profile-window .main-profile-view{width:100%;min-height:100%;margin:0!important;border:0!important;border-radius:0!important;padding:25px 27px 30px!important;position:relative;isolation:isolate;overflow:hidden;background:#111115!important;box-sizing:border-box}
+body.nova-main .main-profile-window .main-profile-view>.nova-home-effect{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-height:none!important;max-width:none!important;object-fit:cover!important;object-position:center top!important;opacity:.55!important;mask-image:none!important;-webkit-mask-image:none!important;z-index:-2!important;pointer-events:none}
+body.nova-main .main-profile-window .main-profile-view>.nova-home-banner{position:absolute!important;inset:0 0 auto!important;width:100%!important;height:245px!important;max-height:none!important;object-fit:cover!important;object-position:center!important;mask-image:linear-gradient(#000 35%,transparent)!important;-webkit-mask-image:linear-gradient(#000 35%,transparent)!important;opacity:.8!important;z-index:-2!important;pointer-events:none}
+body.nova-main .main-profile-window .main-profile-view:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#09090d20,#09090d9c 30%,#09090dbd);z-index:-1;pointer-events:none}
+body.nova-main .main-profile-window .main-profile-view>.main-profile-hero,body.nova-main .main-profile-window .main-profile-view>.main-profile-columns,body.nova-main .main-profile-window .main-profile-view>.nova-rank-profile-slot,body.nova-main .main-profile-window .main-profile-view>.ns-profile-streak{position:relative;z-index:1}
+body.nova-main .main-profile-window .main-profile-view .nova-rank-panel,body.nova-main .main-profile-window .main-profile-view>.ns-profile-streak{background:#10101580!important;border-color:#ffffff1a!important}
+body.nova-main .main-profile-window .main-profile-hero{padding-top:10px!important;min-height:140px}
+body.nova-main .main-profile-window .main-profile-hero h2{filter:drop-shadow(0 1px 1px #ffffff20)}
+@media(max-width:680px){body.nova-main .main-profile-window .main-profile-view{padding:18px 16px 24px!important}}

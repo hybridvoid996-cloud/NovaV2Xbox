@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" data-page="play">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terraria</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    /* Only the game: the canvas fills the window. Until the game's first frame a loading screen (the game's own
+       logo and sky, download progress); it goes at that frame. If the game cannot start, an error screen with
+       Retry and a reset of the downloaded files. The document title follows the game window's own title. */
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #000; }
+    #stage { position: fixed; inset: 0; background: #000; }
+    #stage > canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; outline: none; border: 0; }
+    #ime { position: absolute; left: 0; top: 0; width: 1px; height: 1px; opacity: 0; border: 0; padding: 0;
+      resize: none; overflow: hidden; pointer-events: none; }
+
+    .tw-screen { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 18px; padding: 16px; color: #fff; text-align: center; font: 600 17px/1.5 system-ui, "Segoe UI", sans-serif;
+      background: #4c6cd4 url(loading-sky.png) center / 100% 100% no-repeat; text-shadow: 1px 1px 0 rgba(0,0,0,.55); }
+    .tw-screen img { width: min(460px, 70vw); image-rendering: pixelated; filter: drop-shadow(0 6px 10px rgba(0,0,0,.35)); }
+    #loading-track { width: min(420px, 70vw); height: 10px; background: rgba(0,0,0,.35); border: 2px solid rgba(0,0,0,.45); border-radius: 3px; overflow: hidden; }
+    #loading-bar { height: 100%; width: 0; background: linear-gradient(180deg, #8ee86a, #4a9a30); transition: width .25s linear; }
+    #loading.busy #loading-bar { width: 30%; animation: slide 1.2s ease-in-out infinite alternate; }
+    @keyframes slide { from { margin-left: 0; } to { margin-left: 70%; } }
+    #loading-text { min-height: 1.5em; }
+    .hint { font-weight: 400; font-size: 14px; opacity: .85; max-width: 32rem; }
+    .btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .btns button { font: 700 16px system-ui, sans-serif; color: #fff; background: rgba(0,0,0,.35); border: 2px solid rgba(255,255,255,.6);
+      border-radius: 4px; padding: 8px 18px; cursor: pointer; text-shadow: inherit; }
+    .btns button:hover { color: #ffea7a; border-color: #ffea7a; }
+    #error-text { font-weight: 400; font-size: 14px; max-width: 40rem; white-space: pre-wrap; word-break: break-word; opacity: .9; }
+    /* the host's online panel (main.js showHostPanel): over the game, top right, collapsible */
+    #host-panel { position: absolute; top: 10px; right: 10px; z-index: 3; max-width: 290px; color: #fff;
+      font: 600 13px/1.4 system-ui, "Segoe UI", sans-serif; text-shadow: 1px 1px 0 rgba(0,0,0,.6); }
+    #host-panel .hp-toggle { display: block; margin-left: auto; font: inherit; color: #fff; cursor: pointer; padding: 3px 10px;
+      background: rgba(40, 60, 140, .85); border: 2px solid rgba(20, 30, 80, .9); border-radius: 4px; }
+    #host-panel .hp-toggle::before { content: ''; display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%; background: #5fdc5f; }
+    #host-panel.offline .hp-toggle::before { background: #e0a030; }
+    #host-panel .hp-body { margin-top: 6px; padding: 10px 12px; background: rgba(40, 60, 140, .85); border: 2px solid rgba(20, 30, 80, .9); border-radius: 4px; }
+    #host-panel.collapsed .hp-body { display: none; }
+    #host-panel .hp-row { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+    #host-panel .hp-code { font: 700 18px ui-monospace, Consolas, monospace; letter-spacing: .12em; color: #ffea7a; }
+    #host-panel button:not(.hp-toggle) { font: inherit; color: #fff; cursor: pointer; padding: 2px 9px; background: rgba(0,0,0,.3);
+      border: 1px solid rgba(255,255,255,.55); border-radius: 3px; }
+    #host-panel button:not(.hp-toggle):hover { color: #ffea7a; border-color: #ffea7a; }
+    #host-panel .hp-status { font-weight: 400; opacity: .9; }
+    #host-panel .hp-hint { margin-top: 6px; font-weight: 400; font-size: 12px; opacity: .85; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <!-- the canvas is created by main.js (a canvas can be handed to a Worker only once) -->
+    <textarea id="ime" aria-hidden="true" tabindex="-1" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
+
+    <div id="loading" class="tw-screen busy" aria-live="polite">
+      <img src="loading-logo.png" alt="Terraria">
+      <div id="loading-track"><div id="loading-bar"></div></div>
+      <div id="loading-text">Starting…</div>
+      <div class="hint">The first visit downloads the game files (about 790 MB) into this browser. Later visits start from that copy.</div>
+    </div>
+
+    <div class="tw-screen" id="screen-error" hidden>
+      <img src="loading-logo.png" alt="Terraria">
+      <div>The game couldn't start.</div>
+      <div id="error-text"></div>
+      <div class="btns">
+        <button type="button" id="btn-retry">Retry</button>
+        <button type="button" id="btn-reset">Reset downloaded files and retry</button>
+      </div>
+    </div>
+
+    <!-- only when this browser cannot run the game at all -->
+    <div class="tw-screen screen" id="screen-unsupported" hidden>
+      <img src="loading-logo.png" alt="Terraria">
+      <div><p id="unsupported-text">This browser can't run it. It needs Chrome or Edge 137+ with WebGPU.</p><p id="unsupported-detail"></p></div>
+    </div>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
