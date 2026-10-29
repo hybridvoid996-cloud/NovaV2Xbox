@@ -13,7 +13,7 @@ export function alternativeMatch(input,candidate){
  const artist=clean(input.artist),name=clean(input.title).replace(new RegExp('^'+artist+' '),'');
  const by=clean(candidate.artist),actual=clean(candidate.title).replace(new RegExp('^'+by+' '),'');
  const duration=Number(input.duration),length=Number(candidate.duration);
- return !!artist&&!!name&&by===artist&&actual===name&&Number.isFinite(duration)&&duration>0&&Number.isFinite(length)&&length>0&&Math.abs(length-duration)<=Math.max(6,Math.min(12,duration*.05))&&/^\d{1,20}$/.test(String(candidate.id));
+ return !!artist&&!!name&&by===artist&&actual===name&&Number.isFinite(duration)&&duration>0&&Number.isFinite(length)&&length>0&&Math.abs(length-duration)<=Math.max(6,Math.min(12,duration*.05))&&/^(?:\d{1,20}|[A-Za-z0-9_-]{11})$/.test(String(candidate.id));
 }
 export function createAlternativeMusic({request=fetch,now=Date.now}={}){
  const cache=new Map(),pending=new Map(),metadata=new Map();

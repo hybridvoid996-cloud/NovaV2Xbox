@@ -1,4 +1,4 @@
-import {mountNotificationSettings,notificationAllowed} from './notification-preferences.mjs?v=20261028-notify361';
+import {mountNotificationSettings,notificationAllowed} from './notification-preferences.mjs?v=20261029-motion374';
 const key=()=> 'nova-chat-preferences-'+localStorage.getItem('nova_user');
 export function preferences(){try{return JSON.parse(localStorage.getItem(key())||'{}')}catch{return {}}}
 function put(name,value){const data=preferences();data[name]=value;localStorage.setItem(key(),JSON.stringify(data));applyPreferences()}

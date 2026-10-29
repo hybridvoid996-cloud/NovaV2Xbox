@@ -4,7 +4,7 @@ export function createWindowManager(){
  const windows=new Map();let stack=100,active=null;const preview=document.createElement('div');preview.className='os-snap-preview';preview.hidden=true;document.body.append(preview);
  const targetAt=(x,y)=>{const h=innerHeight-(document.querySelector('.os-dock')?.offsetHeight||66),right=x>innerWidth-32,left=x<32;if(!left&&!right)return null;const quarter=y<80||y>h-80;return {x:right?innerWidth/2:0,y:quarter&&y>h/2?h/2:0,w:innerWidth/2,h:quarter?h/2:h}};
  function showPreview(rect){preview.hidden=!rect;if(rect)Object.assign(preview.style,{left:rect.x+'px',top:rect.y+'px',width:rect.w+'px',height:rect.h+'px'});}
- const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches||localStorage.getItem('nova_reduce_motion')==='true';
+ const reduced=()=>(globalThis.NovaMotion?.reduced ?? matchMedia('(prefers-reduced-motion: reduce)').matches)||localStorage.getItem('nova_reduce_motion')==='true';
  const motion=(el,frames,duration=220)=>reduced()?Promise.resolve():el.animate(frames,{duration,easing:'cubic-bezier(.2,.8,.2,1)'}).finished.catch(()=>{});
  function create(id,title,{element,w=800,h=560,large=false,player=false,keepAlive=false,onClose,onActivate}={}){
   if(windows.has(id)){const win=windows.get(id);win.show();return win}

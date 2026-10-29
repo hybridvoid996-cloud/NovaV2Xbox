@@ -6,7 +6,7 @@ import {createMovieRecovery} from './movie-recovery.mjs?v=20261027-achcroma326';
 import {moviePlaybackRoutes,movieEntryFailed,isAchcromaBackup,orderMovieRoutes} from './movie-playback-routes.mjs?v=20261027-achcroma326';
 import {mountMovieCatalog} from './movie-catalog-ui.mjs?v=20261027-achcroma326';
 import {novaMovieLogo} from './movie-logo.mjs';
-import {decorateMovieDocument} from './movie-cinema-theme.mjs?v=20261018-cinema169';
+import {decorateMovieDocument} from './movie-cinema-theme.mjs?v=20261029-motion374';
 const routeMemory=createMovieRouteMemory({getItem:key=>localStorage.getItem(key),setItem:(key,value)=>localStorage.setItem(key,value)});
 const loading=document.getElementById('loading'),status=document.getElementById('status'),retry=document.getElementById('retry'),profiles=document.getElementById('movie-profiles'),profileArt=document.getElementById('movie-profile-art'),profileName=document.getElementById('movie-profile-name');
 mountMovieWallpaper();

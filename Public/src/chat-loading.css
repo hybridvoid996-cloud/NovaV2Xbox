@@ -36,4 +36,4 @@
 #loading:has(#retry:not([hidden])) .chat-loading-preview:after,#loading:has(#retry:not([hidden])) .loading-typing i{animation:none}
 @keyframes chat-load-shimmer{to{transform:translateX(100%)}}@keyframes chat-load-dot{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}@keyframes chat-load-arrive{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media(max-height:650px){#loading .chat-loading-top{margin-bottom:0}#loading .chat-loading-glass{gap:10px}#loading .chat-loading-preview{padding:12px 18px;gap:10px}#loading .chat-loading-art{width:52px;height:52px}#loading .chat-loading-mark{width:50px;height:50px;border-radius:16px}#loading .chat-loading-eyebrow,#loading .chat-loading-footer{display:none}}
-@media(prefers-reduced-motion:reduce){#loading *,#loading *:after{animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){@scope (:root:not(.nova-motion-enabled)){#loading *,#loading *:after{animation:none!important;transition:none!important}}}

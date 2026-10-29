@@ -19,7 +19,7 @@
 #player-modal.nova-controls-open .player-sound{top:54px!important}
 #nova-ghost-controls{position:absolute;right:12px;top:10px;z-index:12;padding:7px 12px;border:1px solid #ffffff30;border-radius:10px;background:#10131899;color:#fff;font:600 12px system-ui;cursor:pointer;backdrop-filter:blur(12px);opacity:.65;transition:opacity .18s}
 #nova-ghost-controls:hover,#nova-ghost-controls:focus-visible{opacity:1;outline:2px solid #ffffff70;outline-offset:2px}
-@media(prefers-reduced-motion:reduce){#player-modal .player-bar,#nova-ghost-controls{transition:none}}
+@media(prefers-reduced-motion:reduce){@scope (:root:not(.nova-motion-enabled)){#player-modal .player-bar,#nova-ghost-controls{transition:none}}}
 /* Glass surfaces stay static; only the small loader animates. */
 #player-status,#player-recover{background:radial-gradient(ellipse at 35% 20%,#a2bde01a,transparent 65%),#090c14c9!important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 #player-status .player-status-inner,#player-recover .player-recover-inner{width:min(360px,calc(100vw - 64px));box-sizing:border-box;padding:32px 26px!important;border:1px solid #ffffff40!important;border-radius:30px!important;background:linear-gradient(140deg,#ffffff24,#ffffff08 55%,#ffffff12)!important;box-shadow:inset 0 1px 0 #ffffff65,inset 0 -1px 0 #ffffff0b,0 24px 80px #0004!important;text-align:center;font-family:system-ui!important}
@@ -32,7 +32,7 @@
 #player-modal .player-bar{background:linear-gradient(140deg,#222936b8,#111722b8)!important;border-bottom:1px solid #ffffff25;box-shadow:inset 0 1px 0 #ffffff26}
 #player-hud,#player-timer,#player-shortcuts{border:1px solid #ffffff30!important;background:linear-gradient(140deg,#242b38c9,#141b25c9)!important;border-radius:16px!important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:inset 0 1px 0 #ffffff30}
 @keyframes nova-ghost-pulse{0%,100%{opacity:.35;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
-@media(prefers-reduced-motion:reduce){#player-status .ps-dots span{animation:none!important}}
+@media(prefers-reduced-motion:reduce){@scope (:root:not(.nova-motion-enabled)){#player-status .ps-dots span{animation:none!important}}}
 `;doc.head.append(style);
   let button,seenSession=false,returning=false;const visible=id=>{const el=doc.getElementById(id);return !!el&&!el.classList.contains("hidden")};const goHome=()=>{if(returning)return;returning=true;onHome()};const navigate=e=>{if(!e.target.closest?.("#player-close,#player-cancel,#puzzle-cancel,a[href]"))return;e.preventDefault();e.stopImmediatePropagation();goHome()};doc.addEventListener("click",navigate,true);const update=()=>{if(visible("player-modal")||visible("puzzle-modal"))seenSession=true;else if(seenSession&&!visible("settings-modal")){goHome();return}const puzzleTitle=doc.getElementById("puzzle-title");if(puzzleTitle&&puzzleTitle.textContent!=="Nova · Quick human check")puzzleTitle.textContent="Nova · Quick human check";const mark=doc.getElementById("player-watermark");if(mark&&mark.textContent!=="NOVA CLOUD")mark.textContent="NOVA CLOUD";const modal=doc.getElementById('player-modal'),container=modal?.querySelector('.player-container');if(!container||button?.isConnected)return;
    button=doc.createElement('button');button.id='nova-ghost-controls';button.type='button';button.textContent='Controls';button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Show game controls');

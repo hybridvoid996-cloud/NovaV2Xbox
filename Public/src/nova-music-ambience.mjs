@@ -1,4 +1,4 @@
-import {parseLRC,lyricIndex} from './nova-music-lyrics.mjs?v=20261017-lyrics128';
+import {parseLRC,lyricIndex} from './nova-music-lyrics.mjs?v=20261029-motion374';
 export function artworkColors(pixels){
  const buckets=[[],[],[]];for(let i=0;i<pixels.length;i+=4){if(pixels[i+3]<128)continue;const r=pixels[i],g=pixels[i+1],b=pixels[i+2];if(Math.max(r,g,b)<25)continue;buckets[(i/4)%3].push([r,g,b])}
  return buckets.map((bucket,i)=>{const color=bucket.length?[0,1,2].map(c=>Math.min(72,Math.round(bucket.reduce((sum,p)=>sum+p[c],0)/bucket.length*.36))):[[35,65,65],[65,45,30],[30,40,65]][i];return color.join(' ')});

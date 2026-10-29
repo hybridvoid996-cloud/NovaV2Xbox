@@ -1,5 +1,5 @@
-import {createNovaMusicApp} from './nova-music-app.mjs?v=20261028-profile364';
-import {NovaMusicEngine} from './nova-music-engine.mjs?v=20261027-public343';
+import {createNovaMusicApp} from './nova-music-app.mjs?v=20261029-motion374';
+import {NovaMusicEngine} from './nova-music-engine.mjs?v=20261029-motion374';
 import {NovaMusicService} from './nova-music-service.mjs?v=20261018-search156';
 // This compatibility adapter uses only the fixed Voidify backend. Its temporary
 // track keys never enter a Nova account or the normal music library.

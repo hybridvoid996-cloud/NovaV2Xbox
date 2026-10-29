@@ -1,7 +1,7 @@
 import {isMovieProviderError} from './movie-provider-error.mjs?v=20261027-movie336';
 import {novaMovieLogo} from './movie-logo.mjs';
 import {createMovieStallRecovery} from './movie-stall.mjs';
-import {movieCinemaCSS} from './movie-cinema-theme.mjs?v=20261018-cinema169';
+import {movieCinemaCSS} from './movie-cinema-theme.mjs?v=20261029-motion374';
 function movieRuntime(config,createMovieStallRecovery,isMovieProviderError){
  const recoverStall=createMovieStallRecovery({exhausted:()=>send('novaMovieStalled')});
  const resume=video=>{if(video.__novaResumeApplied||!Number.isFinite(config.resumeAt)||config.resumeAt<=0||video.readyState<1)return;video.__novaResumeApplied=true;try{video.currentTime=Math.min(config.resumeAt,Number.isFinite(video.duration)?Math.max(0,video.duration-5):config.resumeAt)}catch{video.__novaResumeApplied=false}};

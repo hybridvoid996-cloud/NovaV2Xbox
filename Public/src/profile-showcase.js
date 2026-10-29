@@ -1,4 +1,4 @@
-import {mountRankProfile} from './nova-rank-ui.mjs?v=20261027-profile329';
+import {mountRankProfile} from './nova-rank-ui.mjs?v=20261029-motion374';
 import {gameKey} from './os-feature-core.mjs';
 let catalog;
 export function profileShowcase(host,profile,{rankHost=host}={}){

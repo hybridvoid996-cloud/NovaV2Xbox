@@ -2,7 +2,7 @@
  const watcher=new MutationObserver(()=>{const panel=document.getElementById('nova-lol-practice');if(panel){watcher.disconnect();decorate(panel)}});watcher.observe(document.documentElement,{childList:true,subtree:true});const existing=document.getElementById('nova-lol-practice');if(existing){watcher.disconnect();decorate(existing)}
  function decorate(panel){
  if(panel.dataset.novaMenuVersion==='2')return;panel.dataset.novaMenuVersion='2';
- const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const reduced=()=>(globalThis.NovaMotion?.reduced ?? matchMedia('(prefers-reduced-motion: reduce)').matches);
  const style=document.createElement('style');style.textContent=`
  #nova-lol-practice .lol-layout{grid-template-columns:minmax(0,1fr) 54px!important}#nova-lol-practice nav{order:2;padding:8px 5px}#nova-lol-practice nav button{font-size:20px;min-height:42px;text-align:center}#nova-lol-practice .lol-content{min-width:0}
  .nova-owner-welcome{position:absolute;inset:0;z-index:8;background:#0b0b0efa;display:grid;place-content:center;text-align:center;pointer-events:none;border-radius:inherit}.nova-owner-welcome small{color:#ef3340;letter-spacing:3px;font-size:10px}.nova-owner-welcome strong{font-size:24px;max-width:350px;overflow-wrap:anywhere;min-height:60px;margin-top:16px;color:#fff;text-shadow:0 0 22px #ef334077}

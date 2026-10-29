@@ -1,6 +1,6 @@
 const clean=value=>String(value||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\b(?:official audio|official video)\b/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 export const normalizeMusicQuery=value=>String(value||'').trim().replace(/\bu\b/gi,'you').replace(/\s+/g,' ');
-const sourceName=id=>String(id).startsWith('void:')?'Void':String(id).startsWith('noah:')?'Noah':'SoundCloud';
+const sourceName=id=>String(id).startsWith('ach:')?'Achcroma':String(id).startsWith('void:')?'Void':String(id).startsWith('noah:')?'Noah':'SoundCloud';
 const sources=item=>item.sources?.length?item.sources:[{id:item.id,provider:item.provider||sourceName(item.id)}];
 const combinedSources=(a,b)=>[...new Map([...sources(a),...sources(b)].map(source=>[source.id,{...source}])).values()];
 const title=t=>{const name=clean(t.title),artist=clean(t.artist);return artist&&name.startsWith(artist+' ')?name.slice(artist.length+1):name};

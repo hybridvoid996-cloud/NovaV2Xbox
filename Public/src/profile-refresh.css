@@ -17,7 +17,7 @@
 @keyframes nova-name-flow{to{background-position:240% 50%}}
 @media(max-width:680px){.main-profile-view{padding:16px!important;gap:12px;grid-template-columns:1fr}.main-profile-view>.nova-rank-profile-slot,.main-profile-view>.ns-profile-streak{grid-column:1;grid-row:auto}.main-profile-columns{grid-template-columns:1fr!important;gap:12px!important}.main-profile-columns>aside{border-left:0;padding-left:0}.main-profile-hero{gap:14px!important}.main-profile-hero .main-profile-avatar{width:66px!important;height:66px!important}.main-profile-hero>button{flex:1}.main-profile-stats strong{font-size:17px!important}}
 .reduce-motion .nova-home-name,.reduce-motion .role-gradient-name{animation:none!important}
-@media(prefers-reduced-motion:reduce){.nova-home-name,.role-gradient-name{animation:none}.main-profile-media-row,.main-profile-ranks button{transition:none}}
+@media(prefers-reduced-motion:reduce){@scope (:root:not(.nova-motion-enabled)){.nova-home-name,.role-gradient-name{animation:none}.main-profile-media-row,.main-profile-ranks button{transition:none}}}
 
 .main-profile-view>.ns-profile-streak{width:auto!important;max-width:none;justify-self:stretch;justify-content:center}.main-profile-view .nova-rank-crest svg{width:52px!important;height:52px!important}.main-profile-view .nova-rank-panel>p{margin:9px 0}.main-profile-view .nova-rank-panel .nova-rank-link{padding:4px 0;margin-top:0}
 /* Edge-to-edge profile surface; decorative effects cover the full content area. */

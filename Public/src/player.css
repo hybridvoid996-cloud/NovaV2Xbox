@@ -78,7 +78,7 @@ body.cloud-loading #back{display:block}
 .cloud-option strong{font-size:14px;line-height:1.4}.cloud-option small{font-size:11px;line-height:1.5;color:#9ea6ae}.cloud-option>span:last-child{font-size:18px}
 .cloud-choice-note{padding-top:18px;border-top:1px solid #ffffff12;margin-top:24px;color:#929aa2}
 @media(max-width:540px){#cloud-picker{padding:24px}#cloud-options{grid-template-columns:1fr}.cloud-option{min-height:86px}#cloud-picker-title{font-size:27px}}
-@media(prefers-reduced-motion:reduce){#cloud-picker,.cloud-option{animation:none;transition:none}}
+@media(prefers-reduced-motion:reduce){@scope (:root:not(.nova-motion-enabled)){#cloud-picker,.cloud-option{animation:none;transition:none}}}
 
 /* Show provider queues and connection details instead of an unexplained spinner. */
 body.cloud-loading #message{position:static;width:auto;height:auto;margin:14px 0;overflow:visible;clip-path:none;white-space:normal;max-width:420px}body.cloud-loading #cloud-controls{z-index:5}

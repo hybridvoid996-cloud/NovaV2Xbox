@@ -6,7 +6,7 @@ const providerNames={"astra":"Nova Server 1","gsn":"Nova Server 2","ghost":"Nova
 const providerLabel=game=>Object.keys(game.providers||{astra:{}}).filter(id=>providerNames[id]).map(id=>providerNames[id]).join(' + ');
 let games = [], filter = 'all', selected, searchTimer, activeTab = 'explore';
 const saved = () => { try { const rows = JSON.parse(localStorage.getItem(storageKey()) || '[]'); return Array.isArray(rows) ? rows : []; } catch { return []; } };
-const motion = () => matchMedia('(prefers-reduced-motion:reduce)').matches || localStorage.getItem('nova_reduce_motion') === 'true' ? 'instant' : 'smooth';
+const motion = () => (globalThis.NovaMotion?.reduced ?? matchMedia('(prefers-reduced-motion:reduce)').matches) || localStorage.getItem('nova_reduce_motion') === 'true' ? 'instant' : 'smooth';
 function artwork(game, eager = false) {
   const img = new Image(); img.alt = ''; img.loading = eager ? 'eager' : 'lazy'; img.decoding = 'async'; img.width = 480; img.height = 320; img.src = game.art;
   img.onerror = () => { img.onerror = null; img.src = 'Nova12.png'; }; return img;

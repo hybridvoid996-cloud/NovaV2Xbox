@@ -16,7 +16,7 @@ const {chromium}=require('C:/Users/willi/.cache/codex-runtimes/codex-primary-run
   });
   await page.goto('https://music.test/');await page.waitForFunction(()=>!!window.app);
   await page.getByRole('button',{name:'Collapse sidebar',exact:true}).click();
-  await page.waitForTimeout(280);assert.equal(await page.locator('.nmc-sidebar').evaluate(e=>Math.round(e.getBoundingClientRect().width)),72);
+  await page.waitForTimeout(280);assert.equal(await page.locator('.nmc-sidebar').evaluate(e=>Math.round(e.getBoundingClientRect().width)),64);
   await page.getByRole('button',{name:'Expand sidebar',exact:true}).click();
   await page.locator('.nmc-content').click({position:{x:15,y:15}});assert(await page.locator('.nmc').evaluate(e=>e.classList.contains('nmc-compact-sidebar')));
   await page.setViewportSize({width:1100,height:720});await page.getByRole('button',{name:'Show now playing',exact:true}).click();

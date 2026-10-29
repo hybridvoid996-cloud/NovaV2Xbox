@@ -4,8 +4,8 @@ import {createShopModel} from './shop-models.js';
 const request=(ctx,action,data)=>ctx.shopRequest?ctx.shopRequest(action,data):import('./control-client.js').then(({control})=>control(action,data));
 import {shopOdds,shopPrices,halloweenEnd,rarityLabel} from './shop-config.mjs?v=20261016-economy95';
 const node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n};
-const reduced=()=>matchMedia('(prefers-reduced-motion:reduce)').matches||document.body.classList.contains('chat-reduced-motion')||localStorage.getItem('nova_reduce_motion')==='true';
-function stylesheet(){document.body.classList.toggle('shop-lite-effects',localStorage.getItem('nova_performance_mode')==='true');if(document.getElementById('shop-revamp-style'))return;const link=node('link');link.id='shop-revamp-style';link.rel='stylesheet';link.href='/src/shop-revamp.css?v=20261022-mines259';document.head.append(link)}
+const reduced=()=>(globalThis.NovaMotion?.reduced ?? matchMedia('(prefers-reduced-motion:reduce)').matches)||document.body.classList.contains('chat-reduced-motion')||localStorage.getItem('nova_reduce_motion')==='true';
+function stylesheet(){document.body.classList.toggle('shop-lite-effects',localStorage.getItem('nova_performance_mode')==='true');if(document.getElementById('shop-revamp-style'))return;const link=node('link');link.id='shop-revamp-style';link.rel='stylesheet';link.href='/src/shop-revamp.css?v=20261029-motion374';document.head.append(link)}
 export function preview(item,ctx,live=false){if(ctx.profilePreview)return ctx.profilePreview(item,live);stylesheet();
  const host=node('div','case-item-preview shop-item-preview '+item.kind),profile=node('div','shop-preview-person');
  const avatar=ctx.avatar(ctx.state.me.uid,'large');avatar.classList.remove('nitro-anim-orbit','nitro-anim-shimmer');avatar.querySelectorAll('.decoration').forEach(n=>n.remove());

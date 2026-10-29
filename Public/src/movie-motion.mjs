@@ -1,1 +1,1 @@
-export function movieMotionReduced(root=document.documentElement,reduced=matchMedia('(prefers-reduced-motion:reduce)').matches){return root.classList.contains('reduce-motion')||(!root.classList.contains('nova-motion-enabled')&&reduced)}
+export function movieMotionReduced(root=document.documentElement,reduced=(globalThis.NovaMotion?.reduced ?? matchMedia('(prefers-reduced-motion:reduce)').matches)){return root.classList.contains('reduce-motion')||(!root.classList.contains('nova-motion-enabled')&&reduced)}

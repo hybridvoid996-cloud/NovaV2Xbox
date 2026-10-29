@@ -3,7 +3,7 @@
  if(window!==top||!location.pathname.endsWith('/home.html'))return;
  let retry,shown=false;
  const seenKey=()=> 'nova-dyno-welcome-v1:'+(localStorage.getItem('nova_user')||'guest');
- const reduced=()=>localStorage.getItem('nova_reduce_motion')==='true'||matchMedia('(prefers-reduced-motion:reduce)').matches;
+ const reduced=()=>localStorage.getItem('nova_reduce_motion')==='true'||(globalThis.NovaMotion?.reduced ?? matchMedia('(prefers-reduced-motion:reduce)').matches);
  const make=(tag,cls,text)=>{const n=document.createElement(tag);n.className=cls||'';if(text!=null)n.textContent=text;return n};
  function open(){
   if(shown||localStorage.getItem(seenKey())==='true')return;

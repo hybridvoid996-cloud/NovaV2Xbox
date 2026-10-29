@@ -3,7 +3,7 @@ import {movieHeroMotion} from './movie-hero-motion.mjs';
 import {movieFilterDropdown} from './movie-filter-dropdown.mjs';
 import {sharpMovieArt} from './movie-title-extras.mjs';
 import {movieIcon} from './movie-icons.mjs';
-import {movieMotionReduced} from './movie-motion.mjs?v=20261022-motion255';
+import {movieMotionReduced} from './movie-motion.mjs?v=20261029-motion374';
 import {mountMovieSearch} from './movie-search.mjs?v=20261020-search231';
 import {createMovieRequest} from './movie-request.mjs?v=20261022-social254';
 import {createTitleView} from './movie-title-view.mjs?v=20261027-achcroma326';

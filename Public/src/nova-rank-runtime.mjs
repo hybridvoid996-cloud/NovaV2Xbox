@@ -1,9 +1,9 @@
-import {installRankIcon,paintRankIcon} from './nova-rank-hub.mjs?v=20261027-invite330';
+import {installRankIcon,paintRankIcon} from './nova-rank-hub.mjs?v=20261029-motion374';
 import {NOVA_RANKS} from './nova-rank-core.mjs?v=20261027-rank324';
 import {auth} from './account-firebase.js';
 import {control} from './control-client.js';
 import {createRankInput} from './nova-rank-input.mjs';
-import {showRankGuide,showRankUp} from './nova-rank-ui.mjs?v=20261027-profile329';
+import {showRankGuide,showRankUp} from './nova-rank-ui.mjs?v=20261029-motion374';
 if(window===top){
  const input=createRankInput(),session=crypto.randomUUID(),watched=new WeakSet();let eligible=new WeakSet(),game=null,gameFocused=false,busy=false,identity='',baseline=null,previousGame=null,lastSong='',lastSongAt=0;
  function scan(){eligible=new WeakSet();gameFocused=false;let found=null;function walk(win,depth=0,inside=false){if(depth>6)return;try{const doc=win.document;if(doc.querySelector('dialog:modal'))return;const url=new URL(win.location.href),player=url.pathname.endsWith('/player.html'),kind=url.searchParams.get('kind')||'game';if(player){if(!doc.body.classList.contains('ready')||!['game','cloud'].includes(kind))return;inside=true;found=kind+':'+url.searchParams.get('id');gameFocused=doc.hasFocus()}if(inside){eligible.add(doc);if(!watched.has(doc)){watched.add(doc);for(const type of ['keydown','pointerdown','touchstart'])doc.addEventListener(type,e=>{if(eligible.has(doc))input.input(e)},{capture:true,passive:true})}}for(const f of doc.querySelectorAll('iframe')){if(f.hidden||!f.getClientRects().length||doc.defaultView.getComputedStyle(f).visibility==='hidden')continue;if(!inside&&found)break;walk(f.contentWindow,depth+1,inside)}}catch{}}walk(window);if(found!==previousGame){input.reset();previousGame=found}game=found;}

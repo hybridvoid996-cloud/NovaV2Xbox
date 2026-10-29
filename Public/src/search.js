@@ -39,7 +39,7 @@ function switchTab(tab){
  if(active===tab)return;for(const stop of tabMotionCleanups)stop();tabMotionCleanups=[];
  const previous=active,home=$('#newtab'),from=previous?.url?previous.frame?.element:home,direction=tabs.indexOf(tab)>tabs.indexOf(previous)?1:-1;
  active=tab;render();if(tab.url&&!tab.frame&&!tab.loading)navigate(tab.url,tab);
- if(localStorage.getItem('nova_reduce_motion')==='true'||(!document.documentElement.classList.contains('nova-motion-enabled')&&localStorage.getItem('nova_reduce_motion')!=='false'&&matchMedia('(prefers-reduced-motion:reduce)').matches))return;
+ if(localStorage.getItem('nova_reduce_motion')==='true'||(!document.documentElement.classList.contains('nova-motion-enabled')&&localStorage.getItem('nova_reduce_motion')!=='false'&&(globalThis.NovaMotion?.reduced ?? matchMedia('(prefers-reduced-motion:reduce)').matches)))return;
  const into=tab.url?tab.frame?.element:home;if(from===into)return;
  const options={duration:440,easing:'cubic-bezier(.22,1,.36,1)',fill:'none'};
  function motion(element,frames,leaving){if(!element)return;const wasZ=element.style.zIndex,wasPointer=element.style.pointerEvents;

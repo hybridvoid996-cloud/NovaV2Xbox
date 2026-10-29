@@ -8,7 +8,7 @@ body #nova-lol-practice .lol-content{padding:0!important;min-width:0}body #nova-
 body #nova-lol-practice .nova-section-heading{margin:0 0 14px;font-size:20px;color:#f4f2fa;letter-spacing:-.4px}.nova-owner-welcome{background:radial-gradient(ellipse at center,#421522,#090b12 75%)!important}.nova-owner-welcome strong{font-size:32px!important;max-width:620px!important}
 @media(max-height:750px){body #nova-lol-practice header{padding:16px 24px!important}body #nova-lol-practice .lol-session{padding-bottom:12px!important}body #nova-lol-practice [role=tabpanel]>label{padding:9px 13px!important;min-height:36px!important;margin:6px 0!important}}
 @media(max-width:620px){body #nova-lol-practice{width:calc(100vw - 20px)!important;right:10px!important}body #nova-lol-practice .lol-layout{grid-template-columns:minmax(0,1fr) 52px!important;padding:0 10px;gap:10px}body #nova-lol-practice header{padding:16px!important}body #nova-lol-practice .lol-session{padding:0 10px 12px!important;gap:6px}body #nova-lol-practice input[type=range]{width:110px!important}}
-@media(prefers-reduced-motion:reduce){body #nova-lol-practice *{animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){@scope (:root:not(.nova-motion-enabled)){body #nova-lol-practice *{animation:none!important;transition:none!important}}}
 
 /* Black surfaces with red accents. */
 body #nova-lol-practice{background:#080808f5!important;border-color:#e3293e66!important;box-shadow:0 28px 90px #000b!important}
