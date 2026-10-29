@@ -1,7 +1,8 @@
 const el=(tag,cls,text)=>{const n=document.createElement(tag);n.className=cls||'';if(text!=null)n.textContent=text;return n};
-const day=at=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(at);
+const dayFormat=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}),weekdayFormat=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short'});
+const day=at=>dayFormat.format(at);
 export function ownerDashboardStats(data,now=Date.now()){
- const users=data.users||[],today=day(now),newUsers=users.filter(u=>Number.isFinite(Number(u.createdAt))&&Number(u.createdAt)>0&&Number(u.createdAt)<=now&&day(Number(u.createdAt))===today),online=Object.entries(data.activity||{}).filter(([,a])=>Number.isFinite(a.at)&&now-a.at>=0&&now-a.at<60000),seven=Array.from({length:7},(_,i)=>{const stamp=now-(6-i)*86400000,key=day(stamp);return {label:new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short'}).format(stamp),count:users.filter(u=>Number(u.createdAt)>0&&Number(u.createdAt)<=now&&day(Number(u.createdAt))===key).length}});
+ const users=data.users||[],today=day(now),newUsers=[],counts=new Map();for(const u of users){const at=Number(u.createdAt);if(!Number.isFinite(at)||at<=0||at>now)continue;const key=day(at);counts.set(key,(counts.get(key)||0)+1);if(key===today)newUsers.push(u)}const online=Object.entries(data.activity||{}).filter(([,a])=>Number.isFinite(a.at)&&now-a.at>=0&&now-a.at<60000),seven=Array.from({length:7},(_,i)=>{const stamp=now-(6-i)*86400000;return {label:weekdayFormat.format(stamp),count:counts.get(day(stamp))||0}});
  return {newUsers,online,total:users.length,seven,today};
 }
 export function mountOwnerDashboard(host,data,{chart,userRow,open},now=Date.now()){

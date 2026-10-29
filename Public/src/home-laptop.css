@@ -1,0 +1,17 @@
+/* Desktop Home proportions on laptop screens; app windows keep their own sizing. */
+@media(min-width:901px) and (max-width:1440px){
+body.nova-main>header:not(.main-popup header){height:54px;min-height:54px;margin-top:16px;padding:5px 8px;gap:9px;border-radius:29px;max-width:calc(100vw - 36px)}
+body.nova-main>header nav{min-height:40px;gap:4px}
+body.nova-main>header nav button{width:36px!important;min-width:36px!important;height:36px!important;flex-basis:36px;padding:8px!important;border-radius:11px!important}
+body.nova-main>header nav button svg{width:20px!important;height:20px!important}
+body.nova-main>header .main-profile{height:38px;min-height:38px;gap:8px;padding:4px 9px 4px 12px;max-width:180px}
+body.nova-main>header .main-profile .avatar{width:29px!important;height:29px!important;min-width:29px;max-width:29px;flex-basis:29px}
+body.nova-main>header .main-profile b{font-size:11px;line-height:14px;max-width:115px}body.nova-main>header .main-profile small{font-size:8px;line-height:11px}
+body.nova-main .main-mond-clock{top:47%}.main-mond-clock .mond-stencil{width:clamp(285px,31vw,420px)}.main-mond-clock .mond-day{margin-bottom:13px}.main-mond-clock .mond-date{font-size:10px;margin-bottom:11px;letter-spacing:1.7px}.main-mond-clock .mond-time{font-size:9px}
+body.nova-main nav.main-dock{min-height:50px;padding:6px 9px;gap:4px;bottom:18px;border-radius:27px}
+body.nova-main .main-dock>button{width:36px!important;min-width:36px!important;height:36px!important;flex-basis:36px;padding:8px!important;border-radius:11px!important}
+body.nova-main .main-dock>button>svg{width:20px!important;height:20px!important}body.nova-main .main-dock>button>.main-nova-logo{width:22px;height:22px}
+body.nova-main #home-continue{width:74px;padding:10px 8px;max-height:calc(100dvh - 180px);border-radius:19px}
+body.nova-main #home-continue .continue-cards{gap:10px}body.nova-main #home-continue .continue-card{width:48px;height:48px;border-radius:13px}body.nova-main #home-continue .continue-card.continue-primary{width:54px;height:54px;border-radius:15px}body.nova-main #home-continue .continue-close{width:18px;height:18px;font-size:13px}body.nova-main #home-continue .continue-play{height:16px;font-size:7px;padding:0 5px}
+}
+@media(min-width:901px) and (max-width:1100px){body.nova-main>header:not(.main-popup header){gap:6px}body.nova-main>header nav{gap:2px}body.nova-main>header nav button{width:33px!important;min-width:33px!important;flex-basis:33px}body.nova-main>header .main-profile{max-width:160px}.main-mond-clock .mond-stencil{width:30vw}}
