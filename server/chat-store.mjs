@@ -1,5 +1,6 @@
 import {recordShopPurchase,readShopPurchases} from './shop-purchase-feed.mjs';
 import {tradeAction} from './shop-trades.mjs';
+import {liveTradeAction} from './shop-live-trades.mjs';
 import {arcadeRoundAction} from './shop-rounds.mjs';
 import {syncBadgeFacts} from './nitro-badges.mjs';
 import {NITRO_PRICE,upgradeNitro} from './nitro-upgrade.mjs';
@@ -19,11 +20,16 @@ export const catalog=()=>readFile(new URL('../Public/profile-assets/catalog.json
 export function draw(items,kind,count){return Array.from({length:count},()=>{let roll=randomInt(1000000),rarity;for(const [name,weight]of odds){roll-=weight;if(roll<0){rarity=name;break}}const pool=items.filter(a=>(kind==='halloween'?a.collection==='halloween':a.kind===kind&&a.collection!=='halloween')&&a.rarity===rarity);if(!pool.length)throw Error('This case is unavailable.');return pool[randomInt(pool.length)]})}
 const boostCount=(root,now)=>new Set([...Object.keys(root.boosters||{}),...Object.entries(root.nitro||{}).filter(([,n])=>n===true||n?.until>now).map(([id])=>id)]).size;
 export async function storeAction({db,uid,account,action,b,now,initial}){
+ if(action==='storeTrade'&&String(b.op).startsWith('live'))return liveTradeAction({db,uid,b,now,items:['liveStatus','liveList'].includes(b.op)?[]:await catalog()});
  if(action==='storePurchaseFeed')return readShopPurchases(db);
  if(action==='storeTrade'&&['feed','vote'].includes(b.op))return tradeAction({db,uid,b,now,items:[]});
  if(action==='storeTrade'){await ensureShopSeason(db,now,await catalog());return tradeAction({db,uid,b,now,items:await catalog()})}
  if(action==='storeArcade'&&b.op==='status')return arcadeRoundAction({db,uid,b,now,initial});
  if(action==='storeMines'&&b.op==='status')return minesAction({db,uid,b,now,initial});
+ // Opening the Shop prepares its season. Every round transaction verifies it again;
+ // lane/tile/cashout actions do not need another catalog read and season round trip.
+ if(action==='storeArcade')return arcadeRoundAction({db,uid,b,now,initial});
+ if(action==='storeMines')return minesAction({db,uid,b,now,initial});
  if(['storeStatus','openCase','equipCosmetic','storeGamble','storeMines','storeArcade','buyDailyCosmetic'].includes(action))await ensureShopSeason(db,now,await catalog());
  if(action==='buyDailyCosmetic'){
  const items=await catalog();let failure;

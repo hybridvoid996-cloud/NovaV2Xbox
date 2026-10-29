@@ -24,7 +24,7 @@ export function wagerPlan(b,items,random=randomInt){
  let item=null;
  if(b.stake==='cosmetic'){
   item=items.find(x=>x.id===b.item);if(!item)throw Error('Choose an owned cosmetic.');
- }else if(b.stake!=='coins'||!Number.isSafeInteger(b.coins)||b.coins<100||b.coins>100000)throw Error('Wager 100–100,000 Nova Coins.');
+ }else if(b.stake!=='coins'||!Number.isSafeInteger(b.coins)||b.coins<100||b.coins>5000000)throw Error('Wager 100–5,000,000 Nova Coins.');
  return {game:b.game,stake:b.stake,coins:item?0:b.coins,item:item?.id||null,won,outcome,odds,multiplier,
   payout:item?0:won?Math.floor(b.coins*multiplier):0,
   crates:item&&won?{kind:item.kind,count:cosmeticCrates[item.rarity]||5}:null};
@@ -33,7 +33,7 @@ export function settleWager(root,uid,b,plan,now){
  const day=dayFormat.format(new Date(now));
  root.wagerLimits||={};const limits=root.wagerLimits[uid]?.day===day?root.wagerLimits[uid]:{day,coins:0,cosmetics:0};
  if(plan.stake==='coins'&&limits.coins>=50||plan.stake==='cosmetic'&&limits.cosmetics>=3)throw Error('Daily limit reached: 50 coin games or 3 cosmetic games.');
- if(now-(limits.last||0)<2500)throw Error('Wait for the current spin to finish.');
+ if(now-(limits.last||0)<400)throw Error('Wait for the current spin to finish.');
  const progress=root.progress?.[uid];if(!progress||!Number.isSafeInteger(progress.coins)||progress.coins<0)throw Error('Your balance is unavailable.');
  if(plan.stake==='coins'){
   if(progress.coins<plan.coins)throw Error('You do not have enough Nova Coins.');
