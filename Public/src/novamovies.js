@@ -1,10 +1,10 @@
 import {createMovieRouteMemory} from './movie-route-memory.mjs?v=20261026-movie314';
 import {movieActivity} from './shared-activity.mjs?v=20261028-profile364';
-import {mountMovieWallpaper} from './movie-wallpaper.mjs?v=20261020-wall223';
+import {mountMovieWallpaper} from './movie-wallpaper.mjs?v=20261029-errors392';
 import {readMoviePlayback} from './movie-playback-state.mjs?v=20261027-movie336';
 import {createMovieRecovery} from './movie-recovery.mjs?v=20261027-achcroma326';
 import {moviePlaybackRoutes,movieEntryFailed,isAchcromaBackup,orderMovieRoutes} from './movie-playback-routes.mjs?v=20261027-achcroma326';
-import {mountMovieCatalog} from './movie-catalog-ui.mjs?v=20261027-achcroma326';
+import {mountMovieCatalog} from './movie-catalog-ui.mjs?v=20261029-errors392';
 import {novaMovieLogo} from './movie-logo.mjs';
 import {decorateMovieDocument} from './movie-cinema-theme.mjs?v=20261029-motion374';
 const routeMemory=createMovieRouteMemory({getItem:key=>localStorage.getItem(key),setItem:(key,value)=>localStorage.setItem(key,value)});

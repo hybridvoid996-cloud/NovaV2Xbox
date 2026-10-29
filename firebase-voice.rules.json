@@ -169,7 +169,7 @@
       "$uid": {
         ".read": "auth != null && auth.uid === $uid",
         ".write": "auth != null && auth.uid === $uid",
-        ".validate": "newData.hasChildren(['name', 'onboardingComplete'])",
+        ".validate": "newData.hasChildren(['name', 'onboardingComplete']) && (!data.child('username').exists() || newData.child('username').val() === data.child('username').val()) && (!data.child('originalUsername').exists() || newData.child('originalUsername').val() === data.child('originalUsername').val())",
         "name": {
           ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 24"
         },
@@ -204,6 +204,12 @@
         },
         "$other": {
           ".validate": false
+        },
+        "username": {
+          ".validate": "data.exists() && newData.val() === data.val()"
+        },
+        "originalUsername": {
+          ".validate": "data.exists() && newData.val() === data.val()"
         }
       }
     },

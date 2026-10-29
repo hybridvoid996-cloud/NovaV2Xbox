@@ -21,11 +21,11 @@ export async function issueAccountRecovery({db,auth,uid,issuer,now=Date.now()}){
  await requireRecoveryPrivacy(db);const profile=await target(db,auth,uid,issuer);
  const code=randomBytes(18).toString('hex').toUpperCase(),hash=digest(code),expiresAt=now+15*60000;
  const previous=(await db.ref(root+'accounts/'+uid).get()).val();
- const patch={['codes/'+hash]:{uid,username:name(profile.name),issuer,expiresAt},['accounts/'+uid]:{hash,expiresAt,used:false}};
+ const patch={['codes/'+hash]:{uid,username:name(profile.username||profile.name),issuer,expiresAt},['accounts/'+uid]:{hash,expiresAt,used:false}};
  if(/^[a-f0-9]{64}$/.test(previous?.hash||''))patch['codes/'+previous.hash]=null;
  await db.ref(root.slice(0,-1)).update(patch);
  await db.ref('novaControl/audit').push({action:'issueAccountRecovery',actor:issuer,target:uid,at:now,expiresAt});
- return {code:code.match(/.{6}/g).join('-'),expiresAt,username:profile.name};
+ return {code:code.match(/.{6}/g).join('-'),expiresAt,username:profile.username||profile.name};
 }
 export async function revokeAccountRecovery({db,auth,uid,issuer,now=Date.now()}){
  await requireRecoveryPrivacy(db);if(typeof uid!=='string'||!uid||uid.length>128||/[.#$\[\]/]/.test(uid))throw fail('Choose a valid account.');
@@ -43,7 +43,7 @@ export async function redeemAccountRecovery({db,auth,username,code,ip='unknown',
  const [issuerRole,issuerBan,issuerProfile]=await Promise.all(['novaChatV2/roles/'+record.issuer,'novaControl/siteBans/'+record.issuer,'novaAccounts/'+record.issuer].map(path=>db.ref(path).get()));
  if((!isProtectedOwner(record.issuer)&&issuerRole.val()!=='owner')||issuerBan.exists()||!issuerProfile.exists())throw fail('The recovery details are invalid or expired.',401);
  if((await auth.getUser(record.issuer)).disabled)throw fail('The recovery details are invalid or expired.',401);
- const profile=await target(db,auth,record.uid,record.issuer);if(name(profile.name)!==record.username)throw fail('The recovery details are invalid or expired.',401);
+ const profile=await target(db,auth,record.uid,record.issuer);if(name(profile.username||profile.name)!==record.username)throw fail('The recovery details are invalid or expired.',401);
  const claim=await db.ref(root+'accounts/'+record.uid).transaction(value=>value===null?null:value&&value.hash===hash&&!value.used&&value.expiresAt>now?{...value,used:true,usedAt:now}:undefined);
  if(!claim.committed||claim.snapshot.val()?.used!==true||claim.snapshot.val()?.hash!==hash)throw fail('The recovery details are invalid or expired.',401);
  const token=await auth.createCustomToken(record.uid);

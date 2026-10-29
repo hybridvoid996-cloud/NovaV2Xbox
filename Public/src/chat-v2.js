@@ -1,7 +1,7 @@
 import {mountChatWelcome} from './chat-welcome.mjs?v=20261029-chat387';
 import {prepareAIImage} from './chat-image-attachment.mjs?v=20261029-sharedai370';
 import {imageAttachment,appendReportImage} from './chat-image-attachment.mjs?v=20261029-sharedai370';
-import {identityBadges,applyNitroBorders} from './chat-identity.mjs?v=20261029-chat387';
+import {identityBadges,applyNitroBorders} from './chat-identity.mjs?v=20261029-errors392';
 import {polishSettings,mountSelfPopover,detailIcon,polishChatChrome} from './chat-detail-pass.mjs?v=20261028-profile364';
 import {createChatRedesign,discordMark} from './chat-redesign.mjs?v=20261027-chat345';
 import {activityLabel} from './shared-activity.mjs?v=20261028-profile364';
@@ -11,7 +11,7 @@ import {applyChatTheme} from './nitro-themes.js';
 import {rolesFor,paintName,slashPicker,serverManager} from './chat-server.js?v=20261029-chat387';
 import {showNitro,cosmeticsSettings} from './chat-store.js?v=20261029-shop387';
 import {unreadTracker} from './chat-unread.js';
-import {profileCard,showProfile,settingsSection,runCommand} from './chat-profile-redesign.js?v=20261029-chat387';
+import {profileCard,showProfile,settingsSection,runCommand} from './chat-profile-redesign.js?v=20261029-identity393';
 import {control} from './control-client.js';
 import {mentionPicker,paintMentions,chatAlerts} from './chat-mentions.js';
 import {appealUI} from './control-runtime.js';

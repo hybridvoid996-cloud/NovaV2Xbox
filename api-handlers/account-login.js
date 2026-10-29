@@ -13,7 +13,7 @@ export const createHandler=(getServices=services,request=fetch)=>async(req,res)=
   const {auth,db}=await getServices(false);
   let uid,account;if(!email){
   const accounts=(await db.ref('novaAccounts').get()).val()||{};
-  const matches=Object.entries(accounts).filter(([,value])=>String(value.name||'').trim().toLowerCase()===username);
+  const matches=Object.entries(accounts).filter(([,value])=>String(value.username||value.name||'').trim().toLowerCase()===username);
   // Existing display names are not unique; never guess which account is intended.
   if(matches.length!==1)return reply(401,{error:'Invalid credentials. Use email if your username is shared.'});
   uid=matches[0][0];account=await auth.getUser(uid);

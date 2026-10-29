@@ -4,7 +4,7 @@ export function movieWallpaper(storage=localStorage,scope=window){
   if(gradient&&[gradient.c1,gradient.c2,gradient.c3].every(c=>/^#[a-f\d]{6}$/i.test(c))&&/^(?:\d+deg|to (?:right|left|top|bottom)(?: (?:right|left|top|bottom))?)$/.test(gradient.dir))return {gradient:`linear-gradient(${gradient.dir},${gradient.c1},${gradient.c2},${gradient.c3})`};
  }catch{}
  const saved=storage.getItem('nova_wallpaper_upload')||storage.getItem('nova_wallpaper')||'/backgrounds/blue-lake-minecraft.1920x1080.mp4';
- const source=scope.NovaWallpaperSource?.(saved)||saved;
+ let source=scope.NovaWallpaperSource?.(saved)||saved;try{const old=new URL(source,scope.location?.href||'https://nova.invalid');if(old.hostname==='novaoffical.com'&&old.pathname.startsWith('/backgrounds/'))source=old.pathname}catch{}
  const video=scope.NovaWallpaperIsVideo?.(source)||/\.(mp4|webm|mov)(?:[?#]|$)|^data:video\//i.test(source);
  const poster=video?scope.NovaWallpaperPoster?.(source):'';
  return {source:poster||source,video:video&&!poster};
