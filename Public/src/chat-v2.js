@@ -11,7 +11,7 @@ import {applyChatTheme} from './nitro-themes.js';
 import {rolesFor,paintName,slashPicker,serverManager} from './chat-server.js?v=20261029-chat387';
 import {showNitro,cosmeticsSettings} from './chat-store.js?v=20261029-shop387';
 import {unreadTracker} from './chat-unread.js';
-import {profileCard,showProfile,settingsSection,runCommand} from './chat-profile-redesign.js?v=20261029-identity393';
+import {profileCard,showProfile,settingsSection,runCommand} from './chat-profile-redesign.js?v=20261029-name-sync394';
 import {control} from './control-client.js';
 import {mentionPicker,paintMentions,chatAlerts} from './chat-mentions.js';
 import {appealUI} from './control-runtime.js';
