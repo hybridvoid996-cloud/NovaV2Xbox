@@ -1,5 +1,5 @@
 import {createMovieRouteMemory} from './movie-route-memory.mjs?v=20261026-movie314';
-import {movieActivity} from './shared-activity.mjs?v=20261022-social254';
+import {movieActivity} from './shared-activity.mjs?v=20261028-profile364';
 import {mountMovieWallpaper} from './movie-wallpaper.mjs?v=20261020-wall223';
 import {readMoviePlayback} from './movie-playback-state.mjs?v=20261027-movie336';
 import {createMovieRecovery} from './movie-recovery.mjs?v=20261027-achcroma326';

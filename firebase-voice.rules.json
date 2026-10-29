@@ -214,7 +214,7 @@
         ".read": "(auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaChatV2/bans').child(auth.uid).exists()) && !root.child('novaControl/siteBans').child(auth.uid).exists()",
         "$uid": {
           ".write": "(auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaChatV2/bans').child(auth.uid).exists() && auth.uid === $uid) && !root.child('novaControl/siteBans').child(auth.uid).exists()",
-          ".validate": "newData.hasChildren(['name','joined']) && newData.child('nitroBooster').val() === data.child('nitroBooster').val() && newData.child('nitroAnimation').val() === data.child('nitroAnimation').val() && newData.child('decoration').val() === data.child('decoration').val() && newData.child('effect').val() === data.child('effect').val() && newData.child('banner').val() === data.child('banner').val() && newData.child('chatBanner').val() === data.child('chatBanner').val() && newData.child('usernameFont').val() === data.child('usernameFont').val() && newData.child('profileTheme').val() === data.child('profileTheme').val() && newData.child('nameColorRole').val() === data.child('nameColorRole').val() && newData.child('profileGradient').val() === data.child('profileGradient').val() && newData.child('showcase').val() === data.child('showcase').val() && newData.child('displayName').val() === data.child('displayName').val() && newData.child('profileBorder').val() === data.child('profileBorder').val() && newData.child('avatarBorder').val() === data.child('avatarBorder').val()",
+          ".validate": "newData.hasChildren(['name','joined']) && newData.child('nitroBooster').val() === data.child('nitroBooster').val() && newData.child('nitroAnimation').val() === data.child('nitroAnimation').val() && newData.child('decoration').val() === data.child('decoration').val() && newData.child('effect').val() === data.child('effect').val() && newData.child('banner').val() === data.child('banner').val() && newData.child('chatBanner').val() === data.child('chatBanner').val() && newData.child('usernameFont').val() === data.child('usernameFont').val() && newData.child('profileTheme').val() === data.child('profileTheme').val() && newData.child('nameColorRole').val() === data.child('nameColorRole').val() && newData.child('profileGradient').val() === data.child('profileGradient').val() && newData.child('showcase').val() === data.child('showcase').val() && newData.child('displayName').val() === data.child('displayName').val() && newData.child('profileBorder').val() === data.child('profileBorder').val() && newData.child('avatarBorder').val() === data.child('avatarBorder').val() && newData.child('nitroSince').val() === data.child('nitroSince').val() && newData.child('nitroGiftCount').val() === data.child('nitroGiftCount').val() && newData.child('serverBooster').val() === data.child('serverBooster').val() && newData.child('badgeOverrides').val() === data.child('badgeOverrides').val()",
           "name": {
             ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 24"
           },
@@ -320,6 +320,18 @@
             },
             "$other": {
               ".validate": false
+            },
+            "id": {
+              ".validate": "newData.isString() && newData.val().length <= 128"
+            },
+            "position": {
+              ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 86400"
+            },
+            "duration": {
+              ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 86400"
+            },
+            "updatedAt": {
+              ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= now + 60000"
             }
           },
           "recentGames": {
@@ -594,6 +606,9 @@
             },
             "$other": {
               ".validate": false
+            },
+            "image": {
+              ".validate": "newData.isString() && newData.val().length <= 200000 && newData.val().matches(/^data:image\\/(jpeg|png|webp);base64,[A-Za-z0-9+\\/]+=*$/)"
             }
           }
         }

@@ -1,3 +1,4 @@
+import {syncBadgeFacts} from './nitro-badges.mjs';
 import {NITRO_PRICE,upgradeNitro} from './nitro-upgrade.mjs';
 import {recordWagerActivity,readWagerActivity} from './shop-activity.mjs';
 import {minesAction} from './shop-mines.mjs';
@@ -54,7 +55,7 @@ export async function storeAction({db,uid,account,action,b,now,initial}){
   root.purchases[uid][b.requestId]={action,recipient,cost:credits?0:cost,rewards:rewards.map(a=>a.id),season:SHOP_SEASON,at:now};return root;
  });
  if(!result.committed)throw Error(failure||'Purchase could not complete.');const root=result.snapshot.val(),receipt=root?.purchases?.[uid]?.[b.requestId];if(!receipt)throw Error(failure||'You need '+cost.toLocaleString()+' Nova Coins.');if(action==='openCase'&&receipt.season!==SHOP_SEASON)throw Error('This receipt belongs to the previous shop. Start a new opening.');if(receipt.action!==action||receipt.recipient!==recipient)throw Error('Purchase ID was already used.');
- if(['buyNitro','giftNitro'].includes(receipt.action)){await db.ref('novaChatV2/profiles/'+recipient).update({nitroBooster:true});await db.ref('novaChatV2/server').update({boosts:boostCount(root,now)});await db.ref('novaChatV2/channels/general/messages/nitro-'+b.requestId).set({author:'nova-bot',text:account.name+(gifting?' gifted Nova Nitro and boosted the server! 🎁':' bought Nova Nitro and boosted the server! ✨'),createdAt:receipt.at})}
+ if(['buyNitro','giftNitro'].includes(receipt.action)){await syncBadgeFacts(db,recipient,now);if(gifting)await syncBadgeFacts(db,uid,now);await db.ref('novaChatV2/profiles/'+recipient).update({nitroBooster:true});await db.ref('novaChatV2/server').update({boosts:boostCount(root,now)});await db.ref('novaChatV2/channels/general/messages/nitro-'+b.requestId).set({author:'nova-bot',text:account.name+(gifting?' gifted Nova Nitro and boosted the server! 🎁':' bought Nova Nitro and boosted the server! ✨'),createdAt:receipt.at})}
  if(gifting)await db.ref('novaChatV2/botMessages/'+recipient+'/nitro-'+b.requestId).set({author:'nova-bot',text:account.name+' gifted you permanent Nova Nitro! Enjoy your new backgrounds, username fonts and profile animations.',subject:'You have been gifted Nitro 🎁',kind:'nitro-gift',staffName:account.name,staffRole:'member',createdAt:receipt.at});
  return {ok:true,coins:root.progress[uid].coins,rewards:receipt.rewards.map(id=>items.find(a=>a.id===id)),nitro:receipt.action==='buyNitro',boosts:boostCount(root,now)};
 }

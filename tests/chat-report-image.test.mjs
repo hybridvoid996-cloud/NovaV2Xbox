@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {validReportImage} from '../Public/src/chat-image-attachment.mjs';
+test('report images reject links, scripts, SVGs and oversized data',()=>{assert.equal(validReportImage('data:image/jpeg;base64,aGVsbG8='),true);for(const s of ['https://example.com/picture.png','javascript:alert(1)','data:image/svg+xml;base64,aGVsbG8=','data:image/png;base64,'+'A'.repeat(200000)])assert.equal(validReportImage(s),false)});

@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readAccountWithRetry} from '../Public/src/account-read-retry.mjs';
+test('a transient account read retries without changing identity',async()=>{let calls=0;const value=await readAccountWithRetry(async()=>{if(++calls<3)throw Error('Network interrupted');return {uid:'signed-in-user'}},{wait:async()=>{},timeoutMs:100});assert.equal(calls,3);assert.equal(value.uid,'signed-in-user')});
+test('permission failures are not retried or bypassed',async()=>{let calls=0;await assert.rejects(readAccountWithRetry(async()=>{calls++;throw Object.assign(Error('Denied'),{code:'PERMISSION_DENIED'})},{wait:async()=>{}}));assert.equal(calls,1)});
+test('stalled account requests have a bounded retry budget',async()=>{let calls=0;await assert.rejects(readAccountWithRetry(()=>{calls++;return new Promise(()=>{})},{attempts:2,timeoutMs:5,wait:async()=>{}}),/account server/);assert.equal(calls,2)});

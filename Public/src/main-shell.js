@@ -2,11 +2,11 @@ import {notificationCategory,muteNotification} from './notification-preferences.
 import {mountProfileMedia,openGameLeaderboard} from './profile-media.mjs?v=20261027-art334';
 import {mountRankProfile} from './nova-rank-ui.mjs?v=20261027-profile329';
 import {launchChallenge,challengeCountdown} from './challenge-ui.mjs?v=20261027-challenges333';
-import {activityLabel} from './shared-activity.mjs?v=20261022-social254';
-import {listeningRow} from './shared-activity.mjs';
+import {activityLabel} from './shared-activity.mjs?v=20261028-profile364';
+import {listeningRow} from './shared-activity.mjs?v=20261028-profile364';
 import {unseenUpdates} from './notice-memory.mjs?v=20261019-notices192';
 import {addFormatting,formatMessage} from './chat-format.js';
-import {richComposer} from './chat-rich.js';
+import {richComposer} from './chat-rich.js?v=20261028-profile362';
 import {createMediaVolumeSync} from './media-volume.mjs';
 const svg=path=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+path+'</svg>';
 const header=document.querySelector('header'),nav=header.querySelector('nav'),profile=header.querySelector('.profile');

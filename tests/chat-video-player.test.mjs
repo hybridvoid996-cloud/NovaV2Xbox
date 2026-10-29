@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {directVideoURL} from '../Public/src/chat-video-player.mjs';
+test('shared video previews allow only direct HTTPS video links without credentials',()=>{assert.equal(directVideoURL('https://media.example/clip.mp4?token=123'),'https://media.example/clip.mp4?token=123');for(const url of ['javascript:alert(1)','https://user:password@media.example/a.mp4','http://media.example/a.mp4','https://example.com/embed.html'])assert.equal(directVideoURL(url),null)});

@@ -1,6 +1,6 @@
 import {showAccountRecovery} from './account-recovery-ui.mjs?v=20261025-recovery286';
 import {loginAccount} from './account-login-client.mjs';
-import {activate,flush} from './account-data.js';
+import {activate,flush} from './account-data.js?v=20261028-boot365';
 import {remember,slots,restoreSavedAccount} from './account-slots.js';
 import {auth,db} from './account-firebase.js';
 import {createUserWithEmailAndPassword,signInWithCustomToken,signInWithEmailAndPassword,sendPasswordResetEmail,updateProfile,updatePassword,setPersistence,browserLocalPersistence,signOut} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';

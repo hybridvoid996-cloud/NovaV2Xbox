@@ -1,5 +1,5 @@
 import {compactSlots} from './account-slot-cache.js';
-import {activate,flush} from './account-data.js';
+import {activate,flush} from './account-data.js?v=20261028-boot365';
 import {app,auth} from './account-firebase.js';
 import {initializeApp,getApps} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
 import {getAuth,updateCurrentUser,setPersistence,browserLocalPersistence} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
