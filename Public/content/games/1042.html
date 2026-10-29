@@ -114,6 +114,7 @@ function openDB() {
             }
         };
         request.onsuccess = e => resolve(e.target.result);
+        request.onblocked = () => reject(new Error("Game cache is unavailable"));
         request.onerror = e => reject(e.target.error);
     });
 }
@@ -125,8 +126,8 @@ async function saveFile(name, buffer) {
         const tx = db.transaction(STORE_NAME, "readwrite");
         const store = tx.objectStore(STORE_NAME);
         store.put(buffer, name);
-        tx.oncomplete = () => resolve();
-        tx.onerror = e => reject(e.target.error);
+        tx.oncomplete = () => {db.close();resolve();};
+        tx.onabort = tx.onerror = e => {db.close();reject(e.target.error||new Error("Game cache failed"));};
     });
 }
 
@@ -137,43 +138,44 @@ async function getFile(name) {
         const tx = db.transaction(STORE_NAME, "readonly");
         const store = tx.objectStore(STORE_NAME);
         const request = store.get(name);
-        request.onsuccess = e => resolve(e.target.result);
-        request.onerror = e => reject(e.target.error);
+        request.onsuccess = e => {db.close();resolve(e.target.result);};
+        request.onerror = e => {db.close();reject(e.target.error);};
     });
 }
 
-// Fetch with progress and caching
-async function fetchWithCache(name, url) {
-    let cached = await getFile(name);
-    if (cached) return cached; // Return cached version
-
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Game asset returned " + response.status);
-    const reader = response.body.getReader();
-    let chunks = [];
-    let received = 0;
-
-    while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        received += value.length;
-        loadedBytes += value.length;
-        chunks.push(value);
-
-        let mbDone = (loadedBytes / (1024 * 1024)).toFixed(2);
-        let mbTotal = '633.45';
-        loadingText.textContent = `LOADING... ${mbDone} MB / ${mbTotal} MB`;
-    }
-
-    let fullBuffer = new Uint8Array(received);
-    let offset = 0;
-    for (let chunk of chunks) {
-        fullBuffer.set(chunk, offset);
-        offset += chunk.length;
-    }
-
-    await saveFile(name, fullBuffer.buffer); // Cache it
-    return fullBuffer.buffer;
+// Cache is an optimization; storage restrictions must never block gameplay.
+let assetCacheAvailable=true;
+let startupFailed=false;const activeDownloads=new Set();
+const assetRevision='796678be4ed26a13c1256be98781ca9b90beb981';
+const assetMirrors=[
+ 'https://cdn.jsdelivr.net/gh/web-ports/vice-city@'+assetRevision+'/',
+ 'https://fastly.jsdelivr.net/gh/web-ports/vice-city@'+assetRevision+'/',
+ 'https://gcore.jsdelivr.net/gh/web-ports/vice-city@'+assetRevision+'/'
+];
+async function fetchWithCache(name,url){
+ const key=assetRevision+'/'+name;
+ const optionalCache=async promise=>{let timer;try{return await Promise.race([promise,new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error("Game cache timed out")),4000)})])}finally{clearTimeout(timer)}};
+ if(assetCacheAvailable){try{const cached=await optionalCache(getFile(key));if(cached instanceof ArrayBuffer&&cached.byteLength)return cached}catch{assetCacheAvailable=false}}
+ let error;
+ for(let attempt=0;attempt<assetMirrors.length;attempt++){
+  if(startupFailed)throw Error("Game startup cancelled");
+  const controller=new AbortController();activeDownloads.add(controller);let timer;
+  const arm=()=>{clearTimeout(timer);timer=setTimeout(()=>controller.abort(),30000)};
+  let received=0;
+  try{
+   arm();const response=await fetch(new URL(url,assetMirrors[attempt]).href,{signal:controller.signal});
+   if(!response.ok||/text\/html/i.test(response.headers.get('content-type')||''))throw Error('Game asset returned '+response.status);
+   const expected=response.headers.get('content-encoding')?0:Number(response.headers.get('content-length'))||0,reader=response.body.getReader(),chunks=[];
+   while(true){const next=await reader.read();arm();if(next.done)break;received+=next.value.length;loadedBytes+=next.value.length;chunks.push(next.value);if(!startupFailed)loadingText.textContent='Downloading Vice City · '+(loadedBytes/1048576).toFixed(1)+' MB · '+name;}
+   if(!received||(expected&&received!==expected))throw Error('Incomplete game asset');
+   const result=new Uint8Array(received);let offset=0;for(const chunk of chunks){result.set(chunk,offset);offset+=chunk.length}
+   chunks.length=0;
+   if(assetCacheAvailable){try{await optionalCache(saveFile(key,result.buffer))}catch{assetCacheAvailable=false}}
+   return result.buffer;
+  }catch(e){loadedBytes-=received;error=e;if(!startupFailed)loadingText.textContent='Reconnecting game download · '+name+' · attempt '+(attempt+1)+' of '+assetMirrors.length;}
+  finally{clearTimeout(timer);activeDownloads.delete(controller)}
+ }
+ throw Error('Could not download '+name+': '+(error?.message||'connection failed'));
 }
 
 // Merge multiple parts
@@ -208,7 +210,7 @@ Promise.all([
     mergeFiles(getParts("audio/vrock.adf", 1, 4), "vrock.adf"),
     mergeFiles(getParts("audio/wave.adf", 1, 4), "wave.adf"),
     mergeFiles(getParts("audio/wild.adf", 1, 4), "wild.adf"),
-]).then(([indexdataurl, EMOTIONadfurl, ESPANTadfurl, FEVERadfurl, FLASHadfurl, KCHATadfurl, VCPRadfurl, VROCKadfurl, WAVEadfurl, WILDadfurl]) => {
+]).then(async ([indexdataurl, EMOTIONadfurl, ESPANTadfurl, FEVERadfurl, FLASHadfurl, KCHATadfurl, VCPRadfurl, VROCKadfurl, WAVEadfurl, WILDadfurl]) => {
     
     // Override fetch to use cached URLs
     const originalFetch = window.fetch;
@@ -246,16 +248,23 @@ Promise.all([
         return originalOpen.call(this, method, url, ...rest);
     };
 
-    // Load game scripts
-    ["gamepademulator.js", "idbfs.js", "game.js"].forEach(src => {
+    // The port's gamepademulator.js link is missing. Load the maintained,
+    // pinned controller library before the runtime can call GamepadEmulator.
+    const gamepadSupport=await import('https://cdn.jsdelivr.net/npm/virtual-gamepad-lib@0.3.3/GamepadEmulator.js');
+    window.GamepadEmulator=gamepadSupport.GamepadEmulator;
+    // Load in order; script errors must be visible instead of a blank canvas.
+    for(const src of ["idbfs.js", "game.js"]){
+     await new Promise((resolve,reject)=>{
         const script = document.createElement("script");
         script.async = false;
         script.src = src;
+        script.onload=resolve;script.onerror=()=>reject(Error("Could not load "+src));
         document.body.appendChild(script);
-    });
+     });
+    }
 
     loadingText.remove();
-}).catch(error=>{loadingText.textContent="Vice City could not download its game files. Reload to retry.";console.error("Vice City startup:",error);});
+}).catch(error=>{startupFailed=true;for(const controller of activeDownloads)controller.abort();loadingText.textContent="Vice City download stopped: "+error.message+". Reload to retry.";console.error("Vice City startup:",error);});
 </script>
 
 </body>

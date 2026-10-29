@@ -23,3 +23,23 @@
 .server-management .sm-form>.primary{background:#eee!important;color:#151518!important;border:1px solid #fff;border-radius:10px;padding:11px 18px;font-weight:650}.server-management .sm-form>.primary:hover{background:#fff!important}.server-management .sm-stats span{background:#ffffff08;border:1px solid #ffffff15}.server-management .sm-server-preview{background:#ffffff05;border-color:#ffffff2b}.server-management .sm-banner{background:linear-gradient(120deg,#ffffff14,#ffffff04)}.server-management .sm-preview-name{background:#ffffff04}.server-management .sm-members p{border-color:#ffffff1c}.server-management .sm-remove{background:#ffffff04!important;border-color:#ffffff25!important;color:#efc5c8!important}
 
 #nova-server{padding:0!important;overflow:hidden;border-radius:14px;}#nova-server>img{display:block;width:100%!important;height:100%!important;object-fit:cover;border-radius:inherit;}
+
+/* Command directory: compact Discord-style rows above the composer. */
+.chat-shell .slash-command-picker{display:flex;gap:0;padding:0!important;left:0;right:0;bottom:calc(100% + 8px);border:1px solid #ffffff16;border-radius:8px;background:#111113;box-shadow:0 12px 36px #0007;overflow:hidden;max-height:min(410px,55dvh);animation:nova-command-open .16s ease-out;}
+.chat-shell .slash-command-picker[hidden]{display:none!important}
+.slash-command-rail{width:50px;flex:none;padding:12px 6px;background:#0b0b0d;display:flex;flex-direction:column;gap:8px;border-right:1px solid #ffffff09}
+.slash-command-rail button{width:36px;height:36px;border:0;border-radius:50%;background:#242428;color:#b8b8c3;font-size:21px;cursor:pointer;transition:background .15s,transform .15s,border-radius .15s}
+.slash-command-rail button:hover,.slash-command-rail button.active{background:#5865f2;color:white;border-radius:11px;transform:translateY(-1px)}
+.slash-command-list{padding:10px 8px;min-width:0;flex:1;overflow:auto;scrollbar-width:thin;scrollbar-color:#45454e transparent}
+.slash-command-heading{padding:4px 8px 10px;font-size:12px;font-weight:600;color:#b6b6c1}
+.chat-shell .slash-command-option{display:flex!important;align-items:center;gap:12px;width:100%;padding:10px 8px!important;border:0!important;border-radius:4px!important;background:transparent;text-align:left;color:#dbdbe1;cursor:pointer;transition:background .12s}
+.chat-shell .slash-command-option:hover,.chat-shell .slash-command-option[aria-selected=true]{background:#ffffff0d}
+.slash-command-logo{display:grid;place-items:center;width:32px;height:32px;flex:none;border-radius:50%;background:#25252c;color:white;font-size:20px;font-weight:900;font-style:italic}
+.slash-command-copy{display:grid;gap:3px;min-width:0;flex:1}.slash-command-copy strong{font-size:14px;font-weight:600}.slash-command-copy small{font-size:11px;color:#94949f;line-height:1.4}.slash-command-source{font-size:10px;color:#8b8b97;white-space:nowrap}.slash-command-empty{padding:16px;font-size:12px;color:#999}
+.chat-shell .slash-command-builder{border-radius:10px;background:#151518;border-color:#ffffff20;box-shadow:0 12px 40px #0008;animation:nova-command-open .16s ease-out}
+.slash-command-builder select{padding:10px;border-radius:7px;background:#242429;color:#eee;border:1px solid #ffffff20}
+@keyframes nova-command-open{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.slash-command-source{display:none}.slash-command-rail{width:40px;padding-inline:3px}.slash-command-copy strong{font-size:13px}}
+:root:not(.nova-motion-enabled) .slash-command-picker,:root:not(.nova-motion-enabled) .slash-command-builder{animation:none}
+
+.chat-shell .slash-command-picker{position:absolute;width:auto;backdrop-filter:none}

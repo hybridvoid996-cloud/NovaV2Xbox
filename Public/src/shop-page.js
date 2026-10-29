@@ -1,9 +1,12 @@
+import {mountPurchaseFeed} from './shop-purchase-feed.mjs?v=20261029-shop387';
+import {mountShopTrading} from './shop-trading.mjs?v=20261029-trades386';
+import {mountShopFront} from './shop-front.mjs?v=20261029-trading384';
 import {mountMovieWallpaper} from './movie-wallpaper.mjs?v=20261020-wall223';
-import {shopProfilePreview,setupShopShowroom} from './shop-showroom.mjs?v=20261025-shop297';
+import {shopProfilePreview,setupShopShowroom} from './shop-showroom.mjs?v=20261029-shop380';
 import {control} from './control-client.js';
 import {auth,db} from './account-firebase.js';
 import {get,ref} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
-import {showStore,preview,equip,load} from './shop-revamp.js?v=20261029-motion374';
+import {showStore,preview,equip,load} from './shop-revamp.js?v=20261029-shop387';
 import {dailyShop} from './daily-shop.mjs?v=20261025-shop297';
 document.documentElement.classList.toggle('shop-embedded',parent!==window);if(parent===window)try{mountMovieWallpaper();document.getElementById('movie-wallpaper').id='shop-wallpaper'}catch{}
 const $=s=>document.querySelector(s),node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n},labels={decoration:'Avatar decorations',effect:'Profile effects',banner:'Chat banners',halloween:'Halloween collection'},kindLabel={decoration:'Avatar decoration',effect:'Profile effect',banner:'Chat banner'},host=$('#legacy-shop');let rotation,liveDaily=false,refreshing=false,toastTimer;
@@ -23,4 +26,6 @@ $('.shop-wordmark').onclick=e=>{if(parent!==window){e.preventDefault();parent.po
 host.addEventListener('store-updated',e=>updateRotation(e.detail));
 try{await auth.authStateReady();const user=auth.currentUser;if(!user)throw Error('Sign in to Nova to open the Shop.');ctx.state.me={uid:user.uid};const [items,profile]=await Promise.all([fetch('profile-assets/catalog.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('The cosmetic collection could not load.');return r.json()}),get(ref(db,'novaChatV2/profiles/'+user.uid)).then(s=>s.val()).catch(()=>null)]);ctx.state.assets=items;ctx.state.profiles[user.uid]=profile||{name:user.displayName||'Nova player',photo:user.photoURL||''};showStore(host,ctx);host.querySelector('.shop-season-hero')?.remove();host.querySelector('.shop-reset-note')?.remove();const crates=host.querySelector('.shop-crate-grid');if(crates){crates.id='crates';const heading=node('div','shop-section-heading');heading.append(node('p','eyebrow','FIND YOUR NEXT FAVORITE'),node('h2','','The crate collection'),node('p','muted','Choose a case, preview its rewards and odds, or open a bundle.'));crates.before(heading);heading.id='crates-heading'}for(const [selector,id]of [['.shop-hacks','hacks'],['.shop-games','gambling'],['.case-inventory','collection']]){const section=host.querySelector(selector);if(section)section.id=id}
 setupShopShowroom(ctx,host,{preview,equip,toast});
+mountShopTrading(ctx,{refreshStore:()=>load(ctx,host)});
+mountShopFront(ctx);mountPurchaseFeed(ctx);
 }catch(e){$('#shop-status').textContent=e.message;$('#shop-status').classList.add('purchase-error');const retry=node('button','shop-retry','Try again');retry.onclick=()=>location.reload();$('#daily').append(retry)}

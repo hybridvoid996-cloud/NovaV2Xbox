@@ -2,7 +2,7 @@
 const assets=new Map(),fonts={default:'inherit',serif:'Georgia, serif',mono:'monospace',rounded:'Trebuchet MS, sans-serif',heavy:'Arial Black, sans-serif'};
 const image=(src,cls)=>{const img=new Image();img.src=src;img.alt='';img.className=cls;img.draggable=false;img.onerror=()=>img.remove();return img};
 const asset=(id,kind)=>{const item=assets.get(id);return item?.kind===kind?item.src:''};
-function name(node,p={}){node.textContent=p.name||'Guest';node.classList.add('nova-home-name');node.style.fontFamily=fonts[p.usernameFont]||fonts.default;node.style.setProperty('--role-from',p.nameRole?.from||'#a7afc4');node.style.setProperty('--role-to',p.nameRole?.to||'#eeeeff')}
+function name(node,p={}){node.textContent=p.name||'Guest';node.classList.add('nova-home-name');node.style.fontFamily=fonts[p.usernameFont]||fonts.default;node.style.setProperty('--role-from',(p.nitroBooster?p.nameGradient?.from:null)||p.nameRole?.from||'#a7afc4');node.style.setProperty('--role-to',(p.nitroBooster?p.nameGradient?.to:null)||p.nameRole?.to||'#eeeeff')}
 function avatar(host,p={},showEffect=true){
  host.replaceChildren();host.classList.add('nova-home-avatar');host.dataset.nitro=p.nitroAnimation||'none';
  const face=document.createElement('span');face.className='nova-home-face';face.textContent=(p.name||'N')[0].toUpperCase();

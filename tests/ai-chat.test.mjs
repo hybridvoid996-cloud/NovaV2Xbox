@@ -10,3 +10,5 @@ test('missing key gives an actionable setup error',async()=>{const r=await call(
 test('unavailable vision model gives a specific error',async()=>{const r=await call([{role:'user',text:'hi',image}],{GROQ_API_KEY:'test'},{ok:false,status:404,data:{error:{code:'model_not_found'}}});assert.equal(r.status,503);assert.match(r.error,/GROQ_VISION_MODEL/)});
 
 test('answer-only mode is enforced for both image and text requests',async()=>{for(const messages of [[{role:'user',text:'2+2'}],[{role:'user',text:'Solve this',image}]]){const result=await call(messages,undefined,undefined,'answer');assert.equal(result.status,200);assert.match(result.payload.messages[0].content,/Return only the final answer/);assert.equal(result.payload.max_completion_tokens,768)}});
+
+test('provider rate limiting includes an actionable retry delay',async()=>{const r=await call([{role:'user',text:'Hi'}],{GROQ_API_KEY:'test'},{ok:false,status:429,data:{error:{}}});assert.equal(r.status,429);assert.equal(r.retryAfter,5);assert.match(r.error,/same conversation/)});

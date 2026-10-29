@@ -20,9 +20,12 @@ async function create(options={}){
  if(options.gameRequestPolicy==='specialized')void warmZombsRelay();
  const connections=options.phone?[8,6,2]:[32,24,6];const url=new URL('/api/wisp/',location.origin);url.protocol=location.protocol==='https:'?'wss:':'ws:';
  if(!url.pathname.endsWith('/'))url.pathname+='/';
+ // Private upstream selection is opt-in exclusively from Nova Search.
+ const configureSearchProxy=async()=>{if(!options.searchOnly||localStorage.getItem('nova_search_private_proxy')!=='enabled')return;const {control}=await import('/src/control-client.js');const session=await control('searchProxySession');url.search=session.enabled?'?searchTicket='+encodeURIComponent(session.ticket):'';};
+ await configureSearchProxy();
  let remote=new LibcurlTransport.LibcurlClient({wisp:url.href,connections});
  let initialization,reconnecting;
- const recover=()=>reconnecting??=(async()=>{options.onRecovery?.('Reconnecting…');remote=new LibcurlTransport.LibcurlClient({wisp:url.href,connections});initialization=null;await deadline(remote.init(),15000,'The connection is temporarily unavailable.');options.onRecovery?.('Connection restored.');})().finally(()=>{reconnecting=null});
+ const recover=()=>reconnecting??=(async()=>{options.onRecovery?.('Reconnecting…');await configureSearchProxy();remote=new LibcurlTransport.LibcurlClient({wisp:url.href,connections});initialization=null;await deadline(remote.init(),15000,'The connection is temporarily unavailable.');options.onRecovery?.('Connection restored.');})().finally(()=>{reconnecting=null});
  const gsnGateway=options.cloudProvider==='gsn'?window.NovaGSNCloud?.createGateway((...args)=>remote.request(...args),{onRecovery:options.onRecovery}):null;
  const transport={get ready(){return remote.ready},init(){return initialization??=deadline(remote.init(),15000,'The curl connection did not start. Try again.').catch(e=>{initialization=null;throw e})},meta:()=>remote.meta(),connect:(...args)=>isZombsMatchSocket(args[0])?connectZombsSocket(...args):remote.connect(...args),async request(target,method,body,headers,signal){
   if(options.videoBrand==='novatube'){const {tubePlayerRequest}=await import('/src/novatube-player.mjs?v=20261015-tube63');const prepared=tubePlayerRequest(target,headers,location.origin);target=prepared.target;headers=prepared.headers}
