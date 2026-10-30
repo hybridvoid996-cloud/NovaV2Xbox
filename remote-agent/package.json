@@ -1,6 +1,6 @@
 {
   "name": "nova-remote",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "private": true,
   "description": "Visible, account-authorized Nova Windows remote desktop agent",
   "author": "Nova",

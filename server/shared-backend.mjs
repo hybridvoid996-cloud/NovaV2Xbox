@@ -1,6 +1,6 @@
 // Public address only; credentials stay on the primary deployment.
 export const SHARED_BACKEND='https://novaoffical1.vercel.app';
-const endpoints=new Set(['account-recovery','account-login','owner-control','chat-owner','staff-users','voice','voice-account','remote','music']);
+const endpoints=new Set(['account-support','account-recovery','account-login','owner-control','chat-owner','staff-users','voice','voice-account','remote','music']);
 export function withSharedBackend(endpoint,handler,{env=process.env,request=fetch}={}){
  if(!endpoints.has(endpoint))throw Error('Unsupported shared endpoint');
  return async(req,res)=>{
@@ -17,7 +17,7 @@ export function withSharedBackend(endpoint,handler,{env=process.env,request=fetc
    }
    const headers={'Content-Type':'application/json','X-Nova-Shared-Hop':'1'};
    if(req.headers?.authorization)headers.Authorization=req.headers.authorization;
-   const response=await request(SHARED_BACKEND+'/api/'+endpoint,{method:req.method,headers,body,redirect:'error',signal:AbortSignal.timeout(12000)});
+   const response=await request(SHARED_BACKEND+'/api/'+endpoint,{method:req.method,headers,body,redirect:'error',signal:AbortSignal.timeout(endpoint==='account-support'?40000:12000)});
    const result=await response.text();
    try{const data=JSON.parse(result);if(!data||typeof data!=='object'||Array.isArray(data))throw Error('Invalid response')}catch{return reply(503,response.status===402||/^\s*Payment required/i.test(result)?'The main Nova backend is restricted by Vercel. The site owner needs to check Vercel usage and billing.':'The main Nova backend returned an unavailable response. Try again shortly.')}
    if(endpoint==='owner-control'&&response.status===400){

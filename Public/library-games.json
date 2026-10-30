@@ -4413,7 +4413,7 @@
     "id": 557,
     "name": "Getting Over It with Bennett Foddy",
     "art": "content/covers/557.png",
-    "url": "content/games/557-f.html",
+    "url": "https://playobsidian.com/cdn/assets/html/c75db71a-ed5a-4ed9-9cf2-5c73fb513c79/1.7/index.html",
     "genres": [
       "Other"
     ]
@@ -8993,7 +8993,7 @@
   {
     "id": 1026,
     "name": "BO1 Zombies",
-    "url": "https://zombies.concentric.live/",
+    "url": "https://vel.gg/bsz",
     "genres": [
       "Zombies"
     ],
@@ -9156,7 +9156,7 @@
   {
     "id": 1041,
     "name": "Terraria (Real)",
-    "url": "https://playterraria.lol/game/",
+    "url": "https://playobsidian.com/cdn/assets/html/a498930d-5864-472b-ac6f-e1e41886c095/1.4.5.5/index.html",
     "art": "content/covers/1041.jpg",
     "genres": [
       "Sandbox",
@@ -9183,6 +9183,44 @@
     "genres": [
       "Clicker",
       "Incremental"
+    ]
+  },
+  {
+    "id": 1044,
+    "name": "Minecraft — Multi-Version",
+    "url": "https://playobsidian.com/cdn/assets/html/440c5a5c-4e43-4404-90dd-67d0c877fcf3/26.2%20+%201.12.2%20+%201.8.8/index.html",
+    "art": "content/covers/1044.png",
+    "genres": [
+      "Sandbox",
+      "Survival"
+    ]
+  },
+  {
+    "id": 1045,
+    "name": "GTA on Browser",
+    "url": "https://fiveplay.lol/?low=1",
+    "art": "content/covers/1045.png",
+    "genres": [
+      "Action",
+      "Open World"
+    ]
+  },
+  {
+    "id": 1046,
+    "name": "Skate 3 (Real)",
+    "url": "https://skate.aaddpp.lol/",
+    "art": "content/covers/1046.png",
+    "genres": [
+      "Sports"
+    ]
+  },
+  {
+    "id": 1047,
+    "name": "New Super Mario Bros. Wii",
+    "url": "https://playobsidian.com/cdn/assets/html/46975ef1-a576-49c2-b0ae-b740301204d2/1/index.html",
+    "art": "content/covers/1047.png",
+    "genres": [
+      "Platformer"
     ]
   }
 ]

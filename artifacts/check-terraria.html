@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="app.webp" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Terraria</title>
+    <script src="coi-serviceworker.js"></script>
+    <script
+      type="module"
+      crossorigin
+      src="assets/index.js?v=terraria-fix-4"
+    ></script>
+    <link
+      rel="stylesheet"
+      crossorigin
+      href="assets/index.css?v=terraria-fix-4"
+    />
+    <style>
+      div[data-component="TopBar"],
+      div[data-component="BottomBar"],
+      div[data-component="LogView"] {
+        display: none;
+      }
+
+      div[data-component="Main"] {
+        background: black;
+      }
+
+      div[data-component="GameView"] {
+        border-radius: 0;
+        border: none;
+        max-height: 100%;
+        background-color: black;
+      }
+
+      .main {
+        width: 100% !important;
+        padding: 0 !important;
+        justify-content: center;
+      }
+    </style>
+    <script>
+      let startedPlaying = false;
+
+      window.addEventListener("load", function () {
+        setInterval(() => {
+          if (!startedPlaying) {
+            let startButton = document.querySelectorAll(".tcontainer")[2];
+
+            if (startButton) {
+              let noSplash = document.querySelector("#splash") === null;
+              let init =
+                Array.from(
+                  document.querySelectorAll(
+                    'div[data-component="LogView"] div',
+                  ),
+                ).find((el) =>
+                  el.textContent.endsWith(": dotnet initialized"),
+                ) !== undefined;
+              if (init && noSplash) {
+                startedPlaying = true;
+                setTimeout(() => {
+                  console.log("STARTINGGGG");
+                  startButton.click();
+                }, 1000);
+              }
+            }
+          }
+        }, 100);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a527c2ed1840f3a3',t:'MTc5MzMzNTQzMQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a527c2ed1840f3a3',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

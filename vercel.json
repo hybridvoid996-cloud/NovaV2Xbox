@@ -61,6 +61,10 @@
   ],
   "rewrites": [
     {
+      "source": "/api/account-support",
+      "destination": "/api/account?novaEndpoint=account-support"
+    },
+    {
       "source": "/api/account-recovery",
       "destination": "/api/account?novaEndpoint=account-recovery"
     },

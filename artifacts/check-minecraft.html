@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eaglercraft Launcher</title>
+    <style>
+      :root {
+        --bg: #0d0d0d;
+        --surface: #1a1a1a;
+        --border: #333333;
+        --primary: #2ea043;
+        --accent: #2f81f7;
+        --accent-bg: rgba(47, 129, 247, 0.1);
+        --text-main: #e6edf3;
+        --text-muted: #848d97;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--bg);
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        color: var(--text-main);
+      }
+
+      .container {
+        width: 100%;
+        max-width: 540px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 32px;
+        box-sizing: border-box;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 24px;
+        margin-bottom: 24px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.5px;
+      }
+
+      .toggle-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .toggle-label {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-muted);
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 36px;
+        height: 20px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--border);
+        transition: 0.2s;
+        border-radius: 20px;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        bottom: 3px;
+        background-color: var(--text-main);
+        transition: 0.2s;
+        border-radius: 50%;
+      }
+
+      input:checked + .slider {
+        background-color: var(--accent);
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(16px);
+      }
+
+      input:disabled + .slider {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .instances {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .card {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        transition: border-color 0.2s ease;
+      }
+
+      .card-icon {
+        width: 42px;
+        height: 42px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-muted);
+        margin-right: 16px;
+      }
+
+      .card-info {
+        flex: 1;
+      }
+
+      .card-title {
+        margin: 0 0 6px 0;
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 12px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+      }
+
+      .badge.active {
+        background: var(--accent-bg);
+        border-color: rgba(47, 129, 247, 0.4);
+        color: var(--accent);
+      }
+
+      .btn {
+        background-color: var(--primary);
+        color: #ffffff;
+        text-decoration: none;
+        padding: 8px 24px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        transition:
+          background-color 0.2s ease,
+          opacity 0.2s ease;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        outline: none;
+      }
+
+      .btn:disabled {
+        background-color: var(--border);
+        color: var(--text-muted);
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Eaglercraft Launcher</h1>
+        <div class="toggle-wrapper">
+          <span class="toggle-label" id="toggle-label">WASM Engine</span>
+          <label class="switch">
+            <input type="checkbox" id="wasm-toggle" />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="instances">
+        <div class="card">
+          <div class="card-icon">26.2</div>
+          <div class="card-info">
+            <p class="card-title">Minecraft 26.2</p>
+            <span class="badge" id="badge-262">WASM Only</span>
+          </div>
+          <button class="btn" id="play-262">Play</button>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">1.12</div>
+          <div class="card-info">
+            <p class="card-title">Minecraft 1.12.2</p>
+            <span class="badge" id="badge-112">Standard</span>
+          </div>
+          <button class="btn" id="play-112">Play</button>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">1.8</div>
+          <div class="card-info">
+            <p class="card-title">Minecraft 1.8.8</p>
+            <span class="badge" id="badge-18">Standard</span>
+          </div>
+          <button class="btn" id="play-18">Play</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const urls = {
+        v18: [
+          "EaglercraftX_1.8_u53_Offline_Signed.html",
+          "EaglercraftX_1.8_WASM-GC_Offline_Download.html",
+        ],
+        v112: [
+          "Eaglercraft_1.12_Offline_en_US.html",
+          "Eaglercraft_1.12.2_WASM_Offline_Download.html",
+        ],
+        v262: ["eaglercraft-26.2-zeus-skins.html"],
+      };
+
+      const toggle = document.getElementById("wasm-toggle");
+      const label = document.getElementById("toggle-label");
+
+      const p262 = document.getElementById("play-262");
+      const b262 = document.getElementById("badge-262");
+
+      const p112 = document.getElementById("play-112");
+      const b112 = document.getElementById("badge-112");
+
+      const p18 = document.getElementById("play-18");
+      const b18 = document.getElementById("badge-18");
+
+      const isSupported =
+        typeof WebAssembly !== "undefined" &&
+        typeof WebAssembly.Suspending !== "undefined";
+
+      if (!isSupported) {
+        toggle.disabled = true;
+        label.textContent = "WASM Unsupported";
+        label.style.color = "#f85149";
+      } else {
+        const savedPref = localStorage.getItem("eaglercraft_wasm_enabled");
+        if (savedPref !== null) {
+          toggle.checked = savedPref === "true";
+        } else {
+          toggle.checked = true;
+        }
+      }
+
+      function updateUI() {
+        const active = toggle.checked && isSupported;
+
+        if (isSupported) {
+          localStorage.setItem("eaglercraft_wasm_enabled", toggle.checked);
+        }
+
+        if (active) {
+          p262.disabled = false;
+          p262.dataset.url = urls.v262[0];
+          b262.textContent = "WASM-GC";
+          b262.className = "badge active";
+        } else {
+          p262.disabled = true;
+          p262.dataset.url = "";
+          b262.textContent = "WASM Only";
+          b262.className = "badge";
+        }
+
+        p112.dataset.url = toggle.checked ? urls.v112[1] : urls.v112[0];
+        b112.textContent = toggle.checked ? "WASM-GC" : "Standard";
+        b112.className = toggle.checked ? "badge active" : "badge";
+
+        p18.dataset.url = toggle.checked ? urls.v18[1] : urls.v18[0];
+        b18.textContent = toggle.checked ? "WASM-GC" : "Standard";
+        b18.className = toggle.checked ? "badge active" : "badge";
+      }
+
+      p262.addEventListener("click", () => {
+        if (p262.dataset.url) {
+          window.location.assign(p262.dataset.url);
+        }
+      });
+
+      p112.addEventListener("click", () => {
+        window.location.assign(p112.dataset.url);
+      });
+
+      p18.addEventListener("click", () => {
+        window.location.assign(p18.dataset.url);
+      });
+
+      toggle.addEventListener("change", updateUI);
+      updateUI();
+    </script>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a527c2eccf18f3a3',t:'MTc5MzMzNTQzMQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a527c2eccf18f3a3',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

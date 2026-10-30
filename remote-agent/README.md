@@ -1,6 +1,6 @@
 # Nova Remote · Windows agent
 
-Nova website: https://novaoffical.vercel.app/computer
+Nova website: https://novaoffical1.vercel.app/computer
 
 ## Use
 
@@ -45,3 +45,5 @@ A failed cross-network connection can still require a working TURN relay. Config
 ## Restricted Wi-Fi connection mode
 
 Nova Computer now offers Automatic and Restricted Wi-Fi modes. Restricted Wi-Fi requires a provider-issued `turns:HOST:443?transport=tcp` URL and working credentials on the primary backend. The server validates readiness before reserving a session, then supplies only those TLS relay URLs to both sides and makes the viewer use relay candidates. Nova Remote 0.2.5 already consumes this server-provided ICE list, so this update does not require another installer version. Automatic retains direct and other relay paths. Relay setup status means configuration is present, not that a real allocation or the school network has been tested. Do not invent endpoints or use unrelated credentials; copy the URLs from the existing provider dashboard. Deploy the updated backend and viewer after configuring that service.
+
+Version 0.3.5: adaptive stream resolution/bitrate, bounded mouse input backlog, new central backend. Rebuild and update the host app to use these changes. Viewer uses presented video frames when supported. Frame rate and latency are not guaranteed; verify over a real approved session on the target network.

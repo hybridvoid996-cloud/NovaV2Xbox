@@ -1,4 +1,4 @@
-import {showAccountRecovery} from './account-recovery-ui.mjs?v=20261025-recovery286';
+import {showAccountRecovery} from './account-recovery-ui.mjs?v=20261030-welcome409';
 import {loginAccount} from './account-login-client.mjs';
 import {activate,flush} from './account-data.js?v=20261029-gamebackup406';
 import {remember,slots,restoreSavedAccount} from './account-slots.js';
