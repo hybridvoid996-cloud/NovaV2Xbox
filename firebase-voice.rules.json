@@ -210,6 +210,15 @@
         },
         "originalUsername": {
           ".validate": "data.exists() && newData.val() === data.val()"
+        },
+        "password": {
+          ".validate": false
+        },
+        "plaintextPassword": {
+          ".validate": false
+        },
+        "passwd": {
+          ".validate": false
         }
       }
     },
@@ -840,6 +849,10 @@
       ".write": false
     },
     "novaAccountRecovery": {
+      ".read": false,
+      ".write": false
+    },
+    "novaGameSaves": {
       ".read": false,
       ".write": false
     }

@@ -1,0 +1,31 @@
+# Account sync implementation and rollout — 2026-10-29
+
+## Status: incomplete; do not advertise game sync yet
+The per-game server store and opt-in client coordinator are implemented. They are NOT wired to game launch. No supported live game adapters have been enabled. Monkey Mart (catalog 882) and an IndexedDB game still require real save/restore tests. The validation fixture ID is not a supported game. Existing local saves have not been cleared or migrated.
+
+## Inspection
+Installed Scramjet 2.0.67-alpha.2; controller 0.0.14. Installed source maps show localStorage keys host@key and IndexedDB names origin@database. Cookie virtualization uses a shared controller database, not a game-save-only store. Do not upload that database. Monkey Mart uses a locally hosted WASM build; actual persistence keys must be observed during play, not guessed from database names. Existing account-game-data.js scans database names and archives broadly. Existing account-data.js includes keys containing @ and versionless account snapshots; it is a legacy mechanism, not the new per-game store. It remains unchanged to avoid a destructive migration. Its data must not be fed automatically into the new store.
+
+Current account.js signup and account-login.js password verification use Firebase Authentication, not database plaintext authentication. UID is preserved by custom-token handoff. No live database was inspected, so absence of legacy plaintext credentials is NOT verified. Rules now reject password/plaintextPassword/passwd writes under novaAccounts. This does not remove pre-existing secrets or protect unknown paths. Before rollout, audit database paths without exporting credentials, remove plaintext fields after confirming each UID has a Firebase Auth identity, and reset passwords for any legacy-only identity. Do not silently trust a plaintext field to create a session.
+
+## New save protocol
+Authenticated owner-control gameSync uses the verified caller UID, never a submitted UID. novaGameSaves denies direct client reads/writes; Admin SDK endpoint mediates access. Payload maximum 512 KiB, 1000 string records, schema version 1. CAS baseRevision rejects stale tabs, identical payload retry is idempotent, writes have a 10-second minimum interval, previous successful revision retained. Client keeps per-UID/game local copies and blocks prepare on conflicts. Offline without a local account copy blocks startup. Client is not yet launch-integrated and cannot itself stop running frames or take multi-tab locks. Do not enable until those integration tests pass. Arbitrary JSON must never be captured; adapter key allowlists and binary IndexedDB encoding remain required.
+
+## Required configuration
+On EACH Vercel project set:
+- NOVA_LOGIN_ORIGIN=https://novaoffical1.vercel.app (or another reachable trusted central origin).
+- NOVA_LOGIN_TRUSTED_ORIGINS=comma-separated exact HTTPS origins of approved Nova deployments; include old domain only if still trusted.
+- NOVA_LOGIN_USER_APPROVAL=false (approved domains only).
+- Configure the same Firebase project and FIREBASE_SERVICE_ACCOUNT_JSON server secret. Never expose the service key in public variables.
+Deploy matching backend/frontend code and publish firebase-voice.rules.json after reviewing the whole rules file. Add every Nova domain to Firebase Authentication Authorized domains. Confirm /api/login-handoff reaches the correct deployed handler through Vercel rewrites. Login handoffs already use 90-second single-use codes, S256 verifier binding, state checks and exact destination binding. No password or long-lived credential is sent in a URL. Top-level redirect uses the central Firebase Auth browser session, not cross-site cookies. A user must sign in once on the NEW central domain: it cannot read cookies/storage from the blocked old domain. If central is unavailable, normal local sign-in remains available.
+
+## Remaining verification gates
+1. On original origin/browser profile, archive original game-specific keys/databases before changes; show an explicit Import dialog tied to signed-in UID; do not import into an existing cloud save without choice.
+2. Instrument only audited game persistence, gate frame creation until restore finishes, stop/dispose frames on auth change and acquire exclusive cross-tab ownership. Keep games blocked if restore fails.
+3. Validate Monkey Mart localStorage/IDB use and a second game with a different persistence method. Reload, switch A/B/A, and repeat on another domain. Verify periodic capture and debounced changes, offline replay and conflict choice UI. Do not sync third-party logins/cookies.
+4. Run Firebase Emulator rules tests against two real test identities, then authorized staging tests across TWO origins. Unit mocks do not prove deployed rules or cross-domain browser behavior.
+
+Automated tests cover per-UID save separation, revision conflicts, idempotent retries, previous revision retention, bounds/credential-key rejection, handoff replay/expiry/revocation/verifier/destination checks and client redirect fallback. No production save writes, password deletion, rule publishing or deployment were performed.
+
+## Library-wide foundation update
+The server registry now accepts stable IDs from library-games.json, not only Monkey Mart. game-save-storage.mjs provides one account-isolated localStorage adapter for save-like keys across games. Credential/session/tracking keys are rejected client/server. This heuristic is deliberately conservative and is not universal compatibility; some progress keys will be missed. It is NOT yet connected to Scramjet startup or native game startup. No new game-sync UI or background capture has been enabled. Never claim that library-wide registration means every game's progress is syncing. IDB/binary adapters, explicit import review and browser launch tests remain outstanding.

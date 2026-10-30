@@ -9174,5 +9174,15 @@
       "Adventure"
     ],
     "addedAt": "2026-10-28T10:54:52.608Z"
+  },
+  {
+    "id": 1043,
+    "name": "CSGO Clicker",
+    "art": "content/covers/1043.png",
+    "url": "https://gaming-escape.github.io/public/assets/games/csgo-clicker/index.html",
+    "genres": [
+      "Clicker",
+      "Incremental"
+    ]
   }
 ]

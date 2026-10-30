@@ -3,9 +3,9 @@ import {services} from '../server/voice-service.js';
 const digest=value=>createHash('sha256').update(value).digest('hex');
 export function origin(value){try{const u=new URL(value);return u.protocol==='https:'&&u.origin===value?u.origin:null}catch{return null}}
 export function configuration(env=process.env){
- const primary=origin(env.NOVA_LOGIN_ORIGIN||'https://novaoffical.vercel.app');
- const trusted=[...new Set([primary,...(env.NOVA_LOGIN_TRUSTED_ORIGINS||'').split(',').map(s=>origin(s.trim()))].filter(Boolean))];
- return {primary,trusted,userApproval:env.NOVA_LOGIN_USER_APPROVAL!=='false'};
+ const primary=origin(env.NOVA_LOGIN_ORIGIN||'https://novaoffical1.vercel.app');
+ const trusted=[...new Set([primary,...(env.NOVA_LOGIN_TRUSTED_ORIGINS||'https://novaoffical.vercel.app,https://novaoffical1.vercel.app').split(',').map(s=>origin(s.trim()))].filter(Boolean))];
+ return {primary,trusted,userApproval:env.NOVA_LOGIN_USER_APPROVAL==='true'};
 }
 export function privateRules(rules){
  const denied=node=>Object.entries(node||{}).every(([k,v])=>['.read','.write'].includes(k)?v===false:!v||typeof v!=='object'||denied(v));

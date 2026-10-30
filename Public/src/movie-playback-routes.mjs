@@ -1,4 +1,4 @@
-import {movieEmbedPath} from './movie-title-view.mjs?v=20261029-errors392';
+import {movieEmbedPath} from './movie-title-view.mjs?v=20261029-movie399';
 export function moviePlaybackRoutes(item){
  const embed=movieEmbedPath(item);
  if(item.type==='anime')return ['https://framextv.xyz'+embed,...mappedAnimeRoutes(item)];
