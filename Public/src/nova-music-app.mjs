@@ -1,4 +1,5 @@
-import {partyPerson} from './music-party-people.mjs?v=20261029-party396';
+const partyStyleUrl=new URL('./music-party-dialog.css?v=20261029-party398',import.meta.url).href;if(!document.querySelector('link[data-nova-party-dialog]')){const style=document.createElement('link');style.rel='stylesheet';style.href=partyStyleUrl;style.dataset.novaPartyDialog='';document.head.append(style)}
+import {partyPerson} from './music-party-people.mjs?v=20261029-party398';
 import {recentArtwork,setRecentMusicCover} from './recent-artwork.mjs?v=20261027-art335';
 import {createMusicReleaseUpdates,isNewMusicRelease,musicReleaseTime} from './music-release-updates.mjs?v=20261023-releases282';
 import {createMusicSearchSession} from './nova-music-search-session.mjs?v=20261018-search156';
