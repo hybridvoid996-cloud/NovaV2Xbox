@@ -1,4 +1,4 @@
-import {createNovaMusicApp} from './nova-music-app.mjs?v=20261029-party395';
+import {createNovaMusicApp} from './nova-music-app.mjs?v=20261029-party396';
 import {NovaMusicEngine} from './nova-music-engine.mjs?v=20261029-motion374';
 import {NovaMusicService} from './nova-music-service.mjs?v=20261029-party395';
 // This compatibility adapter uses only the fixed Voidify backend. Its temporary
