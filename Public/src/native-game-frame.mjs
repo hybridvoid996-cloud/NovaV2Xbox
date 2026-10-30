@@ -3,7 +3,6 @@ const paths={"27":"/content/games/27-f.html","426":"/content/games/426-f.html","
 const browserPorts={1040:"https://cyberpunk2077.lol/game",1041:"https://playterraria.lol/game/"};
 export function nativeGameURL(item,kind,base){
  if(kind==='game'&&browserPorts[item?.id]===item.url)return item.url;
- if(kind==='game'&&String(item?.id)==='1042'&&new URL(item.url,base).pathname==='/content/games/1042.html'&&new URL(item.url,base).origin===new URL(base).origin)return new URL(item.url,base).href;
  if(kind!=='game'||!paths[String(item?.id)])return null;
  if(String(item.id)==='881'){const url=new URL(item.url,base),home=new URL(base);const local=['/content/fortnite-browser/fortnite/index.html','/content/fortnite-runtime/fortnite/index.html','/game-runtime/fortnite18/fortnite/','/game-runtime/fortnite18/fortnite/index.html'];if((url.origin===home.origin&&local.includes(url.pathname))||(url.origin==='https://fortnite.ezgames.lol'&&['/fortnite/','/fortnite/index.html'].includes(url.pathname)))return new URL('/content/fortnite-browser/fortnite/index.html'+url.search,home).href;return null;}
  const url=new URL(item.url,base),home=new URL(base);

@@ -1,10 +1,10 @@
 import {readCache,writeCache,migrateAccountCaches,isUnreadableRecord} from './account-cache.js';
 import {compactSlots,archived} from './account-slot-cache.js';
-import {captureGames,restoreGames,captureWebSession,restoreWebSession} from './account-game-data.js';
+import {captureGames,restoreGames,captureWebSession,restoreWebSession} from './account-game-data.js?v=20261029-gamebackup406';
 import {auth} from './account-firebase.js';
 const META='nova-account-data:',OWNER='nova-data-owner';
 const identity=new Set(['nova_user','nova_username','nova_account_version']);
-export const managed=key=>!identity.has(key)&&!/^nova_(pin|server_progress|server_coins|owner_code)/.test(key)&&!/(?:firebase|password|credential|access.?token|refresh.?token|auth.?token|cookie|session.?token)/i.test(key)&&(key==='monkeymart_config'||key.startsWith('nova_')||/^nova-(ai-chats|v2-favorites|v2-recent-|search)/.test(key)||key.includes('@'));
+export const managed=key=>!identity.has(key)&&!/^nova_(pin|server_progress|server_coins|owner_code)/.test(key)&&!/(?:firebase|password|credential|access.?token|refresh.?token|auth.?token|cookie|session.?token)/i.test(key)&&(key==='monkeymart_config'||/^[A-Za-z0-9_]+\.\d+\.(?:savedata[0-9]*\.ini|save[0-9]*\.dat)$/.test(key)||/^c2save_[A-Za-z0-9_-]+$/.test(key)||/^RPG (?:File[0-9]+|Global|Config)$/.test(key)||key.startsWith('nova_')||/^nova-(ai-chats|v2-favorites|v2-recent-|search)/.test(key)||key.includes('@'));
 const snapshot=()=>Object.fromEntries(Object.keys(localStorage).filter(managed).map(key=>[key,localStorage.getItem(key)]));
 const read=async uid=>(await readCache(META+uid))||{};
 let uid=null,baseline={},pending={},timer,saving,restoring=false,gameCapture,lastGameCapture=0;

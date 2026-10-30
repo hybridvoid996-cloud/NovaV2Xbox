@@ -178,6 +178,17 @@ async function fetchWithCache(name,url){
  throw Error('Could not download '+name+': '+(error?.message||'connection failed'));
 }
 
+// Pinned Nova copies first; still requested through the game proxy.
+async function loadRuntimeScript(name){
+ if(!['idbfs.js','game.js'].includes(name))throw Error('Unknown Vice City runtime');
+ const sources=['https://nova-content.invalid/content/runtime/vice-city/'+name+'?v=20261029-403',...assetMirrors.map(base=>new URL(name,base).href)];
+ for(const src of sources){
+  if(startupFailed)throw Error('Game startup cancelled');
+  try{await new Promise((resolve,reject)=>{const script=document.createElement('script');let timer;const finish=error=>{clearTimeout(timer);script.onload=script.onerror=null;if(error){script.remove();reject(error)}else resolve()};script.async=false;script.src=src;script.onload=()=>finish();script.onerror=()=>finish(Error('Could not load '+name));timer=setTimeout(()=>finish(Error('Timed out loading '+name)),20000);document.body.appendChild(script)});return}catch(error){if(!startupFailed)loadingText.textContent='Reconnecting Vice City runtime · '+name;}
+ }
+ throw Error('Could not load '+name+' from Nova or its backup sources');
+}
+
 // Merge multiple parts
 async function mergeFiles(fileParts, namePrefix) {
     const buffers = [];
@@ -253,15 +264,8 @@ Promise.all([
     const gamepadSupport=await import('https://cdn.jsdelivr.net/npm/virtual-gamepad-lib@0.3.3/GamepadEmulator.js');
     window.GamepadEmulator=gamepadSupport.GamepadEmulator;
     // Load in order; script errors must be visible instead of a blank canvas.
-    for(const src of ["idbfs.js", "game.js"]){
-     await new Promise((resolve,reject)=>{
-        const script = document.createElement("script");
-        script.async = false;
-        script.src = src;
-        script.onload=resolve;script.onerror=()=>reject(Error("Could not load "+src));
-        document.body.appendChild(script);
-     });
-    }
+    await loadRuntimeScript('idbfs.js');
+    await loadRuntimeScript('game.js');
 
     loadingText.remove();
 }).catch(error=>{startupFailed=true;for(const controller of activeDownloads)controller.abort();loadingText.textContent="Vice City download stopped: "+error.message+". Reload to retry.";console.error("Vice City startup:",error);});

@@ -1,6 +1,6 @@
 import {readCache,writeCache,migrateAccountCaches} from './account-cache.js';
 // Save databases only: authentication, cookies and downloaded engine caches stay local.
-const saveDatabase=name=>/idbfs|unity_fs|localforage|emulator|retro.*save|game.*save/i.test(name)&&!/auth|firebase|cookie|cache/i.test(name);
+const saveDatabase=name=>/idbfs|unity_fs|localforage|emulator|retro.*save|game.*save|savegame|gameprogress|playerprogress|construct.*save|rpg.*save/i.test(name)&&!/auth|firebase|cookie|cache/i.test(name);
 const request=req=>new Promise((resolve,reject)=>{req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)});
 async function pack(value){
  if(value instanceof Blob)return {__novaType:'blob',mime:value.type,data:await pack(await value.arrayBuffer())};
@@ -20,7 +20,7 @@ function unpack(value){
  if(value&&typeof value==='object'){const result={};for(const [key,item]of Object.entries(value))result[key]=unpack(item);return result;}
  return value;
 }
-const list=async()=>typeof indexedDB.databases==='function'?(await indexedDB.databases()).filter(db=>saveDatabase(db.name)):[];
+const list=async()=>{if(typeof indexedDB.databases!=='function')throw Error('This browser cannot discover IndexedDB game saves. Existing game backups were preserved; use a browser with database discovery for these saves.');return (await indexedDB.databases()).filter(db=>saveDatabase(db.name))};
 export async function captureGames(){
  const result=[];
  for(const entry of await list()){
@@ -32,6 +32,7 @@ export async function captureGames(){
    stores.push({name,keyPath:store.keyPath,autoIncrement:store.autoIncrement,indexes,rows:await Promise.all(keys.map(async(key,i)=>[await pack(key),await pack(values[i])]))});
   }result.push({name:db.name,version:db.version,stores});}finally{db.close();}
  }
+ dispatchEvent(new CustomEvent('nova-game-backup-coverage',{detail:{databases:result.map(db=>({name:db.name,stores:db.stores.length,records:db.stores.reduce((n,s)=>n+s.rows.length,0)})),state:typeof indexedDB.databases==='function'?'detected':'limited',message:typeof indexedDB.databases==='function'?'Recognized game-save databases scanned. Other storage and server-side progress are not included.':'This browser cannot list game-save databases. Browser-storage progress can still back up.'}}));
  const text=JSON.stringify(result);
  const hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)))].map(v=>v.toString(16).padStart(2,'0')).join('');
  async function archiveLocally(){

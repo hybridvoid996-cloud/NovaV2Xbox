@@ -1,0 +1,1 @@
+Vice City startup helpers, copied unchanged from https://cdn.jsdelivr.net/gh/web-ports/vice-city@796678be4ed26a13c1256be98781ca9b90beb981/ on 2026-10-29. Files: idbfs.js, game.js. Keep the pinned revision aligned with content/games/1042.html. Nova serves these through its proxy; game downloads and existing saves are unchanged.

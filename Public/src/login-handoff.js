@@ -2,12 +2,14 @@ import {browserLocalPersistence,setPersistence,signInWithCustomToken} from 'http
 const storageKey='nova-login-handoff',attemptKey='nova-login-handoff-attempted';
 const random=()=>{const bytes=crypto.getRandomValues(new Uint8Array(32));return btoa(String.fromCharCode(...bytes)).replaceAll('+','-').replaceAll('/','_').replaceAll('=','')};
 const hash=async value=>btoa(String.fromCharCode(...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value))))).replaceAll('+','-').replaceAll('/','_').replaceAll('=','');
-async function request(url,options={},timeout=8000){const response=await fetch(url,{...options,cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(timeout)});const data=await response.json();if(!response.ok)throw Error(data.error||'Shared login is unavailable.');return data}
+async function request(url,options={},timeout=8000){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeout);try{const response=await fetch(url,{...options,cache:'no-store',credentials:'omit',signal:controller.signal});const data=await response.json();if(!response.ok)throw Error(data.error||'Shared login is unavailable.');return data}finally{clearTimeout(timer)}}
 export const loginConfig=()=>request('/api/login-handoff');
 export async function automaticLogin(auth){
  if(window.top!==window||!['/','/home.html','/account.html','/index.html'].includes(location.pathname))return;
  try{
   const query=new URLSearchParams(location.search);
+  const failedAt=Number(sessionStorage.getItem('nova-login-failed-at'));if(failedAt&&Date.now()-failedAt>60000){sessionStorage.removeItem('nova-login-main-unavailable');sessionStorage.removeItem(attemptKey);sessionStorage.removeItem('nova-login-failed-at')}
+  if(auth.currentUser&&!auth.currentUser.isAnonymous){sessionStorage.removeItem('nova-login-main-unavailable');sessionStorage.removeItem('nova-login-failed-at');return;}
   if(query.has('logout')){localStorage.setItem('nova-login-handoff-signed-out','1');return}
   if(auth.currentUser&&!auth.currentUser.isAnonymous||query.has('add')||query.has('local-login')||sessionStorage.getItem('nova-login-main-unavailable')||localStorage.getItem('nova-login-handoff-signed-out')||sessionStorage.getItem('nova-adding-account')||sessionStorage.getItem(attemptKey))return;
   const config=await loginConfig();
@@ -19,7 +21,7 @@ export async function automaticLogin(auth){
   sessionStorage.setItem(attemptKey,'1');sessionStorage.setItem(storageKey,JSON.stringify({state,verifier,primary:config.primary,expiresAt:Date.now()+720000,returnPath:location.pathname==='/account.html'?'/home.html':location.pathname+location.search}));
   const url=new URL('/login-bridge.html',config.primary);url.hash=new URLSearchParams({state,challenge,target:location.origin}).toString();
   location.replace(url.href);await new Promise(()=>{});
- }catch{sessionStorage.setItem('nova-login-main-unavailable','1'); /* Stay on this copy and use its server-backed login. */ }
+ }catch{sessionStorage.setItem('nova-login-failed-at',String(Date.now()));sessionStorage.setItem('nova-login-main-unavailable','1'); /* Stay on this copy and use its server-backed login. */ }
 }
 export async function bridge(auth){
  const saved=sessionStorage.getItem('nova-login-bridge-pending');const parameters=new URLSearchParams(location.hash.slice(1)||saved||''),state=parameters.get('state'),target=parameters.get('target'),challenge=parameters.get('challenge'),config=await loginConfig();
