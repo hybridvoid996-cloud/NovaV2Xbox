@@ -1,0 +1,18 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci --ignore-scripts --include=dev
+    build:
+      commands:
+        - npm run build
+        - aws s3 sync Public/content s3://nova-public-assets-542601847620/content --only-show-errors --region us-east-2
+        - node deploy/aws/build-amplify.mjs
+  artifacts:
+    baseDirectory: .amplify-hosting
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
