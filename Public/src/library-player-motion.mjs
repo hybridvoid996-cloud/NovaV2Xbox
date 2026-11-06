@@ -1,7 +1,7 @@
 // Tile-to-player motion. Loading begins immediately under the visual transition.
 export function createLibraryMotion(){
  let active=null,busy=false,returnRequested=false;const panel=document.getElementById('panel');
- const reduce=()=>matchMedia('(prefers-reduced-motion:reduce)').matches||localStorage.getItem('nova_reduce_motion')==='true';
+ const reduce=()=>localStorage.getItem('nova_reduce_motion')==='true';
  function layer(game,rect){const root=document.createElement('div');root.className='library-player-morph';root.setAttribute('aria-hidden','true');const backdrop=document.createElement('div');backdrop.className='library-morph-backdrop';const image=document.createElement('img');image.src=game.art||'/Nova12.png';image.alt='';image.onerror=()=>{image.onerror=null;image.src='/Nova12.png'};backdrop.style.backgroundImage='url('+JSON.stringify(image.src)+')';const card=document.createElement('div');card.className='library-morph-card';card.append(image);root.append(backdrop,card);Object.assign(root.style,{left:rect.left+'px',top:rect.top+'px',width:rect.width+'px',height:rect.height+'px'});document.body.append(root);return root;}
  const pose=(from,to)=>`translate(${from.left-to.left}px,${from.top-to.top}px) scale(${from.width/to.width},${from.height/to.height})`;
  async function launch({game,source,start,onReturn}){

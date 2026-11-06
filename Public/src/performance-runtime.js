@@ -7,7 +7,7 @@
  const staticWallpaper=()=>localStorage.getItem('nova_performance_mode')==='true'||localStorage.getItem('nova_reduce_motion')==='true';
 
  const visiblePlayer=()=>!!document.querySelector?.('.os-window:is(.os-player,.os-detached-player):not([hidden])');
- const backgroundVisible=()=>{if(document.hidden||visiblePlayer()||document.querySelector?.('.os-window.os-maximized:not([hidden])'))return false;if(!panel||panel.hidden)return true;if(panel.dataset.view==='search'){try{return !document.getElementById('system')?.contentDocument?.getElementById('newtab')?.hidden}catch{return false}}return false};
+ const backgroundVisible=()=>{if(document.hidden||!!document.querySelector?.('.main-library:not([hidden]),.nova-settings-modal[open]')||visiblePlayer()||document.querySelector?.('.os-window.os-maximized:not([hidden])'))return false;if(!panel||panel.hidden)return true;if(panel.dataset.view==='search'){try{return !document.getElementById('system')?.contentDocument?.getElementById('newtab')?.hidden}catch{return false}}return false};
  function update(){
   const visible=backgroundVisible(),activePlayer=visiblePlayer();document.body.classList.toggle('nova-game-active',activePlayer);document.body.classList.toggle('nova-light-effects',lightEffects());document.body.classList.toggle('nova-content-active',document.hidden||!!panel&&!panel.hidden||activePlayer);
   if(visible!==lastVisible){lastVisible=visible;dispatchEvent(new CustomEvent('nova-background-visibility',{detail:{visible}}));}
@@ -20,5 +20,5 @@
  addEventListener('message',event=>{if(event.origin===location.origin&&event.source===document.getElementById('system')?.contentWindow&&event.data?.novaAction==='searchBackgroundChanged')update()});
  window.NovaPerformance={backgroundVisible,update,staticWallpaper};
  if(panel)new MutationObserver(update).observe(panel,{attributes:true,attributeFilter:['hidden','data-view']});
- addEventListener('resize',update);video?.addEventListener('loadedmetadata',update);document.addEventListener('visibilitychange',update);addEventListener('nova-os-windows',update);addEventListener('storage',update);video?.addEventListener('play',()=>{if(!backgroundVisible()||staticWallpaper())video.pause()});update();
+ document.addEventListener('nova-library-visibility',update);addEventListener('resize',update);video?.addEventListener('loadedmetadata',update);document.addEventListener('visibilitychange',update);addEventListener('nova-os-windows',update);addEventListener('storage',update);video?.addEventListener('play',()=>{if(!backgroundVisible()||staticWallpaper())video.pause()});update();
 })();
