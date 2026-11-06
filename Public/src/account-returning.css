@@ -1,0 +1,15 @@
+.returning-account{width:min(440px,calc(100vw - 36px));box-sizing:border-box;padding:30px;border:1px solid #ffffff2b;border-radius:24px;background:linear-gradient(140deg,#ffffff13,#ffffff04),#111214f2;color:#f6f6f8;box-shadow:inset 0 1px #ffffff23,0 30px 100px #0008;text-align:left;animation:returning-enter .45s cubic-bezier(.16,1,.3,1) both}
+.returning-account::backdrop{background:#06070999;backdrop-filter:blur(8px)}
+.returning-icon{width:52px;height:52px;display:grid;place-items:center;border:1px solid #ffffff25;border-radius:16px;background:linear-gradient(135deg,#ffffff18,#ffffff03);margin-bottom:22px;box-shadow:inset 0 1px #fff2}
+.returning-icon img{width:29px;height:29px;object-fit:contain}
+.returning-account>small{font-size:9px;letter-spacing:2px;color:#a7a7af}
+.returning-account h2{font-size:25px;font-weight:650;line-height:1.22;letter-spacing:-.7px;margin:12px 0}
+.returning-account p{font-size:13px;color:#a7a8b1;line-height:1.65;margin:0 0 24px}
+.returning-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.returning-actions button,.returning-actions a{display:flex;align-items:center;justify-content:center;gap:12px;min-height:43px;border-radius:12px;border:1px solid #ffffff24;background:#ffffff07;color:#dddde3;text-decoration:none;font:600 12px system-ui;cursor:pointer;transition:transform .16s,background .16s}
+.returning-actions a{background:#ededf2;color:#17181d;border-color:transparent}
+.returning-actions button:hover{background:#ffffff12}.returning-actions a:hover{background:#fff}.returning-actions :is(button,a):active{transform:scale(.97)}
+.returning-account.is-closing{opacity:0;transform:translateY(7px) scale(.98);transition:opacity .18s,transform .18s}
+@keyframes returning-enter{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
+@media(min-width:761px) and (max-width:1500px){.account-shell{max-width:1160px!important;margin:auto;gap:45px!important;padding:65px 40px 28px!important;min-height:100dvh;box-sizing:border-box}.account-panel{max-width:390px!important;padding:24px!important}.account-panel h1{font-size:31px!important}.account-panel .intro{font-size:12px!important;margin-bottom:15px!important}.account-tabs{margin:16px 0!important}.account-panel form label{font-size:11px!important;margin-bottom:11px!important}.account-panel form input{min-height:38px!important;padding:10px 12px!important;font-size:12px!important}.saved-login-help{padding:13px!important;margin-top:17px!important}.saved-login-help p{font-size:10px!important;line-height:1.55!important}.showcase{max-width:570px!important}.account-note,.footer-note{font-size:9px!important}}
+:root.nova-motion-reduced .returning-account{animation:none}.returning-actions :is(button,a):focus-visible{outline:2px solid #fff;outline-offset:3px}
