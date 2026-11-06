@@ -12,6 +12,16 @@ await cp('Public',staticRoot,{recursive:true,filter:source=>{
  const relative=path.relative('Public',source).replaceAll('\\','/');
  return !/^content(?:\/|$)/.test(relative)&&!/(?:^|\/)(?:__[^/]*|[^/]*-preview\.html)$/.test(relative);
 }});
+// Amplify serves HTTP APIs; long-lived game sockets use the dedicated relay.
+if(process.env.NOVA_WISP_URL){
+ const relay=new URL(process.env.NOVA_WISP_URL);
+ if(relay.protocol!=='wss:'||relay.username||relay.password||relay.search||relay.hash)throw Error('NOVA_WISP_URL must be a public WSS endpoint.');
+ const connection=path.join(staticRoot,'src/connection.js');
+ const source=await readFile(connection,'utf8');
+ const marker="new URL('/api/wisp/',location.origin)";
+ if(!source.includes(marker))throw Error('Game relay configuration marker missing.');
+ await writeFile(connection,source.replace(marker,'new URL('+JSON.stringify(relay.href)+')'));
+}
 for(const name of ['server','api','api-handlers','lib','scripts','package.json','package-lock.json','.npmrc'])await cp(name,path.join(compute,name),{recursive:true});
 for(const name of ['src','profile-assets/catalog.json','content/cinema-series.json','content/movie-services.json',...(await readdir('Public')).filter(n=>n.endsWith('.json'))]){
  await mkdir(path.dirname(path.join(compute,'Public',name)),{recursive:true});
