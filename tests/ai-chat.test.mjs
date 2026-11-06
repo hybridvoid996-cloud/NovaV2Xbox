@@ -1,4 +1,11 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {createHandler} from '../api/ai-chat.js';
+test('DeepSeek uses its own server key, endpoint and model',async()=>{
+ let url,payload,authorization,result;
+ const handler=createHandler(async(u,o)=>{url=u;payload=JSON.parse(o.body);authorization=o.headers.Authorization;return {ok:true,json:async()=>({choices:[{message:{content:'Hello'}}],usage:{total_tokens:12}})}},{DEEPSEEK_API_KEY:'private-test-key'});
+ const res={setHeader(){},end(s){result=JSON.parse(s)}};
+ await handler({method:'POST',headers:{'x-real-ip':'deepseek-test'},body:{model:'deepseek',messages:[{role:'user',text:'Hello'}]}},res);
+ assert.equal(res.statusCode,200);assert.equal(url,'https://api.deepseek.com/chat/completions');assert.equal(payload.model,'deepseek-flash');assert.equal(authorization,'Bearer private-test-key');assert.equal(result.provider,'DeepSeek');assert.equal(payload.max_tokens,1024);assert.equal(JSON.stringify(result).includes('private-test-key'),false);
+});
 const image='data:image/png;base64,aGVsbG8=';
 let sequence=0;
 async function call(messages,env={GROQ_API_KEY:'test-key'},upstream={ok:true,status:200,data:{choices:[{message:{content:'## Hello\n\n**Readable reply**'}}]}},mode='normal'){let payload,answer;const h=createHandler(async(_url,options)=>{payload=JSON.parse(options.body);return {ok:upstream.ok,status:upstream.status,json:async()=>upstream.data}},env);const res={setHeader(){},end(text){answer=JSON.parse(text)}};await h({method:'POST',headers:{host:'nova.test',origin:'https://nova.test','x-real-ip':'test-'+sequence++},body:{messages,answerMode:mode}},res);return {status:res.statusCode,...answer,payload}}
