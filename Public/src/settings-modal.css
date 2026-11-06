@@ -7,3 +7,5 @@ body.nova-main.nova-settings-page-open>header{display:flex!important;z-index:20}
 body.reduce-motion .nova-settings-page{animation:none}@media(prefers-reduced-motion:reduce){@scope (:root:not(.nova-motion-enabled)){.nova-settings-page{animation:none}}}
 
 body.nova-main .nova-settings-page,body.nova-main .nova-settings-page iframe{background:transparent!important;backdrop-filter:none!important;color-scheme:dark}
+body.nova-settings-page-open #home-continue,body.nova-settings-page-open .nova-home-recent,body.nova-settings-page-open .main-profile-dropdown{display:none!important}
+.nova-settings-page{z-index:15!important;inset:76px 0 0!important}

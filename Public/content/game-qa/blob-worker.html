@@ -1,0 +1,1 @@
+<!doctype html><body>Starting worker<script>const status=document.body;const url=URL.createObjectURL(new Blob(['postMessage("worker running");'],{type:'text/javascript'}));const worker=new Worker(url);worker.onmessage=e=>status.firstChild.textContent=e.data;worker.onerror=e=>status.firstChild.textContent='Worker error: '+e.message;</script>

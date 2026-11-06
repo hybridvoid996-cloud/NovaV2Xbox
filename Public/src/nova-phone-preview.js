@@ -1,1 +1,1 @@
-import {initNovaPhone} from './nova-phone.js';window.novaHomeProfile={name:'Nova Player',bio:'Your space. Your games. Your Nova.'};await initNovaPhone({preview:true});
+import {initNovaPhone} from './nova-phone.js?v=481';window.novaHomeProfile={name:'Nova Player',bio:'Your space. Your games. Your Nova.'};await initNovaPhone({preview:true});

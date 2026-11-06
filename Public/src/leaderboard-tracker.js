@@ -1,6 +1,6 @@
 import {auth} from './account-firebase.js';
 import {control} from './control-client.js';
-if(window===top){
+if(window===top||window.NovaBlankHosted){
  let lastInput=performance.now(),busy=false;const watched=new WeakSet();
  function watch(win,depth=0){if(depth>4)return;try{const doc=win.document;if(!watched.has(doc)){watched.add(doc);for(const type of ['pointerdown','pointermove','mousemove','keydown','touchstart'])doc.addEventListener(type,event=>{if(event.isTrusted)lastInput=performance.now()},{capture:true,passive:true});doc.addEventListener('load',event=>{if(event.target.tagName==='IFRAME')watch(event.target.contentWindow,depth+1)},true)}for(const frame of doc.querySelectorAll('iframe'))if(frame.getClientRects().length)watch(frame.contentWindow,depth+1)}catch{}}
  function game(win,depth=0){if(depth>4)return null;try{const doc=win.document,url=new URL(win.location.href);if(url.pathname.endsWith('/player.html')&&doc.body.classList.contains('ready')){const kind=url.searchParams.get('kind')||'game';if(['game','cloud','app'].includes(kind))return kind+':'+url.searchParams.get('id')}if(doc.querySelector('dialog[open]'))return null;const frames=[...doc.querySelectorAll('iframe')].filter(f=>!f.hidden&&f.getClientRects().length);frames.sort((a,b)=>Number(b===doc.activeElement)-Number(a===doc.activeElement));for(const frame of frames){const found=game(frame.contentWindow,depth+1);if(found)return found}}catch{}return null}

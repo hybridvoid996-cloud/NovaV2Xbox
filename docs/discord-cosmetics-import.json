@@ -1,0 +1,15 @@
+{
+  "at": "2026-11-04T11:55:09.279Z",
+  "source": "https://github.com/Infinitay/discord-collectibles-archive",
+  "commit": "6f7036a9649ecbdc3834d2db168d666f504f16c5",
+  "candidates": 197,
+  "added": 0,
+  "skipped": 197,
+  "total": 392,
+  "failures": [],
+  "limitations": [
+    "Live Discord catalog requires authentication; this public archive is not the complete current shop.",
+    "Profile effects use the primary animated layer supported by Nova; exact multi-layer timing is not imported.",
+    "Collection promotional banners are not wearable profile banners and were not added."
+  ]
+}

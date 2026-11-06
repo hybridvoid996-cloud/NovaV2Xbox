@@ -1,0 +1,211 @@
+{
+  "upgraded": 262,
+  "frames": 0,
+  "failures": [
+    {
+      "label": "Deadpool: Profile Frame",
+      "error": "HTTP 404"
+    },
+    {
+      "label": "Wolverine: Profile Frame",
+      "error": "HTTP 404"
+    },
+    {
+      "label": "Deadpool Mask: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Wolverine Mask: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "The Entity: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Dark Moon: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Alebrije: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Leopard Print: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Alt Raccoon: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Tilcayo: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Leafy Loaf: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Autumn Garden: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Pearly Pop: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Bare Branches: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Moonflowers: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Devil's Thorns: Profile Frame",
+      "error": "HTTP 404"
+    },
+    {
+      "label": "Rose Filigree: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Wraithling: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Always Watching: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Spider-Man: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Spider-Man's Web: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Venom: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Symbiote: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Lord of the Dead: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Totality: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Solar Crown: Profile Frame",
+      "error": "HTTP 404"
+    },
+    {
+      "label": "Berry Bunny: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Star Chart: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Ocean: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Bunny Bliss: Profile Frame",
+      "error": "HTTP 404"
+    },
+    {
+      "label": "Precious Metal: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Fantasy Galaxy: Profile Frame",
+      "error": "HTTP 404"
+    },
+    {
+      "label": "Encore: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Prism Edge: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Lofi Skyline: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Ribbit: Profile Frame",
+      "error": "HTTP 404"
+    },
+    {
+      "label": "Meow Meow Cat: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Mariposa: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Dark Roses: Profile Frame",
+      "error": "HTTP 404"
+    },
+    {
+      "label": "Crystals: Profile Frame",
+      "error": "HTTP 404"
+    },
+    {
+      "label": "Neon Chaos: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Dragon: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Vengeance: Profile Frame",
+      "error": "HTTP 404"
+    },
+    {
+      "label": "Pond Pals: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Starlight Kingdom: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Sakura Spring: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Retro Futurism: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Kawaii Cat: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Dimensional Divide: Profile Frame",
+      "error": "HTTP 404"
+    },
+    {
+      "label": "Tiger Guardian: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    },
+    {
+      "label": "Tropical Symphony: Profile Frame",
+      "error": "Expected top and bottom frame assets"
+    }
+  ],
+  "total": 1068
+}

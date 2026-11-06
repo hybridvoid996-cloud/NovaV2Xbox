@@ -1,0 +1,15 @@
+body #loader{--launch-color:70,74,84;background:radial-gradient(ellipse at 50% 38%,rgba(var(--launch-color),.7),rgba(var(--launch-color),.22) 60%,#090a0c 100%),#111216!important;gap:0;padding:24px;transition:opacity .3s ease;}
+body #loader:before,body #loader:after,body #loader .flight,body #loader .launch-backdrop,body #loader .os-loading-art{display:none!important}
+body #loader .loading-copy{position:relative!important;inset:auto!important;transform:none!important;width:min(360px,86vw);max-width:360px;text-align:center;padding:0;opacity:1;}
+body #loader #launch-icon{display:block;width:clamp(88px,12vw,126px);height:clamp(88px,12vw,126px);object-fit:cover;border-radius:24%;margin:0 auto 25px;box-shadow:0 15px 45px #0004,0 0 0 1px #ffffff20;animation:icon-arrive .45s ease both}
+body #loader #eyebrow{display:block!important;font-size:9px;letter-spacing:2.4px;color:#ffffff99}
+body #loader #title{display:block!important;font:600 clamp(19px,2.5vw,25px)/1.25 system-ui;margin:12px 0 10px;letter-spacing:-.5px;color:#fff;}
+body #loader #message{position:static!important;clip:auto!important;clip-path:none!important;width:auto!important;height:auto!important;overflow:visible!important;font:400 12px/1.6 system-ui;color:#ffffffb5;margin:0;min-height:20px;}
+body #loader .hint{display:none!important}
+body #loader .track{display:block;width:min(210px,65vw);height:3px;margin:22px auto 0;background:#ffffff23;border-radius:8px;overflow:hidden;}
+body #loader .track i{width:100%!important;height:100%;background:#fff;transform-origin:left;animation:none!important;box-shadow:none;}
+body #loader .track.waiting:after{height:3px;background:linear-gradient(90deg,transparent,#fff,transparent);animation:launch-scan 1.5s ease-in-out infinite;}
+body #loader #back{display:flex!important;align-items:center;gap:7px;position:absolute;left:max(20px,env(safe-area-inset-left));top:max(20px,env(safe-area-inset-top));width:auto;height:40px;padding:0 15px;border-radius:22px;font:400 24px/1 system-ui;background:#0002;border:1px solid #ffffff30;color:#fff;z-index:5;backdrop-filter:blur(12px);}
+body #loader #back span{font-size:12px}body #loader #back:hover{background:#ffffff1c}body.failed #loader .track{display:none}body.leaving #loader .loading-copy{opacity:0;transition:opacity .2s}
+@keyframes icon-arrive{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){body #loader #launch-icon{animation:none}body #loader .track.waiting:after{animation:none;transform:none;opacity:.6}}

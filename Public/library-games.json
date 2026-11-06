@@ -9036,7 +9036,7 @@
     "id": 1030,
     "name": "Roblox",
     "art": "Img/app/Roblox.jpg",
-    "url": "https://nowgg.lol/apps/a/19900/b.html",
+    "url": "https://nowgg.fun/apps/a/19900/b.html",
     "genres": [
       "Multiplayer",
       "Other"
@@ -9047,7 +9047,7 @@
     "id": 1031,
     "name": "Fortnite",
     "art": "Img/app/fortnitelogo.jpg",
-    "url": "https://nowgg.lol/apps/aptoide/5874/aptoide.html?deep_link=aptoidesearch://com.epicgames.fortnite",
+    "url": "https://nowgg.fun/apps/aptoide/5874/aptoide.html?deep_link=aptoidesearch://com.epicgames.fortnite",
     "genres": [
       "Battle Royale",
       "Multiplayer"
@@ -9058,7 +9058,7 @@
     "id": 1032,
     "name": "Stumble Guys",
     "art": "Img/game/stumbleguys.jpg",
-    "url": "https://nowgg.lol/apps/a/10011/b.html",
+    "url": "https://nowgg.fun/apps/a/10011/b.html",
     "genres": [
       "Multiplayer",
       "Platformer"
@@ -9069,7 +9069,7 @@
     "id": 1033,
     "name": "FC Mobile",
     "art": "Img/game/Fcmobile.webp",
-    "url": "https://nowgg.lol/apps/a/1353/b.html",
+    "url": "https://nowgg.fun/apps/a/1353/b.html",
     "genres": [
       "Sports",
       "Multiplayer"
@@ -9080,7 +9080,7 @@
     "id": 1034,
     "name": "Call of Duty Mobile",
     "art": "Img/game/Callofduty.jpg",
-    "url": "https://nowgg.lol/apps/a/10008/b.html",
+    "url": "https://nowgg.fun/apps/a/10008/b.html",
     "genres": [
       "Action",
       "Multiplayer"
@@ -9198,7 +9198,7 @@
   {
     "id": 1045,
     "name": "GTA on Browser",
-    "url": "https://fiveplay.lol/?low=1",
+    "url": "https://fiveplay.lol/?low=1&cores=1&fps=30&res=1280x720",
     "art": "content/covers/1045.png",
     "genres": [
       "Action",

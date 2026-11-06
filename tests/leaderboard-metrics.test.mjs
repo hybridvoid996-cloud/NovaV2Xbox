@@ -1,0 +1,7 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {buildLeaderboardRows} from '../server/leaderboard.mjs';
+const players=[{uid:'a',name:'Alpha',seconds:500,coins:20,rankInfo:{elo:300},gameSeconds:{'game:1':90,'game:2':300}},{uid:'b',name:'Beta',seconds:900,coins:10,rankInfo:{elo:100},gameSeconds:{'game:1':120}},{uid:'c',name:'Charlie',seconds:100,coins:50,rankInfo:{elo:500},gameSeconds:{}}];
+test('each leaderboard orders by its own metric',()=>{assert.equal(buildLeaderboardRows(players,{metric:'minutes'})[0].uid,'b');assert.equal(buildLeaderboardRows(players,{metric:'coins'})[0].uid,'c');assert.equal(buildLeaderboardRows(players,{metric:'rank'})[0].uid,'c')});
+test('game scope includes participants and preserves account totals',()=>{const rows=buildLeaderboardRows(players,{metric:'coins',game:'game:1'});assert.deepEqual(rows.map(p=>p.uid),['a','b']);assert.equal(rows[0].seconds,90);assert.equal(rows[0].totalSeconds,500);assert.equal(rows[0].coins,20);assert.deepEqual(rows[0].topGame,['game:2',300]);assert.equal('gameSeconds' in rows[0],false)});
+test('search retains standings and deterministic ties',()=>{assert.equal(buildLeaderboardRows(players,{metric:'coins',search:'beta'})[0].rank,3);const tied=players.map(p=>({...p,coins:1}));assert.deepEqual(buildLeaderboardRows(tied,{metric:'coins'}).map(p=>p.uid),['a','b','c']);assert.equal(players[0].rank,undefined)});

@@ -1,10 +1,13 @@
 import {readGameLoading} from './game-loading-health.mjs?v=20261020-health210';
 
 // A document load event is not engine readiness. Wait out visible game loaders.
-export function watchGameLaunch(frame,{signal,onReady,onProgress=()=>{},interval=200}={}){
+export function watchGameLaunch(frame,{signal,onReady,onProgress=()=>{},interval=200,showNativeLoader=false}={}){
  let stopped=false;
  const scan=(doc,depth=0)=>{
   if(!doc?.body||doc.URL==='about:blank'||depth>5)return {waiting:true};
+  // Some games expose their own real download progress and mode selector.
+  // Hand the screen over rather than scraping their debug output into Nova.
+  if(showNativeLoader){const visible=node=>{const r=node.getBoundingClientRect(),style=doc.defaultView.getComputedStyle(node);return r.width>=160&&r.height>=90&&style.display!=='none'&&style.visibility!=='hidden'&&Number(style.opacity)!==0};if([...doc.querySelectorAll('canvas,#loading,#loader,#loading-screen')].some(visible))return {waiting:false};}
   const loading=readGameLoading(doc);
   if(loading){const start=doc.querySelector('#start,button[data-game-start]');if(start&&!start.disabled&&!start.hidden&&!start.closest('[hidden]')){const style=doc.defaultView.getComputedStyle(start),rect=start.getBoundingClientRect();if(style.display!=='none'&&style.visibility!=='hidden'&&Number(style.opacity)!==0&&rect.width>0&&rect.height>0&&/^(play|start(?: game)?)$/i.test(start.textContent.trim()))return {waiting:false}}const percent=loading.text.match(/\b(\d+(?:\.\d+)?)\s*%/);return {waiting:true,text:loading.text||'Loading game files…',percent:!loading.error&&percent?Math.min(99,Number(percent[1])):undefined}}
   for(const child of doc.querySelectorAll('iframe')){

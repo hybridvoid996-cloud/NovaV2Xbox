@@ -1,0 +1,144 @@
+{
+  "effectVariantsDone": [
+    "Dark Moon Crows: Profile Effect",
+    "Moonflowers: Profile Effect",
+    "Lord of the Dead: Profile Effect",
+    "Hades' Throne: Profile Effect",
+    "Lord of the Dead: Profile Frame",
+    "Fantasy Galaxy: Profile Frame",
+    "Prism Edge: Profile Frame",
+    "Meow Meow Cat: Profile Frame",
+    "Mariposa: Profile Frame",
+    "Dark Roses: Profile Frame",
+    "Crystals: Profile Frame",
+    "Neon Chaos: Profile Frame",
+    "Dragon: Profile Frame",
+    "Vengeance: Profile Frame",
+    "Cycling Lights: Profile Effect",
+    "Ambient Ripples: Profile Effect",
+    "Falling With Style: Profile Effect",
+    "Spray Doodles: Profile Effect",
+    "Neon Glow: Profile Effect",
+    "Drifting Glow: Profile Effect",
+    "Electric Aura: Profile Effect",
+    "Dark Roses: Profile Effect",
+    "Nevermore: Profile Effect",
+    "Dream Waves: Profile Effect",
+    "Star Swirl: Profile Effect",
+    "Cosmic Twilight: Profile Effect"
+  ],
+  "variantFailures": [
+    {
+      "label": "Harvest Mouse (Brown): Nameplate",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Harvest Mouse (Gray): Nameplate",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Moonflowers (Base): Nameplate",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Moonflowers (Jackalope): Nameplate",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Harvest Mouse (Brown): Nameplate",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Harvest Mouse (Gray): Nameplate",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Moonflowers (Base): Nameplate",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Moonflowers (Jackalope): Nameplate",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Lord of the Dead (Blue): Avatar Decoration",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Lord of the Dead (Red): Avatar Decoration",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Eternal Damnation (Blue): Nameplate",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Eternal Damnation (Red): Nameplate",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Astrolabe (Gold): Avatar Decoration",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Astrolabe (Silver): Avatar Decoration",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Cycling Lights (RGB): Avatar Decoration",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Cycling Lights (Vaporwave): Avatar Decoration",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Cycling Lights (Iridescent): Avatar Decoration",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Ambient Ripples (Arctic): Avatar Decoration",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Ambient Ripples (Lavender): Avatar Decoration",
+      "error": "Error: Timed out after 3000ms waiting for selector main [role=\"listitem\"] >> nth"
+    },
+    {
+      "label": "Ambient Ripples (Bubblegum): Avatar Decoration",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    },
+    {
+      "label": "Ambient Ripples (Golden): Avatar Decoration",
+      "error": "Error: Playwright selector deadline exceeded\nwaiting on click for selector main "
+    }
+  ],
+  "remainingEffectOptionGroups": [
+    "Every Profile is a Stage: Profile Effect",
+    "Kawaii Clouds: Profile Effect",
+    "Lightsaber Mastery: Profile Effect",
+    "F in Chat: Profile Effect",
+    "Starfall Tides: Profile Effect",
+    "Lava Lamp: Profile Effect",
+    "Magic Hearts: Profile Effect",
+    "Power Surge: Profile Effect",
+    "Shatter: Profile Effect",
+    "Shuriken Strike: Profile Effect",
+    "Dreamy: Profile Effect",
+    "Ki Detonate: Profile Effect",
+    "Sushi Mania: Profile Effect",
+    "Roses Galore: Profile Effect",
+    "Heartstring Theory: Profile Effect",
+    "Portal Beyond: Profile Effect",
+    "Mooncap Forest: Profile Effect",
+    "Deck the halls: Profile Effect",
+    "Snowy Shenanigans: Profile Effect",
+    "Lofi Cat Zoomies: Profile Effect",
+    "Dark Omens: Profile Effect",
+    "Zombie Slime: Profile Effect",
+    "Grove: Profile Effect",
+    "Fall Foliage: Profile Effect",
+    "Ghoulish Graffiti: Profile Effect",
+    "Lilypad Life: Profile Effect"
+  ]
+}

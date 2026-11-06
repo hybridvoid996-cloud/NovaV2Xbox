@@ -1,0 +1,1 @@
+if(matchMedia('(max-width:600px)').matches||matchMedia('(pointer:coarse) and (max-width:900px)').matches){document.documentElement.classList.add('nova-phone-device');const {initNovaPhone}=await import('./nova-phone.js?v=481');await initNovaPhone();}

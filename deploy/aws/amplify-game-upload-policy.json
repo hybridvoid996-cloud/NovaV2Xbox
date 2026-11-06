@@ -1,0 +1,7 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {"Sid":"ListNovaGameFiles","Effect":"Allow","Action":"s3:ListBucket","Resource":"arn:aws:s3:::nova-public-assets-542601847620","Condition":{"StringLike":{"s3:prefix":["content","content/*"]}}},
+    {"Sid":"UploadNovaGameFiles","Effect":"Allow","Action":["s3:PutObject","s3:AbortMultipartUpload"],"Resource":"arn:aws:s3:::nova-public-assets-542601847620/content/*"}
+  ]
+}

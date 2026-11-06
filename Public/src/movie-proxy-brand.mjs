@@ -1,3 +1,4 @@
+import {injectMoviePopupGuard} from './movie-popup-guard.mjs?v=20261102-movie469';
 import {isMovieProviderError} from './movie-provider-error.mjs?v=20261027-movie336';
 import {novaMovieLogo} from './movie-logo.mjs';
 import {createMovieStallRecovery} from './movie-stall.mjs';
@@ -31,5 +32,5 @@ export async function brandMovieResponse(response,target={}){
  const body=typeof response.body==='string'?response.body:await new Response(response.body).text();
  const config=JSON.stringify({logo:novaMovieLogo,css:movieCinemaCSS,session:target.session||'',resumeAt:Number.isFinite(target.resumeAt)?Math.max(0,target.resumeAt):0,provider:target.provider||'',profile:{name:String(target.profile?.name||'Nova player').slice(0,80),photo:String(target.profile?.photo||'').slice(0,200000)}}).replace(/</g,'\\u003c');
  const script='<script>('+movieRuntime.toString()+')('+config+','+createMovieStallRecovery.toString()+','+isMovieProviderError.toString()+');</script>';
- return {...response,body:body+script,headers:response.headers.filter(([k])=>!['content-length','content-encoding'].includes(k.toLowerCase()))};
+ return {...response,body:injectMoviePopupGuard(body)+script,headers:response.headers.filter(([k])=>!['content-length','content-encoding'].includes(k.toLowerCase()))};
 }

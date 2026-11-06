@@ -12,7 +12,7 @@
       return ['http:', 'https:'].includes(url.protocol) && !url.username && !url.password ? url.href : null;
     } catch { return null; }
   };
-  let overlay, previousFocus, recording = false, recordTimer;
+  let overlay, previousFocus, recording = false, recordTimer, connectionScript;
   const documents = new WeakSet(), frames = new WeakSet();
 
   function host() {
@@ -38,9 +38,22 @@
     overlay = document.createElement('dialog');
     overlay.id = 'nova-smart-overlay';
     overlay.setAttribute('aria-label', 'Panic Button Smart');
-    overlay.innerHTML = `<header><button type="button" data-back>← Go back to Nova</button><a target="_blank" rel="noopener noreferrer">Open website ↗</a></header><p>Website not appearing? Some sites, including Google Classroom, may require “Open website”. Close that tab to return here.</p><iframe title="Your Smart Panic website" referrerpolicy="no-referrer" sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-downloads"></iframe>`;
-    overlay.querySelector('a').href = destination;
-    overlay.querySelector('iframe').src = destination;
+    overlay.innerHTML = '<button type="button" data-back>← Go back to Nova</button><div data-panic-status role="status">Connecting to the website…</div><div data-panic-view></div>';
+    const activeOverlay=overlay;
+    const launch=async()=>{
+      const notice=activeOverlay.querySelector('[data-panic-status]');notice.textContent='Connecting to the website…';notice.hidden=false;
+      try{
+        if(!window.NovaConnection){connectionScript??=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='/src/connection.js?v=20261102-panic466';script.onload=resolve;script.onerror=()=>{connectionScript=null;reject(Error('Nova connection could not load.'))};document.head.append(script)});await connectionScript}
+        if(overlay!==activeOverlay)return;
+        const controller=await window.NovaConnection.create({onRequestError:()=>{if(overlay===activeOverlay){notice.hidden=false;notice.textContent='The website could not be reached. Go back to Nova and try again.'}}});
+        if(overlay!==activeOverlay)return;
+        const view=controller.createFrame();view.element.title='Your Smart Panic website';view.element.setAttribute('sandbox','allow-scripts allow-forms allow-same-origin allow-downloads');
+        activeOverlay.querySelector('[data-panic-view]').replaceChildren(view.element);
+        view.element.addEventListener('load',()=>{if(overlay===activeOverlay)notice.hidden=true});
+        view.go(destination);
+      }catch(error){if(overlay===activeOverlay)notice.textContent='The proxy could not connect. Go back to Nova and try again.'}
+    };
+    launch();
     overlay.querySelector('[data-back]').onclick = close;
     overlay.addEventListener('cancel', event => { event.preventDefault(); close(); });
     document.body.appendChild(overlay);
@@ -131,7 +144,7 @@
   window.addEventListener('storage', refresh);
   function init() {
     const style = document.createElement('style');
-    style.textContent = `#nova-smart-overlay{position:fixed;inset:0;box-sizing:border-box;margin:0;width:100%;height:100%;height:100dvh;max-width:none;max-height:none;border:0;padding:0;background:#fff;color:#202124;font:14px Arial,sans-serif;z-index:2147483647}#nova-smart-overlay[open]{display:flex;flex-direction:column}#nova-smart-overlay::backdrop{background:#fff}#nova-smart-overlay header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;background:#f8f9fa;border-bottom:1px solid #dadce0;flex-shrink:0}#nova-smart-overlay button,#nova-smart-overlay a{font:600 14px Arial,sans-serif;padding:10px 12px;border-radius:6px;color:#174ea6;background:#fff;border:1px solid #dadce0;text-decoration:none;cursor:pointer}#nova-smart-overlay p{font:12px Arial,sans-serif;margin:0;padding:8px 14px;color:#5f6368;background:#fff;flex-shrink:0}#nova-smart-overlay iframe{display:block;width:100%;flex:1;min-height:0;border:0;background:#fff}`;
+    style.textContent = `#nova-smart-overlay{position:fixed!important;inset:0!important;box-sizing:border-box;margin:0!important;width:100vw!important;height:100dvh!important;max-width:none!important;max-height:none!important;border:0!important;padding:0!important;background:#f5f5f5;z-index:2147483647;overflow:hidden}#nova-smart-overlay::backdrop{background:#111}#nova-smart-overlay [data-panic-view]{position:absolute;inset:0}#nova-smart-overlay iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:white}#nova-smart-overlay [data-back]{position:absolute;left:16px;top:16px;z-index:5;padding:12px 17px;border-radius:15px;border:1px solid #ffffff60;background:#20202080;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:inset 0 1px #ffffff35,0 5px 20px #0002;color:#fff;font:500 13px system-ui;cursor:pointer;transition:background .2s,transform .2s}#nova-smart-overlay [data-back]:hover{background:#303030ab;transform:translateY(-1px)}#nova-smart-overlay [data-back]:focus-visible{outline:2px solid #fff;outline-offset:3px}#nova-smart-overlay [data-panic-status]{position:absolute;z-index:4;left:16px;bottom:20px;max-width:calc(100% - 32px);padding:12px 16px;border-radius:12px;background:#202020b0;color:white;font:13px system-ui;backdrop-filter:blur(15px)}#nova-smart-overlay [hidden]{display:none!important}@media(prefers-reduced-motion:reduce){#nova-smart-overlay [data-back]{transition:none}}`;
     document.head.appendChild(style);
     const keyButton = document.getElementById('panicSmartKeyBtn');
     if (keyButton) {

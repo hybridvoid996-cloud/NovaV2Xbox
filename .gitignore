@@ -14,3 +14,8 @@ remote-agent/dist/
 
 # Generated browser audit logs and screenshots
 docs/game-audit/
+
+# Local deployment staging; never commit generated bundles
+.aws-stage/
+.amplify-public/
+.amplify-hosting/

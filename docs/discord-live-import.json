@@ -1,0 +1,1322 @@
+{
+  "at": "2026-11-04T21:53:05.916Z",
+  "inspected": 1108,
+  "added": 16,
+  "duplicates": 764,
+  "unsupported": [
+    {
+      "label": "Deadpool: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Wolverine: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Deadpool: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Wolverine: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Deadpool Mask: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Wolverine Mask: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Hook: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dark Moon Crows: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Bloodweb: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "The Entity: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dark Moon: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Papel Picado: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Alebrije: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Halloween Forever: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Pumpkin King: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Leopard Print: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Alt Raccoon: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Tilcayo: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Autumn Garden: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Odette: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Leafy Loaf: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Autumn Garden: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Mer-Bubbles: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Mermaid Muse: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dancing Dolphins: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Pearly Pop: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Mothman: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Moonflowers: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Jersey Devil: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "La Llorona: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Bare Branches: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Moonflowers: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Devil's Thorns: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Whispering Rose: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Midnight Howl: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Shattered Wings: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Rose Filigree: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Death's-Head Hawkmoth: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Praying Mantis: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dragonfly: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Saya: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Wake Up!: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Tocotoco: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Always Watching: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Let's Play: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Trapped Souls: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Wraithling: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Always Watching: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cycling Lights: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Ambient Ripples: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Falling With Style: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Peek a Boo: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "First Breath: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Falling Stars: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Midnight Mantas: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Spray Doodles: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Soaring Mando: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Hover Pram: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Mando and Grogu: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Starlight Wand: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cosmic Guardian: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Heart Beam: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cherry Surprise: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Bananabelle: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Berry Cute: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cloud Nine: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Star Struck: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Ladybug Luau: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Buggy Branches: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Hello Kitty: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Pompompurin: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cinnamoroll: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Kuromi x My Melody: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "LittleTwinStars: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Playground Pals: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Spider-Man: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Spider-Man's Web: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Venom: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Symbiote: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Spider-Man: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Venom: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Enchanted Cosmos: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cloud Kingdom: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dream Hop Portal: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lucky Era: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Neon Glow: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Drifting Glow: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Electric Aura: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Match Made: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Flying Solo: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Hunny Bunnies: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lone Wolf: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cutesy: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lil Stinker: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Crimson Stallion: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Sky Lanterns: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Gothic Arches: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dark Roses: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Nevermore: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "The Hermit: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "The Tower: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "The Magician: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dream Waves: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Counting Sheep: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Star Drift: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Aries: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Taurus: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Gemini: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cancer: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Leo: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Virgo: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Libra: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Scorpio: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Sagittarius: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Capricorn: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Aquarius: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Pisces: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Woodsprites: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Hallelujah Mountains: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Nightwraith: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cosmic Storm: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Planet Rings: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Star Swirl: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cosmic Twilight: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Encom Grid: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "The Grid Fireworks: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Light Cycles: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Black Ops 7: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Shattered Reality: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Black Flash: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Unlimited Void: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Malevolent Shrine: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "WEEEEE~: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Maple Mornings: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cozy Flower: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Every Profile is a Stage: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Loot Shower: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Doin' the robot: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "The Timekeeper: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Starfall Rings: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Liquid Moonlight: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Moonlit Crystals: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Spring Rain: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Butterfly Haven: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Wind Chime: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "hehe so random xP: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Rawr xD Splash: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Kawaii Clouds: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Magic Mists: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Infinite Swirl: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Galactus: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "The Fantastic Four: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Silver Surfer: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Yunara's Aion Er'na: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Spirit Blossom Springs: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Ahri's Floating Ducks: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Join the Alliance: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Duchess Astro: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Critical Damage: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Titan vs Astro: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Skibidi Toilets: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "the same duck: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lots of bubbles: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Firefly Meadow: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "D20 Roll: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Red Dragon: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Beholder: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Mimic: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Bonsai Eternity: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Shadow Strike: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Zen Garden: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Angelic Intervention: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Fae Trickery: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Zombie Apocalypse: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dragon's Approach: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Primal Hunger: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Full Cowling: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cluster: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "League of Villains: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Farming Town: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Fishing Village: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Baking Challenge: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lightsaber Mastery: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Entering Hyperspace: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Darth Vader Arrives: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Keyboard Cats: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "F in Chat: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Sweet Copium: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lazy Loaf: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Capyccino: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Pancake Pals: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Nature is Healing: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Nom Kitty Crunch: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Tumbleweeds: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Deep Dive: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Starfall Tides: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lava Lamp: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Magic Hearts: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Wishful Beginnings: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Magical Girl Energy: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Power Surge: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Shatter: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Close Combat: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Shuriken Strike: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dreamy: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Ki Detonate: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Sushi Mania: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Bearly Afloat: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Roses Galore: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Heartstring Theory: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Fog of War: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Wonder Construction: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Science Victory: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dragon Dance: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Twist of Luck: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Koi Garden: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Fortune Flurry: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Midnight Celebration: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Clockwork Butterflies: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cloud Zeppelin: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Innovator's Masterwork: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Enchanted Forest: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Portal Beyond: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Mooncap Forest: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Hydro Blast: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Sakura Dreams: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Mystic Vines: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Pixie Dust: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Aurora Dreams: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Penguins on Ice: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Deck the halls: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Snowy Shenanigans: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lofi Girl Snow Angel: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lofi Girl Study Break: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lofi Cat Zoomies: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Plushie Party: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Bubble Tea Bliss: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Kawaii Mode: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Arcane Epiphany: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Jinx and Pow-Pow: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Ekko's Aeroglider Stunts: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Paint the Town Blue: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Spirit of the Kitsune: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Flutter and Frolic: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Mermaid Whisperer: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Ghoulish Graffiti: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dark Omens: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Zombie Slime: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Street Fighter 6: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Akuma's Wrath: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "M. Bison's Return: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Classic Street Fighter: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Grove: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Autumn Equinox: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Sun and Moon: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Fall Foliage: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lilypad Life: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Oni's Curse: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Of Ink and Steel: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Sakura Katana: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Yoru Dimensional Rip: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "ACE: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Clove's Ruse: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "The Immortal Clove: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Arcane Summons: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Vengeance: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Spirit Flame: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Twilight: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Shooting Stars: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Supernova: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Study Spot: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "All Nighter: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Watercolors: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Nightrunner: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Uplink Error: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Rock Slide: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Vortex: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Mastery: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Jolly Roger: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Forgotten Treasure: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Haunted Man O' War: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Space Evader: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Turbo Drive: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Twinkle Trails: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Petal Serenade: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Fellowship of the Spring: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Spring Bloom: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Feelin' Mischievous: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Feelin' 90s: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Feelin' Pizzazz: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Cyberspace: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Boost Relic: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lord of the Dead: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Hades' Throne: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Hellhound: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Those Left Behind: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lord of the Dead: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Solar Rays: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Suncatchers: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Golden Ripples: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Totality: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Solar Crown: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Berry Bunny: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Star Chart: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Ocean: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Bunny Bliss: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Precious Metal: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Fantasy Galaxy: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Encore: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Prism Edge: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Lofi Skyline: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Ribbit: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Meow Meow Cat: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Mariposa: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dark Roses: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Crystals: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Neon Chaos: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dragon: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Vengeance: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Pond Pals: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Starlight Kingdom: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Sakura Spring: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Retro Futurism: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Kawaii Cat: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Dimensional Divide: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Tiger Guardian: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Tropical Symphony: Profile Frame",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    },
+    {
+      "label": "Shiver: Profile Effect",
+      "reason": "Requires full effect-layer or profile-frame renderer; preview art is not an animated wearable."
+    }
+  ],
+  "failures": [],
+  "total": 1068
+}

@@ -1,0 +1,2702 @@
+[
+  {
+    "label": "Dark Moon (Base): Avatar Decoration",
+    "baseLabel": "Dark Moon: Avatar Decoration",
+    "variant": "Base",
+    "collection": "Category: Dead by Daylight",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1556801499403657236/static"
+    ]
+  },
+  {
+    "label": "Dark Moon (Blood Moon): Avatar Decoration",
+    "baseLabel": "Dark Moon: Avatar Decoration",
+    "variant": "Blood Moon",
+    "collection": "Category: Dead by Daylight",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1556801499403657236/static"
+    ]
+  },
+  {
+    "label": "Scratch Marks (Red): Nameplate",
+    "baseLabel": "Scratch Marks: Nameplate",
+    "variant": "Red",
+    "collection": "Category: Dead by Daylight",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1556807670403702794/video"
+    ]
+  },
+  {
+    "label": "Scratch Marks (Teal): Nameplate",
+    "baseLabel": "Scratch Marks: Nameplate",
+    "variant": "Teal",
+    "collection": "Category: Dead by Daylight",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1556807670403702794/video"
+    ]
+  },
+  {
+    "label": "Scratch Marks (Purple): Nameplate",
+    "baseLabel": "Scratch Marks: Nameplate",
+    "variant": "Purple",
+    "collection": "Category: Dead by Daylight",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1556807670403702794/video"
+    ]
+  },
+  {
+    "label": "Dark Moon (Base): Nameplate",
+    "baseLabel": "Dark Moon: Nameplate",
+    "variant": "Base",
+    "collection": "Category: Dead by Daylight",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1556808246776434708/video"
+    ]
+  },
+  {
+    "label": "Dark Moon (Blood Moon): Nameplate",
+    "baseLabel": "Dark Moon: Nameplate",
+    "variant": "Blood Moon",
+    "collection": "Category: Dead by Daylight",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1556808246776434708/video"
+    ]
+  },
+  {
+    "label": "Calavera (Purple): Nameplate",
+    "baseLabel": "Calavera: Nameplate",
+    "variant": "Purple",
+    "collection": "Category: Día de Muertos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1561803485622575244/video"
+    ]
+  },
+  {
+    "label": "Calavera (Red): Nameplate",
+    "baseLabel": "Calavera: Nameplate",
+    "variant": "Red",
+    "collection": "Category: Día de Muertos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1561803485622575244/video"
+    ]
+  },
+  {
+    "label": "Calavera (Blue): Nameplate",
+    "baseLabel": "Calavera: Nameplate",
+    "variant": "Blue",
+    "collection": "Category: Día de Muertos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1561803485622575244/video"
+    ]
+  },
+  {
+    "label": "Jack Skellington (Base): Avatar Decoration",
+    "baseLabel": "Jack Skellington: Avatar Decoration",
+    "variant": "Base",
+    "collection": "Category: The Nightmare Before Christmas",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1559627983088783492/static"
+    ]
+  },
+  {
+    "label": "Jack Skellington (Bones): Avatar Decoration",
+    "baseLabel": "Jack Skellington: Avatar Decoration",
+    "variant": "Bones",
+    "collection": "Category: The Nightmare Before Christmas",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1559627983088783492/static"
+    ]
+  },
+  {
+    "label": "Oogie Boogie (Base): Avatar Decoration",
+    "baseLabel": "Oogie Boogie: Avatar Decoration",
+    "variant": "Base",
+    "collection": "Category: The Nightmare Before Christmas",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1559631474259398756/static"
+    ]
+  },
+  {
+    "label": "Oogie Boogie (Bats): Avatar Decoration",
+    "baseLabel": "Oogie Boogie: Avatar Decoration",
+    "variant": "Bats",
+    "collection": "Category: The Nightmare Before Christmas",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1559631474259398756/static"
+    ]
+  },
+  {
+    "label": "Fox (Ears): Avatar Decoration",
+    "baseLabel": "Fox: Avatar Decoration",
+    "variant": "Ears",
+    "collection": "Category: All Ears",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1545564784341032960/static"
+    ]
+  },
+  {
+    "label": "Fox (Fluffy): Avatar Decoration",
+    "baseLabel": "Fox: Avatar Decoration",
+    "variant": "Fluffy",
+    "collection": "Category: All Ears",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1545564784341032960/static"
+    ]
+  },
+  {
+    "label": "Boss Bear (Polar): Avatar Decoration",
+    "baseLabel": "Boss Bear: Avatar Decoration",
+    "variant": "Polar",
+    "collection": "Category: All Ears",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1545192768341807174/static"
+    ]
+  },
+  {
+    "label": "Boss Bear (Brown): Avatar Decoration",
+    "baseLabel": "Boss Bear: Avatar Decoration",
+    "variant": "Brown",
+    "collection": "Category: All Ears",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1545192768341807174/static"
+    ]
+  },
+  {
+    "label": "Boss Bear (Black): Avatar Decoration",
+    "baseLabel": "Boss Bear: Avatar Decoration",
+    "variant": "Black",
+    "collection": "Category: All Ears",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1545192768341807174/static"
+    ]
+  },
+  {
+    "label": "Harvest Mouse (Brown): Nameplate",
+    "baseLabel": "Harvest Mouse: Nameplate",
+    "variant": "Brown",
+    "collection": "Category: Fall Foragers",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1545534249216638986/video"
+    ]
+  },
+  {
+    "label": "Harvest Mouse (Gray): Nameplate",
+    "baseLabel": "Harvest Mouse: Nameplate",
+    "variant": "Gray",
+    "collection": "Category: Fall Foragers",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1545534249216638986/video"
+    ]
+  },
+  {
+    "label": "Moonflowers (Base): Nameplate",
+    "baseLabel": "Moonflowers: Nameplate",
+    "variant": "Base",
+    "collection": "Category: Dark Folklore",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1541454524210745364/video"
+    ]
+  },
+  {
+    "label": "Moonflowers (Jackalope): Nameplate",
+    "baseLabel": "Moonflowers: Nameplate",
+    "variant": "Jackalope",
+    "collection": "Category: Dark Folklore",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1541454524210745364/video"
+    ]
+  },
+  {
+    "label": "Cycling Lights (RGB): Avatar Decoration",
+    "baseLabel": "Cycling Lights: Avatar Decoration",
+    "variant": "RGB",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466980253741092937/static"
+    ]
+  },
+  {
+    "label": "Cycling Lights (Vaporwave): Avatar Decoration",
+    "baseLabel": "Cycling Lights: Avatar Decoration",
+    "variant": "Vaporwave",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466980253741092937/static"
+    ]
+  },
+  {
+    "label": "Cycling Lights (Iridescent): Avatar Decoration",
+    "baseLabel": "Cycling Lights: Avatar Decoration",
+    "variant": "Iridescent",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466980253741092937/static"
+    ]
+  },
+  {
+    "label": "Ambient Ripples (Arctic): Avatar Decoration",
+    "baseLabel": "Ambient Ripples: Avatar Decoration",
+    "variant": "Arctic",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466891815113195868/static"
+    ]
+  },
+  {
+    "label": "Ambient Ripples (Lavender): Avatar Decoration",
+    "baseLabel": "Ambient Ripples: Avatar Decoration",
+    "variant": "Lavender",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466891815113195868/static"
+    ]
+  },
+  {
+    "label": "Ambient Ripples (Bubblegum): Avatar Decoration",
+    "baseLabel": "Ambient Ripples: Avatar Decoration",
+    "variant": "Bubblegum",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466891815113195868/static"
+    ]
+  },
+  {
+    "label": "Ambient Ripples (Golden): Avatar Decoration",
+    "baseLabel": "Ambient Ripples: Avatar Decoration",
+    "variant": "Golden",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466891815113195868/static"
+    ]
+  },
+  {
+    "label": "Cycling Lights (RGB): Nameplate",
+    "baseLabel": "Cycling Lights: Nameplate",
+    "variant": "RGB",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1514656286950555708/video"
+    ]
+  },
+  {
+    "label": "Cycling Lights (Vaporwave): Nameplate",
+    "baseLabel": "Cycling Lights: Nameplate",
+    "variant": "Vaporwave",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1514656286950555708/video"
+    ]
+  },
+  {
+    "label": "Cycling Lights (Iridescent): Nameplate",
+    "baseLabel": "Cycling Lights: Nameplate",
+    "variant": "Iridescent",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1514656286950555708/video"
+    ]
+  },
+  {
+    "label": "Ambient Ripples (Arctic): Nameplate",
+    "baseLabel": "Ambient Ripples: Nameplate",
+    "variant": "Arctic",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1514654925525618839/video"
+    ]
+  },
+  {
+    "label": "Ambient Ripples (Lavender): Nameplate",
+    "baseLabel": "Ambient Ripples: Nameplate",
+    "variant": "Lavender",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1514654925525618839/video"
+    ]
+  },
+  {
+    "label": "Ambient Ripples (Bubblegum): Nameplate",
+    "baseLabel": "Ambient Ripples: Nameplate",
+    "variant": "Bubblegum",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1514654925525618839/video"
+    ]
+  },
+  {
+    "label": "Ambient Ripples (Golden): Nameplate",
+    "baseLabel": "Ambient Ripples: Nameplate",
+    "variant": "Golden",
+    "collection": "Category: Flux Vol. 2",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1514654925525618839/video"
+    ]
+  },
+  {
+    "label": "Woody (Woody): Avatar Decoration",
+    "baseLabel": "Woody: Avatar Decoration",
+    "variant": "Woody",
+    "collection": "Category: Toy Story",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1513657068161208404/static"
+    ]
+  },
+  {
+    "label": "Woody (Dad Bod): Avatar Decoration",
+    "baseLabel": "Woody: Avatar Decoration",
+    "variant": "Dad Bod",
+    "collection": "Category: Toy Story",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1513657068161208404/static"
+    ]
+  },
+  {
+    "label": "Penalty (Red Card): Avatar Decoration",
+    "baseLabel": "Penalty: Avatar Decoration",
+    "variant": "Red Card",
+    "collection": "Category: Gooooal!",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1509959759342604399/static"
+    ]
+  },
+  {
+    "label": "Penalty (Yellow Card): Avatar Decoration",
+    "baseLabel": "Penalty: Avatar Decoration",
+    "variant": "Yellow Card",
+    "collection": "Category: Gooooal!",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1509959759342604399/static"
+    ]
+  },
+  {
+    "label": "Enchanted Ribbon (Pink): Avatar Decoration",
+    "baseLabel": "Enchanted Ribbon: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Starlight Magic",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1500908088184668302/static"
+    ]
+  },
+  {
+    "label": "Enchanted Ribbon (Blue): Avatar Decoration",
+    "baseLabel": "Enchanted Ribbon: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Starlight Magic",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1500908088184668302/static"
+    ]
+  },
+  {
+    "label": "Enchanted Ribbon (Green): Avatar Decoration",
+    "baseLabel": "Enchanted Ribbon: Avatar Decoration",
+    "variant": "Green",
+    "collection": "Category: Starlight Magic",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1500908088184668302/static"
+    ]
+  },
+  {
+    "label": "Enchanted Ribbon (See more variants): Avatar Decoration",
+    "baseLabel": "Enchanted Ribbon: Avatar Decoration",
+    "variant": "See more variants",
+    "collection": "Category: Starlight Magic",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1500908088184668302/static"
+    ]
+  },
+  {
+    "label": "Roly Poly (Pink): Nameplate",
+    "baseLabel": "Roly Poly: Nameplate",
+    "variant": "Pink",
+    "collection": "Category: Smol Bugs",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1493345497526567033/video"
+    ]
+  },
+  {
+    "label": "Roly Poly (Blue): Nameplate",
+    "baseLabel": "Roly Poly: Nameplate",
+    "variant": "Blue",
+    "collection": "Category: Smol Bugs",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1493345497526567033/video"
+    ]
+  },
+  {
+    "label": "Roly Poly (Orange): Nameplate",
+    "baseLabel": "Roly Poly: Nameplate",
+    "variant": "Orange",
+    "collection": "Category: Smol Bugs",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1493345497526567033/video"
+    ]
+  },
+  {
+    "label": "K-Heart (Base): Avatar Decoration",
+    "baseLabel": "K-Heart: Avatar Decoration",
+    "variant": "Base",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483885622770008075/static"
+    ]
+  },
+  {
+    "label": "K-Heart (Light): Avatar Decoration",
+    "baseLabel": "K-Heart: Avatar Decoration",
+    "variant": "Light",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483885622770008075/static"
+    ]
+  },
+  {
+    "label": "K-Heart (Medium): Avatar Decoration",
+    "baseLabel": "K-Heart: Avatar Decoration",
+    "variant": "Medium",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483885622770008075/static"
+    ]
+  },
+  {
+    "label": "K-Heart (Dark): Avatar Decoration",
+    "baseLabel": "K-Heart: Avatar Decoration",
+    "variant": "Dark",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483885622770008075/static"
+    ]
+  },
+  {
+    "label": "Clappy Feet (Base): Avatar Decoration",
+    "baseLabel": "Clappy Feet: Avatar Decoration",
+    "variant": "Base",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483911783268876489/static"
+    ]
+  },
+  {
+    "label": "Clappy Feet ( Light): Avatar Decoration",
+    "baseLabel": "Clappy Feet: Avatar Decoration",
+    "variant": " Light",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483911783268876489/static"
+    ]
+  },
+  {
+    "label": "Clappy Feet ( Medium): Avatar Decoration",
+    "baseLabel": "Clappy Feet: Avatar Decoration",
+    "variant": " Medium",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483911783268876489/static"
+    ]
+  },
+  {
+    "label": "Clappy Feet ( Dark): Avatar Decoration",
+    "baseLabel": "Clappy Feet: Avatar Decoration",
+    "variant": " Dark",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483911783268876489/static"
+    ]
+  },
+  {
+    "label": "Umm, Actually (Base): Avatar Decoration",
+    "baseLabel": "Umm, Actually: Avatar Decoration",
+    "variant": "Base",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483912918616510544/static"
+    ]
+  },
+  {
+    "label": "Umm, Actually ( Light): Avatar Decoration",
+    "baseLabel": "Umm, Actually: Avatar Decoration",
+    "variant": " Light",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483912918616510544/static"
+    ]
+  },
+  {
+    "label": "Umm, Actually (Medium): Avatar Decoration",
+    "baseLabel": "Umm, Actually: Avatar Decoration",
+    "variant": "Medium",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483912918616510544/static"
+    ]
+  },
+  {
+    "label": "Umm, Actually (Dark): Avatar Decoration",
+    "baseLabel": "Umm, Actually: Avatar Decoration",
+    "variant": "Dark",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483912918616510544/static"
+    ]
+  },
+  {
+    "label": "Keyboard Warrior (Base): Avatar Decoration",
+    "baseLabel": "Keyboard Warrior: Avatar Decoration",
+    "variant": "Base",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483910072567468132/static"
+    ]
+  },
+  {
+    "label": "Keyboard Warrior (Light): Avatar Decoration",
+    "baseLabel": "Keyboard Warrior: Avatar Decoration",
+    "variant": "Light",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483910072567468132/static"
+    ]
+  },
+  {
+    "label": "Keyboard Warrior (Medium): Avatar Decoration",
+    "baseLabel": "Keyboard Warrior: Avatar Decoration",
+    "variant": "Medium",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483910072567468132/static"
+    ]
+  },
+  {
+    "label": "Keyboard Warrior (Dark): Avatar Decoration",
+    "baseLabel": "Keyboard Warrior: Avatar Decoration",
+    "variant": "Dark",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483910072567468132/static"
+    ]
+  },
+  {
+    "label": "Slay (Base): Avatar Decoration",
+    "baseLabel": "Slay: Avatar Decoration",
+    "variant": "Base",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483914387235406097/static"
+    ]
+  },
+  {
+    "label": "Slay (Light): Avatar Decoration",
+    "baseLabel": "Slay: Avatar Decoration",
+    "variant": "Light",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483914387235406097/static"
+    ]
+  },
+  {
+    "label": "Slay (Medium): Avatar Decoration",
+    "baseLabel": "Slay: Avatar Decoration",
+    "variant": "Medium",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483914387235406097/static"
+    ]
+  },
+  {
+    "label": "Slay (Dark): Avatar Decoration",
+    "baseLabel": "Slay: Avatar Decoration",
+    "variant": "Dark",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483914387235406097/static"
+    ]
+  },
+  {
+    "label": "Cruisin' for a Bruisin' (Base): Avatar Decoration",
+    "baseLabel": "Cruisin' for a Bruisin': Avatar Decoration",
+    "variant": "Base",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483915211428724806/static"
+    ]
+  },
+  {
+    "label": "Cruisin' for a Bruisin' (Light): Avatar Decoration",
+    "baseLabel": "Cruisin' for a Bruisin': Avatar Decoration",
+    "variant": "Light",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483915211428724806/static"
+    ]
+  },
+  {
+    "label": "Cruisin' for a Bruisin' (Medium): Avatar Decoration",
+    "baseLabel": "Cruisin' for a Bruisin': Avatar Decoration",
+    "variant": "Medium",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483915211428724806/static"
+    ]
+  },
+  {
+    "label": "Cruisin' for a Bruisin' (Dark): Avatar Decoration",
+    "baseLabel": "Cruisin' for a Bruisin': Avatar Decoration",
+    "variant": "Dark",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483915211428724806/static"
+    ]
+  },
+  {
+    "label": "Seeing Stars (Base): Avatar Decoration",
+    "baseLabel": "Seeing Stars: Avatar Decoration",
+    "variant": "Base",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483916168787132477/static"
+    ]
+  },
+  {
+    "label": "Seeing Stars (Blue): Avatar Decoration",
+    "baseLabel": "Seeing Stars: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483916168787132477/static"
+    ]
+  },
+  {
+    "label": "Seeing Stars (Pink): Avatar Decoration",
+    "baseLabel": "Seeing Stars: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483916168787132477/static"
+    ]
+  },
+  {
+    "label": "K-Heart (Base): Nameplate",
+    "baseLabel": "K-Heart: Nameplate",
+    "variant": "Base",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483916313100288191/video"
+    ]
+  },
+  {
+    "label": "K-Heart (Light): Nameplate",
+    "baseLabel": "K-Heart: Nameplate",
+    "variant": "Light",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483916313100288191/video"
+    ]
+  },
+  {
+    "label": "K-Heart (Medium): Nameplate",
+    "baseLabel": "K-Heart: Nameplate",
+    "variant": "Medium",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483916313100288191/video"
+    ]
+  },
+  {
+    "label": "K-Heart (Dark): Nameplate",
+    "baseLabel": "K-Heart: Nameplate",
+    "variant": "Dark",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483916313100288191/video"
+    ]
+  },
+  {
+    "label": "Clappy Feet (Base): Nameplate",
+    "baseLabel": "Clappy Feet: Nameplate",
+    "variant": "Base",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483917760194154506/video"
+    ]
+  },
+  {
+    "label": "Clappy Feet (Light): Nameplate",
+    "baseLabel": "Clappy Feet: Nameplate",
+    "variant": "Light",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483917760194154506/video"
+    ]
+  },
+  {
+    "label": "Clappy Feet (Medium): Nameplate",
+    "baseLabel": "Clappy Feet: Nameplate",
+    "variant": "Medium",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483917760194154506/video"
+    ]
+  },
+  {
+    "label": "Clappy Feet (Dark): Nameplate",
+    "baseLabel": "Clappy Feet: Nameplate",
+    "variant": "Dark",
+    "collection": "Category: Mood",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1483917760194154506/video"
+    ]
+  },
+  {
+    "label": "Spider-Man (No Logo): Avatar Decoration",
+    "baseLabel": "Spider-Man: Avatar Decoration",
+    "variant": "No Logo",
+    "collection": "Category: Spider-Man vs. Venom",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1481386346429026374/static"
+    ]
+  },
+  {
+    "label": "Spider-Man (Logo): Avatar Decoration",
+    "baseLabel": "Spider-Man: Avatar Decoration",
+    "variant": "Logo",
+    "collection": "Category: Spider-Man vs. Venom",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1481386346429026374/static"
+    ]
+  },
+  {
+    "label": "Venom ( No Logo): Avatar Decoration",
+    "baseLabel": "Venom: Avatar Decoration",
+    "variant": " No Logo",
+    "collection": "Category: Spider-Man vs. Venom",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1481388474673139855/static"
+    ]
+  },
+  {
+    "label": "Venom (Logo): Avatar Decoration",
+    "baseLabel": "Venom: Avatar Decoration",
+    "variant": "Logo",
+    "collection": "Category: Spider-Man vs. Venom",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1481388474673139855/static"
+    ]
+  },
+  {
+    "label": "Spider-Man (No Logo): Nameplate",
+    "baseLabel": "Spider-Man: Nameplate",
+    "variant": "No Logo",
+    "collection": "Category: Spider-Man vs. Venom",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1481389353774354442/video"
+    ]
+  },
+  {
+    "label": "Spider-Man (Logo): Nameplate",
+    "baseLabel": "Spider-Man: Nameplate",
+    "variant": "Logo",
+    "collection": "Category: Spider-Man vs. Venom",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1481389353774354442/video"
+    ]
+  },
+  {
+    "label": "Venom (No Logo): Nameplate",
+    "baseLabel": "Venom: Nameplate",
+    "variant": "No Logo",
+    "collection": "Category: Spider-Man vs. Venom",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1481390337778913401/video"
+    ]
+  },
+  {
+    "label": "Venom (Logo): Nameplate",
+    "baseLabel": "Venom: Nameplate",
+    "variant": "Logo",
+    "collection": "Category: Spider-Man vs. Venom",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1481390337778913401/video"
+    ]
+  },
+  {
+    "label": "Neon Glow (Kunzite): Avatar Decoration",
+    "baseLabel": "Neon Glow: Avatar Decoration",
+    "variant": "Kunzite",
+    "collection": "Category: Flux",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466993897333985333/static"
+    ]
+  },
+  {
+    "label": "Neon Glow (Aquamarine): Avatar Decoration",
+    "baseLabel": "Neon Glow: Avatar Decoration",
+    "variant": "Aquamarine",
+    "collection": "Category: Flux",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466993897333985333/static"
+    ]
+  },
+  {
+    "label": "Neon Glow (Amethyst): Avatar Decoration",
+    "baseLabel": "Neon Glow: Avatar Decoration",
+    "variant": "Amethyst",
+    "collection": "Category: Flux",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466993897333985333/static"
+    ]
+  },
+  {
+    "label": "Neon Glow (See more variants): Avatar Decoration",
+    "baseLabel": "Neon Glow: Avatar Decoration",
+    "variant": "See more variants",
+    "collection": "Category: Flux",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466993897333985333/static"
+    ]
+  },
+  {
+    "label": "Drifting Glow (Twilight): Avatar Decoration",
+    "baseLabel": "Drifting Glow: Avatar Decoration",
+    "variant": "Twilight",
+    "collection": "Category: Flux",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466990610429772004/static"
+    ]
+  },
+  {
+    "label": "Drifting Glow (Sunset): Avatar Decoration",
+    "baseLabel": "Drifting Glow: Avatar Decoration",
+    "variant": "Sunset",
+    "collection": "Category: Flux",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466990610429772004/static"
+    ]
+  },
+  {
+    "label": "Drifting Glow (Radioactive): Avatar Decoration",
+    "baseLabel": "Drifting Glow: Avatar Decoration",
+    "variant": "Radioactive",
+    "collection": "Category: Flux",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466990610429772004/static"
+    ]
+  },
+  {
+    "label": "Electric Aura (Thistle): Avatar Decoration",
+    "baseLabel": "Electric Aura: Avatar Decoration",
+    "variant": "Thistle",
+    "collection": "Category: Flux",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466991494467555392/static"
+    ]
+  },
+  {
+    "label": "Electric Aura (Quartz): Avatar Decoration",
+    "baseLabel": "Electric Aura: Avatar Decoration",
+    "variant": "Quartz",
+    "collection": "Category: Flux",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466991494467555392/static"
+    ]
+  },
+  {
+    "label": "Electric Aura (Icy): Avatar Decoration",
+    "baseLabel": "Electric Aura: Avatar Decoration",
+    "variant": "Icy",
+    "collection": "Category: Flux",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1466991494467555392/static"
+    ]
+  },
+  {
+    "label": "Dark Roses (Nightshade): Avatar Decoration",
+    "baseLabel": "Dark Roses: Avatar Decoration",
+    "variant": "Nightshade",
+    "collection": "Category: Gothica",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1462116613632426014/static"
+    ]
+  },
+  {
+    "label": "Dark Roses (Black): Avatar Decoration",
+    "baseLabel": "Dark Roses: Avatar Decoration",
+    "variant": "Black",
+    "collection": "Category: Gothica",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1462116613632426014/static"
+    ]
+  },
+  {
+    "label": "Dark Roses (White): Avatar Decoration",
+    "baseLabel": "Dark Roses: Avatar Decoration",
+    "variant": "White",
+    "collection": "Category: Gothica",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1462116613632426014/static"
+    ]
+  },
+  {
+    "label": "Dark Roses (Blue): Avatar Decoration",
+    "baseLabel": "Dark Roses: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Gothica",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1462116613632426014/static"
+    ]
+  },
+  {
+    "label": "Fallen Angel (Nightshade): Avatar Decoration",
+    "baseLabel": "Fallen Angel: Avatar Decoration",
+    "variant": "Nightshade",
+    "collection": "Category: Gothica",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1462116613674373345/static"
+    ]
+  },
+  {
+    "label": "Fallen Angel (Black): Avatar Decoration",
+    "baseLabel": "Fallen Angel: Avatar Decoration",
+    "variant": "Black",
+    "collection": "Category: Gothica",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1462116613674373345/static"
+    ]
+  },
+  {
+    "label": "Fallen Angel (White): Avatar Decoration",
+    "baseLabel": "Fallen Angel: Avatar Decoration",
+    "variant": "White",
+    "collection": "Category: Gothica",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1462116613674373345/static"
+    ]
+  },
+  {
+    "label": "Dark Roses (Nightshade): Nameplate",
+    "baseLabel": "Dark Roses: Nameplate",
+    "variant": "Nightshade",
+    "collection": "Category: Gothica",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1462116614077022469/video"
+    ]
+  },
+  {
+    "label": "Dark Roses (Black): Nameplate",
+    "baseLabel": "Dark Roses: Nameplate",
+    "variant": "Black",
+    "collection": "Category: Gothica",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1462116614077022469/video"
+    ]
+  },
+  {
+    "label": "Dark Roses (White): Nameplate",
+    "baseLabel": "Dark Roses: Nameplate",
+    "variant": "White",
+    "collection": "Category: Gothica",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1462116614077022469/video"
+    ]
+  },
+  {
+    "label": "Dark Roses (Blue): Nameplate",
+    "baseLabel": "Dark Roses: Nameplate",
+    "variant": "Blue",
+    "collection": "Category: Gothica",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1462116614077022469/video"
+    ]
+  },
+  {
+    "label": "Dream Waves (Blue): Avatar Decoration",
+    "baseLabel": "Dream Waves: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Slumber Party",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1458472704087818312/static"
+    ]
+  },
+  {
+    "label": "Dream Waves (Pink): Avatar Decoration",
+    "baseLabel": "Dream Waves: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Slumber Party",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1458472704087818312/static"
+    ]
+  },
+  {
+    "label": "Dream Waves (Purple): Avatar Decoration",
+    "baseLabel": "Dream Waves: Avatar Decoration",
+    "variant": "Purple",
+    "collection": "Category: Slumber Party",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1458472704087818312/static"
+    ]
+  },
+  {
+    "label": "Dream Waves (See more variants): Avatar Decoration",
+    "baseLabel": "Dream Waves: Avatar Decoration",
+    "variant": "See more variants",
+    "collection": "Category: Slumber Party",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1458472704087818312/static"
+    ]
+  },
+  {
+    "label": "Pandoran Seas (Squid): Nameplate",
+    "baseLabel": "Pandoran Seas: Nameplate",
+    "variant": "Squid",
+    "collection": "Category: Avatar",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1447609132793200733/video"
+    ]
+  },
+  {
+    "label": "Pandoran Seas (Ilu): Nameplate",
+    "baseLabel": "Pandoran Seas: Nameplate",
+    "variant": "Ilu",
+    "collection": "Category: Avatar",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1447609132793200733/video"
+    ]
+  },
+  {
+    "label": "Moon (Blood): Avatar Decoration",
+    "baseLabel": "Moon: Avatar Decoration",
+    "variant": "Blood",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258147328050/static"
+    ]
+  },
+  {
+    "label": "Moon (Dusk): Avatar Decoration",
+    "baseLabel": "Moon: Avatar Decoration",
+    "variant": "Dusk",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258147328050/static"
+    ]
+  },
+  {
+    "label": "Moon (Amethyst): Avatar Decoration",
+    "baseLabel": "Moon: Avatar Decoration",
+    "variant": "Amethyst",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258147328050/static"
+    ]
+  },
+  {
+    "label": "Moon (Blue): Avatar Decoration",
+    "baseLabel": "Moon: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258147328050/static"
+    ]
+  },
+  {
+    "label": "Planetary (Amethyst): Avatar Decoration",
+    "baseLabel": "Planetary: Avatar Decoration",
+    "variant": "Amethyst",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258168299651/static"
+    ]
+  },
+  {
+    "label": "Planetary (Strawberry): Avatar Decoration",
+    "baseLabel": "Planetary: Avatar Decoration",
+    "variant": "Strawberry",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258168299651/static"
+    ]
+  },
+  {
+    "label": "Planetary (Blueberry): Avatar Decoration",
+    "baseLabel": "Planetary: Avatar Decoration",
+    "variant": "Blueberry",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258168299651/static"
+    ]
+  },
+  {
+    "label": "Comets (Blue): Avatar Decoration",
+    "baseLabel": "Comets: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258201858118/static"
+    ]
+  },
+  {
+    "label": "Comets (Amethyst): Avatar Decoration",
+    "baseLabel": "Comets: Avatar Decoration",
+    "variant": "Amethyst",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258201858118/static"
+    ]
+  },
+  {
+    "label": "Comets (Rose): Avatar Decoration",
+    "baseLabel": "Comets: Avatar Decoration",
+    "variant": "Rose",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258201858118/static"
+    ]
+  },
+  {
+    "label": "Comets (Dusk): Avatar Decoration",
+    "baseLabel": "Comets: Avatar Decoration",
+    "variant": "Dusk",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258201858118/static"
+    ]
+  },
+  {
+    "label": "Twilight (Blue): Avatar Decoration",
+    "baseLabel": "Twilight: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258239602810/static"
+    ]
+  },
+  {
+    "label": "Twilight (Dusk): Avatar Decoration",
+    "baseLabel": "Twilight: Avatar Decoration",
+    "variant": "Dusk",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258239602810/static"
+    ]
+  },
+  {
+    "label": "Twilight (Amethyst): Avatar Decoration",
+    "baseLabel": "Twilight: Avatar Decoration",
+    "variant": "Amethyst",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258239602810/static"
+    ]
+  },
+  {
+    "label": "Twilight (See more variants): Avatar Decoration",
+    "baseLabel": "Twilight: Avatar Decoration",
+    "variant": "See more variants",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258239602810/static"
+    ]
+  },
+  {
+    "label": "Constellations (Amethyst): Avatar Decoration",
+    "baseLabel": "Constellations: Avatar Decoration",
+    "variant": "Amethyst",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258294132759/static"
+    ]
+  },
+  {
+    "label": "Constellations (Beryl): Avatar Decoration",
+    "baseLabel": "Constellations: Avatar Decoration",
+    "variant": "Beryl",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258294132759/static"
+    ]
+  },
+  {
+    "label": "Constellations (Dusk): Avatar Decoration",
+    "baseLabel": "Constellations: Avatar Decoration",
+    "variant": "Dusk",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258294132759/static"
+    ]
+  },
+  {
+    "label": "Constellations (Fuchsia): Avatar Decoration",
+    "baseLabel": "Constellations: Avatar Decoration",
+    "variant": "Fuchsia",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258294132759/static"
+    ]
+  },
+  {
+    "label": "Cosmic Twilight Flow (Amethyst): Nameplate",
+    "baseLabel": "Cosmic Twilight Flow: Nameplate",
+    "variant": "Amethyst",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258357043320/video"
+    ]
+  },
+  {
+    "label": "Cosmic Twilight Flow (Beryl): Nameplate",
+    "baseLabel": "Cosmic Twilight Flow: Nameplate",
+    "variant": "Beryl",
+    "collection": "Category: Cosmos",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1432550258357043320/video"
+    ]
+  },
+  {
+    "label": "Light Wall (Red): Nameplate",
+    "baseLabel": "Light Wall: Nameplate",
+    "variant": "Red",
+    "collection": "Category: TRON",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1437881613903069387/video"
+    ]
+  },
+  {
+    "label": "Light Wall (Blue): Nameplate",
+    "baseLabel": "Light Wall: Nameplate",
+    "variant": "Blue",
+    "collection": "Category: TRON",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1437881613903069387/video"
+    ]
+  },
+  {
+    "label": "Lights, Camera, Action! (Orange): Avatar Decoration",
+    "baseLabel": "Lights, Camera, Action!: Avatar Decoration",
+    "variant": "Orange",
+    "collection": "Category: It's Showtime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1420225379246805012/static"
+    ]
+  },
+  {
+    "label": "Lights, Camera, Action! (Teal): Avatar Decoration",
+    "baseLabel": "Lights, Camera, Action!: Avatar Decoration",
+    "variant": "Teal",
+    "collection": "Category: It's Showtime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1420225379246805012/static"
+    ]
+  },
+  {
+    "label": "Encore! (Orange): Nameplate",
+    "baseLabel": "Encore!: Nameplate",
+    "variant": "Orange",
+    "collection": "Category: It's Showtime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1420225379284553810/video"
+    ]
+  },
+  {
+    "label": "Encore! (Teal): Nameplate",
+    "baseLabel": "Encore!: Nameplate",
+    "variant": "Teal",
+    "collection": "Category: It's Showtime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1420225379284553810/video"
+    ]
+  },
+  {
+    "label": "Starfall Tides (Nightshade): Nameplate",
+    "baseLabel": "Starfall Tides: Nameplate",
+    "variant": "Nightshade",
+    "collection": "Category: Nameplate Bonanza",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1417311919378796554/video"
+    ]
+  },
+  {
+    "label": "Starfall Tides (Rose): Nameplate",
+    "baseLabel": "Starfall Tides: Nameplate",
+    "variant": "Rose",
+    "collection": "Category: Nameplate Bonanza",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1417311919378796554/video"
+    ]
+  },
+  {
+    "label": "Starfall Tides (Void): Nameplate",
+    "baseLabel": "Starfall Tides: Nameplate",
+    "variant": "Void",
+    "collection": "Category: Nameplate Bonanza",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1417311919378796554/video"
+    ]
+  },
+  {
+    "label": "Twilight (Fuchsia): Nameplate",
+    "baseLabel": "Twilight: Nameplate",
+    "variant": "Fuchsia",
+    "collection": "Category: Nameplate Bonanza",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1417311919399895081/video"
+    ]
+  },
+  {
+    "label": "Twilight (Dusk): Nameplate",
+    "baseLabel": "Twilight: Nameplate",
+    "variant": "Dusk",
+    "collection": "Category: Nameplate Bonanza",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1417311919399895081/video"
+    ]
+  },
+  {
+    "label": "Magic Hearts (Blue): Nameplate",
+    "baseLabel": "Magic Hearts: Nameplate",
+    "variant": "Blue",
+    "collection": "Category: Nameplate Bonanza",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1417311919412347021/video"
+    ]
+  },
+  {
+    "label": "Magic Hearts (Orange): Nameplate",
+    "baseLabel": "Magic Hearts: Nameplate",
+    "variant": "Orange",
+    "collection": "Category: Nameplate Bonanza",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1417311919412347021/video"
+    ]
+  },
+  {
+    "label": "Neon Cat Hoodie (Original): Avatar Decoration",
+    "baseLabel": "Neon Cat Hoodie: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Rawr xD",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1402472280239509664/static"
+    ]
+  },
+  {
+    "label": "Neon Cat Hoodie (Blue): Avatar Decoration",
+    "baseLabel": "Neon Cat Hoodie: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Rawr xD",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1402472280239509664/static"
+    ]
+  },
+  {
+    "label": "Neon Cat Hoodie (Pink): Avatar Decoration",
+    "baseLabel": "Neon Cat Hoodie: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Rawr xD",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1402472280239509664/static"
+    ]
+  },
+  {
+    "label": "Neon Cat Hoodie (Silver): Avatar Decoration",
+    "baseLabel": "Neon Cat Hoodie: Avatar Decoration",
+    "variant": "Silver",
+    "collection": "Category: Rawr xD",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1402472280239509664/static"
+    ]
+  },
+  {
+    "label": "Neon Spike Choker (Original): Avatar Decoration",
+    "baseLabel": "Neon Spike Choker: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Rawr xD",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1402472280289968218/static"
+    ]
+  },
+  {
+    "label": "Neon Spike Choker (Silver): Avatar Decoration",
+    "baseLabel": "Neon Spike Choker: Avatar Decoration",
+    "variant": "Silver",
+    "collection": "Category: Rawr xD",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1402472280289968218/static"
+    ]
+  },
+  {
+    "label": "Mischievous Kitties (Original): Avatar Decoration",
+    "baseLabel": "Mischievous Kitties: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Rawr xD",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1402472280575180922/static"
+    ]
+  },
+  {
+    "label": "Mischievous Kitties (Hearts): Avatar Decoration",
+    "baseLabel": "Mischievous Kitties: Avatar Decoration",
+    "variant": "Hearts",
+    "collection": "Category: Rawr xD",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1402472280575180922/static"
+    ]
+  },
+  {
+    "label": "Mischievous Kitties (Blue): Avatar Decoration",
+    "baseLabel": "Mischievous Kitties: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Rawr xD",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1402472280575180922/static"
+    ]
+  },
+  {
+    "label": "Dice (Violet): Avatar Decoration",
+    "baseLabel": "Dice: Avatar Decoration",
+    "variant": "Violet",
+    "collection": "Category: Dungeons & Dragons",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1293373563184877618/static"
+    ]
+  },
+  {
+    "label": "Dice (Azure): Avatar Decoration",
+    "baseLabel": "Dice: Avatar Decoration",
+    "variant": "Azure",
+    "collection": "Category: Dungeons & Dragons",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1293373563184877618/static"
+    ]
+  },
+  {
+    "label": "Gelatinous Cube (Green): Avatar Decoration",
+    "baseLabel": "Gelatinous Cube: Avatar Decoration",
+    "variant": "Green",
+    "collection": "Category: Dungeons & Dragons",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1293373563239272458/static"
+    ]
+  },
+  {
+    "label": "Gelatinous Cube (Blue): Avatar Decoration",
+    "baseLabel": "Gelatinous Cube: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Dungeons & Dragons",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1293373563239272458/static"
+    ]
+  },
+  {
+    "label": "Owlbear Cub (Original): Avatar Decoration",
+    "baseLabel": "Owlbear Cub: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Dungeons & Dragons",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1293373563302318110/static"
+    ]
+  },
+  {
+    "label": "Owlbear Cub (Snowy): Avatar Decoration",
+    "baseLabel": "Owlbear Cub: Avatar Decoration",
+    "variant": "Snowy",
+    "collection": "Category: Dungeons & Dragons",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1293373563302318110/static"
+    ]
+  },
+  {
+    "label": "Shroomling (Red): Avatar Decoration",
+    "baseLabel": "Shroomling: Avatar Decoration",
+    "variant": "Red",
+    "collection": "Category: Cozy Valley",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1369434230542827541/static"
+    ]
+  },
+  {
+    "label": "Shroomling (Brown): Avatar Decoration",
+    "baseLabel": "Shroomling: Avatar Decoration",
+    "variant": "Brown",
+    "collection": "Category: Cozy Valley",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1369434230542827541/static"
+    ]
+  },
+  {
+    "label": "Shroomling (Blue): Avatar Decoration",
+    "baseLabel": "Shroomling: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Cozy Valley",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1369434230542827541/static"
+    ]
+  },
+  {
+    "label": "Shroomling (See more variants): Avatar Decoration",
+    "baseLabel": "Shroomling: Avatar Decoration",
+    "variant": "See more variants",
+    "collection": "Category: Cozy Valley",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1369434230542827541/static"
+    ]
+  },
+  {
+    "label": "Hammy (Purple): Avatar Decoration",
+    "baseLabel": "Hammy: Avatar Decoration",
+    "variant": "Purple",
+    "collection": "Category: Cozy Valley",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1369434230567731210/static"
+    ]
+  },
+  {
+    "label": "Hammy (Blue): Avatar Decoration",
+    "baseLabel": "Hammy: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Cozy Valley",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1369434230567731210/static"
+    ]
+  },
+  {
+    "label": "Hammy (Pink): Avatar Decoration",
+    "baseLabel": "Hammy: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Cozy Valley",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1369434230567731210/static"
+    ]
+  },
+  {
+    "label": "Hammy (Green): Avatar Decoration",
+    "baseLabel": "Hammy: Avatar Decoration",
+    "variant": "Green",
+    "collection": "Category: Cozy Valley",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1369434230567731210/static"
+    ]
+  },
+  {
+    "label": "Lightsabers (Blue and Red): Avatar Decoration",
+    "baseLabel": "Lightsabers: Avatar Decoration",
+    "variant": "Blue and Red",
+    "collection": "Category: Star Wars™",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1365410895903330414/static"
+    ]
+  },
+  {
+    "label": "Lightsabers (Green and Red): Avatar Decoration",
+    "baseLabel": "Lightsabers: Avatar Decoration",
+    "variant": "Green and Red",
+    "collection": "Category: Star Wars™",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1365410895903330414/static"
+    ]
+  },
+  {
+    "label": "Press F (Black): Avatar Decoration",
+    "baseLabel": "Press F: Avatar Decoration",
+    "variant": "Black",
+    "collection": "Category: GGEZ",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1357589632388304956/static"
+    ]
+  },
+  {
+    "label": "Press F (White): Avatar Decoration",
+    "baseLabel": "Press F: Avatar Decoration",
+    "variant": "White",
+    "collection": "Category: GGEZ",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1357589632388304956/static"
+    ]
+  },
+  {
+    "label": "Mochi Bunny (Pink): Avatar Decoration",
+    "baseLabel": "Mochi Bunny: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Chibi Cafe",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1354894010484789329/static"
+    ]
+  },
+  {
+    "label": "Mochi Bunny (Blue): Avatar Decoration",
+    "baseLabel": "Mochi Bunny: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Chibi Cafe",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1354894010484789329/static"
+    ]
+  },
+  {
+    "label": "Head In the Clouds (Original): Avatar Decoration",
+    "baseLabel": "Head In the Clouds: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Insomnia",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1343751617303805983/static"
+    ]
+  },
+  {
+    "label": "Head In the Clouds (Sunset): Avatar Decoration",
+    "baseLabel": "Head In the Clouds: Avatar Decoration",
+    "variant": "Sunset",
+    "collection": "Category: Insomnia",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1343751617303805983/static"
+    ]
+  },
+  {
+    "label": "Mirage (Original): Avatar Decoration",
+    "baseLabel": "Mirage: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Insomnia",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1343751617328975954/static"
+    ]
+  },
+  {
+    "label": "Mirage (Void): Avatar Decoration",
+    "baseLabel": "Mirage: Avatar Decoration",
+    "variant": "Void",
+    "collection": "Category: Insomnia",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1343751617328975954/static"
+    ]
+  },
+  {
+    "label": "Mirage (Twilight): Avatar Decoration",
+    "baseLabel": "Mirage: Avatar Decoration",
+    "variant": "Twilight",
+    "collection": "Category: Insomnia",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1343751617328975954/static"
+    ]
+  },
+  {
+    "label": "Mirage (Nightshade): Avatar Decoration",
+    "baseLabel": "Mirage: Avatar Decoration",
+    "variant": "Nightshade",
+    "collection": "Category: Insomnia",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1343751617328975954/static"
+    ]
+  },
+  {
+    "label": "Lava Blobs (Original): Avatar Decoration",
+    "baseLabel": "Lava Blobs: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Insomnia",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1343751617379307653/static"
+    ]
+  },
+  {
+    "label": "Lava Blobs (Pink): Avatar Decoration",
+    "baseLabel": "Lava Blobs: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Insomnia",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1343751617379307653/static"
+    ]
+  },
+  {
+    "label": "Lava Blobs (Blue): Avatar Decoration",
+    "baseLabel": "Lava Blobs: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Insomnia",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1343751617379307653/static"
+    ]
+  },
+  {
+    "label": "Lava Blobs (Slime): Avatar Decoration",
+    "baseLabel": "Lava Blobs: Avatar Decoration",
+    "variant": "Slime",
+    "collection": "Category: Insomnia",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1343751617379307653/static"
+    ]
+  },
+  {
+    "label": "Cat Onesie (Black): Avatar Decoration",
+    "baseLabel": "Cat Onesie: Avatar Decoration",
+    "variant": "Black",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1341506443567693824/static"
+    ]
+  },
+  {
+    "label": "Cat Onesie (Original): Avatar Decoration",
+    "baseLabel": "Cat Onesie: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1341506443567693824/static"
+    ]
+  },
+  {
+    "label": "Cat Onesie (Pink): Avatar Decoration",
+    "baseLabel": "Cat Onesie: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1341506443567693824/static"
+    ]
+  },
+  {
+    "label": "Shy (Original): Avatar Decoration",
+    "baseLabel": "Shy: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1341506443580276736/static"
+    ]
+  },
+  {
+    "label": "Shy (In Love): Avatar Decoration",
+    "baseLabel": "Shy: Avatar Decoration",
+    "variant": "In Love",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1341506443580276736/static"
+    ]
+  },
+  {
+    "label": "Ramen Bowl (Original): Avatar Decoration",
+    "baseLabel": "Ramen Bowl: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1341506443597053952/static"
+    ]
+  },
+  {
+    "label": "Ramen Bowl (Toppings): Avatar Decoration",
+    "baseLabel": "Ramen Bowl: Avatar Decoration",
+    "variant": "Toppings",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1341506443597053952/static"
+    ]
+  },
+  {
+    "label": "Angry (Original): Avatar Decoration",
+    "baseLabel": "Angry: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144308439720394944/static"
+    ]
+  },
+  {
+    "label": "Angry (Pink): Avatar Decoration",
+    "baseLabel": "Angry: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144308439720394944/static"
+    ]
+  },
+  {
+    "label": "Angry (Yellow): Avatar Decoration",
+    "baseLabel": "Angry: Avatar Decoration",
+    "variant": "Yellow",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144308439720394944/static"
+    ]
+  },
+  {
+    "label": "Radiating Energy (Original): Avatar Decoration",
+    "baseLabel": "Radiating Energy: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1154896005045694555/static"
+    ]
+  },
+  {
+    "label": "Radiating Energy (Yellow): Avatar Decoration",
+    "baseLabel": "Radiating Energy: Avatar Decoration",
+    "variant": "Yellow",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1154896005045694555/static"
+    ]
+  },
+  {
+    "label": "Radiating Energy (Blue): Avatar Decoration",
+    "baseLabel": "Radiating Energy: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1154896005045694555/static"
+    ]
+  },
+  {
+    "label": "Sweat Drops (Original): Avatar Decoration",
+    "baseLabel": "Sweat Drops: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144307257807491094/static"
+    ]
+  },
+  {
+    "label": "Sweat Drops (Cyan): Avatar Decoration",
+    "baseLabel": "Sweat Drops: Avatar Decoration",
+    "variant": "Cyan",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144307257807491094/static"
+    ]
+  },
+  {
+    "label": "Sweat Drops (Pink): Avatar Decoration",
+    "baseLabel": "Sweat Drops: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144307257807491094/static"
+    ]
+  },
+  {
+    "label": "Heartbloom (Original): Avatar Decoration",
+    "baseLabel": "Heartbloom: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212570343567261736/static"
+    ]
+  },
+  {
+    "label": "Heartbloom (Purple): Avatar Decoration",
+    "baseLabel": "Heartbloom: Avatar Decoration",
+    "variant": "Purple",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212570343567261736/static"
+    ]
+  },
+  {
+    "label": "Heartbloom (Blue): Avatar Decoration",
+    "baseLabel": "Heartbloom: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212570343567261736/static"
+    ]
+  },
+  {
+    "label": "Heartbloom (See more variants): Avatar Decoration",
+    "baseLabel": "Heartbloom: Avatar Decoration",
+    "variant": "See more variants",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212570343567261736/static"
+    ]
+  },
+  {
+    "label": "Soul Leaving Body (Original): Avatar Decoration",
+    "baseLabel": "Soul Leaving Body: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144305233707671573/static"
+    ]
+  },
+  {
+    "label": "Soul Leaving Body (Blue): Avatar Decoration",
+    "baseLabel": "Soul Leaving Body: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144305233707671573/static"
+    ]
+  },
+  {
+    "label": "Rage (Original): Avatar Decoration",
+    "baseLabel": "Rage: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212581147675205652/static"
+    ]
+  },
+  {
+    "label": "Rage (Green): Avatar Decoration",
+    "baseLabel": "Rage: Avatar Decoration",
+    "variant": "Green",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212581147675205652/static"
+    ]
+  },
+  {
+    "label": "Rage (Blue): Avatar Decoration",
+    "baseLabel": "Rage: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212581147675205652/static"
+    ]
+  },
+  {
+    "label": "Rage (See more variants): Avatar Decoration",
+    "baseLabel": "Rage: Avatar Decoration",
+    "variant": "See more variants",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212581147675205652/static"
+    ]
+  },
+  {
+    "label": "Starry Eyed (Original): Avatar Decoration",
+    "baseLabel": "Starry Eyed: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144307629225672846/static"
+    ]
+  },
+  {
+    "label": "Starry Eyed (Green): Avatar Decoration",
+    "baseLabel": "Starry Eyed: Avatar Decoration",
+    "variant": "Green",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144307629225672846/static"
+    ]
+  },
+  {
+    "label": "Starry Eyed (Pink): Avatar Decoration",
+    "baseLabel": "Starry Eyed: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144307629225672846/static"
+    ]
+  },
+  {
+    "label": "Shocked (Original): Avatar Decoration",
+    "baseLabel": "Shocked: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144308196723408958/static"
+    ]
+  },
+  {
+    "label": "Shocked (Green): Avatar Decoration",
+    "baseLabel": "Shocked: Avatar Decoration",
+    "variant": "Green",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144308196723408958/static"
+    ]
+  },
+  {
+    "label": "Shocked (Yellow): Avatar Decoration",
+    "baseLabel": "Shocked: Avatar Decoration",
+    "variant": "Yellow",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144308196723408958/static"
+    ]
+  },
+  {
+    "label": "In Love (Original): Avatar Decoration",
+    "baseLabel": "In Love: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144307957425778779/static"
+    ]
+  },
+  {
+    "label": "In Love (Blue): Avatar Decoration",
+    "baseLabel": "In Love: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144307957425778779/static"
+    ]
+  },
+  {
+    "label": "In Love (Green): Avatar Decoration",
+    "baseLabel": "In Love: Avatar Decoration",
+    "variant": "Green",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1144307957425778779/static"
+    ]
+  },
+  {
+    "label": "Ki Energy (Original): Avatar Decoration",
+    "baseLabel": "Ki Energy: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212569856189407352/static"
+    ]
+  },
+  {
+    "label": "Ki Energy (Green): Avatar Decoration",
+    "baseLabel": "Ki Energy: Avatar Decoration",
+    "variant": "Green",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212569856189407352/static"
+    ]
+  },
+  {
+    "label": "Ki Energy (Cyan): Avatar Decoration",
+    "baseLabel": "Ki Energy: Avatar Decoration",
+    "variant": "Cyan",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212569856189407352/static"
+    ]
+  },
+  {
+    "label": "Ki Energy (See more variants): Avatar Decoration",
+    "baseLabel": "Ki Energy: Avatar Decoration",
+    "variant": "See more variants",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212569856189407352/static"
+    ]
+  },
+  {
+    "label": "In Tears (Original): Avatar Decoration",
+    "baseLabel": "In Tears: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212581390936178768/static"
+    ]
+  },
+  {
+    "label": "In Tears (Purple): Avatar Decoration",
+    "baseLabel": "In Tears: Avatar Decoration",
+    "variant": "Purple",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212581390936178768/static"
+    ]
+  },
+  {
+    "label": "In Tears (Pink): Avatar Decoration",
+    "baseLabel": "In Tears: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212581390936178768/static"
+    ]
+  },
+  {
+    "label": "In Tears (See more variants): Avatar Decoration",
+    "baseLabel": "In Tears: Avatar Decoration",
+    "variant": "See more variants",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212581390936178768/static"
+    ]
+  },
+  {
+    "label": "Dismay (Original): Avatar Decoration",
+    "baseLabel": "Dismay: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212570596970467378/static"
+    ]
+  },
+  {
+    "label": "Dismay (Purple): Avatar Decoration",
+    "baseLabel": "Dismay: Avatar Decoration",
+    "variant": "Purple",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212570596970467378/static"
+    ]
+  },
+  {
+    "label": "Dismay (Pink): Avatar Decoration",
+    "baseLabel": "Dismay: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212570596970467378/static"
+    ]
+  },
+  {
+    "label": "Dismay (See more variants): Avatar Decoration",
+    "baseLabel": "Dismay: Avatar Decoration",
+    "variant": "See more variants",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212570596970467378/static"
+    ]
+  },
+  {
+    "label": "Cat Ears (Original): Avatar Decoration",
+    "baseLabel": "Cat Ears: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212569433839636530/static"
+    ]
+  },
+  {
+    "label": "Cat Ears (Yellow): Avatar Decoration",
+    "baseLabel": "Cat Ears: Avatar Decoration",
+    "variant": "Yellow",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212569433839636530/static"
+    ]
+  },
+  {
+    "label": "Cat Ears (Green): Avatar Decoration",
+    "baseLabel": "Cat Ears: Avatar Decoration",
+    "variant": "Green",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212569433839636530/static"
+    ]
+  },
+  {
+    "label": "Cat Ears (See more variants): Avatar Decoration",
+    "baseLabel": "Cat Ears: Avatar Decoration",
+    "variant": "See more variants",
+    "collection": "Category: Anime",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1212569433839636530/static"
+    ]
+  },
+  {
+    "label": "Rose Bearer (Pink): Avatar Decoration",
+    "baseLabel": "Rose Bearer: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Valentines",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1333866045198565377/static"
+    ]
+  },
+  {
+    "label": "Rose Bearer (Blue): Avatar Decoration",
+    "baseLabel": "Rose Bearer: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Valentines",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1333866045198565377/static"
+    ]
+  },
+  {
+    "label": "Ring of Roses (Red): Avatar Decoration",
+    "baseLabel": "Ring of Roses: Avatar Decoration",
+    "variant": "Red",
+    "collection": "Category: Valentines",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1333866045324394547/static"
+    ]
+  },
+  {
+    "label": "Ring of Roses (Blue): Avatar Decoration",
+    "baseLabel": "Ring of Roses: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Valentines",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1333866045324394547/static"
+    ]
+  },
+  {
+    "label": "Heartstrings (Red): Avatar Decoration",
+    "baseLabel": "Heartstrings: Avatar Decoration",
+    "variant": "Red",
+    "collection": "Category: Valentines",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1333866045370531921/static"
+    ]
+  },
+  {
+    "label": "Heartstrings (Blue): Avatar Decoration",
+    "baseLabel": "Heartstrings: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Valentines",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1333866045370531921/static"
+    ]
+  },
+  {
+    "label": "Magic Portal (Purple): Avatar Decoration",
+    "baseLabel": "Magic Portal: Avatar Decoration",
+    "variant": "Purple",
+    "collection": "Category: Fantasy",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1324454240781074513/static"
+    ]
+  },
+  {
+    "label": "Magic Portal (Blue): Avatar Decoration",
+    "baseLabel": "Magic Portal: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Fantasy",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1324454240781074513/static"
+    ]
+  },
+  {
+    "label": "Fairy Sprites (Pink): Avatar Decoration",
+    "baseLabel": "Fairy Sprites: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Fantasy",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1324454240839663708/static"
+    ]
+  },
+  {
+    "label": "Fairy Sprites (Blue): Avatar Decoration",
+    "baseLabel": "Fairy Sprites: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Fantasy",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1324454240839663708/static"
+    ]
+  },
+  {
+    "label": "Fairy Sprites (Yellow): Avatar Decoration",
+    "baseLabel": "Fairy Sprites: Avatar Decoration",
+    "variant": "Yellow",
+    "collection": "Category: Fantasy",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1324454240839663708/static"
+    ]
+  },
+  {
+    "label": "Crystal Ball (Purple): Avatar Decoration",
+    "baseLabel": "Crystal Ball: Avatar Decoration",
+    "variant": "Purple",
+    "collection": "Category: Fantasy",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1324454240885932242/static"
+    ]
+  },
+  {
+    "label": "Crystal Ball (Blue): Avatar Decoration",
+    "baseLabel": "Crystal Ball: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Fantasy",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1324454240885932242/static"
+    ]
+  },
+  {
+    "label": "Wizard Hat (Purple): Avatar Decoration",
+    "baseLabel": "Wizard Hat: Avatar Decoration",
+    "variant": "Purple",
+    "collection": "Category: Fantasy",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1324454240936263823/static"
+    ]
+  },
+  {
+    "label": "Wizard Hat (Blue): Avatar Decoration",
+    "baseLabel": "Wizard Hat: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Fantasy",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1324454240936263823/static"
+    ]
+  },
+  {
+    "label": "Magical Wand (Purple): Avatar Decoration",
+    "baseLabel": "Magical Wand: Avatar Decoration",
+    "variant": "Purple",
+    "collection": "Category: Fantasy",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1324454240982401234/static"
+    ]
+  },
+  {
+    "label": "Magical Wand (Green): Avatar Decoration",
+    "baseLabel": "Magical Wand: Avatar Decoration",
+    "variant": "Green",
+    "collection": "Category: Fantasy",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1324454240982401234/static"
+    ]
+  },
+  {
+    "label": "Mooncaps (Pink): Avatar Decoration",
+    "baseLabel": "Mooncaps: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Fantasy",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1324454241028538418/static"
+    ]
+  },
+  {
+    "label": "Mooncaps (Blue): Avatar Decoration",
+    "baseLabel": "Mooncaps: Avatar Decoration",
+    "variant": "Blue",
+    "collection": "Category: Fantasy",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1324454241028538418/static"
+    ]
+  },
+  {
+    "label": "String Lights (Original): Avatar Decoration",
+    "baseLabel": "String Lights: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Winter Wonderland",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1174460780842856588/static"
+    ]
+  },
+  {
+    "label": "String Lights (Aurora): Avatar Decoration",
+    "baseLabel": "String Lights: Avatar Decoration",
+    "variant": "Aurora",
+    "collection": "Category: Winter Wonderland",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1174460780842856588/static"
+    ]
+  },
+  {
+    "label": "String Lights (Ember): Avatar Decoration",
+    "baseLabel": "String Lights: Avatar Decoration",
+    "variant": "Ember",
+    "collection": "Category: Winter Wonderland",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1174460780842856588/static"
+    ]
+  },
+  {
+    "label": "String Lights (See more variants): Avatar Decoration",
+    "baseLabel": "String Lights: Avatar Decoration",
+    "variant": "See more variants",
+    "collection": "Category: Winter Wonderland",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1174460780842856588/static"
+    ]
+  },
+  {
+    "label": "Snowglobe (Original): Avatar Decoration",
+    "baseLabel": "Snowglobe: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Winter Wonderland",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1174459546748600481/static"
+    ]
+  },
+  {
+    "label": "Snowglobe (Wood): Avatar Decoration",
+    "baseLabel": "Snowglobe: Avatar Decoration",
+    "variant": "Wood",
+    "collection": "Category: Winter Wonderland",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1174459546748600481/static"
+    ]
+  },
+  {
+    "label": "Snowglobe (Pink): Avatar Decoration",
+    "baseLabel": "Snowglobe: Avatar Decoration",
+    "variant": "Pink",
+    "collection": "Category: Winter Wonderland",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1174459546748600481/static"
+    ]
+  },
+  {
+    "label": "Snowglobe (See more variants): Avatar Decoration",
+    "baseLabel": "Snowglobe: Avatar Decoration",
+    "variant": "See more variants",
+    "collection": "Category: Winter Wonderland",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1174459546748600481/static"
+    ]
+  },
+  {
+    "label": "Fresh Pine (Original): Avatar Decoration",
+    "baseLabel": "Fresh Pine: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Winter Wonderland",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1174459480348565554/static"
+    ]
+  },
+  {
+    "label": "Fresh Pine (Cinnamon): Avatar Decoration",
+    "baseLabel": "Fresh Pine: Avatar Decoration",
+    "variant": "Cinnamon",
+    "collection": "Category: Winter Wonderland",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1174459480348565554/static"
+    ]
+  },
+  {
+    "label": "Fresh Pine (Ribbon): Avatar Decoration",
+    "baseLabel": "Fresh Pine: Avatar Decoration",
+    "variant": "Ribbon",
+    "collection": "Category: Winter Wonderland",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1174459480348565554/static"
+    ]
+  },
+  {
+    "label": "Cozy Post-It (Original): Avatar Decoration",
+    "baseLabel": "Cozy Post-It: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Lofi Girl",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1309668861788033074/static"
+    ]
+  },
+  {
+    "label": "Cozy Post-It (Festive): Avatar Decoration",
+    "baseLabel": "Cozy Post-It: Avatar Decoration",
+    "variant": "Festive",
+    "collection": "Category: Lofi Girl",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1309668861788033074/static"
+    ]
+  },
+  {
+    "label": "Spooky Cat Ears (Original): Avatar Decoration",
+    "baseLabel": "Spooky Cat Ears: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633485877369/static"
+    ]
+  },
+  {
+    "label": "Spooky Cat Ears (Midnight): Avatar Decoration",
+    "baseLabel": "Spooky Cat Ears: Avatar Decoration",
+    "variant": "Midnight",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633485877369/static"
+    ]
+  },
+  {
+    "label": "Candlelight (Original): Avatar Decoration",
+    "baseLabel": "Candlelight: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633536209079/static"
+    ]
+  },
+  {
+    "label": "Candlelight (Crimson): Avatar Decoration",
+    "baseLabel": "Candlelight: Avatar Decoration",
+    "variant": "Crimson",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633536209079/static"
+    ]
+  },
+  {
+    "label": "Candlelight (Dark): Avatar Decoration",
+    "baseLabel": "Candlelight: Avatar Decoration",
+    "variant": "Dark",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633536209079/static"
+    ]
+  },
+  {
+    "label": "Dark Hood (Original): Avatar Decoration",
+    "baseLabel": "Dark Hood: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633615765524/static"
+    ]
+  },
+  {
+    "label": "Dark Hood (Crimson): Avatar Decoration",
+    "baseLabel": "Dark Hood: Avatar Decoration",
+    "variant": "Crimson",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633615765524/static"
+    ]
+  },
+  {
+    "label": "Witch Hat (Plum): Avatar Decoration",
+    "baseLabel": "Witch Hat: Avatar Decoration",
+    "variant": "Plum",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633674620949/static"
+    ]
+  },
+  {
+    "label": "Witch Hat (Midnight): Avatar Decoration",
+    "baseLabel": "Witch Hat: Avatar Decoration",
+    "variant": "Midnight",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633674620949/static"
+    ]
+  },
+  {
+    "label": "Zombie Food (Original): Avatar Decoration",
+    "baseLabel": "Zombie Food: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633733341224/static"
+    ]
+  },
+  {
+    "label": "Zombie Food (Purple): Avatar Decoration",
+    "baseLabel": "Zombie Food: Avatar Decoration",
+    "variant": "Purple",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633733341224/static"
+    ]
+  },
+  {
+    "label": "Bloodthirsty (Original): Avatar Decoration",
+    "baseLabel": "Bloodthirsty: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633787732070/static"
+    ]
+  },
+  {
+    "label": "Bloodthirsty (Green): Avatar Decoration",
+    "baseLabel": "Bloodthirsty: Avatar Decoration",
+    "variant": "Green",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633787732070/static"
+    ]
+  },
+  {
+    "label": "Bloodthirsty (Gold): Avatar Decoration",
+    "baseLabel": "Bloodthirsty: Avatar Decoration",
+    "variant": "Gold",
+    "collection": "Category: Spooky Night",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1287835633787732070/static"
+    ]
+  },
+  {
+    "label": "Chrysanthemums (Twilight): Avatar Decoration",
+    "baseLabel": "Chrysanthemums: Avatar Decoration",
+    "variant": "Twilight",
+    "collection": "Category: Autumn Equinox",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1282816431850782730/static"
+    ]
+  },
+  {
+    "label": "Chrysanthemums (Morning): Avatar Decoration",
+    "baseLabel": "Chrysanthemums: Avatar Decoration",
+    "variant": "Morning",
+    "collection": "Category: Autumn Equinox",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1282816431850782730/static"
+    ]
+  },
+  {
+    "label": "Floral Harmony (Sunburst): Avatar Decoration",
+    "baseLabel": "Floral Harmony: Avatar Decoration",
+    "variant": "Sunburst",
+    "collection": "Category: Autumn Equinox",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1282816431901118474/static"
+    ]
+  },
+  {
+    "label": "Floral Harmony (Azure): Avatar Decoration",
+    "baseLabel": "Floral Harmony: Avatar Decoration",
+    "variant": "Azure",
+    "collection": "Category: Autumn Equinox",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1282816431901118474/static"
+    ]
+  },
+  {
+    "label": "Autumn's Arbor (Original): Avatar Decoration",
+    "baseLabel": "Autumn's Arbor: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Autumn Equinox",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1282816431922085888/static"
+    ]
+  },
+  {
+    "label": "Autumn's Arbor (Aurora): Avatar Decoration",
+    "baseLabel": "Autumn's Arbor: Avatar Decoration",
+    "variant": "Aurora",
+    "collection": "Category: Autumn Equinox",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1282816431922085888/static"
+    ]
+  },
+  {
+    "label": "Fox Hat (Original): Avatar Decoration",
+    "baseLabel": "Fox Hat: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Fall",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1157407831348228141/static"
+    ]
+  },
+  {
+    "label": "Fox Hat (Chestnut): Avatar Decoration",
+    "baseLabel": "Fox Hat: Avatar Decoration",
+    "variant": "Chestnut",
+    "collection": "Category: Fall",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1157407831348228141/static"
+    ]
+  },
+  {
+    "label": "Fox Hat (Snow): Avatar Decoration",
+    "baseLabel": "Fox Hat: Avatar Decoration",
+    "variant": "Snow",
+    "collection": "Category: Fall",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1157407831348228141/static"
+    ]
+  },
+  {
+    "label": "Fall Leaves (Original): Avatar Decoration",
+    "baseLabel": "Fall Leaves: Avatar Decoration",
+    "variant": "Original",
+    "collection": "Category: Fall",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1157409074422481023/static"
+    ]
+  },
+  {
+    "label": "Fall Leaves (Scarlet): Avatar Decoration",
+    "baseLabel": "Fall Leaves: Avatar Decoration",
+    "variant": "Scarlet",
+    "collection": "Category: Fall",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1157409074422481023/static"
+    ]
+  },
+  {
+    "label": "Fall Leaves (Woodland): Avatar Decoration",
+    "baseLabel": "Fall Leaves: Avatar Decoration",
+    "variant": "Woodland",
+    "collection": "Category: Fall",
+    "media": [
+      "https://cdn.discordapp.com/media/v1/collectibles-shop/1157409074422481023/static"
+    ]
+  }
+]

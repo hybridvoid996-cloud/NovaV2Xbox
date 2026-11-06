@@ -10,19 +10,20 @@ export function withSharedBackend(endpoint,handler,{env=process.env,request=fetc
   if(req.headers?.['x-nova-shared-hop'])return reply(503,'The primary Nova backend needs its server configuration.');
   if(!['POST','GET'].includes(req.method))return reply(405,'Unsupported request method.');
   try{
+   const bodyLimit=endpoint==='owner-control'?3200000:250000;
    let body;if(req.method==='POST'){
     if(req.body!==undefined)body=typeof req.body==='string'?req.body:JSON.stringify(req.body);
-    else{body='';for await(const chunk of req){body+=chunk;if(Buffer.byteLength(body)>250000)return reply(413,'Request too large.')}}
-    if(Buffer.byteLength(body)>250000)return reply(413,'Request too large.');
+    else{body='';for await(const chunk of req){body+=chunk;if(Buffer.byteLength(body)>bodyLimit)return reply(413,'Request too large.')}}
+    if(Buffer.byteLength(body)>bodyLimit)return reply(413,'Request too large.');
    }
    const headers={'Content-Type':'application/json','X-Nova-Shared-Hop':'1'};
    if(req.headers?.authorization)headers.Authorization=req.headers.authorization;
-   const response=await request(SHARED_BACKEND+'/api/'+endpoint,{method:req.method,headers,body,redirect:'error',signal:AbortSignal.timeout(endpoint==='account-support'?40000:12000)});
+   const response=await request(SHARED_BACKEND+'/api/'+endpoint,{method:req.method,headers,body,redirect:'error',signal:AbortSignal.timeout(endpoint==='account-support'?40000:endpoint==='owner-control'?35000:12000)});
    const result=await response.text();
    try{const data=JSON.parse(result);if(!data||typeof data!=='object'||Array.isArray(data))throw Error('Invalid response')}catch{return reply(503,response.status===402||/^\s*Payment required/i.test(result)?'The main Nova backend is restricted by Vercel. The site owner needs to check Vercel usage and billing.':'The main Nova backend returned an unavailable response. Try again shortly.')}
    if(endpoint==='owner-control'&&response.status===400){
     let payload;try{payload=JSON.parse(body||'{}')}catch{}
-    if(['chatMutualFriends','chatFriendRequest','chatDirectory','chatRequests','chatRequestSend','chatRequestAccept','chatRequestIgnore','rankPulse','rankProfile','rankBoard','rankMusic','rankMovie','dailyRewardsStatus','streakClaim','streakRestore','streakProfile','friendInviteCreate','friendInviteClaim'].includes(payload?.action)&&JSON.parse(result).error==='Unknown action.')return reply(503,'The latest Nova features need to be published to the main account server.');
+    if(['aiWorkspace','chatMutualFriends','chatFriendRequest','chatDirectory','chatRequests','chatRequestSend','chatRequestAccept','chatRequestIgnore','rankPulse','rankProfile','rankBoard','rankMusic','rankMovie','dailyRewardsStatus','streakClaim','streakRestore','streakProfile','friendInviteCreate','friendInviteClaim'].includes(payload?.action)&&JSON.parse(result).error==='Unknown action.')return reply(503,'The latest Nova features need to be published to the main account server.');
    }
    // Keep local tool fixes current, after the primary backend authorizes this user.
    let output=result;

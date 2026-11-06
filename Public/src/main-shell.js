@@ -1,4 +1,4 @@
-import {mountHomeStatus} from './home-status.mjs?v=20261029-status378';
+import {mountHomeStatus} from './home-status.mjs?v=20261103-glass476';
 import {notificationCategory,muteNotification} from './notification-preferences.mjs?v=20261029-motion374';
 import {mountProfileMedia,openGameLeaderboard} from './profile-media.mjs?v=20261027-art334';
 import {mountRankProfile} from './nova-rank-ui.mjs?v=20261029-motion374';

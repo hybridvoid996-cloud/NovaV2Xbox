@@ -1,0 +1,3637 @@
+{
+  "items": [
+    {
+      "collection": "Category: Dead by Daylight",
+      "label": "Dark Moon Crows (Blood Moon): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/c6511c616f05d5490a875c87d0e5423ceacfc13833c7b619a90d53fd78c36240",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/c6511c616f05d5490a875c87d0e5423ceacfc13833c7b619a90d53fd78c36240",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Dark Moon Crows",
+      "options": [
+        {
+          "name": "Base"
+        },
+        {
+          "name": "Blood Moon"
+        }
+      ],
+      "baseLabel": "Dark Moon Crows: Profile Effect",
+      "variant": "Blood Moon"
+    },
+    {
+      "collection": "Category: Dark Folklore",
+      "label": "Moonflowers (Jackalope): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/7b9d0c8ce8287a2600543a1c65f872262e30a9eeed68936f01bef7e99c40f95b",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/7b9d0c8ce8287a2600543a1c65f872262e30a9eeed68936f01bef7e99c40f95b",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Moonflowers",
+      "options": [
+        {
+          "name": "Base"
+        },
+        {
+          "name": "Jackalope"
+        }
+      ],
+      "baseLabel": "Moonflowers: Profile Effect",
+      "variant": "Jackalope"
+    },
+    {
+      "collection": "Category: Underworld",
+      "label": "Lord of the Dead (Red): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/cd4313e497939cbb41a6a0bc136de9126ce3ab8e69e966caf062fb3e984f24fc",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/cd4313e497939cbb41a6a0bc136de9126ce3ab8e69e966caf062fb3e984f24fc",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Lord of the Dead",
+      "options": [
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "Red"
+        }
+      ],
+      "baseLabel": "Lord of the Dead: Profile Effect",
+      "variant": "Red"
+    },
+    {
+      "collection": "Category: Underworld",
+      "label": "Hades' Throne (Red): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/894fcce7ea3134be0bc1a21bb8d3f5c44ac58560bfc3ebdc586245f4014f0874",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/894fcce7ea3134be0bc1a21bb8d3f5c44ac58560bfc3ebdc586245f4014f0874",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Hades' Throne",
+      "options": [
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "Red"
+        }
+      ],
+      "baseLabel": "Hades' Throne: Profile Effect",
+      "variant": "Red"
+    },
+    {
+      "collection": "Category: Underworld",
+      "label": "Lord of the Dead (Red): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5460948650585145,
+          "left": 0,
+          "parentHeight": 196.296875,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1533925887098224730/1534992785206411324/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 196.296875,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1533925887098224730/1534992798002974751/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.2745404346787676,
+          "left": 0,
+          "parentHeight": 196.296875,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1533925887098224730/1534992807885017249/static",
+          "top": 1.3384284690709338,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5461128048780488,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1533925887098224730/1534992785206411324/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1533925887098224730/1534992798002974751/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.27458079268292684,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1533925887098224730/1534992807885017249/static",
+          "top": 0.8077378048780487,
+          "width": 1
+        }
+      ],
+      "name": "Lord of the Dead",
+      "options": [
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "Red"
+        }
+      ],
+      "baseLabel": "Lord of the Dead: Profile Frame",
+      "variant": "Red"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Fantasy Galaxy (Blue): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1524193178586972441/1526660277838282893/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1524193178586972441/1526660281802031224/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1524193178586972441/1526660277838282893/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1524193178586972441/1526660281802031224/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        }
+      ],
+      "name": "Fantasy Galaxy",
+      "options": [
+        {
+          "name": "Pink"
+        },
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "White"
+        }
+      ],
+      "baseLabel": "Fantasy Galaxy: Profile Frame",
+      "variant": "Blue"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Fantasy Galaxy (White): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1524193380492509345/1526660358712852691/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1524193380492509345/1526660363071000666/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1524193380492509345/1526660358712852691/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1524193380492509345/1526660363071000666/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        }
+      ],
+      "name": "Fantasy Galaxy",
+      "options": [
+        {
+          "name": "Pink"
+        },
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "White"
+        }
+      ],
+      "baseLabel": "Fantasy Galaxy: Profile Frame",
+      "variant": "White"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Prism Edge (Pink): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.4223406773618538,
+          "left": 0,
+          "parentHeight": 218.515625,
+          "parentWidth": 131.484375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1524512601827180624/1524557380090593321/static",
+          "top": -0.09953273915626856,
+          "width": 0.9999971479500892
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.26250723707664886,
+          "left": 0,
+          "parentHeight": 218.515625,
+          "parentWidth": 131.484375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1524512601827180624/1524557384922697981/static",
+          "top": 1.49578229352347,
+          "width": 0.9999971479500892
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.4224137931034483,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 319,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1524512601827180624/1524557380090593321/static",
+          "top": -0.09952978056426331,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.26253918495297807,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 319,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1524512601827180624/1524557384922697981/static",
+          "top": 0.8307210031347962,
+          "width": 1
+        }
+      ],
+      "name": "Prism Edge",
+      "options": [
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "Pink"
+        }
+      ],
+      "baseLabel": "Prism Edge: Profile Frame",
+      "variant": "Pink"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Meow Meow Cat (Black): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5454107650077574,
+          "left": 0,
+          "parentHeight": 196.734375,
+          "parentWidth": 130.921875,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522378878083924051/1524824357199675523/static",
+          "top": -0.23014794128177588,
+          "width": 1.000000954767872
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.27461491824800094,
+          "left": 0,
+          "parentHeight": 196.734375,
+          "parentWidth": 130.921875,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522378878083924051/1524824361503166484/static",
+          "top": 1.340371882086168,
+          "width": 1.000000954767872
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5454107650077574,
+          "left": 0,
+          "parentHeight": 196.734375,
+          "parentWidth": 130.921875,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522378878083924051/1524824365282099231/static",
+          "top": -0.23014794128177588,
+          "width": 1.000000954767872
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.27461491824800094,
+          "left": 0,
+          "parentHeight": 196.734375,
+          "parentWidth": 130.921875,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522378878083924051/1524824369212424203/static",
+          "top": 1.340371882086168,
+          "width": 1.000000954767872
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5454892966360856,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 327,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522378878083924051/1524824357199675523/static",
+          "top": -0.2301223241590214,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.27465596330275227,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 327,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522378878083924051/1524824361503166484/static",
+          "top": 0.8102079510703364,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5454892966360856,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 327,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522378878083924051/1524824365282099231/static",
+          "top": -0.2301223241590214,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.27465596330275227,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 327,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522378878083924051/1524824369212424203/static",
+          "top": 0.8102079510703364,
+          "width": 1
+        }
+      ],
+      "name": "Meow Meow Cat",
+      "options": [
+        {
+          "name": "White"
+        },
+        {
+          "name": "Black"
+        },
+        {
+          "name": "Gray"
+        },
+        {
+          "name": "Orange"
+        }
+      ],
+      "baseLabel": "Meow Meow Cat: Profile Frame",
+      "variant": "Black"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Meow Meow Cat (Gray): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5454107650077574,
+          "left": 0,
+          "parentHeight": 196.734375,
+          "parentWidth": 130.921875,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522381656684761098/1522381902995132536/static",
+          "top": -0.23014794128177588,
+          "width": 1.000000954767872
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.27461491824800094,
+          "left": 0,
+          "parentHeight": 196.734375,
+          "parentWidth": 130.921875,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522381656684761098/1522381906627268640/static",
+          "top": 1.340371882086168,
+          "width": 1.000000954767872
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5454107650077574,
+          "left": 0,
+          "parentHeight": 196.734375,
+          "parentWidth": 130.921875,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522381656684761098/1522381910544879691/static",
+          "top": -0.23014794128177588,
+          "width": 1.000000954767872
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.27461491824800094,
+          "left": 0,
+          "parentHeight": 196.734375,
+          "parentWidth": 130.921875,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522381656684761098/1522381916764897321/static",
+          "top": 1.340371882086168,
+          "width": 1.000000954767872
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5454892966360856,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 327,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522381656684761098/1522381902995132536/static",
+          "top": -0.2301223241590214,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.27465596330275227,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 327,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522381656684761098/1522381906627268640/static",
+          "top": 0.8102079510703364,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5454892966360856,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 327,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522381656684761098/1522381910544879691/static",
+          "top": -0.2301223241590214,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.27465596330275227,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 327,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522381656684761098/1522381916764897321/static",
+          "top": 0.8102079510703364,
+          "width": 1
+        }
+      ],
+      "name": "Meow Meow Cat",
+      "options": [
+        {
+          "name": "White"
+        },
+        {
+          "name": "Black"
+        },
+        {
+          "name": "Gray"
+        },
+        {
+          "name": "Orange"
+        }
+      ],
+      "baseLabel": "Meow Meow Cat: Profile Frame",
+      "variant": "Gray"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Meow Meow Cat (Orange): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5454107650077574,
+          "left": 0,
+          "parentHeight": 196.734375,
+          "parentWidth": 130.921875,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522380815538065549/1522381608047345756/static",
+          "top": -0.23014794128177588,
+          "width": 1.000000954767872
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.27461491824800094,
+          "left": 0,
+          "parentHeight": 196.734375,
+          "parentWidth": 130.921875,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522380815538065549/1522381611776348200/static",
+          "top": 1.340371882086168,
+          "width": 1.000000954767872
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5454107650077574,
+          "left": 0,
+          "parentHeight": 196.734375,
+          "parentWidth": 130.921875,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522380815538065549/1522381615484108914/static",
+          "top": -0.23014794128177588,
+          "width": 1.000000954767872
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.27461491824800094,
+          "left": 0,
+          "parentHeight": 196.734375,
+          "parentWidth": 130.921875,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522380815538065549/1522381620278067314/static",
+          "top": 1.340371882086168,
+          "width": 1.000000954767872
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5454892966360856,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 327,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522380815538065549/1522381608047345756/static",
+          "top": -0.2301223241590214,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.27465596330275227,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 327,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522380815538065549/1522381611776348200/static",
+          "top": 0.8102079510703364,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5454892966360856,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 327,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522380815538065549/1522381615484108914/static",
+          "top": -0.2301223241590214,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.27465596330275227,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 327,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1522380815538065549/1522381620278067314/static",
+          "top": 0.8102079510703364,
+          "width": 1
+        }
+      ],
+      "name": "Meow Meow Cat",
+      "options": [
+        {
+          "name": "White"
+        },
+        {
+          "name": "Black"
+        },
+        {
+          "name": "Gray"
+        },
+        {
+          "name": "Orange"
+        }
+      ],
+      "baseLabel": "Meow Meow Cat: Profile Frame",
+      "variant": "Orange"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Mariposa (Blue): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5410797229519942,
+          "left": 0,
+          "parentHeight": 201.46875,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1517301132211388507/1524824143315599390/static",
+          "top": -0.2271594936708861,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.2431335084786243,
+          "left": 0,
+          "parentHeight": 201.46875,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1517301132211388507/1524824154560397552/static",
+          "top": 1.378193455935037,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5410797229519942,
+          "left": 0,
+          "parentHeight": 201.46875,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1517301132211388507/1524824160310792243/static",
+          "top": -0.2271594936708861,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5411585365853658,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1517301132211388507/1524824143315599390/static",
+          "top": -0.22713414634146345,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.24314024390243905,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1517301132211388507/1524824154560397552/static",
+          "top": 0.8079268292682927,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5411585365853658,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1517301132211388507/1524824160310792243/static",
+          "top": -0.22713414634146345,
+          "width": 1
+        }
+      ],
+      "name": "Mariposa",
+      "options": [
+        {
+          "name": "Pink"
+        },
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "White"
+        }
+      ],
+      "baseLabel": "Mariposa: Profile Frame",
+      "variant": "Blue"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Mariposa (White): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5410797229519942,
+          "left": 0,
+          "parentHeight": 201.46875,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1517303399799062668/1524824219844739122/static",
+          "top": -0.2271594936708861,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.2431335084786243,
+          "left": 0,
+          "parentHeight": 201.46875,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1517303399799062668/1524824224559268011/static",
+          "top": 1.378193455935037,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5410797229519942,
+          "left": 0,
+          "parentHeight": 201.46875,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1517303399799062668/1524824229810278460/static",
+          "top": -0.2271594936708861,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5411585365853658,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1517303399799062668/1524824219844739122/static",
+          "top": -0.22713414634146345,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.24314024390243905,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1517303399799062668/1524824224559268011/static",
+          "top": 0.8079268292682927,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5411585365853658,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1517303399799062668/1524824229810278460/static",
+          "top": -0.22713414634146345,
+          "width": 1
+        }
+      ],
+      "name": "Mariposa",
+      "options": [
+        {
+          "name": "Pink"
+        },
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "White"
+        }
+      ],
+      "baseLabel": "Mariposa: Profile Frame",
+      "variant": "White"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Dark Roses (Black): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.4748029615476475,
+          "left": 0,
+          "parentHeight": 202.34375,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511834130294247555/1515086606665646213/static",
+          "top": -0.16084146166706473,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.3033197993790303,
+          "left": 0,
+          "parentHeight": 202.34375,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511834130294247555/1515086611896078477/static",
+          "top": 1.3848808215906376,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.47484756097560976,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511834130294247555/1515086606665646213/static",
+          "top": -0.16082317073170732,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.30335365853658536,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511834130294247555/1515086611896078477/static",
+          "top": 0.8079268292682927,
+          "width": 1
+        }
+      ],
+      "name": "Dark Roses",
+      "options": [
+        {
+          "name": "Nightshade"
+        },
+        {
+          "name": "Black"
+        },
+        {
+          "name": "White"
+        },
+        {
+          "name": "Blue"
+        }
+      ],
+      "baseLabel": "Dark Roses: Profile Frame",
+      "variant": "Black"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Dark Roses (White): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.4748029615476475,
+          "left": 0,
+          "parentHeight": 202.34375,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511834131242287195/1515086653209841684/static",
+          "top": -0.16084146166706473,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.3033197993790303,
+          "left": 0,
+          "parentHeight": 202.34375,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511834131242287195/1515086657794081029/static",
+          "top": 1.3848808215906376,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.47484756097560976,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511834131242287195/1515086653209841684/static",
+          "top": -0.16082317073170732,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.30335365853658536,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511834131242287195/1515086657794081029/static",
+          "top": 0.8079268292682927,
+          "width": 1
+        }
+      ],
+      "name": "Dark Roses",
+      "options": [
+        {
+          "name": "Nightshade"
+        },
+        {
+          "name": "Black"
+        },
+        {
+          "name": "White"
+        },
+        {
+          "name": "Blue"
+        }
+      ],
+      "baseLabel": "Dark Roses: Profile Frame",
+      "variant": "White"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Dark Roses (Blue): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.4748029615476475,
+          "left": 0,
+          "parentHeight": 202.34375,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1515124557290410204/1515124885113012234/static",
+          "top": -0.16084146166706473,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.3033197993790303,
+          "left": 0,
+          "parentHeight": 202.34375,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1515124557290410204/1515124888313266236/static",
+          "top": 1.3848808215906376,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.47484756097560976,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1515124557290410204/1515124885113012234/static",
+          "top": -0.16082317073170732,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.30335365853658536,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1515124557290410204/1515124888313266236/static",
+          "top": 0.8079268292682927,
+          "width": 1
+        }
+      ],
+      "name": "Dark Roses",
+      "options": [
+        {
+          "name": "Nightshade"
+        },
+        {
+          "name": "Black"
+        },
+        {
+          "name": "White"
+        },
+        {
+          "name": "Blue"
+        }
+      ],
+      "baseLabel": "Dark Roses: Profile Frame",
+      "variant": "Blue"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Crystals (Aquamarine): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1509183143905857589/1514423210181918872/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1509183143905857589/1514423213403279380/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1509183143905857589/1514423210181918872/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1509183143905857589/1514423213403279380/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        }
+      ],
+      "name": "Crystals",
+      "options": [
+        {
+          "name": "Amethyst"
+        },
+        {
+          "name": "Aquamarine"
+        },
+        {
+          "name": "Peridot"
+        },
+        {
+          "name": "Carnelian"
+        }
+      ],
+      "baseLabel": "Crystals: Profile Frame",
+      "variant": "Aquamarine"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Crystals (Peridot): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1509183144786657413/1514423455905349705/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1509183144786657413/1514423458833109165/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1509183144786657413/1514423455905349705/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1509183144786657413/1514423458833109165/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        }
+      ],
+      "name": "Crystals",
+      "options": [
+        {
+          "name": "Amethyst"
+        },
+        {
+          "name": "Aquamarine"
+        },
+        {
+          "name": "Peridot"
+        },
+        {
+          "name": "Carnelian"
+        }
+      ],
+      "baseLabel": "Crystals: Profile Frame",
+      "variant": "Peridot"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Crystals (Carnelian): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1509183145751220377/1514423553527779490/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1509183145751220377/1514423556451205140/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1509183145751220377/1514423553527779490/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1509183145751220377/1514423556451205140/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        }
+      ],
+      "name": "Crystals",
+      "options": [
+        {
+          "name": "Amethyst"
+        },
+        {
+          "name": "Aquamarine"
+        },
+        {
+          "name": "Peridot"
+        },
+        {
+          "name": "Carnelian"
+        }
+      ],
+      "baseLabel": "Crystals: Profile Frame",
+      "variant": "Carnelian"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Neon Chaos (Purple): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511869969921609874/1514424195486842940/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.32314267972295196,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511869969921609874/1514424199001669695/static",
+          "top": 1.2848072605684262,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511869969921609874/1514424202038345828/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511869969921609874/1514424195486842940/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.3231707317073171,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511869969921609874/1514424199001669695/static",
+          "top": 0.8079268292682927,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511869969921609874/1514424202038345828/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        }
+      ],
+      "name": "Neon Chaos",
+      "options": [
+        {
+          "name": "Green"
+        },
+        {
+          "name": "Purple"
+        },
+        {
+          "name": "Blue"
+        }
+      ],
+      "baseLabel": "Neon Chaos: Profile Frame",
+      "variant": "Purple"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Neon Chaos (Blue): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511871218633146408/1514424379709198548/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.32314267972295196,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511871218633146408/1514424383790387230/static",
+          "top": 1.2848072605684262,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511871218633146408/1514424387443359915/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511871218633146408/1514424379709198548/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.3231707317073171,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511871218633146408/1514424383790387230/static",
+          "top": 0.8079268292682927,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1511871218633146408/1514424387443359915/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        }
+      ],
+      "name": "Neon Chaos",
+      "options": [
+        {
+          "name": "Green"
+        },
+        {
+          "name": "Purple"
+        },
+        {
+          "name": "Blue"
+        }
+      ],
+      "baseLabel": "Neon Chaos: Profile Frame",
+      "variant": "Blue"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Dragon (Rose): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 192.984375,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519071720672329779/1519071938754904185/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.29722932887508957,
+          "left": 0,
+          "parentHeight": 192.984375,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519071720672329779/1519071945079914577/static",
+          "top": 1.3133527585383329,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 192.984375,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519071720672329779/1519071954408046633/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.29722932887508957,
+          "left": 0,
+          "parentHeight": 192.984375,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519071720672329779/1519071961353949394/static",
+          "top": 1.3133527585383329,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519071720672329779/1519071938754904185/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.2972560975609756,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519071720672329779/1519071945079914577/static",
+          "top": 0.8079268292682927,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519071720672329779/1519071954408046633/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.2972560975609756,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519071720672329779/1519071961353949394/static",
+          "top": 0.8079268292682927,
+          "width": 1
+        }
+      ],
+      "name": "Dragon",
+      "options": [
+        {
+          "name": "Jade"
+        },
+        {
+          "name": "Rose"
+        },
+        {
+          "name": "Sapphire"
+        },
+        {
+          "name": "Ruby"
+        }
+      ],
+      "baseLabel": "Dragon: Profile Frame",
+      "variant": "Rose"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Dragon (Sapphire): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072339185369239/1519072528654401563/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.32314267972295196,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072339185369239/1519072534073708775/static",
+          "top": 1.2848072605684262,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072339185369239/1519072552004096192/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.32314267972295196,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072339185369239/1519072557339246703/static",
+          "top": 1.2848072605684262,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072339185369239/1519072528654401563/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.3231707317073171,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072339185369239/1519072534073708775/static",
+          "top": 0.8079268292682927,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072339185369239/1519072552004096192/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.3231707317073171,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072339185369239/1519072557339246703/static",
+          "top": 0.8079268292682927,
+          "width": 1
+        }
+      ],
+      "name": "Dragon",
+      "options": [
+        {
+          "name": "Jade"
+        },
+        {
+          "name": "Rose"
+        },
+        {
+          "name": "Sapphire"
+        },
+        {
+          "name": "Ruby"
+        }
+      ],
+      "baseLabel": "Dragon: Profile Frame",
+      "variant": "Sapphire"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Dragon (Ruby): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072056560455851/1519072278669692938/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.32314267972295196,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072056560455851/1519072284084797571/static",
+          "top": 1.2848072605684262,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072056560455851/1519072295086330008/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.32314267972295196,
+          "left": 0,
+          "parentHeight": 189.25,
+          "parentWidth": 130.84375,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072056560455851/1519072302766100520/static",
+          "top": 1.2848072605684262,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072056560455851/1519072278669692938/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.3231707317073171,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072056560455851/1519072284084797571/static",
+          "top": 0.8079268292682927,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072056560455851/1519072295086330008/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f bottom__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.3231707317073171,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "bottom",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1519072056560455851/1519072302766100520/static",
+          "top": 0.8079268292682927,
+          "width": 1
+        }
+      ],
+      "name": "Dragon",
+      "options": [
+        {
+          "name": "Jade"
+        },
+        {
+          "name": "Rose"
+        },
+        {
+          "name": "Sapphire"
+        },
+        {
+          "name": "Ruby"
+        }
+      ],
+      "baseLabel": "Dragon: Profile Frame",
+      "variant": "Ruby"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Vengeance (Blue): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1507152062134358176/1514421634222526506/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1507152062134358176/1514421637540352071/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1507152062134358176/1514421634222526506/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1507152062134358176/1514421637540352071/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        }
+      ],
+      "name": "Vengeance",
+      "options": [
+        {
+          "name": "Pink"
+        },
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "Orange"
+        }
+      ],
+      "baseLabel": "Vengeance: Profile Frame",
+      "variant": "Blue"
+    },
+    {
+      "collection": "Category: Frames",
+      "label": "Vengeance (Orange): Profile Frame",
+      "layers": [
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1507152063078072454/1514421773637259365/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5456171960831144,
+          "left": 0,
+          "parentHeight": 212.5625,
+          "parentWidth": 130.84375,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1507152063078072454/1514421776967405728/static",
+          "top": -0.2317328875089563,
+          "width": 1.0000019106759015
+        },
+        {
+          "back": false,
+          "cls": "profileFrameLayer__7d80f front__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1507152063078072454/1514421773637259365/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        },
+        {
+          "back": true,
+          "cls": "profileFrameLayer__7d80f back__7d80f top__7d80f fadeIn__7d80f staple__7d80f",
+          "height": 0.5457317073170732,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 328,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1507152063078072454/1514421776967405728/static",
+          "top": -0.23170731707317072,
+          "width": 1
+        }
+      ],
+      "name": "Vengeance",
+      "options": [
+        {
+          "name": "Pink"
+        },
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "Orange"
+        }
+      ],
+      "baseLabel": "Vengeance: Profile Frame",
+      "variant": "Orange"
+    },
+    {
+      "collection": "Category: Flux Vol. 2",
+      "label": "Cycling Lights (Vaporwave): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/c28d54b623054a85e1e2b816e4cf279e86190d62c3ad44af9601ceaf911349e2",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/c28d54b623054a85e1e2b816e4cf279e86190d62c3ad44af9601ceaf911349e2",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Cycling Lights",
+      "options": [
+        {
+          "name": "RGB"
+        },
+        {
+          "name": "Vaporwave"
+        },
+        {
+          "name": "Iridescent"
+        }
+      ],
+      "baseLabel": "Cycling Lights: Profile Effect",
+      "variant": "Vaporwave"
+    },
+    {
+      "collection": "Category: Flux Vol. 2",
+      "label": "Cycling Lights (Iridescent): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/461cc93c7b391bbd66fd1007f06b81bc4a693706cb72f7b604aa747444dd195a",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/461cc93c7b391bbd66fd1007f06b81bc4a693706cb72f7b604aa747444dd195a",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Cycling Lights",
+      "options": [
+        {
+          "name": "RGB"
+        },
+        {
+          "name": "Vaporwave"
+        },
+        {
+          "name": "Iridescent"
+        }
+      ],
+      "baseLabel": "Cycling Lights: Profile Effect",
+      "variant": "Iridescent"
+    },
+    {
+      "collection": "Category: Flux Vol. 2",
+      "label": "Ambient Ripples (Lavender): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/0a44173eaf694958b25f7229eb07e05617e53ec955a078eb2708a39791ddbcc8",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/0a44173eaf694958b25f7229eb07e05617e53ec955a078eb2708a39791ddbcc8",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Ambient Ripples",
+      "options": [
+        {
+          "name": "Arctic"
+        },
+        {
+          "name": "Lavender"
+        },
+        {
+          "name": "Bubblegum"
+        },
+        {
+          "name": "Golden"
+        }
+      ],
+      "baseLabel": "Ambient Ripples: Profile Effect",
+      "variant": "Lavender"
+    },
+    {
+      "collection": "Category: Flux Vol. 2",
+      "label": "Ambient Ripples (Bubblegum): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/a9a3c2735b035a9d771cb190694cabccd272a379be25c34ff47afc158b8c39ff",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/a9a3c2735b035a9d771cb190694cabccd272a379be25c34ff47afc158b8c39ff",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Ambient Ripples",
+      "options": [
+        {
+          "name": "Arctic"
+        },
+        {
+          "name": "Lavender"
+        },
+        {
+          "name": "Bubblegum"
+        },
+        {
+          "name": "Golden"
+        }
+      ],
+      "baseLabel": "Ambient Ripples: Profile Effect",
+      "variant": "Bubblegum"
+    },
+    {
+      "collection": "Category: Flux Vol. 2",
+      "label": "Ambient Ripples (Golden): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/2bea32325966db4f6a894b2115c11d219d3194aa4b6edfc419bc16ba101efaf5",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/2bea32325966db4f6a894b2115c11d219d3194aa4b6edfc419bc16ba101efaf5",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Ambient Ripples",
+      "options": [
+        {
+          "name": "Arctic"
+        },
+        {
+          "name": "Lavender"
+        },
+        {
+          "name": "Bubblegum"
+        },
+        {
+          "name": "Golden"
+        }
+      ],
+      "baseLabel": "Ambient Ripples: Profile Effect",
+      "variant": "Golden"
+    },
+    {
+      "collection": "Category: Toy Story",
+      "label": "Falling With Style (Clouds Only): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/f10ee2921215c8eb624b49839f82fe75fe13062b86376944d86ba3ddec3342ef",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/f10ee2921215c8eb624b49839f82fe75fe13062b86376944d86ba3ddec3342ef",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Falling With Style",
+      "options": [
+        {
+          "name": "Base"
+        },
+        {
+          "name": "Clouds Only"
+        }
+      ],
+      "baseLabel": "Falling With Style: Profile Effect",
+      "variant": "Clouds Only"
+    },
+    {
+      "collection": "Category: Neon Graffiti",
+      "label": "Spray Doodles (No Artist): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/f2761b53dd3e65bb463353d0e1f7f09beafe7dc3b0068305a51d8de95545db6c",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/f2761b53dd3e65bb463353d0e1f7f09beafe7dc3b0068305a51d8de95545db6c",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Spray Doodles",
+      "options": [
+        {
+          "name": "Artist"
+        },
+        {
+          "name": "No Artist"
+        }
+      ],
+      "baseLabel": "Spray Doodles: Profile Effect",
+      "variant": "No Artist"
+    },
+    {
+      "collection": "Category: Flux",
+      "label": "Neon Glow (Aquamarine): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/15ddefd8c7f3abfa6f44c55c80f6e2fcba81eef88f1d1bfba6527c9283f9b7eb",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/15ddefd8c7f3abfa6f44c55c80f6e2fcba81eef88f1d1bfba6527c9283f9b7eb",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Neon Glow",
+      "options": [
+        {
+          "name": "Kunzite"
+        },
+        {
+          "name": "Aquamarine"
+        },
+        {
+          "name": "Amethyst"
+        },
+        {
+          "name": "Peridot"
+        },
+        {
+          "name": "Ruby"
+        },
+        {
+          "name": "Emerald"
+        },
+        {
+          "name": "Sapphire"
+        }
+      ],
+      "baseLabel": "Neon Glow: Profile Effect",
+      "variant": "Aquamarine"
+    },
+    {
+      "collection": "Category: Flux",
+      "label": "Neon Glow (Amethyst): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1b8bd7ae3520d0987edba8503bd3ea4958495b8fa62fb94738e2cdf5512d3e5c",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/1b8bd7ae3520d0987edba8503bd3ea4958495b8fa62fb94738e2cdf5512d3e5c",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Neon Glow",
+      "options": [
+        {
+          "name": "Kunzite"
+        },
+        {
+          "name": "Aquamarine"
+        },
+        {
+          "name": "Amethyst"
+        },
+        {
+          "name": "Peridot"
+        },
+        {
+          "name": "Ruby"
+        },
+        {
+          "name": "Emerald"
+        },
+        {
+          "name": "Sapphire"
+        }
+      ],
+      "baseLabel": "Neon Glow: Profile Effect",
+      "variant": "Amethyst"
+    },
+    {
+      "collection": "Category: Flux",
+      "label": "Neon Glow (Peridot): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/33c86f9b08ee0ea758e2614ceec65a586fd6abdfe7b39f8c756c9d3649929b21",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/33c86f9b08ee0ea758e2614ceec65a586fd6abdfe7b39f8c756c9d3649929b21",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Neon Glow",
+      "options": [
+        {
+          "name": "Kunzite"
+        },
+        {
+          "name": "Aquamarine"
+        },
+        {
+          "name": "Amethyst"
+        },
+        {
+          "name": "Peridot"
+        },
+        {
+          "name": "Ruby"
+        },
+        {
+          "name": "Emerald"
+        },
+        {
+          "name": "Sapphire"
+        }
+      ],
+      "baseLabel": "Neon Glow: Profile Effect",
+      "variant": "Peridot"
+    },
+    {
+      "collection": "Category: Flux",
+      "label": "Neon Glow (Ruby): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/0a034e447378eebf752642ebadf5fb5794973682f6592eeaf7a81f399f42152a",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/0a034e447378eebf752642ebadf5fb5794973682f6592eeaf7a81f399f42152a",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Neon Glow",
+      "options": [
+        {
+          "name": "Kunzite"
+        },
+        {
+          "name": "Aquamarine"
+        },
+        {
+          "name": "Amethyst"
+        },
+        {
+          "name": "Peridot"
+        },
+        {
+          "name": "Ruby"
+        },
+        {
+          "name": "Emerald"
+        },
+        {
+          "name": "Sapphire"
+        }
+      ],
+      "baseLabel": "Neon Glow: Profile Effect",
+      "variant": "Ruby"
+    },
+    {
+      "collection": "Category: Flux",
+      "label": "Neon Glow (Emerald): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/45862bd9ee644878f06925280e9d00abe58be1bf07b5a418d7cc6d8f6ed70898",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/45862bd9ee644878f06925280e9d00abe58be1bf07b5a418d7cc6d8f6ed70898",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Neon Glow",
+      "options": [
+        {
+          "name": "Kunzite"
+        },
+        {
+          "name": "Aquamarine"
+        },
+        {
+          "name": "Amethyst"
+        },
+        {
+          "name": "Peridot"
+        },
+        {
+          "name": "Ruby"
+        },
+        {
+          "name": "Emerald"
+        },
+        {
+          "name": "Sapphire"
+        }
+      ],
+      "baseLabel": "Neon Glow: Profile Effect",
+      "variant": "Emerald"
+    },
+    {
+      "collection": "Category: Flux",
+      "label": "Neon Glow (Sapphire): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/ba2bde24e6aa13ade7f1d235ecff9d3146d69cb76236af140efc2c187c98932d",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/ba2bde24e6aa13ade7f1d235ecff9d3146d69cb76236af140efc2c187c98932d",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Neon Glow",
+      "options": [
+        {
+          "name": "Kunzite"
+        },
+        {
+          "name": "Aquamarine"
+        },
+        {
+          "name": "Amethyst"
+        },
+        {
+          "name": "Peridot"
+        },
+        {
+          "name": "Ruby"
+        },
+        {
+          "name": "Emerald"
+        },
+        {
+          "name": "Sapphire"
+        }
+      ],
+      "baseLabel": "Neon Glow: Profile Effect",
+      "variant": "Sapphire"
+    },
+    {
+      "collection": "Category: Flux",
+      "label": "Drifting Glow (Sunset): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/b1c5de02ade699b789f73fed035d2e8deef87b3b71f9e52c781fb4a23ddd7d20",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/b1c5de02ade699b789f73fed035d2e8deef87b3b71f9e52c781fb4a23ddd7d20",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Drifting Glow",
+      "options": [
+        {
+          "name": "Twilight"
+        },
+        {
+          "name": "Sunset"
+        },
+        {
+          "name": "Radioactive"
+        }
+      ],
+      "baseLabel": "Drifting Glow: Profile Effect",
+      "variant": "Sunset"
+    },
+    {
+      "collection": "Category: Flux",
+      "label": "Drifting Glow (Radioactive): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/3af9d2e2d437b29e399b494bbe3f1681a27861990ad80f1c8d65b94f5fd2b82b",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/3af9d2e2d437b29e399b494bbe3f1681a27861990ad80f1c8d65b94f5fd2b82b",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Drifting Glow",
+      "options": [
+        {
+          "name": "Twilight"
+        },
+        {
+          "name": "Sunset"
+        },
+        {
+          "name": "Radioactive"
+        }
+      ],
+      "baseLabel": "Drifting Glow: Profile Effect",
+      "variant": "Radioactive"
+    },
+    {
+      "collection": "Category: Flux",
+      "label": "Electric Aura (Quartz): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/3a2f5a565bb4eeb28137596bd11959a948c378585a99bc0a0e0020b312c10caa",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/3a2f5a565bb4eeb28137596bd11959a948c378585a99bc0a0e0020b312c10caa",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Electric Aura",
+      "options": [
+        {
+          "name": "Thistle"
+        },
+        {
+          "name": "Quartz"
+        },
+        {
+          "name": "Icy"
+        }
+      ],
+      "baseLabel": "Electric Aura: Profile Effect",
+      "variant": "Quartz"
+    },
+    {
+      "collection": "Category: Flux",
+      "label": "Electric Aura (Icy): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/9ea83ecdfc006e15587df677d98acb293564dd298aec9dba4bea2f45acb1d8d3",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/media/v1/collectibles-shop/9ea83ecdfc006e15587df677d98acb293564dd298aec9dba4bea2f45acb1d8d3",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Electric Aura",
+      "options": [
+        {
+          "name": "Thistle"
+        },
+        {
+          "name": "Quartz"
+        },
+        {
+          "name": "Icy"
+        }
+      ],
+      "baseLabel": "Electric Aura: Profile Effect",
+      "variant": "Icy"
+    },
+    {
+      "collection": "Category: Gothica",
+      "label": "Dark Roses (Black): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/d0d1bcd19aa85c9a61436790216d90421a481336f07335859ee9ae4d184184e2",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/d0d1bcd19aa85c9a61436790216d90421a481336f07335859ee9ae4d184184e2",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Dark Roses",
+      "options": [
+        {
+          "name": "Nightshade"
+        },
+        {
+          "name": "Black"
+        },
+        {
+          "name": "White"
+        },
+        {
+          "name": "Blue"
+        }
+      ],
+      "baseLabel": "Dark Roses: Profile Effect",
+      "variant": "Black"
+    },
+    {
+      "collection": "Category: Gothica",
+      "label": "Dark Roses (White): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/9ceb9270732f89d4520bc1bfd0f86ae276eb52598f8f76a4e4894385966309f7",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/9ceb9270732f89d4520bc1bfd0f86ae276eb52598f8f76a4e4894385966309f7",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Dark Roses",
+      "options": [
+        {
+          "name": "Nightshade"
+        },
+        {
+          "name": "Black"
+        },
+        {
+          "name": "White"
+        },
+        {
+          "name": "Blue"
+        }
+      ],
+      "baseLabel": "Dark Roses: Profile Effect",
+      "variant": "White"
+    },
+    {
+      "collection": "Category: Gothica",
+      "label": "Dark Roses (Blue): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/757f67bc4cfadca063be55f667d91b60f41a95a3f0808e5353d511a53c30aae6",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/757f67bc4cfadca063be55f667d91b60f41a95a3f0808e5353d511a53c30aae6",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Dark Roses",
+      "options": [
+        {
+          "name": "Nightshade"
+        },
+        {
+          "name": "Black"
+        },
+        {
+          "name": "White"
+        },
+        {
+          "name": "Blue"
+        }
+      ],
+      "baseLabel": "Dark Roses: Profile Effect",
+      "variant": "Blue"
+    },
+    {
+      "collection": "Category: Gothica",
+      "label": "Nevermore (Crimson): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/e306e4ac3b1fa6bd141077675f38a4e587b06b7cacf1c1f6df9ab903aa2738e8",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/e306e4ac3b1fa6bd141077675f38a4e587b06b7cacf1c1f6df9ab903aa2738e8",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Nevermore",
+      "options": [
+        {
+          "name": "Midnight"
+        },
+        {
+          "name": "Crimson"
+        },
+        {
+          "name": "White"
+        }
+      ],
+      "baseLabel": "Nevermore: Profile Effect",
+      "variant": "Crimson"
+    },
+    {
+      "collection": "Category: Gothica",
+      "label": "Nevermore (White): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/c63fef5bf0e775acdf282856277d09f8992e2ac812a61abeca218d5164dad09d",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/c63fef5bf0e775acdf282856277d09f8992e2ac812a61abeca218d5164dad09d",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Nevermore",
+      "options": [
+        {
+          "name": "Midnight"
+        },
+        {
+          "name": "Crimson"
+        },
+        {
+          "name": "White"
+        }
+      ],
+      "baseLabel": "Nevermore: Profile Effect",
+      "variant": "White"
+    },
+    {
+      "collection": "Category: Slumber Party",
+      "label": "Dream Waves (Pink): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/2f174c1ba97ae7f995912c66f6866f662ae9741466c49ae5b9d5d100a390622e",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/2f174c1ba97ae7f995912c66f6866f662ae9741466c49ae5b9d5d100a390622e",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Dream Waves",
+      "options": [
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "Pink"
+        },
+        {
+          "name": "Purple"
+        },
+        {
+          "name": "Green"
+        },
+        {
+          "name": "White"
+        }
+      ],
+      "baseLabel": "Dream Waves: Profile Effect",
+      "variant": "Pink"
+    },
+    {
+      "collection": "Category: Slumber Party",
+      "label": "Dream Waves (Purple): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/61db14fe44def1c449aacb94c30b170e2b41e651907986f70b96d246dfb73643",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/61db14fe44def1c449aacb94c30b170e2b41e651907986f70b96d246dfb73643",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Dream Waves",
+      "options": [
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "Pink"
+        },
+        {
+          "name": "Purple"
+        },
+        {
+          "name": "Green"
+        },
+        {
+          "name": "White"
+        }
+      ],
+      "baseLabel": "Dream Waves: Profile Effect",
+      "variant": "Purple"
+    },
+    {
+      "collection": "Category: Slumber Party",
+      "label": "Dream Waves (Green): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/b0f4eef7e8a59883f5ed32a8138062610706b3c910da6a9e18e2229944857c27",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/b0f4eef7e8a59883f5ed32a8138062610706b3c910da6a9e18e2229944857c27",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Dream Waves",
+      "options": [
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "Pink"
+        },
+        {
+          "name": "Purple"
+        },
+        {
+          "name": "Green"
+        },
+        {
+          "name": "White"
+        }
+      ],
+      "baseLabel": "Dream Waves: Profile Effect",
+      "variant": "Green"
+    },
+    {
+      "collection": "Category: Slumber Party",
+      "label": "Dream Waves (White): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/315a3e301cb6e94266728c873cc9e8da9626d669ac2316545d30192193babc88",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/315a3e301cb6e94266728c873cc9e8da9626d669ac2316545d30192193babc88",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Dream Waves",
+      "options": [
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "Pink"
+        },
+        {
+          "name": "Purple"
+        },
+        {
+          "name": "Green"
+        },
+        {
+          "name": "White"
+        }
+      ],
+      "baseLabel": "Dream Waves: Profile Effect",
+      "variant": "White"
+    },
+    {
+      "collection": "Category: Cosmos",
+      "label": "Star Swirl (Amethyst): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/2cd553704e7bf0074731e91c66405d4d467b110c731cbd189a361e729ca80604",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/2cd553704e7bf0074731e91c66405d4d467b110c731cbd189a361e729ca80604",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Star Swirl",
+      "options": [
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "Amethyst"
+        },
+        {
+          "name": "Rose"
+        },
+        {
+          "name": "Dusk"
+        }
+      ],
+      "baseLabel": "Star Swirl: Profile Effect",
+      "variant": "Amethyst"
+    },
+    {
+      "collection": "Category: Cosmos",
+      "label": "Star Swirl (Rose): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/7eee7421b93580ec504c72bf1d87b4295da4d5052531426d06da2aba57259593",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/7eee7421b93580ec504c72bf1d87b4295da4d5052531426d06da2aba57259593",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Star Swirl",
+      "options": [
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "Amethyst"
+        },
+        {
+          "name": "Rose"
+        },
+        {
+          "name": "Dusk"
+        }
+      ],
+      "baseLabel": "Star Swirl: Profile Effect",
+      "variant": "Rose"
+    },
+    {
+      "collection": "Category: Cosmos",
+      "label": "Star Swirl (Dusk): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/bcc70eb7a4c36e614600a7d492a5cb3ceaa7859b99e9243565895eb01ac1a885",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/bcc70eb7a4c36e614600a7d492a5cb3ceaa7859b99e9243565895eb01ac1a885",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Star Swirl",
+      "options": [
+        {
+          "name": "Blue"
+        },
+        {
+          "name": "Amethyst"
+        },
+        {
+          "name": "Rose"
+        },
+        {
+          "name": "Dusk"
+        }
+      ],
+      "baseLabel": "Star Swirl: Profile Effect",
+      "variant": "Dusk"
+    },
+    {
+      "collection": "Category: Cosmos",
+      "label": "Cosmic Twilight (Dusk): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/f2973139ce1f827231cc3b926456dfbef8c51e7ae0a2655b89354ddb318d6e92",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/f2973139ce1f827231cc3b926456dfbef8c51e7ae0a2655b89354ddb318d6e92",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Cosmic Twilight",
+      "options": [
+        {
+          "name": "Fuchsia"
+        },
+        {
+          "name": "Dusk"
+        },
+        {
+          "name": "Beryl"
+        },
+        {
+          "name": "Amethyst"
+        }
+      ],
+      "baseLabel": "Cosmic Twilight: Profile Effect",
+      "variant": "Dusk"
+    },
+    {
+      "collection": "Category: Cosmos",
+      "label": "Cosmic Twilight (Beryl): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/873c242b5f499223e727fe16ec292c08085a7fc5a41f98158ababd6ad933fd5e",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/873c242b5f499223e727fe16ec292c08085a7fc5a41f98158ababd6ad933fd5e",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Cosmic Twilight",
+      "options": [
+        {
+          "name": "Fuchsia"
+        },
+        {
+          "name": "Dusk"
+        },
+        {
+          "name": "Beryl"
+        },
+        {
+          "name": "Amethyst"
+        }
+      ],
+      "baseLabel": "Cosmic Twilight: Profile Effect",
+      "variant": "Beryl"
+    },
+    {
+      "collection": "Category: Cosmos",
+      "label": "Cosmic Twilight (Amethyst): Profile Effect",
+      "layers": [
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.9554645669291335,
+          "left": 0,
+          "parentHeight": 246,
+          "parentWidth": 127,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/e5d732595c602427978850526ce2a504b92a70e973f863483d9e5679d07a30fe",
+          "top": 0,
+          "width": 1
+        },
+        {
+          "back": false,
+          "cls": "effect__0dd08",
+          "height": 1.95552,
+          "left": 0,
+          "parentHeight": 318,
+          "parentWidth": 300,
+          "position": "top",
+          "src": "https://cdn.discordapp.com/assets/content/e5d732595c602427978850526ce2a504b92a70e973f863483d9e5679d07a30fe",
+          "top": 0,
+          "width": 1
+        }
+      ],
+      "name": "Cosmic Twilight",
+      "options": [
+        {
+          "name": "Fuchsia"
+        },
+        {
+          "name": "Dusk"
+        },
+        {
+          "name": "Beryl"
+        },
+        {
+          "name": "Amethyst"
+        }
+      ],
+      "baseLabel": "Cosmic Twilight: Profile Effect",
+      "variant": "Amethyst"
+    }
+  ],
+  "errors": []
+}

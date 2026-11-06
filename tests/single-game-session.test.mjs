@@ -29,3 +29,5 @@ test('OS detach uses a state preserving move and never appends the live player',
 });
 
 
+
+test('End Task destroys only the selected live context and preserves recent records',()=>{const c=setup(),api=c.window.NovaRecent;api.launch({id:'app',name:'Browser',kind:'app'});const app=c.frame;api.launch({id:'game',name:'Game'});const game=c.frame;assert.equal(api.taskList().length,2);const task=api.taskList().find(t=>t.name==='Game');assert.equal(api.endTask(task.id),true);assert.equal(game.isConnected,false);assert.equal(game.src,'about:blank');assert.equal(app.isConnected,true);assert.equal(api.taskList().length,1);assert.equal(api.list().length,2);assert.equal(api.resume({id:'game',name:'Game'}),false);assert.equal(api.endTask(task.id),false);assert.equal(api.resume({id:'app',name:'Browser',kind:'app'}),true)});

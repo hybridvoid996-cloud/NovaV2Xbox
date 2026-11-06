@@ -1,0 +1,15 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {movyArtwork,movyItem,readMovyPage,normalizeMovyHome,createMovyCatalog} from '../server/movie-movy.mjs';
+import {movyPlaybackRoutes,moviePlaybackRoutes} from '../Public/src/movie-playback-routes.mjs';
+import {withMovieBackup} from '../server/movie-catalog-backup.mjs';
+const movie={id:550,mediaType:'movie',title:'Fight Club',poster:'/img/w342/abc.jpg/q50.webp',image:'/img/w780/def.jpg/q65.webp',release_date:'1999-10-15'};
+test('Movy metadata preserves typed identity and maps artwork to approved image host',()=>{assert.equal(movyItem(movie).id,'550');assert.equal(movyItem(movie).type,'movie');assert.equal(movyArtwork(movie.poster),'https://image.tmdb.org/t/p/original/abc.jpg');assert.equal(movyArtwork('https://evil.test/p.jpg'),'');assert.equal(movyItem({...movie,mediaType:'anime'}),null)});
+test('public page parser rejects login/error pages and combines typed shelves',()=>{assert.throws(()=>readMovyPage('<html>Login</html>'));const data=normalizeMovyHome({defaultSections:[{name:'trending',movies:[movie,{...movie,mediaType:'tv'}]}]});assert.equal(data.results.length,2);assert.equal(data.rails.movy_trending_movie.results.length,1)});
+test('Movy details reject a mismatched title and cache requests',async()=>{let calls=0;const request=async()=>{calls++;return {ok:true,text:async()=>'<script id="__NEXT_DATA__" type="application/json">'+JSON.stringify({props:{pageProps:{details:{...movie,tmdbId:550}}}})+'</script>'}};const catalog=createMovyCatalog(request);await catalog('details',new URLSearchParams({id:'550',type:'movie'}));await catalog('details',new URLSearchParams({id:'550',type:'movie'}));assert.equal(calls,1);await assert.rejects(catalog('details',new URLSearchParams({id:'551',type:'movie'})),/match/);await assert.rejects(catalog('details',new URLSearchParams({id:'550',type:'anime'})))});
+test('fallback routes keep movie and episode IDs separate and do not send AniList IDs to Movy',()=>{assert.deepEqual(movyPlaybackRoutes({id:550,type:'movie'}),['https://www.movy.sx/movie/550?play=true']);assert.deepEqual(movyPlaybackRoutes({id:1396,type:'tv',season:2,episode:3}),['https://www.movy.sx/tv/1396/2/3?play=true']);assert.deepEqual(movyPlaybackRoutes({id:1,type:'anime'}),[]);assert.equal(moviePlaybackRoutes({id:550,type:'movie'}).at(-2),'https://www.movy.sx/movie/550?play=true')});
+test('Movy keeps the Nova catalog available when other catalogs fail',async()=>{
+ const primary=async(req,res)=>{res.statusCode=502;res.end('{}')};
+ const request=async url=>{if(!String(url).startsWith('https://www.movy.sx/'))throw Error('Offline');return {ok:true,text:async()=>'<script id="__NEXT_DATA__">'+JSON.stringify({props:{pageProps:{defaultSections:[{name:'trending',movies:[movie]}]}}})+'</script>'}};
+ const handler=withMovieBackup(primary,{request});let body,status;await handler({method:'GET',url:'/api/movies?op=home'},{set statusCode(v){status=v},setHeader(){},end(v){body=JSON.parse(v)}});assert.equal(status,200);assert.equal(body.rails.movy_trending_movie.results[0].id,'550');
+});

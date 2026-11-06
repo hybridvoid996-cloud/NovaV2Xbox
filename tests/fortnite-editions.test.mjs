@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {chooseFortnite,fortniteEditions} from '../Public/src/fortnite-editions.mjs';
+test('Fortnite alternate launcher is pinned and preserves existing 1.8 path',async()=>{assert.equal(await chooseFortnite({preferred:'1.8'}),'1.8');assert.equal(await chooseFortnite({preferred:'2.0'}),'2.0');assert.equal(fortniteEditions['1.8'].url,null);assert.equal(fortniteEditions['2.0'].url,'https://retrora.lol/');assert.match(fortniteEditions['2.0'].detail,/1.8.1/);});

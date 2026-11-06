@@ -864,6 +864,26 @@
           "createdAt"
         ]
       }
+    },
+    "novaAIProjects": {
+      ".read": false,
+      ".write": false,
+      ".indexOn": [
+        "updatedAt"
+      ]
+    },
+    "novaAIFeedback": {
+      ".read": false,
+      ".write": false,
+      "$project": {
+        ".indexOn": [
+          "at"
+        ]
+      }
+    },
+    "novaAIClocks": {
+      ".read": false,
+      ".write": false
     }
   }
 }

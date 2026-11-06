@@ -7,7 +7,7 @@ function avatar(host,p={},showEffect=true){
  host.replaceChildren();host.classList.add('nova-home-avatar');host.dataset.nitro=p.nitroAnimation||'none';
  const face=document.createElement('span');face.className='nova-home-face';face.textContent=(p.name||'N')[0].toUpperCase();
  if(typeof p.photo==='string'&&/^(https?:|data:image\/|blob:)/.test(p.photo)){const img=image(p.photo,'nova-home-photo');img.onerror=()=>img.remove();face.append(img)}
- host.append(face);const effect=showEffect&&asset(p.effect,'effect');if(effect)host.append(image(effect,'nova-home-avatar-effect'));
+ host.append(face);const effect=showEffect&&assets.get(p.effect)?.subtype!=='frame'&&asset(p.effect,'effect');if(effect)host.append(image(effect,'nova-home-avatar-effect'));
  const decoration=asset(p.decoration,'decoration');if(decoration)host.append(image(decoration,'nova-home-decoration'));
  const dot=document.createElement('span');dot.className='nova-home-presence';dot.dataset.status=p.status||(p.online?'online':'offline');dot.setAttribute('aria-label',dot.dataset.status);host.append(dot);
 }
@@ -16,7 +16,7 @@ function surface(host,p={},chat=false){
  host.querySelectorAll(':scope > .nova-home-effect, :scope > .nova-home-banner').forEach(n=>n.remove());
  const banner=chat?(asset(p.chatBanner,'banner')||asset(p.banner,'banner')||(typeof p.banner==='string'&&/^(https:|data:image\/)/.test(p.banner)?p.banner:'')):(typeof p.banner==='string'&&/^https?:|^data:image\//.test(p.banner)?p.banner:'');
  host.classList.toggle('nova-home-has-banner',!!banner);if(banner)host.prepend(image(banner,'nova-home-banner'));
- const effect=asset(p.effect,'effect');if(effect)host.prepend(image(effect,'nova-home-effect'));
+ const effectItem=assets.get(p.effect);host._novaCosmetic?.dispose();host._novaCosmetic=null;host.classList.remove('is-framed');const stamp=host._novaCosmeticStamp=(host._novaCosmeticStamp||0)+1;if(effectItem?.kind==='effect'){if(effectItem.layers?.length)import('./cosmetic-renderer.mjs').then(({mountProfileCosmetic})=>{if(host._novaCosmeticStamp===stamp)host._novaCosmetic=mountProfileCosmetic(host,effectItem)}).catch(()=>{});else host.prepend(image(effectItem.src,'nova-home-effect'));}
 }
 let coinOwner,coins;
 function resetCoins(){const owner=localStorage.getItem('nova_user');if(owner===coinOwner)return;coinOwner=owner;coins=undefined;try{const saved=JSON.parse(localStorage.getItem('nova-progress-'+owner));if(Number.isSafeInteger(saved?.coins)&&saved.coins>=0)coins=saved.coins}catch{}}

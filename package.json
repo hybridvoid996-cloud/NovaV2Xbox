@@ -11,7 +11,8 @@
     "start:transport": "node scripts/patch-wisp.mjs && node server/search-wisp.mjs",
     "start": "node server.mjs",
     "test:connection": "node --test tests/connection.test.mjs",
-    "catalog:stamp": "node scripts/stamp-library-new.mjs"
+    "catalog:stamp": "node scripts/stamp-library-new.mjs",
+    "start:local": "node --env-file=.env.local server.mjs"
   },
   "devDependencies": {
     "@mercuryworkshop/libcurl-transport": "2.0.5",

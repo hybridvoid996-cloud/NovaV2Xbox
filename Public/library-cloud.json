@@ -361,19 +361,13 @@
         "name": "NBA 2K23",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0107",
-        "name": "NBA 2K23",
-        "sourceId": "kj0107",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20220922/20220922143345527.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0107",
         "name": "NBA 2K23",
         "sourceId": "kj0107"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "NBA 2K23",
         "sourceId": "kj0107",
         "source": "Stratus"
@@ -511,19 +505,13 @@
         "name": "Rise of the Tomb Raider",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0121",
-        "name": "Rise of the Tomb Raider",
-        "sourceId": "jy0121",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250815/20250815164909843.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0121",
         "name": "Rise of the Tomb Raider",
         "sourceId": "jy0121"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Rise of the Tomb Raider",
         "sourceId": "jy0121",
         "source": "Stratus"
@@ -789,19 +777,13 @@
         "name": "Maid of Sker",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0070",
-        "name": "Maid of Sker",
-        "sourceId": "bs0070",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260807/20260807161423476.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0070",
         "name": "Maid of Sker",
         "sourceId": "bs0070"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Maid of Sker",
         "sourceId": "bs0070",
         "source": "Stratus"
@@ -1643,19 +1625,13 @@
         "name": "Hogwarts Legacy",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0166",
-        "name": "Hogwarts Legacy",
-        "sourceId": "kj0166",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20241119/2024111915172341.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0166",
         "name": "Hogwarts Legacy",
         "sourceId": "kj0166"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Hogwarts Legacy",
         "sourceId": "kj0166",
         "source": "Stratus"
@@ -1681,19 +1657,13 @@
         "name": "Grand Theft Auto V",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0108",
-        "name": "Grand Theft Auto V",
-        "sourceId": "jy0108",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260304/20260304175815239.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0108",
         "name": "Grand Theft Auto V",
         "sourceId": "jy0108"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Grand Theft Auto V",
         "sourceId": "jy0108",
         "source": "Stratus"
@@ -1719,19 +1689,13 @@
         "name": "Hollow Knight: Silksong",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0046",
-        "name": "Hollow Knight: Silksong",
-        "sourceId": "bs0046",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260508/20260508163357849.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0046",
         "name": "Hollow Knight: Silksong",
         "sourceId": "bs0046"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Hollow Knight: Silksong",
         "sourceId": "bs0046",
         "source": "Stratus"
@@ -1757,19 +1721,13 @@
         "name": "Cyberpunk 2077",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0354",
-        "name": "Cyberpunk 2077",
-        "sourceId": "jy0354",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260410/20260410170600406.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0354",
         "name": "Cyberpunk 2077",
         "sourceId": "jy0354"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Cyberpunk 2077",
         "sourceId": "jy0354",
         "source": "Stratus"
@@ -1795,19 +1753,13 @@
         "name": "Elden Ring",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0170",
-        "name": "Elden Ring",
-        "sourceId": "dg0170",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260122/20260122010238981.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0170",
         "name": "Elden Ring",
         "sourceId": "dg0170"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Elden Ring",
         "sourceId": "dg0170",
         "source": "Stratus"
@@ -1833,19 +1785,13 @@
         "name": "Sim Racing Telemetry - F1 22",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0531",
-        "name": "Sim Racing Telemetry - F1 22",
-        "sourceId": "kj0531",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250901/20250901114742375.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0531",
         "name": "Sim Racing Telemetry - F1 22",
         "sourceId": "kj0531"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Sim Racing Telemetry - F1 22",
         "sourceId": "kj0531",
         "source": "Stratus"
@@ -1871,19 +1817,13 @@
         "name": "Little Nightmares III",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0039",
-        "name": "Little Nightmares III",
-        "sourceId": "bs0039",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20251017/20251017175259569.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0039",
         "name": "Little Nightmares III",
         "sourceId": "bs0039"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Little Nightmares III",
         "sourceId": "bs0039",
         "source": "Stratus"
@@ -1909,19 +1849,13 @@
         "name": "X-Plane 11",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0495",
-        "name": "X-Plane 11",
-        "sourceId": "kj0495",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250902/20250902173645541.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0495",
         "name": "X-Plane 11",
         "sourceId": "kj0495"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "X-Plane 11",
         "sourceId": "kj0495",
         "source": "Stratus"
@@ -1947,19 +1881,13 @@
         "name": "GUILTY GEAR -STRIVE-",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0530",
-        "name": "GUILTY GEAR -STRIVE-",
-        "sourceId": "kj0530",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250901/2025090114314282.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0530",
         "name": "GUILTY GEAR -STRIVE-",
         "sourceId": "kj0530"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "GUILTY GEAR -STRIVE-",
         "sourceId": "kj0530",
         "source": "Stratus"
@@ -1985,19 +1913,13 @@
         "name": "Clair Obscur: Expedition 33",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0034",
-        "name": "Clair Obscur: Expedition 33",
-        "sourceId": "bs0034",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250829/20250829160344655.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0034",
         "name": "Clair Obscur: Expedition 33",
         "sourceId": "bs0034"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Clair Obscur: Expedition 33",
         "sourceId": "bs0034",
         "source": "Stratus"
@@ -2023,19 +1945,13 @@
         "name": "Easy Red 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0035",
-        "name": "Easy Red 2",
-        "sourceId": "bs0035",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250901/20250901142928882.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0035",
         "name": "Easy Red 2",
         "sourceId": "bs0035"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Easy Red 2",
         "sourceId": "bs0035",
         "source": "Stratus"
@@ -2061,19 +1977,13 @@
         "name": "The First Berserker: Khazan",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0023",
-        "name": "The First Berserker: Khazan",
-        "sourceId": "bs0023",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250627/20250627115702179.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0023",
         "name": "The First Berserker: Khazan",
         "sourceId": "bs0023"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "The First Berserker: Khazan",
         "sourceId": "bs0023",
         "source": "Stratus"
@@ -2099,19 +2009,13 @@
         "name": "SAND LAND",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0419",
-        "name": "SAND LAND",
-        "sourceId": "dg0419",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250903/20250903105458739.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0419",
         "name": "SAND LAND",
         "sourceId": "dg0419"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "SAND LAND",
         "sourceId": "dg0419",
         "source": "Stratus"
@@ -2137,19 +2041,13 @@
         "name": "JDM: Japanese Drift Master",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0026",
-        "name": "JDM: Japanese Drift Master",
-        "sourceId": "bs0026",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250704/20250704160426206.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0026",
         "name": "JDM: Japanese Drift Master",
         "sourceId": "bs0026"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "JDM: Japanese Drift Master",
         "sourceId": "bs0026",
         "source": "Stratus"
@@ -2175,19 +2073,13 @@
         "name": "Blue Prince",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0021",
-        "name": "Blue Prince",
-        "sourceId": "bs0021",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250627/20250627112108682.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0021",
         "name": "Blue Prince",
         "sourceId": "bs0021"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Blue Prince",
         "sourceId": "bs0021",
         "source": "Stratus"
@@ -2213,19 +2105,13 @@
         "name": "Only Up",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0025",
-        "name": "Only Up",
-        "sourceId": "bs0025",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250620/20250620191032595.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0025",
         "name": "Only Up",
         "sourceId": "bs0025"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Only Up",
         "sourceId": "bs0025",
         "source": "Stratus"
@@ -2251,19 +2137,13 @@
         "name": "Schedule 1",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0024",
-        "name": "Schedule 1",
-        "sourceId": "bs0024",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250612/20250612140558838.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0024",
         "name": "Schedule 1",
         "sourceId": "bs0024"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Schedule 1",
         "sourceId": "bs0024",
         "source": "Stratus"
@@ -2289,19 +2169,13 @@
         "name": "RuneScape: Dragonwilds",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0022",
-        "name": "RuneScape: Dragonwilds",
-        "sourceId": "bs0022",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250530/20250530162533878.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0022",
         "name": "RuneScape: Dragonwilds",
         "sourceId": "bs0022"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "RuneScape: Dragonwilds",
         "sourceId": "bs0022",
         "source": "Stratus"
@@ -2327,19 +2201,13 @@
         "name": "Poppy Playtime: Chapter 4",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0730",
-        "name": "Poppy Playtime: Chapter 4",
-        "sourceId": "dg0730",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250328/20250328170938528.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0730",
         "name": "Poppy Playtime: Chapter 4",
         "sourceId": "dg0730"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Poppy Playtime: Chapter 4",
         "sourceId": "dg0730",
         "source": "Stratus"
@@ -2365,19 +2233,13 @@
         "name": "Raft",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0209",
-        "name": "Raft",
-        "sourceId": "kj0209",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250328/20250328180106981.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0209",
         "name": "Raft",
         "sourceId": "kj0209"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Raft",
         "sourceId": "kj0209",
         "source": "Stratus"
@@ -2403,19 +2265,13 @@
         "name": "Football Manager 2023",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0461",
-        "name": "Football Manager 2023",
-        "sourceId": "kj0461",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425111353578.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0461",
         "name": "Football Manager 2023",
         "sourceId": "kj0461"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Football Manager 2023",
         "sourceId": "kj0461",
         "source": "Stratus"
@@ -2441,19 +2297,13 @@
         "name": "Platform 8",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0529",
-        "name": "Platform 8",
-        "sourceId": "kj0529",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250411/20250411114108140.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0529",
         "name": "Platform 8",
         "sourceId": "kj0529"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Platform 8",
         "sourceId": "kj0529",
         "source": "Stratus"
@@ -2479,19 +2329,13 @@
         "name": "Uncharted 4",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0248",
-        "name": "Uncharted 4",
-        "sourceId": "dg0248",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250320/20250320170325254.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0248",
         "name": "Uncharted 4",
         "sourceId": "dg0248"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Uncharted 4",
         "sourceId": "dg0248",
         "source": "Stratus"
@@ -2517,19 +2361,13 @@
         "name": "Cities: Skylines 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0364",
-        "name": "Cities: Skylines 2",
-        "sourceId": "dg0364",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250530/2025053015351599.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0364",
         "name": "Cities: Skylines 2",
         "sourceId": "dg0364"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Cities: Skylines 2",
         "sourceId": "dg0364",
         "source": "Stratus"
@@ -2555,19 +2393,13 @@
         "name": "Frostpunk 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0533",
-        "name": "Frostpunk 2",
-        "sourceId": "dg0533",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250516/20250516160437393.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0533",
         "name": "Frostpunk 2",
         "sourceId": "dg0533"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Frostpunk 2",
         "sourceId": "dg0533",
         "source": "Stratus"
@@ -2593,19 +2425,13 @@
         "name": "Poppy Playtime: Chapter 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0138",
-        "name": "Poppy Playtime: Chapter 2",
-        "sourceId": "kj0138",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250312/20250312142048423.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0138",
         "name": "Poppy Playtime: Chapter 2",
         "sourceId": "kj0138"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Poppy Playtime: Chapter 2",
         "sourceId": "kj0138",
         "source": "Stratus"
@@ -2631,19 +2457,13 @@
         "name": "Poppy Playtime: Chapter 1",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0137",
-        "name": "Poppy Playtime: Chapter 1",
-        "sourceId": "kj0137",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250312/2025031211383467.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0137",
         "name": "Poppy Playtime: Chapter 1",
         "sourceId": "kj0137"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Poppy Playtime: Chapter 1",
         "sourceId": "kj0137",
         "source": "Stratus"
@@ -2669,19 +2489,13 @@
         "name": "Poppy Playtime: Chapter 3",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0442",
-        "name": "Poppy Playtime: Chapter 3",
-        "sourceId": "kj0442",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250408/20250408114636529.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0442",
         "name": "Poppy Playtime: Chapter 3",
         "sourceId": "kj0442"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Poppy Playtime: Chapter 3",
         "sourceId": "kj0442",
         "source": "Stratus"
@@ -2707,19 +2521,13 @@
         "name": "Mafia III: Definitive Edition",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0492",
-        "name": "Mafia III: Definitive Edition",
-        "sourceId": "dg0492",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250328/20250328175200365.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0492",
         "name": "Mafia III: Definitive Edition",
         "sourceId": "dg0492"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Mafia III: Definitive Edition",
         "sourceId": "dg0492",
         "source": "Stratus"
@@ -2745,19 +2553,13 @@
         "name": "Mafia II: Definitive Edition",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0491",
-        "name": "Mafia II: Definitive Edition",
-        "sourceId": "dg0491",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250328/20250328174905439.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0491",
         "name": "Mafia II: Definitive Edition",
         "sourceId": "dg0491"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Mafia II: Definitive Edition",
         "sourceId": "dg0491",
         "source": "Stratus"
@@ -2783,19 +2585,13 @@
         "name": "TCG Card Shop",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kp0232",
-        "name": "TCG Card Shop",
-        "sourceId": "kp0232",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250331/20250331152024104.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kp0232",
         "name": "TCG Card Shop",
         "sourceId": "kp0232"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "TCG Card Shop",
         "sourceId": "kp0232",
         "source": "Stratus"
@@ -2821,19 +2617,13 @@
         "name": "Undertale",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0306",
-        "name": "Undertale",
-        "sourceId": "kj0306",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250320/20250320165426349.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0306",
         "name": "Undertale",
         "sourceId": "kj0306"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Undertale",
         "sourceId": "kj0306",
         "source": "Stratus"
@@ -2875,19 +2665,13 @@
         "name": "God of War: Ragnarök",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0017",
-        "name": "God of War: Ragnarök",
-        "sourceId": "bs0017",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20241225/2024122510542280.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0017",
         "name": "God of War: Ragnarök",
         "sourceId": "bs0017"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "God of War: Ragnarök",
         "sourceId": "bs0017",
         "source": "Stratus"
@@ -2913,19 +2697,13 @@
         "name": "Supermarket Simulator",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kp0203",
-        "name": "Supermarket Simulator",
-        "sourceId": "kp0203",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20240527/20240527170815952.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kp0203",
         "name": "Supermarket Simulator",
         "sourceId": "kp0203"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Supermarket Simulator",
         "sourceId": "kp0203",
         "source": "Stratus"
@@ -2951,19 +2729,13 @@
         "name": "Brotato",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0380",
-        "name": "Brotato",
-        "sourceId": "dg0380",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20240520/20240520180713885.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0380",
         "name": "Brotato",
         "sourceId": "dg0380"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Brotato",
         "sourceId": "dg0380",
         "source": "Stratus"
@@ -2989,19 +2761,13 @@
         "name": "Sniper：Ghost Warrior Contracts2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kp0133",
-        "name": "Sniper：Ghost Warrior Contracts2",
-        "sourceId": "kp0133",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20240223/20240223104223120.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kp0133",
         "name": "Sniper：Ghost Warrior Contracts2",
         "sourceId": "kp0133"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Sniper：Ghost Warrior Contracts2",
         "sourceId": "kp0133",
         "source": "Stratus"
@@ -3027,19 +2793,13 @@
         "name": "God of War 4",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0154",
-        "name": "God of War 4",
-        "sourceId": "dg0154",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250208/20250208161453296.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0154",
         "name": "God of War 4",
         "sourceId": "dg0154"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "God of War 4",
         "sourceId": "dg0154",
         "source": "Stratus"
@@ -3065,19 +2825,13 @@
         "name": "Halo: The Master Chief Collection",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0229",
-        "name": "Halo: The Master Chief Collection",
-        "sourceId": "kj0229",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20240104/2024010415291328.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0229",
         "name": "Halo: The Master Chief Collection",
         "sourceId": "kj0229"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Halo: The Master Chief Collection",
         "sourceId": "kj0229",
         "source": "Stratus"
@@ -3103,19 +2857,13 @@
         "name": "Ratchet & Clank",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0287",
-        "name": "Ratchet & Clank",
-        "sourceId": "kj0287",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20230831/20230831160516101.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0287",
         "name": "Ratchet & Clank",
         "sourceId": "kj0287"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Ratchet & Clank",
         "sourceId": "kj0287",
         "source": "Stratus"
@@ -3141,19 +2889,13 @@
         "name": "The Last of Us™ Part I",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0315",
-        "name": "The Last of Us™ Part I",
-        "sourceId": "dg0315",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260408/20260408152604686.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0315",
         "name": "The Last of Us™ Part I",
         "sourceId": "dg0315"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "The Last of Us™ Part I",
         "sourceId": "dg0315",
         "source": "Stratus"
@@ -3179,19 +2921,13 @@
         "name": "Hollow Knight",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0011",
-        "name": "Hollow Knight",
-        "sourceId": "jy0011",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20251217/20251217150023563.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0011",
         "name": "Hollow Knight",
         "sourceId": "jy0011"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Hollow Knight",
         "sourceId": "jy0011",
         "source": "Stratus"
@@ -3217,19 +2953,13 @@
         "name": "Neon Abyss",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0359",
-        "name": "Neon Abyss",
-        "sourceId": "dg0359",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20231010/20231010172921209.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0359",
         "name": "Neon Abyss",
         "sourceId": "dg0359"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Neon Abyss",
         "sourceId": "dg0359",
         "source": "Stratus"
@@ -3255,19 +2985,13 @@
         "name": "Need for Speed: Payback",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0181",
-        "name": "Need for Speed: Payback",
-        "sourceId": "kj0181",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20230329/20230329174630101.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0181",
         "name": "Need for Speed: Payback",
         "sourceId": "kj0181"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Need for Speed: Payback",
         "sourceId": "kj0181",
         "source": "Stratus"
@@ -3293,19 +3017,13 @@
         "name": "SpongeBob SquarePants: Battle for Bikini Bottom",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0161",
-        "name": "SpongeBob SquarePants: Battle for Bikini Bottom",
-        "sourceId": "kj0161",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20230309/20230309154253635.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0161",
         "name": "SpongeBob SquarePants: Battle for Bikini Bottom",
         "sourceId": "kj0161"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "SpongeBob SquarePants: Battle for Bikini Bottom",
         "sourceId": "kj0161",
         "source": "Stratus"
@@ -3331,19 +3049,13 @@
         "name": "SpongeBob SquarePants: The Cosmic Shake",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0150",
-        "name": "SpongeBob SquarePants: The Cosmic Shake",
-        "sourceId": "kj0150",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20230208/20230208162455142.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0150",
         "name": "SpongeBob SquarePants: The Cosmic Shake",
         "sourceId": "kj0150"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "SpongeBob SquarePants: The Cosmic Shake",
         "sourceId": "kj0150",
         "source": "Stratus"
@@ -3369,19 +3081,13 @@
         "name": "Drift Racing Online",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0141",
-        "name": "Drift Racing Online",
-        "sourceId": "kj0141",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20230112/2023011214190849.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0141",
         "name": "Drift Racing Online",
         "sourceId": "kj0141"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Drift Racing Online",
         "sourceId": "kj0141",
         "source": "Stratus"
@@ -3407,19 +3113,13 @@
         "name": "Choo-Choo Charles",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0278",
-        "name": "Choo-Choo Charles",
-        "sourceId": "dg0278",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20221226/20221226164844572.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0278",
         "name": "Choo-Choo Charles",
         "sourceId": "dg0278"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Choo-Choo Charles",
         "sourceId": "dg0278",
         "source": "Stratus"
@@ -3445,19 +3145,13 @@
         "name": "NBA 2K23",
         "sourceOccurrence": 1
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0107",
-        "name": "NBA 2K23",
-        "sourceId": "kj0107",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20220922/20220922143345527.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0107",
         "name": "NBA 2K23",
         "sourceId": "kj0107"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "NBA 2K23",
         "sourceId": "kj0107",
         "source": "Stratus"
@@ -3478,19 +3172,13 @@
         "name": "Ranch Simulator22",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0085",
-        "name": "Ranch Simulator22",
-        "sourceId": "kj0085",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20220905/2022090512201532.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0085",
         "name": "Ranch Simulator22",
         "sourceId": "kj0085"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Ranch Simulator22",
         "sourceId": "kj0085",
         "source": "Stratus"
@@ -3516,19 +3204,13 @@
         "name": "Marvel’s Spider-Man Remastered",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0089",
-        "name": "Marvel’s Spider-Man Remastered",
-        "sourceId": "kj0089",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20220822/20220822102739116.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0089",
         "name": "Marvel’s Spider-Man Remastered",
         "sourceId": "kj0089"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Marvel’s Spider-Man Remastered",
         "sourceId": "kj0089",
         "source": "Stratus"
@@ -3554,19 +3236,13 @@
         "name": "Stray",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0183",
-        "name": "Stray",
-        "sourceId": "dg0183",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20220721/20220721173245822.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0183",
         "name": "Stray",
         "sourceId": "dg0183"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Stray",
         "sourceId": "dg0183",
         "source": "Stratus"
@@ -3592,19 +3268,13 @@
         "name": "Subnautica Zero",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0025",
-        "name": "Subnautica Zero",
-        "sourceId": "kj0025",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20220601/20220601160747480.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0025",
         "name": "Subnautica Zero",
         "sourceId": "kj0025"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Subnautica Zero",
         "sourceId": "kj0025",
         "source": "Stratus"
@@ -3630,19 +3300,13 @@
         "name": "GhostWire: Tokyo",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=KJ0019",
-        "name": "GhostWire: Tokyo",
-        "sourceId": "KJ0019",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20220512/20220512150101663.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=KJ0019",
         "name": "GhostWire: Tokyo",
         "sourceId": "KJ0019"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "GhostWire: Tokyo",
         "sourceId": "KJ0019",
         "source": "Stratus"
@@ -3668,19 +3332,13 @@
         "name": "Nintendo Star Brawl",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0332",
-        "name": "Nintendo Star Brawl",
-        "sourceId": "kj0332",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20220308/20220308113448830.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0332",
         "name": "Nintendo Star Brawl",
         "sourceId": "kj0332"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Nintendo Star Brawl",
         "sourceId": "kj0332",
         "source": "Stratus"
@@ -3706,19 +3364,13 @@
         "name": "LEGO The Incredibles",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0163",
-        "name": "LEGO The Incredibles",
-        "sourceId": "dg0163",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20220218/20220218162730691.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0163",
         "name": "LEGO The Incredibles",
         "sourceId": "dg0163"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "LEGO The Incredibles",
         "sourceId": "dg0163",
         "source": "Stratus"
@@ -3744,19 +3396,13 @@
         "name": "Watch Dogs: Legion",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0159",
-        "name": "Watch Dogs: Legion",
-        "sourceId": "dg0159",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20220209/2022020916243193.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0159",
         "name": "Watch Dogs: Legion",
         "sourceId": "dg0159"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Watch Dogs: Legion",
         "sourceId": "dg0159",
         "source": "Stratus"
@@ -3782,19 +3428,13 @@
         "name": "Cooking Simulator",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0145",
-        "name": "Cooking Simulator",
-        "sourceId": "dg0145",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20220118/20220118160908809.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0145",
         "name": "Cooking Simulator",
         "sourceId": "dg0145"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Cooking Simulator",
         "sourceId": "dg0145",
         "source": "Stratus"
@@ -3820,19 +3460,13 @@
         "name": "FIFA19",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0139",
-        "name": "FIFA19",
-        "sourceId": "dg0139",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20220106/20220106131732975.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0139",
         "name": "FIFA19",
         "sourceId": "dg0139"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "FIFA19",
         "sourceId": "dg0139",
         "source": "Stratus"
@@ -3858,19 +3492,13 @@
         "name": "Arma 3",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0054",
-        "name": "Arma 3",
-        "sourceId": "dg0054",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20211008/2021100815413434.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0054",
         "name": "Arma 3",
         "sourceId": "dg0054"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Arma 3",
         "sourceId": "dg0054",
         "source": "Stratus"
@@ -3896,19 +3524,13 @@
         "name": "Assassin's Creed: Brotherhood",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0062",
-        "name": "Assassin's Creed: Brotherhood",
-        "sourceId": "dg0062",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20211008/20211008150329478.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0062",
         "name": "Assassin's Creed: Brotherhood",
         "sourceId": "dg0062"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Assassin's Creed: Brotherhood",
         "sourceId": "dg0062",
         "source": "Stratus"
@@ -3934,19 +3556,13 @@
         "name": "Assassin's Creed: Revelations",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0063",
-        "name": "Assassin's Creed: Revelations",
-        "sourceId": "dg0063",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20211008/20211008145832603.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0063",
         "name": "Assassin's Creed: Revelations",
         "sourceId": "dg0063"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Assassin's Creed: Revelations",
         "sourceId": "dg0063",
         "source": "Stratus"
@@ -3972,19 +3588,13 @@
         "name": "Assassin's Creed: Black Flag",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0064",
-        "name": "Assassin's Creed: Black Flag",
-        "sourceId": "dg0064",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210930/20210930103622101.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0064",
         "name": "Assassin's Creed: Black Flag",
         "sourceId": "dg0064"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Assassin's Creed: Black Flag",
         "sourceId": "dg0064",
         "source": "Stratus"
@@ -4010,19 +3620,13 @@
         "name": "Assassin's Creed: Syndicate",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0065",
-        "name": "Assassin's Creed: Syndicate",
-        "sourceId": "dg0065",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210927/20210927171209123.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0065",
         "name": "Assassin's Creed: Syndicate",
         "sourceId": "dg0065"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Assassin's Creed: Syndicate",
         "sourceId": "dg0065",
         "source": "Stratus"
@@ -4048,19 +3652,13 @@
         "name": "Football：PES 2021",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0024",
-        "name": "Football：PES 2021",
-        "sourceId": "dg0024",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260122/20260122003226463.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0024",
         "name": "Football：PES 2021",
         "sourceId": "dg0024"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Football：PES 2021",
         "sourceId": "dg0024",
         "source": "Stratus"
@@ -4086,19 +3684,13 @@
         "name": "A Way Out",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0021",
-        "name": "A Way Out",
-        "sourceId": "dg0021",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210913/20210913170525971.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0021",
         "name": "A Way Out",
         "sourceId": "dg0021"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "A Way Out",
         "sourceId": "dg0021",
         "source": "Stratus"
@@ -4124,19 +3716,13 @@
         "name": "Days Gone",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0487",
-        "name": "Days Gone",
-        "sourceId": "jy0487",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210826/20210826165258697.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0487",
         "name": "Days Gone",
         "sourceId": "jy0487"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Days Gone",
         "sourceId": "jy0487",
         "source": "Stratus"
@@ -4162,19 +3748,13 @@
         "name": "Forza Horizon 4",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0541",
-        "name": "Forza Horizon 4",
-        "sourceId": "jy0541",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210819/20210819150932788.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0541",
         "name": "Forza Horizon 4",
         "sourceId": "jy0541"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Forza Horizon 4",
         "sourceId": "jy0541",
         "source": "Stratus"
@@ -4200,19 +3780,13 @@
         "name": "My Friend Pedro",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0473",
-        "name": "My Friend Pedro",
-        "sourceId": "jy0473",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210715/20210715203831143.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0473",
         "name": "My Friend Pedro",
         "sourceId": "jy0473"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "My Friend Pedro",
         "sourceId": "jy0473",
         "source": "Stratus"
@@ -4238,19 +3812,13 @@
         "name": "Control",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0417",
-        "name": "Control",
-        "sourceId": "jy0417",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210624/20210624151535175.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0417",
         "name": "Control",
         "sourceId": "jy0417"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Control",
         "sourceId": "jy0417",
         "source": "Stratus"
@@ -4276,19 +3844,13 @@
         "name": "Halo: Reach",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0371",
-        "name": "Halo: Reach",
-        "sourceId": "jy0371",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121174006760.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0371",
         "name": "Halo: Reach",
         "sourceId": "jy0371"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Halo: Reach",
         "sourceId": "jy0371",
         "source": "Stratus"
@@ -4314,19 +3876,13 @@
         "name": "Fallout 4",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0310",
-        "name": "Fallout 4",
-        "sourceId": "jy0310",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210423/20210423120719798.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0310",
         "name": "Fallout 4",
         "sourceId": "jy0310"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Fallout 4",
         "sourceId": "jy0310",
         "source": "Stratus"
@@ -4352,19 +3908,13 @@
         "name": "It Takes Two",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0440",
-        "name": "It Takes Two",
-        "sourceId": "jy0440",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210610/20210610143732631.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0440",
         "name": "It Takes Two",
         "sourceId": "jy0440"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "It Takes Two",
         "sourceId": "jy0440",
         "source": "Stratus"
@@ -4390,19 +3940,13 @@
         "name": "Minecraft:Dungeons",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0402",
-        "name": "Minecraft:Dungeons",
-        "sourceId": "jy0402",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210402/20210402153935638.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0402",
         "name": "Minecraft:Dungeons",
         "sourceId": "jy0402"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Minecraft:Dungeons",
         "sourceId": "jy0402",
         "source": "Stratus"
@@ -4460,19 +4004,13 @@
         "name": "Wolf Mate",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0036",
-        "name": "Wolf Mate",
-        "sourceId": "bs0036",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250829/20250829151520484.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0036",
         "name": "Wolf Mate",
         "sourceId": "bs0036"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Wolf Mate",
         "sourceId": "bs0036",
         "source": "Stratus"
@@ -4498,19 +4036,13 @@
         "name": "Crashlands 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0020",
-        "name": "Crashlands 2",
-        "sourceId": "bs0020",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250523/20250523171146133.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0020",
         "name": "Crashlands 2",
         "sourceId": "bs0020"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Crashlands 2",
         "sourceId": "bs0020",
         "source": "Stratus"
@@ -4536,19 +4068,13 @@
         "name": "Mandragora: Whispers of the Witch Tree",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0019",
-        "name": "Mandragora: Whispers of the Witch Tree",
-        "sourceId": "bs0019",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250523/20250523151915433.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0019",
         "name": "Mandragora: Whispers of the Witch Tree",
         "sourceId": "bs0019"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Mandragora: Whispers of the Witch Tree",
         "sourceId": "bs0019",
         "source": "Stratus"
@@ -4574,19 +4100,13 @@
         "name": "Manor Lords",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kp0213",
-        "name": "Manor Lords",
-        "sourceId": "kp0213",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250516/20250516164035975.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kp0213",
         "name": "Manor Lords",
         "sourceId": "kp0213"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Manor Lords",
         "sourceId": "kp0213",
         "source": "Stratus"
@@ -4612,19 +4132,13 @@
         "name": "inZOI",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0620",
-        "name": "inZOI",
-        "sourceId": "kj0620",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250430/20250430154802684.jpeg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0620",
         "name": "inZOI",
         "sourceId": "kj0620"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "inZOI",
         "sourceId": "kj0620",
         "source": "Stratus"
@@ -4650,19 +4164,13 @@
         "name": "AI LIMIT",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0018",
-        "name": "AI LIMIT",
-        "sourceId": "bs0018",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425165323885.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0018",
         "name": "AI LIMIT",
         "sourceId": "bs0018"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "AI LIMIT",
         "sourceId": "bs0018",
         "source": "Stratus"
@@ -4688,19 +4196,13 @@
         "name": "Horizon Zero Dawn",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0598",
-        "name": "Horizon Zero Dawn",
-        "sourceId": "dg0598",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425162432879.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0598",
         "name": "Horizon Zero Dawn",
         "sourceId": "dg0598"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Horizon Zero Dawn",
         "sourceId": "dg0598",
         "source": "Stratus"
@@ -4726,19 +4228,13 @@
         "name": "Dead Space™ 3",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0615",
-        "name": "Dead Space™ 3",
-        "sourceId": "kj0615",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425153051380.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0615",
         "name": "Dead Space™ 3",
         "sourceId": "kj0615"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Dead Space™ 3",
         "sourceId": "kj0615",
         "source": "Stratus"
@@ -4764,19 +4260,13 @@
         "name": "Deathloop",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0035",
-        "name": "Deathloop",
-        "sourceId": "kj0035",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250425/20250425144632597.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0035",
         "name": "Deathloop",
         "sourceId": "kj0035"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Deathloop",
         "sourceId": "kj0035",
         "source": "Stratus"
@@ -4802,19 +4292,13 @@
         "name": "Dead Space 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0614",
-        "name": "Dead Space 2",
-        "sourceId": "kj0614",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250418/20250418160656506.jpeg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0614",
         "name": "Dead Space 2",
         "sourceId": "kj0614"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Dead Space 2",
         "sourceId": "kj0614",
         "source": "Stratus"
@@ -4840,19 +4324,13 @@
         "name": "Inside the Backrooms",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0179",
-        "name": "Inside the Backrooms",
-        "sourceId": "kj0179",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250418/20250418110320756.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0179",
         "name": "Inside the Backrooms",
         "sourceId": "kj0179"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Inside the Backrooms",
         "sourceId": "kj0179",
         "source": "Stratus"
@@ -4878,19 +4356,13 @@
         "name": "Five Hearts Under One Roof",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0589",
-        "name": "Five Hearts Under One Roof",
-        "sourceId": "dg0589",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250411/20250411110951314.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0589",
         "name": "Five Hearts Under One Roof",
         "sourceId": "dg0589"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Five Hearts Under One Roof",
         "sourceId": "dg0589",
         "source": "Stratus"
@@ -4916,19 +4388,13 @@
         "name": "The Callisto Protocol",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0483",
-        "name": "The Callisto Protocol",
-        "sourceId": "kj0483",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260410/20260410172116228.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0483",
         "name": "The Callisto Protocol",
         "sourceId": "kj0483"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "The Callisto Protocol",
         "sourceId": "kj0483",
         "source": "Stratus"
@@ -4970,19 +4436,13 @@
         "name": "Yandere Simulator",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0639",
-        "name": "Yandere Simulator",
-        "sourceId": "dg0639",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250320/2025032016472366.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0639",
         "name": "Yandere Simulator",
         "sourceId": "dg0639"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Yandere Simulator",
         "sourceId": "dg0639",
         "source": "Stratus"
@@ -5008,19 +4468,13 @@
         "name": "Amanda the Adventurer",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0177",
-        "name": "Amanda the Adventurer",
-        "sourceId": "kj0177",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250408/20250408111122445.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0177",
         "name": "Amanda the Adventurer",
         "sourceId": "kj0177"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Amanda the Adventurer",
         "sourceId": "kj0177",
         "source": "Stratus"
@@ -5046,19 +4500,13 @@
         "name": "Watch Dogs 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0147",
-        "name": "Watch Dogs 2",
-        "sourceId": "jy0147",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260416/20260416114650855.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0147",
         "name": "Watch Dogs 2",
         "sourceId": "jy0147"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Watch Dogs 2",
         "sourceId": "jy0147",
         "source": "Stratus"
@@ -5084,19 +4532,13 @@
         "name": "Doom Eternal",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0488",
-        "name": "Doom Eternal",
-        "sourceId": "jy0488",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121175513137.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0488",
         "name": "Doom Eternal",
         "sourceId": "jy0488"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Doom Eternal",
         "sourceId": "jy0488",
         "source": "Stratus"
@@ -5122,19 +4564,13 @@
         "name": "Cuphead",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0146",
-        "name": "Cuphead",
-        "sourceId": "jy0146",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121145948311.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0146",
         "name": "Cuphead",
         "sourceId": "jy0146"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Cuphead",
         "sourceId": "jy0146",
         "source": "Stratus"
@@ -5160,19 +4596,13 @@
         "name": "ONE PIECE: PIRATE WARRIORS 4",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0183",
-        "name": "ONE PIECE: PIRATE WARRIORS 4",
-        "sourceId": "jy0183",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210827/20210827103736785.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0183",
         "name": "ONE PIECE: PIRATE WARRIORS 4",
         "sourceId": "jy0183"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "ONE PIECE: PIRATE WARRIORS 4",
         "sourceId": "jy0183",
         "source": "Stratus"
@@ -5198,19 +4628,13 @@
         "name": "Attack On Titan2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0208",
-        "name": "Attack On Titan2",
-        "sourceId": "jy0208",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250815/20250815161708130.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0208",
         "name": "Attack On Titan2",
         "sourceId": "jy0208"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Attack On Titan2",
         "sourceId": "jy0208",
         "source": "Stratus"
@@ -5236,19 +4660,13 @@
         "name": "Minecraft: Legends",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0191",
-        "name": "Minecraft: Legends",
-        "sourceId": "kj0191",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20230504/20230504181002607.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0191",
         "name": "Minecraft: Legends",
         "sourceId": "kj0191"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Minecraft: Legends",
         "sourceId": "kj0191",
         "source": "Stratus"
@@ -5274,19 +4692,13 @@
         "name": "Wobbly Life",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0238",
-        "name": "Wobbly Life",
-        "sourceId": "kj0238",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20240411/20240411183834566.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0238",
         "name": "Wobbly Life",
         "sourceId": "kj0238"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Wobbly Life",
         "sourceId": "kj0238",
         "source": "Stratus"
@@ -5312,19 +4724,13 @@
         "name": "Overcooked 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0281",
-        "name": "Overcooked 2",
-        "sourceId": "jy0281",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210618/20210618155328979.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0281",
         "name": "Overcooked 2",
         "sourceId": "jy0281"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Overcooked 2",
         "sourceId": "jy0281",
         "source": "Stratus"
@@ -5350,19 +4756,13 @@
         "name": "One Piece: Burning Blood",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0059",
-        "name": "One Piece: Burning Blood",
-        "sourceId": "jy0059",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020055/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0059",
         "name": "One Piece: Burning Blood",
         "sourceId": "jy0059"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "One Piece: Burning Blood",
         "sourceId": "jy0059",
         "source": "Stratus"
@@ -5388,19 +4788,13 @@
         "name": "Alba: A Wildlife Adventure",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0362",
-        "name": "Alba: A Wildlife Adventure",
-        "sourceId": "jy0362",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210827/20210827110507369.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0362",
         "name": "Alba: A Wildlife Adventure",
         "sourceId": "jy0362"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Alba: A Wildlife Adventure",
         "sourceId": "jy0362",
         "source": "Stratus"
@@ -5426,19 +4820,13 @@
         "name": "Resident Evil: Revelations 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0235",
-        "name": "Resident Evil: Revelations 2",
-        "sourceId": "jy0235",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020147/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0235",
         "name": "Resident Evil: Revelations 2",
         "sourceId": "jy0235"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Resident Evil: Revelations 2",
         "sourceId": "jy0235",
         "source": "Stratus"
@@ -5464,19 +4852,13 @@
         "name": "Resident Evil 2: Remake",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0040",
-        "name": "Resident Evil 2: Remake",
-        "sourceId": "jy0040",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020017/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0040",
         "name": "Resident Evil 2: Remake",
         "sourceId": "jy0040"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Resident Evil 2: Remake",
         "sourceId": "jy0040",
         "source": "Stratus"
@@ -5502,19 +4884,13 @@
         "name": "Ori and the Will of the Wisps",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0126",
-        "name": "Ori and the Will of the Wisps",
-        "sourceId": "jy0126",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020082/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0126",
         "name": "Ori and the Will of the Wisps",
         "sourceId": "jy0126"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Ori and the Will of the Wisps",
         "sourceId": "jy0126",
         "source": "Stratus"
@@ -5540,19 +4916,13 @@
         "name": "Party Hard2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0470",
-        "name": "Party Hard2",
-        "sourceId": "jy0470",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20230824/20230824153244425.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0470",
         "name": "Party Hard2",
         "sourceId": "jy0470"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Party Hard2",
         "sourceId": "jy0470",
         "source": "Stratus"
@@ -5578,19 +4948,13 @@
         "name": "Tomb Raider - Definitive Edition",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0048",
-        "name": "Tomb Raider - Definitive Edition",
-        "sourceId": "bs0048",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260515/20260515162228789.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0048",
         "name": "Tomb Raider - Definitive Edition",
         "sourceId": "bs0048"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Tomb Raider - Definitive Edition",
         "sourceId": "bs0048",
         "source": "Stratus"
@@ -5617,7 +4981,7 @@
         "sourceOccurrence": 0
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Cricket 26",
         "sourceId": "bs0047",
         "source": "Stratus"
@@ -5643,19 +5007,13 @@
         "name": "MiSide",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0676",
-        "name": "MiSide",
-        "sourceId": "dg0676",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250314/20250314110716816.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0676",
         "name": "MiSide",
         "sourceId": "dg0676"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "MiSide",
         "sourceId": "dg0676",
         "source": "Stratus"
@@ -5681,19 +5039,13 @@
         "name": "SCUM",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0222",
-        "name": "SCUM",
-        "sourceId": "kj0222",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20240527/20240527172553275.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0222",
         "name": "SCUM",
         "sourceId": "kj0222"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "SCUM",
         "sourceId": "kj0222",
         "source": "Stratus"
@@ -5719,19 +5071,13 @@
         "name": "Buckshot Roulette",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0426",
-        "name": "Buckshot Roulette",
-        "sourceId": "kj0426",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20240527/20240527171659245.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0426",
         "name": "Buckshot Roulette",
         "sourceId": "kj0426"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Buckshot Roulette",
         "sourceId": "kj0426",
         "source": "Stratus"
@@ -5757,19 +5103,13 @@
         "name": "The Long Drive",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0202",
-        "name": "The Long Drive",
-        "sourceId": "kj0202",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20240527/20240527170116763.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0202",
         "name": "The Long Drive",
         "sourceId": "kj0202"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "The Long Drive",
         "sourceId": "kj0202",
         "source": "Stratus"
@@ -5795,19 +5135,13 @@
         "name": "GigaBash",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0237",
-        "name": "GigaBash",
-        "sourceId": "kj0237",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20240527/20240527165432804.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0237",
         "name": "GigaBash",
         "sourceId": "kj0237"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "GigaBash",
         "sourceId": "kj0237",
         "source": "Stratus"
@@ -5833,19 +5167,13 @@
         "name": "Zoonomaly",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kp0208",
-        "name": "Zoonomaly",
-        "sourceId": "kp0208",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20240527/20240527163117749.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kp0208",
         "name": "Zoonomaly",
         "sourceId": "kp0208"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Zoonomaly",
         "sourceId": "kp0208",
         "source": "Stratus"
@@ -5871,19 +5199,13 @@
         "name": "Hades II",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0499",
-        "name": "Hades II",
-        "sourceId": "kj0499",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20240527/20240527161912139.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0499",
         "name": "Hades II",
         "sourceId": "kj0499"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Hades II",
         "sourceId": "kj0499",
         "source": "Stratus"
@@ -5909,19 +5231,13 @@
         "name": "Alan Wake 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0357",
-        "name": "Alan Wake 2",
-        "sourceId": "kj0357",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20231107/20231107170530841.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0357",
         "name": "Alan Wake 2",
         "sourceId": "kj0357"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Alan Wake 2",
         "sourceId": "kj0357",
         "source": "Stratus"
@@ -5947,19 +5263,13 @@
         "name": "Stick Fight: The Game",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0322",
-        "name": "Stick Fight: The Game",
-        "sourceId": "kj0322",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20230921/20230921170302166.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0322",
         "name": "Stick Fight: The Game",
         "sourceId": "kj0322"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Stick Fight: The Game",
         "sourceId": "kj0322",
         "source": "Stratus"
@@ -5985,19 +5295,13 @@
         "name": "Builder Simulator",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0135",
-        "name": "Builder Simulator",
-        "sourceId": "kj0135",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20230518/20230518222351579.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0135",
         "name": "Builder Simulator",
         "sourceId": "kj0135"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Builder Simulator",
         "sourceId": "kj0135",
         "source": "Stratus"
@@ -6023,19 +5327,13 @@
         "name": "Super Bunny Man",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0171",
-        "name": "Super Bunny Man",
-        "sourceId": "kj0171",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20230309/20230309143757962.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0171",
         "name": "Super Bunny Man",
         "sourceId": "kj0171"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Super Bunny Man",
         "sourceId": "kj0171",
         "source": "Stratus"
@@ -6061,19 +5359,13 @@
         "name": "THE KING OF FIGHTERS XV",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0174",
-        "name": "THE KING OF FIGHTERS XV",
-        "sourceId": "dg0174",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250627/20250627190510800.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0174",
         "name": "THE KING OF FIGHTERS XV",
         "sourceId": "dg0174"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "THE KING OF FIGHTERS XV",
         "sourceId": "dg0174",
         "source": "Stratus"
@@ -6099,19 +5391,13 @@
         "name": "Grand Theft Auto: Vice City",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0129",
-        "name": "Grand Theft Auto: Vice City",
-        "sourceId": "dg0129",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20211208/20211208150225134.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0129",
         "name": "Grand Theft Auto: Vice City",
         "sourceId": "dg0129"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Grand Theft Auto: Vice City",
         "sourceId": "dg0129",
         "source": "Stratus"
@@ -6137,19 +5423,13 @@
         "name": "Grand Theft Auto: San Andreas",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0128",
-        "name": "Grand Theft Auto: San Andreas",
-        "sourceId": "dg0128",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250627/20250627192254549.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0128",
         "name": "Grand Theft Auto: San Andreas",
         "sourceId": "dg0128"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Grand Theft Auto: San Andreas",
         "sourceId": "dg0128",
         "source": "Stratus"
@@ -6175,19 +5455,13 @@
         "name": "Grand Theft Auto III",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0127",
-        "name": "Grand Theft Auto III",
-        "sourceId": "dg0127",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250627/2025062719232955.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0127",
         "name": "Grand Theft Auto III",
         "sourceId": "dg0127"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Grand Theft Auto III",
         "sourceId": "dg0127",
         "source": "Stratus"
@@ -6213,19 +5487,13 @@
         "name": "The Legend of Zelda: Breath of the Wild",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0408",
-        "name": "The Legend of Zelda: Breath of the Wild",
-        "sourceId": "jy0408",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20211202/20211202161041212.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0408",
         "name": "The Legend of Zelda: Breath of the Wild",
         "sourceId": "jy0408"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "The Legend of Zelda: Breath of the Wild",
         "sourceId": "jy0408",
         "source": "Stratus"
@@ -6251,19 +5519,13 @@
         "name": "ARK: Survival Evolved",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0109",
-        "name": "ARK: Survival Evolved",
-        "sourceId": "dg0109",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260122/20260122005113456.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0109",
         "name": "ARK: Survival Evolved",
         "sourceId": "dg0109"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "ARK: Survival Evolved",
         "sourceId": "dg0109",
         "source": "Stratus"
@@ -6301,19 +5563,13 @@
         "name": "Cities: Skylines",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0185",
-        "name": "Cities: Skylines",
-        "sourceId": "kj0185",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20211109/2021110915320926.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0185",
         "name": "Cities: Skylines",
         "sourceId": "kj0185"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Cities: Skylines",
         "sourceId": "kj0185",
         "source": "Stratus"
@@ -6339,19 +5595,13 @@
         "name": "Mount & Blade II: Bannerlord",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0190",
-        "name": "Mount & Blade II: Bannerlord",
-        "sourceId": "kj0190",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210915/20210915143205131.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0190",
         "name": "Mount & Blade II: Bannerlord",
         "sourceId": "kj0190"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Mount & Blade II: Bannerlord",
         "sourceId": "kj0190",
         "source": "Stratus"
@@ -6377,19 +5627,13 @@
         "name": "Fling to Finish",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0022",
-        "name": "Fling to Finish",
-        "sourceId": "dg0022",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210913/20210913171715636.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0022",
         "name": "Fling to Finish",
         "sourceId": "dg0022"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Fling to Finish",
         "sourceId": "dg0022",
         "source": "Stratus"
@@ -6415,19 +5659,13 @@
         "name": "Slime Rancher",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0559",
-        "name": "Slime Rancher",
-        "sourceId": "jy0559",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210909/20210909162034904.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0559",
         "name": "Slime Rancher",
         "sourceId": "jy0559"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Slime Rancher",
         "sourceId": "jy0559",
         "source": "Stratus"
@@ -6453,19 +5691,13 @@
         "name": "Assassin's Creed Odyssey: The Fate of Atlantis",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0238",
-        "name": "Assassin’s Creed Odyssey: The Fate of Atlantis",
-        "sourceId": "jy0238",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210819/20210819153832138.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0238",
         "name": "Assassin’s Creed Odyssey: The Fate of Atlantis",
         "sourceId": "jy0238"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Assassin’s Creed Odyssey: The Fate of Atlantis",
         "sourceId": "jy0238",
         "source": "Stratus"
@@ -6491,19 +5723,13 @@
         "name": "Euro Truck Simulator 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0020",
-        "name": "Euro Truck Simulator 2",
-        "sourceId": "dg0020",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210819/20210819152355105.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0020",
         "name": "Euro Truck Simulator 2",
         "sourceId": "dg0020"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Euro Truck Simulator 2",
         "sourceId": "dg0020",
         "source": "Stratus"
@@ -6529,19 +5755,13 @@
         "name": "Tokyo 2020 Olympics",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0017",
-        "name": "Tokyo 2020 Olympics",
-        "sourceId": "dg0017",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210804/20210804170106386.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0017",
         "name": "Tokyo 2020 Olympics",
         "sourceId": "dg0017"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Tokyo 2020 Olympics",
         "sourceId": "dg0017",
         "source": "Stratus"
@@ -6567,19 +5787,13 @@
         "name": "SUPERHOT: Mind Control Delete",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0482",
-        "name": "SUPERHOT: Mind Control Delete",
-        "sourceId": "jy0482",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210729/20210729161030540.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0482",
         "name": "SUPERHOT: Mind Control Delete",
         "sourceId": "jy0482"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "SUPERHOT: Mind Control Delete",
         "sourceId": "jy0482",
         "source": "Stratus"
@@ -6605,19 +5819,13 @@
         "name": "The Amazing Spider-Man 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0186",
-        "name": "The Amazing Spider-Man 2",
-        "sourceId": "jy0186",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210701/20210701110049951.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0186",
         "name": "The Amazing Spider-Man 2",
         "sourceId": "jy0186"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "The Amazing Spider-Man 2",
         "sourceId": "jy0186",
         "source": "Stratus"
@@ -6643,19 +5851,13 @@
         "name": "Transformers: Devastation",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0435",
-        "name": "Transformers: Devastation",
-        "sourceId": "jy0435",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210625/20210625155939604.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0435",
         "name": "Transformers: Devastation",
         "sourceId": "jy0435"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Transformers: Devastation",
         "sourceId": "jy0435",
         "source": "Stratus"
@@ -6681,19 +5883,13 @@
         "name": "The Amazing Spider-Man",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0459",
-        "name": "The Amazing Spider-Man",
-        "sourceId": "jy0459",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250815/20250815160017152.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0459",
         "name": "The Amazing Spider-Man",
         "sourceId": "jy0459"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "The Amazing Spider-Man",
         "sourceId": "jy0459",
         "source": "Stratus"
@@ -6719,19 +5915,13 @@
         "name": "Call of Duty: WWII",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0361",
-        "name": "Call of Duty: WWII",
-        "sourceId": "jy0361",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121171212433.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0361",
         "name": "Call of Duty: WWII",
         "sourceId": "jy0361"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Call of Duty: WWII",
         "sourceId": "jy0361",
         "source": "Stratus"
@@ -6757,19 +5947,13 @@
         "name": "Little Nightmares II",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0416",
-        "name": "Little Nightmares II",
-        "sourceId": "jy0416",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210223/20210223114102166.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0416",
         "name": "Little Nightmares II",
         "sourceId": "jy0416"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Little Nightmares II",
         "sourceId": "jy0416",
         "source": "Stratus"
@@ -6795,19 +5979,13 @@
         "name": "Hand of Fate 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0172",
-        "name": "Hand of Fate 2",
-        "sourceId": "jy0172",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210701/2021070115545237.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0172",
         "name": "Hand of Fate 2",
         "sourceId": "jy0172"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Hand of Fate 2",
         "sourceId": "jy0172",
         "source": "Stratus"
@@ -6833,19 +6011,13 @@
         "name": "The Past Room",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0324",
-        "name": "The Past Room",
-        "sourceId": "jy0324",
-        "sourceArt": "https://download-oss.raccoongame.com/images/games/cg0020227/b004_zunxiangtuijian_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0324",
         "name": "The Past Room",
         "sourceId": "jy0324"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "The Past Room",
         "sourceId": "jy0324",
         "source": "Stratus"
@@ -6871,19 +6043,13 @@
         "name": "Little Nightmares",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0325",
-        "name": "Little Nightmares",
-        "sourceId": "jy0325",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20220407/20220407113442743.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0325",
         "name": "Little Nightmares",
         "sourceId": "jy0325"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Little Nightmares",
         "sourceId": "jy0325",
         "source": "Stratus"
@@ -6909,19 +6075,13 @@
         "name": "Mafia: Definitive Edition",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0307",
-        "name": "Mafia: Definitive Edition",
-        "sourceId": "jy0307",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250402/20250402162759724.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0307",
         "name": "Mafia: Definitive Edition",
         "sourceId": "jy0307"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Mafia: Definitive Edition",
         "sourceId": "jy0307",
         "source": "Stratus"
@@ -6947,19 +6107,13 @@
         "name": "Boomerang Fu",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0244",
-        "name": "Boomerang Fu",
-        "sourceId": "jy0244",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121160045992.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0244",
         "name": "Boomerang Fu",
         "sourceId": "jy0244"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Boomerang Fu",
         "sourceId": "jy0244",
         "source": "Stratus"
@@ -6985,19 +6139,13 @@
         "name": "Off-Road Heroes 4",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0112",
-        "name": "Off-Road Heroes 4",
-        "sourceId": "jy0112",
-        "sourceArt": "https://download-oss.raccoongame.com/images/games/cg0020044/b004_zunxiangtuijian_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0112",
         "name": "Off-Road Heroes 4",
         "sourceId": "jy0112"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Off-Road Heroes 4",
         "sourceId": "jy0112",
         "source": "Stratus"
@@ -7023,19 +6171,13 @@
         "name": "Far Cry Primal",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0154",
-        "name": "Far Cry Primal",
-        "sourceId": "jy0154",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20211013/20211013103813653.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0154",
         "name": "Far Cry Primal",
         "sourceId": "jy0154"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Far Cry Primal",
         "sourceId": "jy0154",
         "source": "Stratus"
@@ -7061,19 +6203,13 @@
         "name": "Mirror's Edge Catalyst",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0090",
-        "name": "Mirror's Edge Catalyst",
-        "sourceId": "dg0090",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210203/20210203172109696.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0090",
         "name": "Mirror's Edge Catalyst",
         "sourceId": "dg0090"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Mirror's Edge Catalyst",
         "sourceId": "dg0090",
         "source": "Stratus"
@@ -7099,19 +6235,13 @@
         "name": "Far Cry 3",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=md0483",
-        "name": "Far Cry 3",
-        "sourceId": "md0483",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20211013/20211013105004578.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=md0483",
         "name": "Far Cry 3",
         "sourceId": "md0483"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Far Cry 3",
         "sourceId": "md0483",
         "source": "Stratus"
@@ -7137,19 +6267,13 @@
         "name": "COD6 Modern Warfare",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=md0176",
-        "name": "COD6 Modern Warfare",
-        "sourceId": "md0176",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020237/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=md0176",
         "name": "COD6 Modern Warfare",
         "sourceId": "md0176"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "COD6 Modern Warfare",
         "sourceId": "md0176",
         "source": "Stratus"
@@ -7175,19 +6299,13 @@
         "name": "Batman: Arkham Origins",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0273",
-        "name": "Batman™: Arkham Origins",
-        "sourceId": "jy0273",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260410/20260410165142869.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0273",
         "name": "Batman™: Arkham Origins",
         "sourceId": "jy0273"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Batman™: Arkham Origins",
         "sourceId": "jy0273",
         "source": "Stratus"
@@ -7213,19 +6331,13 @@
         "name": "Batman: Arkham Knight",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0272",
-        "name": "Batman™: Arkham Knight",
-        "sourceId": "jy0272",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260408/20260408115025199.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0272",
         "name": "Batman™: Arkham Knight",
         "sourceId": "jy0272"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Batman™: Arkham Knight",
         "sourceId": "jy0272",
         "source": "Stratus"
@@ -7251,19 +6363,13 @@
         "name": "Far Cry New Dawn",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0252",
-        "name": "Far Cry New Dawn",
-        "sourceId": "jy0252",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121153944308.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0252",
         "name": "Far Cry New Dawn",
         "sourceId": "jy0252"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Far Cry New Dawn",
         "sourceId": "jy0252",
         "source": "Stratus"
@@ -7289,19 +6395,13 @@
         "name": "Tom Clancy's Ghost Recon Wildlands",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0214",
-        "name": "Tom Clancy's Ghost Recon® Wildlands",
-        "sourceId": "jy0214",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210721/20210721182849894.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0214",
         "name": "Tom Clancy's Ghost Recon® Wildlands",
         "sourceId": "jy0214"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Tom Clancy's Ghost Recon® Wildlands",
         "sourceId": "jy0214",
         "source": "Stratus"
@@ -7327,19 +6427,13 @@
         "name": "Stardew Valley",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0229",
-        "name": "Stardew Valley",
-        "sourceId": "jy0229",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260407/20260407173533932.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0229",
         "name": "Stardew Valley",
         "sourceId": "jy0229"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Stardew Valley",
         "sourceId": "jy0229",
         "source": "Stratus"
@@ -7365,19 +6459,13 @@
         "name": "Sekiro: Shadows Die Twice",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0038",
-        "name": "Sekiro: Shadows Die Twice",
-        "sourceId": "jy0038",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020011/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0038",
         "name": "Sekiro: Shadows Die Twice",
         "sourceId": "jy0038"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Sekiro: Shadows Die Twice",
         "sourceId": "jy0038",
         "source": "Stratus"
@@ -7403,19 +6491,13 @@
         "name": "Curse of the Dead Gods",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0219",
-        "name": "Curse of the Dead Gods",
-        "sourceId": "jy0219",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210423/20210423160833171.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0219",
         "name": "Curse of the Dead Gods",
         "sourceId": "jy0219"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Curse of the Dead Gods",
         "sourceId": "jy0219",
         "source": "Stratus"
@@ -7441,19 +6523,13 @@
         "name": "Bloodstained: Ritual of the Night",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0080",
-        "name": "Bloodstained: Ritual of the Night",
-        "sourceId": "jy0080",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121153043413.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0080",
         "name": "Bloodstained: Ritual of the Night",
         "sourceId": "jy0080"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Bloodstained: Ritual of the Night",
         "sourceId": "jy0080",
         "source": "Stratus"
@@ -7479,19 +6555,13 @@
         "name": "Forager",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0196",
-        "name": "Forager",
-        "sourceId": "jy0196",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121151243559.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0196",
         "name": "Forager",
         "sourceId": "jy0196"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Forager",
         "sourceId": "jy0196",
         "source": "Stratus"
@@ -7517,19 +6587,13 @@
         "name": "Resident Evil 7: Biohazard",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0095",
-        "name": "Resident Evil 7: Biohazard",
-        "sourceId": "jy0095",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210416/20210416170526682.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0095",
         "name": "Resident Evil 7: Biohazard",
         "sourceId": "jy0095"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Resident Evil 7: Biohazard",
         "sourceId": "jy0095",
         "source": "Stratus"
@@ -7555,19 +6619,13 @@
         "name": "Titanfall 2",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0185",
-        "name": "Titanfall 2",
-        "sourceId": "jy0185",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210910/20210910111022422.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0185",
         "name": "Titanfall 2",
         "sourceId": "jy0185"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Titanfall 2",
         "sourceId": "jy0185",
         "source": "Stratus"
@@ -7593,19 +6651,13 @@
         "name": "What Remains of Edith Finch",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0157",
-        "name": "What Remains of Edith Finch",
-        "sourceId": "jy0157",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20230608/20230608153332521.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0157",
         "name": "What Remains of Edith Finch",
         "sourceId": "jy0157"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "What Remains of Edith Finch",
         "sourceId": "jy0157",
         "source": "Stratus"
@@ -7631,19 +6683,13 @@
         "name": "Untitled Goose Game",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0124",
-        "name": "Untitled Goose Game",
-        "sourceId": "jy0124",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20231121/20231121161451680.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0124",
         "name": "Untitled Goose Game",
         "sourceId": "jy0124"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Untitled Goose Game",
         "sourceId": "jy0124",
         "source": "Stratus"
@@ -7669,19 +6715,13 @@
         "name": "Rise of the Tomb Raider",
         "sourceOccurrence": 1
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0121",
-        "name": "Rise of the Tomb Raider",
-        "sourceId": "jy0121",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250815/20250815164909843.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0121",
         "name": "Rise of the Tomb Raider",
         "sourceId": "jy0121"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Rise of the Tomb Raider",
         "sourceId": "jy0121",
         "source": "Stratus"
@@ -7702,19 +6742,13 @@
         "name": "Katana ZERO",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0120",
-        "name": "Katana ZERO",
-        "sourceId": "jy0120",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20230907/20230907123330843.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0120",
         "name": "Katana ZERO",
         "sourceId": "jy0120"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Katana ZERO",
         "sourceId": "jy0120",
         "source": "Stratus"
@@ -7740,19 +6774,13 @@
         "name": "Wizard of Legend",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0122",
-        "name": "Wizard of Legend",
-        "sourceId": "jy0122",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121144816495.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0122",
         "name": "Wizard of Legend",
         "sourceId": "jy0122"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Wizard of Legend",
         "sourceId": "jy0122",
         "source": "Stratus"
@@ -7778,19 +6806,13 @@
         "name": "Doraemon: Story of Seasons",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0118",
-        "name": "Doraemon: Story of Seasons",
-        "sourceId": "jy0118",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020074/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0118",
         "name": "Doraemon: Story of Seasons",
         "sourceId": "jy0118"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Doraemon: Story of Seasons",
         "sourceId": "jy0118",
         "source": "Stratus"
@@ -7816,19 +6838,13 @@
         "name": "Hades",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0123",
-        "name": "Hades",
-        "sourceId": "jy0123",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260121/20260121144535435.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0123",
         "name": "Hades",
         "sourceId": "jy0123"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Hades",
         "sourceId": "jy0123",
         "source": "Stratus"
@@ -7854,19 +6870,13 @@
         "name": "Ace Combat 7: Skies Unknown",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0109",
-        "name": "Ace Combat 7: Skies Unknown",
-        "sourceId": "jy0109",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20230117/20230117104801313.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0109",
         "name": "Ace Combat 7: Skies Unknown",
         "sourceId": "jy0109"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Ace Combat 7: Skies Unknown",
         "sourceId": "jy0109",
         "source": "Stratus"
@@ -7892,19 +6902,13 @@
         "name": "The Witcher 3",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0091",
-        "name": "Witchers 3",
-        "sourceId": "jy0091",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020068/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0091",
         "name": "Witchers 3",
         "sourceId": "jy0091"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Witchers 3",
         "sourceId": "jy0091",
         "source": "Stratus"
@@ -7930,19 +6934,13 @@
         "name": "Terminator: Resistance",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0105",
-        "name": "Terminator: Resistance",
-        "sourceId": "jy0105",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020066/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0105",
         "name": "Terminator: Resistance",
         "sourceId": "jy0105"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Terminator: Resistance",
         "sourceId": "jy0105",
         "source": "Stratus"
@@ -7968,19 +6966,13 @@
         "name": "NieR:Automata",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0103",
-        "name": "NieR:Automata™",
-        "sourceId": "jy0103",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020067/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0103",
         "name": "NieR:Automata™",
         "sourceId": "jy0103"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "NieR:Automata™",
         "sourceId": "jy0103",
         "source": "Stratus"
@@ -8006,19 +6998,13 @@
         "name": "Ori and the Blind Forest",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0094",
-        "name": "Ori and the Blind Forest",
-        "sourceId": "jy0094",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020069/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0094",
         "name": "Ori and the Blind Forest",
         "sourceId": "jy0094"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Ori and the Blind Forest",
         "sourceId": "jy0094",
         "source": "Stratus"
@@ -8044,19 +7030,13 @@
         "name": "Dragon Ball Z: Kakarot",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0084",
-        "name": "Dragon Ball Z: Kakarot",
-        "sourceId": "jy0084",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020050/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0084",
         "name": "Dragon Ball Z: Kakarot",
         "sourceId": "jy0084"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Dragon Ball Z: Kakarot",
         "sourceId": "jy0084",
         "source": "Stratus"
@@ -8082,19 +7062,13 @@
         "name": "For The King",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0075",
-        "name": "For The King",
-        "sourceId": "jy0075",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20210701/20210701114039135.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0075",
         "name": "For The King",
         "sourceId": "jy0075"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "For The King",
         "sourceId": "jy0075",
         "source": "Stratus"
@@ -8120,19 +7094,13 @@
         "name": "Assassin's Creed: Odyssey",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0046",
-        "name": "Assassin’s Creed: Odyssey",
-        "sourceId": "jy0046",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20241119/20241119150312980.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0046",
         "name": "Assassin’s Creed: Odyssey",
         "sourceId": "jy0046"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Assassin’s Creed: Odyssey",
         "sourceId": "jy0046",
         "source": "Stratus"
@@ -8158,19 +7126,13 @@
         "name": "Devil May Cry 5",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0039",
-        "name": "Devil May Cry 5",
-        "sourceId": "jy0039",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250815/20250815173447140.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0039",
         "name": "Devil May Cry 5",
         "sourceId": "jy0039"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Devil May Cry 5",
         "sourceId": "jy0039",
         "source": "Stratus"
@@ -8196,19 +7158,13 @@
         "name": "FINAL FANTASY VII REMAKE INTERGRADE",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=dg0158",
-        "name": "FINAL FANTASY VII REMAKE INTERGRADE",
-        "sourceId": "dg0158",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260429/20260429155014576.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=dg0158",
         "name": "FINAL FANTASY VII REMAKE INTERGRADE",
         "sourceId": "dg0158"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "FINAL FANTASY VII REMAKE INTERGRADE",
         "sourceId": "dg0158",
         "source": "Stratus"
@@ -8234,19 +7190,13 @@
         "name": "How to Train Your Dragon: Dawn of New Riders",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0015",
-        "name": "How to Train Your Dragon: Dawn of New Riders",
-        "sourceId": "jy0015",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0020008/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0015",
         "name": "How to Train Your Dragon: Dawn of New Riders",
         "sourceId": "jy0015"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "How to Train Your Dragon: Dawn of New Riders",
         "sourceId": "jy0015",
         "source": "Stratus"
@@ -8272,19 +7222,13 @@
         "name": "American Fugitive",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0012",
-        "name": "American Fugitive",
-        "sourceId": "jy0012",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260429/20260429153427205.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0012",
         "name": "American Fugitive",
         "sourceId": "jy0012"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "American Fugitive",
         "sourceId": "jy0012",
         "source": "Stratus"
@@ -8310,19 +7254,13 @@
         "name": "Baldur's Gate 3",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0283",
-        "name": "Baldur's Gate 3",
-        "sourceId": "kj0283",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260410/2026041017375120.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0283",
         "name": "Baldur's Gate 3",
         "sourceId": "kj0283"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Baldur's Gate 3",
         "sourceId": "kj0283",
         "source": "Stratus"
@@ -8348,19 +7286,13 @@
         "name": "Devil May Cry 4",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0008",
-        "name": "Devil May Cry 4",
-        "sourceId": "jy0008",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20251217/20251217171620747.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0008",
         "name": "Devil May Cry 4",
         "sourceId": "jy0008"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Devil May Cry 4",
         "sourceId": "jy0008",
         "source": "Stratus"
@@ -8386,19 +7318,13 @@
         "name": "Dead Cells",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0013",
-        "name": "Dead Cells",
-        "sourceId": "jy0013",
-        "sourceArt": "https://download-oss.raccoongame.com/images/cloudgame/img/phone300_public/gamedetails/cg0010029/a004_list_1.webp"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0013",
         "name": "Dead Cells",
         "sourceId": "jy0013"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Dead Cells",
         "sourceId": "jy0013",
         "source": "Stratus"
@@ -8424,19 +7350,13 @@
         "name": "PES 2017",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0017",
-        "name": "PES 2017",
-        "sourceId": "jy0017",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20251217/2025121716330421.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0017",
         "name": "PES 2017",
         "sourceId": "jy0017"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "PES 2017",
         "sourceId": "jy0017",
         "source": "Stratus"
@@ -8462,19 +7382,13 @@
         "name": "Final Fantasy XIII",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0005",
-        "name": "Final Fantasy XIII",
-        "sourceId": "jy0005",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20251217/20251217161430271.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0005",
         "name": "Final Fantasy XIII",
         "sourceId": "jy0005"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Final Fantasy XIII",
         "sourceId": "jy0005",
         "source": "Stratus"
@@ -8500,19 +7414,13 @@
         "name": "Transformers: Rise of the Dark Spark",
         "sourceOccurrence": 0
       },
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0018",
-        "name": "Transformers: Rise of the Dark Spark",
-        "sourceId": "jy0018",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20251217/20251217152325682.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0018",
         "name": "Transformers: Rise of the Dark Spark",
         "sourceId": "jy0018"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Transformers: Rise of the Dark Spark",
         "sourceId": "jy0018",
         "source": "Stratus"
@@ -8532,19 +7440,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260729/20260729175807346.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0078",
-        "name": "DRAGON BALL: Sparking! ZERO",
-        "sourceId": "bs0078",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260729/20260729175807346.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0078",
         "name": "DRAGON BALL: Sparking! ZERO",
         "sourceId": "bs0078"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "DRAGON BALL: Sparking! ZERO",
         "sourceId": "bs0078",
         "source": "Stratus"
@@ -8564,19 +7466,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260717/20260717175642509.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0095",
-        "name": "Red Dead Redemption",
-        "sourceId": "bs0095",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260717/20260717175642509.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0095",
         "name": "Red Dead Redemption",
         "sourceId": "bs0095"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Red Dead Redemption",
         "sourceId": "bs0095",
         "source": "Stratus"
@@ -8596,19 +7492,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260717/20260717173745616.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0094",
-        "name": "PRAGMATA",
-        "sourceId": "bs0094",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260717/20260717173745616.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0094",
         "name": "PRAGMATA",
         "sourceId": "bs0094"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "PRAGMATA",
         "sourceId": "bs0094",
         "source": "Stratus"
@@ -8628,19 +7518,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260731/20260731161444895.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0093",
-        "name": "Battlefield 6",
-        "sourceId": "bs0093",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260731/20260731161444895.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0093",
         "name": "Battlefield 6",
         "sourceId": "bs0093"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Battlefield 6",
         "sourceId": "bs0093",
         "source": "Stratus"
@@ -8660,19 +7544,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260717/20260717171730200.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0092",
-        "name": "Mafia: The Old Country",
-        "sourceId": "bs0092",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260717/20260717171730200.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0092",
         "name": "Mafia: The Old Country",
         "sourceId": "bs0092"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Mafia: The Old Country",
         "sourceId": "bs0092",
         "source": "Stratus"
@@ -8692,19 +7570,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260724/20260724172917805.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0087",
-        "name": "Detroit: Become Human",
-        "sourceId": "bs0087",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260724/20260724172917805.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0087",
         "name": "Detroit: Become Human",
         "sourceId": "bs0087"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Detroit: Become Human",
         "sourceId": "bs0087",
         "source": "Stratus"
@@ -8724,19 +7596,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260807/20260807163709242.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0083",
-        "name": "INDUSTRIA 2",
-        "sourceId": "bs0083",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260807/20260807163709242.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0083",
         "name": "INDUSTRIA 2",
         "sourceId": "bs0083"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "INDUSTRIA 2",
         "sourceId": "bs0083",
         "source": "Stratus"
@@ -8756,19 +7622,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260731/20260731161251319.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0082",
-        "name": "Far Cry 5",
-        "sourceId": "bs0082",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260731/20260731161251319.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0082",
         "name": "Far Cry 5",
         "sourceId": "bs0082"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Far Cry 5",
         "sourceId": "bs0082",
         "source": "Stratus"
@@ -8788,19 +7648,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260724/20260724172728355.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0077",
-        "name": "Invincible VS",
-        "sourceId": "bs0077",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260724/20260724172728355.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0077",
         "name": "Invincible VS",
         "sourceId": "bs0077"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Invincible VS",
         "sourceId": "bs0077",
         "source": "Stratus"
@@ -8820,19 +7674,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260807/20260807170418625.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0074",
-        "name": "Commandos: Origins",
-        "sourceId": "bs0074",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260807/20260807170418625.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0074",
         "name": "Commandos: Origins",
         "sourceId": "bs0074"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Commandos: Origins",
         "sourceId": "bs0074",
         "source": "Stratus"
@@ -8852,19 +7700,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260731/20260731172524576.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0069",
-        "name": "Transformers: Battlegrounds",
-        "sourceId": "bs0069",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260731/20260731172524576.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0069",
         "name": "Transformers: Battlegrounds",
         "sourceId": "bs0069"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Transformers: Battlegrounds",
         "sourceId": "bs0069",
         "source": "Stratus"
@@ -8884,19 +7726,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260807/20260807161235194.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0067",
-        "name": "Persona 5 Strikers",
-        "sourceId": "bs0067",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260807/20260807161235194.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0067",
         "name": "Persona 5 Strikers",
         "sourceId": "bs0067"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Persona 5 Strikers",
         "sourceId": "bs0067",
         "source": "Stratus"
@@ -8916,19 +7752,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260710/20260710155547272.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0064",
-        "name": "Oddsparks: An Automation Adventure",
-        "sourceId": "bs0064",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260710/20260710155547272.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0064",
         "name": "Oddsparks: An Automation Adventure",
         "sourceId": "bs0064"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Oddsparks: An Automation Adventure",
         "sourceId": "bs0064",
         "source": "Stratus"
@@ -8948,19 +7778,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260710/20260710160259672.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0063",
-        "name": "Burkina Faso: Radical Insurgency",
-        "sourceId": "bs0063",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260710/20260710160259672.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0063",
         "name": "Burkina Faso: Radical Insurgency",
         "sourceId": "bs0063"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Burkina Faso: Radical Insurgency",
         "sourceId": "bs0063",
         "source": "Stratus"
@@ -8980,19 +7804,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260724/20260724172554838.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0062",
-        "name": "World War Z - Aftermath",
-        "sourceId": "bs0062",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260724/20260724172554838.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0062",
         "name": "World War Z - Aftermath",
         "sourceId": "bs0062"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "World War Z - Aftermath",
         "sourceId": "bs0062",
         "source": "Stratus"
@@ -9012,19 +7830,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260703/20260703111734136.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0061",
-        "name": "GOD FORSAKEN",
-        "sourceId": "bs0061",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260703/20260703111734136.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0061",
         "name": "GOD FORSAKEN",
         "sourceId": "bs0061"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "GOD FORSAKEN",
         "sourceId": "bs0061",
         "source": "Stratus"
@@ -9044,19 +7856,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260703/2026070311051242.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0060",
-        "name": "Gym Manager",
-        "sourceId": "bs0060",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260703/2026070311051242.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0060",
         "name": "Gym Manager",
         "sourceId": "bs0060"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Gym Manager",
         "sourceId": "bs0060",
         "source": "Stratus"
@@ -9076,19 +7882,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260626/20260626151730623.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0059",
-        "name": "FEROCIOUS",
-        "sourceId": "bs0059",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260626/20260626151730623.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0059",
         "name": "FEROCIOUS",
         "sourceId": "bs0059"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "FEROCIOUS",
         "sourceId": "bs0059",
         "source": "Stratus"
@@ -9108,19 +7908,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260626/20260626144009819.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0058",
-        "name": "Cavalry Girls",
-        "sourceId": "bs0058",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260626/20260626144009819.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0058",
         "name": "Cavalry Girls",
         "sourceId": "bs0058"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Cavalry Girls",
         "sourceId": "bs0058",
         "source": "Stratus"
@@ -9140,19 +7934,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260626/20260626144107684.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0057",
-        "name": "Quarantine Zone - The Last Check",
-        "sourceId": "bs0057",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260626/20260626144107684.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0057",
         "name": "Quarantine Zone - The Last Check",
         "sourceId": "bs0057"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Quarantine Zone - The Last Check",
         "sourceId": "bs0057",
         "source": "Stratus"
@@ -9172,19 +7960,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260618/20260618151422389.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0056",
-        "name": "Diablo II - Resurrected",
-        "sourceId": "bs0056",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260618/20260618151422389.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0056",
         "name": "Diablo II - Resurrected",
         "sourceId": "bs0056"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Diablo II - Resurrected",
         "sourceId": "bs0056",
         "source": "Stratus"
@@ -9204,19 +7986,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260618/20260618113306804.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0053",
-        "name": "God of War",
-        "sourceId": "bs0053",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260618/20260618113306804.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0053",
         "name": "God of War",
         "sourceId": "bs0053"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "God of War",
         "sourceId": "bs0053",
         "source": "Stratus"
@@ -9236,19 +8012,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260609/20260609165723343.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0052",
-        "name": "I Am Jesus Christ",
-        "sourceId": "bs0052",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260609/20260609165723343.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0052",
         "name": "I Am Jesus Christ",
         "sourceId": "bs0052"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "I Am Jesus Christ",
         "sourceId": "bs0052",
         "source": "Stratus"
@@ -9268,19 +8038,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260609/20260609171524626.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0051",
-        "name": "The Spirit of the Samurai",
-        "sourceId": "bs0051",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260609/20260609171524626.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0051",
         "name": "The Spirit of the Samurai",
         "sourceId": "bs0051"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "The Spirit of the Samurai",
         "sourceId": "bs0051",
         "source": "Stratus"
@@ -9300,19 +8064,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260609/20260609171715428.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0050",
-        "name": "Wicked Seed",
-        "sourceId": "bs0050",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260609/20260609171715428.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0050",
         "name": "Wicked Seed",
         "sourceId": "bs0050"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Wicked Seed",
         "sourceId": "bs0050",
         "source": "Stratus"
@@ -9332,19 +8090,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260605/20260605173421841.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=bs0049",
-        "name": "Taboo Trial",
-        "sourceId": "bs0049",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260605/20260605173421841.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=bs0049",
         "name": "Taboo Trial",
         "sourceId": "bs0049"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Taboo Trial",
         "sourceId": "bs0049",
         "source": "Stratus"
@@ -9364,19 +8116,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250219/20250219125700653.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kj0458",
-        "name": "WWE 2K24",
-        "sourceId": "kj0458",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250219/20250219125700653.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kj0458",
         "name": "WWE 2K24",
         "sourceId": "kj0458"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "WWE 2K24",
         "sourceId": "kj0458",
         "source": "Stratus"
@@ -9396,19 +8142,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250411/20250411151549850.png",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=kp0175",
-        "name": "Resident Evil Village",
-        "sourceId": "kp0175",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20250411/20250411151549850.png"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=kp0175",
         "name": "Resident Evil Village",
         "sourceId": "kp0175"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Resident Evil Village",
         "sourceId": "kp0175",
         "source": "Stratus"
@@ -9428,19 +8168,13 @@
     "kind": "cloud",
     "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260429/20260429151805738.jpg",
     "providers": {
-      "gsn": {
-        "url": "https://gsnproxy.b-cdn.net/releases/browser-20261001-1/apps/cloud/index.html?game=jy0009",
-        "name": "Naruto Shippuden: Ultimate Ninja Storm 4",
-        "sourceId": "jy0009",
-        "sourceArt": "https://download-oss.raccoongame.com/uploads/image/20260429/20260429151805738.jpg"
-      },
       "ghost": {
         "url": "https://ghost-mathmulti.zeoghost.workers.dev/?play=jy0009",
         "name": "Naruto Shippuden: Ultimate Ninja Storm 4",
         "sourceId": "jy0009"
       },
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Naruto Shippuden: Ultimate Ninja Storm 4",
         "sourceId": "jy0009",
         "source": "Stratus"
@@ -9461,7 +8195,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/bs0096.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Black Myth: Wukong",
         "sourceId": "bs0096",
         "source": "Stratus"
@@ -9482,7 +8216,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/bs0055.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Resident Evil Requiem",
         "sourceId": "bs0055",
         "source": "Stratus"
@@ -9503,7 +8237,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/bs0054.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Forza Horizon 6",
         "sourceId": "bs0054",
         "source": "Stratus"
@@ -9524,7 +8258,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/kj0599.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "WWE 2K25",
         "sourceId": "kj0599",
         "source": "Stratus"
@@ -9545,7 +8279,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/kj0630.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "The Last of Us™ Part II",
         "sourceId": "kj0630",
         "source": "Stratus"
@@ -9566,7 +8300,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/kj0516.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Ghost of Tsushima",
         "sourceId": "kj0516",
         "source": "Stratus"
@@ -9587,7 +8321,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/kj0328.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "FIFA23",
         "sourceId": "kj0328",
         "source": "Stratus"
@@ -9608,7 +8342,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/kj0440.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Tekken8",
         "sourceId": "kj0440",
         "source": "Stratus"
@@ -9629,7 +8363,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/kj0213.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Resident Evil 4",
         "sourceId": "kj0213",
         "source": "Stratus"
@@ -9650,7 +8384,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/kj0125.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Marvel’s Spider-Man: Miles Morales",
         "sourceId": "kj0125",
         "source": "Stratus"
@@ -9671,7 +8405,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/kj0214.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Forza Horizon 5",
         "sourceId": "kj0214",
         "source": "Stratus"
@@ -9692,7 +8426,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/kj0032.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Pokémon Legends: Arceus",
         "sourceId": "kj0032",
         "source": "Stratus"
@@ -9713,7 +8447,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/dg0168.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Hitman 3",
         "sourceId": "dg0168",
         "source": "Stratus"
@@ -9734,7 +8468,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/jy0333.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "Red Dead Redemption 2",
         "sourceId": "jy0333",
         "source": "Stratus"
@@ -9755,7 +8489,7 @@
     "sourceArt": "https://bikesense.org/cloud-covers/jy0532.webp",
     "providers": {
       "achroma": {
-        "url": "https://cdn.jsdelivr.net/gh/achroma-ubg/svg@latest/pages/games.html",
+        "url": "https://achcroma.voudouris.org/pages/games.html",
         "name": "GTA V MOD version",
         "sourceId": "jy0532",
         "source": "Stratus"
