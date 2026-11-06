@@ -7,6 +7,25 @@ import {createHandler as aiHandler} from '../api/ai-chat.js';
 
 import {setup} from './helpers/account-support-fixture.mjs';
 
+test('consented intake starts without an owner and hands off with a private summary',async()=>{
+ const s=setup(),room=await s.create(true);
+ assert.equal(s.get('novaAccountSupport/rooms/'+room.room+'/ai'),true);
+ assert.match((await s.call('poll',room)).messages[0].text,/Nova AI/);
+ const answer=async(req,res)=>res.end(JSON.stringify({text:JSON.stringify({reply:'What else do you remember about your account?',summary:'Visitor claims prior game activity. Owner must independently verify.'})}));
+ for(let i=0;i<3;i++){s.tick(11000);await s.call('message',{...room,text:'My account detail '+i},undefined,{answer})}
+ const saved=s.get('novaAccountSupport/rooms/'+room.room);
+ assert.equal(saved.intakeComplete,true);assert.equal(saved.ai,false);
+ assert.match(Object.values(saved.messages).at(-1).text,/pinging an owner/);
+ assert.equal(Object.values(s.get('novaChatV2/botMessages/owner')).at(-1).subject,'Account support summary ready');
+ assert.equal((await s.call('poll',room)).summary,undefined);assert.deepEqual(s.mints,[]);
+});
+
+test('owner availability respects explicit offline presence and expires stale activity',async()=>{
+ const s=setup();assert.equal((await s.call('status')).online,1);
+ s.set('novaChatV2/presence/owner',{online:false});assert.equal((await s.call('status')).online,0);
+ s.set('novaChatV2/presence/owner',null);s.tick(61000);assert.equal((await s.call('status')).online,0);
+});
+
 test('anonymous room is private, capability protected, queued, and never confirms an account',async()=>{
  const s=setup(),room=await s.create();assert.match(room.secret,/^[a-f0-9]{48}$/);assert.notEqual(s.get('novaAccountSupport/rooms/'+room.room+'/secretHash'),room.secret);
  const poll=await s.call('poll',room);assert.equal(poll.status,'waiting');assert.equal(poll.queue,1);assert.equal(JSON.stringify(poll).includes('remembered@example'),false);assert.equal(JSON.stringify(poll).includes('secretHash'),false);
