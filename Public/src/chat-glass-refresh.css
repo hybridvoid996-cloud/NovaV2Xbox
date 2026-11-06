@@ -1,0 +1,74 @@
+/* Reference-led messenger layout. No account, friend or message behavior changes. */
+body.nova-chat-redesign{--chat-line:#ffffff10;--chat-muted:#95969e;background:#08090c!important;font-family:Inter,'Segoe UI',system-ui,sans-serif}
+#chat-wallpaper{position:fixed;inset:-32px;z-index:0;pointer-events:none;overflow:hidden;filter:blur(27px) saturate(.75);opacity:.48;background:#16171e;contain:strict}
+#chat-wallpaper img,#chat-wallpaper video{width:100%;height:100%;object-fit:cover}
+#chat-wallpaper:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#050608eb 0%,#07080bae 45%,#08090c55 100%)}
+body.nova-chat-redesign .chat-shell{position:relative;z-index:1;background:transparent;grid-template-columns:58px 218px minmax(0,1fr);height:100dvh}
+body.nova-chat-redesign .server-rail{padding:14px 7px;gap:12px;background:#07080b66;border-right:1px solid var(--chat-line)}
+body.nova-chat-redesign .server{width:40px;height:40px;border-radius:13px}
+body.nova-chat-redesign .sidebar{padding:0!important;border:0;border-right:1px solid var(--chat-line);border-radius:0;background:#08090d55;overflow:hidden}
+body.nova-chat-redesign .sidebar-heading{height:auto;min-height:56px;flex:none;margin:0!important;padding:12px!important;border-bottom:1px solid var(--chat-line)}
+body.nova-chat-redesign .conversation-finder{height:31px;font-size:11px;background:#ffffff06;border-color:#ffffff12;border-radius:8px}
+body.nova-chat-redesign #side-nav{padding:9px 8px;scrollbar-width:none}
+body.nova-chat-redesign #side-nav>button{min-height:32px;font-size:12px;padding:7px 9px;gap:9px;margin:2px 0;border-radius:7px;font-weight:550;color:#a9a9b3}
+body.nova-chat-redesign #side-nav>button.selected{background:#ffffff12;color:#fff;box-shadow:inset 0 1px #ffffff07}
+body.nova-chat-redesign #side-nav>button:hover{background:#ffffff0a;color:#fff}
+body.nova-chat-redesign #side-nav .ui-icon{width:16px;height:16px}
+body.nova-chat-redesign .channel-category{font-size:9px;letter-spacing:.7px;padding:20px 9px 7px;color:#898994!important}
+body.nova-chat-redesign .server-cover{min-height:28px;padding:0;background:none!important}
+body.nova-chat-redesign .server-cover.has-banner{min-height:66px;border-radius:9px;overflow:hidden;margin-bottom:7px}
+body.nova-chat-redesign .boost-goal{padding:5px 0;font-size:9px;opacity:.7}
+body.nova-chat-redesign .dm-list{padding:0 8px;scrollbar-width:none}
+body.nova-chat-redesign .sidebar .dm{min-height:43px;padding:6px 7px;gap:8px;border-radius:8px}
+body.nova-chat-redesign .sidebar .dm .avatar{width:29px;height:29px;flex-basis:29px}
+body.nova-chat-redesign .person-label b{font-size:12px}
+body.nova-chat-redesign .person-label small{font-size:10px}
+body.nova-chat-redesign .self{margin:7px!important;min-height:48px;padding:6px!important;background:#ffffff05;border:1px solid #ffffff0d;border-radius:10px}
+body.nova-chat-redesign .self .avatar{width:30px;height:30px;flex-basis:30px}
+body.nova-chat-redesign main,body.nova-chat-redesign #view,body.nova-chat-redesign .conversation,body.nova-chat-redesign .message-main,body.nova-chat-redesign .messages{background:transparent!important}
+body.nova-chat-redesign .topbar{height:55px;min-height:55px;flex-basis:55px;padding:0 22px;background:#08090b66;border-bottom:1px solid var(--chat-line)}
+body.nova-chat-redesign #title{font-size:14px;font-weight:650}
+body.nova-chat-redesign .conversation{grid-template-columns:minmax(0,1fr) 222px}
+body.nova-chat-redesign .messages{padding:10px 19px 14px;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#ffffff30 transparent}
+body.nova-chat-redesign .message{margin:3px 0;padding:7px 5px;gap:11px;border-radius:8px;transition:background .16s ease}
+body.nova-chat-redesign .message:hover{background:#ffffff05}
+body.nova-chat-redesign .message-avatar .avatar,body.nova-chat-redesign .message .avatar{width:32px;height:32px;flex-basis:32px}
+body.nova-chat-redesign .message-meta{gap:7px;min-height:18px}
+body.nova-chat-redesign .message-meta .author{font-size:12px;font-weight:650}
+body.nova-chat-redesign .message-text{font-size:13px;line-height:1.48;color:#d4d4dc}
+body.nova-chat-redesign .message time{font-size:10px;color:#777983}
+body.nova-chat-redesign .member-list{background:#08090b33;border-left:1px solid var(--chat-line);padding:14px 10px;scrollbar-width:none}
+body.nova-chat-redesign .member-list .side-label{font-size:9px;font-weight:650;letter-spacing:.4px;margin:10px 5px 6px;padding:8px 0;color:#85858f}
+body.nova-chat-redesign .member-list .dm{min-height:42px;padding:6px 5px;gap:8px;border-radius:7px}
+body.nova-chat-redesign .member-list .dm .avatar{width:29px;height:29px;flex-basis:29px}
+body.nova-chat-redesign .member-list .person-label b{font-size:11px}
+body.nova-chat-redesign .member-list .person-label small{font-size:10px}
+body.nova-chat-redesign .composer{margin:8px 22px 15px;padding:10px 12px;background:#090a1099!important;border:1px solid #ffffff18!important;border-radius:13px;box-shadow:inset 0 1px #ffffff05;backdrop-filter:none}
+body.nova-chat-redesign .composer:focus-within{border-color:#ffffff38!important;box-shadow:0 0 0 3px #ffffff03}
+body.nova-chat-redesign .composer textarea{font-size:13px}
+body.nova-chat-redesign .composer>button{border-radius:10px;transition:transform .15s,background .15s}
+body.nova-chat-redesign .composer>button:active{transform:scale(.94)}
+body.nova-chat-redesign .tabs,body.nova-chat-redesign .people-list,body.nova-chat-redesign .active-now{background:transparent}
+body.nova-chat-redesign .friends-layout{grid-template-columns:minmax(0,1fr) 250px}
+body.nova-chat-redesign .friend-row{min-height:58px}
+body.nova-chat-redesign .activity-card{background:#ffffff05;border-color:#ffffff10}
+body.nova-chat-redesign .date-divider{border-color:#ffffff0b}
+body.nova-chat-redesign .sidebar{margin:0!important;height:100dvh!important}
+body.nova-chat-redesign #self.self{position:relative!important;inset:auto!important;width:auto!important;flex:0 0 auto!important;max-width:calc(100% - 14px)!important;z-index:2}
+body.nova-chat-redesign.in-server #side-nav{flex:1 1 0!important;min-height:0;overflow:auto!important;padding-bottom:12px}
+body.nova-chat-redesign .self-profile{overflow:hidden}
+body.nova-chat-redesign .header-actions{min-width:0;gap:9px}
+body.nova-chat-redesign .header-actions input{width:clamp(100px,13vw,190px)}
+body.nova-chat-redesign .topbar{padding-top:0!important;padding-bottom:0!important}
+body.nova-chat-redesign .header-actions button{background:#ffffff04;border:1px solid #ffffff0a;border-radius:9px}
+@media(min-width:701px) and (max-width:1440px){
+ body.nova-chat-redesign:not(.guide-mode) .chat-shell{grid-template-columns:52px 194px minmax(0,1fr)}
+ body.nova-chat-redesign .conversation{grid-template-columns:minmax(0,1fr) 194px}
+ body.nova-chat-redesign.has-dm-profile .conversation{grid-template-columns:minmax(0,1fr) 240px}
+ body.nova-chat-redesign .topbar{padding:0 16px;height:50px;min-height:50px;flex-basis:50px}
+ body.nova-chat-redesign .messages{padding-left:14px;padding-right:14px}
+ body.nova-chat-redesign .composer{margin:7px 14px 12px}
+ body.nova-chat-redesign .friends-layout{grid-template-columns:minmax(0,1fr) 220px}
+}
+@media(min-width:701px) and (max-width:1050px){body.nova-chat-redesign .conversation,body.nova-chat-redesign.has-dm-profile .conversation{grid-template-columns:minmax(0,1fr)}body.nova-chat-redesign .member-list{display:none}body.nova-chat-redesign .friends-layout{grid-template-columns:minmax(0,1fr)}body.nova-chat-redesign .active-now{display:none}}
+@media(max-width:700px){body.nova-chat-redesign .chat-shell{grid-template-columns:46px 155px minmax(0,1fr)}body.nova-chat-redesign .server{width:33px;height:33px}body.nova-chat-redesign .server-rail{padding:10px 5px}body.nova-chat-redesign .conversation{grid-template-columns:minmax(0,1fr)}body.nova-chat-redesign .member-list{display:none}body.nova-chat-redesign .messages{padding:8px}body.nova-chat-redesign .composer{margin:6px 8px 10px}}
