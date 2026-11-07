@@ -3,12 +3,24 @@ export function renderMarkdown(host, source) {
   host.replaceChildren();
   const doc = host.ownerDocument;
   const node = (tag, text) => { const n = doc.createElement(tag); if (text != null) n.textContent = text; return n; };
+  const math=[];
+  function appendText(parent,text){
+    let end=0;
+    for(const match of text.matchAll(/\uE000(\d+)\uE001/g)){
+      parent.append(doc.createTextNode(text.slice(end,match.index)));
+      const expression=math[Number(match[1])],span=node('span');span.className=expression.display?'ai-math display':'ai-math';
+      if(globalThis.katex){try{globalThis.katex.render(expression.source,span,{displayMode:expression.display,throwOnError:false,trust:false,strict:'warn',maxExpand:300,maxSize:20})}catch{span.textContent=expression.source}}
+      else span.textContent=expression.source;
+      parent.append(span);end=match.index+match[0].length;
+    }
+    parent.append(doc.createTextNode(text.slice(end)));
+  }
   function inline(parent, text, depth = 0) {
     if (depth > 8) { parent.append(doc.createTextNode(text)); return; }
     const pattern = /(`[^`\n]+`|\*\*[^\n]+?\*\*|__[^\n]+?__|~~[^\n]+?~~|\*[^*\n]+\*|\[[^\]\n]+\]\([^\s)]+\)|<br\s*\/?>)/gi;
     let end = 0;
     for (const m of text.matchAll(pattern)) {
-      parent.append(doc.createTextNode(text.slice(end, m.index)));
+      appendText(parent,text.slice(end, m.index));
       const token = m[0]; let n;
       if (/^<br/i.test(token)) n = node('br');
       else if (token.startsWith('`')) n = node('code', token.slice(1, -1));
@@ -23,9 +35,11 @@ export function renderMarkdown(host, source) {
       }
       parent.append(n); end = m.index + token.length;
     }
-    parent.append(doc.createTextNode(text.slice(end)));
+    appendText(parent,text.slice(end));
   }
   let text = String(source || '').replace(/\r\n?/g, '\n');
+  // Keep code literal; only interpret explicitly delimited math outside code.
+  text=text.split(/(```[\s\S]*?```|~~~[\s\S]*?~~~|`[^`\n]*`)/g).map((part,index)=>index%2?part:part.replace(/\$\$([\s\S]+?)\$\$|\\\[([\s\S]+?)\\\]|\\\(([^\n]+?)\\\)|\$([^$\n]+?)\$/g,(match,display,bracket,paren,inline)=>{const source=display||bracket||paren||inline;if(inline&&/^\s*\d[\d,.]*\s+(?:or|and|to)\s*$/.test(inline))return match;if(!/[a-zA-Z\\^_=+*/{}]/.test(source))return match;const id=math.push({source,display:!!(display||bracket)})-1;return '\uE000'+id+'\uE001'})).join('');
   if ((text.match(/\\[*#|]/g) || []).length >= 3) text = text.replace(/\\([*#|])/g, '$1');
   const lines = text.split('\n');
   const cells = line => line.trim().replace(/^\|/, '').replace(/\|$/, '').split(/(?<!\\)\|/).map(v => v.trim().replace(/\\\|/g, '|'));

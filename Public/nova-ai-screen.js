@@ -25,29 +25,26 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
       try { if (parent !== window && parent.location.origin === origin) hostDoc = parent.document; } catch {}
       // Start both browser requests during the Share screen button's user activation.
       const captureRequest = navigator.mediaDevices.getDisplayMedia({video: {frameRate: {ideal: 5, max: 10}}, audio: false});
-      const pip = hostDoc.defaultView.documentPictureInPicture;
-      if (pip?.requestWindow) {
-        try { floatingRequest = pip.requestWindow({width: 380, height: 660}).catch(() => null); } catch {}
-      }
+      // Floating is an explicit action after capture, avoiding competing browser prompts.
       captured = await captureRequest;
       stream = captured;
       stream.getVideoTracks()[0].addEventListener('ended', stop, {once: true});
       hostDoc = document;
       try { if (parent !== window && parent.location.origin === origin) hostDoc = parent.document; } catch {}
       if (!hostDoc.getElementById('nova-screen-style')) {
-        const style = hostDoc.createElement('link'); style.id = 'nova-screen-style'; style.rel = 'stylesheet'; style.href = new URL('nova-ai-screen.css?v=20261017-glass131', location.href).href; hostDoc.head.append(style);
+        const style = hostDoc.createElement('link'); style.id = 'nova-screen-style'; style.rel = 'stylesheet'; style.href = new URL('nova-ai-screen.css?v=20261107', location.href).href; hostDoc.head.append(style);
       }
       const make = (tag, text, cls) => { const n = hostDoc.createElement(tag); if (text != null) n.textContent = text; if (cls) n.className = cls; return n; };
       panel = make('section', null, 'nova-screen-assistant'); panel.setAttribute('aria-label', 'Nova AI screen assistant');
       const bar = make('div', null, 'screen-assistant-bar'), logo = make('img'); logo.src = new URL('Img/app/chatgpt-flaticon.png', location.href).href; logo.alt = '';
-      const title = make('strong', 'Nova AI'), badge = make('span', 'Screen on', 'screen-live-badge');
+      const title = make('strong', stream.getVideoTracks()[0]?.label || 'Shared screen'), badge = make('span', 'Live', 'screen-live-badge');
       const minimize = make('button', '−'); minimize.type = 'button'; minimize.setAttribute('aria-label', 'Minimize screen assistant'); minimize.onclick = () => panel.classList.toggle('minimized');
       const close = make('button', '×'); close.type = 'button'; close.setAttribute('aria-label', 'Stop sharing screen'); close.onclick = stop;
       bar.append(logo, title, badge, minimize, close);
       const body = make('div', null, 'screen-assistant-body');
       video = make('video'); video.autoplay = true; video.muted = true; video.playsInline = true; video.srcObject = stream; video.setAttribute('aria-label', 'Your shared screen preview');
       const preview = make('div', null, 'screen-preview'); preview.append(video);
-      const notice = make('p', 'Questions include your selected screen. Automatic snapshots send it to your AI provider only while switched on. No microphone audio.', 'screen-sharing-notice');
+      const notice = make('p', 'A shared tab stays on that tab. Choose your entire screen to follow other windows. Each question sends a fresh screenshot in this separate conversation.', 'screen-sharing-notice');
       reply = make('div', null, 'screen-assistant-reply'); reply.setAttribute('aria-live', 'polite');
       const form = make('form', null, 'screen-assistant-form'); input = make('textarea'); input.rows = 2; input.maxLength = 6000; input.placeholder = 'Ask about your screen…'; input.setAttribute('aria-label', 'Ask about your shared screen');
       submit = make('button', 'Send'); submit.type = 'submit'; status = make('p', '', 'screen-assistant-status'); status.setAttribute('role', 'status');
@@ -63,8 +60,9 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
       const footer = make('div', null, 'screen-assistant-footer'), full = make('button', 'Open full chat'), end = make('button', 'Stop sharing'); full.type = end.type = 'button'; end.onclick = stop;
       full.onclick = () => { if (hostDoc !== document) hostDoc.querySelector('nav [data-page="ai"]')?.click(); else panel.classList.add('minimized'); };
       const popout = make('button', 'Float over websites'); popout.type = 'button'; popout.onclick = floatPanel;
-      footer.append(popout, full, end); const previewHeading=make('div',null,'screen-preview-heading'),previewLabel=make('small','YOUR SHARED SCREEN'),hidePreview=make('button','Hide preview');hidePreview.type='button';hidePreview.onclick=()=>{preview.hidden=!preview.hidden;hidePreview.textContent=preview.hidden?'Show preview':'Hide preview'};previewHeading.append(previewLabel,hidePreview);body.append(previewHeading,preview, timerControls, notice, reply, form, status, footer); panel.append(bar, body); hostDoc.body.append(panel);
+      footer.append(popout, full, end); const previewHeading=make('div',null,'screen-preview-heading'),previewLabel=make('small','YOUR SHARED SCREEN'),hidePreview=make('button','Hide preview');hidePreview.type='button';hidePreview.onclick=()=>{preview.hidden=!preview.hidden;hidePreview.textContent=preview.hidden?'Show preview':'Hide preview'};previewHeading.append(previewLabel,hidePreview);const solve=make('button','✧ Solve this page','screen-solve');solve.type='button';solve.onclick=async()=>{if(getBusy())return;try{status.textContent='';await send('Solve the question visible on this screen. Show clear steps and the final answer. If there is no question, explain what is visible.')}catch(error){status.textContent=error.message}};body.append(previewHeading,preview, notice, reply,solve, form, status, footer); panel.append(bar, body); hostDoc.body.append(panel);
       await video.play();
+      if(!video.videoWidth) await new Promise((resolve,reject)=>{const timeout=setTimeout(()=>reject(Error('The selected screen did not start. Stop sharing and choose it again.')),10000);video.addEventListener('loadeddata',()=>{clearTimeout(timeout);resolve()},{once:true})});
       onChange(true); update();
       if (floatingRequest) { const floating = await floatingRequest; if (floating) await floatPanel(floating); }
       if (hostDoc !== document) parent.postMessage({novaAction: 'closeAI'}, origin);
@@ -98,7 +96,7 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
       const floating = reservedWindow || await hostWindow.documentPictureInPicture.requestWindow({width: 380, height: 660});
       if (!panel || !stream) { floating.close(); return; }
       floatingWindow = floating;
-      const style = floating.document.createElement('link'); style.rel = 'stylesheet'; style.href = new URL('nova-ai-screen.css?v=20261017-glass131', location.href).href; floating.document.head.append(style);
+      const style = floating.document.createElement('link'); style.rel = 'stylesheet'; style.href = new URL('nova-ai-screen.css?v=20261107', location.href).href; floating.document.head.append(style);
       floating.document.documentElement.classList.add('nova-screen-popout');
       floating.document.title = '\u200b';
       panel.classList.remove('minimized'); panel.style.left = panel.style.top = panel.style.right = panel.style.bottom = '';
@@ -125,7 +123,7 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
     if (!panel) return;
     const last = [...getMessages()].reverse().find(m => m.role === 'assistant');
     if(getBusy()){reply.classList.add('screen-is-thinking');if(!lastReply)reply.textContent='Nova is looking at your snapshot…'}
-    else{reply.classList.remove('screen-is-thinking');const answers=getMessages().filter(m=>m.role==='assistant').slice(-6),signature=JSON.stringify(answers.map(m=>m.text));if(last&&signature!==lastReply){const oldScroll=reply.scrollTop;lastReply=signature;reply.replaceChildren();answers.forEach((answer,i)=>{const article=hostDoc.createElement('article');article.className='screen-answer-entry';const label=hostDoc.createElement('small');label.textContent='Answer '+(i+1);const text=hostDoc.createElement('div');renderMarkdown(text,answer.text);article.append(label,text);reply.append(article)});if(getAutoScroll())reply.scrollTo({top:reply.scrollHeight,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});else reply.scrollTop=oldScroll}else if(!last){lastReply='';reply.textContent='Ask a question or start the snapshot timer.'}}
+    else{reply.classList.remove('screen-is-thinking');const answers=getMessages().filter(m=>m.role==='assistant').slice(-6),signature=JSON.stringify(answers.map(m=>m.text));if(last&&signature!==lastReply){const oldScroll=reply.scrollTop;lastReply=signature;reply.replaceChildren();answers.forEach((answer,i)=>{const article=hostDoc.createElement('article');article.className='screen-answer-entry';const label=hostDoc.createElement('small');label.textContent='Answer '+(i+1);const text=hostDoc.createElement('div');renderMarkdown(text,answer.text);article.append(label,text);reply.append(article)});if(getAutoScroll())reply.scrollTo({top:reply.scrollHeight,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});else reply.scrollTop=oldScroll}else if(!last){lastReply='';reply.textContent='Ask about the shared screen. Every question takes a new screenshot and starts fresh; previous answers are not sent.'}}
 
     const follow=panel.querySelector('.screen-auto-scroll input');if(follow)follow.checked=getAutoScroll();
     submit.disabled = getBusy(); input.disabled = getBusy();

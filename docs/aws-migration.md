@@ -78,3 +78,29 @@ Remaining production validation: exact committed build/artifact size, API module
 - Re-ran both production routing tests successfully and regenerated the secret-free backend staging package.
 - Firebase service-account credential is still needed privately in the AWS backend environment. Do not publish credentials with static assets. Without it the existing shared-backend fallback would still depend on Vercel.
 - No paid service, bucket, distribution, or successful AWS deployment has been created in this preparation.
+
+## Live migration verification — November 5, 2026
+
+Supersedes the earlier preparation-only notes above.
+
+- Live site: https://main.dnw9x6dxqh8lf.amplifyapp.com/
+- Amplify serves static UI and private Node API compute; Firebase remains the existing account/data backend.
+- Public game files were uploaded through Amplify to nova-public-assets-542601847620/content. Only HTTPS GetObject is public; no listing or writes. Private configuration is in compute, not S3.
+- Dedicated Lightsail Nano nova-relay in us-east-2, one node, $7/month base. Active deployment 4. Endpoint: https://nova-relay.yra6ywdma546p.us-east-2.cs.amazonlightsail.com
+- NOVA_WISP_URL in Amplify points to that endpoint's /api/wisp/ over WSS. Build script applies it to static connection.js. Same-host local/Vercel behavior is preserved.
+- Relay permits the exact Amplify origin, rejects other origins, blocks private/loopback/direct-IP targets and limits streams to public TCP ports 80/443.
+- Container uses official node:22-bookworm-slim. NOVA_BOOT downloads content/runtime/nova-relay-20261105.tgz, verifies SHA256 76d9c540736e1e5e39d75cea0a774057527eb0a6203fa4b9e64ce6672e7fbb75, installs production dependencies, applies pinned Wisp patch and listens on 8080. Health /healthz. Launch command must quote the entire Node expression; unquoted punctuation was split by Lightsail and failed deployment 1.
+- Firebase service credential was privately configured in Lightsail too for private Search relay ticket validation. No credential is in the tarball. Temporary name lookup diagnostic was removed in deployment 4.
+
+Verified:
+- User confirmed their existing account signs in using its current login username. Account data preserved; no reset or credential change.
+- Fresh signed-in home visibly loaded the existing profile, coins, rank and recent games.
+- Live Wisp handshake received; an HTTP request through it returned HTTP/1.1 200 OK.
+- Nova Search visually loaded https://example.com through Scramjet at the Amplify origin.
+- Geometry Dash Lite reached game menu, level selection and canvas gameplay entry.
+- /api/movies?op=home: 200 JSON with 26 rails.
+- /api/soundcloud?op=catalog&q=Yeat: 200 JSON with 75 tracks.
+- Private runtime-config paths returned 404 in the prior deployment check.
+- Production-router and relay-origin tests: 4 passed.
+
+Limits: no full catalog gameplay audit, sustained concurrency/load test, complete movie viewing or music playback/failover audit. These checks establish the migration's shared transport and catalog connectivity, not universal provider availability. Budget is not a hard AWS spending cap: Amplify builds/storage/transfer and overages can add cost to the $7 relay. Existing Vercel-origin browser-only saves do not magically transfer.
