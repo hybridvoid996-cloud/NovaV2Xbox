@@ -71,7 +71,9 @@ const fail=e=>toast(e?.message||String(e),{error:true});
 // ---------- shared chrome ----------
 let cleanup=[];
 const onCleanup=fn=>cleanup.push(fn);
-function screen(...nodes){for(const fn of cleanup.splice(0))try{fn()}catch{}document.body.classList.remove('nf-in-game');closeModal();app.replaceChildren(...nodes);app.scrollTop=0}
+// Run the previous screen's clean-up BEFORE the next screen builds (and registers) its listeners.
+function fresh(){for(const fn of cleanup.splice(0))try{fn()}catch{}}
+function screen(...nodes){document.body.classList.remove('nf-in-game');closeModal();app.replaceChildren(...nodes);app.scrollTop=0}
 function wallet(){
  const coins=h('span',{class:'nf-pill',title:'Nova Coins'},h('i',{class:'coin'}),h('span',{},nova.coins==null?'—':fmt(nova.coins)));
  const pts=h('span',{class:'nf-pill',title:'Nova Flip points'},h('span',{class:'pts'},'✦'),h('span',{},fmt(nova.stats?.points??localStats.points)+' pts'));
@@ -133,6 +135,7 @@ function profileCard(){
  return card;
 }
 function showMenu(){
+ fresh();
  screen(topBar(),h('main',{class:'nf-menu'},
   h('div',{class:'nf-brand'},logo(),h('p',{class:'nf-tagline'},'Match colors, stack draws, swap hands and call UNO! before anyone catches you.'),
    h('nav',{class:'nf-buttons','aria-label':'Main menu'},
@@ -155,6 +158,7 @@ function ruleChips(s){
  return h('div',{class:'nf-rules'},chip('hand',s.handSize+' cards','#fff'),chip('stack','Stacking','#3f8cff',!s.stacking),chip('chaos','Chaos cards','#ffc23d',!s.chaos),chip('swap','7-0 swaps','#ff4b6e',!s.sevenZero),chip('draw',s.drawRule==='until'?'Draw until playable':'Draw one','#27e0a0'),chip('timer',s.turnTimer?s.turnTimer+'s turns':'No timer','#7fd7ff'));
 }
 function showSingle(){
+ fresh();
  let count=prefs.players||4;
  const opts=h('div',{class:'nf-seats-pick',role:'radiogroup','aria-label':'Number of players'});
  const paintSeats=()=>opts.replaceChildren(...[2,3,4].map(n=>tilt(h('button',{class:'nf-seat-opt',role:'radio','aria-pressed':String(n===count),'aria-checked':String(n===count),onclick:()=>{count=n;prefs.players=n;savePrefs();sfx.click();paintSeats()}},miniTable(n),h('b',{},n+' players'),h('small',{},'You + '+(n-1)+' bot'+(n>2?'s':''))),8)));
@@ -193,6 +197,7 @@ function startSolo(count){
 // SETTINGS
 // =====================================================================
 function showSettings(){
+ fresh();
  const s=prefs.settings;const save=()=>{prefs.settings=cleanSettings(s);savePrefs()};
  const ico=(name,tint)=>h('span',{class:'nf-set-icon',style:{'--tint':tint}},icon(name));
  const row=(ic,tint,title,sub,control,extra)=>h('div',{class:'nf-setting'},ico(ic,tint),h('div',{},h('b',{},title),h('small',{},sub),extra||null),control);
@@ -222,6 +227,7 @@ function showSettings(){
 // CREDITS
 // =====================================================================
 function showCredits(){
+ fresh();
  const gallery=h('div',{class:'nf-card-gallery'});
  for(const [c,v,label]of [['r','5','Number'],['y','skip','Skip'],['g','rev','Reverse'],['b','d2','+2'],['w','wild','Wild'],['w','w4','+4'],['r','skipall','Skip All'],['g','discard','Color Dump'],['w','swap','Swap'],['w','w6','+6'],['w','w10','+10'],['w','w16','+16']])gallery.append(h('figure',{},cardEl({c,v,id:'g'+v+c}),h('figcaption',{},label)));
  screen(topBar({back:showMenu,title:'Credits'}),h('main',{class:'nf-screen'},h('div',{class:'nf-credits'},logo(),
@@ -253,6 +259,7 @@ function friendList({room}={}){
  return box;
 }
 function showOnline(){
+ fresh();
  ensureFriends();
  const code=h('input',{class:'nf-input nf-code-input',maxlength:'5',placeholder:'CODE','aria-label':'Room code',autocomplete:'off',spellcheck:'false',oninput:e=>{e.target.value=cleanCode(e.target.value)},onkeydown:e=>{if(e.key==='Enter')joinCode()}});
  const joinCode=async()=>{try{showLobby(await Room.join(code.value))}catch(e){fail(e)}};
@@ -279,6 +286,7 @@ function showOnline(){
 // LOBBY
 // =====================================================================
 function showLobby(room){
+ fresh();
  ensureFriends();
  const seats=h('div',{class:'nf-seats'}),controls=h('div',{style:{display:'grid',gap:'12px'}}),status=h('p',{class:'nf-note'});
  const leave=async()=>{await room.leave();showOnline()};
@@ -347,7 +355,7 @@ function playOnline(room,game){
 // =====================================================================
 const POSITIONS={2:['top'],3:['left','right'],4:['left','top','right']};
 function playTable(session,{mode,room,profiles,onExit,again}){
- screen();document.body.classList.add('nf-in-game');
+ fresh();screen();document.body.classList.add('nf-in-game');
  const profileFor=id=>(typeof profiles==='function'?profiles():profiles)[id]||{name:'Player'};
  let reward=registerGame(session,mode,room);
  const table=h('div',{class:'nf-table'}),felt=h('div',{class:'nf-felt'}),log=h('div',{class:'nf-log','aria-live':'polite'});

@@ -160,7 +160,8 @@ export class Room{
    if(g&&g.gameId===this.game.gameId&&g.seq!==this.game.v?.seq||g&&!this.game.v)this.game.update(g);
   }
  }
- async sendMove(move){const {push}=fb();await push(r('rooms/'+this.code+'/actions/'+this.me),{...move,gameId:this.data.gameId,at:Date.now()})}
+ // Firebase rejects undefined values, and plain cards have no color/target; send only set fields.
+ async sendMove(move){const {push}=fb();const clean={};for(const [k,v]of Object.entries(move||{}))if(v!==undefined&&v!==null)clean[k]=v;await push(r('rooms/'+this.code+'/actions/'+this.me),{...clean,gameId:this.data.gameId,at:Date.now()})}
 
  async leave(){
   if(this.left)return;this.left=true;

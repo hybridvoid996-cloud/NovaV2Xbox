@@ -16,13 +16,15 @@ function fakeDb(){
  const notify=()=>queueMicrotask(()=>{for(const s of subs)s.fire()});
  const snap=(p,key)=>{const v=clone(getAt(p));return {val:()=>v,exists:()=>v!==null,key}};
  let id=0;
+ // Like the real SDK: any undefined value anywhere in a write is an error.
+ const noUndef=(v,path='value')=>{if(v===undefined)throw Error(path+' argument contains undefined');if(v&&typeof v==='object')for(const [k,x]of Object.entries(v))noUndef(x,path+'.'+k)};
  const fb={
   ref:(_db,path)=>({path,key:parts(path).at(-1)}),
   get:async r=>snap(r.path),
-  set:async(r,v)=>{setAt(r.path,v);notify()},
+  set:async(r,v)=>{noUndef(v);setAt(r.path,v);notify()},
   remove:async r=>{setAt(r.path,null);notify()},
-  update:async(r,patch)=>{for(const [k,v]of Object.entries(patch))setAt(r.path+'/'+k,v);notify()},
-  push:async(r,v)=>{const key='k'+String(++id).padStart(6,'0');setAt(r.path+'/'+key,v);notify();return {key}},
+  update:async(r,patch)=>{noUndef(patch);for(const [k,v]of Object.entries(patch))setAt(r.path+'/'+k,v);notify()},
+  push:async(r,v)=>{noUndef(v);const key='k'+String(++id).padStart(6,'0');setAt(r.path+'/'+key,v);notify();return {key}},
   runTransaction:async(r,fn)=>{const next=fn(clone(getAt(r.path)));if(next===undefined)return {committed:false,snapshot:snap(r.path)};setAt(r.path,next);notify();return {committed:true,snapshot:snap(r.path)}},
   onValue:(r,cb)=>{let last;const s={fire(){const v=JSON.stringify(getAt(r.path)??null);if(v!==last){last=v;cb(snap(r.path))}}};subs.add(s);queueMicrotask(()=>s.fire());return ()=>subs.delete(s)},
   onDisconnect:()=>({set:async()=>{},remove:async()=>{},cancel:()=>{}}),
@@ -65,6 +67,11 @@ test('host creates, guest joins, plays through host, and can be kicked',async()=
  assert.ok(hs.players[guestSeat].hand.length>before,'host applied the guest draw');
  assert.equal(Object.keys(tree().novaFlip.rooms[host.code].actions?.guest1||{}).length,0,'action consumed');
  assert.equal(g.myHand.length,hs.players[guestSeat].hand.length,'guest hand synced');
+ // A plain (non-wild) card is sent the way the UI sends it: color/target undefined.
+ host.game.clear();Object.assign(hs,{turn:guestSeat,drawn:null,pending:null});
+ const plain={id:'test-plain',c:hs.color,v:'5'};hs.players[guestSeat].hand.push(plain);
+ await g.act({type:'play',cardId:plain.id,color:undefined,target:undefined});await tick(60);
+ assert.equal(hs.discard.at(-1).id,'test-plain','host applied the plain card');
  // A move sent out of turn is ignored, not applied.
  const turnBefore=hs.turn;if(hs.turn!==guestSeat){await g.act({type:'draw'});await tick(60);assert.equal(hs.turn,turnBefore)}
  // Kick: guest is notified and banned from rejoining.
