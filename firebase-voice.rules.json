@@ -884,6 +884,61 @@
     "novaAIClocks": {
       ".read": false,
       ".write": false
+    },
+    "novaFlip": {
+      "rooms": {
+        "$code": {
+          ".read": "auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaControl/siteBans').child(auth.uid).exists()",
+          ".write": "(auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaControl/siteBans').child(auth.uid).exists()) && ((!data.exists() && newData.child('host').val() === auth.uid) || data.child('host').val() === auth.uid)",
+          ".validate": "$code.matches(/^[A-Z0-9]{5}$/) && (!newData.exists() || newData.hasChildren(['host','status']))",
+          "status": {
+            ".validate": "newData.val() === 'lobby' || newData.val() === 'playing' || newData.val() === 'closed'"
+          },
+          "name": {
+            ".validate": "newData.isString() && newData.val().length <= 40"
+          },
+          "players": {
+            "$uid": {
+              ".write": "(auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaControl/siteBans').child(auth.uid).exists()) && auth.uid === $uid && (!newData.exists() || (root.child('novaFlip/rooms').child($code).child('status').val() === 'lobby' && !root.child('novaFlip/rooms').child($code).child('kicked').child($uid).exists() && root.child('novaFlip/rooms').child($code).exists()))",
+              ".validate": "!newData.exists() || (newData.hasChildren(['name','joinedAt']) && newData.child('name').isString() && newData.child('name').val().length <= 64)"
+            }
+          },
+          "actions": {
+            "$uid": {
+              "$action": {
+                ".write": "(auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaControl/siteBans').child(auth.uid).exists()) && auth.uid === $uid && root.child('novaFlip/rooms').child($code).child('players').child($uid).exists() && root.child('novaFlip/rooms').child($code).child('status').val() === 'playing' && !data.exists()",
+                ".validate": "newData.hasChildren(['type','at']) && (newData.child('type').val() === 'play' || newData.child('type').val() === 'draw' || newData.child('type').val() === 'pass' || newData.child('type').val() === 'flip')"
+              }
+            }
+          }
+        }
+      },
+      "hands": {
+        "$code": {
+          ".write": "(auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaControl/siteBans').child(auth.uid).exists()) && root.child('novaFlip/rooms').child($code).child('host').val() === auth.uid",
+          "$uid": {
+            ".read": "(auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaControl/siteBans').child(auth.uid).exists()) && (auth.uid === $uid || root.child('novaFlip/rooms').child($code).child('host').val() === auth.uid)"
+          }
+        }
+      },
+      "lobbies": {
+        ".read": "auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaControl/siteBans').child(auth.uid).exists()",
+        "$code": {
+          ".write": "(auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaControl/siteBans').child(auth.uid).exists()) && root.child('novaFlip/rooms').child($code).child('host').val() === auth.uid"
+        }
+      },
+      "invites": {
+        "$uid": {
+          ".read": "(auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaControl/siteBans').child(auth.uid).exists()) && auth.uid === $uid",
+          "$from": {
+            ".write": "(auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaControl/siteBans').child(auth.uid).exists()) && ((auth.uid === $from && root.child('novaChatV2/friends').child($uid).child($from).val() === true) || (auth.uid === $uid && !newData.exists()))",
+            ".validate": "!newData.exists() || (newData.hasChildren(['code','name','at']) && newData.child('code').val().matches(/^[A-Z0-9]{5}$/) && newData.child('name').isString() && newData.child('name').val().length <= 64 && (!newData.child('photo').exists() || newData.child('photo').val().length <= 2000))"
+          }
+        }
+      },
+      "stats": {
+        ".read": "auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaControl/siteBans').child(auth.uid).exists()"
+      }
     }
   }
 }
