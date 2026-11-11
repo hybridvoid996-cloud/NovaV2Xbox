@@ -51,7 +51,7 @@ const PREF_KEY='novaflip-prefs';
 let prefs={settings:{...DEFAULT_SETTINGS},players:4,sound:true,reduced:false};
 try{const saved=JSON.parse(localStorage.getItem(PREF_KEY)||'{}');prefs={...prefs,...saved,settings:cleanSettings({...prefs.settings,...saved.settings})}}catch{}
 const savePrefs=()=>{try{localStorage.setItem(PREF_KEY,JSON.stringify(prefs))}catch{}};
-setSound(prefs.sound);document.documentElement.classList.toggle('nf-reduced',!!prefs.reduced);
+setSound(prefs.sound);document.documentElement.classList.toggle('nf-reduced',!!motionReduced());
 
 let localStats={wins:0,games:0,points:0};
 try{localStats={...localStats,...JSON.parse(localStorage.getItem('novaflip-local-stats')||'{}')}}catch{}
@@ -110,10 +110,11 @@ function floaters(){
 // MENU
 // =====================================================================
 // 3D tilt + glare + rainbow edge, following the pointer.
+function motionReduced(){return !!prefs.reduced||!!window.NovaMotion?.reduced}
 function tilt(el,max=9){
  el.classList.add('nf-tilt');el.append(h('span',{class:'nf-ring','aria-hidden':'true'}),h('span',{class:'nf-glare','aria-hidden':'true'}));
- if(prefs.reduced||matchMedia('(pointer:coarse)').matches)return el;
- el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;el.classList.add('tilting');el.style.setProperty('--ry',((x-.5)*max*2).toFixed(2)+'deg');el.style.setProperty('--rx',((.5-y)*max*2).toFixed(2)+'deg');el.style.setProperty('--gx',x*100+'%');el.style.setProperty('--gy',y*100+'%')});
+ if(motionReduced())return el;
+ el.addEventListener('pointermove',e=>{if(e.pointerType==='touch'||motionReduced())return;const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;el.classList.add('tilting');el.style.setProperty('--ry',((x-.5)*max*2).toFixed(2)+'deg');el.style.setProperty('--rx',((.5-y)*max*2).toFixed(2)+'deg');el.style.setProperty('--gx',x*100+'%');el.style.setProperty('--gy',y*100+'%')});
  el.addEventListener('pointerleave',()=>{el.classList.remove('tilting');el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg')});
  return el;
 }
@@ -529,7 +530,7 @@ function countUp(el,to){const start=performance.now(),dur=900;const step=t=>{con
 function pickColor(){return new Promise(resolve=>{const dlg=h('div',{class:'nf-dialog'},h('h2',{},'Choose a color'),h('p',{},'The next player must match it.'),h('div',{class:'nf-colors'},...COLORS.map(c=>h('button',{'data-c':c,onclick:()=>{done=true;closeModal();resolve(c)}},COLOR_NAMES[c]))));let done=false;openModal(dlg);const m=modal;new MutationObserver((_,o)=>{if(!m.isConnected){o.disconnect();if(!done)resolve(null)}}).observe(document.body,{childList:true})})}
 function pickTarget(v){return new Promise(resolve=>{let done=false;const list=h('div',{class:'nf-list'},...v.players.map((p,k)=>k===v.turn?null:h('button',{class:'nf-item',onclick:()=>{done=true;closeModal();resolve(k)}},h('b',{class:'grow'},p.name),h('span',{class:'nf-pill'},p.count+' cards'))));openModal(h('div',{class:'nf-dialog'},h('h2',{},'Swap hands with…'),h('p',{},'You will trade your whole hand with this player.'),list));const m=modal;new MutationObserver((_,o)=>{if(!m.isConnected){o.disconnect();if(!done)resolve(null)}}).observe(document.body,{childList:true})})}
 function confetti(){
- if(prefs.reduced)return;const c=h('canvas',{class:'nf-confetti'});document.body.append(c);const x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+ if(motionReduced())return;const c=h('canvas',{class:'nf-confetti'});document.body.append(c);const x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
  const cols=Object.values(colorHex).concat('#ffffff','#ffe08a');const bits=Array.from({length:160},()=>({x:innerWidth/2,y:innerHeight/2,vx:(Math.random()-.5)*16,vy:-Math.random()*16-4,r:Math.random()*6+3,c:cols[Math.floor(Math.random()*cols.length)],a:Math.random()*6}));
  const start=performance.now();const frame=t=>{x.clearRect(0,0,c.width,c.height);for(const b of bits){b.vy+=.35;b.x+=b.vx;b.y+=b.vy;b.a+=.2;x.save();x.translate(b.x,b.y);x.rotate(b.a);x.fillStyle=b.c;x.fillRect(-b.r/2,-b.r/4,b.r,b.r/2);x.restore()}if(t-start<3200)requestAnimationFrame(frame);else c.remove()};requestAnimationFrame(frame);
 }

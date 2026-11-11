@@ -441,5 +441,53 @@ html.nova-embedded-utility .nf-screen,html.nova-embedded-utility .nf-menu{paddin
  .nf-turn-label{font-size:13px;padding:6px 10px}
  .nf-flip-btn{padding:10px 18px;font-size:18px}
 }
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media (prefers-reduced-motion:reduce){html:not(.nova-motion-enabled) *,html:not(.nova-motion-enabled) *::before,html:not(.nova-motion-enabled) *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 .nf-reduced *,.nf-reduced *::before,.nf-reduced *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+
+html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+
+/* Fit the available viewport, including laptop browser bars and Nova's dock. */
+#app{height:100dvh;min-height:0}
+.nf-top{flex-shrink:0}
+.nf-menu,.nf-screen{min-height:0;overscroll-behavior:contain;scrollbar-width:thin}
+.nf-menu{overflow-y:auto;overflow-x:hidden}
+@media (min-width:901px) and (max-height:800px){
+ .nf-top{min-height:54px;padding:8px 18px}
+ .nf-menu{gap:28px;padding:8px clamp(24px,5vw,70px) 24px;max-width:1160px}
+ .nf-brand{gap:16px}
+ .nf-logo{width:min(420px,38vw)}
+ .nf-wordmark b{font-size:clamp(76px,9vw,110px)}
+ .nf-logo .stack .nf-card{--card-w:76px;--card-h:112px}
+ .nf-buttons{gap:10px;width:min(360px,100%)}
+ .nf-big{padding:11px 14px;gap:13px;font-size:17px;border-radius:18px}
+ .nf-big .ico{width:42px;height:42px;border-radius:13px}
+ .nf-big small{font-size:12px}
+ .nf-profile{min-height:280px}
+ .nf-profile-body{padding:76px 18px 18px;gap:12px}
+ .nf-screen{padding-inline:clamp(20px,4vw,50px)}
+ .nf-screen>header{margin-bottom:14px}
+ .nf-screen>header h1{font-size:34px}
+ .nf-table{grid-template-columns:minmax(120px,1fr) minmax(0,2.4fr) minmax(120px,1fr)}
+ .nf-hand{--card-w:76px;--card-h:112px;height:146px;padding-top:28px}
+ .nf-pile,.nf-pile .nf-card{--card-w:82px;--card-h:120px}
+ .nf-opp{gap:6px;padding:5px}
+ .nf-backs .nf-card{--card-w:34px;--card-h:50px}
+ .nf-me{gap:6px}
+ .nf-flip-btn{font-size:18px;padding:10px 20px}
+ .nf-turn-label{font-size:13px;padding:7px 12px}
+ html.nova-embedded-utility .nf-table{padding-bottom:72px}
+ html.nova-embedded-utility .nf-menu,html.nova-embedded-utility .nf-screen{padding-bottom:78px}
+ .nf-dir{width:min(360px,64%)}
+ /* Keep card motion, but reduce the large blurred layers behind gameplay. */
+ .nf-in-game .nf-sky::after{display:none}
+ .nf-felt{box-shadow:0 0 0 10px #14141ae6,0 0 0 11px #ffffff14,0 30px 50px #0008}
+}
+@media (max-height:600px) and (min-width:561px){
+ .nf-top{min-height:48px;padding-block:4px}
+ .nf-hand{--card-w:62px;--card-h:90px;height:118px;padding-top:24px}
+ .nf-pile,.nf-pile .nf-card{--card-w:64px;--card-h:94px}
+ .nf-backs{display:none}
+ .nf-opp{padding:3px}
+ .nf-log{display:none}
+ .nf-dialog{max-height:calc(100dvh - 24px);padding:18px}
+}
