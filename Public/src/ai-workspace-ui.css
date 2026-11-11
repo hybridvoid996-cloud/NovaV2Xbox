@@ -18,3 +18,29 @@ body.xbox-ai #welcome[hidden]{display:none!important}body.xbox-ai .theme-title{d
 body.xbox-ai #ai-model{display:none!important}.model-trigger{display:flex;align-items:center;gap:7px;background:transparent!important;border:0!important;border-radius:8px!important;padding:7px!important;font:11px Arial!important;color:#ccc!important;max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.model-trigger svg{width:12px;height:12px;flex-shrink:0}.model-menu{position:absolute;bottom:calc(100% + 10px);right:0;width:min(340px,calc(100vw - 35px));border:1px solid #ffffff20;border-radius:17px;background:#282828;box-shadow:0 16px 60px #0006;padding:14px;z-index:30;animation:menu-arrive .2s ease}.model-menu[hidden]{display:none}.model-menu-heading{display:flex;justify-content:space-between;align-items:center;font:13px Arial;margin:2px 2px 13px}.model-menu-heading small{color:#888;font:10px Arial}.model-menu input{width:100%;padding:10px 12px;border:1px solid #ffffff18;background:#0002;color:#eee;border-radius:9px;font:12px Arial;outline:none}.model-options{max-height:min(360px,44vh);overflow:auto;scrollbar-width:thin;padding-top:8px}.model-options>button{width:100%;display:flex;align-items:center;justify-content:space-between;text-align:left;padding:10px;border:0;border-radius:9px;background:transparent;font:12px Arial}.model-options>button[aria-selected=true]{background:#ffffff0c}.model-options>button small{display:block;color:#888;font:9px Arial;margin-top:5px}.model-group{display:block;font:9px Arial;letter-spacing:1.3px;color:#777;margin:13px 10px 6px}.model-menu>p{font:9px/1.5 Arial;color:#777;margin:12px 3px 0;border-top:1px solid #ffffff0b;padding-top:10px}.choice-options [data-theme=chatgpt] h2{background:linear-gradient(100deg,#fff,#999,#fff);background-size:200%;background-clip:text;color:transparent;animation:choice-shimmer 5s linear infinite}.choice-options [data-theme=claude] h2{background:linear-gradient(100deg,#edb394,#c97749,#efc5ac);background-size:200%;background-clip:text;color:transparent;animation:choice-shimmer 5s linear infinite}@keyframes choice-shimmer{to{background-position:200%}}body.code-mode .model-trigger{max-width:145px;font-size:10px!important}@media(max-width:760px){.model-trigger{max-width:170px}}@media(prefers-reduced-motion:reduce){.choice-options h2{animation:none!important}}
 
 .ai-side-account .side-account-icon{width:36px;height:36px;display:inline-flex}.ai-side-account .nova-home-face{width:100%;height:100%;border-radius:50%}.ai-side-account>span:last-child{min-width:0}.ai-side-account strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px}.ai-side-account .nova-home-avatar-effect,.ai-side-account .nova-home-decoration{pointer-events:none}
+
+/* Compact laptop layout without shrinking text or disabling motion. */
+@media(min-width:761px) and (max-height:800px){
+ body.xbox-ai{grid-template-columns:218px minmax(0,1fr)!important}
+ body.xbox-ai aside{width:218px!important;padding:18px 12px 12px!important;gap:9px!important}
+ body.xbox-ai .ai-brand{padding-bottom:7px}
+ body.xbox-ai main{margin-left:218px!important;width:calc(100% - 218px)!important;padding:14px 24px 12px!important}
+ body.xbox-ai.no-sidebar main{margin-left:0!important;width:100%!important}
+ body.xbox-ai .ai-mode-bar{min-height:34px;margin-bottom:8px}
+ body.xbox-ai.empty #conversation{margin-top:clamp(20px,12vh,90px)!important;margin-bottom:20px!important}
+ body.xbox-ai #welcome h1{font-size:clamp(27px,3vw,38px)!important;line-height:1.2}
+ body.xbox-ai[data-ai-ui=claude] #welcome h1{font-size:clamp(30px,3vw,40px)!important}
+ body.xbox-ai #composer{max-width:740px!important;padding:14px 16px!important}
+ body.xbox-ai #prompt{min-height:52px!important;max-height:140px!important}
+ body.xbox-ai .message{padding-block:13px!important}
+ body.xbox-ai .sidebar-foot{font-size:10px;line-height:1.5}
+ .ai-side-account{padding-top:12px;margin-top:8px}
+ .ai-ui-choice{max-height:calc(100dvh - 28px);overflow:auto}
+ .model-options{max-height:34dvh}
+ .ai-theme-splash .loader-emblem{width:88px;height:88px}
+}
+@media(min-width:761px) and (max-height:560px){
+ body.xbox-ai.empty #conversation{margin-top:12px!important;margin-bottom:12px!important}
+ body.xbox-ai #prompt{min-height:38px!important;max-height:90px!important}
+ body.xbox-ai .sidebar-foot>small{display:none}
+}
