@@ -25,19 +25,21 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
       try { if (parent !== window && parent.location.origin === origin) hostDoc = parent.document; } catch {}
       // Start both browser requests during the Share screen button's user activation.
       const captureRequest = navigator.mediaDevices.getDisplayMedia({video: {frameRate: {ideal: 5, max: 10}}, audio: false});
-      // Floating is an explicit action after capture, avoiding competing browser prompts.
+      // Reserve the floating window during the user's click, before capture awaits a picker.
+      // Browsers without Document PiP keep the in-Nova panel and its explicit float control.
+      if(hostDoc.defaultView.documentPictureInPicture?.requestWindow)floatingRequest=hostDoc.defaultView.documentPictureInPicture.requestWindow({width:380,height:490}).catch(()=>null);
       captured = await captureRequest;
       stream = captured;
       stream.getVideoTracks()[0].addEventListener('ended', stop, {once: true});
       hostDoc = document;
       try { if (parent !== window && parent.location.origin === origin) hostDoc = parent.document; } catch {}
       if (!hostDoc.getElementById('nova-screen-style')) {
-        const style = hostDoc.createElement('link'); style.id = 'nova-screen-style'; style.rel = 'stylesheet'; style.href = new URL('nova-ai-screen.css?v=20261107', location.href).href; hostDoc.head.append(style);
+        const style = hostDoc.createElement('link'); style.id = 'nova-screen-style'; style.rel = 'stylesheet'; style.href = new URL('nova-ai-screen.css?v=20261111', location.href).href; hostDoc.head.append(style);
       }
       const make = (tag, text, cls) => { const n = hostDoc.createElement(tag); if (text != null) n.textContent = text; if (cls) n.className = cls; return n; };
-      panel = make('section', null, 'nova-screen-assistant'); panel.setAttribute('aria-label', 'Nova AI screen assistant');
+      panel = make('section', null, 'nova-screen-assistant'); panel.setAttribute('aria-label', 'Nova AI screen assistant');panel.dataset.aiUi=document.body.dataset.aiUi||'chatgpt';
       const bar = make('div', null, 'screen-assistant-bar'), logo = make('img'); logo.src = new URL('Img/app/chatgpt-flaticon.png', location.href).href; logo.alt = '';
-      const title = make('strong', stream.getVideoTracks()[0]?.label || 'Shared screen'), badge = make('span', 'Live', 'screen-live-badge');
+      const title = make('strong', 'Screen help'), badge = make('span', 'Live', 'screen-live-badge');
       const minimize = make('button', '−'); minimize.type = 'button'; minimize.setAttribute('aria-label', 'Minimize screen assistant'); minimize.onclick = () => panel.classList.toggle('minimized');
       const close = make('button', '×'); close.type = 'button'; close.setAttribute('aria-label', 'Stop sharing screen'); close.onclick = stop;
       bar.append(logo, title, badge, minimize, close);
@@ -93,10 +95,10 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
       return;
     }
     try {
-      const floating = reservedWindow || await hostWindow.documentPictureInPicture.requestWindow({width: 380, height: 660});
+      const floating = reservedWindow || await hostWindow.documentPictureInPicture.requestWindow({width: 380, height: 490});
       if (!panel || !stream) { floating.close(); return; }
       floatingWindow = floating;
-      const style = floating.document.createElement('link'); style.rel = 'stylesheet'; style.href = new URL('nova-ai-screen.css?v=20261107', location.href).href; floating.document.head.append(style);
+      const style = floating.document.createElement('link'); style.rel = 'stylesheet'; style.href = new URL('nova-ai-screen.css?v=20261111', location.href).href; floating.document.head.append(style);
       floating.document.documentElement.classList.add('nova-screen-popout');
       floating.document.title = '\u200b';
       panel.classList.remove('minimized'); panel.style.left = panel.style.top = panel.style.right = panel.style.bottom = '';
