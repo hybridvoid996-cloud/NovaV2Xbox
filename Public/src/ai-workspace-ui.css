@@ -76,3 +76,23 @@ body.xbox-ai.code-mode.empty #conversation{margin-top:12px!important;flex:1!impo
 @media(max-width:760px){.code-work{position:relative;top:auto;right:auto;bottom:auto;width:100%;height:49dvh!important;margin:10px 0 0;border-radius:15px}body.xbox-ai.code-mode #conversation,body.xbox-ai.code-mode #composer{width:100%!important}.studio-body{grid-template-columns:95px minmax(0,1fr)}.code-work-heading{height:42px}.code-preview-pane{top:42px}.code-work-heading small,.studio-explorer>p{display:none}.studio-explorer{padding:10px 4px}.studio-file-list button{font-size:10px;padding:7px 5px}.code-tabs button{padding:0 10px}.code-editor textarea{font-size:12px!important}.code-work-heading button{padding:5px 7px}}
 
 .studio-chat-intro{display:none}body.code-mode.empty .studio-chat-intro{display:block;padding:30px 8px;animation:answer-reveal .35s ease}.studio-chat-intro>small{font:9px system-ui;letter-spacing:2px;color:#9c99b1}.studio-chat-intro h2{font:500 clamp(24px,2.5vw,38px)/1.15 system-ui;letter-spacing:-1.2px;color:#eee;margin:16px 0}.studio-chat-intro p{font:12px/1.8 system-ui;color:#a4a2ad;max-width:290px}.studio-chat-intro>div{display:grid;gap:8px;max-width:290px;margin-top:23px}.studio-chat-intro button{text-align:left;font-size:11px;padding:11px 13px;background:#ffffff04;border-color:#ffffff12;border-radius:12px}@media(max-height:650px){.studio-chat-intro{padding-top:14px!important}.studio-chat-intro h2{font-size:27px}.studio-chat-intro>div{margin-top:12px}.studio-chat-intro p{font-size:11px}}
+
+/* Studio inherits the chosen ChatGPT or Claude palette, including its dialogs. */
+body.xbox-ai{--studio-panel:#242424;--studio-editor:#202020;--studio-text:#e5e5e5;--studio-muted:#999;--studio-accent:#dedede;--studio-dialog:#292929;--studio-error:#edb3b3}
+body.xbox-ai[data-ai-ui=claude]{--studio-panel:#30302d;--studio-editor:#292927;--studio-text:#e9e7df;--studio-muted:#aaa79e;--studio-accent:#d79574;--studio-dialog:#363633;--studio-error:#edb7a5}
+.code-work{background:linear-gradient(145deg,#ffffff04,transparent),var(--studio-panel);border-color:#ffffff18;box-shadow:0 18px 65px #0003,inset 0 1px #ffffff08}
+.code-editor,.code-preview-pane{background:var(--studio-editor)}
+.code-editor textarea{color:var(--studio-text)!important;caret-color:var(--studio-accent)}
+.code-lines{color:var(--studio-muted)}
+.code-tabs button.selected{box-shadow:inset 0 2px var(--studio-accent);color:var(--studio-text)}
+.studio-explorer>small,.studio-explorer>strong,.studio-explorer>p,.studio-file-list button,.editor-breadcrumb,.editor-breadcrumb small,.code-bottom,.studio-chat-intro>small,.studio-chat-intro p{color:var(--studio-muted)}
+.studio-file-list button.selected,.studio-chat-intro h2{color:var(--studio-text)}
+.studio-new-dialog{background:var(--studio-dialog);color:var(--studio-text)}
+.studio-new-dialog input{color:var(--studio-text);caret-color:var(--studio-accent)}
+.studio-new-dialog p{color:var(--studio-muted)}
+.studio-new-dialog small{color:var(--studio-error)}
+.studio-console{background:var(--studio-editor)}
+.studio-console strong{color:var(--studio-text)}
+.studio-console pre{color:var(--studio-error)}
+body[data-ai-ui=claude] .studio-chat-intro h2{font-family:Georgia,serif;font-weight:400;letter-spacing:-.7px}
+body[data-ai-ui=claude] .studio-chat-intro>small{color:var(--studio-accent)}
