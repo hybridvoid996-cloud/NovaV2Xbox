@@ -109,7 +109,7 @@ export function play(s,p,cardId,{color,target}={}){
  if(wantsTarget){const other=s.players[target];[me.hand,other.hand]=[other.hand,me.hand];note(s,me.name+' swapped hands with '+other.name)}
  if(s.settings.sevenZero&&card.v==='0'){const hands=s.players.map(x=>x.hand);s.players.forEach((x,k)=>{x.hand=hands[nextIndex(s,k,-1)]});note(s,'Everyone passed their hand '+(s.dir>0?'left':'right'))}
  if(s.oneCard&&s.players[s.oneCard.player].hand.length!==1)s.oneCard=null;
- if(me.hand.length===1){s.oneCard={player:p,called:s.preCalled===p,at:Date.now()};if(s.preCalled===p)note(s,me.name+' called FLIP!',{flip:p})}
+ if(me.hand.length===1){s.oneCard={player:p,called:s.preCalled===p,at:Date.now()};if(s.preCalled===p)note(s,me.name+' called UNO!',{flip:p})}
  s.preCalled=null;
  if(isDraw(card)){
   const amount=DRAW_VALUE[card.v];
@@ -144,13 +144,13 @@ export function pass(s,p){assertTurn(s,p);if(!s.drawn)throw Error('Draw a card f
 // (pre-call) or any time you are sitting on one card.
 export function callFlip(s,p){
  const n=s.players[p].hand.length;
- if(n===1){s.oneCard={player:p,called:true,at:Date.now()};note(s,s.players[p].name+' called FLIP!',{flip:p});s.seq++;return true}
+ if(n===1){s.oneCard={player:p,called:true,at:Date.now()};note(s,s.players[p].name+' called UNO!',{flip:p});s.seq++;return true}
  if(n===2&&s.turn===p){s.preCalled=p;return true}
  return false;
 }
 export function catchMissed(s,p){
  const o=s.oneCard;if(!o||o.called||s.players[o.player].hand.length!==1)return false;
- drawCards(s,o.player,2);note(s,s.players[o.player].name+' forgot to call FLIP! · +2');s.oneCard=null;s.seq++;return true;
+ drawCards(s,o.player,2);note(s,s.players[o.player].name+' forgot to call UNO! · +2');s.oneCard=null;s.seq++;return true;
 }
 
 function finish(s,p){

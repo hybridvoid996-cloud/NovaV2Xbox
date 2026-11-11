@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="75%">
+      <stop offset="0" stop-color="#1c1c25"/>
+      <stop offset=".6" stop-color="#0b0b10"/>
+      <stop offset="1" stop-color="#030305"/>
+    </radialGradient>
+    <radialGradient id="glowR" cx="15%" cy="10%" r="55%"><stop offset="0" stop-color="#ff4b6e" stop-opacity=".45"/><stop offset="1" stop-color="#ff4b6e" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glowB" cx="90%" cy="95%" r="55%"><stop offset="0" stop-color="#3f8cff" stop-opacity=".45"/><stop offset="1" stop-color="#3f8cff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glowG" cx="95%" cy="10%" r="40%"><stop offset="0" stop-color="#27e0a0" stop-opacity=".22"/><stop offset="1" stop-color="#27e0a0" stop-opacity="0"/></radialGradient>
+    <linearGradient id="cr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7290"/><stop offset="1" stop-color="#d01c46"/></linearGradient>
+    <linearGradient id="cy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffdb6e"/><stop offset="1" stop-color="#ef930a"/></linearGradient>
+    <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5cf4bd"/><stop offset="1" stop-color="#0ca873"/></linearGradient>
+    <linearGradient id="cb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#74afff"/><stop offset="1" stop-color="#1f50db"/></linearGradient>
+    <linearGradient id="word" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#ffffff"/><stop offset=".7" stop-color="#d7d7e2"/><stop offset="1" stop-color="#8f8fa0"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".45" stop-color="#ffe08a"/><stop offset="1" stop-color="#ff9d3d"/></linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff4b6e"/><stop offset=".33" stop-color="#ffc23d"/><stop offset=".66" stop-color="#27e0a0"/><stop offset="1" stop-color="#3f8cff"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#000" flood-opacity=".7"/></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="2"/></filter>
+    <g id="card">
+      <rect x="-70" y="-102" width="140" height="204" rx="20" fill="#b0b0ba"/>
+      <rect x="-70" y="-105" width="140" height="204" rx="20" fill="#fbfbfd"/>
+    </g>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <rect width="600" height="600" fill="url(#glowR)"/>
+  <rect width="600" height="600" fill="url(#glowB)"/>
+  <rect width="600" height="600" fill="url(#glowG)"/>
+
+  <!-- tilted table ring -->
+  <ellipse cx="300" cy="340" rx="262" ry="92" fill="#101016" stroke="url(#rim)" stroke-width="3" opacity=".9"/>
+  <ellipse cx="300" cy="340" rx="232" ry="76" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-dasharray="3 9"/>
+
+  <!-- fanned cards -->
+  <g filter="url(#shadow)">
+    <g transform="translate(150 262) rotate(-24)">
+      <use href="#card"/>
+      <rect x="-63" y="-98" width="126" height="190" rx="15" fill="url(#cr)"/>
+      <ellipse cx="0" cy="-3" rx="44" ry="66" transform="rotate(-18)" fill="#fff"/>
+      <text x="0" y="24" text-anchor="middle" font-family="Segoe UI,Arial Black,sans-serif" font-weight="900" font-style="italic" font-size="78" fill="#d01c46">7</text>
+      <text x="-48" y="-70" font-family="Segoe UI,Arial,sans-serif" font-weight="900" font-style="italic" font-size="24" fill="#fff">7</text>
+    </g>
+    <g transform="translate(245 232) rotate(-8)">
+      <use href="#card"/>
+      <rect x="-63" y="-98" width="126" height="190" rx="15" fill="url(#cy)"/>
+      <ellipse cx="0" cy="-3" rx="44" ry="66" transform="rotate(-18)" fill="#fff"/>
+      <text x="0" y="18" text-anchor="middle" font-family="Segoe UI,Arial Black,sans-serif" font-weight="900" font-style="italic" font-size="58" fill="#ef930a">+2</text>
+      <text x="-50" y="-70" font-family="Segoe UI,Arial,sans-serif" font-weight="900" font-style="italic" font-size="22" fill="#fff">+2</text>
+    </g>
+    <g transform="translate(355 232) rotate(8)">
+      <use href="#card"/>
+      <clipPath id="wildclip"><rect x="-63" y="-98" width="126" height="190" rx="15"/></clipPath>
+      <g clip-path="url(#wildclip)">
+        <path d="M0 -3 L-63 -98 H63 Z" fill="#ff4b6e"/>
+        <path d="M0 -3 L63 -98 V92 Z" fill="#ffc23d"/>
+        <path d="M0 -3 L63 92 H-63 Z" fill="#27e0a0"/>
+        <path d="M0 -3 L-63 92 V-98 Z" fill="#3f8cff"/>
+      </g>
+      <rect x="-63" y="-98" width="126" height="190" rx="15" fill="none" stroke="#fbfbfd" stroke-width="2"/>
+      <circle cx="0" cy="-3" r="48" fill="#0b0b0f"/>
+      <text x="0" y="17" text-anchor="middle" font-family="Segoe UI,Arial Black,sans-serif" font-weight="900" font-style="italic" font-size="40" letter-spacing="-2" fill="#fff">+16</text>
+    </g>
+    <g transform="translate(450 262) rotate(24)">
+      <use href="#card"/>
+      <rect x="-63" y="-98" width="126" height="190" rx="15" fill="url(#cb)"/>
+      <ellipse cx="0" cy="-3" rx="44" ry="66" transform="rotate(-18)" fill="#fff"/>
+      <path d="M-24 -14h40l-10-10M24 8h-40l10 10" fill="none" stroke="#1f50db" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- wordmark -->
+  <g transform="translate(300 510) rotate(-6)">
+    <text x="0" y="-104" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-weight="800" font-size="26" letter-spacing="14" fill="#fff">NOVA</text>
+    <text x="4" y="10" text-anchor="middle" font-family="Segoe UI,Arial Black,sans-serif" font-weight="900" font-style="italic" font-size="132" letter-spacing="-5" fill="#000" opacity=".55" transform="translate(0 8)">FLIP</text>
+    <text x="0" y="10" text-anchor="middle" font-family="Segoe UI,Arial Black,sans-serif" font-weight="900" font-style="italic" font-size="132" letter-spacing="-5" fill="url(#word)" stroke="#0a0a0f" stroke-width="5" paint-order="stroke fill">FL<tspan fill="url(#gold)">I</tspan>P</text>
+  </g>
+
+  <!-- Nova original ribbon -->
+  <g transform="translate(26 26)">
+    <rect width="214" height="40" rx="20" fill="#000" fill-opacity=".55" stroke="#fff" stroke-opacity=".25"/>
+    <path d="M26 8 29.5 17 38.5 20.5 29.5 24 26 33 22.5 24 13.5 20.5 22.5 17Z" fill="#fff"/>
+    <text x="48" y="27" font-family="Segoe UI,Arial,sans-serif" font-weight="800" font-size="15" letter-spacing="2.4" fill="#fff">NOVA ORIGINAL</text>
+  </g>
+</svg>

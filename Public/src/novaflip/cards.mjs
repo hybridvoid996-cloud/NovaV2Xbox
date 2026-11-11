@@ -27,7 +27,7 @@ export function cardEl(card,{small=false,back=false}={}){
  if(card.c==='w')el.classList.add('wild');
  if(['w6','w10','w16','swap','skipall','discard'].includes(card.v))el.classList.add('chaos');
  const f=face(card);
- el.innerHTML=`<div class="nf-sheen"></div><span class="nf-corner tl">${f.corner}</span><div class="nf-portal">${f.big}</div><span class="nf-corner br">${f.corner}</span>`;
+ el.innerHTML=`<div class="nf-frame"></div><div class="nf-sheen"></div><span class="nf-corner tl">${f.corner}</span><div class="nf-portal">${f.big}</div><span class="nf-corner br">${f.corner}</span>`;
  el.setAttribute('aria-label',(card.c==='w'?'':COLOR_NAMES[card.c]+' ')+(LABELS[card.v]||card.v));
  return el;
 }
