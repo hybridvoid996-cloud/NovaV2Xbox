@@ -14,3 +14,5 @@ test('validation, balance and billing failures do not retry',async()=>{
 test('reconnection stops after bounded attempts',async()=>{
  let calls=0;await assert.rejects(recoverAIRequest(async()=>{calls++;throw Error('Network failed')},{},{sleep:async()=>{},attempts:3}));assert.equal(calls,3);
 });
+
+test('browser timeout names and serialized timeout messages reconnect',async()=>{for(const error of [Object.assign(Error('The operation was aborted due to timeout'),{name:'TimeoutError'}),Error('The operation was aborted due to timeout')]){let calls=0;const result=await recoverAIRequest(async()=>{if(++calls===1)throw error;return {text:'Done'}},{requestId:'same-id'},{sleep:async()=>{}});assert.equal(result.text,'Done');assert.equal(calls,2)}});

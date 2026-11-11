@@ -1,6 +1,6 @@
 export function isRecoverableAIError(error){
  if(error.status===402)return false;
- return [408,500,502,503,504].includes(error.status)||error.name==='AbortError'||error.name==='TypeError'||/unavailable|timed out|network|failed to fetch|current AI reply|3 seconds between/i.test(error.message||'');
+ return [408,500,502,503,504].includes(error.status)||['AbortError','TimeoutError'].includes(error.name)||error.name==='TypeError'||/unavailable|timed out|timeout|operation was aborted|network|failed to fetch|current AI reply|3 seconds between/i.test(error.message||'');
 }
 // Keep one request ID through reconnection so a lost response can be replayed safely.
 export async function recoverAIRequest(call,request,{onStatus=()=>{},sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms)),attempts=8}={}){

@@ -2,7 +2,7 @@
   "buildCommand": "npm run build",
   "functions": {
     "api/ai-chat.js": {
-      "maxDuration": 30
+      "maxDuration": 120
     },
     "api/wisp.js": {
       "maxDuration": 300,
@@ -30,6 +30,10 @@
     },
     "api/zombs-socket.js": {
       "maxDuration": 300,
+      "excludeFiles": "{Public,remote-agent,tests}/**"
+    },
+    "api/owner-control.js": {
+      "maxDuration": 120,
       "excludeFiles": "{Public,remote-agent,tests}/**"
     }
   },
