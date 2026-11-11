@@ -44,3 +44,9 @@ body.xbox-ai #ai-model{display:none!important}.model-trigger{display:flex;align-
  body.xbox-ai #prompt{min-height:38px!important;max-height:90px!important}
  body.xbox-ai .sidebar-foot>small{display:none}
 }
+
+body.xbox-ai #answer-mode{display:none!important}
+.answer-style-trigger{display:inline-flex!important;align-items:center;flex-shrink:0;padding:7px 9px!important;border:1px solid #ffffff16!important;border-radius:10px!important;background:#ffffff05!important;color:#ddd!important;font:11px Arial!important;white-space:nowrap}
+.answer-style-menu{position:absolute;right:0;bottom:calc(100% + 10px);width:210px;max-height:45dvh;overflow:auto;padding:7px;border:1px solid #ffffff24;border-radius:15px;background:#282828;box-shadow:0 16px 50px #0006;z-index:32;animation:menu-arrive .2s ease}
+.answer-style-menu[hidden]{display:none!important}.answer-style-menu>button{display:block;width:100%;text-align:left;padding:11px;border:0;border-radius:9px;background:transparent;font-size:12px}.answer-style-menu>button:hover,.answer-style-menu>button[aria-selected=true]{background:#ffffff10}
+@media(max-width:760px){.answer-style-trigger{font-size:10px!important;padding:7px!important}.composer-model-controls{flex-wrap:wrap!important;gap:5px!important}}

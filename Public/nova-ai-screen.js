@@ -1,3 +1,4 @@
+import {screenHost} from './src/ai-screen-host.mjs';
 import {createSnapshotTimer} from './src/ai-snapshot-timer.mjs';
 import {renderMarkdown} from './nova-ai-markdown.js';
 
@@ -21,18 +22,16 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
     let captured, floatingRequest;
     try {
       // The browser picker is always opened by an explicit button click.
-      hostDoc = document;
-      try { if (parent !== window && parent.location.origin === origin) hostDoc = parent.document; } catch {}
+      hostDoc = screenHost(window).document;
       // Start both browser requests during the Share screen button's user activation.
       const captureRequest = navigator.mediaDevices.getDisplayMedia({video: {frameRate: {ideal: 5, max: 10}}, audio: false});
       // Reserve the floating window during the user's click, before capture awaits a picker.
       // Browsers without Document PiP keep the in-Nova panel and its explicit float control.
-      if(hostDoc.defaultView.documentPictureInPicture?.requestWindow)floatingRequest=hostDoc.defaultView.documentPictureInPicture.requestWindow({width:380,height:490}).catch(()=>null);
+      if(screenHost(window).canFloat)floatingRequest=screenHost(window).window.documentPictureInPicture.requestWindow({width:380,height:490}).catch(()=>null);
       captured = await captureRequest;
       stream = captured;
       stream.getVideoTracks()[0].addEventListener('ended', stop, {once: true});
-      hostDoc = document;
-      try { if (parent !== window && parent.location.origin === origin) hostDoc = parent.document; } catch {}
+      hostDoc = screenHost(window).document;
       if (!hostDoc.getElementById('nova-screen-style')) {
         const style = hostDoc.createElement('link'); style.id = 'nova-screen-style'; style.rel = 'stylesheet'; style.href = new URL('nova-ai-screen.css?v=20261111', location.href).href; hostDoc.head.append(style);
       }
@@ -89,9 +88,9 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
     if (!(reservedWindow?.document)) reservedWindow = null;
     if (!panel) { reservedWindow?.close(); return; }
     if (floatingWindow) { floatingWindow.focus(); return; }
-    const hostWindow = hostDoc.defaultView;
-    if (!hostWindow.documentPictureInPicture?.requestWindow) {
-      status.textContent = 'Floating chat needs a browser with Document Picture-in-Picture support. Try Chrome or Edge.';
+    const host = screenHost(window),hostWindow=host.window;
+    if (!host.canFloat) {
+      status.textContent = 'Screen help is still working here. To float over other websites, open Nova directly in a Chrome or Edge tab; this browser or outer frame does not allow floating windows.';
       return;
     }
     try {
@@ -110,7 +109,7 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
       }, {once: true});
       video.play().catch(() => {});
       status.textContent = 'Keep Nova open in its tab. Share your entire screen to follow you between websites.';
-    } catch (e) { status.textContent = 'Could not open floating chat: ' + e.message; }
+    } catch (e) { status.textContent = 'Screen help is still working in Nova. The browser could not open a floating window. Open Nova directly in Chrome or Edge and click Float over websites again.'; }
   }
   async function capture() {
     if (!stream || stream.getVideoTracks()[0]?.readyState !== 'live') throw Error('Screen sharing has stopped. Share your screen again.');
@@ -125,7 +124,7 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
     if (!panel) return;
     const last = [...getMessages()].reverse().find(m => m.role === 'assistant');
     if(getBusy()){reply.classList.add('screen-is-thinking');if(!lastReply)reply.textContent='Nova is looking at your snapshot…'}
-    else{reply.classList.remove('screen-is-thinking');const answers=getMessages().filter(m=>m.role==='assistant').slice(-6),signature=JSON.stringify(answers.map(m=>m.text));if(last&&signature!==lastReply){const oldScroll=reply.scrollTop;lastReply=signature;reply.replaceChildren();answers.forEach((answer,i)=>{const article=hostDoc.createElement('article');article.className='screen-answer-entry';const label=hostDoc.createElement('small');label.textContent='Answer '+(i+1);const text=hostDoc.createElement('div');renderMarkdown(text,answer.text);article.append(label,text);reply.append(article)});if(getAutoScroll())reply.scrollTo({top:reply.scrollHeight,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});else reply.scrollTop=oldScroll}else if(!last){lastReply='';reply.textContent='Ask about the shared screen. Every question takes a new screenshot and starts fresh; previous answers are not sent.'}}
+    else{reply.classList.remove('screen-is-thinking');const answers=getMessages().filter(m=>m.role==='assistant').slice(-6),signature=JSON.stringify(answers.map(m=>m.text));if(last&&signature!==lastReply){const oldScroll=reply.scrollTop;lastReply=signature;reply.replaceChildren();answers.forEach((answer,i)=>{const article=hostDoc.createElement('article');article.className='screen-answer-entry';const label=hostDoc.createElement('small');label.textContent='Answer '+(i+1);const text=hostDoc.createElement('div');renderMarkdown(text,answer.text);article.append(label,text);reply.append(article)});if(getAutoScroll())reply.scrollTo({top:reply.scrollHeight,behavior:window.NovaMotion?.reduced?'auto':'smooth'});else reply.scrollTop=oldScroll}else if(!last){lastReply='';reply.textContent='Ask about the shared screen. Every question takes a new screenshot and starts fresh; previous answers are not sent.'}}
 
     const follow=panel.querySelector('.screen-auto-scroll input');if(follow)follow.checked=getAutoScroll();
     submit.disabled = getBusy(); input.disabled = getBusy();
