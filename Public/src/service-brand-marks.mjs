@@ -1,0 +1,4 @@
+export const spotifyMark='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M6.5 9c3.7-1.2 7.5-.9 11 1M7.2 12c3.1-1 6.3-.7 9.1.8M8 14.8c2.4-.7 4.9-.5 7.3.6" stroke="var(--brand-cutout,#101012)" stroke-width="1.65" fill="none" stroke-linecap="round"/></svg>';
+export const appleMark='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/><path d="M15.5 6.5v8.2a2.3 2.3 0 1 1-1.4-2.1V8.6l-4.6 1.1v6.4a2.3 2.3 0 1 1-1.4-2.1V8.4z" fill="var(--brand-cutout,#101012)"/></svg>';
+export const claudeMark='<svg viewBox="0 0 100 100" aria-hidden="true" fill="currentColor">'+Array.from({length:12},(_,i)=>'<path d="M48 39 43 5 52 3 55 39Z" transform="rotate('+i*30+' 50 50)"/>').join('')+'<circle cx="50" cy="50" r="13"/></svg>';
+export const chatgptMark='<img src="/Img/app/chatgpt-flaticon.png" alt="" aria-hidden="true">';
