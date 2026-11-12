@@ -122,3 +122,7 @@ body.xbox-ai.code-mode .composer-model-controls{flex-wrap:wrap!important;gap:4px
 body.xbox-ai.code-mode.studio-preview-chat .model-trigger{max-width:150px}
 @media(max-width:1100px){#studio-project-select{max-width:100px}.code-work-heading{padding-inline:9px;gap:5px}.code-work-heading>div{gap:3px}.code-work-heading button{font-size:10px;padding:6px}.code-work-heading strong{display:none}}
 @media(max-width:760px){.code-work-heading{height:auto;min-height:72px;flex-wrap:wrap;padding:8px}.code-preview-pane{top:72px}.studio-source .studio-highlight,.code-editor .studio-source textarea{font-size:12px!important}.preview-address{gap:5px;padding:0 6px}.preview-address>span:nth-child(2){display:none}.preview-address button{padding:5px!important}body.xbox-ai.code-mode .model-trigger{max-width:160px}body.xbox-ai.code-mode.studio-expanded .code-work{inset:60px 8px 8px;height:auto!important}}
+
+/* Model picker: provider icon for the chosen AI; Claude's mark turns orange on hover. */
+.model-mark{display:inline-grid;place-items:center;width:18px;height:18px;margin-right:7px;vertical-align:-4px;flex:none}.model-mark img,.model-mark svg{width:100%;height:100%;object-fit:contain}.model-mark svg{fill:currentColor;transition:fill .2s,transform .3s}.model-options button:hover .model-mark.is-claude svg,button:hover>.model-mark.is-claude svg{fill:#d97757;transform:rotate(30deg)}
+.model-mark img.gpt-mark{filter:invert(1)!important}.model-mark.is-nova img{border-radius:5px}

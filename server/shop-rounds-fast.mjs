@@ -39,6 +39,8 @@ async function run({db,uid,now,initial,seasonValue,apply,read}){
  let failure,root;
  const tx=await db.ref('novaControl/progress/'+uid).transaction(p=>{
   failure=null;root=null;
+  // RTDB may call with a cold null cache. Return null to allow the server retry; never abort using a fabricated zero balance.
+  if(p===null)return null;
   try{p=p||initial();const r=shim(uid,p,seasonValue);apply(r);root=r;return writeBack(uid,p,r)}
   catch(e){failure=e.message;return undefined}
  });

@@ -105,7 +105,7 @@ export async function arcadeAction({db,uid,b,now,initial}){
  const coins=Number(b.coins);if(!Number.isSafeInteger(coins)||coins<MIN_STAKE||coins>MAX_STAKE)throw Error('Wager 100–5,000,000 Nova Coins.');
  const plan=playFast(b.game,b);   // drawn once, so transaction retries reuse the same result
  let failure,settled;
- const result=await db.ref('novaControl/progress/'+uid).transaction(p=>{failure=null;try{p=p||initial();const r=settleFast(p,{uid,requestId:b.requestId,game:b.game,coins,plan,now});settled=r;return r.progress}catch(e){failure=e.message;return undefined}});
+ const result=await db.ref('novaControl/progress/'+uid).transaction(p=>{failure=null;settled=null;if(p===null)return null;try{p=p||initial();const r=settleFast(p,{uid,requestId:b.requestId,game:b.game,coins,plan,now});settled=r;return r.progress}catch(e){failure=e.message;return undefined}});
  if(!result.committed||!settled)throw Error(failure||'The round could not complete.');
  const receipt=settled.receipt;
  if(!settled.replay){

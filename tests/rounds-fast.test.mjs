@@ -15,7 +15,7 @@ function fakeDb(data){
  return {txPaths,data,ref:path=>({
   get:async()=>snap(at(path)),
   set:async v=>put(path,clean(v)),
-  transaction:async fn=>{txPaths.push(path);const cur=at(path);const next=fn(cur==null?null:clean(cur));if(next===undefined)return {committed:false,snapshot:snap(cur)};put(path,clean(next));return {committed:true,snapshot:snap(at(path))}}
+  transaction:async fn=>{txPaths.push(path);const cur=at(path);if(cur!=null)assert.notEqual(fn(null),undefined,'cold cache must not abort before real balance arrives');const next=fn(cur==null?null:clean(cur));if(next===undefined)return {committed:false,snapshot:snap(cur)};put(path,clean(next));return {committed:true,snapshot:snap(at(path))}}
  })};
 }
 const initial=()=>({coins:0});

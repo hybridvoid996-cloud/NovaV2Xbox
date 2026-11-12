@@ -11,5 +11,7 @@
   thumb.addEventListener('pointerup',()=>drag=null);thumb.addEventListener('lostpointercapture',()=>drag=null);
   thumb.addEventListener('keydown',e=>{const moves={ArrowDown:60,ArrowUp:-60,PageDown:innerHeight*.8,PageUp:-innerHeight*.8,Home:-max(),End:max()};if(e.key in moves){e.preventDefault();root().scrollTop+=moves[e.key];}});
   bar.addEventListener('pointerdown',e=>{if(e.target!==bar)return;root().scrollTop=(e.clientY-bar.getBoundingClientRect().top-thumb.offsetHeight/2)/Math.max(1,bar.clientHeight-thumb.offsetHeight)*max();});
-  addEventListener('scroll',paint,{passive:true});addEventListener('resize',paint);addEventListener('fullscreenchange',paint);new ResizeObserver(paint).observe(document.body);new MutationObserver(paint).observe(document.body,{attributes:true,attributeFilter:['class']});paint();
+  // One measurement per frame: scroll, resize and class changes can fire many times between paints.
+  let queued=0;const schedule=()=>{if(!queued)queued=requestAnimationFrame(()=>{queued=0;paint()})};
+  addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);addEventListener('fullscreenchange',schedule);new ResizeObserver(schedule).observe(document.body);new MutationObserver(schedule).observe(document.body,{attributes:true,attributeFilter:['class']});paint();
 })();

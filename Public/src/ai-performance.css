@@ -1,0 +1,3 @@
+/* Keep message layout work local; preserve the same interaction animations. */
+#messages>.message{contain:layout style;content-visibility:auto;contain-intrinsic-size:auto 140px}#messages img{max-width:100%;height:auto}
+@media(max-width:1500px){.message-content{backdrop-filter:none!important}.composer,.conversation-list button{backdrop-filter:none!important}body::before{will-change:auto}}

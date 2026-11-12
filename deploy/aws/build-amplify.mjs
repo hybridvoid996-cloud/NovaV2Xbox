@@ -1,3 +1,4 @@
+import {stampAppAssets} from './stamp-app-assets.mjs';
 import {cp,mkdir,readdir,readFile,writeFile,stat} from 'node:fs/promises';
 import path from 'node:path';
 import {execFileSync} from 'node:child_process';
@@ -22,6 +23,7 @@ if(process.env.NOVA_WISP_URL){
  if(!source.includes(marker))throw Error('Game relay configuration marker missing.');
  await writeFile(connection,source.replace(marker,'new URL('+JSON.stringify(relay.href)+')'));
 }
+await stampAppAssets(staticRoot,process.env.AWS_COMMIT_ID||String(Date.now()));
 for(const name of ['server','api','api-handlers','lib','scripts','package.json','package-lock.json','.npmrc'])await cp(name,path.join(compute,name),{recursive:true});
 for(const name of ['src','profile-assets/catalog.json','content/cinema-series.json','content/movie-services.json',...(await readdir('Public')).filter(n=>n.endsWith('.json'))]){
  await mkdir(path.dirname(path.join(compute,'Public',name)),{recursive:true});

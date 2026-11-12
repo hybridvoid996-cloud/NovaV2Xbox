@@ -1,0 +1,30 @@
+/* Nova low-power mode (html.nova-low-power, set by motion-policy.js on weak devices or by the
+   Visual effects / Reduce motion settings). Same layout and colors; no live backdrop blur,
+   lighter shadows and no purely decorative looping motion. The :not(#nova-lp) adds id-level
+   specificity so these overrides win over the page's own !important glass rules. */
+
+/* Live blur re-renders everything behind a surface on each frame; on weak GPUs it is the main scroll/hover cost. */
+:root.nova-low-power:not(#nova-lp) *,
+:root.nova-low-power:not(#nova-lp) *::before,
+:root.nova-low-power:not(#nova-lp) *::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+
+/* Keep glass panels readable without the blur: a deeper version of the same black glass. */
+:root.nova-low-power:not(#nova-lp) :is(.nova-liquid-glass,.main-popup,.main-runtime-menu,.nova-runtime-menu,.main-audio-extension,.nova-notice,body.nova-main>header,nav.main-dock,.main-library-category-menu,.nova-task-popup){background-color:rgba(16,16,20,.88)!important}
+
+/* Library covers: smaller shadow radius, same look. */
+:root.nova-low-power:not(#nova-lp) body .main-library-card .main-library-launch img{box-shadow:0 3px 10px #0003!important}
+:root.nova-low-power:not(#nova-lp) body .main-library-card .main-library-launch:hover img,
+:root.nova-low-power:not(#nova-lp) body .main-library-card:focus-within img{box-shadow:0 4px 14px var(--art-glow,#ffffff35)!important}
+:root.nova-low-power:not(#nova-lp) header nav button svg{filter:none!important}
+
+/* Decorative loops (loading spinners and progress indicators are left alone). */
+:root.nova-low-power:not(#nova-lp) .nova-ambient i{animation:none!important;will-change:auto!important}
+:root.nova-low-power:not(#nova-lp) .nova-created-badge::before{animation:none!important}
+:root.nova-low-power:not(#nova-lp) :is(.nmc-starfield i,.nmc .nmc-shooting-stars>i){animation:none!important;opacity:0!important}
+:root.nova-low-power:not(#nova-lp) .nmc .nmc-lyrics-view::before,
+:root.nova-low-power:not(#nova-lp) .nmc .nmc-lyrics-view::after{animation:none!important}
+:root.nova-low-power:not(#nova-lp) .soundscape-cover{animation:none!important}
+
+/* Library cards appear without the per-card scroll reveal animation. */
+:root.nova-low-power:not(#nova-lp) body .main-library-card.library-reveal-pending{opacity:1!important;translate:none!important;scale:none!important}
+:root.nova-low-power:not(#nova-lp) body .main-library-card.library-reveal-visible{animation:none!important}
