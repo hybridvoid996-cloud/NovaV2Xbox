@@ -32,9 +32,9 @@ test('matching skips unrelated recordings and preserves input order despite conc
 });
 test('cancelled import cannot continue matching',async()=>{const controller=new AbortController();controller.abort();await assert.rejects(matchPlaylist([{title:'Song',artist:'Artist'}],{signal:controller.signal,search:async()=>[]}));});
 
-test('SoundCloud links resolve directly and imports enforce the existing 200-song limit',async()=>{
- const result=await readPlaylist('https://soundcloud.com/artist/sets/mix',{request:async()=>{throw Error('Unexpected page fetch')},resolveSoundCloud:async url=>{assert.equal(url,'https://soundcloud.com/artist/sets/mix');return {name:'Mix',tracks:Array.from({length:205},(_,i)=>({id:'sc:'+i,title:'Song '+i,artist:'Artist'}))}}});
- assert.equal(result.tracks.length,200);assert.equal(result.partial,true);assert.equal(result.tracks[199].id,'sc:199');
+test('SoundCloud links resolve directly and imports read up to 1,000 songs (saved as 200-song parts)',async()=>{
+ const result=await readPlaylist('https://soundcloud.com/artist/sets/mix',{request:async()=>{throw Error('Unexpected page fetch')},resolveSoundCloud:async url=>{assert.equal(url,'https://soundcloud.com/artist/sets/mix');return {name:'Mix',tracks:Array.from({length:1005},(_,i)=>({id:'sc:'+i,title:'Song '+i,artist:'Artist'}))}}});
+ assert.equal(result.tracks.length,1000);assert.equal(result.partial,true);assert.equal(result.tracks[999].id,'sc:999');
 });
 
 test('featured artist formatting matches but remixes remain distinct, with Void as a second source',async()=>{

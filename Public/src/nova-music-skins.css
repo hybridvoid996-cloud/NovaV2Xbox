@@ -1,0 +1,188 @@
+/* ===== Look picker (shared) ===== */
+.nmc-skin-picker{position:relative;flex:none}
+.nmc-skin-trigger{display:grid;place-items:center;width:36px;height:36px;padding:0;border-radius:50%;border:0;background:transparent;color:#a7a7ad;cursor:pointer;transition:color .2s,transform .25s cubic-bezier(.16,1,.3,1),background .2s}
+.nmc-skin-trigger svg{width:24px;height:24px;transition:filter .25s}
+.nmc-skin-trigger:hover,.nmc-skin-picker.is-open .nmc-skin-trigger{background:#ffffff10;transform:scale(1.08)}
+.nmc-skin-trigger.is-spotify:hover,.nmc-skin-picker.is-open .nmc-skin-trigger.is-spotify{color:#1ed760}.nmc-skin-trigger.is-spotify:hover svg{filter:drop-shadow(0 0 8px #1ed76088)}
+.nmc-skin-trigger.is-apple:hover,.nmc-skin-picker.is-open .nmc-skin-trigger.is-apple{color:#fa2d48}.nmc-skin-trigger.is-apple:hover svg{filter:drop-shadow(0 0 8px #fa2d4888)}
+.nmc-skin-trigger:active{transform:scale(.94)}
+.nmc-skin-mark{display:inline-grid;place-items:center;width:20px;height:20px;flex:none}.nmc-skin-mark svg{width:100%;height:100%}
+.nmc-skin-mark.is-spotify{color:#1ed760}.nmc-skin-mark.is-apple{color:#fa2d48}
+.nmc-skin-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:60;width:290px;padding:8px;border-radius:16px;border:1px solid #ffffff1f;background:#16161aee;backdrop-filter:blur(26px) saturate(1.3);-webkit-backdrop-filter:blur(26px) saturate(1.3);box-shadow:0 22px 60px #000a,inset 0 1px #ffffff14;animation:nmc-skin-pop .22s cubic-bezier(.16,1,.3,1)}
+.nmc-skin-menu>small{display:block;padding:6px 10px 8px;font-size:10px;font-weight:700;line-height:1;letter-spacing:1.4px;color:#8d8d97}
+.nmc-skin-menu button{display:flex;align-items:center;gap:12px;width:100%;padding:10px;border:0;border-radius:11px;background:none;color:#f4f4f6;text-align:left;cursor:pointer;font:inherit}
+.nmc-skin-menu button:hover{background:#ffffff12}.nmc-skin-menu button[aria-checked=true]{background:#ffffff1a;box-shadow:inset 0 0 0 1px #ffffff22}
+.nmc-skin-menu button .nmc-skin-mark{width:34px;height:34px;transition:transform .3s cubic-bezier(.16,1,.3,1)}.nmc-skin-menu button:hover .nmc-skin-mark{transform:rotate(-8deg) scale(1.08)}
+.nmc-skin-menu strong{display:block;font-size:13px}.nmc-skin-menu button small{display:block;color:#9a9aa4;font-size:11px;line-height:1.35;margin-top:2px}
+@keyframes nmc-skin-pop{from{opacity:0;transform:translateY(-6px) scale(.97)}}
+
+/* =====================================================================
+   GREEN LOOK (Spotify-style): dark rounded panels over the wallpaper,
+   green accents, quick-pick tiles, lyric card in the right panel.
+   ===================================================================== */
+.nmc.skin-spotify{--sk-accent:#1ed760;--sk-panel:#121212d6;--sk-raise:#ffffff12;background:#0000004d;font-family:'Circular','Montserrat','Segoe UI',system-ui,sans-serif;gap:8px;padding:0 8px}
+.nmc.skin-spotify .nmc-top{background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important}
+.nmc.skin-spotify .nmc-search{background:#1f1f1fe8!important;border:1px solid #ffffff10!important;border-radius:999px!important;box-shadow:0 8px 30px #0006!important;transition:background .2s,box-shadow .2s}
+.nmc.skin-spotify .nmc-search:hover{background:#2a2a2aee!important}.nmc.skin-spotify .nmc-search:focus-within{box-shadow:0 0 0 2px #fff,0 8px 30px #0008!important}
+.nmc.skin-spotify .nmc-sidebar,.nmc.skin-spotify .nmc-content,.nmc.skin-spotify .nmc-right{background:var(--sk-panel)!important;border:0!important;border-radius:10px!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;box-shadow:none!important}
+.nmc.skin-spotify .nmc-side-nav,.nmc.skin-spotify .nmc-side-library{background:transparent!important;border:0!important;box-shadow:none!important}
+.nmc.skin-spotify .nmc-content{background:linear-gradient(180deg,color-mix(in srgb,var(--nmc-art-0,#2a2a2a) 38%,transparent) 0,transparent 320px),var(--sk-panel)!important}
+.nmc.skin-spotify .nmc-nav-button[aria-current=page],.nmc.skin-spotify .nmc-nav-button.is-active{color:#fff}
+.nmc.skin-spotify .nmc-chip{background:#ffffff1a!important;border:0!important;color:#fff!important;border-radius:999px!important;font-weight:600}
+.nmc.skin-spotify .nmc-chip:hover{background:#ffffff29!important}.nmc.skin-spotify .nmc-chip[aria-pressed=true],.nmc.skin-spotify .nmc-moods .nmc-chip:first-child{background:#fff!important;color:#000!important}
+.nmc.skin-spotify .nmc-quick-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+.nmc.skin-spotify .nmc-quick-track{position:relative;display:flex;align-items:center;gap:12px;height:56px;padding:0 12px 0 0;border-radius:6px;overflow:hidden;background:#ffffff1a!important;border:0!important;color:#fff;font-weight:700;transition:background .2s}
+.nmc.skin-spotify .nmc-quick-track:hover{background:#ffffff30!important}
+.nmc.skin-spotify .nmc-quick-track img{width:56px!important;height:56px!important;border-radius:0!important;box-shadow:4px 0 14px #0006;flex:none}
+.nmc.skin-spotify .nmc-quick-track::after{content:'';margin-left:auto;width:32px;height:32px;flex:none;border-radius:50%;background:var(--sk-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/16px no-repeat;box-shadow:0 8px 16px #0008;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s}
+.nmc.skin-spotify .nmc-quick-track:hover::after{opacity:1;transform:none}
+.nmc.skin-spotify .nmc-track-card{border-radius:8px!important;background:transparent!important;border:0!important;transition:background .25s}
+.nmc.skin-spotify .nmc-track-card:hover{background:#ffffff14!important}
+.nmc.skin-spotify .nmc-card-art img{border-radius:6px!important;box-shadow:0 8px 24px #0009}
+.nmc.skin-spotify .nmc-card-play{background:var(--sk-accent)!important;color:#000!important;box-shadow:0 8px 18px #000a!important}
+.nmc.skin-spotify .nmc-section-heading h2,.nmc.skin-spotify .nmc-recent-heading{font-size:24px!important;font-weight:800!important;letter-spacing:-.4px}
+.nmc.skin-spotify .nmc-home-heading h1{font-size:34px;letter-spacing:-1px}
+.nmc.skin-spotify .nmc-lyric-preview{border-radius:10px!important;background:color-mix(in srgb,var(--nmc-art-1,#2d46b9) 70%,#1c2c8c)!important;border:0!important;padding:14px 16px!important}
+.nmc.skin-spotify .nmc-now-art{border-radius:10px!important;box-shadow:0 18px 40px #000a}
+.nmc.skin-spotify .nmc-player{background:#000000d9!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+.nmc.skin-spotify .nmc-play-toggle{background:#fff!important;color:#000!important;width:36px;height:36px}
+.nmc.skin-spotify .nmc-timeline input,.nmc.skin-spotify .nmc-player input[type=range]{accent-color:#fff}
+.nmc.skin-spotify .nmc-timeline:hover input,.nmc.skin-spotify .nmc-player input[type=range]:hover{accent-color:var(--sk-accent)}
+.nmc.skin-spotify .nmc-library-entry:hover{background:#ffffff12!important}
+.nmc.skin-spotify .nmc-primary{background:var(--sk-accent)!important;color:#000!important;border-radius:999px!important;font-weight:700}
+
+/* =====================================================================
+   ROSE LOOK (Apple Music-style): full-height sidebar, big headers,
+   tall top-pick cards, floating glass mini player, cinematic lyrics.
+   ===================================================================== */
+.nmc.skin-apple{--sk-accent:#fa2d48;--sk-side:#1e1e20e8;--sk-bg:#0b0b0cf0;grid-template-columns:250px minmax(0,1fr) 0!important;grid-template-rows:58px minmax(0,1fr)!important;grid-template-areas:'side top top' 'side content content'!important;gap:0!important;padding:0!important;background:var(--sk-bg)!important;font-family:-apple-system,'SF Pro Display','Inter','Segoe UI',system-ui,sans-serif;letter-spacing:-.1px}
+.nmc.skin-apple:not(.nmc-no-right){grid-template-columns:250px minmax(0,1fr) 330px!important;grid-template-areas:'side top right' 'side content right'!important}
+.nmc.skin-apple .nmc-sidebar{grid-area:side;display:flex;flex-direction:column;padding:16px 10px 12px!important;margin:0!important;background:var(--sk-side)!important;border:0!important;border-right:1px solid #ffffff12!important;border-radius:0!important;backdrop-filter:blur(30px) saturate(1.4)!important;-webkit-backdrop-filter:blur(30px) saturate(1.4)!important;box-shadow:none!important}
+.nmc.skin-apple .nmc-sidebar::before{content:'Music';display:block;padding:4px 10px 14px;font-size:26px;font-weight:800;line-height:1;letter-spacing:-.6px;color:#fff}
+.nmc.skin-apple .nmc-side-nav,.nmc.skin-apple .nmc-side-library{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;margin:0!important}
+.nmc.skin-apple .nmc-nav-button{height:34px!important;min-height:0!important;border-radius:8px!important;padding:0 10px!important;font-size:13.5px!important;font-weight:500!important;color:#ececef!important;background:transparent!important;gap:10px!important}
+.nmc.skin-apple .nmc-nav-button svg{fill:var(--sk-accent)!important;color:var(--sk-accent)!important;stroke:var(--sk-accent)}
+.nmc.skin-apple .nmc-nav-button:hover{background:#ffffff0f!important}
+.nmc.skin-apple .nmc-nav-button[aria-current=page],.nmc.skin-apple .nmc-nav-button.is-active{background:#ffffff1c!important}
+.nmc.skin-apple .nmc-library-heading{padding:16px 10px 6px!important;font-size:11px!important;font-weight:700!important;letter-spacing:.2px;color:#8e8e93!important}
+.nmc.skin-apple .nmc-library-entry{border-radius:8px!important;padding:5px 8px!important;background:transparent!important}
+.nmc.skin-apple .nmc-library-entry:hover{background:#ffffff0f!important}
+.nmc.skin-apple .nmc-library-entry img,.nmc.skin-apple .nmc-liked-cover{border-radius:5px!important;width:30px!important;height:30px!important}
+.nmc.skin-apple .nmc-liked-cover{background:linear-gradient(135deg,#fa2d48,#a0153a)!important}
+.nmc.skin-apple .nmc-top{grid-area:top;padding:10px 26px!important;background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important}
+.nmc.skin-apple .nmc-brand{display:none!important}
+.nmc.skin-apple .nmc-search{max-width:340px;height:34px!important;border-radius:9px!important;background:#ffffff14!important;border:1px solid #ffffff10!important;box-shadow:none!important}
+.nmc.skin-apple .nmc-search:focus-within{box-shadow:0 0 0 3px #fa2d4855!important;border-color:#fa2d48aa!important}
+.nmc.skin-apple .nmc-content{grid-area:content;padding:6px 34px 130px!important;margin:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important}
+.nmc.skin-apple .nmc-right{grid-area:right;margin:0!important;border-radius:0!important;border:0!important;border-left:1px solid #ffffff12!important;background:var(--sk-side)!important;backdrop-filter:blur(30px)!important;box-shadow:none!important;padding-bottom:110px!important}
+.nmc.skin-apple .nmc-home-heading small{display:none}
+.nmc.skin-apple .nmc-home-heading h1,.nmc.skin-apple .nmc-content>h1,.nmc.skin-apple .nmc-lyrics-heading h1{font-size:34px!important;font-weight:800!important;letter-spacing:-.9px!important}
+.nmc.skin-apple .nmc-chip{border-radius:999px!important;background:#ffffff12!important;border:1px solid #ffffff10!important;color:#f2f2f5!important;font-weight:600}
+.nmc.skin-apple .nmc-chip:hover{background:#ffffff22!important}
+.nmc.skin-apple .nmc-moods .nmc-chip:first-child,.nmc.skin-apple .nmc-chip[aria-pressed=true]{background:var(--sk-accent)!important;border-color:transparent!important;color:#fff!important}
+.nmc.skin-apple .nmc-recent-heading::before{content:'Top Picks for You';display:block;font-size:22px;font-weight:800;letter-spacing:-.5px;color:#fff}
+.nmc.skin-apple .nmc-recent-heading{font-size:0!important;margin:22px 0 12px!important}
+.nmc.skin-apple .nmc-quick-grid{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(170px,1fr))!important;gap:18px!important}
+.nmc.skin-apple .nmc-quick-track{position:relative;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;height:auto!important;padding:0!important;aspect-ratio:3/4;border-radius:14px!important;overflow:hidden;border:0!important;background:#1d1d1f!important;box-shadow:0 14px 34px #000a;transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s}
+.nmc.skin-apple .nmc-quick-track:hover{transform:translateY(-4px) scale(1.015);box-shadow:0 22px 44px #000c}
+.nmc.skin-apple .nmc-quick-track img{width:100%!important;height:100%!important;border-radius:0!important;object-fit:cover;position:absolute;inset:0}
+.nmc.skin-apple .nmc-quick-track strong{position:relative;margin-top:auto;padding:40px 12px 12px;font-size:14px!important;font-weight:700;color:#fff;text-align:left;background:linear-gradient(transparent,#000c);white-space:normal;line-height:1.25}
+.nmc.skin-apple .nmc-section-heading h2{font-size:22px!important;font-weight:800!important;letter-spacing:-.5px}
+.nmc.skin-apple .nmc-section-heading h2::after{content:' ›';color:#8e8e93}
+.nmc.skin-apple .nmc-track-card{background:transparent!important;border:0!important;border-radius:12px!important;padding:0!important}
+.nmc.skin-apple .nmc-card-art img{border-radius:10px!important;box-shadow:0 10px 26px #0009;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.nmc.skin-apple .nmc-track-card:hover .nmc-card-art img{transform:scale(1.03)}
+.nmc.skin-apple .nmc-track-card strong{margin-top:8px;font-weight:600;font-size:13px}
+.nmc.skin-apple .nmc-track-card small{color:#8e8e93}
+.nmc.skin-apple .nmc-card-play{background:#ffffffe6!important;color:var(--sk-accent)!important;backdrop-filter:blur(10px)}
+.nmc.skin-apple .nmc-track-row:hover{background:#ffffff0d!important}
+.nmc.skin-apple .nmc-primary{background:var(--sk-accent)!important;color:#fff!important;border-radius:10px!important;font-weight:700}
+.nmc.skin-apple .nmc-now-art{border-radius:14px!important;box-shadow:0 20px 50px #000b}
+.nmc.skin-apple .nmc-lyric-preview{border-radius:14px!important;border:0!important;background:linear-gradient(150deg,color-mix(in srgb,var(--nmc-art-0,#5b2a86) 70%,#000),color-mix(in srgb,var(--nmc-art-1,#8a1f3b) 70%,#000))!important}
+/* floating mini player */
+.nmc.skin-apple .nmc-player{position:absolute!important;z-index:30!important;left:calc(250px + 24px)!important;right:24px!important;bottom:18px!important;margin:0 auto!important;max-width:880px;min-height:64px;padding:8px 18px 8px 8px!important;border-radius:18px!important;border:1px solid #ffffff1c!important;background:linear-gradient(120deg,#ffffff16,#ffffff06),#26262acc!important;backdrop-filter:blur(30px) saturate(1.6)!important;-webkit-backdrop-filter:blur(30px) saturate(1.6)!important;box-shadow:0 24px 60px #000c,inset 0 1px #ffffff1c!important}
+.nmc.skin-apple:not(.nmc-no-right) .nmc-player{right:354px!important}
+.nmc.skin-apple .nmc-player-info img{border-radius:10px!important;box-shadow:0 6px 16px #0008}
+.nmc.skin-apple .nmc-play-toggle{background:transparent!important;color:#fff!important;width:40px;height:40px}
+.nmc.skin-apple .nmc-play-toggle svg{width:24px!important;height:24px!important}
+.nmc.skin-apple .nmc-player input[type=range]{accent-color:var(--sk-accent)}
+/* cinematic lyrics */
+.nmc.skin-apple.nmc-on-lyrics .nmc-content{grid-area:1/1/-1/-1!important;z-index:20;padding:40px 6vw 120px!important;background:radial-gradient(circle at 18% 22%,var(--nmc-art-0,#3a2463),transparent 55%),radial-gradient(circle at 82% 30%,var(--nmc-art-1,#7a2440),transparent 55%),radial-gradient(circle at 50% 90%,var(--nmc-art-2,#1d3a5e),transparent 60%),#0d0d10a8!important;animation:sk-lyrics-in .5s cubic-bezier(.16,1,.3,1)}
+.nmc.skin-apple.nmc-on-lyrics .nmc-player{left:24px!important;right:24px!important}
+.nmc.skin-apple.nmc-on-lyrics .nmc-lyrics-lines button,.nmc.skin-apple.nmc-on-lyrics .nmc-lyrics-lines p{font-size:clamp(22px,2.6vw,34px)!important;font-weight:800!important;letter-spacing:-.6px;line-height:1.3!important;color:#ffffff47!important;filter:blur(.6px);background:none!important;transition:color .35s,filter .35s,transform .45s cubic-bezier(.16,1,.3,1);transform-origin:left center}
+.nmc.skin-apple.nmc-on-lyrics .nmc-lyrics-lines .active{color:#fff!important;filter:none;transform:scale(1.03)}
+.nmc.skin-apple.nmc-on-lyrics .nmc-lyrics-cover{border-radius:16px!important;box-shadow:0 30px 70px #000c!important}
+@keyframes sk-lyrics-in{from{opacity:0;transform:scale(1.02)}}
+@media(max-width:900px){
+ .nmc.skin-apple,.nmc.skin-apple:not(.nmc-no-right){grid-template-columns:minmax(0,1fr)!important;grid-template-rows:56px minmax(0,1fr)!important;grid-template-areas:'top' 'content'!important}
+ .nmc.skin-apple .nmc-sidebar,.nmc.skin-apple .nmc-right{display:none!important}
+ .nmc.skin-apple .nmc-content{padding:4px 16px 150px!important}
+ .nmc.skin-apple .nmc-player{left:10px!important;right:10px!important;bottom:10px!important}
+ .nmc.skin-apple .nmc-top{padding:10px 16px!important}
+ .nmc.skin-apple .nmc-quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+}
+html.reduce-motion .nmc-skin-menu,html.reduce-motion .nmc.skin-apple .nmc-content{animation:none!important}
+.nmc.skin-apple.nmc-on-lyrics .nmc-sidebar,.nmc.skin-apple.nmc-on-lyrics .nmc-right{visibility:hidden!important}
+.nmc.skin-apple.nmc-on-lyrics .nmc-top{position:relative;z-index:25;grid-column:1/-1!important;padding-left:24px!important}
+.nmc.skin-apple.nmc-on-lyrics .nmc-content{padding-top:76px!important}
+
+/* ===== First-open chooser ===== */
+.nmc-skin-chooser{position:absolute;inset:0;z-index:39;display:grid;place-items:center;padding:20px;background:#000a;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);animation:sk-fade .35s ease}
+.nmc-skin-chooser.is-leaving{animation:sk-fade .3s ease reverse both;pointer-events:none}
+.nmc-skin-chooser-card{width:min(720px,100%);padding:30px;border-radius:24px;border:1px solid #ffffff1c;background:linear-gradient(140deg,#ffffff12,#ffffff04),#141417e6;box-shadow:0 40px 90px #000c,inset 0 1px #ffffff18;text-align:center;animation:sk-rise .5s cubic-bezier(.16,1,.3,1)}
+.nmc-skin-chooser-card h2{margin:0;font-size:28px;font-weight:800;letter-spacing:-.6px;color:#fff}
+.nmc-skin-chooser-card>p{margin:8px auto 24px;max-width:440px;color:#a3a3ad;font-size:13px}
+.nmc-skin-chooser-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.nmc-skin-choice{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:12px 12px 16px;border-radius:18px;border:1px solid #ffffff16;background:#ffffff08;color:#fff;text-align:left;cursor:pointer;font:inherit;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .25s,box-shadow .25s}
+.nmc-skin-choice>.nmc-skin-mark{width:28px;height:28px;margin:0 4px}
+.nmc-skin-choice>span:last-child{padding:0 4px}.nmc-skin-choice strong{display:block;font-size:16px}.nmc-skin-choice small{display:block;color:#9a9aa4;font-size:12px;margin-top:2px}
+.nmc-skin-choice:hover{transform:translateY(-4px)}
+.nmc-skin-choice.is-spotify:hover{border-color:#1ed76088;box-shadow:0 20px 50px #1ed76022}
+.nmc-skin-choice.is-apple:hover{border-color:#fa2d4888;box-shadow:0 20px 50px #fa2d4822}
+.nmc-skin-mock{position:relative;display:block;width:100%;aspect-ratio:16/10;border-radius:12px;overflow:hidden}
+.nmc-skin-mock i,.nmc-skin-mock b,.nmc-skin-mock em,.nmc-skin-mock u{position:absolute;display:block}
+.nmc-skin-mock.is-spotify{background:#000}
+.nmc-skin-mock.is-spotify i{left:4%;top:6%;width:22%;bottom:18%;border-radius:6px;background:#121212}
+.nmc-skin-mock.is-spotify b{left:28%;top:6%;right:24%;bottom:18%;border-radius:6px;background:linear-gradient(#1e3a2a,#121212 55%)}
+.nmc-skin-mock.is-spotify em{right:4%;top:6%;width:18%;bottom:18%;border-radius:6px;background:linear-gradient(#2d46b9 0 0) bottom/100% 45% no-repeat,#121212}
+.nmc-skin-mock.is-spotify u{left:0;right:0;bottom:0;height:13%;background:#000;box-shadow:inset 0 1px #ffffff14}
+.nmc-skin-mock.is-spotify u::after{content:"";position:absolute;left:46%;top:28%;width:8%;height:44%;border-radius:9px;background:#1ed760}
+.nmc-skin-mock.is-apple{background:radial-gradient(circle at 30% 20%,#6d2a4a,transparent 60%),radial-gradient(circle at 80% 80%,#22416b,transparent 60%),#1a1a1e}
+.nmc-skin-mock.is-apple i{left:0;top:0;bottom:0;width:24%;background:#ffffff10;border-right:1px solid #ffffff14}
+.nmc-skin-mock.is-apple i::before{content:"";position:absolute;left:14%;top:12%;width:50%;height:6%;border-radius:3px;background:#fff;box-shadow:0 14px 0 -2px #fa2d48,0 26px 0 -2px #fa2d48,0 38px 0 -2px #fa2d48}
+.nmc-skin-mock.is-apple b{left:30%;top:14%;width:20%;aspect-ratio:3/4;border-radius:8px;background:linear-gradient(135deg,#fa2d48,#7c3aed);box-shadow:78px 0 0 #f59e0b,156px 0 0 #10b981}
+.nmc-skin-mock.is-apple u{left:32%;right:6%;bottom:6%;height:14%;border-radius:10px;background:#ffffff22;border:1px solid #ffffff26}
+@keyframes sk-fade{from{opacity:0}}
+@keyframes sk-rise{from{opacity:0;transform:translateY(16px) scale(.97)}}
+@media(max-width:600px){.nmc-skin-chooser-row{grid-template-columns:1fr}.nmc-skin-chooser-card{padding:22px 16px}.nmc-skin-chooser-card h2{font-size:22px}}
+
+/* ===== Apple Music: glass over the listener's own wallpaper (blurred), not flat grey ===== */
+.nmc.skin-apple{background:#0a0a0d6b!important;backdrop-filter:blur(48px) saturate(1.5)!important;-webkit-backdrop-filter:blur(48px) saturate(1.5)!important}
+.nmc.skin-apple .nmc-sidebar{background:#ffffff0a!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-right:1px solid #ffffff14!important}
+html.nova-low-power .nmc.skin-apple{background:#0b0b0de8!important}
+/* the full sidebar always stays open in this look (no collapsed icon rail) */
+.nmc.skin-apple .nmc-sidebar-toggle{display:none!important}
+.nmc.skin-apple.nmc-compact-sidebar .nmc-nav-button{justify-content:flex-start!important;padding:0 10px!important}
+.nmc.skin-apple.nmc-compact-sidebar .nmc-nav-button>span,.nmc.skin-apple.nmc-compact-sidebar .nmc-library-heading>span,.nmc.skin-apple.nmc-compact-sidebar .nmc-library-entry>span:not(.nmc-liked-cover){display:block!important}
+.nmc.skin-apple.nmc-compact-sidebar .nmc-library-heading{flex-direction:row!important}
+.nmc.skin-apple.nmc-compact-sidebar .nmc-library-entry{justify-content:flex-start!important}
+.nmc.skin-apple .nmc-library-entry{display:flex!important;align-items:center;gap:10px}
+.nmc.skin-apple .nmc-library-entry strong{font-size:13px;font-weight:500}.nmc.skin-apple .nmc-library-entry small{font-size:11px;color:#8e8e93}
+
+/* ===== Apple Music: now-playing side panel like Apple's (art-tinted, big type, live lyrics) ===== */
+.nmc.skin-apple .nmc-right{padding:22px 22px 110px!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:linear-gradient(180deg,color-mix(in srgb,var(--nmc-art-0,#3a2463) 45%,transparent),color-mix(in srgb,var(--nmc-art-1,#7a2440) 25%,transparent) 55%,#00000030)!important}
+.nmc.skin-apple .nmc-right .nmc-overline{display:none}
+.nmc.skin-apple .nmc-right .nmc-now-art{border-radius:12px!important;box-shadow:0 26px 60px #000c!important;margin-bottom:6px}
+.nmc.skin-apple .nmc-right h2{font-size:22px!important;font-weight:800!important;letter-spacing:-.5px;margin-bottom:0!important}
+.nmc.skin-apple .nmc-right h2+.nmc-muted{color:#ffffffa6!important;font-size:15px}
+.nmc.skin-apple .nmc-lyric-preview{background:none!important;padding:6px 0!important;box-shadow:none!important}
+.nmc.skin-apple .nmc-lyric-preview h3{font-size:11px!important;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#ffffff80!important}
+.nmc.skin-apple .nmc-preview-lines p{font-size:21px!important;font-weight:800!important;line-height:1.3!important;letter-spacing:-.4px;color:#ffffff42!important;margin:0 0 10px!important}
+.nmc.skin-apple .nmc-lyric-preview .nmc-button{background:#ffffff1f!important;border:0!important;border-radius:999px!important;color:#fff!important;font-weight:600}
+.nmc.skin-apple .nmc-queue-entry{border-radius:10px!important}.nmc.skin-apple .nmc-queue-entry:hover{background:#ffffff14!important}
+
+/* ===== Apple Music: lyrics light up white as they're sung, smoothly ===== */
+.nmc.skin-apple .nmc-lyrics-lines .active,.nmc.skin-apple .nmc-preview-lines p.active{color:transparent!important;background:linear-gradient(90deg,#fff 0 50%,#ffffff47 50% 100%)!important;background-size:200% 100%!important;-webkit-background-clip:text!important;background-clip:text!important;filter:none!important;animation:sk-sing var(--line-dur,3s) linear var(--line-at,0s) both}
+.nmc.skin-apple:not(.nmc-is-playing) .nmc-lyrics-lines .active,.nmc.skin-apple:not(.nmc-is-playing) .nmc-preview-lines p.active{animation-play-state:paused}
+@keyframes sk-sing{from{background-position:100% 0}to{background-position:0 0}}
+html.reduce-motion .nmc.skin-apple .nmc-lyrics-lines .active,html.reduce-motion .nmc.skin-apple .nmc-preview-lines p.active{animation:none;color:#fff!important;background:none!important}
