@@ -1,5 +1,7 @@
 // Local-only fake shop server for testing the real shop page at /shop.html?preview=1 on localhost.
 // Never loaded on a live site (shop-page.js only imports it for localhost + ?preview).
+import {cratePool,shopPrices} from './shop-config.mjs?v=20261112-gifts1';
+const previewGifts=new URLSearchParams(location.search).has('gift')?[{id:'gift-1',type:'crate',fromName:'CrossfitMaster31',label:'3× Avatar crate V2',note:'Hope you like this gift. Good luck; have fun!',rarities:['legendary','uncommon','common']}]:[];
 export function createLocalShop(assets){
  let coins=250000;const inventory={},credits={decoration:3,effect:3,banner:3};const recent=[];
  for(const kind of ['effect','decoration','banner']){for(const a of assets.filter(x=>x.kind===kind&&x.subtype!=='frame').slice(0,7))inventory[a.id]={count:1+(a.id.length%2)}}
@@ -83,7 +85,10 @@ export function createLocalShop(assets){
    recent.unshift({name:'You',game:g,stake:'coins',coins:b.coins,payout,won:receipt.won,at:receipt.at,currentCoins:coins});
    return {ok:true,coins,limit:{used:recent.length,max:50},receipt};
   }
-  if(action==='openCase'){const pool=assets.filter(a=>b.kind==='halloween'?a.collection==='halloween':a.kind===b.kind);const items=Array.from({length:b.count||1},()=>pool[Math.floor(Math.random()*pool.length)]);for(const it of items)inventory[it.id]={count:(inventory[it.id]?.count||0)+1};coins-=1000*(b.count||1);return {ok:true,coins,items,rewards:items,inventory:structuredClone(inventory)}}
+  if(action==='sendGift'){if(!b.to)throw Error('Choose a Nova player.');if(b.type==='item'){if(!inventory[b.id])throw Error('You no longer own this cosmetic.');if(--inventory[b.id].count<1)delete inventory[b.id]}else coins-=b.type==='crate'?shopPrices[b.kind][b.count]:0;return {ok:true,coins,inventory:structuredClone(inventory),gift:{id:b.requestId}}}
+  if(action==='giftInbox'){const pick=r=>assets.filter(a=>a.rarity===r&&a.kind!=='halloween');return {gifts:previewGifts.splice(0).map((g,i)=>({...g,items:g.rarities.map(r=>{const l=pick(r);return l[(i*7+r.length)%l.length]})}))}}
+  if(action==='openGift')return {ok:true,gift:{id:b.id}}
+  if(action==='openCase'){const pool=cratePool(assets,b.kind);const items=Array.from({length:b.count||1},()=>pool[Math.floor(Math.random()*pool.length)]);for(const it of items)inventory[it.id]={count:(inventory[it.id]?.count||0)+1};coins-=shopPrices[b.kind]?.[b.count]||0;return {ok:true,coins,items,rewards:items,inventory:structuredClone(inventory)}}
   if(action==='chatDirectory')return {users:['Mara','Theo','Jun','Rosa','Dez','Kip'].map(n=>({uid:'u-'+n,name:n,photo:''})),next:null};
   if(action==='storeTrade')return trade(b);
   if(action==='storeMines')return mines(b);

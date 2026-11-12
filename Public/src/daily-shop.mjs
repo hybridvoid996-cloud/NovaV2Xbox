@@ -1,4 +1,4 @@
-import {cosmeticRarityPrices,cosmeticCategoryMultipliers,halloweenEnd} from './shop-config.mjs?v=20261016-economy95';
+import {cosmeticRarityPrices,cosmeticCategoryMultipliers,halloweenEnd} from './shop-config.mjs?v=20261112-gifts1';
 export const DAY=86400000;
 export function cosmeticPrice(item,kind=item.kind){const base=cosmeticRarityPrices[item.rarity]||cosmeticRarityPrices.common;return Math.round(base*(cosmeticCategoryMultipliers[kind]||1))}
 function hash(value){let n=2166136261;for(const c of value){n^=c.charCodeAt(0);n=Math.imul(n,16777619)}return n>>>0}

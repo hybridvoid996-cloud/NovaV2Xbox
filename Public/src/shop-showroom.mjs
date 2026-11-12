@@ -1,5 +1,5 @@
 import {mountProfileCosmetic} from './cosmetic-renderer.mjs';
-import {cosmeticPrice} from './daily-shop.mjs?v=20261025-shop297';
+import {cosmeticPrice} from './daily-shop.mjs?v=20261112-gifts1';
 const el=(tag,cls,text)=>{const n=document.createElement(tag);n.className=cls||'';if(text!=null)n.textContent=text;return n};
 function previewStyles(){if(document.getElementById('cosmetic-studio-style'))return;const link=document.createElement('link');link.id='cosmetic-studio-style';link.rel='stylesheet';link.href='/src/cosmetics-studio.css';document.head.append(link)}
 export function shopProfilePreview(ctx,item,live=false){

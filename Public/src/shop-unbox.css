@@ -1,0 +1,151 @@
+/* Nova unboxing reel, reward grid and gift popup (Shop + Home). */
+.nova-unbox,.nova-gift{--r:#9aa3b2;position:fixed;inset:0;width:min(1100px,calc(100vw - 24px));max-height:calc(100dvh - 24px);margin:auto;padding:22px 24px 26px;border:1px solid #ffffff1c;border-radius:26px;color:#f3f4f8;background:radial-gradient(120% 70% at 50% 0%,color-mix(in srgb,var(--r) 16%,transparent),transparent 60%),linear-gradient(#15161b,#0b0c0f);box-shadow:0 30px 90px #000a;overflow:auto;font-family:inherit;scrollbar-width:thin}
+.nova-unbox::backdrop,.nova-gift::backdrop{background:#04050799}
+.rarity-common{--r:#9aa3b2}.rarity-uncommon{--r:#4fb0ff}.rarity-epic{--r:#a66bff}.rarity-legendary{--r:#ffb02e}.rarity-mythic{--r:#ff4d6d}.rarity-singularity{--r:#f5f0ff}
+.unbox-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+.unbox-head h2{margin:2px 0 0;font-size:clamp(22px,3vw,30px);letter-spacing:-.5px}
+.unbox-eyebrow{display:block;color:#a8acb8;font-size:11px;font-weight:700;letter-spacing:2.4px}
+.unbox-close{width:38px;height:38px;flex:none;border-radius:50%;border:1px solid #ffffff26;background:#ffffff0d;color:#fff;font-size:20px;cursor:pointer}
+.unbox-close:hover{background:#ffffff1f}
+/* Reel */
+.unbox-stage{position:relative}
+.unbox-reel{position:relative;overflow:hidden;padding:18px 0;border-radius:18px;background:linear-gradient(#0e0f13,#08090b);border:1px solid #ffffff12;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.unbox-strip{display:flex;gap:10px;width:max-content;padding-left:10px;will-change:transform}
+.unbox-tile{--r:#9aa3b2;position:relative;flex:none;width:150px;height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px 10px 16px;border-radius:14px;background:radial-gradient(90% 70% at 50% 35%,color-mix(in srgb,var(--r) 22%,transparent),transparent 70%),#17181d;border:1px solid #ffffff12;box-sizing:border-box}
+.unbox-tile img{width:92px;height:92px;object-fit:contain;filter:drop-shadow(0 6px 12px #0008)}
+.unbox-tile b{max-width:100%;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#e6e8ee}
+.unbox-tile i{position:absolute;left:0;right:0;bottom:0;height:5px;border-radius:0 0 14px 14px;background:var(--r)}
+.unbox-tile.rarity-singularity i{background:linear-gradient(90deg,#7df9ff,#b48cff,#ff8fd0,#ffd36e)}
+.unbox-tile.is-winner{border-color:var(--r);box-shadow:0 0 0 2px var(--r),0 0 40px color-mix(in srgb,var(--r) 45%,transparent);animation:unbox-win .5s ease-out}
+.unbox-marker{position:absolute;top:0;bottom:0;left:50%;width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 14px #fff,0 0 2px #fff;border-radius:3px;pointer-events:none}
+.unbox-marker:before,.unbox-marker:after{content:"";position:absolute;left:50%;margin-left:-8px;border:8px solid transparent}
+.unbox-marker:before{top:0;border-top-color:#fff}.unbox-marker:after{bottom:0;border-bottom-color:#fff}
+.unbox-skip{display:block;margin:18px auto 0;padding:9px 26px;border-radius:999px;border:1px solid #ffffff2a;background:#ffffff0c;color:#e8e9ee;font:inherit;font-size:14px;cursor:pointer}
+.unbox-skip:hover{background:#ffffff1c}
+.is-revealed .unbox-reel{display:none}
+@keyframes unbox-win{0%{transform:scale(1)}40%{transform:scale(1.08)}100%{transform:scale(1)}}
+/* Results */
+.unbox-results{display:grid;gap:16px;animation:unbox-in .45s cubic-bezier(.16,1,.3,1)}
+.unbox-summary{margin:0;font-size:15px;color:#c9ccd6}
+.unbox-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:-6px}
+.unbox-chips span{padding:4px 11px;border-radius:999px;font-size:12px;font-weight:700;color:var(--r);background:color-mix(in srgb,var(--r) 14%,transparent);border:1px solid color-mix(in srgb,var(--r) 40%,transparent)}
+.unbox-card{--r:#9aa3b2;position:relative;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:6px 14px;align-items:center;padding:12px;border-radius:16px;background:linear-gradient(135deg,color-mix(in srgb,var(--r) 14%,#16171c),#111216 60%);border:1px solid color-mix(in srgb,var(--r) 35%,#ffffff12);animation:unbox-in .4s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i,0) * 35ms)}
+.unbox-card-art{grid-row:1/3;width:76px;height:76px;display:grid;place-items:center;border-radius:12px;background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--r) 30%,transparent),transparent 70%),#0c0d10}
+.unbox-card-art img{width:64px;height:64px;object-fit:contain}
+.unbox-card-copy{min-width:0}
+.unbox-card h3{margin:2px 0;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.unbox-rarity{color:var(--r);font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase}
+.unbox-kind{color:#9a9eaa;font-size:12px}
+.unbox-card-actions{display:flex;gap:8px}
+.unbox-card-actions button,.unbox-done{padding:7px 14px;border-radius:999px;border:1px solid #ffffff26;background:#ffffff10;color:#fff;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.unbox-card-actions .unbox-equip{background:#fff;color:#0b0c0f;border-color:#fff}
+.unbox-card-actions button:disabled{opacity:.6;cursor:default}
+.unbox-card.is-featured{grid-template-columns:auto 1fr auto;padding:18px;box-shadow:0 0 0 1px color-mix(in srgb,var(--r) 30%,transparent),0 18px 60px color-mix(in srgb,var(--r) 22%,transparent)}
+.unbox-card.is-featured .unbox-card-art{width:120px;height:120px}.unbox-card.is-featured .unbox-card-art img{width:104px;height:104px}
+.unbox-card.is-featured h3{font-size:clamp(20px,2.4vw,26px)}
+.unbox-card.is-featured .unbox-card-actions{grid-row:1/3;grid-column:3}
+.unbox-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.unbox-done{justify-self:center;padding:10px 34px;background:#fff;color:#0b0c0f}
+.unbox-flash{position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle,color-mix(in srgb,var(--r) 40%,transparent),transparent 60%);animation:unbox-flash .9s ease-out forwards}
+@keyframes unbox-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes unbox-flash{from{opacity:1}to{opacity:0}}
+/* Gift popup */
+.nova-gift{width:min(760px,calc(100vw - 24px));display:grid;grid-template-columns:minmax(200px,300px) 1fr;align-items:center;gap:22px;padding:30px;--gift-a:#9ad7ff;--gift-b:#b48cff;--gift-c:#ff8fd0}
+.nova-gift:not([open]){display:none}
+.gift-box svg{width:100%;height:auto;overflow:visible}
+.gift-box .gift-glow{animation:gift-pulse 2.4s ease-in-out infinite}
+.gift-box .gift-lid,.gift-box .gift-body{transform-box:fill-box;transform-origin:50% 100%;transition:transform .6s cubic-bezier(.2,.9,.3,1.3),opacity .5s}
+.gift-box .gift-sparks{opacity:.7;animation:gift-twinkle 1.8s ease-in-out infinite alternate}
+.gift-box:not(.is-open) svg{animation:gift-float 3.2s ease-in-out infinite}
+.gift-box.is-shaking svg{animation:gift-shake .45s ease-in-out infinite}
+.gift-box.is-open .gift-lid{transform:translate(18px,-70px) rotate(18deg);opacity:0}
+.gift-box.is-open .gift-glow{animation:none;transform:scale(1.4);opacity:1;transition:transform .6s}
+.gift-title{margin:0 0 6px;font-size:clamp(26px,4vw,38px);letter-spacing:-.8px;background:linear-gradient(90deg,#fff,#d9cbff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gift-from{margin:0;color:#c9ccd6;font-size:16px}.gift-from b{color:#fff}
+.gift-what{margin:6px 0 0;color:#a3a7b3;font-size:14px}
+.gift-note{margin:16px 0 0;padding:14px 16px;border-radius:14px;background:#f4f2ee;color:#1b1c20;font-size:15px;line-height:1.4;transform:rotate(-1.2deg);box-shadow:0 10px 30px #0006}
+.gift-note cite{display:block;margin-top:6px;font-style:normal;font-size:13px;color:#55575f}
+.gift-error{min-height:1em;margin:10px 0 0;color:#ff8a9a;font-size:13px}
+.gift-actions{display:flex;gap:10px;margin-top:14px}
+.gift-open{padding:12px 40px;border:0;border-radius:999px;background:linear-gradient(90deg,var(--gift-a),var(--gift-b),var(--gift-c));color:#0b0c0f;font:inherit;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 10px 30px #b48cff44}
+.gift-open:disabled{opacity:.75;cursor:progress}
+.gift-later{padding:12px 22px;border-radius:999px;border:1px solid #ffffff2a;background:transparent;color:#d6d8de;font:inherit;cursor:pointer}
+@keyframes gift-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes gift-shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
+@keyframes gift-pulse{0%,100%{opacity:.75}50%{opacity:1}}
+@keyframes gift-twinkle{from{opacity:.25}to{opacity:.9}}
+@media(max-width:640px){
+ .nova-unbox,.nova-gift{padding:16px;border-radius:20px}
+ .nova-gift{grid-template-columns:1fr;text-align:center}.gift-box{width:200px;margin:0 auto}.gift-actions{justify-content:center}
+ .unbox-tile{width:120px;height:146px}.unbox-tile img{width:72px;height:72px}
+ .unbox-card.is-featured{grid-template-columns:auto 1fr}.unbox-card.is-featured .unbox-card-actions{grid-row:auto;grid-column:1/-1}
+ .unbox-card.is-featured .unbox-card-art{width:88px;height:88px}.unbox-card.is-featured .unbox-card-art img{width:76px;height:76px}
+ .unbox-grid{grid-template-columns:1fr}
+}
+html.reduce-motion .nova-unbox *,html.reduce-motion .nova-gift *{animation:none!important;transition:none!important}
+/* Send-a-gift window (Shop) */
+.shop-gift-modal{width:min(520px,calc(100vw - 24px))}
+.shop-gift-modal .gift-what-row{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;padding:12px 14px;border-radius:14px;background:#ffffff0a;border:1px solid #ffffff14}
+.shop-gift-modal .gift-what-row img{width:44px;height:44px;object-fit:contain}
+.shop-gift-modal .gift-what-row>span{font-weight:700}
+.shop-gift-modal .gift-price{margin-left:auto;color:#ffd36e}
+.shop-gift-modal .gift-bundles{display:flex;gap:6px}
+.shop-gift-modal .gift-bundle{padding:6px 12px;border-radius:999px;border:1px solid #ffffff26;background:transparent;color:#fff;cursor:pointer}
+.shop-gift-modal .gift-bundle[aria-pressed=true]{background:#fff;color:#0b0c0f}
+.shop-gift-modal .gift-search,.shop-gift-modal .gift-note-input{width:100%;box-sizing:border-box;margin-top:12px;padding:11px 14px;border-radius:12px;border:1px solid #ffffff22;background:#0c0d10;color:#fff;font:inherit;resize:vertical}
+.shop-gift-modal .gift-people{display:grid;gap:6px;margin-top:8px}
+.shop-gift-modal .gift-person{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;border:1px solid #ffffff14;background:#ffffff08;color:#fff;text-align:left;cursor:pointer}
+.shop-gift-modal .gift-person:hover{background:#ffffff16}
+.shop-gift-modal .gift-face{width:30px;height:30px;flex:none;display:grid;place-items:center;border-radius:50%;overflow:hidden;background:#2a2c34;font-weight:700}
+.shop-gift-modal .gift-face img{width:100%;height:100%;object-fit:cover}
+.shop-gift-modal .gift-chosen{margin:12px 0 0;color:#c9ccd6}.shop-gift-modal .gift-chosen b{color:#fff}
+.shop-gift-modal .gift-hint{font-size:12px}
+.nova-case .case-gift-button{width:100%;margin-top:8px;padding:10px 8px;font-size:11px;font-weight:700;letter-spacing:.3px;border-radius:12px;border:1px solid #b48cff55;background:linear-gradient(90deg,#9ad7ff14,#b48cff1f,#ff8fd014);color:#f3ecff;cursor:pointer}
+.nova-case .case-gift-button:hover{background:linear-gradient(90deg,#9ad7ff2a,#b48cff38,#ff8fd02a)}
+.lk-btn.lk-gift{border-color:#b48cff66}
+.daily-gift{margin-top:8px}
+/* Nova crate model */
+.nova-crate-v3{overflow:visible}
+.nova-crate-v3 .model-object{animation:crate-float 4.5s ease-in-out infinite}
+.nova-crate-v3 .model-lid{transform-box:fill-box;transform-origin:30% 100%;transition:transform .35s cubic-bezier(.2,.9,.3,1.2),opacity .35s}
+.nova-crate-v3 .crate-seam-glow{animation:crate-seam 2.6s ease-in-out infinite}
+.nova-crate-v3 .crate-aura{opacity:.7;transition:opacity .3s}
+.nova-crate-v3 .crate-beam{transition:opacity .35s}
+.nova-crate-v3.is-v2 .crate-aura{opacity:.9}
+:is(.shop-model-button:hover,.shop-model-button:focus-visible) .nova-crate-v3 .model-lid{transform:translateY(-7px) rotate(-1.5deg)}
+:is(.shop-model-button:hover,.shop-model-button:focus-visible) .nova-crate-v3 .crate-aura{opacity:1}
+.is-opening .nova-crate-v3 .model-lid,.nova-crate-v3.is-opening .model-lid{transform:translate(14px,-80px) rotate(-14deg);opacity:0}
+.is-opening .nova-crate-v3 .crate-beam{opacity:.85}
+.is-opening .nova-crate-v3 .model-object{animation:crate-pop .35s ease-out}
+@keyframes crate-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes crate-seam{0%,100%{stroke-opacity:.12}50%{stroke-opacity:.4}}
+@keyframes crate-pop{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+/* Crate, reel and gift animations are cheap (transform/opacity only), so they stay on for laptops
+   and low-power mode. Only Nova's own Reduce motion setting turns them off. */
+html.reduce-motion .nova-crate-v3 *{animation:none!important}
+.nova-unbox .unbox-card{box-shadow:inset 3px 0 0 var(--r)}
+.nova-unbox .unbox-card.is-featured{border-color:var(--r);box-shadow:inset 4px 0 0 var(--r),0 0 0 1px color-mix(in srgb,var(--r) 40%,transparent),0 18px 60px color-mix(in srgb,var(--r) 28%,transparent)}
+.nova-unbox .unbox-card.rarity-singularity{border-image:linear-gradient(90deg,#7df9ff,#b48cff,#ff8fd0,#ffd36e) 1}
+.shop-gift-modal .shop-checkout-actions button:not(.primary){background:transparent;border:1px solid #ffffff2a;color:#dfe1e7}
+/* Trade room: click-to-offer cosmetic tiles */
+body.nova-shop-page .live-trade-dialog{--r:#9aa3b2}
+body.nova-shop-page .live-item-filter{width:100%;box-sizing:border-box;margin:10px 0 4px;padding:9px 12px;border-radius:10px;border:1px solid #ffffff1f;background:#0b0c0f;color:#fff;font:inherit;font-size:13px}
+body.nova-shop-page .live-pick-grid{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));max-height:340px;gap:8px;padding:4px 2px}
+body.nova-shop-page .live-pick{position:relative;border-radius:14px}
+body.nova-shop-page .live-pick[hidden]{display:none}
+body.nova-shop-page .live-pick.r-common{--r:#9aa3b2}body.nova-shop-page .live-pick.r-uncommon{--r:#4fb0ff}body.nova-shop-page .live-pick.r-epic{--r:#a66bff}body.nova-shop-page .live-pick.r-legendary{--r:#ffb02e}body.nova-shop-page .live-pick.r-mythic{--r:#ff4d6d}body.nova-shop-page .live-pick.r-singularity{--r:#f5f0ff}
+body.nova-shop-page .live-pick-add{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 6px 9px;border-radius:14px;border:1px solid #ffffff14;background:radial-gradient(90% 60% at 50% 30%,color-mix(in srgb,var(--r) 20%,transparent),transparent 70%),#15161b;color:#eceef3;cursor:pointer;box-shadow:inset 0 -3px 0 var(--r);transition:transform .15s,border-color .15s}
+body.nova-shop-page .live-pick-add:hover:not(:disabled){transform:translateY(-2px);border-color:color-mix(in srgb,var(--r) 60%,transparent)}
+body.nova-shop-page .live-pick-add img{width:64px;height:64px;object-fit:contain}
+body.nova-shop-page .live-pick-add span{max-width:100%;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.nova-shop-page .live-pick-meta{font-size:10px;color:#9a9eaa;text-transform:capitalize}
+body.nova-shop-page .live-pick-count,body.nova-shop-page .live-pick-minus{position:absolute;top:6px;display:none}
+body.nova-shop-page .live-pick-count{right:6px;padding:2px 7px;border-radius:999px;background:#fff;color:#0b0c0f;font-size:11px}
+body.nova-shop-page .live-pick-minus{left:6px;width:22px;height:22px;border-radius:50%;border:0;background:#000b;color:#fff;font-size:15px;line-height:1;cursor:pointer}
+body.nova-shop-page .live-pick.picked .live-pick-add{border-color:var(--r);box-shadow:inset 0 -3px 0 var(--r),0 0 0 1px var(--r),0 8px 24px color-mix(in srgb,var(--r) 25%,transparent)}
+body.nova-shop-page .live-pick.picked :is(.live-pick-count,.live-pick-minus){display:block}
+body.nova-shop-page .live-theirs .live-item{border-radius:12px;box-shadow:inset 0 -3px 0 var(--r)}
+body.nova-shop-page .live-theirs .live-item.r-uncommon{--r:#4fb0ff}body.nova-shop-page .live-theirs .live-item.r-epic{--r:#a66bff}body.nova-shop-page .live-theirs .live-item.r-legendary{--r:#ffb02e}body.nova-shop-page .live-theirs .live-item.r-mythic{--r:#ff4d6d}body.nova-shop-page .live-theirs .live-item.r-singularity{--r:#f5f0ff}
+body.nova-shop-page .live-theirs .live-item img{width:64px;height:64px;object-fit:contain}
+body.nova-shop-page .live-pick-add img{width:100%;height:68px}
+body.nova-shop-page .live-pick.picked .live-pick-add{border-color:#fff;background:radial-gradient(90% 60% at 50% 30%,color-mix(in srgb,var(--r) 30%,transparent),transparent 70%),#1d1f26}

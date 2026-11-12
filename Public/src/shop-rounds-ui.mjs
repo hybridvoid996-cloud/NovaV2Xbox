@@ -42,7 +42,7 @@ export function mountRoundGames(host,ctx,{request,onBalance=()=>{},refresh=()=>P
  for(const [label,fn]of [['½',v=>v/2],['2×',v=>v*2],['1K',()=>1000],['10K',()=>10000],['100K',()=>100000],['Max',()=>coins()]]){const b=el('button','',label);b.type='button';b.onclick=()=>{bet.value=String(Math.max(100,Math.min(5000000,Math.floor(fn(+bet.value||0)))));store('nova_rg_bet',bet.value);paint()};chips.append(b)}
  bet.oninput=()=>{store('nova_rg_bet',bet.value);paint()};
  const betField=el('div','arc-field');betField.append(el('label','','Bet · Nova Coins'),bet,chips);
- const opts=el('div','arc-field rg-opts'),info=el('p','arc-info'),err=el('p','arc-err'),alt=el('button','rg-alt'),main=el('button','arc-play'),note=el('p','arc-note','Nova Coins only · 100–5,000,000 per round · 50 rounds a day. Closing the page keeps your round.');
+ const opts=el('div','arc-field rg-opts'),info=el('p','arc-info'),err=el('p','arc-err'),alt=el('button','rg-alt'),main=el('button','arc-play'),note=el('p','arc-note','Nova Coins only · 100–5,000,000 per round · no daily limit. Closing the page keeps your round.');
  alt.type=main.type='button';err.setAttribute('role','alert');
  controls.append(betField,opts,info,err,alt,main,note);
  const result=el('div','arc-result');result.setAttribute('aria-live','polite');

@@ -32,7 +32,7 @@ export function wagerPlan(b,items,random=randomInt){
 export function settleWager(root,uid,b,plan,now){
  const day=dayFormat.format(new Date(now));
  root.wagerLimits||={};const limits=root.wagerLimits[uid]?.day===day?root.wagerLimits[uid]:{day,coins:0,cosmetics:0};
- if(plan.stake==='coins'&&limits.coins>=50||plan.stake==='cosmetic'&&limits.cosmetics>=3)throw Error('Daily limit reached: 50 coin games or 3 cosmetic games.');
+ // No daily cap: counts stay for stats; only the spin rate below is limited.
  if(now-(limits.last||0)<400)throw Error('Wait for the current spin to finish.');
  const progress=root.progress?.[uid];if(!progress||!Number.isSafeInteger(progress.coins)||progress.coins<0)throw Error('Your balance is unavailable.');
  if(plan.stake==='coins'){

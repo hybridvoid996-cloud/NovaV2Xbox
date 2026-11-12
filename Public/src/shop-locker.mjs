@@ -36,7 +36,7 @@ export function mountLocker(panel,ctx,{preview,equip,request}){
   actions.replaceChildren();
   if(sel){
    const on=isOn(sel);
-   const eq=ctx.button(on?'Equipped':'Equip',async()=>{if(on)return;eq.disabled=true;try{await equip(ctx,sel);ctx.toast('Equipped '+sel.name)}catch(e){ctx.toast(e.message);eq.disabled=false}},'lk-btn lk-primary');eq.disabled=on;actions.append(eq);
+   const eq=ctx.button(on?'Equipped':'Equip',async()=>{if(on)return;eq.disabled=true;try{await equip(ctx,sel);ctx.toast('Equipped '+sel.name)}catch(e){ctx.toast(e.message);eq.disabled=false}},'lk-btn lk-primary');eq.disabled=on;actions.append(eq);if(ctx.giftItem&&['decoration','effect','banner'].includes(sel.kind))actions.append(ctx.button('🎁 Gift',()=>ctx.giftItem(sel),'lk-btn lk-gift'));
    if(on&&['effect','decoration','chatBanner'].includes(slotOf(sel))){const rm=ctx.button('Remove',async()=>{rm.disabled=true;try{await request(ctx,'unequipCosmetic',{kind:slotOf(sel)});me()[slotOf(sel)]=null;ctx.toast('Removed '+sel.name);dispatchEvent(new Event('nova-shop-equipped'))}catch(e){ctx.toast(e.message);rm.disabled=false}},'lk-btn');actions.append(rm)}
    actions.append(ctx.button('Reset view',()=>{state.selected=null;drawAll()},'lk-btn lk-ghost'));
   }else actions.append(el('p','lk-hint','Pick an item to try it on. Move your mouse to look around.'));

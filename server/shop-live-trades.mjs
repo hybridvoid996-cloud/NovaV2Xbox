@@ -1,4 +1,4 @@
-import {applyTrade,tradeOffer} from './shop-trades.mjs';
+import {applyTrade,tradeOffer,attemptTrade} from './shop-trades.mjs';
 import {SHOP_SEASON} from './shop-season.mjs';
 const valid=id=>typeof id==='string'&&/^[a-f0-9-]{36}$/.test(id);
 function notify(root,r,event,now){root.tradeNotices||={};for(const uid of [r.from,r.to]){root.tradeNotices[uid]||={};root.tradeNotices[uid][r.id+'-live-'+event]={author:'nova-bot',kind:'shop-trade',tradeId:r.id,subject:event==='invited'?'Live trade invitation':event==='open'?'Your trade room is ready':'Trade '+event,text:event==='invited'?r.fromName+' invited '+r.toName+' to a live trade. Open Shop → Trading to join.':event==='open'?'Add cosmetics and coins, chat, then both confirm the same offer.':'Open Shop → Trading to review this trade.',staffName:'Nova Shop',createdAt:now}}}
@@ -15,11 +15,36 @@ export function applyLiveTrade(root,uid,b,items,now){root.liveTrades||={};root.l
  const give=tradeOffer(r.offers[r.from],items),want=tradeOffer(r.offers[r.to],items);if(!give.coins&&!want.coins&&!Object.keys(give.items).length&&!Object.keys(want.items).length)throw Error('Add something before confirming.');owns(root,r.from,give);owns(root,r.to,want);r.confirmations||={};r.confirmations[uid]=r.revision;
  if([r.from,r.to].every(id=>r.confirmations[id]===r.revision)){root.trades||={};if(root.trades[r.id])throw Error('Trade receipt already exists.');root.tradeUsers||={};root.trades[r.id]={id:r.id,from:r.from,to:r.to,fromName:r.fromName,toName:r.toName,give,want,state:'pending',createdAt:r.createdAt,expires:r.expires,season:r.season};for(const id of [r.from,r.to]){root.tradeUsers[id]||={};root.tradeUsers[id][r.id]=now}applyTrade(root,r.to,{op:'accept',id:r.id},items,now);r.state='completed';r.closedAt=now}return r;
 }
+// Join, chat, offer edits and cancel only change the room itself, so they run as a small
+// transaction on that room. Confirming (which can settle coins and cosmetics) and invites
+// still use the full shop transaction.
+const ROOM_OPS=['liveJoin','liveChat','liveOffer','liveCancel'];
+async function roomAction(db,uid,payload,items,now){
+ if(!valid(payload.id))throw Error('Trade room not found.');
+ const roomRef=db.ref('novaControl/liveTrades/'+payload.id),first=(await roomRef.get()).val();
+ if(!first||![first.from,first.to].includes(uid))throw Error('Trade room not found.');
+ const people=[first.from,first.to],read=path=>db.ref('novaControl/'+path).get().then(s=>s.val());
+ const [shopSeason,...rows]=await Promise.all([read('shopSeason'),...people.flatMap(id=>[read('progress/'+id),read('inventory/'+id),read('siteBans/'+id)])]);
+ const context={shopSeason,progress:{},inventory:{},siteBans:{}};
+ people.forEach((id,i)=>{context.progress[id]=rows[i*3]||{coins:0};context.inventory[id]=rows[i*3+1]||{};if(rows[i*3+2])context.siteBans[id]=rows[i*3+2]});
+ let failure,notices;
+ const tx=await roomRef.transaction(room=>{failure=null;notices=null;if(room===null)return null;
+  const mini={...context,liveTrades:{[payload.id]:structuredClone(room)}};
+  try{applyLiveTrade(mini,uid,payload,items,now);notices=mini.tradeNotices||null;return mini.liveTrades[payload.id]}catch(e){failure=e.message;return room}});
+ if(!tx.committed)throw Error(failure||'Could not save this trade. Retry.');
+ if(failure)throw Error(failure);
+ const room=tx.snapshot.val();if(!room)throw Error('Trade room not found.');
+ if(notices){const patch={};for(const [id,rows]of Object.entries(notices))for(const [key,value]of Object.entries(rows))patch['novaControl/tradeNotices/'+id+'/'+key]=value;await db.ref().update(patch).catch(()=>{})}
+ return {room,root:{progress:context.progress,inventory:context.inventory}};
+}
 export async function liveTradeAction({db,uid,b,items,now}){
  if(b.op==='liveList'){const index=(await db.ref('novaControl/liveTradeUsers/'+uid).get()).val()||{};const rooms=(await Promise.all(Object.entries(index).sort((a,z)=>z[1]-a[1]).slice(0,25).map(([id])=>db.ref('novaControl/liveTrades/'+id).get()))).map(s=>s.val()).filter(r=>r&&[r.from,r.to].includes(uid)).map(r=>r.expires<=now&&['invited','open'].includes(r.state)?{...r,state:'expired'}:r);return {rooms}}
  if(b.op==='liveStatus'){const r=(await db.ref('novaControl/liveTrades/'+b.id).get()).val();if(!r||![r.from,r.to].includes(uid))throw Error('Trade room not found.');return {room:r.expires<=now&&['invited','open'].includes(r.state)?{...r,state:'expired'}:r}}
  const payload={...b};if(b.op==='liveInvite'){if(typeof b.to!=='string'||!/^[A-Za-z0-9_-]{1,128}$/.test(b.to))throw Error('Choose a player.');const [mine,other,block,reverse]=await Promise.all([db.ref('novaAccounts/'+uid).get(),db.ref('novaAccounts/'+b.to).get(),db.ref('novaChatV2/blocks/'+b.to+'/'+uid).get(),db.ref('novaChatV2/blocks/'+uid+'/'+b.to).get()]);if(!other.exists()||block.val()||reverse.val())throw Error('This trader is unavailable.');payload.fromName=mine.val()?.name;payload.toName=other.val()?.name}
- let failure;const tx=await db.ref('novaControl').transaction(root=>{failure=null;if(!root)return root;try{applyLiveTrade(root,uid,payload,items,now);return root}catch(e){failure=e.message;return undefined}});if(!tx.committed)throw Error(failure||'Could not save this trade. Retry.');const root=tx.snapshot.val(),room=root.liveTrades?.[b.id||b.requestId];if(!room)throw Error('Trade was not saved.');
+ let root,room;
+ if(ROOM_OPS.includes(b.op))({root,room}=await roomAction(db,uid,payload,items,now));
+ else{let failure;const tx=await db.ref('novaControl').transaction(root=>{failure=null;if(!root)return root;const r=root.liveTrades?.[b.id];try{attemptTrade(root,[uid,b.to,r?.from,r?.to],[b.id||b.requestId],()=>applyLiveTrade(root,uid,payload,items,now))}catch(e){failure=e.message}return root});if(!tx.committed)throw Error(failure||'Could not save this trade. Retry.');if(failure)throw Error(failure);root=tx.snapshot.val();room=root.liveTrades?.[b.id||b.requestId]}
+ if(!room)throw Error('Trade was not saved.');
  for(const id of [room.from,room.to]){try{const notices=(await db.ref('novaControl/tradeNotices/'+id).get()).val()||{};for(const [key,value]of Object.entries(notices).slice(-50)){await db.ref('novaChatV2/botMessages/'+id+'/trade-'+key).set(value);await db.ref('novaControl/tradeNotices/'+id+'/'+key).remove()}if(room.state==='completed'){const owned=(await db.ref('novaControl/inventory/'+id).get()).val()||{};await db.ref('novaChatV2/profiles/'+id).transaction(p=>{if(!p)return p;for(const field of ['decoration','effect','chatBanner','banner'])if(items.some(a=>a.id===p[field])&&!owned[p[field]]?.count)delete p[field];return p}).catch(()=>{})}}catch{/* Settlement is already committed; the notification outbox retries on the next trade refresh. */}}
  return {ok:true,room,coins:root.progress?.[uid]?.coins||0,inventory:root.inventory?.[uid]||{}};
 }

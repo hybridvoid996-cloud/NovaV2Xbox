@@ -32,17 +32,17 @@ test('roulette uses a real green zero, honest color odds, and consistent number/
 test('invalid games, stakes, unsafe amounts and forged cosmetics fail before settlement',()=>{
  for(const body of [{game:'cheat'},{game:'flip',stake:'coins',coins:-1,choice:'heads'},{game:'dice',stake:'coins',coins:100.5,choice:'low'},{game:'flip',stake:'coins',coins:100001,choice:'heads'},{game:'flip',stake:'cosmetic',item:'missing',choice:'heads'}])assert.throws(()=>wagerPlan(body,[],()=>0));
 });
-test('coins settle at advertised payouts, insufficient funds and daily limits are rejected',()=>{
+test('coins settle at advertised payouts, insufficient funds are rejected and there is no daily cap',()=>{
  const b={game:'flip',stake:'coins',coins:100,choice:'heads'},plan=wagerPlan(b,[],()=>0),root={progress:{u:{coins:500}}};
  assert.equal(settleWager(root,'u',b,plan,100000).balance,590);assert.throws(()=>settleWager(root,'u',b,plan,100001),/finish/);
- root.wagerLimits.u.coins=50;assert.throws(()=>settleWager(root,'u',b,plan,104000),/Daily/);
+ root.wagerLimits.u.coins=500;assert.equal(settleWager(root,'u',b,plan,104000).balance,680);
  assert.throws(()=>settleWager({progress:{u:{coins:99}}},'u',b,plan,100000),/enough/);
 });
 test('cosmetic losses consume one copy; wins keep it and award category credits based on rarity',()=>{
  const items=[{id:'rare',kind:'effect',rarity:'mythic'}],b={game:'flip',stake:'cosmetic',item:'rare',choice:'heads'};
  let root={progress:{u:{coins:0}},inventory:{u:{rare:{count:2}}}};settleWager(root,'u',b,wagerPlan(b,items,()=>1),100000);assert.equal(root.inventory.u.rare.count,1);
  settleWager(root,'u',b,wagerPlan(b,items,()=>0),104000);assert.equal(root.inventory.u.rare.count,1);assert.equal(root.crateCredits.u.effect,8);
- settleWager(root,'u',b,wagerPlan(b,items,()=>1),108000);assert.equal(root.inventory.u.rare,undefined);assert.throws(()=>settleWager(root,'u',b,wagerPlan(b,items,()=>0),112000),/Daily/);
+ settleWager(root,'u',b,wagerPlan(b,items,()=>1),108000);assert.equal(root.inventory.u.rare,undefined);assert.throws(()=>settleWager(root,'u',b,wagerPlan(b,items,()=>0),112000),/do not own/);
 });
 test('wager retry returns the original receipt without another debit and rejects changed parameters',async()=>{
  const f=fixture({novaControl:{shopSeason:{version:SHOP_SEASON,status:'ready'},progress:{u:{coins:1000}}}}),b={requestId:'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',game:'flip',stake:'coins',coins:100,choice:'heads'};

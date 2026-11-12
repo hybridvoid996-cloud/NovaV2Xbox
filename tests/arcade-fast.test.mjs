@@ -41,10 +41,11 @@ test('settlement moves coins once and replays retries',()=>{
  assert.throws(()=>settleFast(p,{uid:'u',requestId:'r4',game:'dice',coins:100,plan:{multiplier:0,outcome:{}},now:now+1100}),/Slow down/);
 });
 
-test('daily limit and receipt pruning',()=>{
+test('no daily cap and receipt pruning',()=>{
  const p={coins:10_000_000};
- for(let i=0;i<DAILY_FAST_LIMIT;i++)settleFast(p,{uid:'u',requestId:'id'+i,game:'flip',coins:100,plan:{multiplier:0,outcome:{}},now:now+i*1000});
- assert.throws(()=>settleFast(p,{uid:'u',requestId:'over',game:'flip',coins:100,plan:{multiplier:0,outcome:{}},now:now+60000}),/Daily limit/);
+ assert.equal(DAILY_FAST_LIMIT,Infinity);
+ for(let i=0;i<120;i++)settleFast(p,{uid:'u',requestId:'id'+i,game:'flip',coins:100,plan:{multiplier:0,outcome:{}},now:now+i*1000});
+ assert.equal(p.arcade.count,120);assert.equal(p.coins,10_000_000-12000);
  assert.ok(Object.keys(p.arcade.receipts).length<=15);
 });
 

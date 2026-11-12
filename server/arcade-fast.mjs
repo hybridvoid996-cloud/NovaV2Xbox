@@ -6,7 +6,7 @@ import {randomInt} from 'node:crypto';
 import {wheelColor} from './shop-games.mjs';
 
 export const FAST_GAMES=['flip','dice','roulette','limbo','plinko','wheel','slots'];
-export const DAILY_FAST_LIMIT=50;          // instant coin games per player per day (America/New_York)
+export const DAILY_FAST_LIMIT=Infinity;    // no daily cap; the per-game rate limit below still applies
 export const MIN_STAKE=100,MAX_STAKE=5000000,BALANCE_CAP=1000000000;
 const dayFormat=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'});
 const rnd=(n,random)=>random(n);
@@ -77,7 +77,6 @@ export function settleFast(progress,{uid,requestId,game,coins,plan,now}){
  const a=progress.arcade&&progress.arcade.day===day?progress.arcade:{day,count:0,last:0,receipts:progress.arcade?.receipts||{}};
  a.receipts||={};
  if(a.receipts[requestId])return {progress,receipt:a.receipts[requestId],replay:true};
- if(a.count>=DAILY_FAST_LIMIT)throw Error('Daily limit reached: '+DAILY_FAST_LIMIT+' instant games. Come back tomorrow.');
  if(now-(a.last||0)<250)throw Error('Slow down a little.');
  if(progress.coins<coins)throw Error('You do not have enough Nova Coins.');
  const payout=Math.floor(coins*plan.multiplier);
