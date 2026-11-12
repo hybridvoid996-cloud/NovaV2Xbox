@@ -1,6 +1,7 @@
 import {showHackPreview} from './shop-hack-preview.mjs?v=20261029-shop387';
 import {activeGamePreview,mountActiveGames,openClassicGame} from './shop-active-games.mjs?v=20261029-round390';
-import {openMines} from './shop-mines.js?v=20261029-round390';
+import {openMines} from './shop-mines.js?v=20261029-round390';import {mountRoundGames} from './shop-rounds-ui.mjs?v=2';
+import {mountArcade,mountGambleBoard} from './shop-arcade.mjs?v=3';
 import {hackProducts} from './hack-products.mjs?v=20261026-tools312';
 import {createShopModel} from './shop-models.js';
 const request=(ctx,action,data)=>ctx.shopRequest?ctx.shopRequest(action,data):import('./control-client.js').then(({control})=>control(action,data));
@@ -42,8 +43,7 @@ function gamePreview(game){
  preview.append(visual,node('small','game-preview-label','Hover to preview · no wager'));return preview;
 }
 function gamble(host,ctx,refresh){
- const section=node('section','shop-games'),heading=node('div','shop-section-heading');heading.append(node('div','', 'NOVA ARCADE'),node('h2','','Nova Arcade'),node('p','muted','Nova Coins only · 50 coin rounds or 3 cosmetic rounds per day. Stakes can be lost.'));section.append(heading);const grid=node('div','shop-games-grid');
- for(const [game,title,desc,odds]of [['mines','Nova Mines','Find gems. Dodge mines. Collect when you’re ready.','5 × 5 grid · choose 1–20 mines'],['roulette','Black or Red','Follow the wheel. Pick your color or lucky number.','2× color · 36× number'],['flip','Heads or Tails','One coin. Two sides. Make your call.','1.9× payout · 50% chance'],['dice','Nova Dice','Low or high? Let the dice decide.','1.9× payout · 50% chance']]){const card=node('article','shop-game-card'),demo=gamePreview(game),actions=node('div','shop-game-actions'),peek=ctx.button('Preview',()=>{const on=card.classList.toggle('preview-active');peek.setAttribute('aria-pressed',String(on))},'shop-peek-button');peek.setAttribute('aria-pressed','false');peek.setAttribute('aria-label','Preview '+title);actions.append(peek,ctx.button('Play',()=>game==='mines'?openMines(ctx,request,refresh):['flip','dice'].includes(game)?openClassicGame(game,ctx,request,refresh):wager(game,ctx,refresh),'primary'));card.append(demo,node('small','shop-game-odds',odds),node('h3','',title),node('p','muted',desc),actions);grid.append(card)}mountActiveGames(grid,ctx,request,refresh);section.append(grid);host.append(section);
+ const section=node('section','shop-games'),heading=node('div','shop-section-heading');heading.append(node('small','eyebrow','NOVA ARCADE'),node('h2','','Nova Arcade'),node('p','muted','Instant games with Nova Coins only. Odds are shown before every bet, and stakes can be lost.'));section.append(heading);mountArcade(section,ctx,{request,onBalance:coins=>{for(const n of document.querySelectorAll('[data-coins]'))n.textContent=coins.toLocaleString()+' Nova Coins'}});section.append(node('h3','arc-more-title','Round games'));mountRoundGames(section,ctx,{request,refresh,onBalance:coins=>{for(const n of document.querySelectorAll('[data-coins]'))n.textContent=coins.toLocaleString()+' Nova Coins'}});mountGambleBoard(section,ctx,{request});host.append(section);
 }
 function wager(game,ctx,refresh){
  const d=ctx.modal(game==='roulette'?'Black or Red':game==='flip'?'Nova Flip':'High / Low');d.classList.add('shop-wager-modal');const form=node('form'),stake=node('select'),amount=node('input'),owned=node('select'),choice=node('select'),pick=node('select'),number=node('input'),info=node('p','muted'),error=node('p','purchase-error'),result=node('div','shop-wager-result');

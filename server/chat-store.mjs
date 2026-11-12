@@ -6,6 +6,7 @@ import {syncBadgeFacts} from './nitro-badges.mjs';
 import {NITRO_PRICE,upgradeNitro} from './nitro-upgrade.mjs';
 import {recordWagerActivity,readWagerActivity} from './shop-activity.mjs';
 import {minesAction} from './shop-mines.mjs';
+import {fastMinesAction,fastArcadeRoundAction} from './shop-rounds-fast.mjs';
 import {dailyShop} from '../Public/src/daily-shop.mjs';
 import {settleDailyPurchase} from './daily-shop.mjs';
 import {readHackOwnership} from './hack-shop.mjs';
@@ -24,12 +25,12 @@ export async function storeAction({db,uid,account,action,b,now,initial}){
  if(action==='storePurchaseFeed')return readShopPurchases(db);
  if(action==='storeTrade'&&['feed','vote'].includes(b.op))return tradeAction({db,uid,b,now,items:[]});
  if(action==='storeTrade'){await ensureShopSeason(db,now,await catalog());return tradeAction({db,uid,b,now,items:await catalog()})}
- if(action==='storeArcade'&&b.op==='status')return arcadeRoundAction({db,uid,b,now,initial});
- if(action==='storeMines'&&b.op==='status')return minesAction({db,uid,b,now,initial});
+ if(action==='storeArcade'&&b.op==='status')return fastArcadeRoundAction({db,uid,b,now,initial});
+ if(action==='storeMines'&&b.op==='status')return fastMinesAction({db,uid,b,now,initial});
  // Opening the Shop prepares its season. Every round transaction verifies it again;
  // lane/tile/cashout actions do not need another catalog read and season round trip.
- if(action==='storeArcade')return arcadeRoundAction({db,uid,b,now,initial});
- if(action==='storeMines')return minesAction({db,uid,b,now,initial});
+ if(action==='storeArcade')return fastArcadeRoundAction({db,uid,b,now,initial});
+ if(action==='storeMines')return fastMinesAction({db,uid,b,now,initial});
  if(['storeStatus','openCase','equipCosmetic','storeGamble','storeMines','storeArcade','buyDailyCosmetic'].includes(action))await ensureShopSeason(db,now,await catalog());
  if(action==='buyDailyCosmetic'){
  const items=await catalog();let failure;
@@ -37,8 +38,8 @@ export async function storeAction({db,uid,account,action,b,now,initial}){
  const root=result.snapshot.val(),receipt=root?.purchases?.[uid]?.[b.requestId];if(!result.committed||!receipt)throw Error(failure||'Purchase could not complete.');
  return {ok:true,coins:root.progress[uid].coins,item:items.find(a=>a.id===receipt.item),receipt};
  }
- if(action==='storeArcade')return arcadeRoundAction({db,uid,b,now,initial});
- if(action==='storeMines')return minesAction({db,uid,b,now,initial});
+ if(action==='storeArcade')return fastArcadeRoundAction({db,uid,b,now,initial});
+ if(action==='storeMines')return fastMinesAction({db,uid,b,now,initial});
  if(action==='storeGamble')return gambleAction({db,uid,b,now,initial});
  if(action==='storeStatus'){await arcadeRoundAction({db,uid,b:{game:'crash',op:'status'},now,initial});const nitroUpdate=await upgradeNitro(db,uid,now);const paths=['progress/'+uid,'inventory/'+uid,'nitro','boosters','nitroGifts/'+uid,'crateCredits/'+uid,'shopReceipts/'+uid,'hackPurchases/'+uid];const rows=await Promise.all(paths.map(path=>db.ref('novaControl/'+path).get().then(s=>s.val()||{})));const root={progress:{[uid]:rows[0]},inventory:{[uid]:rows[1]},nitro:rows[2],boosters:rows[3],nitroGifts:{[uid]:rows[4]},crateCredits:{[uid]:rows[5]}};return {nitroUpdate,dailyShop:dailyShop(await catalog(),now),hackPurchases:await readHackOwnership(db,uid),coins:root.progress?.[uid]?.coins||0,inventory:root.inventory?.[uid]||{},nitro:root.nitro?.[uid]===true||root.nitro?.[uid]?.until>now,boosts:boostCount(root,now),prices,odds,season:SHOP_SEASON,halloween:{active:now<HALLOWEEN_END,endsAt:HALLOWEEN_END},crateCredits:root.crateCredits?.[uid]||{},gambling:{dailyCoins:50,dailyCosmetics:3,cosmeticCrates},wagerActivity:await readWagerActivity(db),recentWagers:Object.values(rows[6]).sort((a,b)=>b.at-a.at).slice(0,5).map(({fingerprint,...receipt})=>receipt),gifts:Object.entries(root.nitroGifts?.[uid]||{}).filter(([,g])=>!g.seen).map(([id,g])=>({id,...g}))}}
  if(action==='ackNitroGift'){if(!/^[a-f0-9-]{36}$/.test(b.id||''))throw Error('Invalid gift.');await db.ref('novaControl/nitroGifts/'+uid+'/'+b.id+'/seen').set(true);return {ok:true}}

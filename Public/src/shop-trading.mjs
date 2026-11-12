@@ -1,5 +1,5 @@
-import {mountLiveTrading} from './shop-live-trading.mjs?v=20261029-shop389';
-import {mountTradeFeed} from './shop-trade-feed.mjs?v=20261029-trades386';
+import {mountLiveTrading} from './shop-live-trading.mjs?v=20261111-v2';
+import {mountTradeFeed} from './shop-trade-feed.mjs?v=20261111-v2';
 import {control} from './control-client.js';
 const el=(tag,cls,text)=>{const n=document.createElement(tag);n.className=cls||'';if(text!=null)n.textContent=text;return n};
 export function mountShopTrading(ctx,{refreshStore=async()=>{}}={}){

@@ -1,7 +1,7 @@
 import {createLibraryMotion} from './library-player-motion.mjs?v=484';
 import {mountLiquidGlass} from './liquid-glass.mjs?v=20261103-glass476';
 import {orderLibrary,comparePopular} from './library-order.mjs';
-import {novaCreatedSection} from './nova-created-games.mjs?v=1';
+import {novaCreatedSection} from './nova-created-games.mjs?v=4';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n};
 const playerMotion=createLibraryMotion();
 const art={search:'<circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/>',heart:'<path d="M20 5c-4-4-8 1-8 1S8 1 4 5c-5 6 8 15 8 15S25 11 20 5Z"/>',cloud:'<path d="M6 18a5 5 0 0 1-1-10 7 7 0 0 1 13-1 5.5 5.5 0 0 1 0 11Z"/>',refresh:'<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8M3 3v5h5"/>',status:'<path d="M3 12h4l3-7 4 14 3-7h4"/>'};const icon=k=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+art[k]+'</svg>';

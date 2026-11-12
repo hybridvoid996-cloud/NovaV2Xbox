@@ -3,7 +3,10 @@
 export const NOVA_CREATED_GAMES=[
  {id:'nova-flip',page:'novaflip',name:'Nova Flip',art:'content/covers/nova-flip.svg',
   tagline:'Match colors, stack draws, swap hands and call UNO! before anyone catches you.',
-  tags:['Card game','2–4 players','Play online'],reward:'Win 1,000+ Nova Coins',accent:'#ff4b6e'}
+  tags:['Card game','2–4 players','Play online'],reward:'Win 1,000+ Nova Coins',accent:'#ff4b6e'},
+ {id:'nova-weed',page:'novaweed',name:'Nova Weed',art:'content/covers/nova-weed.svg',
+  tagline:'Grow, mix and sell your way from a tiny apartment to running Nova City. First-person, in 3D.',
+  tags:['3D first-person','Business sim','Single player'],reward:'Online with friends coming soon',accent:'#5dff8a'}
 ];
 
 let styled=false;
