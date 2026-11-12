@@ -26,7 +26,7 @@ export async function accountSupport({db,auth,b,ip='unknown',owner,now=Date.now(
   if(b.operation!=='message')throw error('Unknown support action');if(room.owner!==owner)throw error('Join this room first',403);
  }else{
   if(b.operation==='search'){
-   const query=text(b.query,64).toLowerCase();if(query.length<3)return {people:[]};
+   const query=text(b.query,64).toLowerCase();if(query.length&&query.length<3)return {people:[]};
    const limit=await root.child('searchLimits/'+hash(ip)).transaction(r=>{r=r?.until>now?r:{count:0,until:now+60000};return r.count>=30?undefined:{...r,count:r.count+1}});if(!limit.committed)throw error('Please wait before searching again',429);
    const profiles=(await db.ref('novaChatV2/profiles').orderByChild('updatedAt').limitToLast(2000).get()).val()||{};
    return {people:Object.values(profiles).filter(p=>p&&String(p.name||'').toLowerCase().includes(query)).slice(0,8).map(p=>({name:text(p.name,64),photo:typeof p.photo==='string'&&p.photo.length<=50000&&/^(https:\/\/|data:image\/(?:png|jpeg|webp|gif);base64,)/i.test(p.photo)?p.photo:''}))};

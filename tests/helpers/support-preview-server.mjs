@@ -4,6 +4,7 @@ import path from 'node:path';
 import {setup} from './account-support-fixture.mjs';
 import {serveLocalStatic} from '../../server/local-static.mjs';
 const fixture=setup();
+fixture.set('novaChatV2/profiles/one',{name:'Player One',photo:'',updatedAt:1});
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
  res.setHeader('Cache-Control','no-store');
