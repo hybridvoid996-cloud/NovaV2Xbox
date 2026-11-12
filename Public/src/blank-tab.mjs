@@ -5,9 +5,10 @@ export function launchBlank({open=window.open.bind(window),url=location.href,sto
  try{
   const style=blankTabStyle(store.getItem('nova_cloak_title'),store.getItem('nova_cloak_icon'),location.origin),doc=popup.document;
   popup.__novaBlankHost=true;doc.title=style.title;doc.documentElement.lang='en';doc.documentElement.style.cssText='height:100%;background:#08090b';doc.body.style.cssText='margin:0;height:100%;overflow:hidden;background:#08090b';
+  const viewport=doc.createElement('meta');viewport.name='viewport';viewport.content='width=device-width, initial-scale=1, viewport-fit=cover';doc.head.append(viewport);
   const icon=doc.createElement('link');icon.rel='icon';icon.href=style.icon;doc.head.append(icon);
   const frame=doc.createElement('iframe');frame.id='nova-blank-frame';frame.title='Your Nova workspace';frame.setAttribute('data-nova-src',target.href);frame.allow='autoplay; fullscreen; microphone; camera; clipboard-read; clipboard-write; display-capture';frame.allowFullscreen=true;frame.style.cssText='position:fixed;inset:0;width:100%;height:100%;border:0';doc.body.append(frame);
-  const runtime=doc.createElement('script');runtime.src=new URL('/src/blank-host.js?v=20261030-blank412',location.origin).href;
+  const runtime=doc.createElement('script');runtime.src=new URL('/src/blank-host.js?v=20261112-mobile1',location.origin).href;
   runtime.onerror=()=>{popup.location.replace(target.href)};doc.head.append(runtime);
   popup.opener=null;popup.focus();return true;
  }catch{try{popup.close()}catch{}return false}
