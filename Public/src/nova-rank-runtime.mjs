@@ -1,10 +1,11 @@
+import {isRankRuntimeHost} from './nova-rank-host.mjs';
 import {installRankIcon,paintRankIcon} from './nova-rank-hub.mjs?v=20261029-motion374';
 import {NOVA_RANKS} from './nova-rank-core.mjs?v=20261027-rank324';
 import {auth} from './account-firebase.js';
 import {control} from './control-client.js';
 import {createRankInput} from './nova-rank-input.mjs';
 import {showRankGuide,showRankUp} from './nova-rank-ui.mjs?v=20261029-motion374';
-if(window===top){
+if(isRankRuntimeHost(window)){
  const input=createRankInput(),session=crypto.randomUUID(),watched=new WeakSet();let eligible=new WeakSet(),game=null,gameFocused=false,busy=false,identity='',baseline=null,previousGame=null,lastSong='',lastSongAt=0;
  function scan(){eligible=new WeakSet();gameFocused=false;let found=null;function walk(win,depth=0,inside=false){if(depth>6)return;try{const doc=win.document;if(doc.querySelector('dialog:modal'))return;const url=new URL(win.location.href),player=url.pathname.endsWith('/player.html'),kind=url.searchParams.get('kind')||'game';if(player){if(!doc.body.classList.contains('ready')||!['game','cloud'].includes(kind))return;inside=true;found=kind+':'+url.searchParams.get('id');gameFocused=doc.hasFocus()}if(inside){eligible.add(doc);if(!watched.has(doc)){watched.add(doc);for(const type of ['keydown','pointerdown','touchstart'])doc.addEventListener(type,e=>{if(eligible.has(doc))input.input(e)},{capture:true,passive:true})}}for(const f of doc.querySelectorAll('iframe')){if(f.hidden||!f.getClientRects().length||doc.defaultView.getComputedStyle(f).visibility==='hidden')continue;if(!inside&&found)break;walk(f.contentWindow,depth+1,inside)}}catch{}}walk(window);if(found!==previousGame){input.reset();previousGame=found}game=found;}
  async function pulse(){if(busy||!auth.currentUser||auth.currentUser.isAnonymous)return;busy=true;try{if(identity!==auth.currentUser.uid){identity=auth.currentUser.uid;baseline=null;input.reset();lastSong=''}scan();const active=!!game&&gameFocused&&!document.hidden&&document.hasFocus()&&input.active(),result=await control('rankPulse',{active,game,session});if(location.pathname.endsWith('/home.html')){installRankIcon();paintRankIcon(result.rank)}const index=result.rank.rank.index;if(baseline!==null&&index>baseline)showRankUp(result.rank.rank);baseline=index;dispatchEvent(new CustomEvent('nova-server-progress',{detail:result.progress}));}catch{}finally{busy=false}}
