@@ -126,3 +126,5 @@ body.xbox-ai.code-mode.studio-preview-chat .model-trigger{max-width:150px}
 /* Model picker: provider icon for the chosen AI; Claude's mark turns orange on hover. */
 .model-mark{display:inline-grid;place-items:center;width:18px;height:18px;margin-right:7px;vertical-align:-4px;flex:none}.model-mark img,.model-mark svg{width:100%;height:100%;object-fit:contain}.model-mark svg{fill:currentColor;transition:fill .2s,transform .3s}.model-options button:hover .model-mark.is-claude svg,button:hover>.model-mark.is-claude svg{fill:#d97757;transform:rotate(30deg)}
 .model-mark img.gpt-mark{filter:invert(1)!important}.model-mark.is-nova img{border-radius:5px}
+
+body.xbox-ai .ai-brand>img.gpt-mark,.choice-logo img.gpt-mark,.nml img.gpt-mark{filter:brightness(0) invert(1)!important;opacity:1}.choice-logo img,.ai-brand>img.claude-mark{width:32px;height:32px;object-fit:contain}.choice-logo img{width:48px;height:48px}.ai-ui-choice .claude-mark{filter:none!important}

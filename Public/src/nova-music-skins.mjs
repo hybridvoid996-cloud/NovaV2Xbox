@@ -1,3 +1,4 @@
+import {appleMark} from './service-brand-marks.mjs?v=20261112-marks2';
 // Two looks for the same Nova Music player. Only CSS and a few classes change;
 // playback, queue and library are shared.
 export const MUSIC_SKINS={
@@ -5,12 +6,12 @@ export const MUSIC_SKINS={
  apple:{label:'Apple Music',hint:'Glass sidebar, floating player, live lyrics'}
 };
 const KEY='nova_music_skin';
-const css=new URL('./nova-music-skins.css?v=20261112-search3',import.meta.url).href;
+const css=new URL('./nova-music-skins.css?v=20261112-gallery4',import.meta.url).href;
 if(!document.querySelector('link[data-nova-music-skins]')){const l=document.createElement('link');l.rel='stylesheet';l.href=css;l.dataset.novaMusicSkins='';document.head.append(l)}
 export function readMusicSkin(storage=localStorage){try{const v=storage.getItem(KEY);return MUSIC_SKINS[v]?v:'spotify'}catch{return 'spotify'}}
 function chosen(storage){try{return !!MUSIC_SKINS[storage.getItem(KEY)]}catch{return true}}
 const SPOTIFY='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.5a10.5 10.5 0 1 0 0 21 10.5 10.5 0 0 0 0-21Zm4.8 15.2a.65.65 0 0 1-.9.2c-2.5-1.5-5.6-1.9-9.3-1a.65.65 0 1 1-.3-1.3c4-.9 7.5-.5 10.3 1.2.3.2.4.6.2.9Zm1.3-2.9a.82.82 0 0 1-1.1.3c-2.8-1.7-7.1-2.2-10.5-1.2a.82.82 0 0 1-.5-1.6c3.8-1.1 8.6-.6 11.8 1.4.4.2.5.7.3 1.1Zm.1-3c-3.4-2-8.9-2.2-12.1-1.2a1 1 0 1 1-.6-1.9c3.7-1.1 9.7-.9 13.7 1.4a1 1 0 0 1-1 1.7Z"/></svg>';
-const APPLE='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="1.5" width="21" height="21" rx="6" fill="currentColor"/><path fill="#0d0d10" d="M16.4 5.6v9.2c0 1.4-1.1 2.4-2.5 2.4s-2-.8-2-1.8c0-1.2 1-1.9 2.3-2.1l1-.2V8.5l-5.2 1.1v6.9c0 1.4-1.1 2.4-2.5 2.4s-2-.8-2-1.8c0-1.2 1-1.9 2.3-2.1l1-.2V7.4c0-.4.3-.8.7-.9l6.1-1.3c.5-.1.8.1.8.4Z"/></svg>';
+const APPLE=appleMark;
 export const skinIcon=skin=>skin==='apple'?APPLE:SPOTIFY;
 
 export function mountMusicSkins({app,top,content,storage=localStorage,before=null}){
