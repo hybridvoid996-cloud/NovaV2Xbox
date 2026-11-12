@@ -5,7 +5,7 @@ export const MUSIC_SKINS={
  apple:{label:'Apple Music',hint:'Glass sidebar, floating player, live lyrics'}
 };
 const KEY='nova_music_skin';
-const css=new URL('./nova-music-skins.css?v=20261112-skins2',import.meta.url).href;
+const css=new URL('./nova-music-skins.css?v=20261112-search3',import.meta.url).href;
 if(!document.querySelector('link[data-nova-music-skins]')){const l=document.createElement('link');l.rel='stylesheet';l.href=css;l.dataset.novaMusicSkins='';document.head.append(l)}
 export function readMusicSkin(storage=localStorage){try{const v=storage.getItem(KEY);return MUSIC_SKINS[v]?v:'spotify'}catch{return 'spotify'}}
 function chosen(storage){try{return !!MUSIC_SKINS[storage.getItem(KEY)]}catch{return true}}
