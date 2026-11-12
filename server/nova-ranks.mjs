@@ -1,3 +1,4 @@
+import {randomUUID} from 'node:crypto';
 import {recentArtwork} from '../Public/src/recent-artwork.mjs';
 import {streakStatus} from '../Public/src/streak-core.mjs';
 import {advanceRank,rankSummary,NOVA_RANKS} from '../Public/src/nova-rank-core.mjs';
@@ -36,4 +37,15 @@ export async function rankAction(db,uid,action,b,now=Date.now()){
   const name=typeof b.name==='string'?b.name.trim().slice(0,150):'';if(!name)throw Error('Choose a song.');const artist=typeof b.artist==='string'?b.artist.slice(0,150):'',art=recentArtwork(b.art,'music');
   await db.ref('novaChatV2/profiles/'+uid+'/recentMusic').transaction(old=>[{name,artist,art,at:now},...(Array.isArray(old)?old:[]).filter(m=>m.name!==name||m.artist!==artist)].slice(0,5));return {ok:true};
  }
+}
+
+export async function ownerGrantRank({db,owner,actor,uid,rankId,now=Date.now()}){
+ if(owner!==true){const e=Error('Only owners can give ranks.');e.status=403;throw e}
+ if(typeof uid!=='string'||!uid.length||uid.length>128||/[.#$\[\]\/]/.test(uid))throw Error('Choose a valid Nova account.');
+ const rank=NOVA_RANKS.find(r=>r.id===rankId);if(!rank)throw Error('Choose a rank from Rookie to Nova Legend.');
+ if(!(await db.ref('novaAccounts/'+uid).get()).val())throw Error('Choose an existing Nova account.');
+ const result=await db.ref('novaControl/progress/'+uid).transaction(p=>{p||={xp:0,coins:0,challenges:[],resetAt:0};const row=p.rank||{};const seconds=Math.max(0,Number(row.seconds)||0);p.rank={...row,seconds,elo:rank.elo,eloOffset:rank.elo-seconds/60,rewarded:Math.max(Number(row.rewarded)||0,rank.index),active:false,session:null,game:null,at:now,role:rank.id};return p});
+ await grantRank(db,uid,rank);
+ await db.ref().update({['novaControl/audit/'+randomUUID()]:{action:'ownerGrantRank',actor,target:uid,rank:rank.id,elo:rank.elo,at:now}});
+ standings.delete(db);return {ok:true,uid,rank:rankSummary(result.snapshot.val().rank)};
 }

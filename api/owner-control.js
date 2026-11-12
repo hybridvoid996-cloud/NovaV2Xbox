@@ -10,7 +10,7 @@ import {upgradeNitro} from '../server/nitro-upgrade.mjs';
 import {chatDirectoryAction} from '../server/chat-directory.mjs';
 import {challengeCatalog,challengeActivity,advanceChallenges} from '../server/challenge-progress.mjs';
 import {dailyRewards} from '../server/daily-rewards.mjs';
-import {rankAction} from '../server/nova-ranks.mjs';
+import {rankAction,ownerGrantRank} from '../server/nova-ranks.mjs';
 import {livePollVoters} from '../server/live-poll-voters.mjs';
 import {issueAccountRecovery,revokeAccountRecovery} from '../server/account-recovery.mjs';
 import {announceCode,codeAnnouncementFeed} from '../server/code-announcements.mjs';
@@ -51,6 +51,7 @@ if(action==='appeal'){const reason=text(b.reason,2000);if(reason.length<10)throw
 if(ban.exists()&&!protectedOwner)return reply(403,{error:'Your Nova access is suspended.'});
 if(['searchProxyStatus','searchProxySave','searchProxyDelete','searchProxyEnable','searchProxyTest','searchProxySession'].includes(action))return reply(200,await searchProxyAction({db,uid:who.uid,action,b,now}));
 if(['streakClaim','streakRestore','dailyRewardsStatus','streakProfile','friendInviteCreate','friendInviteClaim'].includes(action))return reply(200,await dailyRewards({db,auth,uid:who.uid,account,action,b,now}));
+if(action==='ownerGrantRank'){if(!owner)return reply(403,{error:'Only owners can give ranks.'});return reply(200,await ownerGrantRank({db,owner,actor:who.uid,uid:b.uid,rankId:b.rank,now}))}
 if(['rankPulse','rankProfile','rankMusic','rankMovie','rankBoard'].includes(action))return reply(200,await rankAction(db,who.uid,action,b,now));
 if(['buyHack','hackAccess','hackAvailability'].includes(action))return reply(200,await hackShopAction({db,uid:who.uid,action,b,now,initial}));
 if(action.startsWith('buildNowInvite')){const result=await buildNowInviteAction({action,b,db,uid:who.uid,account,owner,now});return reply(result.status,result.body);}

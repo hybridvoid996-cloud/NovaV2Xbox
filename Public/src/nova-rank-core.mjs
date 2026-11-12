@@ -15,7 +15,7 @@ export function advanceRank(record,event,now){
  const delta=now-Number(row.at),same=row.session===event.session&&row.game===event.game;
  const seconds=valid&&row.active===true&&same&&delta>=5000&&delta<=25000?Math.min(20,delta/1000,Math.max(0,RANK_DAILY_SECONDS-(Number(row.dailySeconds)||0))):0;
  if(Number(row.at)>now)return {record:row,promotions:[],seconds:0};
- row.seconds=(Number(row.seconds)||0)+seconds;row.elo=row.seconds/60;row.dailySeconds=(Number(row.dailySeconds)||0)+seconds;
+ row.seconds=(Number(row.seconds)||0)+seconds;row.elo=Math.max(0,row.seconds/60+(Number(row.eloOffset)||0));row.dailySeconds=(Number(row.dailySeconds)||0)+seconds;
  row.at=now;row.active=valid;row.game=valid?event.game:null;row.session=typeof event.session==='string'&&/^[a-f0-9-]{36}$/.test(event.session)?event.session:null;
  const reached=rankForElo(row.elo).index,claimed=Number.isInteger(row.rewarded)?row.rewarded:0,promotions=NOVA_RANKS.filter(r=>r.index>claimed&&r.index<=reached);
  row.rewarded=Math.max(claimed,reached);return {record:row,promotions,seconds};

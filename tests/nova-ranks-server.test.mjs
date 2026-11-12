@@ -28,3 +28,17 @@ test('recent music is bounded, deduplicated and rejects unsafe artwork',async()=
 });
 
 test('recent movie activity needs playback, stays bounded and never writes another account',async()=>{const db=database();await assert.rejects(()=>rankAction(db,'u','rankMovie',{id:'1',name:'Title',type:'movie',position:0},100),/Watch/);for(let i=0;i<7;i++)await rankAction(db,'u','rankMovie',{id:String(i),name:'Title '+i,type:'tv',season:2,episode:3,position:20,art:'javascript:bad',uid:'other'},100+i);const rows=db.root.novaChatV2.profiles.u.recentMovies;assert.equal(rows.length,5);assert.equal(rows[0].name,'Title 6');assert.equal(rows[0].art,'');assert.equal(db.root.novaChatV2.profiles.other,undefined);await rankAction(db,'u','rankMovie',{id:'6',name:'Title 6',type:'tv',position:30},110);assert.equal(db.root.novaChatV2.profiles.u.recentMovies.length,5)});
+
+test('owner rank grants reject nonowners, preserve playtime and survive later activity',async()=>{
+ const {ownerGrantRank}=await import('../server/nova-ranks.mjs');const db=database({novaAccounts:{u:{name:'Player'}},novaControl:{progress:{u:{coins:77,xp:500,rank:{seconds:600,elo:10,rewarded:0}}}}});
+ await assert.rejects(ownerGrantRank({db,owner:false,actor:'u',uid:'u',rankId:'diamond'}),/Only owners/);
+ await assert.rejects(ownerGrantRank({db,owner:true,actor:'o',uid:'u',rankId:'owner'}),/Choose a rank/);
+ await assert.rejects(ownerGrantRank({db,owner:true,actor:'o',uid:'missing',rankId:'diamond'}),/existing/);
+ const now=Date.UTC(2026,10,12,12),r=await ownerGrantRank({db,owner:true,actor:'o',uid:'u',rankId:'diamond',now});
+ assert.equal(r.rank.elo,9000);assert.equal(r.rank.activeSeconds,600);assert.equal(db.root.novaControl.progress.u.coins,77);assert.equal(db.root.novaControl.progress.u.xp,500);
+ assert.equal(db.root.novaChatV2.memberRoles.u.rank_diamond,true);assert.equal(db.root.novaChatV2.roles,undefined);
+ assert.equal(Object.values(db.root.novaControl.audit)[0].actor,'o');
+ await rankAction(db,'u','rankPulse',{active:true,game:'game:27',session},now+15000);
+ const next=await rankAction(db,'u','rankPulse',{active:true,game:'game:27',session},now+30000);
+ assert.equal(next.rank.elo,9000);assert.equal(next.progress.rank.seconds,615);assert.equal(next.progress.coins,77);
+});
