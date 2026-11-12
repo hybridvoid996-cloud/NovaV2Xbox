@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import vm from 'node:vm';import {readFileSync} from 'node:fs';
+const source=readFileSync(new URL('../Public/src/dyno-stoper.js',import.meta.url),'utf8');
+function app(hosted=false){const handlers={};const win={close(){},NovaBlankHosted:hosted};const doc={addEventListener:(t,fn)=>handlers[t]=fn,querySelector:()=>({}),activeElement:null};vm.runInNewContext(source,{window:win,top:win,document:doc,localStorage:{getItem:()=> 'true'},location:{pathname:'/home.html'},Date,addEventListener(){},clearTimeout(){},setTimeout(){}});handlers.pointerdown({isTrusted:true});return win}
+test('Dyno waits for a blank workspace even with its saved preference enabled',()=>{const regular=app();assert.equal(regular.NovaDynoStoper.protecting,false);const hosted=app(true);assert.equal(hosted.NovaDynoStoper.protecting,true);hosted.NovaBlankLaunching=true;assert.equal(hosted.NovaDynoStoper.protecting,false)});

@@ -14,19 +14,20 @@ export function launchBlank({open=window.open.bind(window),url=location.href,sto
 }
 export async function openSignedInBlank(){
  if(!shouldOpenBlank({authenticated:true,complete:true,topLevel:window===top,hosted:window.NovaBlankHosted,enabled:localStorage.getItem('nova_auto_blank')!=='false',regular:new URLSearchParams(location.search).get('nova-regular')==='1'}))return false;
- const complete=()=>{try{window.close()}catch{}location.replace('about:blank')};
+ window.NovaBlankLaunching=true;window.NovaHomeBoot?.stage('Loading about:blank…');
+ const complete=()=>{window.NovaDynoStoper?.allowNextNavigation();try{window.close()}catch{}location.replace('about:blank')};
  if(launchBlank()){complete();return true}
- // A restored session has no user gesture. Keep Nova usable and use the next
- // genuine click/key gesture instead of stopping startup at a choice dialog.
- const pending=new AbortController();
+ // Browsers may require a genuine gesture. Keep the loading cover in place
+ // until that gesture opens the workspace, without rendering Home underneath.
+ window.NovaHomeBoot?.stage('Loading about:blank… Click anywhere to open Nova.');
+ const pending=new AbortController();let finish;const opened=new Promise(resolve=>finish=resolve);
  const retry=e=>{
   if(!e.isTrusted||e.type==='keydown'&&(e.repeat||e.ctrlKey||e.metaKey||e.altKey||!['Enter',' '].includes(e.key)))return;
-  pending.abort();
-  if(localStorage.getItem('nova_auto_blank')==='false')return;
-  if(launchBlank()){e.preventDefault();e.stopImmediatePropagation();complete()}
+  if(localStorage.getItem('nova_auto_blank')==='false'){pending.abort();window.NovaBlankLaunching=false;finish(false);return}
+  if(launchBlank()){pending.abort();e.preventDefault();e.stopImmediatePropagation();finish(true);complete()}
   else window.NovaNotice?.('system',{title:'Allow Nova to open its workspace',text:'Your browser blocked the blank tab. Allow popups for this Nova address in your browser settings.'});
  };
  addEventListener('click',retry,{capture:true,signal:pending.signal});
  addEventListener('keydown',retry,{capture:true,signal:pending.signal});
- return false;
+ return opened;
 }
