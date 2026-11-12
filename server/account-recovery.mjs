@@ -17,9 +17,9 @@ async function target(db,auth,uid,issuer){
  const user=await auth.getUser(uid);if(user.disabled)throw fail('This account cannot be recovered.',403);
  return profile.val();
 }
-export async function issueAccountRecovery({db,auth,uid,issuer,now=Date.now()}){
+export async function issueAccountRecovery({db,auth,uid,issuer,now=Date.now(),validForMs=15*60000}){
  await requireRecoveryPrivacy(db);const profile=await target(db,auth,uid,issuer);
- const code=randomBytes(18).toString('hex').toUpperCase(),hash=digest(code),expiresAt=now+15*60000;
+ const code=randomBytes(18).toString('hex').toUpperCase(),hash=digest(code),expiresAt=now+Math.max(60000,Math.min(86400000,Number(validForMs)||15*60000));
  const previous=(await db.ref(root+'accounts/'+uid).get()).val();
  const patch={['codes/'+hash]:{uid,username:name(profile.username||profile.name),issuer,expiresAt},['accounts/'+uid]:{hash,expiresAt,used:false}};
  if(/^[a-f0-9]{64}$/.test(previous?.hash||''))patch['codes/'+previous.hash]=null;

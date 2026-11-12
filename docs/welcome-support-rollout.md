@@ -38,3 +38,15 @@ After deployment, test with two disposable accounts and two browser profiles: cr
 - Browser checks also covered login/create transitions, forgot-password/live-support navigation, preview pause/page controls, preview artwork loading, and the desktop/laptop layout. The production Firebase rules, live Groq response, owner notification delivery and real Firebase recovery sign-in still require the post-deployment smoke test above.
 
 For local visual QA only, `node tests/helpers/support-preview-server.mjs` runs the isolated fake support server on port 8796. This helper is not a production endpoint. Standard website preview: `PORT=8795 node server.mjs` (set the environment variable using your shell’s syntax).
+
+## November 11 login and recovery update
+
+Login and Create account now use a compact centered glass card. The old animated demo no longer runs behind the hidden showcase.
+
+Support room capabilities persist in localStorage on the original Nova origin and browser profile, with migration from the previous tab-only session storage. Visiting account.html checks the saved room and returns to support; unavailable support leaves ordinary login usable. Rooms and approvals expire within 24 hours. Closing a request explicitly cancels its pending approval and permits a fresh request. Clearing site storage, using a different browser, or changing domains cannot restore the anonymous room capability.
+
+Owner-approved support grants may last until the room expires (maximum 24 hours). Ordinary manually issued recovery codes remain 15 minutes. All grants remain account-bound, single-use, revocable, and subject to current owner/account checks. Actual recovery still requires the live Firebase backend and owner verification.
+
+Username suggestions return only a public name and validated picture URL, rate limited to 30 searches per minute per address, with at least three characters and eight results. Search is bounded to 2,000 chat profiles; remembered names can always be typed manually. Email addresses, account IDs, passwords, and private account records are not included. Selecting a profile is a claim, never proof of ownership.
+
+Verified locally: support room survives reload and tab close/reopen; closing request returns to intake; login/signup layout; automated support and authentication tests. Live Firebase approval and full computer shutdown were not exercised.

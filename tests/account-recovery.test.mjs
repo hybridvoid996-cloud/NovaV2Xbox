@@ -43,3 +43,9 @@ test('public recovery endpoint returns a token only for the approved code and ac
  const s=setup();const issued=await issueAccountRecovery({db:s.db,auth:s.auth,uid:'one',issuer:'owner',now:Date.now()});const handler=createHandler(async()=>s);
  const res={setHeader(){},end(body){this.body=JSON.parse(body)}};await handler({method:'POST',headers:{},body:{username:'Player One',email:'made-up@example.test',code:issued.code}},res);assert.equal(res.statusCode,200);assert.deepEqual(res.body,{token:'token-for-one'});
 });
+
+test('support approval remains redeemable after returning later, bounded to one day',async()=>{
+ const s=setup(),grant=await issueAccountRecovery({db:s.db,auth:s.auth,uid:'one',issuer:'owner',now,validForMs:86400000});assert.equal(grant.expiresAt,now+86400000);
+ assert.deepEqual(await s.redeem(grant.code,'Player One',now+3600000),{token:'token-for-one'});
+ const other=setup(),bounded=await issueAccountRecovery({db:other.db,auth:other.auth,uid:'one',issuer:'owner',now,validForMs:Infinity});assert.equal(bounded.expiresAt,now+86400000);
+});

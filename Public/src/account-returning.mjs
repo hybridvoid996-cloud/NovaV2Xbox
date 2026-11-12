@@ -5,7 +5,7 @@ if(!answered){
  const dialog=document.createElement('dialog');
  dialog.className='returning-account';
  dialog.setAttribute('aria-labelledby','returning-title');
- dialog.innerHTML='<div class="returning-icon" aria-hidden="true"><img src="/Nova12.png" alt=""></div><small>LET’S GET YOU HOME</small><h2 id="returning-title">Did you have an account before Nova was blocked?</h2><p>Your account may still be here. Support can help you find your way back.</p><div class="returning-actions"><button type="button" data-answer="no">No, continue</button><a href="/support.html" data-answer="yes">Yes, get help <span aria-hidden="true">↗</span></a></div>';
+ dialog.innerHTML='<div class="returning-icon" aria-hidden="true"><img src="/Nova12.png" alt=""></div><small>LET’S GET YOU HOME</small><h2 id="returning-title">Lost access to your Nova account?</h2><p>Played on an older Nova address? Your account may still be here. Find your profile and open a private recovery request.</p><div class="returning-actions"><button type="button" data-answer="no">No, continue</button><a href="/support.html" data-answer="yes">Find my account <span aria-hidden="true">↗</span></a></div>';
  const remember=()=>{try{sessionStorage.setItem(key,'answered')}catch{}};
  const close=()=>{remember();dialog.classList.add('is-closing');setTimeout(()=>{dialog.close();dialog.remove();document.getElementById('account-email')?.focus()},180)};
  dialog.querySelector('button').onclick=close;

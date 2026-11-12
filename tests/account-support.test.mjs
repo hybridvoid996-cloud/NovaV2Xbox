@@ -87,3 +87,15 @@ test('expired room collection is cleared on new intake, and capacity is explicit
 test('obvious secrets are refused before writing or sending to AI',async()=>{
  const s=setup(),a=await s.create();for(const text of ['My password is secret123','Recovery code: ABCDEF-ABCDEF-ABCDEF-ABCDEF-ABCDEF-ABCDEF'])await assert.rejects(s.call('message',{...a,text}),e=>/Do not send/.test(e.message));assert.deepEqual(s.get('novaAccountSupport/rooms/'+a.room+'/messages'),{});
 });
+
+test('visitor can explicitly close their own room and cancel a pending approval',async()=>{
+ const s=setup(),a=await s.create();await s.call('join',a,'owner');await s.call('approve',{...a,uid:'one',verified:true,evidence:'Independently verified account ownership.'},'owner');
+ await assert.rejects(s.call('cancel',{...a,secret:'a'.repeat(48)}),e=>e.status===403);
+ await s.call('cancel',a);assert.equal((await s.call('poll',a)).status,'closed');await assert.rejects(s.call('redeem',a));assert.deepEqual(s.mints,[]);
+});
+test('account suggestions contain only public names and safe profile pictures',async()=>{
+ const s=setup();s.set('novaChatV2/profiles/one',{name:'Player One',photo:'https://example.com/avatar.png',email:'private@example.com',password:'secret',updatedAt:1});
+ s.set('novaChatV2/profiles/two',{name:'Player Two',photo:'javascript:alert(1)',updatedAt:2});
+ assert.deepEqual((await s.call('search',{query:'player'})).people,[{name:'Player One',photo:'https://example.com/avatar.png'},{name:'Player Two',photo:''}]);
+ assert.deepEqual((await s.call('search',{query:'pl'})).people,[]);
+});
