@@ -1,0 +1,11 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Nova preview</title></head><body>
+<script>
+// This page always runs in an opaque-origin sandbox. Only its embedding parent
+// can supply a document; the supplied document installs its own restrictive CSP.
+addEventListener('message',function receive(event){
+ if(event.source!==parent||event.data?.novaStudioDocument!==true||typeof event.data.html!=='string'||event.data.html.length>5000000)return;
+ removeEventListener('message',receive);
+ document.open();document.write(event.data.html);document.close();
+});
+parent.postMessage({novaStudioReady:true},'*');
+</script></body></html>
