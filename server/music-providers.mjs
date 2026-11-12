@@ -4,7 +4,7 @@ const bounded=(work,ms)=>{let timer;return Promise.race([work,new Promise((_,rej
 import {mergeMusicCatalog,rankMusicCatalog,normalizeMusicQuery} from './music-catalog.mjs';
 export {mergeMusicCatalog,rankMusicCatalog} from './music-catalog.mjs';
 
-export function createMusicProviderHandler({primary,service,alternative,noah,achcroma,abstract}){
+export function createMusicProviderHandler({primary,service,alternative,noah,achcroma,abstract,community}){
  const cache=new Map();
  async function unified(query,mode='catalog'){
   const q=normalizeMusicQuery(query).slice(0,160),key=mode+':'+q.toLowerCase(),hit=cache.get(key);
@@ -17,11 +17,11 @@ export function createMusicProviderHandler({primary,service,alternative,noah,ach
     bounded(Promise.resolve().then(()=>service[primaryMode](q)),4500),
     bounded(Promise.resolve().then(()=>noah[secondaryMode](q)),4500),
     bounded(Promise.resolve().then(()=>alternative.catalog?alternative.catalog(q):alternative.search(q).then(data=>({tracks:(data.tracks||[]).map(t=>({...t,id:'void:'+t.id,src:'void',thumb:t.art?'/api/soundcloud?op=void-art&token='+encodeURIComponent(t.art):'',playable:true}))}))),4500)
-    ,...(achcroma?[bounded(Promise.resolve().then(()=>achcroma[secondaryMode](q)),4500)]:[]),...(abstract?[bounded(Promise.resolve().then(()=>abstract[secondaryMode](q)),4000)]:[])
+    ,...(achcroma?[bounded(Promise.resolve().then(()=>achcroma[secondaryMode](q)),4500)]:[]),...(abstract?[bounded(Promise.resolve().then(()=>abstract[secondaryMode](q)),4000)]:[]),...(community?['reading','tb'].map(source=>bounded(community.catalog(source,q),4500)):[])
    ]);
    if(results.every(result=>result.status==='rejected'))throw Error('Music search is temporarily unavailable. Please retry.');
    if(results.some(result=>result.status==='rejected'))entry.expires=Date.now()+10000;
-   return {...rankMusicCatalog(results.reduce((catalog,result)=>result.status==='fulfilled'?mergeMusicCatalog(catalog,result.value):catalog,{}),q),catalogSources:results.flatMap((r,i)=>r.status==='fulfilled'?[['SoundCloud','Noah','Void','Achcroma','Abstract'][i]]:[])};
+   return {...rankMusicCatalog(results.reduce((catalog,result)=>result.status==='fulfilled'?mergeMusicCatalog(catalog,result.value):catalog,{}),q),catalogSources:results.flatMap((r,i)=>r.status==='fulfilled'?[['SoundCloud','Noah','Void',...(achcroma?['Achcroma']:[]),...(abstract?['Abstract']:[]),...(community?['Reading Music','TB Music']:[])][i]]:[])};
   })();cache.set(key,entry);if(cache.size>80)cache.delete(cache.keys().next().value);entry.job.catch(()=>{if(cache.get(key)===entry)cache.delete(key)});return entry.job;
  }
  return async(req,res)=>{
@@ -29,6 +29,8 @@ export function createMusicProviderHandler({primary,service,alternative,noah,ach
   const params=new URL(req.url,'http://nova.local').searchParams,op=params.get('op')||'search';
   const reply=(status,data)=>{res.statusCode=status;res.setHeader('Content-Type','application/json');res.setHeader('Cache-Control','no-store');res.end(JSON.stringify(data))};
   try{
+   if(community&&op==='community-audio')return await community.audio(req,res,params.get('source'),params.get('id'));
+   if(community&&op==='community-art')return await community.art(req,res,params.get('url'));
    if(achcroma&&/^ach-(search|collection|artist|audio|art)$/.test(op)){const action=op.slice(4);if(action==='audio')return await achcroma.audio(req,res,params.get('id'));if(action==='art')return await achcroma.art(req,res,params.get('url'));return reply(200,await achcroma[action==='search'?'catalog':action](params.get(action==='search'?'q':'id')))}
    if(abstract&&op==='abs-audio')return await abstract.audio(req,res,params.get('id'));
    if(op==='noah-search')return reply(200,await noah.catalog(params.get('q')));
@@ -46,7 +48,8 @@ export function createMusicProviderHandler({primary,service,alternative,noah,ach
    }
    if(['collection','artist'].includes(op)){
     const id=String(params.get('id')||'');let data;
-    if(id.startsWith('abs:')&&abstract)data=await abstract[op](id);
+    if(community&&/^(reading|tb):/.test(id))data=await community.detail(id.split(':')[0],op,id.split(':')[1]);
+    else if(id.startsWith('abs:')&&abstract)data=await abstract[op](id);
     else if(id.startsWith('ach:')&&achcroma)data=await achcroma[op](id);
     else if(id.startsWith('noah:'))data=await noah[op](id);
     else if(id.startsWith('void:'))data=await alternative[op==='collection'?'album':'artist'](id.slice(5));
@@ -58,7 +61,7 @@ export function createMusicProviderHandler({primary,service,alternative,noah,ach
     const title=params.get('title'),artist=params.get('artist'),duration=Number(params.get('duration'));
     if(!title?.trim()||!artist?.trim()||title.length>200||artist.length>200||!Number.isFinite(duration)||duration<=0||duration>86400)return reply(400,{error:'A title, artist and duration are required to match alternative audio.'});
     const exclude=new Set((params.get('exclude')||'').split(','));
-    const providers=[...(abstract&&!exclude.has('abs')?[()=>abstract.find(title,artist,duration)]:[]),...(achcroma&&!exclude.has('ach')?[()=>achcroma.find(title,artist,duration)]:[]),...(!exclude.has('void')?[()=>alternative.find(title,artist,duration)]:[]),...(!exclude.has('noah')?[()=>noah.find(title,artist,duration)]:[])];
+    const providers=[...(community?['reading','tb'].filter(source=>!exclude.has(source)).map(source=>()=>community.find(source,title,artist,duration)):[]),...(abstract&&!exclude.has('abs')?[()=>abstract.find(title,artist,duration)]:[]),...(achcroma&&!exclude.has('ach')?[()=>achcroma.find(title,artist,duration)]:[]),...(!exclude.has('void')?[()=>alternative.find(title,artist,duration)]:[]),...(!exclude.has('noah')?[()=>noah.find(title,artist,duration)]:[])];
     const attempts=providers.map(async find=>{const data=await bounded(Promise.resolve().then(find),4500);if(!data.found)throw Error('No matching recording.');return data});
     let found=await Promise.any(attempts).catch(()=>({found:false}));if(!found.found&&!exclude.has('sc')&&service.search&&service.stream)found=await bounded(findPublicRecording(service,{title,artist,duration,id:params.get('id')}),5000).catch(()=>({found:false}));
     return reply(200,found);

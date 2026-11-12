@@ -1,6 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {NovaMusicEngine,safeTrack} from '../Public/src/nova-music-engine.mjs';
 class Audio extends EventTarget{constructor(){super();this.paused=true;this.ended=false;this.duration=120;this.currentTime=0;this.volume=.7;this.currentSrc=''}setAttribute(){}removeAttribute(){this.currentSrc=''}load(){}canPlayType(){return 'probably'}pause(){this.paused=true;this.dispatchEvent(new Event('pause'))}async play(){this.paused=false;this.dispatchEvent(new Event('play'))}set src(v){this.currentSrc=v}}
 const track=id=>({id:'sc:'+id,title:'Track '+id,duration:120}),reply=t=>Response.json({track:t,url:'/audio',hls:false});
+test('Reading and TB songs start their proxied streams without a SoundCloud lookup',async()=>{for(const id of ['reading:15586286','tb:aCjxP58Ydik']){const audio=new Audio(),engine=new NovaMusicEngine({audio,request:async()=>{throw Error('Unexpected lookup')}});const selected={id,title:'Rock with You',artist:'Michael Jackson',duration:221};assert.equal(safeTrack(selected),selected);await engine.load(selected);assert.equal(audio.currentSrc,'/api/soundcloud?op=community-audio&source='+id.split(':')[0]+'&id='+id.split(':')[1]);assert.equal(engine.snapshot.playing,true);engine.destroy()}});
 test('a SoundCloud catalog identity starts its known Void or Noah audio without waiting on SoundCloud',async()=>{
  for(const provider of ['void','noah']){
   const audio=new Audio(),engine=new NovaMusicEngine({audio,request:async()=>{throw Error('SoundCloud must not be queried')}});

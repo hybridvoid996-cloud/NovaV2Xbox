@@ -8,7 +8,7 @@ export function recentArtwork(value,kind='music'){
   const u=new URL(src,'https://nova.invalid');
   if(u.searchParams.get('op')==='asset'&&u.searchParams.get('url')?.startsWith('/api/soundcloud?')){src=u.searchParams.get('url');continue}break;
  }
- if(/^\/api\/soundcloud\?op=(?:asset|void-art|noah-art|import-art)&/.test(src)||/^\/api\/movies\?op=image&/.test(src))return src;
+ if(/^\/api\/soundcloud\?op=(?:asset|void-art|noah-art|import-art|community-art)&/.test(src)||/^\/api\/movies\?op=image&/.test(src))return src;
  if(!src.startsWith('https://'))return '';
  let u;try{u=new URL(src)}catch{return ''}
  if(kind==='movie'&&['image.tmdb.org','s4.anilist.co'].includes(u.hostname))return '/api/movies?op=image&url='+encodeURIComponent(src);

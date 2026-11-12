@@ -1,0 +1,3 @@
+export const isCommunityTrack=t=>!!t&&/^(?:reading:\d{1,20}|tb:[A-Za-z0-9_-]{11})$/.test(t.id);
+export const communityAudioURL=t=>{if(!isCommunityTrack(t))throw Error('Invalid community music track.');const[source,id]=t.id.split(':');return '/api/soundcloud?op=community-audio&source='+source+'&id='+id};
+export function isCommunityAudio(value){try{const u=new URL(value,'http://nova.local');return u.origin==='http://nova.local'&&u.pathname==='/api/soundcloud'&&u.searchParams.get('op')==='community-audio'&&isCommunityTrack({id:u.searchParams.get('source')+':'+u.searchParams.get('id')})}catch{return false}}
