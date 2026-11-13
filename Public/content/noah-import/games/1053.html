@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="https://cdn.jsdelivr.net/gh/Nawsif/FindTheNeedle@96ef2302a69bf7b305454708db2d6b41f88d4849/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Find the Needle</title>
+  <link rel="icon" href="data:,">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000000;
+      color: #ffffff;
+      font-family: monospace;
+    }
+    #overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background: #000000;
+    }
+    #overlay.hidden,
+    #overlay[hidden] { display: none; }
+    .track {
+      width: 200px;
+      height: 4px;
+      background: #222222;
+    }
+    #fill {
+      display: block;
+      width: 0%;
+      height: 100%;
+      background: #ffffff;
+      transition: width 0.1s linear;
+    }
+    #info {
+      color: #ffffff;
+      font-size: 12px;
+      letter-spacing: 1px;
+      min-height: 15px;
+    }
+    #status {
+      color: #777777;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+      text-align: center;
+      max-width: 340px;
+      min-height: 12px;
+    }
+    #canvas { display: block; width: 100%; height: 100%; outline: none; touch-action: none; }
+  </style>
+</head>
+<body>
+  <main id="overlay">
+    <div class="track"><span id="fill"></span></div>
+    <div id="info">starting…</div>
+    <div id="status" role="status"></div>
+  </main>
+  <canvas id="canvas" tabindex="0"></canvas>
+
+<script>
+(() => {
+  const base = 'https://cdn.jsdelivr.net/gh/Nawsif/FindTheNeedle@96ef2302a69bf7b305454708db2d6b41f88d4849/';
+  const mirrors = [
+    base,
+    base.replace('cdn.jsdelivr.net', 'gcore.jsdelivr.net'),
+    base.replace('cdn.jsdelivr.net', 'fastly.jsdelivr.net')
+  ];
+  const nativeFetch = window.fetch.bind(window);
+  const locate = url => mirrors.findIndex(mirror => url.startsWith(mirror));
+  const note = text => {
+    const line = document.getElementById('status');
+    if (line) line.textContent = text;
+  };
+  window.fetch = async (input, init) => {
+    const url = typeof input === 'string' ? new URL(input, document.baseURI).href
+      : input instanceof Request ? input.url : String(input);
+    const start = locate(url);
+    if (start < 0) return nativeFetch(input, init);
+    const tail = url.slice(mirrors[start].length);
+    let failure;
+    for (let round = 0; round < 5; round += 1) {
+      for (let step = 0; step < mirrors.length; step += 1) {
+        try {
+          const response = await nativeFetch(mirrors[(start + step) % mirrors.length] + tail, { ...init, cache: 'no-store' });
+          if (response.ok) return response;
+          failure = new Error('HTTP ' + response.status);
+        } catch (error) { failure = error; }
+      }
+      note('reconnecting…');
+      await new Promise(resolve => setTimeout(resolve, Math.min(12000, 500 * 2 ** round) + Math.random() * 400));
+    }
+    throw failure ?? new Error('network error');
+  };
+})();
+</script>
+<script src="web-browser-controls.js?v=ee19df007ee198d0"></script>
+<script src="split-assets.js?v=e825cb062b0758c3"></script>
+<script src="index.js"></script>
+<script>
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":1759774166,"index.wasm":1508095},"focusCanvas":true,"gdextensionLibs":["libterrain.web.release.wasm32.wasm"],"godotPoolSize":4,"serviceWorker":""};
+
+(function () {
+  const overlay = document.getElementById('overlay');
+  const fill = document.getElementById('fill');
+  const info = document.getElementById('info');
+  const status = text => { document.getElementById('status').textContent = text; };
+  const total = GODOT_CONFIG.fileSizes['index.pck'] + GODOT_CONFIG.fileSizes['index.wasm'];
+  const mb = bytes => (bytes / 1048576).toFixed(0);
+
+  let engineTimer = null;
+  let finishing = false;
+  let began = performance.now();
+
+  function show(percent, extra) {
+    const value = Math.max(0, Math.min(100, percent));
+    fill.style.width = value.toFixed(1) + '%';
+    info.textContent = Math.round(value) + '%' + (extra ? '   ' + extra : '');
+  }
+
+  function startEngine() {
+    if (engineTimer || finishing) return;
+    status('starting…');
+    const started = performance.now();
+    engineTimer = setInterval(() => {
+      const seconds = (performance.now() - started) / 1000;
+      show(90 + 9 * (1 - Math.exp(-seconds / 10)));
+    }, 150);
+  }
+
+  function paint(current) {
+    const ratio = total ? Math.min(1, current / total) : 0;
+    const extra = mb(current) + ' / ' + mb(total) + ' MB';
+    if (ratio >= 1) {
+      show(90, extra);
+      startEngine();
+      return;
+    }
+    const elapsed = (performance.now() - began) / 1000;
+    let tail = extra;
+    if (elapsed > 1.5 && current > 1024) {
+      const left = Math.max(0, (total - current) / (current / elapsed));
+      if (left > 1) tail += '   ~' + Math.ceil(left) + 's left';
+    }
+    show(ratio * 90, tail);
+  }
+
+  function finish() {
+    if (finishing) return;
+    finishing = true;
+    if (engineTimer) clearInterval(engineTimer);
+    fill.style.width = '100%';
+    overlay.classList.add('hidden');
+    overlay.hidden = true;
+    document.getElementById('canvas').focus();
+  }
+
+  const missing = Engine.getMissingFeatures({ threads: false });
+  if (missing.length) {
+    status(crossOriginIsolated
+      ? 'This browser is missing: ' + missing.join(', ')
+      : 'This page needs cross-origin isolation to run.');
+    return;
+  }
+
+  began = performance.now();
+  const engine = new Engine(GODOT_CONFIG);
+  engine.startGame({ onProgress: (current) => paint(current) })
+    .then(finish)
+    .catch(error => {
+      console.error(error);
+      status('Failed to start: ' + (error instanceof Error ? error.message : error));
+    });
+})();
+</script>
+</body>
+</html>

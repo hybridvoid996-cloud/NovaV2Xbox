@@ -553,3 +553,14 @@ html.nova-low-power .nf-sky{animation:none!important;background-attachment:scrol
 
 /* 6 and 9 are underlined so they read the right way up */
 .nf-card .nf-u{text-decoration:underline;text-decoration-thickness:.08em;text-underline-offset:.08em}
+
+/* Stack picker */
+.nf-stack-dialog p{text-align:center}
+.nf-stack-pick{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:14px 0 18px;--card-w:70px;--card-h:102px}
+.nf-stack-card{position:relative;padding:0;border:0;background:none;border-radius:12px;cursor:pointer;transition:transform .15s,opacity .15s}
+.nf-stack-card.lead{cursor:default}
+.nf-stack-card.lead::after,.nf-stack-card[aria-pressed=true]::after{content:"✓";position:absolute;right:-6px;top:-6px;width:22px;height:22px;border-radius:50%;background:#3ddc84;color:#06210f;font-weight:900;font-size:13px;display:grid;place-items:center;box-shadow:0 2px 6px #0008}
+.nf-stack-card[aria-pressed=false]{opacity:.4;transform:scale(.94)}
+.nf-stack-card:hover:not(.lead){transform:translateY(-4px)}
+
+.nf-chip-btn.all-in{border-color:#ff4b6e88;background:#ff4b6e18;color:#ff9db0}

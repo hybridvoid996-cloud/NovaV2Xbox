@@ -71,3 +71,44 @@ test('public view hides hands',()=>{
  const v=publicView(createGame(seats(4)));
  assert.ok(v.players.every(p=>!('hand' in p)&&p.count===7));
 });
+test('spamming the last-card call counts once and never floods the game',async()=>{
+ const {callFlip}=await import('../Public/src/novaflip/engine.mjs');
+ const s=createGame(seats(2));const p=s.turn;s.players[p].hand=s.players[p].hand.slice(0,2);
+ assert.equal(callFlip(s,p),true);for(let i=0;i<30;i++)assert.equal(callFlip(s,p),false);
+ const other=1-p;s.players[other].hand=s.players[other].hand.slice(0,1);
+ const logs=s.log.length;assert.equal(callFlip(s,other),true);for(let i=0;i<30;i++)assert.equal(callFlip(s,other),false);
+ assert.equal(s.log.length,logs+1);
+});
+test('a human spamming the call cannot stop the bot from taking its turn',async()=>{
+ const {HostedGame}=await import('../Public/src/novaflip/session.mjs?v=9');
+ const state=createGame([{id:'me',name:'Me'},{id:'bot',name:'Bot',bot:true}],{turnTimer:0});
+ const g=new HostedGame(state,{meId:'me'});const botSeat=g.seatOf('bot');
+ state.turn=botSeat;state.players[g.mySeat].hand=state.players[g.mySeat].hand.slice(0,1);g.changed({type:'sync'});
+ const moves=state.moves||0;
+ const spam=setInterval(()=>{try{g.act({type:'flip'})}catch{}},50);
+ await new Promise(r=>setTimeout(r,2200));clearInterval(spam);g.close();
+ assert.ok((state.moves||0)>moves||state.phase!=='play','the bot moved while the human spammed');
+});
+test('stacking from your own hand: same number or same card plays together',async()=>{
+ const {stackMates}=await import('../Public/src/novaflip/engine.mjs');
+ const s=createGame(seats(3),{stacking:true});const p=s.turn;
+ s.color='r';s.discard.push({id:'top',c:'r',v:'3'});
+ s.players[p].hand=[{id:'r6',c:'r',v:'6'},{id:'g6',c:'g',v:'6'},{id:'b6',c:'b',v:'6'},{id:'y1',c:'y',v:'1'}];
+ assert.deepEqual(stackMates(s,p,s.players[p].hand[0]).map(c=>c.id),['g6','b6']);
+ assert.throws(()=>play(s,p,'r6',{extra:['y1']}),/same number/);
+ play(s,p,'r6',{extra:['g6','b6']});
+ assert.deepEqual(s.players[p].hand.map(c=>c.id),['y1']);assert.equal(s.color,'b');assert.equal(s.discard.at(-1).id,'b6');
+});
+test('two +2s from one hand add up, and two skips skip two players',()=>{
+ const s=createGame(seats(4),{stacking:true});let p=s.turn;s.color='r';
+ s.players[p].hand=[{id:'a',c:'r',v:'d2'},{id:'b',c:'g',v:'d2'},{id:'k',c:'y',v:'5'}];
+ play(s,p,'a',{extra:['b']});assert.deepEqual(s.pending,{amount:4,top:'d2'});
+ const t=createGame(seats(4),{stacking:true});p=t.turn;t.color='r';
+ t.players[p].hand=[{id:'s1',c:'r',v:'skip'},{id:'s2',c:'b',v:'skip'},{id:'k',c:'y',v:'5'}];
+ play(t,p,'s1',{extra:['s2']});assert.equal(t.turn,((p+3*t.dir)%4+4)%4);
+});
+test('stacking from your hand is refused when stacking is off',()=>{
+ const s=createGame(seats(2),{stacking:false});const p=s.turn;s.color='r';
+ s.players[p].hand=[{id:'r6',c:'r',v:'6'},{id:'g6',c:'g',v:'6'},{id:'y1',c:'y',v:'1'}];
+ assert.throws(()=>play(s,p,'r6',{extra:['g6']}),/turned off/);
+});

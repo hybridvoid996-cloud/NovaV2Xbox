@@ -2,9 +2,10 @@
 // fake, and the server reward rules against a fake admin database.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {nova} from '../Public/src/novaflip/nova.mjs?v=5';
+import {nova} from '../Public/src/novaflip/nova.mjs?v=9';
 import {Room} from '../Public/src/novaflip/online.mjs';
 import {novaFlipAction,FLIP_DAILY_COIN_WINS} from '../server/nova-flip.mjs';
+import {applyMove,applyTick,newTable} from '../server/nova-flip-table.mjs';
 
 // ---------- tiny RTDB fake (client SDK surface used by online.mjs) ----------
 function fakeDb(){
@@ -30,56 +31,63 @@ function fakeDb(){
   onDisconnect:()=>({set:async()=>{},remove:async()=>{},cancel:()=>{}}),
   serverTimestamp:()=>Date.now()
  };
- return {fb,tree:()=>tree};
+ const admin={ref:(p='')=>({
+  get:async()=>snap(p),set:async v=>{setAt(p,v);notify()},
+  update:async patch=>{for(const [k,v]of Object.entries(patch))setAt((p?p+'/':'')+k,v);notify()},
+  transaction:async fn=>{const next=fn(clone(getAt(p)));if(next===undefined)return {committed:false,snapshot:snap(p)};setAt(p,next);notify();return {committed:true,snapshot:snap(p)}}})};
+ return {fb,admin,tree:()=>tree};
 }
 const tick=(ms=20)=>new Promise(r=>setTimeout(r,ms));
 const as=(uid,name)=>{nova.user={uid};nova.signedIn=true;nova.profile={name}};
 
-test('host creates, guest joins, plays through host, and can be kicked',async()=>{
- const {fb,tree}=fakeDb();Object.assign(nova,{fb,db:{}});
+// Wires Room.call to the real server action, running as whichever user is "signed in".
+function serve(admin,clock){nova.serverCall=(action,b)=>novaFlipAction({db:admin,uid:nova.user.uid,account:{name:nova.profile.name},b,now:clock.now,initial})}
+
+test('server runs the game: host and guest send moves, hands stay private, kick works',async()=>{
+ const {fb,admin,tree}=fakeDb();Object.assign(nova,{fb,db:{}});const clock={now:1_800_000_000_000};serve(admin,clock);
  as('host1','Hosty');
  const host=await Room.create({name:'Test room',visibility:'public',settings:{turnTimer:0}});
  await tick();
  assert.match(host.code,/^[A-Z0-9]{5}$/);
  assert.equal(tree().novaFlip.lobbies[host.code].count,1);
-
  as('guest1','Guesty');
- const guest=await Room.join(host.code);
- await tick();
+ const guest=await Room.join(host.code);await tick();
  assert.deepEqual(host.players.map(p=>p.id),['host1','guest1']);
  const guestEvents=[];guest.on(e=>guestEvents.push(e.type));
-
- await host.addBot();await tick();
- assert.equal(host.players.length,3);
- await host.start();await tick(50);
- assert.equal(tree().novaFlip.rooms[host.code].status,'playing');
+ as('host1','Hosty');await host.start();await tick(50);
+ const room=tree().novaFlip.rooms[host.code];
+ assert.equal(room.status,'playing');assert.ok(room.game&&room.game.gameId===room.gameId,'server published the view');
  assert.ok(guestEvents.includes('game'),'guest gets a game');
- const g=guest.game;await tick(50);
- assert.equal(g.myHand.length,7,'guest sees own hand');
+ assert.ok(tree().novaControl.flipTables[host.code].state,'state lives on the server');
+ const g=guest.game,hg=host.game;await tick(50);
+ assert.equal(g.myHand.length,7,'guest sees own hand');assert.equal(hg.myHand.length,7,'host sees own hand');
  assert.ok(!('hand' in g.view.players[0]),'public view hides hands');
- assert.ok(tree().novaFlip.hands[host.code].guest1);
-
- // Drive turns until it is the guest's turn, then the guest draws via the actions queue.
- const hs=host.game.s;const guestSeat=host.game.seatOf('guest1');
- host.game.clear();Object.assign(hs,{turn:guestSeat,drawn:null,pending:null});
- const before=hs.players[guestSeat].hand.length;
- await g.act({type:'draw'});await tick(60);
- assert.ok(hs.players[guestSeat].hand.length>before,'host applied the guest draw');
- assert.equal(Object.keys(tree().novaFlip.rooms[host.code].actions?.guest1||{}).length,0,'action consumed');
- assert.equal(g.myHand.length,hs.players[guestSeat].hand.length,'guest hand synced');
- // A plain (non-wild) card is sent the way the UI sends it: color/target undefined.
- host.game.clear();Object.assign(hs,{turn:guestSeat,drawn:null,pending:null});
- const plain={id:'test-plain',c:hs.color,v:'5'};hs.players[guestSeat].hand.push(plain);
- await g.act({type:'play',cardId:plain.id,color:undefined,target:undefined});await tick(60);
- assert.equal(hs.discard.at(-1).id,'test-plain','host applied the plain card');
- // A move sent out of turn is ignored, not applied.
- const turnBefore=hs.turn;if(hs.turn!==guestSeat){await g.act({type:'draw'});await tick(60);assert.equal(hs.turn,turnBefore)}
+ // Make it the guest's turn on the server, then the guest draws through the API.
+ const t=tree().novaControl.flipTables[host.code],st=JSON.parse(t.state),gs=st.players.findIndex(p=>p.id==='guest1');
+ Object.assign(st,{turn:gs,drawn:null,pending:null});t.state=JSON.stringify(st);
+ const before=st.players[gs].hand.length;
+ as('guest1','Guesty');await g.act({type:'draw'});await tick(50);
+ const after=JSON.parse(tree().novaControl.flipTables[host.code].state);
+ assert.ok(after.players[gs].hand.length>before,'server applied the guest draw');
+ assert.equal(g.myHand.length,after.players[gs].hand.length,'guest hand synced from the server');
+ // A move out of turn is refused by the server.
+ if(after.turn!==gs)await assert.rejects(()=>g.act({type:'draw'}),/not your turn|Play the card/);
  // Kick: guest is notified and banned from rejoining.
- await host.kick('guest1');await tick(50);
+ as('host1','Hosty');await host.kick('guest1');await tick(50);
  assert.ok(guestEvents.includes('kicked'));
  as('guest1','Guesty');
  await assert.rejects(()=>Room.join(host.code),/removed you/);
- host.dispose();
+ host.dispose();guest.dispose();delete nova.serverCall;
+});
+
+test('only the host can start, and a running game cannot be restarted',async()=>{
+ const {fb,admin}=fakeDb();Object.assign(nova,{fb,db:{}});const clock={now:1_800_000_000_000};serve(admin,clock);
+ as('h','H');const host=await Room.create({visibility:'private'});await host.addBot();await tick();
+ as('x','X');const other=await Room.join(host.code);await tick();
+ await assert.rejects(()=>other.call('tableStart'),/Only the host/);
+ as('h','H');await host.start();await tick();
+ await assert.rejects(()=>host.call('tableStart'),/already running/);
+ host.dispose();other.dispose();delete nova.serverCall;
 });
 
 test('room is full at 4',async()=>{
@@ -123,7 +131,7 @@ test('daily coin limit, then points only',async()=>{
 
 test('online claim requires the room to name you as winner',async()=>{
  const gameId='11111111-2222-3333-4444-555555555555';
- const db=adminDb({novaFlip:{rooms:{ABCDE:{host:'h',players:{u3:{name:'a'},h:{name:'h'}},lastResult:{gameId,winner:'h',points:1300,humans:2}}}}});let now=1_800_000_000_000;
+ const db=adminDb({novaFlip:{rooms:{ABCDE:{host:'h',players:{u3:{name:'a'},h:{name:'h'}}}}},novaControl:{flipTables:{ABCDE:{gameId,result:{gameId,winner:'h',points:1300,humans:2}}}}});let now=1_800_000_000_000;
  const call=(uid,b)=>novaFlipAction({db,uid,account:{name:uid},b,now,initial});
  const t3=(await call('u3',{op:'start',mode:'online',players:2,room:'ABCDE',gameId})).token;
  const th=(await call('h',{op:'start',mode:'online',players:2,room:'ABCDE',gameId})).token;
@@ -131,4 +139,43 @@ test('online claim requires the room to name you as winner',async()=>{
  await assert.rejects(()=>call('u3',{op:'claim',token:t3}),/winner/);
  const r=await call('h',{op:'claim',token:th});
  assert.equal(r.coinsWon,5000);
+});
+
+// ---------- server-run table ----------
+test('bots and timeouts advance on tick, and the server decides the winner',()=>{
+ const room={host:'h',settings:{turnTimer:15},players:{h:{name:'H',joinedAt:1},b:{name:'Bot',bot:true,joinedAt:2}}};
+ let now=1_900_000_000_000;let t=newTable(room,{now});
+ const seat=id=>JSON.parse(t.state).players.findIndex(p=>p.id===id);
+ // Force the bot's turn: an early tick does nothing, a later one makes one bot move.
+ let st=JSON.parse(t.state);st.turn=seat('b');t.state=JSON.stringify(st);t.lastAt=now;
+ assert.equal(applyTick(t,room,{now:now+100}),null);
+ const moved=applyTick(structuredClone(t),room,{now:now+1000});assert.ok(moved.rev>t.rev);
+ // Human timer: nothing before the deadline, an auto move after it.
+ st=JSON.parse(t.state);st.turn=seat('h');st.drawn=null;st.pending=null;t.state=JSON.stringify(st);t.deadline=now+15000;
+ assert.equal(applyTick(t,room,{now:now+5000}),null);
+ const timed=applyTick(structuredClone(t),room,{now:now+16000});assert.notEqual(JSON.parse(timed.state).turn===seat('h')&&!JSON.parse(timed.state).drawn,true);
+ // Winning: the server records the result itself.
+ st=JSON.parse(t.state);st.turn=seat('h');st.drawn=null;st.pending=null;const top=st.discard.at(-1);st.color=top.c==='w'?'r':top.c;
+ st.players[seat('h')].hand=[{id:'win',c:st.color,v:'5'}];t.state=JSON.stringify(st);
+ const won=applyMove(t,'h',{type:'play',cardId:'win'},{now:now+60000});
+ assert.equal(won.result.winner,'h');assert.equal(won.result.gameId,t.gameId);
+ assert.throws(()=>applyMove(won,'h',{type:'draw'},{now:now+61000}),/over/);
+});
+
+test('moves are checked: wrong player, wrong turn and impossible cards are refused',()=>{
+ const room={host:'h',settings:{},players:{h:{name:'H',joinedAt:1},g:{name:'G',joinedAt:2}}};
+ const now=1_900_000_000_000,t=newTable(room,{now}),st=JSON.parse(t.state);
+ const turnId=st.players[st.turn].id,waitId=turnId==='h'?'g':'h';
+ assert.throws(()=>applyMove(t,'stranger',{type:'draw'},{now}),/not playing/);
+ assert.throws(()=>applyMove(t,waitId,{type:'draw'},{now}),/not your turn/);
+ assert.throws(()=>applyMove(t,turnId,{type:'play',cardId:'not-mine'},{now}),/not in your hand/);
+});
+
+test('a result written into the room by a player is ignored: only the server result pays',async()=>{
+ const gameId='11111111-2222-3333-4444-555555555555';
+ // The host writes a fake lastResult naming themselves; the server table has no result yet.
+ const db=adminDb({novaFlip:{rooms:{ABCDE:{host:'h',status:'lobby',players:{h:{name:'h'},u:{name:'u'}},gameId,lastResult:{gameId,winner:'h',points:2500,humans:2}}}},novaControl:{flipTables:{ABCDE:{gameId,state:'{}',result:null}}}});
+ let now=1_800_000_000_000;const call=(uid,b)=>novaFlipAction({db,uid,account:{name:uid},b,now,initial});
+ const {token}=await call('h',{op:'start',mode:'online',players:2,room:'ABCDE',gameId});now+=60_000;
+ await assert.rejects(()=>call('h',{op:'claim',token}),/did not record you/);
 });

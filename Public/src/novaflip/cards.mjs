@@ -1,5 +1,5 @@
 // Original Nova Flip card art, drawn with DOM + inline SVG (no image assets).
-import {LABELS,COLOR_NAMES} from './engine.mjs?v=5';
+import {LABELS,COLOR_NAMES} from './engine.mjs?v=9';
 
 const SVG={
  skip:'<circle cx="12" cy="12" r="8.5"/><path d="M6 18 18 6"/>',

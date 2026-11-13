@@ -1,7 +1,7 @@
 // Game sessions. HostedGame owns the real engine state (single player, or the
 // online host). RemoteGame mirrors what the host publishes for everyone else.
-import {play,draw,pass,callFlip,catchMissed,autoMove,publicView} from './engine.mjs?v=5';
-import {chooseMove,botCallsFlip,botCatchDelay} from './bot.mjs?v=5';
+import {play,draw,pass,callFlip,catchMissed,autoMove,publicView} from './engine.mjs?v=9';
+import {chooseMove,botCallsFlip,botCatchDelay} from './bot.mjs?v=9';
 
 const FLIP_WINDOW=3000;
 
@@ -21,7 +21,7 @@ export class HostedGame extends Emitter{
  apply(seat,move){
   if(this.closed||seat<0)return;
   const s=this.s,before=s.players.map(p=>p.hand.length);let event={type:move.type,seat};
-  if(move.type==='play'){const card=s.players[seat].hand.find(c=>c.id===move.cardId);play(s,seat,move.cardId,{color:move.color,target:move.target});event.card=card}
+  if(move.type==='play'){const card=s.players[seat].hand.find(c=>c.id===move.cardId);play(s,seat,move.cardId,{color:move.color,target:move.target,extra:Array.isArray(move.extra)?move.extra.slice(0,12):undefined});event.card=card}
   else if(move.type==='draw'){const r=draw(s,seat);event.count=r.cards.length}
   else if(move.type==='pass')pass(s,seat);
   else if(move.type==='flip'){if(!callFlip(s,seat))return;event={type:'flip',seat}}

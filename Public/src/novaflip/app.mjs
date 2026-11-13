@@ -1,10 +1,10 @@
-import {connect,nova,identity,surface,refreshCoins,watchFriends,control,profileOf} from './nova.mjs?v=5';
-import {createGame,canPlay,needsTarget,isWild,COLOR_NAMES,LABELS,cleanSettings,DEFAULT_SETTINGS,COLORS} from './engine.mjs?v=5';
-import {HostedGame} from './session.mjs?v=5';
-import {botNames} from './bot.mjs?v=5';
-import {cardEl,colorHex} from './cards.mjs?v=6';
-import {sfx,setSound} from './sound.mjs?v=5';
-import {Room,watchLobbies,sendInvite,watchInvites,clearInvite,cleanCode,MAX_PLAYERS} from './online.mjs?v=5';
+import {connect,nova,identity,surface,refreshCoins,watchFriends,control,profileOf} from './nova.mjs?v=9';
+import {createGame,canPlay,needsTarget,isWild,COLOR_NAMES,LABELS,cleanSettings,DEFAULT_SETTINGS,COLORS} from './engine.mjs?v=9';
+import {HostedGame} from './session.mjs?v=9';
+import {botNames} from './bot.mjs?v=9';
+import {cardEl,colorHex} from './cards.mjs?v=9';
+import {sfx,setSound} from './sound.mjs?v=9';
+import {Room,watchLobbies,sendInvite,watchInvites,clearInvite,cleanCode,MAX_PLAYERS} from './online.mjs?v=9';
 
 // ---------- tiny DOM helper ----------
 function h(tag,props={},...kids){
@@ -307,15 +307,16 @@ function showLobby(room){
   potPanel.hidden=!s.wagers;if(!s.wagers)return;
   const humans=players.filter(p=>!p.bot),total=Object.values(stakes).reduce((a,w)=>a+(Number(w.amount)||0),0),mine=stakes[nova.user.uid]?.amount||0;
   const input=h('input',{class:'nf-input nf-bet-input',type:'number',min:'5000',step:'1000',inputmode:'numeric',value:String(mine||5000),'aria-label':'Your bet in Nova Coins'});
-  const quick=h('div',{class:'nf-bet-quick'},...[5000,10000,25000,50000].map(n=>h('button',{class:'nf-chip-btn',onclick:()=>{input.value=n}},fmt(n))));
+  const quick=h('div',{class:'nf-bet-quick'},...[5000,25000,100000,500000,1000000].map(n=>h('button',{class:'nf-chip-btn',onclick:()=>{input.value=n}},fmt(n))),h('button',{class:'nf-chip-btn all-in',onclick:()=>{input.value=Math.max(5000,(Number(nova.coins)||0)+mine)}},'All in'));
   const place=()=>{const n=Math.floor(Number(input.value));if(!(n>=5000))return fail(Error('The minimum bet is 5,000 Nova Coins.'));bet('wager',n)};
   potPanel.replaceChildren(
    h('div',{class:'nf-pot-head'},h('div',{},h('small',{},'TOTAL POT'),h('b',{class:'nf-pot-total'},fmt(total)),h('span',{},'Nova Coins · winner takes all')),h('div',{class:'nf-pot-coins','aria-hidden':'true'},...Array.from({length:Math.min(6,Math.max(1,Object.keys(stakes).length*2))},(_,i)=>h('i',{style:{'--i':i}})))),
    h('div',{class:'nf-pot-list'},...humans.map(p=>{const w=stakes[p.id];return h('div',{class:'nf-pot-row'+(w?' paid':'')},identity(p,{size:'sm'}),h('b',{},w?fmt(w.amount):'No bet yet'))}),...(players.some(p=>p.bot)?[h('p',{class:'nf-note'},'Bots do not bet. If a bot wins, every bet is refunded.')]:[])),
    h('div',{class:'nf-bet'},input,h('button',{class:'nf-btn go',onclick:place},mine?'Update bet':'Place bet'),mine?h('button',{class:'nf-btn',onclick:()=>bet('unwager')},'Withdraw'):null),
-   quick,h('p',{class:'nf-note'},'Minimum 5,000. Bets lock when the game starts. If the room closes before a winner, everyone is refunded.'));
+   quick,h('p',{class:'nf-note'},'Minimum bet 5,000, no maximum. Bets lock when the game starts. If the room closes before a winner, everyone is refunded.'));
  }
- const startRoom=async()=>{try{await room.start();if(room.settings.wagers&&room.gameId)await control('novaFlip',{op:'wagerLock',room:room.code,gameId:room.gameId}).catch(e=>toast('Bets could not lock: '+e.message,{error:true}))}catch(e){fail(e)}};
+ // The server deals the cards and locks the bets when it starts the game.
+ const startRoom=async()=>{try{await room.start()}catch(e){fail(e)}};
  const paint=()=>{
   if(!room.data)return;
   const players=room.players;
@@ -421,6 +422,7 @@ function playTable(session,{mode,room,profiles,onExit,again}){
   const left=Math.max(0,v.deadline-Date.now());
   bar.style.transition='none';bar.style.width=(left/total*100)+'%';bar.offsetWidth;bar.style.transition='width '+left+'ms linear';bar.style.width='0';
  }
+ let flipCooling=false;
  let lastHandKey='',autoDrawSeq=-1,autoDrawTimer=0;onCleanup(()=>clearTimeout(autoDrawTimer));
  let resizeFrame=0;const onResize=()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>{lastHandKey='';render()})};addEventListener('resize',onResize,{passive:true});onCleanup(()=>removeEventListener('resize',onResize));
  function render(event={}){
@@ -477,7 +479,7 @@ function playTable(session,{mode,room,profiles,onExit,again}){
   turnLabel.textContent=v.phase!=='play'?'Game over':myTurn?(!v.drawn&&!oks.some(Boolean)?(v.pending?'Taking +'+v.pending.amount+'…':'No match · drawing…'):v.pending?'Stack the same card or take +'+v.pending.amount:v.drawn?'Play the card you drew or pass':'Your turn'):v.players[v.turn].name+'’s turn';
   passBtn.hidden=!(myTurn&&v.drawn);
   const lastCall=v.oneCard&&v.oneCard.player===mine&&!v.oneCard.called&&n===1;
-  flipBtn.disabled=!(lastCall||(myTurn&&n===2));flipBtn.classList.toggle('urgent',!!lastCall);
+  flipBtn.disabled=flipCooling||!(lastCall||(myTurn&&n===2&&v.preCalled!==mine));flipBtn.classList.toggle('urgent',!!lastCall);
   // log
   log.replaceChildren(...(v.log||[]).slice(-5).map(l=>h('p',{},l.text)));
   if(myTurn&&!lastTurnMine)sfx.turn();lastTurnMine=myTurn;
@@ -503,16 +505,21 @@ function playTable(session,{mode,room,profiles,onExit,again}){
  async function choose(card,el){
   const v=session.view;let color,target;
   try{
+   // Stacking from your own hand: offer the other cards with the same number or symbol.
+   let extra;const st=v.settings||{};
+   const mates=st.stacking&&!needsTarget({settings:st},card)&&!(st.sevenZero&&card.v==='0')&&card.v!=='discard'?session.myHand.filter(c=>c.id!==card.id&&c.v===card.v):[];
+   if(mates.length){extra=await pickStack(card,mates);if(extra==null)return;if(!extra.length)extra=undefined}
    if(isWild(card)){color=await pickColor();if(!color)return}
    if(needsTarget({settings:v.settings},card)&&session.myHand.length>1){target=await pickTarget(v);if(target==null)return}
    pendingFrom=el.getBoundingClientRect();
-   await session.act({type:'play',cardId:card.id,color,target});sfx.play();
+   await session.act({type:'play',cardId:card.id,color,target,extra});sfx.play();
   }catch(e){fail(e)}
  }
  let pendingFrom=null;
  drawPile.onclick=async()=>{const v=session.view;if(!(v.turn===session.mySeat&&v.phase==='play'&&!v.drawn))return;try{await session.act({type:'draw'});sfx.draw()}catch(e){fail(e)}};
  passBtn.onclick=async()=>{try{await session.act({type:'pass'})}catch(e){fail(e)}};
- flipBtn.onclick=async()=>{try{await session.act({type:'flip'});sfx.flip();bubble(session.mySeat)}catch(e){fail(e)}};
+ flipBtn.onclick=async()=>{if(flipCooling||flipBtn.disabled)return;flipCooling=true;flipBtn.disabled=true;const cool=setTimeout(()=>{flipCooling=false;render()},800);onCleanup(()=>clearTimeout(cool));
+  try{await session.act({type:'flip'});sfx.flip();bubble(session.mySeat)}catch(e){fail(e)}};
  function bubble(seat){const el=seatEl(seat);if(!el)return;el.querySelector('.nf-bubble')?.remove();const b=h('span',{class:'nf-bubble'},'UNO!');el.append(b);clearTimeout(bubbles.get(seat));bubbles.set(seat,setTimeout(()=>b.remove(),2200))}
 
  const off=session.on(event=>{
@@ -565,13 +572,22 @@ function playTable(session,{mode,room,profiles,onExit,again}){
  }
 }
 function registerGame(session,mode,room){
- if(!nova.signedIn)return Promise.reject(Error('guest'));
+ if(!nova.signedIn){const guest=Promise.reject(Error('guest'));guest.catch(()=>{});return guest}   // guests play for points only
  const v=session.view;
  const p=control('novaFlip',{op:'start',mode,players:v?.players?.length||session.s?.players.length||2,room:room?.code,gameId:session.gameId||room?.gameId||room?.data?.gameId});
  p.catch(()=>{});return p;
 }
 function countUp(el,to){const start=performance.now(),dur=900;const step=t=>{const k=Math.min(1,(t-start)/dur);el.textContent='+'+fmt(Math.round(to*(1-Math.pow(1-k,3))));if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
 function pickColor(){return new Promise(resolve=>{const dlg=h('div',{class:'nf-dialog'},h('h2',{},'Choose a color'),h('p',{},'The next player must match it.'),h('div',{class:'nf-colors'},...COLORS.map(c=>h('button',{'data-c':c,onclick:()=>{done=true;closeModal();resolve(c)}},COLOR_NAMES[c]))));let done=false;openModal(dlg);const m=modal;new MutationObserver((_,o)=>{if(!m.isConnected){o.disconnect();if(!done)resolve(null)}}).observe(document.body,{childList:true})})}
+// Stack picker: the tapped card plus every card with the same number/symbol. All start selected.
+function pickStack(card,mates){return new Promise(resolve=>{let done=false;const chosen=new Set(mates.map(c=>c.id));
+ const row=h('div',{class:'nf-stack-pick'},h('div',{class:'nf-stack-card lead'},cardEl(card)),...mates.map(c=>{const b=h('button',{class:'nf-stack-card','aria-pressed':'true','aria-label':'Include '+(c.c==='w'?'':COLOR_NAMES[c.c]+' ')+(LABELS[c.v]||c.v)},cardEl(c));b.onclick=()=>{chosen.has(c.id)?chosen.delete(c.id):chosen.add(c.id);b.setAttribute('aria-pressed',String(chosen.has(c.id)));all.textContent=chosen.size?'Play '+(chosen.size+1)+' cards':'Play 1 card'};return b}));
+ const finish=v=>{done=true;closeModal();resolve(v)};
+ const all=h('button',{class:'nf-btn go',onclick:()=>finish([...chosen])},'Play '+(mates.length+1)+' cards');
+ const one=h('button',{class:'nf-btn',onclick:()=>finish([])},'Just this one');
+ const what=/^\d$/.test(card.v)?'number '+card.v:LABELS[card.v]||card.v;
+ openModal(h('div',{class:'nf-dialog nf-stack-dialog'},h('h2',{},'Stack your cards?'),h('p',{},'You have more than one '+what+'. Tap a card to leave it out.'),row,h('div',{class:'nf-row',style:{justifyContent:'center',gap:'10px'}},one,all)));
+ const m=modal;new MutationObserver((_,o)=>{if(!m.isConnected){o.disconnect();if(!done)resolve(null)}}).observe(document.body,{childList:true})})}
 function pickTarget(v){return new Promise(resolve=>{let done=false;const list=h('div',{class:'nf-list'},...v.players.map((p,k)=>k===v.turn?null:h('button',{class:'nf-item',onclick:()=>{done=true;closeModal();resolve(k)}},h('b',{class:'grow'},p.name),h('span',{class:'nf-pill'},p.count+' cards'))));openModal(h('div',{class:'nf-dialog'},h('h2',{},'Swap hands with…'),h('p',{},'You will trade your whole hand with this player.'),list));const m=modal;new MutationObserver((_,o)=>{if(!m.isConnected){o.disconnect();if(!done)resolve(null)}}).observe(document.body,{childList:true})})}
 function confetti(){
  if(motionReduced())return;const c=h('canvas',{class:'nf-confetti'});document.body.append(c);const x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;

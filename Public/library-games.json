@@ -9265,5 +9265,126 @@
       "Casual"
     ],
     "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1052,
+    "name": "Spore",
+    "url": "https://noahstutoring.academy/library/spore/",
+    "art": "content/noah-import/covers/1052-noah.jpg",
+    "genres": [
+      "Simulation",
+      "Sandbox"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1053,
+    "name": "Find the Needle",
+    "url": "/content/noah-import/games/1053.html",
+    "art": "content/noah-import/covers/1053-noah.jpg",
+    "genres": [
+      "Puzzle",
+      "Adventure"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1054,
+    "name": "POSTAL 2",
+    "url": "/content/noah-import/games/1054.html",
+    "art": "content/noah-import/covers/1054-noah.jpg",
+    "genres": [
+      "Action",
+      "Open World"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1055,
+    "name": "ROAM0120.EXE",
+    "url": "/content/noah-import/games/1055.html",
+    "art": "content/noah-import/covers/1055-noah.jpg",
+    "genres": [
+      "Action",
+      "Survival"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1056,
+    "name": "Team Fortress 2",
+    "url": "/content/noah-import/games/1056.html",
+    "art": "content/noah-import/covers/1056-noah.jpg",
+    "genres": [
+      "Action",
+      "Multiplayer"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1057,
+    "name": "The One Fish",
+    "url": "/content/noah-import/games/1057.html",
+    "art": "content/noah-import/covers/1057-noah.jpg",
+    "genres": [
+      "Simulation",
+      "Adventure"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1058,
+    "name": "Five Nights at Freddy's: Into The Pit",
+    "url": "/content/noah-import/games/1058.html",
+    "art": "content/noah-import/covers/1058-noah.jpg",
+    "genres": [
+      "Horror",
+      "Adventure"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1059,
+    "name": "Sally Face",
+    "url": "/content/noah-import/games/1059.html",
+    "art": "content/noah-import/covers/1059-noah.jpg",
+    "genres": [
+      "Horror",
+      "Adventure"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1060,
+    "name": "Feed & Grow: Fish",
+    "url": "/content/noah-import/games/1060.html",
+    "art": "content/noah-import/covers/1060-noah.jpg",
+    "genres": [
+      "Simulation",
+      "Survival"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1061,
+    "name": "Leaf Blower Revolution",
+    "url": "/content/noah-import/games/1061.html",
+    "art": "content/noah-import/covers/1061-noah.jpg",
+    "genres": [
+      "Idle & simulation",
+      "Incremental"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1062,
+    "name": "Project Zomboid Tech Demo",
+    "url": "/content/noah-import/games/1062.html",
+    "art": "content/noah-import/covers/1062-noah.jpg",
+    "genres": [
+      "Survival",
+      "Adventure"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
   }
 ]

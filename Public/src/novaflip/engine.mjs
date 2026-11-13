@@ -93,37 +93,51 @@ export const needsTarget=(s,card)=>card.v==='swap'||(s.settings.sevenZero&&card.
 function assertTurn(s,p){if(s.phase!=='play')throw Error('The game is over.');if(s.turn!==p)throw Error('It is not your turn.')}
 function advance(s,steps=1){s.turn=nextIndex(s,s.turn,steps);s.drawn=null;s.moves=(s.moves||0)+1}
 
-export function play(s,p,cardId,{color,target}={}){
+// Cards that can join a stacked play: same number or same action as the first card
+// (e.g. two +2s, a red 6 and a green 6). Swap and 7-0 hand passes stay single plays.
+export function stackMates(s,p,card){
+ if(!s.settings.stacking||needsTarget(s,card)||(s.settings.sevenZero&&card.v==='0')||card.v==='discard')return [];
+ return s.players[p].hand.filter(c=>c.id!==card.id&&c.v===card.v);
+}
+export function play(s,p,cardId,{color,target,extra}={}){
  assertTurn(s,p);
  const hand=s.players[p].hand,i=hand.findIndex(c=>c.id===cardId);
  if(i<0)throw Error('That card is not in your hand.');
  const card=hand[i];
  if(!canPlay(s,p,card))throw Error('That card cannot be played right now.');
- if(isWild(card)&&!COLORS.includes(color))throw Error('Choose a color.');
+ // Stacking from your own hand: extra cards must match the first card's number/action.
+ const extraIds=Array.isArray(extra)?[...new Set(extra.filter(id=>typeof id==='string'&&id!==cardId))]:[];
+ const mates=extraIds.length?stackMates(s,p,card):[];
+ if(extraIds.length&&!s.settings.stacking)throw Error('Stacking is turned off in this game.');
+ const extras=extraIds.map(id=>{const c=mates.find(m=>m.id===id);if(!c)throw Error('Only cards with the same number or symbol can be stacked.');return c});
+ const played=[card,...extras],last=played[played.length-1],k=played.length;
+ if(played.some(isWild)&&!COLORS.includes(color))throw Error('Choose a color.');
  const wantsTarget=needsTarget(s,card)&&hand.length>1;
  if(wantsTarget&&(!Number.isInteger(target)||target===p||!s.players[target]))throw Error('Choose a player to swap with.');
- hand.splice(i,1);s.discard.push(card);s.color=isWild(card)?color:card.c;s.drawn=null;
  const me=s.players[p];
- note(s,me.name+' played '+describe(card)+(isWild(card)?' → '+COLOR_NAMES[color]:''),{player:p,card:card.id});
+ me.hand=hand.filter(c=>!played.includes(c));s.discard.push(...played);s.color=isWild(last)?color:last.c;s.drawn=null;
+ note(s,me.name+' played '+(k>1?k+'× '+(LABELS[card.v]||card.v)+' ('+played.map(c=>isWild(c)?'Wild':COLOR_NAMES[c.c]).join(', ')+')':describe(card))+(isWild(last)?' → '+COLOR_NAMES[color]:''),{player:p,card:last.id,count:k});
  s.seq++;
- if(!hand.length){finish(s,p);return s}
+ if(!me.hand.length){finish(s,p);return s}
  if(card.v==='discard'){
-  const dumped=hand.filter(c=>c.c===card.c);
-  if(dumped.length){me.hand=hand.filter(c=>c.c!==card.c);s.discard.splice(s.discard.length-1,0,...dumped);note(s,me.name+' dumped '+dumped.length+' '+COLOR_NAMES[card.c]+' card'+(dumped.length>1?'s':''));if(!me.hand.length){finish(s,p);return s}}
+  const dumped=me.hand.filter(c=>c.c===card.c);
+  if(dumped.length){me.hand=me.hand.filter(c=>c.c!==card.c);s.discard.splice(s.discard.length-1,0,...dumped);note(s,me.name+' dumped '+dumped.length+' '+COLOR_NAMES[card.c]+' card'+(dumped.length>1?'s':''));if(!me.hand.length){finish(s,p);return s}}
  }
  if(wantsTarget){const other=s.players[target];[me.hand,other.hand]=[other.hand,me.hand];note(s,me.name+' swapped hands with '+other.name)}
- if(s.settings.sevenZero&&card.v==='0'){const hands=s.players.map(x=>x.hand);s.players.forEach((x,k)=>{x.hand=hands[nextIndex(s,k,-1)]});note(s,'Everyone passed their hand '+(s.dir>0?'left':'right'))}
+ if(s.settings.sevenZero&&card.v==='0'){const hands=s.players.map(x=>x.hand);s.players.forEach((x,j)=>{x.hand=hands[nextIndex(s,j,-1)]});note(s,'Everyone passed their hand '+(s.dir>0?'left':'right'))}
  if(s.oneCard&&s.players[s.oneCard.player].hand.length!==1)s.oneCard=null;
  if(me.hand.length===1){s.oneCard={player:p,called:s.preCalled===p,at:Date.now()};if(s.preCalled===p)note(s,me.name+' called UNO!',{flip:p})}
  s.preCalled=null;
  if(isDraw(card)){
-  const amount=DRAW_VALUE[card.v];
+  const amount=DRAW_VALUE[card.v]*k;
   if(s.settings.stacking){s.pending={amount:(s.pending?.amount||0)+amount,top:card.v};advance(s)}
   else{const victim=nextIndex(s);drawCards(s,victim,amount);note(s,s.players[victim].name+' drew '+amount+' and was skipped');advance(s,2)}
   return s;
  }
- if(card.v==='skip'){note(s,s.players[nextIndex(s)].name+' was skipped');advance(s,2);return s}
- if(card.v==='rev'){s.dir*=-1;if(s.players.length===2)advance(s,2);else advance(s);return s}
+ // Two skips skip two players, and so on (it wraps around the table).
+ if(card.v==='skip'){note(s,k>1?k+' players were skipped':s.players[nextIndex(s)].name+' was skipped');advance(s,1+k);return s}
+ // Each reverse flips direction; in a 2-player game each one acts as a skip.
+ if(card.v==='rev'){if(s.players.length===2){advance(s,1+k);return s}if(k%2)s.dir*=-1;advance(s);return s}
  if(card.v==='skipall'){note(s,'Everyone was skipped · '+me.name+' goes again');s.drawn=null;s.moves=(s.moves||0)+1;return s}
  advance(s);return s;
 }
@@ -147,8 +161,13 @@ export function pass(s,p){assertTurn(s,p);if(!s.drawn)throw Error('Draw a card f
 
 // "FLIP!" — the last-card call. Calling is allowed with two cards on your turn
 // (pre-call) or any time you are sitting on one card.
+// Calling again when you already called changes nothing and returns false, so spamming the
+// button can't flood the log or keep resetting the game's timers.
 export function callFlip(s,p){
+ if(s.phase!=='play'||!s.players[p])return false;
  const n=s.players[p].hand.length;
+ if(n===1&&s.oneCard?.player===p&&s.oneCard.called)return false;
+ if(n===2&&s.preCalled===p)return false;
  if(n===1){s.oneCard={player:p,called:true,at:Date.now()};note(s,s.players[p].name+' called UNO!',{flip:p});s.seq++;return true}
  if(n===2&&s.turn===p){s.preCalled=p;return true}
  return false;
@@ -172,7 +191,7 @@ export function publicView(s){
  return {
   players:s.players.map(p=>({id:p.id,name:p.name,bot:p.bot,count:p.hand.length})),
   top:top(s),color:s.color,dir:s.dir,turn:s.turn,pending:s.pending,drawn:!!s.drawn,drawnId:s.drawn,
-  oneCard:s.oneCard,phase:s.phase,winner:s.winner,points:s.points||0,deckCount:s.deck.length,
+  oneCard:s.oneCard,preCalled:s.preCalled??null,phase:s.phase,winner:s.winner,points:s.points||0,deckCount:s.deck.length,
   log:s.log.slice(-12),seq:s.seq,settings:s.settings,startedAt:s.startedAt
  };
 }

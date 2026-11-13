@@ -1,4 +1,4 @@
-import {COLORS,DRAW_VALUE,isWild,isDraw,needsTarget,playable} from './engine.mjs?v=5';
+import {COLORS,DRAW_VALUE,isWild,isDraw,needsTarget,playable,stackMates} from './engine.mjs?v=9';
 
 const BOT_NAMES=['Orbit','Pixel','Comet','Nebula','Vega','Quasar','Luna','Nova Bot','Astra','Zephyr'];
 export function botNames(count,taken=[]){const pool=BOT_NAMES.filter(n=>!taken.includes(n));const out=[];while(out.length<count)out.push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]||'Bot '+(out.length+1));return out}
@@ -35,7 +35,9 @@ export function chooseMove(s,p){
  const card=options.slice().sort((a,b)=>rank(b)-rank(a))[0];
  const rest=me.hand.filter(c=>c.id!==card.id);
  const move={type:'play',cardId:card.id};
- if(isWild(card))move.color=bestColor(rest);
+ const mates=level==='easy'?[]:stackMates(s,p,card);
+ if(mates.length)move.extra=mates.map(c=>c.id);
+ if(isWild(card))move.color=bestColor(rest.filter(c=>!move.extra?.includes(c.id)));
  if(needsTarget(s,card)&&me.hand.length>1){
   let best=-1,fewest=Infinity;
   for(const [k,x]of s.players.entries())if(k!==p&&x.hand.length<fewest){fewest=x.hand.length;best=k}

@@ -2,12 +2,13 @@
 // start → issues a one-time game token; claim → verifies the token, a minimum
 // game length and (online) the host-published result, then pays out.
 import {randomUUID} from 'node:crypto';
+import {tableAction} from './nova-flip-table.mjs';
 
 export const FLIP_BASE_POINTS=1000;
 export const FLIP_MAX_POINTS=2500;      // 1000 base + up to 1500 from cards left in opponents' hands
 export const FLIP_ONLINE_BONUS=0;       // online wins pay the same flat reward
 export const FLIP_WIN_COINS=5000;       // Nova Coins for every counted win
-export const FLIP_MIN_WAGER=5000,FLIP_MAX_WAGER=5000000;
+export const FLIP_MIN_WAGER=5000,FLIP_MAX_WAGER=1000000000;   // no real cap: bets are limited by the player's own balance
 export const FLIP_DAILY_COIN_WINS=15;   // wins per UTC day that pay coins (points still count after)
 export const FLIP_MIN_SECONDS=45;
 
@@ -43,8 +44,9 @@ export async function novaFlipAction({db,uid,account,b,now,initial}){
   let points,bonus=0;
   if(game.mode==='online'){
    const room=(await db.ref('novaFlip/rooms/'+game.room).get()).val();
-   const result=room?.lastResult;
-   if(!result||result.gameId!==game.gameId||result.winner!==uid)throw Error('The room did not record you as the winner.');
+   // Only the result written by the server-run table counts (never a value a player wrote).
+   const result=(await db.ref('novaControl/flipTables/'+game.room+'/result').get()).val();
+   if(!result||result.gameId!==game.gameId||result.winner!==uid)throw Error('The server did not record you as the winner.');
    if(!room.players?.[uid]&&room.host!==uid)throw Error('You are no longer in that room.');
    points=Number(result.points)||FLIP_BASE_POINTS;
    if((result.humans||1)>=2)bonus=FLIP_ONLINE_BONUS;
@@ -62,6 +64,7 @@ export async function novaFlipAction({db,uid,account,b,now,initial}){
   await db.ref('novaFlip/stats/'+uid).set({name:String(account?.name||'Nova player').slice(0,32),wins:stats.wins,points:stats.points,best:stats.best,updatedAt:now}).catch(()=>{});
   return {ok:true,points,coinsWon,bonus:paid?bonus:0,limited:!paid,coins,stats:{...stats,dailyLimit:FLIP_DAILY_COIN_WINS}};
  }
+ if(['tableStart','tableMove','tableTick'].includes(b.op))return tableAction({db,uid,b,now,lockWagers:(room,gameId,roomData)=>lockWagers(db,room,gameId,roomData,now,initial)});
  if(['wager','unwager','wagerLock','wagerSettle'].includes(b.op))return wagerAction({db,uid,account,b,now,initial});
  throw Error('Unknown Nova Flip request.');
 }
@@ -89,16 +92,16 @@ async function payout(db,room,entries,winner,initial,now){
  return {pot,paidTo:winnerStaked?winner:null,refunded:!winnerStaked};
 }
 export async function settleRoomWagers(db,room,now,initial){
- const roomData=(await db.ref('novaFlip/rooms/'+room).get()).val();
- const result=roomData?.lastResult,open=roomData&&roomData.status!=='closed';
+ const [roomData,table]=await Promise.all([db.ref('novaFlip/rooms/'+room).get(),db.ref('novaControl/flipTables/'+room).get()]).then(r=>r.map(x=>x.val()));
+ const result=table?.result,open=roomData&&roomData.status!=='closed';
  let taken=[],winner=null;
  await wagersRef(db,room).transaction(all=>{taken=[];winner=null;if(!all)return all;
   const game=all._game;
   for(const [id,e]of Object.entries(all)){if(id==='_game'||!e)continue;
    const lockedHere=game&&e.gameId===game.gameId;
    // A result posted less than 45 seconds after the stakes locked is not trusted: everyone is refunded.
-   if(lockedHere&&result?.gameId===game.gameId){taken.push([id,e]);winner=Number(result.at||now)-Number(game.at||0)>=FLIP_MIN_SECONDS*1000?result.winner:null}
-   else if(lockedHere&&(!open||roomData.gameId!==game.gameId))taken.push([id,e]);      // game abandoned
+   if(lockedHere&&result?.gameId===game.gameId){taken.push([id,e]);winner=!result.winnerBot&&Number(result.at||now)-Number(game.at||0)>=FLIP_MIN_SECONDS*1000?result.winner:null}
+   else if(lockedHere&&(!open||table?.gameId!==game.gameId))taken.push([id,e]);       // game abandoned
    else if(!lockedHere&&!open)taken.push([id,e]);                                     // lobby closed
   }
   for(const [id]of taken)delete all[id];
@@ -117,16 +120,7 @@ async function wagerAction({db,uid,account,b,now,initial}){
  if(b.op==='wagerSettle')return {ok:true,...await settleRoomWagers(db,b.room,now,initial)};
  if(!roomData||roomData.status==='closed')throw Error('That room has closed.');
  const member=roomData.host===uid||!!roomData.players?.[uid];
- if(b.op==='wagerLock'){
-  if(roomData.host!==uid)throw Error('Only the host can lock wagers.');
-  if(roomData.status!=='playing'||!uuid(b.gameId)||roomData.gameId!==b.gameId)throw Error('Start the game first.');
-  const refunds=[];
-  await wagersRef(db,b.room).transaction(all=>{refunds.length=0;if(!all)return all;
-   for(const [id,e]of Object.entries(all)){if(id==='_game'||!e||e.gameId)continue;if(roomData.players?.[id]||id===roomData.host)e.gameId=b.gameId;else{refunds.push([id,e]);delete all[id]}}
-   all._game={gameId:b.gameId,at:now};return all});
-  for(const [id,e]of refunds){await moveCoins(db,id,e.amount,initial);await db.ref().update({['novaFlip/rooms/'+b.room+'/wagers/'+id]:null,['novaControl/flipWagerUsers/'+id+'/'+b.room]:null})}
-  return {ok:true};
- }
+ if(b.op==='wagerLock')return {ok:true};   // bets now lock automatically when the server starts the game
  if(!member)throw Error('Join the room first.');
  if(roomData.status!=='lobby')throw Error('Wagers can only change in the lobby.');
  if(!roomData.settings?.wagers)throw Error('The host has not turned on wagering for this room.');
@@ -134,7 +128,7 @@ async function wagerAction({db,uid,account,b,now,initial}){
  if(current?.gameId)throw Error('Your wager is locked into the current game.');
  const old=current?.amount||0;
  const amount=b.op==='unwager'?0:Number(b.amount);
- if(b.op==='wager'&&(!Number.isSafeInteger(amount)||amount<FLIP_MIN_WAGER||amount>FLIP_MAX_WAGER))throw Error('Wager at least '+FLIP_MIN_WAGER.toLocaleString('en-US')+' Nova Coins (up to '+FLIP_MAX_WAGER.toLocaleString('en-US')+').');
+ if(b.op==='wager'&&(!Number.isSafeInteger(amount)||amount<FLIP_MIN_WAGER||amount>FLIP_MAX_WAGER))throw Error('Wager at least '+FLIP_MIN_WAGER.toLocaleString('en-US')+' Nova Coins.');
  const coins=await moveCoins(db,uid,old-amount,initial);
  const name=String(account?.name||'Nova player').slice(0,32);
  try{
@@ -142,4 +136,14 @@ async function wagerAction({db,uid,account,b,now,initial}){
    :{['novaControl/flipWagers/'+b.room+'/'+uid]:null,['novaFlip/rooms/'+b.room+'/wagers/'+uid]:null,['novaControl/flipWagerUsers/'+uid+'/'+b.room]:null});
  }catch(error){await moveCoins(db,uid,amount-old,initial);throw error}
  return {ok:true,amount,coins};
+}
+
+// Called by the server when it starts a table: stakes of seated players lock to that game,
+// anyone who bet but is no longer seated is refunded.
+export async function lockWagers(db,room,gameId,roomData,now,initial){
+ const refunds=[];
+ await wagersRef(db,room).transaction(all=>{refunds.length=0;if(!all)return all;
+  for(const [id,e]of Object.entries(all)){if(id==='_game'||!e||e.gameId)continue;if(roomData.players?.[id]||id===roomData.host)e.gameId=gameId;else{refunds.push([id,e]);delete all[id]}}
+  all._game={gameId,at:now};return all});
+ for(const [id,e]of refunds){await moveCoins(db,id,e.amount,initial);await db.ref().update({['novaFlip/rooms/'+room+'/wagers/'+id]:null,['novaControl/flipWagerUsers/'+id+'/'+room]:null})}
 }
