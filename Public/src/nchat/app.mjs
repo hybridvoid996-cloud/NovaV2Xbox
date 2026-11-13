@@ -1,14 +1,14 @@
 // Nova Chat app shell: data, layout, navigation and views.
-import {state,el,h,icon,avatar,nameNode,person,isBot,botTag,BOT_ID,isStaff,isOwner,online,statusOf,activityText,asset,topRole,toast,fail,task,sheet,popover,dmPath,lowPower,fmt,role} from './core.mjs';
-import {createLoader} from './loader.mjs';
-import {createMessageList} from './messages.mjs';
-import {createComposer} from './composer.mjs';
-import {showMiniProfile,openFullProfile,profileCard,setProfileActions} from './profile.mjs';
-import {friendsView,groupBuilder} from './friends.mjs';
-import {openSettings} from './settings.mjs';
+import {state,el,h,icon,avatar,nameNode,person,isBot,botTag,BOT_ID,isStaff,isOwner,online,statusOf,activityText,asset,topRole,toast,fail,task,sheet,popover,dmPath,lowPower,fmt,role} from './core.mjs?v=9';
+import {createLoader} from './loader.mjs?v=9';
+import {createMessageList} from './messages.mjs?v=9';
+import {createComposer} from './composer.mjs?v=9';
+import {showMiniProfile,openFullProfile,profileCard,setProfileActions,dmPanel} from './profile.mjs?v=9';
+import {friendsView,groupBuilder} from './friends.mjs?v=9';
+import {openSettings} from './settings.mjs?v=9';
 import {control} from '../control-client.js';
 import {rolesFor,paintName} from '../chat-server.js?v=20261029-chat387';
-import {showNitro} from '../chat-store.js?v=20261029-shop387';
+import {nitroView} from './nitro.mjs?v=9';
 import {startNotifications,applyPreferences} from '../chat-preferences.js?v=20261029-motion372';
 import {mountVoice} from '../../voice-chat.js';
 
@@ -62,13 +62,13 @@ function legacy(){
 
 // ---------- navigation ----------
 function stopCurrent(){current?.stop?.();current=null;content.replaceChildren();main.classList.remove('nova-voice-view')}
-function go(view){state.view=view;paintRail();paintChannels();paintMembers();try{sessionStorage.setItem('nova_chat_view',JSON.stringify(view))}catch{}}
+function go(view){state.view=view;app.classList.toggle('nc-focus',['nitro','shop'].includes(view.type));paintRail();paintChannels();paintMembers();try{sessionStorage.setItem('nova_chat_view',JSON.stringify(view))}catch{}}
 function openChannel(id){stopCurrent();go({type:'channel',id});renderConversation()}
 function openDM(id){if(id===BOT_ID)return openBot();if(!state.friends[id]){toast('You can only message friends.');return}stopCurrent();go({type:'dm',id});renderConversation()}
 function openGroup(id){stopCurrent();go({type:'group',id});renderConversation()}
 function openBot(){stopCurrent();go({type:'bot',id:BOT_ID});renderConversation()}
 function openFriends(){stopCurrent();go({type:'friends'});topbarFor();friendsRef=friendsView(content,{api,control,openDM,openGroup,addFriend,acceptFriend,ignoreFriend,preview});current={stop(){friendsRef=null}}}
-function openNitro(){stopCurrent();go({type:'nitro'});topbarFor();const host=el('div','nc-page nc-nitro');content.append(host);try{showNitro(host,legacy())}catch(e){fail(e)}}
+function openNitro(){stopCurrent();go({type:'nitro'});topbarFor();const host=el('div','nc-page nc-nitro');content.append(host);try{nitroView(host,{settings:k=>settings(k),preview})}catch(e){fail(e)}}
 function openShop(){stopCurrent();go({type:'shop'});topbarFor();const f=h('iframe',{class:'nc-shop',src:'/shop.html'+(preview?'?preview':''),title:'Nova Shop'});content.append(f)}
 function openForm(kind){stopCurrent();go({type:'form',id:kind});topbarFor();supportForm(kind)}
 function openStaffInbox(){stopCurrent();go({type:'inbox'});topbarFor();staffInbox()}
@@ -78,7 +78,7 @@ async function addFriend(id){if(id===state.me.uid)throw Error('That\'s you!');if
 async function acceptFriend(id){await api.patch({['friends/'+state.me.uid+'/'+id]:true,['friends/'+id+'/'+state.me.uid]:true,['requests/'+state.me.uid+'/'+id]:null});toast('You and '+person(id).name+' are now friends.')}
 async function ignoreFriend(id){await api.del('requests/'+state.me.uid+'/'+id)}
 async function removeFriend(id){await api.patch({['friends/'+state.me.uid+'/'+id]:null,['friends/'+id+'/'+state.me.uid]:null})}
-setProfileActions({openDM,addFriend,acceptFriend,removeFriend,openSettings:k=>settings(k),mutualFriends:async id=>preview?Object.keys(state.friends).filter(f=>f!==id):(await control('chatMutualFriends',{uid:id})).friends||[]});
+setProfileActions({sendDM:async(id,text)=>{if(!state.friends[id])return openDM(id);await api.send(dmPath(id),{author:state.me.uid,text});openDM(id)},openDM,addFriend,acceptFriend,removeFriend,openSettings:k=>settings(k),mutualFriends:async id=>preview?Object.keys(state.friends).filter(f=>f!==id):(await control('chatMutualFriends',{uid:id})).friends||[]});
 
 function settings(section='Profile'){openSettings(section,{api,control,legacy,preview,resetPublic,applyBackground})}
 function resetPublic(){
@@ -93,14 +93,14 @@ function leaveChat(){if(parent!==window)parent.postMessage({novaAction:'closeApp
 function railButton(node,label,fn,active){const b=h('button',{type:'button',class:'nc-rail-btn'+(active?' on':''),'aria-label':label});b.append(node,el('span','nc-tip',label));b.onclick=fn;return b}
 function paintRail(){
  rail.replaceChildren();const v=state.view.type;
- const server=el('span','nc-server-icon');if(state.serverInfo.icon){const i=el('img');i.src=state.serverInfo.icon;i.alt='';server.append(i)}else server.textContent='N';
+ const server=el('span','nc-server-icon');if(state.serverInfo.icon){const i=el('img');i.src=state.serverInfo.icon;i.alt='';server.append(i)}else{const i=el('img','nova-logo');i.src='/Nova12.png';i.alt='Nova';i.draggable=false;server.append(i)}
  rail.append(railButton(server,state.serverInfo.name||'Nova Network',()=>openChannel(lastChannel()),['channel','nitro','shop','form','inbox','voice'].includes(v)));
  const fr=el('span','nc-rail-ico');fr.append(icon('friend'));const reqs=Object.keys(state.requests||{}).length;if(reqs)fr.append(el('b','nc-badge',String(reqs)));
  rail.append(railButton(fr,'Friends',openFriends,v==='friends'));
  rail.append(el('i','nc-rail-sep'));
  rail.append(railButton(avatar(BOT_ID,'md'),'Nova Bot inbox',openBot,v==='bot'));
  const friends=Object.keys(state.friends).sort((a,b)=>Number(online(b))-Number(online(a))||(person(a).name||'').localeCompare(person(b).name||''));
- for(const id of friends.slice(0,40)){const a=avatar(id,'md',{ring:!!state.presence[id]?.activity});rail.append(railButton(a,person(id).name+(online(id)?' · '+(activityText(id)||'Online'):' · Offline'),()=>openDM(id),v==='dm'&&state.view.id===id))}
+ for(const id of friends.slice(0,40)){const a=avatar(id,'md');rail.append(railButton(a,person(id).name+(online(id)?' · '+(activityText(id)||'Online'):' · Offline'),()=>openDM(id),v==='dm'&&state.view.id===id))}
  for(const [gid,g]of Object.entries(state.groups||{})){const s=el('span','nc-group-ico',(g.name||'G').slice(0,2).toUpperCase());rail.append(railButton(s,g.name||'Group',()=>openGroup(gid),v==='group'&&state.view.id===gid))}
  const add=el('span','nc-rail-ico add');add.append(icon('plus'));rail.append(railButton(add,'Create a group',()=>groupBuilder({api,openGroup,preview})));
  const exit=el('span','nc-rail-ico exit');exit.append(icon('exit'));const ex=railButton(exit,'Leave chat',leaveChat);ex.classList.add('nc-rail-exit');rail.append(ex);
@@ -117,13 +117,15 @@ function categories(){
 }
 function paintServerHead(){
  const info=state.serverInfo||{},boosts=Number(info.boosts||0);serverHead.replaceChildren();
- if(info.banner)serverHead.style.setProperty('--banner','url("'+String(info.banner).replace(/"/g,'')+'")');else serverHead.style.removeProperty('--banner');
+ serverHead.classList.toggle('has-banner',!!info.banner);if(info.banner)serverHead.style.setProperty('--banner','url("'+String(info.banner).replace(/"/g,'')+'")');else serverHead.style.removeProperty('--banner');
  const goal=Math.max(14,Math.ceil((boosts+1)/7)*7);
  serverHead.append(h('div',{class:'nc-server-title'},el('b','',info.name||'Nova Network'),icon('chev')),h('div',{class:'nc-boost'},icon('nitro'),el('span','',fmt(boosts)+' Boosts'),h('i',{class:'nc-boost-bar',style:{'--p':Math.min(100,boosts/goal*100)+'%'}})));
  serverHead.onclick=e=>{const m=el('div','nc-menu');for(const [ic,label,fn,show]of [['nitro','Boost with Nitro',openNitro,true],['bag','Open the Shop',openShop,true],['inbox','Staff inbox',openStaffInbox,isStaff()],['gear','Server settings',()=>settings('Server'),isStaff()],['gear','Chat settings',()=>settings('Appearance'),true],['exit','Leave chat',leaveChat,true]]){if(!show)continue;const b=h('button',{type:'button'},icon(ic),el('span','',label));b.onclick=()=>{p.remove();fn()};m.append(b)}const p=popover(serverHead,m,{side:'right'})};
 }
 function paintChannels(){
  chanList.replaceChildren();const v=state.view;
+ const dmMode=['dm','group','bot','friends'].includes(v.type);sidebar.classList.toggle('dm-mode',dmMode);app.classList.toggle('nc-dm',v.type==='dm'||v.type==='bot');serverHead.hidden=dmMode;
+ if(dmMode){paintDMList(v);return}
  for(const c of categories()){
   if(c.staff&&!isStaff())continue;
   const key='nova_chat_cat_'+c.id,collapsed=localStorage.getItem(key)==='1';
@@ -134,6 +136,18 @@ function paintChannels(){
   if(c.id==='support'&&isStaff()){const b=h('button',{type:'button',class:'nc-chan special'+(v.type==='inbox'?' on':'')},icon('inbox'),el('span','','Staff inbox'));b.onclick=openStaffInbox;chanList.append(b)}
  }
  const vc=el('div','nc-voice-nav');chanList.append(vc);try{voice?.renderSidebar(vc,true)}catch{}
+}
+function paintDMList(v){
+ const find=h('button',{type:'button',class:'nc-dm-find'},'Find or start a conversation');find.onclick=openFriends;chanList.append(h('div',{class:'nc-dm-top'},find));
+ const nav=(ic,label,fn,on,badge)=>{const b=h('button',{type:'button',class:'nc-chan nc-dm-nav'+(on?' on':'')},icon(ic),el('span','',label));if(badge)b.append(el('b','nc-pill-badge',String(badge)));b.onclick=fn;chanList.append(b)};
+ nav('friend','Friends',openFriends,v.type==='friends',Object.keys(state.requests||{}).length);nav('nitro','Nitro',openNitro,false);nav('bag','Shop',openShop,false);
+ const head=h('div',{class:'nc-dm-head'},el('span','','DIRECT MESSAGES'));const add=h('button',{type:'button',class:'nc-icon-btn sm','aria-label':'Create a group',title:'Create a group'},icon('plus'));add.onclick=()=>groupBuilder({api,openGroup,preview});head.append(add);chanList.append(head);
+ const row=(node,name,sub,fn,on)=>{const b=h('button',{type:'button',class:'nc-dm-row'+(on?' on':'')},node,h('span',{class:'nc-dm-copy'},name,sub?el('small','',sub):''));b.onclick=fn;chanList.append(b);return b};
+ row(avatar(BOT_ID,'md'),h('span',{class:'nc-dm-name'},el('b','','Nova Bot'),botTag()),'Gifts, trades and replies',openBot,v.type==='bot');
+ for(const [gid,g]of Object.entries(state.groups||{})){const ic=el('span','nc-group-ico sm',(g.name||'G').slice(0,2).toUpperCase());row(ic,el('b','',g.name||'Group'),Object.keys(g.members||{}).length+' Members',()=>openGroup(gid),v.type==='group'&&v.id===gid)}
+ const friends=Object.keys(state.friends||{}).sort((a,b)=>(online(b)-online(a))||String(person(a).name).localeCompare(person(b).name));
+ for(const id of friends){const r=row(avatar(id,'md'),nameNode(id,'b'),online(id)?activityText(id)||'':'',()=>openDM(id),v.type==='dm'&&v.id===id);if(!online(id))r.classList.add('off')}
+ if(!friends.length)chanList.append(el('p','nc-dm-empty','Add friends to start chatting.'));
 }
 function paintUserPanel(){
  const me=state.me.uid,p=person(me);userPanel.replaceChildren();
@@ -153,7 +167,7 @@ function memberRow(id){const r=h('button',{type:'button',class:'nc-member'+(onli
 function paintMembersNow(){
  const v=state.view;members.replaceChildren();
  if(document.body.classList.contains('nc-hide-members')&&v.type==='channel'){members.hidden=true;return}
- if(v.type==='dm'){members.hidden=false;members.classList.add('dm');members.append(profileCard(v.id,{compact:true}));return}
+ if(v.type==='dm'){members.hidden=false;members.classList.add('dm');members.append(dmPanel(v.id));return}
  members.classList.remove('dm');
  if(v.type==='group'){members.hidden=false;const g=state.groups[v.id]||{};members.append(el('h6','nc-mhead','MEMBERS — '+Object.keys(g.members||{}).length));for(const id of Object.keys(g.members||{}))members.append(memberRow(id));return}
  if(!['channel','nitro','shop','form','inbox'].includes(v.type)){members.hidden=true;return}
@@ -180,7 +194,7 @@ function topbarFor(){
  else if(v.type==='dm'){title=h('div',{class:'nc-title'},avatar(v.id,'sm'),nameNode(v.id,'b'),el('span','nc-topic',activityText(v.id)||({online:'Online',idle:'Idle',dnd:'Do not disturb',offline:'Offline'})[statusOf(v.id)]))}
  else if(v.type==='group'){const g=state.groups[v.id]||{};title=h('div',{class:'nc-title'},icon('group'),el('b','',g.name||'Group'),el('span','nc-topic',Object.keys(g.members||{}).length+' members'))}
  else if(v.type==='bot')title=h('div',{class:'nc-title'},avatar(BOT_ID,'sm'),el('b','','Nova Bot'),botTag(),el('span','nc-topic','Your notifications, gifts and trades'));
- else{const map={friends:['friend','Friends'],nitro:['nitro','Nitro'],shop:['bag','Shop'],inbox:['inbox','Staff inbox'],voice:['wave','Voice'],form:['flag',v.id==='report'?'Reports':'Suggestions']};const [ic,t]=map[v.type]||['hash',''];title=h('div',{class:'nc-title'},icon(ic),el('b','',t))}
+ else{const map={friends:['friend','Friends'],nitro:['nitro','Nitro'],shop:['bag','Shop'],inbox:['inbox','Staff inbox'],voice:['wave','Voice'],form:['flag',v.id==='report'?'Reports':'Suggestions']};const [ic,t]=map[v.type]||['hash',''];title=h('div',{class:'nc-title'},icon(ic),el('b','',t));if(['nitro','shop'].includes(v.type)){const back=h('button',{type:'button',class:'nc-back','aria-label':'Back to chat'},icon('chev'),el('span','','Chat'));back.onclick=()=>openChannel(lastChannel());title.prepend(back)}}
  const tools=el('div','nc-tools');
  if(['channel','dm','group','bot'].includes(v.type)){const find=h('input',{type:'search',class:'nc-find',placeholder:'Search messages','aria-label':'Search messages in this conversation'});find.oninput=()=>{const q=find.value.trim().toLowerCase();content.querySelectorAll('.nm-row').forEach(r=>r.classList.toggle('nm-dim',!!q&&!r.textContent.toLowerCase().includes(q)))};tools.append(h('label',{class:'nc-findbox'},icon('search'),find))}
  if(v.type==='channel'){const t=h('button',{type:'button',class:'nc-icon-btn','aria-label':'Show members',title:'Members'},icon('users'));t.classList.toggle('on',!document.body.classList.contains('nc-hide-members'));t.onclick=()=>{document.body.classList.toggle('nc-hide-members');localStorage.setItem('nova_chat_members',document.body.classList.contains('nc-hide-members')?'hidden':'shown');topbarFor();paintMembers()};tools.append(t)}
@@ -243,7 +257,7 @@ async function boot(){
  document.body.classList.toggle('nc-hide-members',localStorage.getItem('nova_chat_members')==='hidden');
  document.documentElement.style.setProperty('--nc-font',(localStorage.getItem('nova_chat_font')||'15')+'px');
  loader.step('Connecting to Nova…',.08);
- api=await import(preview?'../chat-v2-preview.js?v=nchat1':'../chat-v2-service.js?v=20261027-chat345');
+ api=await import(preview?'../chat-v2-preview.js?v=nchat2':'../chat-v2-service.js?v=20261027-chat345');
  state.me=await api.login();
  loader.step('Syncing your profile…',.22);
  if(preview){const old=await api.read('profiles/'+state.me.uid)||{};await api.patch({['profiles/'+state.me.uid+'/name']:old.name||state.me.name,['profiles/'+state.me.uid+'/joined']:old.joined||Date.now()})}else await control('syncChatProfile').catch(()=>{});

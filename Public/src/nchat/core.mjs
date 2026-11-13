@@ -57,7 +57,7 @@ function media(src,cls){const img=el('img',cls);img.src=src;img.alt='';img.decod
 /** Avatar with photo, decoration frame and presence dot. size: xs | sm | md | lg | xl */
 export function avatar(id,size='md',{dot=true,ring=false}={}){
  const p=person(id),a=el('span','na-avatar na-'+size+(ring?' has-ring':''));a.dataset.uid=id;
- const face=el('span','na-face',(p.name||'N')[0].toUpperCase());if(p.photo)face.append(media(p.photo));a.append(face);
+ const letter=(p.name||'N')[0].toUpperCase(),face=el('span','na-face',letter);if(p.photo){face.textContent='';const img=media(p.photo);img.onerror=()=>{img.remove();face.textContent=letter};face.append(img);if(p.photo==='/Nova12.png')face.classList.add('na-logo')}a.append(face);
  const deco=asset(p.decoration);if(deco)a.append(media(deco.src,'na-deco'));
  if(p.nitroAnimation&&p.nitroAnimation!=='none')a.classList.add('na-anim-'+p.nitroAnimation);
  if(dot){const s=statusOf(id);a.append(el('i','na-dot '+s));}
@@ -67,7 +67,7 @@ export function avatar(id,size='md',{dot=true,ring=false}={}){
 export function nameNode(id,tag='b'){
  const p=person(id),n=el(tag,'nn-name font-'+(p.usernameFont||'default'),p.name||'Nova player');
  let from='#e9ecf5',to='#ffffff';
- if(isBot(id)){from='#9db7ff';to='#d8c6ff'}else{const r=nameRoleFor(id,state);from=r?.from||r?.color||from;to=r?.to||r?.color||from}
+ if(isBot(id)){from='#ffffff';to='#c9ced8'}else{const r=nameRoleFor(id,state);from=r?.from||r?.color||from;to=r?.to||r?.color||from}
  n.style.setProperty('--n-from',from);n.style.setProperty('--n-to',to);
  if(!isBot(id)&&(role(id)!=='member'||p.nitroBooster||p.nameColorRole||p.novaTag))n.classList.add('nn-glow');
  return n;
@@ -79,7 +79,25 @@ export function topRole(id){const r=role(id);return r==='owner'?'Owner':r==='adm
 
 // ---- toasts / dialogs ----
 let toastHost;
-export function toast(text,{error=false}={}){toastHost||=document.body.appendChild(el('div','nc-toasts'));const t=el('div','nc-toast'+(error?' error':''),text);toastHost.append(t);setTimeout(()=>t.classList.add('out'),3600);setTimeout(()=>t.remove(),4100)}
+export function toast(text,{error=false,title,kind,duration=4200}={}){
+ toastHost||=document.body.appendChild(el('div','nc-toasts'));
+ const s=String(text||'');
+ const k=kind||(error?'error':/friend/i.test(s)?'friend':/nitro|gift|boost/i.test(s)?'nitro':/copied/i.test(s)?'copy':/saved|sent|updated|unlocked|joined|added|removed|done|enjoy/i.test(s)?'success':'info');
+ const meta={error:['x','Something went wrong'],friend:['friend','Friends'],nitro:['nitro','Nova Nitro'],copy:['file','Copied'],success:['check','Done'],info:['bell','Nova']}[k];
+ const t=el('div','nc-toast k-'+k);t.setAttribute('role',k==='error'?'alert':'status');
+ const ico=el('span','nc-toast-ico');ico.append(icon(meta[0]));
+ const copy=el('div','nc-toast-copy');copy.append(el('b','',title||meta[1]),el('span','',s));
+ const x=el('button','nc-toast-x');x.type='button';x.setAttribute('aria-label','Dismiss');x.append(icon('x'));
+ const bar=el('i','nc-toast-bar');bar.style.animationDuration=duration+'ms';
+ t.append(ico,copy,x,bar);toastHost.append(t);
+ while(toastHost.children.length>4)toastHost.firstChild.remove();
+ let left=duration,start=Date.now(),timer;
+ const close=()=>{clearTimeout(timer);t.classList.add('out');setTimeout(()=>t.remove(),320)};
+ const run=()=>{start=Date.now();timer=setTimeout(close,left)};
+ t.onmouseenter=()=>{clearTimeout(timer);left-=Date.now()-start;t.classList.add('hold')};
+ t.onmouseleave=()=>{t.classList.remove('hold');run()};
+ x.onclick=close;run();
+}
 export const fail=e=>toast(e?.message||String(e),{error:true});
 export function task(fn){return async(...a)=>{try{return await fn(...a)}catch(e){fail(e)}}}
 /** Centered sheet dialog. Returns the <dialog>; content goes in d.body. */

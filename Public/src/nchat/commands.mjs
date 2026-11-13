@@ -1,8 +1,8 @@
 // Slash commands: a searchable palette plus the command runner.
 // Moderator/owner commands from the previous chat still run through runCommand().
-import {state,el,h,icon,isStaff,isOwner,person,sheet,toast} from './core.mjs';
+import {state,el,h,icon,isStaff,isOwner,person,sheet,toast} from './core.mjs?v=9';
 import {runCommand} from '../chat-profile-redesign.js?v=20261029-name-sync394';
-import {pollText} from './messages.mjs';
+import {pollText} from './messages.mjs?v=9';
 
 const BALL=['It is certain.','Without a doubt.','Yes, definitely.','You may rely on it.','Most likely.','Outlook good.','Signs point to yes.','Reply hazy, try again.','Ask again later.','Cannot predict now.','Don\'t count on it.','My reply is no.','Outlook not so good.','Very doubtful.'];
 export function commandList(){
@@ -65,9 +65,9 @@ export async function runSlash(text,ctx){
   case '/lenny':return {send:(arg?arg+' ':'')+'( ͡° ͜ʖ ͡°)'};
   case '/me':if(!arg)throw Error('Use /me action');return {send:'*'+person(state.me.uid).name+' '+arg+'*'};
   case '/spoiler':if(!arg)throw Error('Use /spoiler text');return {send:'||'+arg+'||'};
-  case '/roll':{const sides=Math.min(1000,Math.max(2,parseInt(arg)||6));return {send:'🎲 rolled **'+(1+Math.floor(Math.random()*sides))+'** (d'+sides+')'}}
-  case '/flip':return {send:'🪙 flipped **'+(Math.random()<.5?'Heads':'Tails')+'**'};
-  case '/8ball':if(!arg)throw Error('Ask a question: /8ball will I win?');return {send:'🎱 *'+arg+'*\n> '+BALL[Math.floor(Math.random()*BALL.length)]};
+  case '/roll':{const sides=Math.min(1000,Math.max(2,parseInt(arg)||6));return {send:'rolled **'+(1+Math.floor(Math.random()*sides))+'** (d'+sides+')'}}
+  case '/flip':return {send:'flipped a coin: **'+(Math.random()<.5?'Heads':'Tails')+'**'};
+  case '/8ball':if(!arg)throw Error('Ask a question: /8ball will I win?');return {send:'**Magic 8-ball:** *'+arg+'*\n> '+BALL[Math.floor(Math.random()*BALL.length)]};
   case '/poll':{if(!arg){ctx.openPollBuilder();return null}const parts=arg.split('|').map(s=>s.trim()).filter(Boolean);if(parts.length<3)throw Error('Use /poll question | option | option');if(parts.length>11)throw Error('Polls can have up to 10 options.');return {send:pollText(parts[0],parts.slice(1))}}
   case '/profile':{const id=findUser(arg)||state.me.uid;ctx.openProfile(id);return null}
   case '/dm':{const id=findUser(arg);if(!id)throw Error('Choose a Nova username.');if(!state.friends[id])throw Error('You can only message friends. Use /friend first.');ctx.openDM(id);return null}

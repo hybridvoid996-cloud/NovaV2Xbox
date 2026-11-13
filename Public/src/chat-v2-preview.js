@@ -31,6 +31,7 @@ const data={
    m3:{author:'alex',text:'the ||new profile cards|| are crazy',createdAt:now-48*min},
    m4:{author:'mia',text:'@<preview> can we get more emojis 👀',createdAt:now-30*min},
    m5:{author:'zeros',text:'📊 Poll: Best Nova game?\n1️⃣ Nova Flip\n2️⃣ Minecraft Rust Edition\n3️⃣ Backyard Baseball',createdAt:now-20*min},
+   m7:{author:'zeros',text:'yeah the new cards came out clean 🔥',replyTo:'m3',createdAt:now-4*min},
    m6:{author:'kai',text:'> reminder\nKeep it friendly, no spam. `/help` shows every command.',createdAt:now-5*min}
   }},
   announcements:{messages:{a1:{author:'zeros',text:'# Nova Chat 2.0 is here\nNew look, polls, groups, voice and more.',createdAt:now-864e5}}}

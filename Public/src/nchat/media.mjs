@@ -1,5 +1,5 @@
 // Nova Chat media: image viewer (zoom + pan), custom video player, and upload helpers.
-import {el,h,icon,toast} from './core.mjs';
+import {el,h,icon,toast} from './core.mjs?v=9';
 
 export const MAX_VIDEO_BYTES=100*1024*1024;   // "decent size": up to 100 MB
 export const MAX_VIDEO_SECONDS=5*60;          // and up to 5 minutes

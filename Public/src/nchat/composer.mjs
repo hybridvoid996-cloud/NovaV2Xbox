@@ -1,10 +1,10 @@
 // Composer: formatting bar, emoji, @mentions with previews, slash palette, attachments,
 // replies/edits, polls and the typing indicator.
-import {state,el,h,icon,avatar,nameNode,person,isStaff,topRole,online,fail,toast,popover,sheet,task} from './core.mjs';
-import {emojiPanel} from './emoji.mjs';
-import {commandList,runSlash} from './commands.mjs';
-import {pollText,POLL_EMOJI} from './messages.mjs';
-import {prepareImage,videoDuration,MAX_VIDEO_BYTES,MAX_VIDEO_SECONDS} from './media.mjs';
+import {state,el,h,icon,avatar,nameNode,person,isStaff,topRole,online,fail,toast,popover,sheet,task} from './core.mjs?v=9';
+import {emojiPanel} from './emoji.mjs?v=9';
+import {commandList,runSlash} from './commands.mjs?v=9';
+import {pollText,POLL_EMOJI} from './messages.mjs?v=9';
+import {prepareImage,videoDuration,MAX_VIDEO_BYTES,MAX_VIDEO_SECONDS} from './media.mjs?v=9';
 import {attachTyping} from '../chat-typing.js?v=20261027-chat344';
 
 export function createComposer({host,api,path,placeholder,locked,lockedText,ctx,send,list}){

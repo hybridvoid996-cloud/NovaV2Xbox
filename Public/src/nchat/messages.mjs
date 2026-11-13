@@ -1,8 +1,8 @@
 // Message list: grouping, rich formatting, mentions, replies, reactions, media and polls.
 // Rows are keyed and only rebuilt when that message (or its reactions) changes.
-import {state,el,h,icon,avatar,nameNode,person,isBot,botTag,badges,topRole,isStaff,when,fail,task,popover,toast} from './core.mjs';
-import {openImage,videoPlayer} from './media.mjs';
-import {showMiniProfile} from './profile.mjs';
+import {state,el,h,icon,avatar,nameNode,person,isBot,botTag,badges,topRole,isStaff,when,fail,task,popover,toast} from './core.mjs?v=9';
+import {openImage,videoPlayer} from './media.mjs?v=9';
+import {showMiniProfile} from './profile.mjs?v=9';
 
 export const POLL_EMOJI=['1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟'];
 export const QUICK=['👍','❤️','😂','🔥','😮','😢','🎉','💀'];
@@ -69,6 +69,7 @@ export function createMessageList({host,api,path,canModerate,onReply,onEdit,welc
  let messages={},reactions={},rows=new Map(),stick=true,first=true;
  const jump=h('button',{class:'nm-jump',type:'button',hidden:true},icon('chev'),'Jump to latest');jump.onclick=()=>{scroller.scrollTo({top:scroller.scrollHeight,behavior:'smooth'})};host.append(jump);
  scroller.addEventListener('scroll',()=>{stick=scroller.scrollHeight-scroller.scrollTop-scroller.clientHeight<80;jump.hidden=stick},{passive:true});
+ let pinning=false;const pin=()=>{if(!stick||pinning)return;pinning=true;requestAnimationFrame(()=>{pinning=false;if(stick)scroller.scrollTop=scroller.scrollHeight})};const ro=typeof ResizeObserver==='function'?new ResizeObserver(pin):null;ro?.observe(list);
 
  async function react(id,emoji){try{await api.toggleReaction(path+'/'+id,state.me.uid,emoji)}catch(e){fail(e)}}
  async function vote(id,i,mine){try{if(mine>=0&&mine!==i)await api.toggleReaction(path+'/'+id,state.me.uid,POLL_EMOJI[mine]);await api.toggleReaction(path+'/'+id,state.me.uid,POLL_EMOJI[i])}catch(e){fail(e)}}
@@ -85,7 +86,7 @@ export function createMessageList({host,api,path,canModerate,onReply,onEdit,welc
  function row(id,m,prev){
   const grouped=prev&&prev.author===m.author&&m.createdAt-prev.createdAt<5*60e3&&!m.replyTo;
   const r=el('article','nm-row'+(grouped?' grouped':'')+(mentionsMe(m.text)&&m.author!==state.me?.uid?' mentions-me':''));r.dataset.id=id;
-  if(m.replyTo&&messages[m.replyTo]){const o=messages[m.replyTo],q=h('button',{class:'nm-replyto',type:'button'},avatar(o.author,'xs',{dot:false}),nameNode(o.author,'span'),el('span','nm-replytext',String(o.text||'Attachment').slice(0,120)));q.onclick=()=>{const t=rows.get(m.replyTo)?.node;if(t){t.scrollIntoView({block:'center',behavior:'smooth'});t.classList.add('flash');setTimeout(()=>t.classList.remove('flash'),1200)}};r.append(q)}
+  if(m.replyTo&&messages[m.replyTo]){const o=messages[m.replyTo],q=h('button',{class:'nm-replyto',type:'button'},avatar(o.author,'xs',{dot:false}),nameNode(o.author,'span'),el('span','nm-replytext',String(o.text||'Attachment').replace(/\|\||\*\*|__|~~|`+/g,'').replace(/@<([^>]+)>/g,(m,u)=>'@'+(person(u)?.name||'user')).replace(/\s+/g,' ').slice(0,140)));q.onclick=()=>{const t=rows.get(m.replyTo)?.node;if(t){t.scrollIntoView({block:'center',behavior:'smooth'});t.classList.add('flash');setTimeout(()=>t.classList.remove('flash'),1200)}};r.append(q)}
   const side=el('div','nm-side');
   if(grouped)side.append(el('time','nm-mini-time',new Date(m.createdAt).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})));
   else{const a=avatar(m.author,'md',{dot:false});a.tabIndex=0;a.onclick=()=>showMiniProfile(m.author,a);side.append(a)}
@@ -131,5 +132,5 @@ export function createMessageList({host,api,path,canModerate,onReply,onEdit,welc
   api.watch(path,v=>{messages=v||{};render()},e=>{list.replaceChildren(el('p','nm-error','Messages could not load. '+(e?.message||'')));},100),
   api.watch('reactions/'+path,v=>{reactions=v||{};render()},()=>{})
  ];
- return {stop(){stops.forEach(s=>s?.())},get messages(){return messages},scrollToBottom(){scroller.scrollTop=scroller.scrollHeight}};
+ return {stop(){ro?.disconnect();stops.forEach(s=>s?.())},get messages(){return messages},scrollToBottom(){scroller.scrollTop=scroller.scrollHeight}};
 }

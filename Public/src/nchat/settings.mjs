@@ -1,8 +1,9 @@
 // Settings: same options as before in a new full-screen layout.
-import {state,el,h,icon,avatar,nameNode,person,isStaff,isOwner,task,toast,fail} from './core.mjs';
-import {profileCard} from './profile.mjs';
+import {state,el,h,icon,avatar,nameNode,person,isStaff,isOwner,task,toast,fail} from './core.mjs?v=9';
+import {profileCard} from './profile.mjs?v=9';
 import {preferenceSection} from '../chat-preferences.js?v=20261029-motion372';
-import {cosmeticsSettings,showNitro} from '../chat-store.js?v=20261029-shop387';
+import {cosmeticsSettings} from '../chat-store.js?v=20261029-shop387';
+import {nitroView} from './nitro.mjs?v=9';
 import {nitroProfileControls} from '../chat-identity.mjs?v=20261029-errors392';
 import {serverManager} from '../chat-server.js?v=20261029-chat387';
 
@@ -44,7 +45,7 @@ export function openSettings(start='Profile',{api,control,legacy,preview,resetPu
    paint();const extra=el('div','ns-legacy');body.append(extra);try{nitroProfileControls(extra,ctx)}catch{}
   }
   else if(key==='Cosmetics'){const host=el('div','ns-legacy');body.append(host);cosmeticsSettings(host,ctx)}
-  else if(key==='Nitro'){const host=el('div','ns-legacy ns-nitro');body.append(host);showNitro(host,ctx)}
+  else if(key==='Nitro'){const host=el('div','ns-nitro');body.append(host);nitroView(host,{settings:k=>show(k),preview})}
   else if(key==='Account'){
    for(const [title,value]of [['Username',person(state.me.uid).accountName||person(state.me.uid).name||state.me.name||''],['Email',state.me.email||'']]){const i=h('input',{class:'nc-field',readonly:true});i.value=value;const c=h('button',{type:'button',class:'nc-btn ghost sm'},'Copy');c.onclick=task(async()=>{await navigator.clipboard.writeText(value);toast(title+' copied.')});body.append(el('label','nc-label',title),h('div',{class:'nc-row'},i,c))}
    const reset=h('button',{type:'button',class:'nc-btn ghost'},icon('inbox'),'Email me a password reset');reset.onclick=task(async()=>{await api.resetPassword();toast('Reset email sent. Check your inbox and spam.')});
