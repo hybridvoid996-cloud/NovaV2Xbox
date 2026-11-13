@@ -1,10 +1,12 @@
 import {readGameLoading} from './game-loading-health.mjs?v=20261020-health210';
 
-// A document load event is not engine readiness. Wait out visible game loaders.
-export function watchGameLaunch(frame,{signal,onReady,onProgress=()=>{},interval=200,showNativeLoader=false}={}){
+// Engine readiness and revealing a loaded game page are separate policies.
+export function watchGameLaunch(frame,{signal,onReady,onProgress=()=>{},interval=200,showNativeLoader=false,pageLoaded=false}={}){
  let stopped=false;
  const scan=(doc,depth=0)=>{
   if(!doc?.body||doc.URL==='about:blank'||depth>5)return {waiting:true};
+  // The player can hand off after navigation, leaving the real engine/download UI visible.
+  if(pageLoaded&&doc.readyState==='complete')return {waiting:false};
   // Some games expose their own real download progress and mode selector.
   // Hand the screen over rather than scraping their debug output into Nova.
   if(showNativeLoader){const visible=node=>{const r=node.getBoundingClientRect(),style=doc.defaultView.getComputedStyle(node);return r.width>=160&&r.height>=90&&style.display!=='none'&&style.visibility!=='hidden'&&Number(style.opacity)!==0};if([...doc.querySelectorAll('canvas,#loading,#loader,#loading-screen')].some(visible))return {waiting:false};}
@@ -16,7 +18,7 @@ export function watchGameLaunch(frame,{signal,onReady,onProgress=()=>{},interval
   }
   return {waiting:doc.readyState!=='complete'};
  };
- const tick=()=>{if(stopped||signal?.aborted)return;try{const state=scan(frame.contentDocument);if(state.waiting){onProgress(state);return}stop();onReady()}catch{onProgress({waiting:true,text:'Waiting for the game provider…'})}};
+ const tick=()=>{if(stopped||signal?.aborted)return;try{const state=scan(frame.contentDocument);if(state.waiting){onProgress(state);return}stop();onReady()}catch{if(pageLoaded){stop();onReady()}else onProgress({waiting:true,text:'Waiting for the game provider…'})}};
  const stop=()=>{stopped=true;clearInterval(timer);signal?.removeEventListener('abort',stop)};
  const timer=setInterval(tick,interval);signal?.addEventListener('abort',stop,{once:true});tick();return stop;
 }
