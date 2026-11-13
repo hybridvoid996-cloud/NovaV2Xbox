@@ -369,6 +369,16 @@
     ]
   },
   {
+    "id": "app-tglsc-roblox",
+    "name": "Roblox · Nova Launcher",
+    "art": "Img/app/Roblox.jpg",
+    "url": "/roblox.html",
+    "nativeEmbed": true,
+    "genres": [
+      "Gaming"
+    ]
+  },
+  {
     "id": "app-41",
     "name": "Sport App",
     "art": "Img/app/Thetvvapps.png",
