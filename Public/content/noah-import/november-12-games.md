@@ -12,3 +12,6 @@ Requirements and limits:
 Validation: all four covers and launch files downloaded successfully; inline classic scripts parsed successfully; Baseball runtime, Turbo runtime/build config, and REPO manifest returned HTTP 200. Local Nova proxy browser launches checked. Full playthroughs, multiplayer, and account-save syncing for these newly imported engines have not been verified.
 
 Observed browser results: Minecraft displayed its sound-download screen; R.E.P.O. displayed its game-file loader; Backyard Baseball reached its rendered startup logo; Turbo Dismount reached the Unity splash with an active frame counter and no page exception through the native-frame path. These startup checks are not full gameplay certification.
+
+Minecraft Rust module repair: replaced the embedded data-URL module graph with five local .mjs files, retaining Nova’s proxied virtual content origin. The engine and four helpers now have explicit URLs and correct module content types. No game resources or save keys were changed.
+Browser verification after the module repair: local Nova/Scramjet reached Minecraft Rust Edition’s rendered welcome/accessibility screen. No dynamic-import error or page exception occurred. The runtime reported unavailable narrator support; full world gameplay was not tested.
