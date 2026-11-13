@@ -244,3 +244,6 @@ body.nova-main .main-home-status.nova-liquid-lens,body.nova-main .main-home-stat
 body.nova-main.main-library-page .main-home-status,body.nova-main.nova-content-active .main-home-status,body.nova-main:has(#panel:not([hidden])) .main-home-status,body.nova-main:has(.nova-settings-modal[open]) .main-home-status{display:none!important}
 body.nova-main #home-continue.nova-liquid-glass{background:rgba(0,0,0,.1)!important;border:1px solid #ffffff20;box-shadow:inset 0 0 0 .5px #ffffff20,0 8px 24px #0002;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 body.nova-main #home-continue.nova-liquid-lens{backdrop-filter:var(--liquid-lens);-webkit-backdrop-filter:var(--liquid-lens)}
+
+/* Slightly roomier home navigation on desktop screens. */
+@media(min-width:1441px){body.nova-main>header:not(.main-popup header){height:74px;min-height:74px;padding:9px 12px;border-radius:38px}body.nova-main>header nav{min-height:52px;gap:6px}body.nova-main>header nav button{width:50px!important;min-width:50px!important;height:50px!important;flex-basis:50px;padding:12px!important;border-radius:15px!important}body.nova-main>header nav button svg{width:26px!important;height:26px!important}}
