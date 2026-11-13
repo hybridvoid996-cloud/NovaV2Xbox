@@ -248,9 +248,14 @@ function staffInbox(){
 }
 
 // ---------- boot ----------
-function watchKey(path,key,onChange){return new Promise((resolve,reject)=>{let first=true;stops.push(api.watch(path,v=>{state[key]=v||{};if(first){first=false;resolve()}else onChange?.()},e=>{if(first)reject(e);else fail(e)}))})}
+function watchKey(path,key,onChange){return new Promise((resolve,reject)=>{let first=true;stops.push(api.watch(path,v=>{state[key]=v||{};if(first){first=false;resolve()}else onChange?.(key)},e=>{if(first)reject(e);else fail(e)}))})}
 const stops=[];
-let repaintTimer=0;const repaint=()=>{clearTimeout(repaintTimer);repaintTimer=setTimeout(()=>{paintRail();paintChannels();paintMembers();paintUserPanel();if(state.view.type==='friends')friendsRef?.repaint();if(['dm','channel','group','bot'].includes(state.view.type))topbarFor()},120)};
+// Presence changes constantly (song positions, heartbeats). Only rebuild when something people can see changed.
+const presenceSig=()=>{let out='';for(const [id,p]of Object.entries(state.presence||{}))out+=id+(online(id)?'1':'0')+(p?.status||'')+(p?.activity||'')+'|'+(p?.music?.name||'')+';';return out};
+let repaintTimer=0,repaintDue=0,lastPresence='';const repaint=key=>{
+ if(key==='presence'){const sig=presenceSig();if(sig===lastPresence&&!repaintDue)return;lastPresence=sig}
+ if(repaintTimer)return;repaintDue=1;
+ repaintTimer=setTimeout(()=>{repaintTimer=0;repaintDue=0;if(document.hidden){addEventListener('visibilitychange',()=>repaint(),{once:true});return}lastPresence=presenceSig();paintRail();paintChannels();paintMembers();paintUserPanel();if(state.view.type==='friends')friendsRef?.repaint();if(['dm','bot'].includes(state.view.type))topbarFor()},350)};
 async function boot(){
  applyPreferences();
  document.body.classList.toggle('nc-compact',localStorage.getItem('nova_chat_compact')==='true');

@@ -1191,3 +1191,13 @@ html.nova-low-power .nn-name.nn-glow,html.reduce-motion .nn-name.nn-glow{animati
 @media (max-width:760px){.nc-toasts{right:12px;left:12px;bottom:84px;width:auto}}
 html.nova-low-power .nc-toast{-webkit-backdrop-filter:none;backdrop-filter:none;background:#17181d;animation-duration:.2s}
 .nc-toast{background:linear-gradient(135deg,rgba(32,34,40,.96),rgba(16,17,21,.97))}
+
+/* =================== performance: no always-running text animations =================== */
+/* Animated gradient names repainted every frame and kept laptop CPUs at 100% while idle.
+   Names keep their gradient + glow, and shine only while you point at them or in an open profile. */
+.nn-name.nn-glow{animation:none;background-position:150% 0,0 0}
+.nm-row:hover .nn-name.nn-glow,.nc-member:hover .nn-name.nn-glow,.nc-dm-row:hover .nn-name.nn-glow,.nc-me:hover .nn-name.nn-glow,
+.np-card .np-name .nn-name.nn-glow,.np-side .np-name .nn-name.nn-glow,.np-full .np-name .nn-name.nn-glow{animation:nn-shine 3s linear infinite}
+.nc-chan.special.nitro span{animation:none}
+.nc-chan.special.nitro:hover span{animation:nn-flow 5s linear infinite}
+html.nova-low-power .nn-name.nn-glow{animation:none!important}
