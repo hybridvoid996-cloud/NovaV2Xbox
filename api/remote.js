@@ -1,3 +1,4 @@
+import {remoteProfile} from '../server/remote-profile.mjs';
 import {personalComputerRelay,personalRelayEnv} from '../server/personal-computer-relay.mjs';
 import {remoteRelay} from '../server/remote-relay.mjs';
 import {canUseComputer} from '../server/computer-access.mjs';
@@ -37,7 +38,7 @@ export const createRemoteHandler=(service=services)=>async(req,res)=>{
    const claim=await db.ref(root+'pairing/'+b.code).transaction(value=>value===null?null:value&&!value.finished&&value.expires>now&&value.uid===pair.uid?{...value,finished:true}:undefined);
    if(!claim.committed||!claim.snapshot.val()?.finished)throw failure('This pairing code has already been used.',409);
    await write('devices/'+id,{uid:pair.uid,name:pair.name,os:pair.os,tokenHash:hash(credential),enabled:false,lastSeen:now,createdAt:now});
-   await write('pairing/'+b.code,null);const account=(await db.ref('novaAccounts/'+pair.uid).get()).val()||{};return reply(200,{id,credential,name:pair.name,profile:{uid:pair.uid,name:clean(account.name,60)||'Nova player',photo:clean(account.photo,2000)}});
+   await write('pairing/'+b.code,null);const account=(await db.ref('novaAccounts/'+pair.uid).get()).val()||{};return reply(200,{id,credential,name:pair.name,profile:remoteProfile(pair.uid,account)});
   }
   let uid,device,agent=false;const bearer=(req.headers.authorization||'').replace(/^Bearer /,'');
   if(bearer.startsWith('device:')){
@@ -51,7 +52,7 @@ export const createRemoteHandler=(service=services)=>async(req,res)=>{
   if(action==='registerDevice'){
    browserOnly();const account=(await db.ref('novaAccounts/'+uid).get()).val();const rows=(await db.ref(root+'devices').orderByChild('uid').equalTo(uid).get()).val()||{};if(Object.keys(rows).length>=20)throw failure('Remove an old computer before adding another.',409);
    const id='NOVA-'+randomBytes(16).toString('hex').toUpperCase(),credential=secret(),name=clean(b.name,60)||'Windows PC';
-   await write('devices/'+id,{uid,name,os:'Windows',tokenHash:hash(credential),enabled:false,lastSeen:now,createdAt:now});return reply(200,{id,credential,name,profile:{uid,name:clean(account.name,60)||'Nova player',photo:clean(account.photo,2000)}});
+   await write('devices/'+id,{uid,name,os:'Windows',tokenHash:hash(credential),enabled:false,lastSeen:now,createdAt:now});return reply(200,{id,credential,name,profile:remoteProfile(uid,account)});
   }
   if(action==='pairClaim'){
    browserOnly();const code=clean(b.code,30).replace(/[\s-]/g,'').toUpperCase();if(!safe(code))throw failure('Invalid pairing code.');const account=(await db.ref('novaAccounts/'+uid).get()).val();
@@ -66,7 +67,7 @@ export const createRemoteHandler=(service=services)=>async(req,res)=>{
   if(action==='heartbeat'){
    agentOnly();await db.ref(root+'devices/'+device.id).update({lastSeen:now});let session=device.session?await read('sessions/'+device.session):null;
    if(session&&(session.expires<=now||session.status==='ended'||!device.enabled)){await db.ref(root+'devices/'+device.id).transaction(row=>row===null?null:row?.session===device.session?{...row,session:null,sessionUntil:null}:undefined);session=null;}
-   const account=(await db.ref('novaAccounts/'+uid).get()).val();return reply(200,{profile:{uid,name:clean(account.name,60)||'Nova player',photo:clean(account.photo,2000)},device:publicDevice({...device,lastSeen:now}),session:session?{id:device.session,status:session.status,viewer:session.viewer,expires:session.expires}:null});
+   const account=(await db.ref('novaAccounts/'+uid).get()).val();const relay=remoteRelay();return reply(200,{profile:remoteProfile(uid,account),relay:{configured:relay.relayConfigured,tls:relay.relayTLSConfigured},device:publicDevice({...device,lastSeen:now}),session:session?{id:device.session,status:session.status,viewer:session.viewer,expires:session.expires}:null});
   }
   if(['rename','remove','disable','enable','connect'].includes(action)){
    if(!agent){if(!safe(b.id))throw failure('Invalid device.');const row=await read('devices/'+b.id);if(!row||row.uid!==uid)throw failure('Computer not found.',404);device={...row,id:b.id};}

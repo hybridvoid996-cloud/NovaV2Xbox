@@ -1,6 +1,6 @@
 {
   "name": "nova-remote",
-  "version": "0.3.6",
+  "version": "0.4.0",
   "private": true,
   "description": "Visible, account-authorized Nova Windows remote desktop agent",
   "author": "Nova",
@@ -30,7 +30,8 @@
       "renderer.js",
       "input.ps1",
       "nova.png",
-      "update-service.cjs"
+      "update-service.cjs",
+      "agent-ui.js"
     ],
     "win": {
       "target": "nsis",

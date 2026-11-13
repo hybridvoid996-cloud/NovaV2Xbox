@@ -21,7 +21,7 @@ async function startInputHelper(id){
 const codeKeys={Escape:27,Tab:9,Enter:13,Backspace:8,Delete:46,Insert:45,Home:36,End:35,PageUp:33,PageDown:34,ArrowLeft:37,ArrowUp:38,ArrowRight:39,ArrowDown:40,Space:32,ShiftLeft:160,ShiftRight:161,ControlLeft:162,ControlRight:163,AltLeft:164,AltRight:165,MetaLeft:91,MetaRight:92,CapsLock:20,Minus:189,Equal:187,BracketLeft:219,BracketRight:221,Backslash:220,Semicolon:186,Quote:222,Comma:188,Period:190,Slash:191,Backquote:192};for(let i=0;i<26;i++)codeKeys['Key'+String.fromCharCode(65+i)]=65+i;for(let i=0;i<10;i++)codeKeys['Digit'+i]=48+i;for(let i=1;i<=12;i++)codeKeys['F'+i]=111+i;
 app.whenReady().then(()=>{
  try{if(fs.existsSync(vault())&&safeStorage.isEncryptionAvailable())device=JSON.parse(safeStorage.decryptString(fs.readFileSync(vault())))}catch{}
- win=new BrowserWindow({width:1060,height:800,minWidth:700,minHeight:640,title:'Nova Remote',icon:path.join(__dirname,'nova.png'),backgroundColor:'#101118',webPreferences:{backgroundThrottling:false,preload:path.join(__dirname,'preload.cjs'),contextIsolation:true,nodeIntegration:false,sandbox:true}});
+ win=new BrowserWindow({width:1060,height:800,minWidth:760,minHeight:540,frame:false,title:'Nova Remote',icon:path.join(__dirname,'nova.png'),backgroundColor:'#09090b',webPreferences:{backgroundThrottling:false,preload:path.join(__dirname,'preload.cjs'),contextIsolation:true,nodeIntegration:false,sandbox:true}});
  win.setMenuBarVisibility(false);const updater=require('./update-service.cjs').createUpdater({app,origin:ORIGIN,isActive:()=>!!active,notify:v=>win?.webContents.send('update-status',v)});
  ipcMain.handle('activity',event=>{trusted(event);return readActivity()});ipcMain.handle('check-update',event=>{trusted(event);return updater.check()});ipcMain.handle('install-update',event=>{trusted(event);return updater.install()});
  win.webContents.on('did-finish-load',()=>{setTimeout(()=>updater.check().catch(()=>{}),5000)});setInterval(()=>{if(!active)updater.check().catch(()=>{})},6*60*60*1000);
@@ -33,7 +33,9 @@ win.loadFile('agent.html');win.webContents.setWindowOpenHandler(()=>({action:'de
  if(!allowed()){callback({});return}
  try{const sources=await desktopCapturer.getSources({types:['screen'],thumbnailSize:{width:0,height:0}});const source=sources.find(s=>s.display_id===String(screen.getPrimaryDisplay().id));if(!allowed()||!source){callback({});return}screenSource=source;callback({video:source})}catch{callback({})}
  });
- ipcMain.handle('state',event=>{trusted(event);return {device:device?{id:device.id,name:device.name,profile:device.profile}:null,origin:ORIGIN,enabled,autoConnect}});
+ 
+ ipcMain.handle('state',event=>{trusted(event);return {device:device?{id:device.id,name:device.name,profile:device.profile}:null,origin:ORIGIN,version:app.getVersion(),enabled,autoConnect}});
+ ipcMain.handle('window-control',(event,action)=>{trusted(event);if(action==='minimize')win.minimize();else if(action==='maximize')win.isMaximized()?win.unmaximize():win.maximize();else if(action==='close')win.close();});
  ipcMain.handle('login',async(event,body)=>{trusted(event);const identifier=String(body.identifier||'').trim(),password=String(body.password||'');if(!identifier||!password)throw Error('Enter your email or username and password.');
  const firebaseKey='AIzaSyDV9MRbv7IDXjowddQoXAN1hJPlCGMyxR8';let endpoint='signInWithPassword',payload={email:identifier,password,returnSecureToken:true};
  if(!identifier.includes('@')){const response=await fetch(ORIGIN+'/api/account-login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:identifier,password}),signal:AbortSignal.timeout(15000)});const result=await response.json();if(!response.ok)throw Error('Nova login ('+response.status+'): '+(result.error||'Login request failed.'));endpoint='signInWithCustomToken';payload={token:result.token,returnSecureToken:true};}
