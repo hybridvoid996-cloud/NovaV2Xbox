@@ -1,4 +1,6 @@
 import {randomUUID} from 'node:crypto';
+export const KEEP_CHANNELS=['welcome','announcements','updates','leaks','links','owner-lounge','report'];
+export const PUBLIC_CHANNELS=['general','community-links','ai-assistance','suggestions'];
 export async function manageServer(db,uid,b){
  if((await db.ref('novaChatV2/roles/'+uid).get()).val()!=='owner')throw Error('Only owners can manage server roles and channels.');
  const root='novaChatV2/',valid=v=>typeof v==='string'&&/^[a-zA-Z0-9_-]{1,80}$/.test(v),name=String(b.name||'').trim();
@@ -9,6 +11,16 @@ export async function manageServer(db,uid,b){
  if(b.kind==='channel'){if(!/^[a-z0-9-]{1,40}$/.test(name))throw Error('Use lowercase letters, numbers and hyphens.');if(!valid(b.category)||!(await db.ref(root+'serverCategories/'+b.category).get()).exists())throw Error('Choose a category.');if(['welcome','general','announcements','updates','links','leaks','report','suggestions','owner-lounge','ai-assistance','community-links'].includes(name))throw Error('That channel name is reserved.');const id=b.id||name;if(!valid(id))throw Error('Invalid channel.');if(b.id&&!(await db.ref(root+'serverChannels/'+id).get()).exists())throw Error('Channel no longer exists.');if(!b.id&&(await db.ref(root+'serverChannels/'+id).get()).exists())throw Error('That channel exists. Choose it to edit.');await db.ref(root+'serverChannels/'+id).set({name,category:b.category,staffOnly:b.staffOnly===true,readOnly:b.readOnly===true,topic:String(b.topic||'').slice(0,200),order:Number(b.order)||0,slowMode:Math.max(0,Math.min(3600,Math.trunc(Number(b.slowMode)||0)))});return {ok:true}}
  if(b.kind==='role'){if(name.length<1||name.length>30)throw Error('Use a role name under 30 characters.');if(!/^#[0-9a-f]{6}$/i.test(b.from)||!/^#[0-9a-f]{6}$/i.test(b.to))throw Error('Choose two gradient colors.');const id=b.id||randomUUID();if(!valid(id)||['owner','admin','moderator','member','nitro'].includes(id))throw Error('Invalid custom role ID.');await db.ref(root+'customRoles/'+id).set({name,from:b.from,to:b.to,permission:['administrator','moderator','member'].includes(b.permission)?b.permission:'member',order:Number(b.order)||0});const members=(await db.ref(root+'memberRoles').get()).val()||{};for(const [person,roles]of Object.entries(members))if(roles[id])await refreshAccess(db,person);return {ok:true}}
  if(b.kind==='assign'){if(!valid(b.uid)||!(await db.ref('novaAccounts/'+b.uid).get()).exists()||!valid(b.role)||!(await db.ref(root+'customRoles/'+b.role).get()).exists())throw Error('Choose a user and a custom role.');await db.ref(root+'memberRoles/'+b.uid+'/'+b.role).set(b.enabled===false?null:true);await refreshAccess(db,b.uid);return {ok:true}}
+ // Owner reset: clears public channel history but keeps owner-only channels (and their history),
+ // read-only/staff custom channels, reports (stored separately) and every DM / group message.
+ if(b.kind==='resetPublic'){
+  if(b.confirm!=='CLEAR PUBLIC CHAT')throw Error('Type CLEAR PUBLIC CHAT to confirm.');
+  const custom=(await db.ref(root+'serverChannels').get()).val()||{};
+  const cleared=[...new Set([...PUBLIC_CHANNELS,...Object.entries(custom).filter(([id,c])=>valid(id)&&!c?.readOnly&&!c?.staffOnly).map(([id])=>id)])].filter(id=>!KEEP_CHANNELS.includes(id));
+  const patch={};for(const id of cleared){patch[root+'channels/'+id]=null;patch[root+'reactions/channels/'+id]=null;patch[root+'typing/channels/'+id]=null}
+  if(cleared.length)await db.ref().update(patch);
+  return {ok:true,cleared};
+ }
  if(b.kind==='deleteChannel'){if(!valid(b.id))throw Error('Invalid channel.');await db.ref(root+'serverChannels/'+b.id).remove();return {ok:true}}
  throw Error('Choose a server setting.');
 }
