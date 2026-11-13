@@ -1,7 +1,7 @@
 // Game sessions. HostedGame owns the real engine state (single player, or the
 // online host). RemoteGame mirrors what the host publishes for everyone else.
-import {play,draw,pass,callFlip,catchMissed,autoMove,publicView} from './engine.mjs';
-import {chooseMove,botCallsFlip,botCatchDelay} from './bot.mjs';
+import {play,draw,pass,callFlip,catchMissed,autoMove,publicView} from './engine.mjs?v=5';
+import {chooseMove,botCallsFlip,botCatchDelay} from './bot.mjs?v=5';
 
 const FLIP_WINDOW=3000;
 

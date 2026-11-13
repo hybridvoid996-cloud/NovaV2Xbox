@@ -15,7 +15,7 @@ function run(s){
 
 test('deck sizes',()=>{
  assert.equal(buildDeck(cleanSettings({chaos:false})).length,108);
- assert.equal(buildDeck(cleanSettings({chaos:true})).length,108+8+6);
+ assert.equal(buildDeck(cleanSettings({chaos:true})).length,108+8+5); // chaos adds Skip All + Color Dump per color, 2 Swap, 2 +6, one +10 (no +16)
 });
 
 test('bot games always finish with a winner and conserve cards',()=>{
@@ -37,16 +37,24 @@ test('rejects out-of-turn and illegal plays',()=>{
  if(bad)assert.throws(()=>play(s,s.turn,bad.id,{color:'r'}),/cannot be played/);
 });
 
-test('stacking passes the total to the next player',()=>{
+test('stacking passes the total to the next player with the same card only',()=>{
  const s=createGame(seats(2),{stacking:true});
  s.players[s.turn].hand.push({id:'x1',c:'w',v:'w4'});
  const first=s.turn;play(s,first,'x1',{color:'b'});
  assert.deepEqual(s.pending,{amount:4,top:'w4'});
- s.players[s.turn].hand.push({id:'x2',c:'w',v:'w16'});
+ s.players[s.turn].hand.push({id:'x3',c:'w',v:'w10'},{id:'x2',c:'w',v:'w4'});
+ assert.throws(()=>play(s,s.turn,'x3',{color:'g'}),/cannot be played/);
  play(s,s.turn,'x2',{color:'g'});
- assert.equal(s.pending.amount,20);
+ assert.equal(s.pending.amount,8);
  const before=s.players[first].hand.length;draw(s,first);
- assert.equal(s.players[first].hand.length,before+20);
+ assert.equal(s.players[first].hand.length,before+8);
+});
+test('+2 stacks on +2 and the deck has no +16',()=>{
+ const s=createGame(seats(2),{stacking:true,chaos:true});
+ assert.ok(!s.deck.concat(...s.players.map(p=>p.hand),s.discard).some(c=>c.v==='w16'));
+ const a=s.turn;s.color='r';s.players[a].hand.push({id:'d1',c:'r',v:'d2'});play(s,a,'d1');
+ const b=s.turn;s.players[b].hand.push({id:'d2b',c:'b',v:'d2'});play(s,b,'d2b');
+ assert.deepEqual(s.pending,{amount:4,top:'d2'});
 });
 
 test('missed FLIP! call costs two cards; a call protects',()=>{

@@ -2,9 +2,10 @@
 // both run this; clients only ever see `publicView` plus their own hand.
 export const COLORS=['r','y','g','b'];
 export const COLOR_NAMES={r:'Red',y:'Yellow',g:'Green',b:'Blue',w:'Wild'};
-export const DRAW_VALUE={d2:2,w4:4,w6:6,w10:10,w16:16};
-export const LABELS={skip:'Skip',rev:'Reverse',d2:'+2',skipall:'Skip All',discard:'Color Dump',wild:'Wild',w4:'+4',swap:'Swap',w6:'+6',w10:'+10',w16:'+16'};
-export const DEFAULT_SETTINGS={handSize:7,stacking:true,chaos:true,sevenZero:false,drawRule:'one',turnTimer:30,botLevel:'normal'};
+// +10 is the biggest draw card (the old +16 was removed).
+export const DRAW_VALUE={d2:2,w4:4,w6:6,w10:10};
+export const LABELS={skip:'Skip',rev:'Reverse',d2:'+2',skipall:'Skip All',discard:'Color Dump',wild:'Wild',w4:'+4',swap:'Swap',w6:'+6',w10:'+10'};
+export const DEFAULT_SETTINGS={handSize:7,stacking:true,chaos:true,sevenZero:false,drawRule:'one',turnTimer:30,botLevel:'normal',wagers:false};
 
 export function cleanSettings(s={}){
  const n=(v,min,max,d)=>Number.isInteger(Number(v))&&Number(v)>=min&&Number(v)<=max?Number(v):d;
@@ -15,7 +16,8 @@ export function cleanSettings(s={}){
   sevenZero:s.sevenZero===true,
   drawRule:s.drawRule==='until'?'until':'one',
   turnTimer:[0,15,30,60].includes(Number(s.turnTimer))?Number(s.turnTimer):30,
-  botLevel:['easy','normal','hard'].includes(s.botLevel)?s.botLevel:'normal'
+  botLevel:['easy','normal','hard'].includes(s.botLevel)?s.botLevel:'normal',
+  wagers:s.wagers===true   // online rooms only: players stake coins, the winner takes the pot
  };
 }
 
@@ -27,7 +29,7 @@ export function buildDeck(settings){
   if(settings.chaos){add(c,'skipall');add(c,'discard')}
  }
  for(let i=0;i<4;i++){add('w','wild');add('w','w4')}
- if(settings.chaos){for(let i=0;i<2;i++){add('w','swap');add('w','w6')}add('w','w10');add('w','w16')}
+ if(settings.chaos){for(let i=0;i<2;i++){add('w','swap');add('w','w6')}add('w','w10')}
  return deck;
 }
 
@@ -76,13 +78,16 @@ export function canPlay(s,p,card){
  if(s.drawn&&s.drawn!==card.id)return false;
  const t=top(s);
  if(s.pending){
+  // Stacking (host setting): answer a draw card with the same card, e.g. +2 on +2, +4 on +4.
   if(!s.settings.stacking||!isDraw(card))return false;
-  return DRAW_VALUE[card.v]>=DRAW_VALUE[s.pending.top];
+  return card.v===s.pending.top;
  }
  if(isWild(card))return true;
  return card.c===s.color||card.v===t.v;
 }
 export const playable=(s,p)=>s.players[p].hand.filter(c=>canPlay(s,p,c));
+// True when it is p's turn, nothing in hand can be played and a draw is the only move.
+export const mustDraw=(s,p)=>s.phase==='play'&&s.turn===p&&!s.drawn&&!playable(s,p).length;
 export const needsTarget=(s,card)=>card.v==='swap'||(s.settings.sevenZero&&card.v==='7');
 
 function assertTurn(s,p){if(s.phase!=='play')throw Error('The game is over.');if(s.turn!==p)throw Error('It is not your turn.')}

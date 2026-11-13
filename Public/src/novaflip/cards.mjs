@@ -1,5 +1,5 @@
 // Original Nova Flip card art, drawn with DOM + inline SVG (no image assets).
-import {LABELS,COLOR_NAMES} from './engine.mjs';
+import {LABELS,COLOR_NAMES} from './engine.mjs?v=5';
 
 const SVG={
  skip:'<circle cx="12" cy="12" r="8.5"/><path d="M6 18 18 6"/>',
@@ -12,7 +12,8 @@ const SVG={
 const icon=(name,cls='')=>`<svg class="nf-ico ${cls}" viewBox="0 0 24 24" aria-hidden="true">${SVG[name]}</svg>`;
 
 function face(card){
- if(/^\d$/.test(card.v))return {big:`<span class="nf-num">${card.v}</span>`,corner:card.v};
+ // 6 and 9 are underlined so they read the right way up.
+ if(/^\d$/.test(card.v)){const u=card.v==='6'||card.v==='9'?' nf-u':'';return {big:`<span class="nf-num${u}">${card.v}</span>`,corner:u?`<span class="nf-u">${card.v}</span>`:card.v}}
  if(card.v==='d2'||card.v.startsWith('w')&&/\d/.test(card.v)){const n=LABELS[card.v];return {big:`<span class="nf-plus">${n}</span>`,corner:n}}
  if(card.v==='w4')return {big:'<span class="nf-plus">+4</span>',corner:'+4'};
  const glyph=SVG[card.v]?card.v:'wild';
@@ -25,7 +26,7 @@ export function cardEl(card,{small=false,back=false}={}){
  if(back||!card){el.classList.add('back');el.innerHTML='<div class="nf-back-ring"></div><div class="nf-back-mark">'+icon('wild','nf-back-star')+'<b>FLIP</b></div>';el.setAttribute('aria-label','Face-down card');return el}
  el.dataset.color=card.c;el.dataset.kind=card.v;el.dataset.id=card.id;
  if(card.c==='w')el.classList.add('wild');
- if(['w6','w10','w16','swap','skipall','discard'].includes(card.v))el.classList.add('chaos');
+ if(['w6','w10','swap','skipall','discard'].includes(card.v))el.classList.add('chaos');
  const f=face(card);
  el.innerHTML=`<div class="nf-frame"></div><div class="nf-sheen"></div><span class="nf-corner tl">${f.corner}</span><div class="nf-portal">${f.big}</div><span class="nf-corner br">${f.corner}</span>`;
  el.setAttribute('aria-label',(card.c==='w'?'':COLOR_NAMES[card.c]+' ')+(LABELS[card.v]||card.v));

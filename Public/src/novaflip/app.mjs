@@ -1,10 +1,10 @@
-import {connect,nova,identity,surface,refreshCoins,watchFriends,control,profileOf} from './nova.mjs';
-import {createGame,canPlay,needsTarget,isWild,COLOR_NAMES,LABELS,cleanSettings,DEFAULT_SETTINGS,COLORS} from './engine.mjs';
-import {HostedGame} from './session.mjs';
-import {botNames} from './bot.mjs';
-import {cardEl,colorHex} from './cards.mjs';
-import {sfx,setSound} from './sound.mjs';
-import {Room,watchLobbies,sendInvite,watchInvites,clearInvite,cleanCode,MAX_PLAYERS} from './online.mjs';
+import {connect,nova,identity,surface,refreshCoins,watchFriends,control,profileOf} from './nova.mjs?v=5';
+import {createGame,canPlay,needsTarget,isWild,COLOR_NAMES,LABELS,cleanSettings,DEFAULT_SETTINGS,COLORS} from './engine.mjs?v=5';
+import {HostedGame} from './session.mjs?v=5';
+import {botNames} from './bot.mjs?v=5';
+import {cardEl,colorHex} from './cards.mjs?v=6';
+import {sfx,setSound} from './sound.mjs?v=5';
+import {Room,watchLobbies,sendInvite,watchInvites,clearInvite,cleanCode,MAX_PLAYERS} from './online.mjs?v=5';
 
 // ---------- tiny DOM helper ----------
 function h(tag,props={},...kids){
@@ -101,7 +101,7 @@ addEventListener('keydown',e=>{if(e.key==='Escape'&&modal&&!modal.dataset.locked
 // ---------- floating background cards ----------
 function floaters(){
  const box=h('div',{class:'nf-floaters'});
- const picks=[{c:'r',v:'7'},{c:'b',v:'rev'},{c:'w',v:'w16'},{c:'g',v:'skip'},{c:'y',v:'d2'},{c:'w',v:'swap'},{c:'b',v:'3'},{c:'r',v:'skipall'}];
+ const picks=[{c:'r',v:'7'},{c:'b',v:'rev'},{c:'w',v:'w10'},{c:'g',v:'skip'},{c:'y',v:'d2'},{c:'w',v:'swap'},{c:'b',v:'3'},{c:'r',v:'skipall'}];
  picks.forEach((card,i)=>{const el=cardEl({...card,id:'f'+i});el.style.left=(6+i*12)%92+'%';el.style.top=(10+(i*37)%75)+'%';el.style.setProperty('--rot',(i%2?-1:1)*(10+i*7)+'deg');el.style.animationDelay=-i*2.7+'s';box.append(el)});
  sky.append(box);
 }
@@ -111,16 +111,18 @@ function floaters(){
 // =====================================================================
 // 3D tilt + glare + rainbow edge, following the pointer.
 function motionReduced(){return !!prefs.reduced||!!window.NovaMotion?.reduced}
+// Slow laptops (Nova low-power mode) skip pointer-driven 3D effects and use lighter confetti.
+const lowPower=()=>document.documentElement.classList.contains('nova-low-power');
 function tilt(el,max=9){
  el.classList.add('nf-tilt');el.append(h('span',{class:'nf-ring','aria-hidden':'true'}),h('span',{class:'nf-glare','aria-hidden':'true'}));
- if(motionReduced())return el;
+ if(motionReduced()||lowPower())return el;
  el.addEventListener('pointermove',e=>{if(e.pointerType==='touch'||motionReduced())return;const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;el.classList.add('tilting');el.style.setProperty('--ry',((x-.5)*max*2).toFixed(2)+'deg');el.style.setProperty('--rx',((.5-y)*max*2).toFixed(2)+'deg');el.style.setProperty('--gx',x*100+'%');el.style.setProperty('--gy',y*100+'%')});
  el.addEventListener('pointerleave',()=>{el.classList.remove('tilting');el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg')});
  return el;
 }
 function bigButton(label,sub,ic,tint,onclick){return tilt(h('button',{class:'nf-big',style:{'--tint':tint},onclick:()=>{sfx.click();onclick()}},h('span',{class:'ico'},icon(ic)),h('span',{class:'txt'},label,h('small',{},sub)),h('span',{class:'arrow'},icon('arrow'))),6)}
 function logo(){
- const stack=h('div',{class:'stack'},cardEl({c:'r',v:'7',id:'l1'}),cardEl({c:'y',v:'rev',id:'l2'}),cardEl({c:'w',v:'w16',id:'l3'}),cardEl({c:'b',v:'d2',id:'l4'}));
+ const stack=h('div',{class:'stack'},cardEl({c:'r',v:'7',id:'l1'}),cardEl({c:'y',v:'rev',id:'l2'}),cardEl({c:'w',v:'w10',id:'l3'}),cardEl({c:'b',v:'d2',id:'l4'}));
  return h('div',{class:'nf-logo',role:'img','aria-label':'Nova Flip'},h('div',{class:'orbit'}),stack,h('div',{class:'nf-wordmark'},h('small',{},'NOVA'),h('b',{},'FL',h('i',{},'I'),'P')));
 }
 function profileCard(){
@@ -168,7 +170,7 @@ function showSingle(){
  const LEVELS=[['easy','Easy','Relaxed bots that make mistakes','#16c58a'],['normal','Normal','Solid play, the odd slip','#3f8cff'],['hard','Hard','Ruthless stackers, never forget','#ff4b6e']];
  const paintDiff=()=>diff.replaceChildren(...LEVELS.map(([v,label,sub,tint])=>tilt(h('button',{class:'nf-diff-opt',role:'radio','aria-pressed':String(prefs.settings.botLevel===v),'aria-checked':String(prefs.settings.botLevel===v),style:{'--tint':tint},onclick:()=>{prefs.settings.botLevel=v;savePrefs();sfx.click();paintDiff()}},h('span',{class:'ico'},icon(v)),h('b',{},label),h('small',{},sub)),7)));
  paintDiff();
- const fan=h('div',{class:'fan'});[['r','7'],['y','d2'],['w','w16'],['g','swap'],['b','rev']].forEach(([c,v],i)=>{const el=cardEl({c,v,id:'s'+i});el.style.setProperty('--a',(i-2)*14+'deg');fan.append(el)});
+ const fan=h('div',{class:'fan'});[['r','7'],['y','d2'],['w','w10'],['g','swap'],['b','rev']].forEach(([c,v],i)=>{const el=cardEl({c,v,id:'s'+i});el.style.setProperty('--a',(i-2)*14+'deg');fan.append(el)});
  screen(topBar({back:showMenu,title:'Single Player'}),h('main',{class:'nf-screen'},
   h('header',{},h('div',{},h('span',{class:'nf-eyebrow'},'VS NOVA BOTS'),h('h1',{},'Single Player'),h('p',{},'Pick your table, choose how tough the bots are, and deal.'))),
   h('div',{class:'nf-wrap nf-solo'},
@@ -204,7 +206,7 @@ function showSettings(){
  const row=(ic,tint,title,sub,control,extra)=>h('div',{class:'nf-setting'},ico(ic,tint),h('div',{},h('b',{},title),h('small',{},sub),extra||null),control);
  const toggle=(ic,tint,title,sub,get,set,extra)=>{const sw=h('button',{class:'nf-switch',role:'switch','aria-checked':String(get()),'aria-label':title,onclick:()=>{set(!get());sw.setAttribute('aria-checked',String(get()));save();sfx.click()}});return row(ic,tint,title,sub,sw,extra)};
  const choice=(ic,tint,title,sub,opts,get,set)=>row(ic,tint,title,sub,segmented(opts,get(),v=>{set(v);save()}));
- const peek=h('div',{class:'peek','aria-hidden':'true'},...[['w','swap'],['r','skipall'],['g','discard'],['w','w6'],['w','w10'],['w','w16']].map(([c,v],i)=>cardEl({c,v,id:'p'+i})));
+ const peek=h('div',{class:'peek','aria-hidden':'true'},...[['w','swap'],['r','skipall'],['g','discard'],['w','w6'],['w','w10']].map(([c,v],i)=>cardEl({c,v,id:'p'+i})));
  const group=(ic,tint,title,...rows)=>h('section',{class:'nf-panel nf-set-group'},h('h2',{},title),h('div',{class:'nf-set-list'},...rows));
  screen(topBar({back:showMenu,title:'Settings'}),h('main',{class:'nf-screen'},
   h('header',{},h('div',{},h('span',{class:'nf-eyebrow'},'HOUSE RULES'),h('h1',{},'Settings'),h('p',{},'Rules apply to single player and to rooms you host.')),h('div',{style:{flex:'1'}}),
@@ -212,8 +214,8 @@ function showSettings(){
   h('div',{class:'nf-wrap nf-set-groups'},
    group('hand','#fff','Deck & rules',
     choice('hand','#ff4b6e','Starting hand','Cards dealt to each player',[[5,'5'],[7,'7'],[10,'10']],()=>s.handSize,v=>s.handSize=v),
-    toggle('stack','#3f8cff','Stack draw cards','Answer a +2 with a +2 or bigger',()=>s.stacking,v=>s.stacking=v),
-    toggle('chaos','#f5a70f','Chaos cards','Swap, Skip All, Color Dump, +6, +10, +16',()=>s.chaos,v=>s.chaos=v,peek),
+    toggle('stack','#3f8cff','Stack draw cards','Answer a +2 with a +2, or a +4 with a +4',()=>s.stacking,v=>s.stacking=v),
+    toggle('chaos','#f5a70f','Chaos cards','Swap, Skip All, Color Dump, +6, +10',()=>s.chaos,v=>s.chaos=v,peek),
     toggle('swap','#16c58a','7-0 rule','7 swaps hands, 0 rotates every hand',()=>s.sevenZero,v=>s.sevenZero=v),
     choice('draw','#a0a0ad','Drawing','When you can’t play',[['one','Draw 1'],['until','Until playable']],()=>s.drawRule,v=>s.drawRule=v)),
    group('timer','#fff','Pace',
@@ -230,7 +232,7 @@ function showSettings(){
 function showCredits(){
  fresh();
  const gallery=h('div',{class:'nf-card-gallery'});
- for(const [c,v,label]of [['r','5','Number'],['y','skip','Skip'],['g','rev','Reverse'],['b','d2','+2'],['w','wild','Wild'],['w','w4','+4'],['r','skipall','Skip All'],['g','discard','Color Dump'],['w','swap','Swap'],['w','w6','+6'],['w','w10','+10'],['w','w16','+16']])gallery.append(h('figure',{},cardEl({c,v,id:'g'+v+c}),h('figcaption',{},label)));
+ for(const [c,v,label]of [['r','5','Number'],['y','skip','Skip'],['g','rev','Reverse'],['b','d2','+2'],['w','wild','Wild'],['w','w4','+4'],['r','skipall','Skip All'],['g','discard','Color Dump'],['w','swap','Swap'],['w','w6','+6'],['w','w10','+10']])gallery.append(h('figure',{},cardEl({c,v,id:'g'+v+c}),h('figcaption',{},label)));
  screen(topBar({back:showMenu,title:'Credits'}),h('main',{class:'nf-screen'},h('div',{class:'nf-credits'},logo(),
   h('h3',{},'Created for'),h('p',{},'Nova'),
   h('h3',{},'Game design & development'),h('p',{},'The Nova team'),
@@ -297,6 +299,23 @@ function showLobby(room){
   const r=e.currentTarget.getBoundingClientRect();pop.style.left=Math.min(r.left,innerWidth-200)+'px';pop.style.top=r.bottom+6+'px';document.body.append(pop);
   setTimeout(()=>addEventListener('click',()=>pop.remove(),{once:true}));
  };
+ // ---- Wagers: every player stakes 5,000+ coins, the server holds them, the winner takes the pot.
+ const potPanel=h('section',{class:'nf-panel nf-pot',hidden:true});
+ let betBusy=false;
+ const bet=async(op,amount)=>{if(betBusy)return;betBusy=true;try{const r=await control('novaFlip',{op,room:room.code,amount});if(Number.isFinite(r.coins)){nova.coins=r.coins;dispatchEvent(new Event('nf-wallet'))}sfx.click();toast(op==='unwager'?'Bet withdrawn · coins returned.':'Bet placed: '+fmt(r.amount)+' coins.')}catch(e){fail(e)}finally{betBusy=false}};
+ function paintPot(s,players,stakes){
+  potPanel.hidden=!s.wagers;if(!s.wagers)return;
+  const humans=players.filter(p=>!p.bot),total=Object.values(stakes).reduce((a,w)=>a+(Number(w.amount)||0),0),mine=stakes[nova.user.uid]?.amount||0;
+  const input=h('input',{class:'nf-input nf-bet-input',type:'number',min:'5000',step:'1000',inputmode:'numeric',value:String(mine||5000),'aria-label':'Your bet in Nova Coins'});
+  const quick=h('div',{class:'nf-bet-quick'},...[5000,10000,25000,50000].map(n=>h('button',{class:'nf-chip-btn',onclick:()=>{input.value=n}},fmt(n))));
+  const place=()=>{const n=Math.floor(Number(input.value));if(!(n>=5000))return fail(Error('The minimum bet is 5,000 Nova Coins.'));bet('wager',n)};
+  potPanel.replaceChildren(
+   h('div',{class:'nf-pot-head'},h('div',{},h('small',{},'TOTAL POT'),h('b',{class:'nf-pot-total'},fmt(total)),h('span',{},'Nova Coins · winner takes all')),h('div',{class:'nf-pot-coins','aria-hidden':'true'},...Array.from({length:Math.min(6,Math.max(1,Object.keys(stakes).length*2))},(_,i)=>h('i',{style:{'--i':i}})))),
+   h('div',{class:'nf-pot-list'},...humans.map(p=>{const w=stakes[p.id];return h('div',{class:'nf-pot-row'+(w?' paid':'')},identity(p,{size:'sm'}),h('b',{},w?fmt(w.amount):'No bet yet'))}),...(players.some(p=>p.bot)?[h('p',{class:'nf-note'},'Bots do not bet. If a bot wins, every bet is refunded.')]:[])),
+   h('div',{class:'nf-bet'},input,h('button',{class:'nf-btn go',onclick:place},mine?'Update bet':'Place bet'),mine?h('button',{class:'nf-btn',onclick:()=>bet('unwager')},'Withdraw'):null),
+   quick,h('p',{class:'nf-note'},'Minimum 5,000. Bets lock when the game starts. If the room closes before a winner, everyone is refunded.'));
+ }
+ const startRoom=async()=>{try{await room.start();if(room.settings.wagers&&room.gameId)await control('novaFlip',{op:'wagerLock',room:room.code,gameId:room.gameId}).catch(e=>toast('Bets could not lock: '+e.message,{error:true}))}catch(e){fail(e)}};
  const paint=()=>{
   if(!room.data)return;
   const players=room.players;
@@ -310,21 +329,24 @@ function showLobby(room){
    if(!p.bot)surface(seat,p);
    return seat;
   }));
-  const s=room.settings;
+  const s=room.settings,stakes=room.data.wagers||{},unpaid=s.wagers?players.filter(p=>!p.bot&&!stakes[p.id]):[];
+  paintPot(s,players,stakes);
   status.textContent=room.data.status==='playing'?'Game in progress…':room.isHost?(players.length<2?'Add a bot or invite a friend to start.':'Ready when you are.'):'Waiting for the host to start…';
   controls.replaceChildren();
   if(room.isHost){
    controls.append(
     h('div',{class:'nf-row'},segmented([['public','Public'],['private','Invite only']],room.data.visibility,v=>room.setMeta({visibility:v}).catch(fail))),
-    hostToggle('Stacking',s.stacking,v=>room.updateSettings({stacking:v})),
+    hostToggle('Stacking (+2 on +2, +4 on +4)',s.stacking,v=>room.updateSettings({stacking:v})),
+    hostToggle('Wagering · winner takes the pot',s.wagers,v=>room.updateSettings({wagers:v})),
     hostToggle('Chaos cards',s.chaos,v=>room.updateSettings({chaos:v})),
     hostToggle('7-0 rule',s.sevenZero,v=>room.updateSettings({sevenZero:v})),
     h('div',{class:'nf-row'},h('span',{class:'nf-note',style:{flex:'1'}},'Hand size'),segmented([[5,'5'],[7,'7'],[10,'10']],s.handSize,v=>room.updateSettings({handSize:v}).catch(fail))),
     h('div',{class:'nf-row'},h('span',{class:'nf-note',style:{flex:'1'}},'Turn timer'),segmented([[15,'15s'],[30,'30s'],[60,'60s']],s.turnTimer||30,v=>room.updateSettings({turnTimer:v}).catch(fail))),
     h('div',{class:'nf-row'},h('span',{class:'nf-note',style:{flex:'1'}},'Bots'),segmented([['easy','Easy'],['normal','Normal'],['hard','Hard']],s.botLevel,v=>room.updateSettings({botLevel:v}).catch(fail))),
-    h('button',{class:'nf-btn go',style:{fontSize:'17px',padding:'14px'},disabled:players.length<2||room.data.status==='playing'||undefined,onclick:()=>room.start().catch(fail)},'Start game  →'));
-  }else controls.append(h('p',{class:'nf-note'},[s.handSize+' cards',s.stacking?'stacking':'no stacking',s.chaos?'chaos cards':'classic deck',s.sevenZero?'7-0 rule':'',(s.turnTimer||30)+'s turns'].filter(Boolean).join(' · ')));
-  const last=room.data.lastResult;
+    h('button',{class:'nf-btn go',style:{fontSize:'17px',padding:'14px'},disabled:players.length<2||room.data.status==='playing'||unpaid.length>0||undefined,onclick:startRoom},unpaid.length?'Waiting for '+unpaid.map(p=>p.name).join(', ')+' to bet':'Start game  →'));
+  }else controls.append(h('p',{class:'nf-note'},[s.handSize+' cards',s.wagers?'wagering on':'',s.stacking?'stacking':'no stacking',s.chaos?'chaos cards':'classic deck',s.sevenZero?'7-0 rule':'',(s.turnTimer||30)+'s turns'].filter(Boolean).join(' · ')));
+  const last=room.data.lastResult,lastPot=room.data.lastPot;
+  if(lastPot&&Date.now()-lastPot.at<120000)controls.prepend(h('div',{class:'nf-invite nf-pot-won'},h('b',{},'💰 '+(room.players.find(p=>p.id===lastPot.winner)?.name||'The winner')+' took the '+fmt(lastPot.amount)+' coin pot')));
   if(last&&Date.now()-last.at<120000)controls.prepend(h('div',{class:'nf-invite'},h('b',{},'🏆 '+last.winnerName+' won the last round · '+fmt(last.points)+' pts')));
  };
  const copy=()=>{navigator.clipboard?.writeText(room.code).then(()=>toast('Room code copied.'),()=>toast('Code: '+room.code))};
@@ -332,7 +354,7 @@ function showLobby(room){
   h('header',{},h('div',{class:'nf-lobby-code'},h('div',{},h('p',{style:{margin:'0',color:'var(--muted)',fontWeight:'700',letterSpacing:'.14em',fontSize:'12px'}},'ROOM CODE'),h('span',{class:'code'},room.code)),h('button',{class:'nf-btn',onclick:copy},icon('copy'),'Copy'),h('div',{style:{flex:'1'}}),h('button',{class:'nf-btn danger',onclick:leave},icon('door'),room.isHost?'Close room':'Leave'))),
   h('div',{class:'nf-wrap nf-grid-2'},
    h('div',{style:{display:'grid',gap:'18px'}},h('section',{class:'nf-panel'},h('h2',{},room.data?.name||'Players'),seats,status)),
-   h('div',{style:{display:'grid',gap:'18px'}},h('section',{class:'nf-panel'},h('h2',{},room.isHost?'Room settings':'Rules'),controls),h('section',{class:'nf-panel'},h('h2',{},'Invite friends'),friendList({room})))))) ;
+   h('div',{style:{display:'grid',gap:'18px'}},potPanel,h('section',{class:'nf-panel'},h('h2',{},room.isHost?'Room settings':'Rules'),controls),h('section',{class:'nf-panel'},h('h2',{},'Invite friends'),friendList({room})))))) ;
  paint();
  const off=room.on(e=>{
   if(e.type==='update')paint();
@@ -399,6 +421,8 @@ function playTable(session,{mode,room,profiles,onExit,again}){
   const left=Math.max(0,v.deadline-Date.now());
   bar.style.transition='none';bar.style.width=(left/total*100)+'%';bar.offsetWidth;bar.style.transition='width '+left+'ms linear';bar.style.width='0';
  }
+ let lastHandKey='',autoDrawSeq=-1,autoDrawTimer=0;onCleanup(()=>clearTimeout(autoDrawTimer));
+ let resizeFrame=0;const onResize=()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>{lastHandKey='';render()})};addEventListener('resize',onResize,{passive:true});onCleanup(()=>removeEventListener('resize',onResize));
  function render(event={}){
   const v=session.view;if(!v||!v.players)return;
   buildOpps(v);
@@ -427,21 +451,30 @@ function playTable(session,{mode,room,profiles,onExit,again}){
   if(v.pending)discard.append(h('span',{class:'nf-pending'},'+'+v.pending.amount));
   // my hand
   hand.classList.toggle('my-turn',myTurn);
-  const n=handCards.length,overlap=n<=7?-18:n<=12?-42:n<=20?-58:-68;hand.style.setProperty('--overlap',overlap+'px');
+  // Spread cards across the available width: a clear gap when they fit, overlap only when they must.
+  const n=handCards.length,cardW=parseFloat(getComputedStyle(hand).getPropertyValue('--card-w'))||96,room=Math.max(cardW,(hand.clientWidth||innerWidth)-24);
+  const step=n>1?Math.min(cardW+12,(room-cardW)/(n-1)):cardW,overlap=Math.round(step-cardW);hand.style.setProperty('--overlap',overlap+'px');hand.classList.toggle('spread',overlap>=0);
+  const oks=handCards.map(c=>myTurn&&canPlayView(v,c,mine)),handKey=handCards.map((c,i)=>c.id+(oks[i]?'+':'')).join(',')+'|'+overlap;
   const fresh=new Set();for(const c of handCards)if(prevHand.size&&!prevHand.has(c.id))fresh.add(c.id);
-  hand.replaceChildren(...handCards.map((c,i)=>{
+  // Rebuilding every card on every update is costly on slow laptops: only rebuild when the hand changes.
+  if(handKey!==lastHandKey){lastHandKey=handKey;hand.replaceChildren(...handCards.map((c,i)=>{
    const el=cardEl(c);el.setAttribute('role','listitem');
-   const ok=myTurn&&canPlayView(v,c,mine);el.classList.toggle('ok',ok);
+   const ok=oks[i];el.classList.toggle('ok',ok);
    if(ok){el.tabIndex=0;el.setAttribute('role','button');el.onclick=()=>choose(c,el);el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(c,el)}}}
-   const mid=(n-1)/2;el.style.setProperty('--tilt',n>1?((i-mid)*Math.min(3,30/n))+'deg':'0deg');
+   const mid=(n-1)/2;el.style.setProperty('--tilt',n>1&&overlap<0?((i-mid)*Math.min(1.6,16/n))+'deg':'0deg');
    if(fresh.has(c.id)&&!prefs.reduced)el.classList.add('fresh');
    return el;
-  }));
+  }))}
+  // Auto draw: when nothing in hand can be played, take the card (or the stacked draw) for the player.
+  if(myTurn&&!v.drawn&&!oks.some(Boolean)&&autoDrawSeq!==v.seq){
+   autoDrawSeq=v.seq;clearTimeout(autoDrawTimer);
+   autoDrawTimer=setTimeout(async()=>{const now=session.view;if(!now||now.seq!==v.seq||now.turn!==session.mySeat||now.drawn||now.phase!=='play')return;try{await session.act({type:'draw'});sfx.draw()}catch(e){fail(e)}},v.pending?900:650);
+  }
   prevHand=new Set(handCards.map(c=>c.id));
   myCount.textContent=n;myCard.classList.toggle('turn',myTurn);myCard.style.setProperty('--turn',cur);setTimer(myTimer,v,mine);
   // controls
   turnLabel.classList.toggle('mine',myTurn);
-  turnLabel.textContent=v.phase!=='play'?'Game over':myTurn?(v.pending?'Stack a draw card or take +'+v.pending.amount:v.drawn?'Play the card you drew or pass':'Your turn'):v.players[v.turn].name+'’s turn';
+  turnLabel.textContent=v.phase!=='play'?'Game over':myTurn?(!v.drawn&&!oks.some(Boolean)?(v.pending?'Taking +'+v.pending.amount+'…':'No match · drawing…'):v.pending?'Stack the same card or take +'+v.pending.amount:v.drawn?'Play the card you drew or pass':'Your turn'):v.players[v.turn].name+'’s turn';
   passBtn.hidden=!(myTurn&&v.drawn);
   const lastCall=v.oneCard&&v.oneCard.player===mine&&!v.oneCard.called&&n===1;
   flipBtn.disabled=!(lastCall||(myTurn&&n===2));flipBtn.classList.toggle('urgent',!!lastCall);
@@ -454,7 +487,7 @@ function playTable(session,{mode,room,profiles,onExit,again}){
   // mirrors engine.canPlay using only public data
   if(v.phase!=='play'||v.turn!==seat)return false;
   if(v.drawn&&v.drawnId&&v.drawnId!==card.id)return false;
-  if(v.pending){if(!v.settings.stacking||!(card.v in {d2:1,w4:1,w6:1,w10:1,w16:1}))return false;const val={d2:2,w4:4,w6:6,w10:10,w16:16};return val[card.v]>=val[v.pending.top]}
+  if(v.pending)return !!v.settings.stacking&&card.v===v.pending.top;
   return card.c==='w'||card.c===v.color||card.v===v.top.v;
  }
  function fly(target,seat,fromRect){
@@ -509,14 +542,25 @@ function playTable(session,{mode,room,profiles,onExit,again}){
   actions.append(h('button',{class:'nf-btn primary',onclick:()=>{closeModal();if(mode==='online')showLobby(room);else onExit()}},mode==='online'?'Back to room':'New table'),h('button',{class:'nf-btn',onclick:()=>{closeModal();if(mode==='online')room.leave().then(showMenu);else showMenu()}},'Main menu'));
   const dlg=h('div',{class:'nf-dialog nf-result'},top,h('div',{class:'rewards'},h('div',{class:'nf-reward points'},h('b',{},iWon?'+'+fmt(v.points):'0'),h('small',{},'Points')),coinsBox),note,actions);
   openModal(dlg,{dismissable:false}).dataset.locked='1';
-  if(!iWon){note.textContent='Win a round to earn 1,000+ points and Nova Coins.';return}
+  if(mode==='online'&&room?.settings?.wagers&&nova.signedIn){
+   const potBox=h('div',{class:'nf-reward pot'},h('b',{},'…'),h('small',{},'Pot'));dlg.querySelector('.rewards').append(potBox);
+   const settle=async(tries=0)=>{try{const r=await control('novaFlip',{op:'wagerSettle',room:room.code});
+     const amount=r.pot||Number(room.data?.lastPot?.amount)||0;
+     if(!amount&&tries<3){setTimeout(()=>settle(tries+1),1500);return}
+     potBox.firstChild.textContent=fmt(amount);
+     potBox.lastChild.textContent=r.refunded?'Pot refunded':room.data?.lastPot?.winner===nova.user.uid||r.paidTo===nova.user.uid?'Pot won!':'Pot';
+     refreshCoins().then(()=>dispatchEvent(new Event('nf-wallet'))).catch(()=>{});
+    }catch(e){potBox.firstChild.textContent='—';potBox.lastChild.textContent='Pot: '+e.message}};
+   settle();
+  }
+  if(!iWon){note.textContent='Win a round to earn 5,000 Nova Coins.';return}
   if(!nova.signedIn){coinsBox.firstChild.textContent='0';note.textContent='Sign in to Nova to turn wins into Nova Coins.';return}
   try{
    const {token}=await reward;
    const res=await control('novaFlip',{op:'claim',token,points:v.points});
    countUp(coinsBox.firstChild,res.coinsWon);
    nova.coins=res.coins;nova.stats=res.stats;dispatchEvent(new Event('nf-wallet'));
-   note.textContent=res.limited?'Daily coin limit reached: points still count, coins reset tomorrow.':res.bonus?'Includes a +'+fmt(res.bonus)+' online bonus for beating real players.':'Coins added to your Nova account.';
+   note.textContent=res.limited?'Daily coin limit reached: points still count, coins reset tomorrow.':'+5,000 Nova Coins for the win.';
   }catch(e){coinsBox.firstChild.textContent='0';note.textContent='Coins could not be added: '+(e.message||e)}
  }
 }
@@ -531,7 +575,7 @@ function pickColor(){return new Promise(resolve=>{const dlg=h('div',{class:'nf-d
 function pickTarget(v){return new Promise(resolve=>{let done=false;const list=h('div',{class:'nf-list'},...v.players.map((p,k)=>k===v.turn?null:h('button',{class:'nf-item',onclick:()=>{done=true;closeModal();resolve(k)}},h('b',{class:'grow'},p.name),h('span',{class:'nf-pill'},p.count+' cards'))));openModal(h('div',{class:'nf-dialog'},h('h2',{},'Swap hands with…'),h('p',{},'You will trade your whole hand with this player.'),list));const m=modal;new MutationObserver((_,o)=>{if(!m.isConnected){o.disconnect();if(!done)resolve(null)}}).observe(document.body,{childList:true})})}
 function confetti(){
  if(motionReduced())return;const c=h('canvas',{class:'nf-confetti'});document.body.append(c);const x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
- const cols=Object.values(colorHex).concat('#ffffff','#ffe08a');const bits=Array.from({length:160},()=>({x:innerWidth/2,y:innerHeight/2,vx:(Math.random()-.5)*16,vy:-Math.random()*16-4,r:Math.random()*6+3,c:cols[Math.floor(Math.random()*cols.length)],a:Math.random()*6}));
+ const cols=Object.values(colorHex).concat('#ffffff','#ffe08a');const bits=Array.from({length:lowPower()?45:160},()=>({x:innerWidth/2,y:innerHeight/2,vx:(Math.random()-.5)*16,vy:-Math.random()*16-4,r:Math.random()*6+3,c:cols[Math.floor(Math.random()*cols.length)],a:Math.random()*6}));
  const start=performance.now();const frame=t=>{x.clearRect(0,0,c.width,c.height);for(const b of bits){b.vy+=.35;b.x+=b.vx;b.y+=b.vy;b.a+=.2;x.save();x.translate(b.x,b.y);x.rotate(b.a);x.fillStyle=b.c;x.fillRect(-b.r/2,-b.r/4,b.r,b.r/2);x.restore()}if(t-start<3200)requestAnimationFrame(frame);else c.remove()};requestAnimationFrame(frame);
 }
 

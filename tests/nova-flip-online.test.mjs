@@ -2,7 +2,7 @@
 // fake, and the server reward rules against a fake admin database.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {nova} from '../Public/src/novaflip/nova.mjs';
+import {nova} from '../Public/src/novaflip/nova.mjs?v=5';
 import {Room} from '../Public/src/novaflip/online.mjs';
 import {novaFlipAction,FLIP_DAILY_COIN_WINS} from '../server/nova-flip.mjs';
 
@@ -107,7 +107,7 @@ test('solo win pays coins once, after the minimum length',async()=>{
  await assert.rejects(()=>call({op:'claim',token,points:1200}),/too short/);
  now+=60_000;
  const r=await call({op:'claim',token,points:999999});
- assert.equal(r.points,2500,'points are capped');assert.equal(r.coinsWon,2500);assert.equal(r.coins,3000);
+ assert.equal(r.points,2500,'points are capped');assert.equal(r.coinsWon,5000);assert.equal(r.coins,5500);
  await assert.rejects(()=>call({op:'claim',token,points:1200}),/already claimed|not registered/);
  assert.equal(db.tree().novaFlip.stats.u1.wins,1);
 });
@@ -118,7 +118,7 @@ test('daily coin limit, then points only',async()=>{
  let last;
  for(let i=0;i<FLIP_DAILY_COIN_WINS+1;i++){const {token}=await call({op:'start',mode:'solo',players:2});now+=50_000;last=await call({op:'claim',token,points:1000})}
  assert.equal(last.limited,true);assert.equal(last.coinsWon,0);
- assert.equal(db.tree().novaControl.progress.u2.coins,FLIP_DAILY_COIN_WINS*1000);
+ assert.equal(db.tree().novaControl.progress.u2.coins,FLIP_DAILY_COIN_WINS*5000);
 });
 
 test('online claim requires the room to name you as winner',async()=>{
@@ -130,5 +130,5 @@ test('online claim requires the room to name you as winner',async()=>{
  now+=60_000;
  await assert.rejects(()=>call('u3',{op:'claim',token:t3}),/winner/);
  const r=await call('h',{op:'claim',token:th});
- assert.equal(r.coinsWon,1300+250);
+ assert.equal(r.coinsWon,5000);
 });

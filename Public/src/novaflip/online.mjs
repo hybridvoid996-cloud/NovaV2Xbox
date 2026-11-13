@@ -3,10 +3,10 @@
 // novaFlip/hands/{code}/{uid}  private hand: readable by that player and the host only
 // novaFlip/lobbies/{code}   open-room directory for the room browser
 // novaFlip/invites/{uid}/{from} friend invites (rules require an accepted friendship)
-import {nova,publicIdentity} from './nova.mjs';
-import {createGame,cleanSettings} from './engine.mjs';
-import {HostedGame,RemoteGame} from './session.mjs';
-import {botNames} from './bot.mjs';
+import {nova,publicIdentity} from './nova.mjs?v=5';
+import {createGame,cleanSettings} from './engine.mjs?v=5';
+import {HostedGame,RemoteGame} from './session.mjs?v=5';
+import {botNames} from './bot.mjs?v=5';
 
 const ROOT='novaFlip';
 const ALPHABET='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';

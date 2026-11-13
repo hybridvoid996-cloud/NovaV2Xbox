@@ -1,4 +1,4 @@
-import {COLORS,DRAW_VALUE,isWild,isDraw,needsTarget,playable} from './engine.mjs';
+import {COLORS,DRAW_VALUE,isWild,isDraw,needsTarget,playable} from './engine.mjs?v=5';
 
 const BOT_NAMES=['Orbit','Pixel','Comet','Nebula','Vega','Quasar','Luna','Nova Bot','Astra','Zephyr'];
 export function botNames(count,taken=[]){const pool=BOT_NAMES.filter(n=>!taken.includes(n));const out=[];while(out.length<count)out.push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]||'Bot '+(out.length+1));return out}

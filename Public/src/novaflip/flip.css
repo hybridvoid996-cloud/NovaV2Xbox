@@ -491,3 +491,65 @@ html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{an
  .nf-log{display:none}
  .nf-dialog{max-height:calc(100dvh - 24px);padding:18px}
 }
+
+/* ===== Classic card faces (v5): solid colors, white border, big outlined numbers ===== */
+.nf-card:not(.back){--k:#555;background:linear-gradient(118deg,transparent 0 36%,rgba(255,255,255,.16) 36% 58%,transparent 58%),var(--k);border:calc(var(--card-w)*.07) solid #fff;border-radius:calc(var(--card-w)*.11);box-shadow:0 1px 0 #e3e3e8,0 2px 0 #c2c2ca,0 10px 18px -8px rgba(0,0,0,.7)}
+.nf-card[data-color=r]{--k:#e3262f;--c:#ff5a62;--c2:#e3262f}
+.nf-card[data-color=y]{--k:#f4b400;--c:#ffd24a;--c2:#e0a100}
+.nf-card[data-color=g]{--k:#1f9d49;--c:#3fcf6c;--c2:#1f9d49}
+.nf-card[data-color=b]{--k:#1c63d4;--c:#4d8cff;--c2:#1c63d4}
+.nf-card.wild:not(.back){--k:#141418;background:linear-gradient(118deg,transparent 0 36%,rgba(255,255,255,.08) 36% 58%,transparent 58%),#141418}
+.nf-card .nf-frame,.nf-card.wild::before{display:none}
+.nf-card .nf-sheen{background:none}
+.nf-card .nf-portal{inset:12% 8%;background:none;box-shadow:none;border-radius:0}
+.nf-card .nf-num,.nf-card .nf-plus{transform:none;font-style:normal;font-weight:900;background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#fff;-webkit-text-fill-color:#fff;-webkit-text-stroke:calc(var(--card-w)*.028) #111;paint-order:stroke fill;text-shadow:calc(var(--card-w)*.035) calc(var(--card-w)*.035) 0 #111;filter:none;letter-spacing:-.02em}
+.nf-card .nf-num{font-size:calc(var(--card-w)*.74)}
+.nf-card .nf-plus{font-size:calc(var(--card-w)*.46)}
+.nf-card .nf-big-ico{transform:none;width:calc(var(--card-w)*.6);height:calc(var(--card-w)*.6);stroke:#fff;stroke-width:3.2;fill:none;filter:drop-shadow(calc(var(--card-w)*.03) calc(var(--card-w)*.03) 0 #111)}
+.nf-card .nf-corner{font-style:normal;color:#fff;font-size:calc(var(--card-w)*.19);-webkit-text-stroke:calc(var(--card-w)*.012) #111;paint-order:stroke fill;text-shadow:1px 1px 0 #111}
+.nf-card .nf-corner .nf-ico{width:1em;height:1em;stroke:#fff;stroke-width:3;fill:none;filter:drop-shadow(1px 1px 0 #111)}
+.nf-card .nf-corner.tl{top:5%;left:8%}.nf-card .nf-corner.br{bottom:5%;right:8%}
+/* Wild cards: black with a four-color circle */
+.nf-card.wild .nf-portal{inset:auto;left:14%;right:14%;top:50%;aspect-ratio:1;transform:translateY(-50%);border-radius:50%;background:conic-gradient(#e3262f 0 25%,#f4b400 0 50%,#1f9d49 0 75%,#1c63d4 0);box-shadow:0 0 0 calc(var(--card-w)*.03) #fff,0 4px 10px rgba(0,0,0,.5)}
+.nf-card.wild .nf-big-ico{width:calc(var(--card-w)*.4);height:calc(var(--card-w)*.4);fill:#fff;stroke:#111;stroke-width:1.2}
+.nf-card.wild .nf-plus{font-size:calc(var(--card-w)*.38)}
+.nf-card.wild[data-kind=swap] .nf-big-ico{fill:none;stroke:#fff;stroke-width:3}
+/* +2 / +4 / +6 / +10: a small stack of cards behind the number */
+.nf-card[data-kind=d2] .nf-portal::before,.nf-card[data-kind=w4] .nf-portal::before{content:"";position:absolute;width:30%;height:34%;left:22%;top:20%;border:2px solid #fff;border-radius:4px;transform:rotate(-12deg);opacity:.5}
+.nf-hand.my-turn .nf-card.ok{box-shadow:0 0 0 2px #fff,0 0 22px -2px var(--k),0 1px 0 #e3e3e8,0 2px 0 #c2c2ca,0 14px 24px -8px #000}
+.nf-hand.my-turn .nf-card:not(.ok){filter:brightness(.55) saturate(.6)}
+.nf-hand.spread .nf-card{transform-origin:50% 100%}
+.nf-hand.spread.my-turn .nf-card.ok:hover,.nf-hand.spread.my-turn .nf-card.ok:focus-visible{--hx:0deg;--lift:-26px;--hs:1.04}
+
+/* ===== Lobby wagers ===== */
+.nf-pot{background:radial-gradient(120% 90% at 0 0,rgba(255,194,61,.16),transparent 60%),var(--panel,rgba(20,20,26,.9))}
+.nf-pot[hidden]{display:none}
+.nf-pot-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nf-pot-head small{display:block;color:#ffd36e;font-weight:800;letter-spacing:.16em;font-size:11px}
+.nf-pot-total{display:block;font-size:clamp(34px,5vw,48px);line-height:1.05;font-weight:900;background:linear-gradient(180deg,#fff3c4,#ffc23d 60%,#d98a00);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nf-pot-head span{color:var(--muted,#a7a7b3);font-size:12px}
+.nf-pot-coins{position:relative;width:70px;height:60px}
+.nf-pot-coins i{position:absolute;left:calc(var(--i)*7px);bottom:calc(var(--i)*6px);width:44px;height:16px;border-radius:50%;background:linear-gradient(#ffe08a,#e7a10f);box-shadow:0 2px 0 #b97a00,0 0 0 1px #fff5 inset}
+.nf-pot-list{display:grid;gap:6px;margin:14px 0}
+.nf-pot-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+.nf-pot-row b{color:var(--muted,#a7a7b3);font-size:13px}
+.nf-pot-row.paid{border-color:rgba(255,194,61,.35)}.nf-pot-row.paid b{color:#ffd36e}
+.nf-bet{display:flex;gap:8px;flex-wrap:wrap}
+.nf-bet-input{flex:1;min-width:120px;font-size:16px;font-weight:700}
+.nf-bet-quick{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.nf-chip-btn{padding:6px 12px;border-radius:999px;border:1px solid rgba(255,194,61,.35);background:rgba(255,194,61,.08);color:#ffd36e;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+.nf-chip-btn:hover{background:rgba(255,194,61,.18)}
+.nf-pot-won b{color:#ffd36e}
+.nf-reward.pot b{color:#ffd36e}
+
+/* ===== Lighter mode for slow laptops (Nova low-power / reduce motion) ===== */
+html.nova-low-power .nf-floaters,html.reduce-motion .nf-floaters{display:none}
+html.nova-low-power .nf-card.chaos::after{animation:none;display:none}
+html.nova-low-power .nf-card:not(.back){box-shadow:0 2px 0 #c2c2ca,0 6px 10px -6px rgba(0,0,0,.6)}
+html.nova-low-power .nf-hand .nf-card{transition:transform .18s ease,margin .18s ease}
+html.nova-low-power .nf-hand.my-turn .nf-card.ok:hover{--hx:0deg;--hy:0deg}
+html.nova-low-power *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+html.nova-low-power .nf-sky{animation:none!important;background-attachment:scroll}
+
+/* 6 and 9 are underlined so they read the right way up */
+.nf-card .nf-u{text-decoration:underline;text-decoration-thickness:.08em;text-underline-offset:.08em}
