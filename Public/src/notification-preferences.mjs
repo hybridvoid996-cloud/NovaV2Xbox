@@ -1,4 +1,4 @@
-export const notificationTypes={admin:['Admin announcements','Live announcements, polls and staff updates.'],level:['Level-ups','Only when you gain a new level.'],reward:['Rewards & items','Challenges, coins, gifts and unlocked items.'],game:['Game activity','Game invitations and activity alerts.'],chat:['Messages & friends','New messages, requests and listening invitations.']};
+export const notificationTypes={admin:['Admin announcements','Live announcements, polls and staff updates.'],level:['Level-ups','Only when you gain a new level.'],reward:['Rewards & items','Challenges, coins, gifts and unlocked items.'],game:['Game activity','Game invitations and activity alerts.'],chat:['Messages & friends','New messages, requests and listening invitations.'],trade:['Trade invitations','Pop-ups when someone invites you to trade or a trade changes.']};
 const account=()=>globalThis.localStorage?.getItem('nova_user')||'guest';
 export const preferenceKey=()=> 'nova-notification-preferences-'+account();
 export function notificationPreferences(storage=localStorage,key=preferenceKey()){try{return JSON.parse(storage.getItem(key)||'{}')||{}}catch{return {}}}

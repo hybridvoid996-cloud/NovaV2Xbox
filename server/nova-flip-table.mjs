@@ -2,7 +2,7 @@
 // engine, runs bots and turn timers, and decides the winner, so no player (host included)
 // can fake a result or see other hands.
 //
-// novaControl/flipTables/{code}  (server only)  {gameId,host,startedAt,rev,lastAt,deadline,timerKey,state(JSON),result}
+// novaServer/flipTables/{code}  (server only; kept out of novaControl so busy games never slow shop transactions)  {gameId,host,startedAt,rev,lastAt,deadline,timerKey,state(JSON),result}
 // novaFlip/rooms/{code}/game     public view (no hands) + deadline + rev
 // novaFlip/hands/{code}/{uid}    that player's cards (readable by that player only)
 // novaFlip/rooms/{code}/lastResult  written here when the game ends
@@ -13,6 +13,7 @@ import {randomUUID} from 'node:crypto';
 import {createGame,cleanSettings,play,draw,pass,callFlip,catchMissed,autoMove,publicView} from '../Public/src/novaflip/engine.mjs';
 import {chooseMove,botCallsFlip,botCatchDelay} from '../Public/src/novaflip/bot.mjs';
 
+export const FLIP_TABLES='novaServer/flipTables';
 export const FLIP_CALL_WINDOW=3000;   // ms a human has to call their last card before it can be caught
 export const BOT_STEP_MS=650;         // minimum gap between bot moves, so play stays readable
 const MAX_PLAYERS=4;
@@ -117,7 +118,7 @@ async function publish(db,room,table){
 
 export async function tableAction({db,uid,b,now,lockWagers}){
  if(!code(b.room))throw Error('Invalid room.');
- const roomRef=db.ref('novaFlip/rooms/'+b.room),tableRef=db.ref('novaControl/flipTables/'+b.room);
+ const roomRef=db.ref('novaFlip/rooms/'+b.room),tableRef=db.ref(FLIP_TABLES+'/'+b.room);
  const room=(await roomRef.get()).val();
  if(!room||room.status==='closed')throw Error('That room has closed.');
 

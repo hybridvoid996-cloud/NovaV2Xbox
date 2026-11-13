@@ -441,3 +441,15 @@ body.nova-shop-page .live-chat-form input{flex:1}
 body.nova-shop-page .live-chat-form button{padding:0 18px;border-radius:12px;background:#fff;color:#0a0b0e;border:0;font-weight:800;cursor:pointer}
 @media (max-width:900px){#shop .live-trade-hub{grid-template-columns:1fr}body.nova-shop-page .live-trade-columns{grid-template-columns:1fr}body.nova-shop-page .live-swap{justify-self:center;transform:rotate(90deg)}}
 @media (max-width:600px){#shop .trade-feed-top{flex-direction:column;align-items:stretch}#shop .trade-feed-time{align-self:flex-start}#shop .trade-feed-footer{flex-wrap:wrap}}
+
+/* ---------- gift buttons ---------- */
+.nova-gift-btn{position:relative;display:inline-flex!important;align-items:center;justify-content:center;gap:9px;min-height:42px;padding:0 18px!important;border-radius:13px!important;border:1px solid rgba(255,170,150,.45)!important;background:linear-gradient(135deg,rgba(255,128,170,.16),rgba(255,184,107,.16))!important;color:#ffe2d6!important;font-weight:700!important;letter-spacing:.01em;overflow:hidden;isolation:isolate;cursor:pointer;transition:transform .18s cubic-bezier(.2,1.2,.3,1),box-shadow .25s,color .2s,border-color .2s!important}
+.nova-gift-btn::before{content:"";flex:none;width:18px;height:18px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z'/%3E%3C/svg%3E") center/contain no-repeat;transition:transform .3s cubic-bezier(.2,1.4,.3,1)}
+.nova-gift-btn::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 48%,transparent 62%);background-size:250% 100%;background-position:150% 0;transition:background-position .7s ease}
+.nova-gift-btn:hover{transform:translateY(-2px);border-color:rgba(255,190,160,.8)!important;color:#2a1410!important;background:linear-gradient(135deg,#ff8fb1,#ffb86b)!important;box-shadow:0 10px 26px rgba(255,140,140,.3),0 0 0 3px rgba(255,170,150,.15)}
+.nova-gift-btn:hover::before{transform:rotate(-12deg) scale(1.15)}
+.nova-gift-btn:hover::after{background-position:-50% 0}
+.nova-gift-btn:active{transform:translateY(0) scale(.97)}
+.nova-gift-btn:focus-visible{outline:2px solid #ffb86b;outline-offset:2px}
+.shop-gift-modal .primary{background:linear-gradient(135deg,#ff8fb1,#ffb86b)!important;color:#2a1410!important;border:0!important;font-weight:800}
+html.nova-low-power .nova-gift-btn,html.nova-low-power .nova-gift-btn::before,html.nova-low-power .nova-gift-btn::after{transition:none!important}

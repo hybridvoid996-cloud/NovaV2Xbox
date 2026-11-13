@@ -48,3 +48,19 @@ test('a check that fails part-way restores the touched records',()=>{
  assert.throws(()=>attemptTrade(root,['a','b'],['t'],()=>{root.progress.a.coins=0;root.progress.b={coins:9};root.trades.t={state:'pending'};throw Error('no')}),/no/);
  assert.deepEqual(root,{progress:{a:{coins:5}},trades:{}});
 });
+
+test('an invite reaches the other player right away without a whole-shop transaction',async()=>{
+ const data=seed(),db=memoryDb(data),requestId='44444444-4444-4444-8444-444444444444';
+ const touched=[];const ref=db.ref;db.ref=p=>{const r=ref(p);const tx=r.transaction;r.transaction=fn=>{touched.push(p);return tx(fn)};return r};
+ const r=await liveTradeAction({db,uid:'a',b:{op:'liveInvite',to:'b',requestId},items,now});
+ assert.equal(r.room.state,'invited');
+ assert.ok(!touched.includes('novaControl'),'invite does not lock all of novaControl');
+ const notice=data.novaChatV2.botMessages.b['trade-'+requestId+'-live-invited'];
+ assert.equal(notice.event,'invited');assert.equal(notice.roomId,requestId);assert.equal(notice.fromUid,'a');assert.match(notice.subject,/Ana wants to trade/);
+ assert.equal(data.novaControl.liveTradeUsers.b[requestId],now,'room is listed for the invited player');
+ // Sending the same invite again (a retry) returns the same room and does not trip the 5-second limit.
+ const again=await liveTradeAction({db,uid:'a',b:{op:'liveInvite',to:'b',requestId},items,now:now+1000});
+ assert.equal(again.room.id,requestId);
+ // A different invite inside 5 seconds is still rate limited.
+ await assert.rejects(()=>liveTradeAction({db,uid:'a',b:{op:'liveInvite',to:'b',requestId:'55555555-5555-4555-8555-555555555555'},items,now:now+2000}),/Wait five seconds/);
+});

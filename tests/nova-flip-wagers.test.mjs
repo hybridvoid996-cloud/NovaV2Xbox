@@ -11,8 +11,8 @@ const initial=()=>({xp:0,coins:0});const gameId='11111111-2222-3333-4444-5555555
 const room=(status='lobby',extra={})=>({host:'h',status,settings:{wagers:true},players:{h:{name:'H'},a:{name:'A'},b:{name:'B'}},...extra});
 const call=(db,uid,b,now=1e12)=>novaFlipAction({db,uid,account:{name:uid.toUpperCase()},b,now,initial});
 // The server starts the table (locking bets) and later records the result itself.
-const start=async db=>{Object.assign(db.tree.novaFlip.rooms.ABCDE,{status:'playing',gameId});(db.tree.novaControl.flipTables||={}).ABCDE={gameId,result:null};await lockWagers(db,'ABCDE',gameId,db.tree.novaFlip.rooms.ABCDE,1e12,initial)};
-const finish=(db,result)=>{db.tree.novaFlip.rooms.ABCDE.status='lobby';db.tree.novaControl.flipTables.ABCDE.result={gameId,...result}};
+const start=async db=>{Object.assign(db.tree.novaFlip.rooms.ABCDE,{status:'playing',gameId});((db.tree.novaServer||={}).flipTables||={}).ABCDE={gameId,result:null};await lockWagers(db,'ABCDE',gameId,db.tree.novaFlip.rooms.ABCDE,1e12,initial)};
+const finish=(db,result)=>{db.tree.novaFlip.rooms.ABCDE.status='lobby';db.tree.novaServer.flipTables.ABCDE.result={gameId,...result}};
 
 test('wagers below 5,000 are refused and coins are held by the server',async()=>{
  const db=memoryDb({novaFlip:{rooms:{ABCDE:room()}},novaControl:{progress:{a:{coins:20000}}}});

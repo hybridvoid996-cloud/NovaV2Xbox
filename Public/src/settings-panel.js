@@ -2,7 +2,7 @@ import {mountLiquidGlass} from './liquid-glass.mjs?v=20261103-glass476';
 import {mountDesktopSettings} from './desktop-display.mjs?v=20261030-display413';
 import {control as identityControl} from './control-client.js';
 let identityInfo;
-import {mountNotificationSettings} from './notification-preferences.mjs?v=20261029-motion374';
+import {mountNotificationSettings} from './notification-preferences.mjs?v=20261113-trade1';
 const cosmeticsModule=()=>import('./settings-cosmetics.mjs?v=20261022-settings263');
 import {cursorPresets} from './cursor-presets.mjs?v=3';
 import './cursor-runtime.js?v=3';

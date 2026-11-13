@@ -58,20 +58,20 @@ test('server runs the game: host and guest send moves, hands stay private, kick 
  const room=tree().novaFlip.rooms[host.code];
  assert.equal(room.status,'playing');assert.ok(room.game&&room.game.gameId===room.gameId,'server published the view');
  assert.ok(guestEvents.includes('game'),'guest gets a game');
- assert.ok(tree().novaControl.flipTables[host.code].state,'state lives on the server');
+ assert.ok(tree().novaServer.flipTables[host.code].state,'state lives on the server');
  const g=guest.game,hg=host.game;await tick(50);
  assert.equal(g.myHand.length,7,'guest sees own hand');assert.equal(hg.myHand.length,7,'host sees own hand');
  assert.ok(!('hand' in g.view.players[0]),'public view hides hands');
  // Make it the guest's turn on the server, then the guest draws through the API.
- const t=tree().novaControl.flipTables[host.code],st=JSON.parse(t.state),gs=st.players.findIndex(p=>p.id==='guest1');
+ const t=tree().novaServer.flipTables[host.code],st=JSON.parse(t.state),gs=st.players.findIndex(p=>p.id==='guest1');
  Object.assign(st,{turn:gs,drawn:null,pending:null});t.state=JSON.stringify(st);
  const before=st.players[gs].hand.length;
  as('guest1','Guesty');await g.act({type:'draw'});await tick(50);
- const after=JSON.parse(tree().novaControl.flipTables[host.code].state);
+ const after=JSON.parse(tree().novaServer.flipTables[host.code].state);
  assert.ok(after.players[gs].hand.length>before,'server applied the guest draw');
  assert.equal(g.myHand.length,after.players[gs].hand.length,'guest hand synced from the server');
  // A move out of turn is refused by the server; the client resyncs quietly instead of erroring.
- if(after.turn!==gs){const rev=tree().novaControl.flipTables[host.code].rev;await g.act({type:'draw'});await tick(50);assert.equal(tree().novaControl.flipTables[host.code].rev,rev,'refused move changes nothing');assert.equal(g.view.turn,after.turn,'guest shows the real turn')}
+ if(after.turn!==gs){const rev=tree().novaServer.flipTables[host.code].rev;await g.act({type:'draw'});await tick(50);assert.equal(tree().novaServer.flipTables[host.code].rev,rev,'refused move changes nothing');assert.equal(g.view.turn,after.turn,'guest shows the real turn')}
  // Kick: guest is notified and banned from rejoining.
  as('host1','Hosty');await host.kick('guest1');await tick(50);
  assert.ok(guestEvents.includes('kicked'));
@@ -131,7 +131,7 @@ test('daily coin limit, then points only',async()=>{
 
 test('online claim requires the room to name you as winner',async()=>{
  const gameId='11111111-2222-3333-4444-555555555555';
- const db=adminDb({novaFlip:{rooms:{ABCDE:{host:'h',players:{u3:{name:'a'},h:{name:'h'}}}}},novaControl:{flipTables:{ABCDE:{gameId,result:{gameId,winner:'h',points:1300,humans:2}}}}});let now=1_800_000_000_000;
+ const db=adminDb({novaFlip:{rooms:{ABCDE:{host:'h',players:{u3:{name:'a'},h:{name:'h'}}}}},novaServer:{flipTables:{ABCDE:{gameId,result:{gameId,winner:'h',points:1300,humans:2}}}}});let now=1_800_000_000_000;
  const call=(uid,b)=>novaFlipAction({db,uid,account:{name:uid},b,now,initial});
  const t3=(await call('u3',{op:'start',mode:'online',players:2,room:'ABCDE',gameId})).token;
  const th=(await call('h',{op:'start',mode:'online',players:2,room:'ABCDE',gameId})).token;
@@ -174,7 +174,7 @@ test('moves are checked: wrong player, wrong turn and impossible cards are refus
 test('a result written into the room by a player is ignored: only the server result pays',async()=>{
  const gameId='11111111-2222-3333-4444-555555555555';
  // The host writes a fake lastResult naming themselves; the server table has no result yet.
- const db=adminDb({novaFlip:{rooms:{ABCDE:{host:'h',status:'lobby',players:{h:{name:'h'},u:{name:'u'}},gameId,lastResult:{gameId,winner:'h',points:2500,humans:2}}}},novaControl:{flipTables:{ABCDE:{gameId,state:'{}',result:null}}}});
+ const db=adminDb({novaFlip:{rooms:{ABCDE:{host:'h',status:'lobby',players:{h:{name:'h'},u:{name:'u'}},gameId,lastResult:{gameId,winner:'h',points:2500,humans:2}}}},novaServer:{flipTables:{ABCDE:{gameId,state:'{}',result:null}}}});
  let now=1_800_000_000_000;const call=(uid,b)=>novaFlipAction({db,uid,account:{name:uid},b,now,initial});
  const {token}=await call('h',{op:'start',mode:'online',players:2,room:'ABCDE',gameId});now+=60_000;
  await assert.rejects(()=>call('h',{op:'claim',token}),/did not record you/);
@@ -185,7 +185,7 @@ test('a public view that fell behind the server is healed, and clients never ste
  as('h','H');const host=await Room.create({visibility:'private',settings:{turnTimer:0}});await tick();
  as('g','G');const guest=await Room.join(host.code);await tick();
  as('h','H');await host.start();await tick(50);
- const code=host.code,table=tree().novaControl.flipTables[code],st=JSON.parse(table.state);
+ const code=host.code,table=tree().novaServer.flipTables[code],st=JSON.parse(table.state);
  // Simulate a lost publish: the server table moved on (turn + rev) but the public view did not.
  const real=(st.turn+1)%st.players.length;Object.assign(st,{turn:real,drawn:null,pending:null});table.state=JSON.stringify(st);table.rev+=3;
  const stale=tree().novaFlip.rooms[code].game.rev;assert.ok(stale<table.rev);

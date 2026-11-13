@@ -2,7 +2,7 @@
 // start → issues a one-time game token; claim → verifies the token, a minimum
 // game length and (online) the host-published result, then pays out.
 import {randomUUID} from 'node:crypto';
-import {tableAction} from './nova-flip-table.mjs';
+import {tableAction,FLIP_TABLES} from './nova-flip-table.mjs';
 
 export const FLIP_BASE_POINTS=1000;
 export const FLIP_MAX_POINTS=2500;      // 1000 base + up to 1500 from cards left in opponents' hands
@@ -45,7 +45,7 @@ export async function novaFlipAction({db,uid,account,b,now,initial}){
   if(game.mode==='online'){
    const room=(await db.ref('novaFlip/rooms/'+game.room).get()).val();
    // Only the result written by the server-run table counts (never a value a player wrote).
-   const result=(await db.ref('novaControl/flipTables/'+game.room+'/result').get()).val();
+   const result=(await db.ref(FLIP_TABLES+'/'+game.room+'/result').get()).val();
    if(!result||result.gameId!==game.gameId||result.winner!==uid)throw Error('The server did not record you as the winner.');
    if(!room.players?.[uid]&&room.host!==uid)throw Error('You are no longer in that room.');
    points=Number(result.points)||FLIP_BASE_POINTS;
@@ -92,7 +92,7 @@ async function payout(db,room,entries,winner,initial,now){
  return {pot,paidTo:winnerStaked?winner:null,refunded:!winnerStaked};
 }
 export async function settleRoomWagers(db,room,now,initial){
- const [roomData,table]=await Promise.all([db.ref('novaFlip/rooms/'+room).get(),db.ref('novaControl/flipTables/'+room).get()]).then(r=>r.map(x=>x.val()));
+ const [roomData,table]=await Promise.all([db.ref('novaFlip/rooms/'+room).get(),db.ref(FLIP_TABLES+'/'+room).get()]).then(r=>r.map(x=>x.val()));
  const result=table?.result,open=roomData&&roomData.status!=='closed';
  let taken=[],winner=null;
  await wagersRef(db,room).transaction(all=>{taken=[];winner=null;if(!all)return all;

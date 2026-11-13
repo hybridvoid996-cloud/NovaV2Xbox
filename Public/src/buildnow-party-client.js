@@ -1,4 +1,4 @@
-import {notificationAllowed} from './notification-preferences.mjs?v=20261029-motion374';
+import {notificationAllowed} from './notification-preferences.mjs?v=20261113-trade1';
 import {announcementIdentity} from './announcement-identity.mjs?v=20261018-poll165';
 import {mountNoticeTheme} from './nova-notice-theme.mjs?v=20261029-motion374';
 import {lobbySummary} from './buildnow-party-info.mjs';

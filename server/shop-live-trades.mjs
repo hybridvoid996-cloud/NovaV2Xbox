@@ -37,10 +37,33 @@ async function roomAction(db,uid,payload,items,now){
  if(notices){const patch={};for(const [id,rows]of Object.entries(notices))for(const [key,value]of Object.entries(rows))patch['novaControl/tradeNotices/'+id+'/'+key]=value;await db.ref().update(patch).catch(()=>{})}
  return {room,root:{progress:context.progress,inventory:context.inventory}};
 }
+// Invites only create a room and two index rows; no coins or cosmetics move. They used to run a
+// transaction over all of novaControl, which retried for as long as anything else in the shop
+// was busy, so invites often timed out before the other player was told. Now they read just
+// what they check and write just what they create.
+async function inviteAction(db,uid,payload,now){
+ if(!valid(payload.requestId))throw Error('Choose another player.');
+ const val=p=>db.ref('novaControl/'+p).get().then(s=>s.val());
+ const [shopSeason,banMine,banTheirs,existing,clock,mineIdx,theirIdx]=await Promise.all([val('shopSeason'),val('siteBans/'+uid),val('siteBans/'+payload.to),val('liveTrades/'+payload.requestId),val('liveTradeClock/'+uid),val('liveTradeUsers/'+uid),val('liveTradeUsers/'+payload.to)]);
+ if(existing){if(existing.from!==uid||existing.to!==payload.to)throw Error('Invitation ID already used.');return existing}
+ // Only rooms from the last 30 minutes can still be active (rooms expire after 30 minutes).
+ const recent=[...new Set([...Object.entries(mineIdx||{}),...Object.entries(theirIdx||{})].filter(([,at])=>now-at<1800000).map(([id])=>id))].slice(0,40);
+ const rooms=(await Promise.all(recent.map(id=>val('liveTrades/'+id)))).filter(Boolean);
+ const mini={shopSeason,siteBans:{...(banMine?{[uid]:banMine}:{}),...(banTheirs?{[payload.to]:banTheirs}:{})},liveTrades:Object.fromEntries(rooms.map(r=>[r.id,r])),liveTradeUsers:{},liveTradeClock:clock?{[uid]:clock}:{}};
+ const room=applyLiveTrade(mini,uid,payload,[],now);
+ const tx=await db.ref('novaControl/liveTrades/'+room.id).transaction(v=>v?undefined:room);
+ if(!tx.committed){const saved=tx.snapshot.val();if(saved&&saved.from===uid&&saved.to===payload.to)return saved;throw Error('Could not send the invite. Retry.')}
+ const patch={['novaControl/liveTradeUsers/'+uid+'/'+room.id]:now,['novaControl/liveTradeUsers/'+payload.to+'/'+room.id]:now,['novaControl/liveTradeClock/'+uid]:now};
+ // The invited player gets a trade-invite notice straight away (no outbox round trip).
+ const notice=mini.tradeNotices?.[payload.to]?.[room.id+'-live-invited'];
+ if(notice)patch['novaChatV2/botMessages/'+payload.to+'/trade-'+room.id+'-live-invited']={...notice,event:'invited',roomId:room.id,fromUid:uid,fromName:room.fromName,subject:room.fromName+' wants to trade',text:'Join the trade room to build offers together. Invites last 30 minutes.'};
+ await db.ref().update(patch);
+ return room;
+}
 export async function liveTradeAction({db,uid,b,items,now}){
  if(b.op==='liveList'){const index=(await db.ref('novaControl/liveTradeUsers/'+uid).get()).val()||{};const rooms=(await Promise.all(Object.entries(index).sort((a,z)=>z[1]-a[1]).slice(0,25).map(([id])=>db.ref('novaControl/liveTrades/'+id).get()))).map(s=>s.val()).filter(r=>r&&[r.from,r.to].includes(uid)).map(r=>r.expires<=now&&['invited','open'].includes(r.state)?{...r,state:'expired'}:r);return {rooms}}
  if(b.op==='liveStatus'){const r=(await db.ref('novaControl/liveTrades/'+b.id).get()).val();if(!r||![r.from,r.to].includes(uid))throw Error('Trade room not found.');return {room:r.expires<=now&&['invited','open'].includes(r.state)?{...r,state:'expired'}:r}}
- const payload={...b};if(b.op==='liveInvite'){if(typeof b.to!=='string'||!/^[A-Za-z0-9_-]{1,128}$/.test(b.to))throw Error('Choose a player.');const [mine,other,block,reverse]=await Promise.all([db.ref('novaAccounts/'+uid).get(),db.ref('novaAccounts/'+b.to).get(),db.ref('novaChatV2/blocks/'+b.to+'/'+uid).get(),db.ref('novaChatV2/blocks/'+uid+'/'+b.to).get()]);if(!other.exists()||block.val()||reverse.val())throw Error('This trader is unavailable.');payload.fromName=mine.val()?.name;payload.toName=other.val()?.name}
+ const payload={...b};if(b.op==='liveInvite'){if(typeof b.to!=='string'||!/^[A-Za-z0-9_-]{1,128}$/.test(b.to))throw Error('Choose a player.');const [mine,other,block,reverse]=await Promise.all([db.ref('novaAccounts/'+uid).get(),db.ref('novaAccounts/'+b.to).get(),db.ref('novaChatV2/blocks/'+b.to+'/'+uid).get(),db.ref('novaChatV2/blocks/'+uid+'/'+b.to).get()]);if(!other.exists()||block.val()||reverse.val())throw Error('This trader is unavailable.');payload.fromName=mine.val()?.name;payload.toName=other.val()?.name;return {ok:true,room:await inviteAction(db,uid,payload,now)}}
  let root,room;
  if(ROOM_OPS.includes(b.op))({root,room}=await roomAction(db,uid,payload,items,now));
  else{let failure;const tx=await db.ref('novaControl').transaction(root=>{failure=null;if(!root)return root;const r=root.liveTrades?.[b.id];try{attemptTrade(root,[uid,b.to,r?.from,r?.to],[b.id||b.requestId],()=>applyLiveTrade(root,uid,payload,items,now))}catch(e){failure=e.message}return root});if(!tx.committed)throw Error(failure||'Could not save this trade. Retry.');if(failure)throw Error(failure);root=tx.snapshot.val();room=root.liveTrades?.[b.id||b.requestId]}

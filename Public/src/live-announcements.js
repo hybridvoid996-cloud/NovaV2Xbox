@@ -1,4 +1,4 @@
-import {notificationAllowed,muteNotification} from './notification-preferences.mjs?v=20261029-motion374';
+import {notificationAllowed,muteNotification} from './notification-preferences.mjs?v=20261113-trade1';
 import {ownsLiveHost} from './live-host.mjs?v=20261028-live350';
 import {auth} from './account-firebase.js';
 import {pollCountdown,pollOptionTone} from './live-poll-display.mjs?v=20261018-poll165';

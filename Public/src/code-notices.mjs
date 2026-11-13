@@ -1,4 +1,4 @@
-import {notificationAllowed} from './notification-preferences.mjs?v=20261029-motion374';
+import {notificationAllowed} from './notification-preferences.mjs?v=20261113-trade1';
 import {control} from './control-client.js';
 export function mountCodeNotices(){
  const started=Date.now(),seen=new Set(),queue=[];let active=false;

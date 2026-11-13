@@ -17,6 +17,10 @@ export function mountLiveTrading(host,ctx,{refreshStore}){
   if(!found.length)people.append(el('p','trade-empty',fetching||!loaded||(after&&pages<40)?'Searching players…':'No players match “'+search.value.trim()+'”.'))}
  async function directory(){if(fetching)return;fetching=true;try{const data=await send('chatDirectory',after?{after}:{});users.push(...data.users.filter(u=>!users.some(v=>u.uid===v.uid)));after=data.next;loaded=true;pages++}catch(e){error.textContent=e.message;after=null;loaded=true}finally{fetching=false}renderPeople()}
  search.onfocus=()=>{if(!loaded)void directory()};search.oninput=renderPeople;
+ // "Join trade" from a trade-invite notification opens that room directly.
+ const openById=async id=>{if(!/^[a-f0-9-]{36}$/.test(String(id||'')))return;try{const {room}=await api({op:'liveStatus',id});panel.scrollIntoView({block:'start'});openRoom(room)}catch(e){error.textContent=e.message}};
+ addEventListener('message',e=>{if(e.origin===location.origin&&e.data?.novaAction==='showTrading'&&e.data.room)void openById(e.data.room)});
+ {const wanted=new URLSearchParams(location.search).get('tradeRoom');if(wanted)setTimeout(()=>void openById(wanted),300)}
  async function list(){if(listBusy)return;listBusy=true;try{const {rooms}=await api({op:'liveList'}),container=panel.querySelector('.live-rooms');container.replaceChildren();
   for(const r of rooms){const name=r.from===uid?r.toName:r.fromName,card=el('article','live-room-card state-'+r.state),copy=el('span','live-room-copy');copy.append(el('strong','',name),el('small','live-chip',r.state==='invited'&&r.to===uid?'Invited you':STATE[r.state]||r.state));card.append(face(name),copy,ctx.button(r.state==='invited'&&r.to===uid?'Join':'Open',()=>openRoom(r),r.state==='invited'&&r.to===uid?'primary':''));container.append(card)}
   if(!rooms.length)container.append(el('p','trade-empty','Your trade invitations will appear here.'));error.textContent=''}catch(e){error.textContent=e.message}finally{listBusy=false}}
