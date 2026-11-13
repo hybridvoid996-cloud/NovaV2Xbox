@@ -149,3 +149,25 @@ body.nova-shop-page .live-theirs .live-item.r-uncommon{--r:#4fb0ff}body.nova-sho
 body.nova-shop-page .live-theirs .live-item img{width:64px;height:64px;object-fit:contain}
 body.nova-shop-page .live-pick-add img{width:100%;height:68px}
 body.nova-shop-page .live-pick.picked .live-pick-add{border-color:#fff;background:radial-gradient(90% 60% at 50% 30%,color-mix(in srgb,var(--r) 30%,transparent),transparent 70%),#1d1f26}
+/* Hacks: icon tiles with a hover details card */
+.shop-hacks .nova-hack-tiles{display:flex;flex-wrap:wrap;gap:18px;margin-top:16px}
+.nova-hack-tile{--hack:#9fb4ff;position:relative;padding:0;border:0;background:none;cursor:pointer;border-radius:26px;outline-offset:4px}
+.nova-hack-icon{position:relative;display:grid;place-items:center;width:112px;height:112px;border-radius:26px;background:radial-gradient(circle at 50% 35%,color-mix(in srgb,var(--hack) 28%,transparent),transparent 70%),linear-gradient(150deg,#1d1f27,#0f1014);border:1px solid #ffffff1c;box-shadow:0 10px 26px #0006;overflow:hidden;transition:transform .2s cubic-bezier(.2,.8,.3,1.2),border-color .2s,box-shadow .2s}
+.nova-hack-icon img{width:100%;height:100%;object-fit:cover}
+.nova-hack-icon img[src$=".ico"],.nova-hack-icon img[src*="hack-shop"]{width:70%;height:70%;object-fit:contain}
+.nova-hack-tile:is(:hover,:focus-visible) .nova-hack-icon{transform:translateY(-4px) scale(1.05);border-color:color-mix(in srgb,var(--hack) 70%,#fff);box-shadow:0 16px 36px #0008,0 0 0 1px color-mix(in srgb,var(--hack) 50%,transparent),0 0 30px color-mix(in srgb,var(--hack) 30%,transparent)}
+.nova-hack-owned{position:absolute;right:7px;top:7px;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:#3ddc84;color:#06210f;font-size:13px;font-style:normal;font-weight:900;box-shadow:0 2px 8px #0007}
+.nova-hack-info{position:absolute;z-index:5;left:50%;bottom:calc(100% + 12px);width:250px;display:grid;gap:5px;padding:14px 15px;border-radius:16px;background:#121318f5;border:1px solid #ffffff22;box-shadow:0 18px 50px #000a;color:#e9ebf1;text-align:left;font-size:12.5px;line-height:1.4;opacity:0;visibility:hidden;transform:translate(-50%,6px);transition:opacity .16s,transform .16s,visibility .16s;pointer-events:none}
+.nova-hack-info:after{content:"";position:absolute;left:50%;top:100%;margin-left:-7px;border:7px solid transparent;border-top-color:#121318f5}
+.nova-hack-info b{font-size:15px;color:#fff}
+.nova-hack-price{color:#ffd36e;font-weight:700}
+.is-owned .nova-hack-price{color:#6be59f}
+.nova-hack-info span{color:#b7bbc6}
+.nova-hack-info em{font-style:normal;font-size:11px;color:#8f94a1}
+.nova-hack-tile:is(:hover,:focus-visible) .nova-hack-info{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.nova-hack-tiles>.nova-hack-tile:first-child .nova-hack-info{left:0;transform:translate(0,6px)}.nova-hack-tiles>.nova-hack-tile:first-child:is(:hover,:focus-visible) .nova-hack-info{transform:none}
+.nova-hack-tiles>.nova-hack-tile:first-child .nova-hack-info:after{left:56px}
+@media(hover:none){.nova-hack-info{display:none}}
+@media(max-width:480px){.nova-hack-icon{width:88px;height:88px;border-radius:22px}.shop-hacks .nova-hack-tiles{gap:12px}}
+html.reduce-motion .nova-hack-icon,html.reduce-motion .nova-hack-info{transition:none}
+body.nova-shop-page .shop-hacks .nova-hack-tile{padding:0!important;margin:0!important;background:none!important;border:0!important;box-shadow:none!important;width:auto!important;height:auto!important;min-height:0!important;transform:none!important;border-radius:26px!important;backdrop-filter:none!important}

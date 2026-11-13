@@ -6,7 +6,7 @@ import {shopProfilePreview,setupShopShowroom} from './shop-showroom.mjs?v=202611
 import {control} from './control-client.js';
 import {auth,db} from './account-firebase.js';
 import {get,ref} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
-import {showStore,preview,equip,load} from './shop-revamp.js?v=20261112-gifts1';
+import {showStore,preview,equip,load} from './shop-revamp.js?v=20261112-hackfix1';
 import {openGiftDialog} from './shop-gift-ui.mjs?v=20261112-gifts1';
 import {dailyShop} from './daily-shop.mjs?v=20261112-gifts1';
 document.documentElement.classList.toggle('shop-embedded',parent!==window);if(parent===window)try{mountMovieWallpaper();document.getElementById('movie-wallpaper').id='shop-wallpaper'}catch{}
