@@ -2,7 +2,7 @@ import { cloudHistory, recordCloudGame } from './cloud-history.js';
 const $ = id => document.getElementById(id);
 const el = (tag, text, cls) => { const node = document.createElement(tag); if (text) node.textContent = text; if (cls) node.className = cls; return node; };
 const storageKey = () => 'nova_cloud_favorites_' + (localStorage.getItem('nova_user') || localStorage.getItem('nova_username') || 'guest');
-const providerNames={"astra":"Nova Server 1","gsn":"Nova Server 2","ghost":"Nova Server 3","achroma":"Nova Server 4","synapse":"Nova Server 5","luna":"Nova Server 6","niche":"Nova Server 7"};
+const providerNames={"astra":"Nova Server 1","gsn":"Nova Server 2","ghost":"Nova Server 3","achroma":"Nova Server 4","synapse":"Nova Server 5","luna":"Nova Server 6","niche":"Niche","opium":"Opium"};
 const providerLabel=game=>Object.keys(game.providers||{astra:{}}).filter(id=>providerNames[id]).map(id=>providerNames[id]).join(' + ');
 let games = [], filter = 'all', selected, searchTimer, activeTab = 'explore';
 const saved = () => { try { const rows = JSON.parse(localStorage.getItem(storageKey()) || '[]'); return Array.isArray(rows) ? rows : []; } catch { return []; } };
@@ -94,7 +94,7 @@ addEventListener('storage', sync); addEventListener('pageshow', sync); document.
 addEventListener('message', event => { if (event.origin === location.origin && event.source === parent && event.data?.novaAction === 'cloudLaunchError') { $('error').hidden = false; $('error').textContent = event.data.message; } });
 try {
   const response = await fetch('library-cloud.json'); if (!response.ok) throw Error('Cloud library unavailable. Please try again.'); games = await response.json();
-  $('catalog-count').textContent = games.length + ' games to discover'; $('source-count').textContent = games.length + ' games · Astra + Nova Cloud + GhostCloud + Achroma';
+  $('catalog-count').textContent = games.length + ' games to discover'; $('source-count').textContent = games.length + ' games · Astra + GhostCloud + Achroma + Synapse + Luna + Niche + Opium';
   const byName = name => games.find(game => game.name === name);
   fill($('spotlight'), ['Grand Theft Auto V', 'Fortnite', 'Hogwarts Legacy', 'Cyberpunk 2077', 'Elden Ring', 'Roblox', 'Forza Horizon 4', 'Marvel’s Spider-Man Remastered'].map(byName).filter(Boolean));
   fill($('discover-shelf'), ['Stardew Valley', 'Hades', 'Cuphead', 'Among Us', 'Stray', 'It Takes Two', 'Hollow Knight', 'Dead Cells', 'Rocket League Sideswipe', 'Clash Royale', "Baldur's Gate 3", 'The Witcher 3'].map(byName).filter(Boolean));

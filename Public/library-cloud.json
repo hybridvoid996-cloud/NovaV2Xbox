@@ -376,6 +376,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "NBA 2K23",
         "sourceId": "kj0107"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0107",
+        "name": "NBA 2K23",
+        "sourceId": "kj0107",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -520,6 +527,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Rise of the Tomb Raider",
         "sourceId": "jy0121"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0121",
+        "name": "Rise of the Tomb Raider",
+        "sourceId": "jy0121",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -792,6 +806,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Maid of Sker",
         "sourceId": "bs0070"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0070",
+        "name": "Maid of Sker",
+        "sourceId": "bs0070",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -1640,6 +1661,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Hogwarts Legacy",
         "sourceId": "kj0166"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0166",
+        "name": "Hogwarts Legacy",
+        "sourceId": "kj0166",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -1672,6 +1700,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Grand Theft Auto V",
         "sourceId": "jy0108"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0108",
+        "name": "Grand Theft Auto V ",
+        "sourceId": "jy0108",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -1704,6 +1739,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Hollow Knight: Silksong",
         "sourceId": "bs0046"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0046",
+        "name": "Hollow Knight: Silksong",
+        "sourceId": "bs0046",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -1736,6 +1778,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Cyberpunk 2077",
         "sourceId": "jy0354"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0354",
+        "name": "Cyberpunk 2077",
+        "sourceId": "jy0354",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -1768,6 +1817,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Elden Ring",
         "sourceId": "dg0170"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0170",
+        "name": "Elden Ring",
+        "sourceId": "dg0170",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -1800,6 +1856,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Sim Racing Telemetry - F1 22",
         "sourceId": "kj0531"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0531",
+        "name": "Sim Racing Telemetry - F1 22",
+        "sourceId": "kj0531",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -1832,6 +1895,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Little Nightmares III",
         "sourceId": "bs0039"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0039",
+        "name": "Little Nightmares III",
+        "sourceId": "bs0039",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -1864,6 +1934,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "X-Plane 11",
         "sourceId": "kj0495"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0495",
+        "name": "X-Plane 11",
+        "sourceId": "kj0495",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -1896,6 +1973,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "GUILTY GEAR -STRIVE-",
         "sourceId": "kj0530"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0530",
+        "name": "GUILTY GEAR -STRIVE-",
+        "sourceId": "kj0530",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -1928,6 +2012,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Clair Obscur: Expedition 33",
         "sourceId": "bs0034"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0034",
+        "name": "Clair Obscur: Expedition 33",
+        "sourceId": "bs0034",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -1960,6 +2051,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Easy Red 2",
         "sourceId": "bs0035"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0035",
+        "name": "Easy Red 2",
+        "sourceId": "bs0035",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2024,6 +2122,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "SAND LAND",
         "sourceId": "dg0419"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0419",
+        "name": "SAND LAND",
+        "sourceId": "dg0419",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2056,6 +2161,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "JDM: Japanese Drift Master",
         "sourceId": "bs0026"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0026",
+        "name": "JDM: Japanese Drift Master",
+        "sourceId": "bs0026",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2088,6 +2200,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Blue Prince",
         "sourceId": "bs0021"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0021",
+        "name": "Blue Prince",
+        "sourceId": "bs0021",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2120,6 +2239,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Only Up",
         "sourceId": "bs0025"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0025",
+        "name": "Only Up",
+        "sourceId": "bs0025",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2152,6 +2278,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Schedule 1",
         "sourceId": "bs0024"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0024",
+        "name": "Schedule 1",
+        "sourceId": "bs0024",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2184,6 +2317,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "RuneScape: Dragonwilds",
         "sourceId": "bs0022"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0022",
+        "name": "RuneScape: Dragonwilds",
+        "sourceId": "bs0022",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2216,6 +2356,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Poppy Playtime: Chapter 4",
         "sourceId": "dg0730"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0730",
+        "name": "Poppy Playtime: Chapter 4",
+        "sourceId": "dg0730",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2248,6 +2395,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Raft",
         "sourceId": "kj0209"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0209",
+        "name": "Raft",
+        "sourceId": "kj0209",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2280,6 +2434,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Football Manager 2023",
         "sourceId": "kj0461"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0461",
+        "name": "Football Manager 2023",
+        "sourceId": "kj0461",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2312,6 +2473,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Platform 8",
         "sourceId": "kj0529"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0529",
+        "name": "Platform 8",
+        "sourceId": "kj0529",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2344,6 +2512,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Uncharted 4",
         "sourceId": "dg0248"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0248",
+        "name": "Uncharted 4",
+        "sourceId": "dg0248",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2376,6 +2551,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Cities: Skylines 2",
         "sourceId": "dg0364"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0364",
+        "name": "Cities: Skylines 2",
+        "sourceId": "dg0364",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2408,6 +2590,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Frostpunk 2",
         "sourceId": "dg0533"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0533",
+        "name": "Frostpunk 2",
+        "sourceId": "dg0533",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2440,6 +2629,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Poppy Playtime: Chapter 2",
         "sourceId": "kj0138"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0138",
+        "name": "Poppy Playtime: Chapter 2",
+        "sourceId": "kj0138",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2472,6 +2668,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Poppy Playtime: Chapter 1",
         "sourceId": "kj0137"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0137",
+        "name": "Poppy Playtime: Chapter 1",
+        "sourceId": "kj0137",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2504,6 +2707,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Poppy Playtime: Chapter 3",
         "sourceId": "kj0442"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0442",
+        "name": "Poppy Playtime: Chapter 3",
+        "sourceId": "kj0442",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2536,6 +2746,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Mafia III: Definitive Edition",
         "sourceId": "dg0492"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0492",
+        "name": "Mafia III: Definitive Edition",
+        "sourceId": "dg0492",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2568,6 +2785,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Mafia II: Definitive Edition",
         "sourceId": "dg0491"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0491",
+        "name": "Mafia II: Definitive Edition",
+        "sourceId": "dg0491",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2600,6 +2824,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "TCG Card Shop",
         "sourceId": "kp0232"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kp0232",
+        "name": "TCG Card Shop",
+        "sourceId": "kp0232",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2632,6 +2863,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Undertale",
         "sourceId": "kj0306"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0306",
+        "name": "Undertale",
+        "sourceId": "kj0306",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2680,6 +2918,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "God of War: Ragnarök",
         "sourceId": "bs0017"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0017",
+        "name": "God of War: Ragnarök",
+        "sourceId": "bs0017",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2712,6 +2957,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Supermarket Simulator",
         "sourceId": "kp0203"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kp0203",
+        "name": "Supermarket Simulator",
+        "sourceId": "kp0203",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2744,6 +2996,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Brotato (Cloud)",
         "sourceId": "dg0380"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0380",
+        "name": "Brotato",
+        "sourceId": "dg0380",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2776,6 +3035,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Sniper: Ghost Warrior Contracts 2",
         "sourceId": "kp0133"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kp0133",
+        "name": "Sniper：Ghost Warrior Contracts2",
+        "sourceId": "kp0133",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2808,6 +3074,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "God of War 4",
         "sourceId": "dg0154"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0154",
+        "name": "God of War 4",
+        "sourceId": "dg0154",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2840,6 +3113,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Halo: The Master Chief Collection",
         "sourceId": "kj0229"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0229",
+        "name": "Halo: The Master Chief Collection",
+        "sourceId": "kj0229",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2872,6 +3152,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Ratchet & Clank",
         "sourceId": "kj0287"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0287",
+        "name": "Ratchet & Clank",
+        "sourceId": "kj0287",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2904,6 +3191,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "The Last of Us Part I",
         "sourceId": "dg0315"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0315",
+        "name": "The Last of Us™ Part I",
+        "sourceId": "dg0315",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2936,6 +3230,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Hollow Knight",
         "sourceId": "jy0011"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0011",
+        "name": "Hollow Knight",
+        "sourceId": "jy0011",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -2968,6 +3269,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Neon Abyss",
         "sourceId": "dg0359"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0359",
+        "name": "Neon Abyss",
+        "sourceId": "dg0359",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3000,6 +3308,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Need for Speed: Payback",
         "sourceId": "kj0181"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0181",
+        "name": "Need for Speed: Payback",
+        "sourceId": "kj0181",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3032,6 +3347,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "SpongeBob SquarePants: Battle for Bikini Bottom",
         "sourceId": "kj0161"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0161",
+        "name": "SpongeBob SquarePants: Battle for Bikini Bottom",
+        "sourceId": "kj0161",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3064,6 +3386,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "SpongeBob SquarePants: The Cosmic Shake",
         "sourceId": "kj0150"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0150",
+        "name": "SpongeBob SquarePants: The Cosmic Shake",
+        "sourceId": "kj0150",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3096,6 +3425,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Drift Racing Online",
         "sourceId": "kj0141"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0141",
+        "name": "Drift Racing Online",
+        "sourceId": "kj0141",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3128,6 +3464,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Choo-Choo Charles",
         "sourceId": "dg0278"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0278",
+        "name": "Choo-Choo Charles",
+        "sourceId": "dg0278",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3155,6 +3498,13 @@
         "name": "NBA 2K23",
         "sourceId": "kj0107",
         "source": "Stratus"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0107",
+        "name": "NBA 2K23",
+        "sourceId": "kj0107",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3187,6 +3537,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Ranch Simulator22",
         "sourceId": "kj0085"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0085",
+        "name": "Ranch Simulator22",
+        "sourceId": "kj0085",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3219,6 +3576,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Marvel's Spider-Man Remastered",
         "sourceId": "kj0089"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0089",
+        "name": "Marvel’s Spider-Man Remastered",
+        "sourceId": "kj0089",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3251,6 +3615,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Stray",
         "sourceId": "dg0183"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0183",
+        "name": "Stray",
+        "sourceId": "dg0183",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3283,6 +3654,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Subnautica Zero",
         "sourceId": "kj0025"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0025",
+        "name": "Subnautica Zero",
+        "sourceId": "kj0025",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3315,6 +3693,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "GhostWire: Tokyo",
         "sourceId": "KJ0019"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=KJ0019",
+        "name": "GhostWire: Tokyo",
+        "sourceId": "KJ0019",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3347,6 +3732,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Nintendo Star Brawl",
         "sourceId": "kj0332"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0332",
+        "name": "Nintendo Star Brawl",
+        "sourceId": "kj0332",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3411,6 +3803,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Watch Dogs: Legion",
         "sourceId": "dg0159"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0159",
+        "name": "Watch Dogs: Legion",
+        "sourceId": "dg0159",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3443,6 +3842,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Cooking Simulator",
         "sourceId": "dg0145"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0145",
+        "name": "Cooking Simulator",
+        "sourceId": "dg0145",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3475,6 +3881,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "FIFA19",
         "sourceId": "dg0139"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0139",
+        "name": "FIFA19",
+        "sourceId": "dg0139",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3507,6 +3920,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Arma 3",
         "sourceId": "dg0054"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0054",
+        "name": "Arma 3",
+        "sourceId": "dg0054",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3539,6 +3959,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Assassin's Creed: Brotherhood",
         "sourceId": "dg0062"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0062",
+        "name": "Assassin's Creed: Brotherhood",
+        "sourceId": "dg0062",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3571,6 +3998,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Assassin's Creed: Revelations",
         "sourceId": "dg0063"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0063",
+        "name": "Assassin's Creed: Revelations ",
+        "sourceId": "dg0063",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3603,6 +4037,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Assassin's Creed: Black Flag",
         "sourceId": "dg0064"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0064",
+        "name": "Assassin's Creed: Black Flag",
+        "sourceId": "dg0064",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3635,6 +4076,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Assassin's Creed: Syndicate",
         "sourceId": "dg0065"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0065",
+        "name": "Assassin's Creed: Syndicate",
+        "sourceId": "dg0065",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3667,6 +4115,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Football: PES 2021",
         "sourceId": "dg0024"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0024",
+        "name": "Football：PES 2021",
+        "sourceId": "dg0024",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3699,6 +4154,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "A Way Out",
         "sourceId": "dg0021"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0021",
+        "name": "A Way Out",
+        "sourceId": "dg0021",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3731,6 +4193,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Days Gone",
         "sourceId": "jy0487"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0487",
+        "name": "Days Gone",
+        "sourceId": "jy0487",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3763,6 +4232,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Forza Horizon 4",
         "sourceId": "jy0541"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0541",
+        "name": "Forza Horizon 4",
+        "sourceId": "jy0541",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3795,6 +4271,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "My Friend Pedro",
         "sourceId": "jy0473"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0473",
+        "name": "My Friend Pedro",
+        "sourceId": "jy0473",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3827,6 +4310,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Control",
         "sourceId": "jy0417"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0417",
+        "name": "Control",
+        "sourceId": "jy0417",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3859,6 +4349,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Halo: Reach",
         "sourceId": "jy0371"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0371",
+        "name": "Halo: Reach",
+        "sourceId": "jy0371",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3891,6 +4388,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Fallout 4",
         "sourceId": "jy0310"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0310",
+        "name": "Fallout 4",
+        "sourceId": "jy0310",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3923,6 +4427,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "It Takes Two",
         "sourceId": "jy0440"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0440",
+        "name": "It Takes Two",
+        "sourceId": "jy0440",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -3955,6 +4466,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Minecraft: Dungeons",
         "sourceId": "jy0402"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0402",
+        "name": "Minecraft:Dungeons",
+        "sourceId": "jy0402",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4019,6 +4537,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Wolf Mate",
         "sourceId": "bs0036"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0036",
+        "name": "Wolf Mate",
+        "sourceId": "bs0036",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4051,6 +4576,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Crashlands 2",
         "sourceId": "bs0020"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0020",
+        "name": "Crashlands 2",
+        "sourceId": "bs0020",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4083,6 +4615,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Mandragora: Whispers of the Witch Tree",
         "sourceId": "bs0019"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0019",
+        "name": "Mandragora: Whispers of the Witch Tree",
+        "sourceId": "bs0019",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4115,6 +4654,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Manor Lords",
         "sourceId": "kp0213"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kp0213",
+        "name": "Manor Lords",
+        "sourceId": "kp0213",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4147,6 +4693,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "inZOI",
         "sourceId": "kj0620"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0620",
+        "name": "inZOI",
+        "sourceId": "kj0620",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4179,6 +4732,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "AI LIMIT",
         "sourceId": "bs0018"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0018",
+        "name": "AI LIMIT",
+        "sourceId": "bs0018",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4211,6 +4771,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Horizon Zero Dawn",
         "sourceId": "dg0598"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0598",
+        "name": "Horizon Zero Dawn",
+        "sourceId": "dg0598",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4243,6 +4810,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Dead Space 3",
         "sourceId": "kj0615"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0615",
+        "name": "Dead Space™ 3",
+        "sourceId": "kj0615",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4275,6 +4849,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Deathloop",
         "sourceId": "kj0035"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0035",
+        "name": "Deathloop",
+        "sourceId": "kj0035",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4307,6 +4888,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Dead Space 2",
         "sourceId": "kj0614"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0614",
+        "name": "Dead Space 2",
+        "sourceId": "kj0614",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4339,6 +4927,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Inside the Backrooms",
         "sourceId": "kj0179"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0179",
+        "name": "Inside the Backrooms",
+        "sourceId": "kj0179",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4371,6 +4966,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Five Hearts Under One Roof",
         "sourceId": "dg0589"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0589",
+        "name": "Five Hearts Under One Roof",
+        "sourceId": "dg0589",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4403,6 +5005,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "The Callisto Protocol",
         "sourceId": "kj0483"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0483",
+        "name": "The Callisto Protocol",
+        "sourceId": "kj0483",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4451,6 +5060,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Yandere Simulator",
         "sourceId": "dg0639"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0639",
+        "name": "Yandere Simulator",
+        "sourceId": "dg0639",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4483,6 +5099,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Amanda the Adventurer",
         "sourceId": "kj0177"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0177",
+        "name": " Amanda the Adventurer",
+        "sourceId": "kj0177",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4515,6 +5138,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Watch Dogs 2",
         "sourceId": "jy0147"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0147",
+        "name": "Watch Dogs 2",
+        "sourceId": "jy0147",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4547,6 +5177,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Doom Eternal",
         "sourceId": "jy0488"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0488",
+        "name": "Doom Eternal",
+        "sourceId": "jy0488",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4579,6 +5216,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Cuphead",
         "sourceId": "jy0146"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0146",
+        "name": "Cuphead",
+        "sourceId": "jy0146",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4611,6 +5255,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "ONE PIECE: PIRATE WARRIORS 4",
         "sourceId": "jy0183"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0183",
+        "name": "ONE PIECE: PIRATE WARRIORS 4",
+        "sourceId": "jy0183",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4643,6 +5294,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Attack On Titan 2",
         "sourceId": "jy0208"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0208",
+        "name": "Attack On Titan2",
+        "sourceId": "jy0208",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4675,6 +5333,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Minecraft: Legends",
         "sourceId": "kj0191"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0191",
+        "name": "Minecraft: Legends",
+        "sourceId": "kj0191",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4707,6 +5372,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Wobbly Life",
         "sourceId": "kj0238"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0238",
+        "name": "Wobbly Life",
+        "sourceId": "kj0238",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4739,6 +5411,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Overcooked 2",
         "sourceId": "jy0281"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0281",
+        "name": "Overcooked 2",
+        "sourceId": "jy0281",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4771,6 +5450,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "One Piece: Burning Blood",
         "sourceId": "jy0059"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0059",
+        "name": "One Piece: Burning Blood",
+        "sourceId": "jy0059",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4803,6 +5489,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Alba: A Wildlife Adventure",
         "sourceId": "jy0362"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0362",
+        "name": "Alba: A Wildlife Adventure",
+        "sourceId": "jy0362",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4835,6 +5528,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Resident Evil: Revelations 2",
         "sourceId": "jy0235"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0235",
+        "name": "Resident Evil: Revelations 2",
+        "sourceId": "jy0235",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4867,6 +5567,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Resident Evil 2: Remake",
         "sourceId": "jy0040"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0040",
+        "name": "Resident Evil 2: Remake",
+        "sourceId": "jy0040",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4899,6 +5606,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Ori and the Will of the Wisps",
         "sourceId": "jy0126"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0126",
+        "name": "Ori and the Will of the Wisps",
+        "sourceId": "jy0126",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4931,6 +5645,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Party Hard 2",
         "sourceId": "jy0470"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0470",
+        "name": "Party Hard2",
+        "sourceId": "jy0470",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -4963,6 +5684,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Tomb Raider - Definitive Edition",
         "sourceId": "bs0048"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0048",
+        "name": "Tomb Raider - Definitive Edition",
+        "sourceId": "bs0048",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5022,6 +5750,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "MiSide",
         "sourceId": "dg0676"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0676",
+        "name": "MiSide",
+        "sourceId": "dg0676",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5054,6 +5789,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "SCUM",
         "sourceId": "kj0222"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0222",
+        "name": "SCUM",
+        "sourceId": "kj0222",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5086,6 +5828,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Buckshot Roulette",
         "sourceId": "kj0426"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0426",
+        "name": "Buckshot Roulette",
+        "sourceId": "kj0426",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5118,6 +5867,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "The Long Drive",
         "sourceId": "kj0202"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0202",
+        "name": "The Long Drive",
+        "sourceId": "kj0202",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5150,6 +5906,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "GigaBash",
         "sourceId": "kj0237"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0237",
+        "name": "GigaBash",
+        "sourceId": "kj0237",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5182,6 +5945,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Zoonomaly",
         "sourceId": "kp0208"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kp0208",
+        "name": "Zoonomaly",
+        "sourceId": "kp0208",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5214,6 +5984,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Hades II",
         "sourceId": "kj0499"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0499",
+        "name": "Hades II",
+        "sourceId": "kj0499",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5246,6 +6023,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Alan Wake 2",
         "sourceId": "kj0357"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0357",
+        "name": "Alan Wake 2",
+        "sourceId": "kj0357",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5278,6 +6062,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Stick Fight: The Game",
         "sourceId": "kj0322"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0322",
+        "name": "Stick Fight: The Game",
+        "sourceId": "kj0322",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5310,6 +6101,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Builder Simulator",
         "sourceId": "kj0135"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0135",
+        "name": "Builder Simulator",
+        "sourceId": "kj0135",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5342,6 +6140,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Super Bunny Man",
         "sourceId": "kj0171"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0171",
+        "name": "Super Bunny Man",
+        "sourceId": "kj0171",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5374,6 +6179,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "THE KING OF FIGHTERS XV",
         "sourceId": "dg0174"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0174",
+        "name": "THE KING OF FIGHTERS XV",
+        "sourceId": "dg0174",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5406,6 +6218,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Grand Theft Auto: Vice City",
         "sourceId": "dg0129"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0129",
+        "name": "Grand Theft Auto: Vice City",
+        "sourceId": "dg0129",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5438,6 +6257,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Grand Theft Auto: San Andreas",
         "sourceId": "dg0128"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0128",
+        "name": "Grand Theft Auto: San Andreas",
+        "sourceId": "dg0128",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5470,6 +6296,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Grand Theft Auto III",
         "sourceId": "dg0127"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0127",
+        "name": "Grand Theft Auto III",
+        "sourceId": "dg0127",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5502,6 +6335,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "The Legend of Zelda: Breath of the Wild",
         "sourceId": "jy0408"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0408",
+        "name": "The Legend of Zelda: Breath of the Wild",
+        "sourceId": "jy0408",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5546,6 +6386,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "ARK: Survival Evolved",
         "sourceId": "dg0109"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0109",
+        "name": "ARK: Survival Evolved",
+        "sourceId": "dg0109",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5578,6 +6425,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Cities: Skylines",
         "sourceId": "kj0185"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0185",
+        "name": "Cities: Skylines",
+        "sourceId": "kj0185",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5610,6 +6464,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Mount & Blade II: Bannerlord",
         "sourceId": "kj0190"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0190",
+        "name": "Mount & Blade II: Bannerlord",
+        "sourceId": "kj0190",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5642,6 +6503,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Fling to Finish",
         "sourceId": "dg0022"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0022",
+        "name": "Fling to Finish",
+        "sourceId": "dg0022",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5674,6 +6542,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Slime Rancher",
         "sourceId": "jy0559"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0559",
+        "name": "Slime Rancher",
+        "sourceId": "jy0559",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5706,6 +6581,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Assassin's Creed Odyssey: The Fate of Atlantis",
         "sourceId": "jy0238"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0238",
+        "name": "Assassin’s Creed Odyssey: The Fate of Atlantis",
+        "sourceId": "jy0238",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5738,6 +6620,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Euro Truck Simulator 2",
         "sourceId": "dg0020"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0020",
+        "name": "Euro Truck Simulator 2",
+        "sourceId": "dg0020",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5770,6 +6659,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Tokyo 2020 Olympics",
         "sourceId": "dg0017"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0017",
+        "name": "Tokyo 2020 Olympics",
+        "sourceId": "dg0017",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5802,6 +6698,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "SUPERHOT: Mind Control Delete",
         "sourceId": "jy0482"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0482",
+        "name": "SUPERHOT: Mind Control Delete",
+        "sourceId": "jy0482",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5834,6 +6737,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "The Amazing Spider-Man 2",
         "sourceId": "jy0186"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0186",
+        "name": "The Amazing Spider-Man 2",
+        "sourceId": "jy0186",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5866,6 +6776,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Transformers: Devastation",
         "sourceId": "jy0435"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0435",
+        "name": "Transformers: Devastation",
+        "sourceId": "jy0435",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5898,6 +6815,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "The Amazing Spider-Man",
         "sourceId": "jy0459"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0459",
+        "name": "The Amazing Spider-Man",
+        "sourceId": "jy0459",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5930,6 +6854,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Call of Duty: WWII",
         "sourceId": "jy0361"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0361",
+        "name": "Call of Duty: WWII",
+        "sourceId": "jy0361",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5962,6 +6893,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Little Nightmares II",
         "sourceId": "jy0416"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0416",
+        "name": "Little Nightmares II",
+        "sourceId": "jy0416",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -5994,6 +6932,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Hand of Fate 2",
         "sourceId": "jy0172"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0172",
+        "name": "Hand of Fate 2",
+        "sourceId": "jy0172",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6026,6 +6971,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "The Past Room",
         "sourceId": "jy0324"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0324",
+        "name": "The Past Room",
+        "sourceId": "jy0324",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6058,6 +7010,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Little Nightmares",
         "sourceId": "jy0325"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0325",
+        "name": "Little Nightmares",
+        "sourceId": "jy0325",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6090,6 +7049,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Mafia: Definitive Edition",
         "sourceId": "jy0307"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0307",
+        "name": "Mafia: Definitive Edition",
+        "sourceId": "jy0307",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6122,6 +7088,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Boomerang Fu",
         "sourceId": "jy0244"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0244",
+        "name": "Boomerang Fu",
+        "sourceId": "jy0244",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6154,6 +7127,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Off-Road Heroes 4",
         "sourceId": "jy0112"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0112",
+        "name": "Off-Road Heroes 4",
+        "sourceId": "jy0112",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6186,6 +7166,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Far Cry Primal",
         "sourceId": "jy0154"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0154",
+        "name": "Far Cry Primal",
+        "sourceId": "jy0154",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6218,6 +7205,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Mirror's Edge Catalyst",
         "sourceId": "dg0090"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0090",
+        "name": "Mirror's Edge Catalyst",
+        "sourceId": "dg0090",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6250,6 +7244,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Far Cry 3",
         "sourceId": "md0483"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=md0483",
+        "name": "Far Cry 3",
+        "sourceId": "md0483",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6282,6 +7283,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "COD6 Modern Warfare",
         "sourceId": "md0176"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=md0176",
+        "name": "COD6 Modern Warfare",
+        "sourceId": "md0176",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6314,6 +7322,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Batman: Arkham Origins",
         "sourceId": "jy0273"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0273",
+        "name": "Batman™: Arkham Origins",
+        "sourceId": "jy0273",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6346,6 +7361,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Batman: Arkham Knight",
         "sourceId": "jy0272"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0272",
+        "name": "Batman™: Arkham Knight",
+        "sourceId": "jy0272",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6378,6 +7400,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Far Cry New Dawn",
         "sourceId": "jy0252"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0252",
+        "name": "Far Cry New Dawn",
+        "sourceId": "jy0252",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6410,6 +7439,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Tom Clancy's Ghost Recon Wildlands",
         "sourceId": "jy0214"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0214",
+        "name": "Tom Clancy's Ghost Recon® Wildlands",
+        "sourceId": "jy0214",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6442,6 +7478,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Stardew Valley",
         "sourceId": "jy0229"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0229",
+        "name": "Stardew Valley",
+        "sourceId": "jy0229",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6474,6 +7517,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Sekiro: Shadows Die Twice",
         "sourceId": "jy0038"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0038",
+        "name": "Sekiro: Shadows Die Twice",
+        "sourceId": "jy0038",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6506,6 +7556,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Curse of the Dead Gods",
         "sourceId": "jy0219"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0219",
+        "name": "Curse of the Dead Gods",
+        "sourceId": "jy0219",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6538,6 +7595,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Bloodstained: Ritual of the Night",
         "sourceId": "jy0080"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0080",
+        "name": "Bloodstained: Ritual of the Night",
+        "sourceId": "jy0080",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6570,6 +7634,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Forager",
         "sourceId": "jy0196"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0196",
+        "name": "Forager",
+        "sourceId": "jy0196",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6602,6 +7673,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Resident Evil 7: Biohazard",
         "sourceId": "jy0095"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0095",
+        "name": "Resident Evil 7: Biohazard",
+        "sourceId": "jy0095",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6634,6 +7712,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Titanfall 2",
         "sourceId": "jy0185"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0185",
+        "name": "Titanfall 2",
+        "sourceId": "jy0185",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6666,6 +7751,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "What Remains of Edith Finch",
         "sourceId": "jy0157"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0157",
+        "name": "What Remains of Edith Finch",
+        "sourceId": "jy0157",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6698,6 +7790,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Untitled Goose Game",
         "sourceId": "jy0124"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0124",
+        "name": "Untitled Goose Game",
+        "sourceId": "jy0124",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6725,6 +7824,13 @@
         "name": "Rise of the Tomb Raider",
         "sourceId": "jy0121",
         "source": "Stratus"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0121",
+        "name": "Rise of the Tomb Raider",
+        "sourceId": "jy0121",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6757,6 +7863,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Katana ZERO",
         "sourceId": "jy0120"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0120",
+        "name": "Katana ZERO",
+        "sourceId": "jy0120",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6789,6 +7902,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Wizard of Legend",
         "sourceId": "jy0122"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0122",
+        "name": "Wizard of Legend",
+        "sourceId": "jy0122",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6821,6 +7941,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Doraemon: Story of Seasons",
         "sourceId": "jy0118"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0118",
+        "name": "Doraemon: Story of Seasons",
+        "sourceId": "jy0118",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6853,6 +7980,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Hades",
         "sourceId": "jy0123"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0123",
+        "name": "Hades",
+        "sourceId": "jy0123",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6885,6 +8019,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Ace Combat 7: Skies Unknown",
         "sourceId": "jy0109"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0109",
+        "name": "Ace Combat 7: Skies Unknown",
+        "sourceId": "jy0109",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6917,6 +8058,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Witchers 3",
         "sourceId": "jy0091"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0091",
+        "name": "Witchers 3",
+        "sourceId": "jy0091",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6949,6 +8097,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Terminator: Resistance",
         "sourceId": "jy0105"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0105",
+        "name": "Terminator: Resistance",
+        "sourceId": "jy0105",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -6981,6 +8136,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "NieR: Automata",
         "sourceId": "jy0103"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0103",
+        "name": "NieR:Automata™",
+        "sourceId": "jy0103",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7013,6 +8175,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Ori and the Blind Forest",
         "sourceId": "jy0094"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0094",
+        "name": "Ori and the Blind Forest",
+        "sourceId": "jy0094",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7045,6 +8214,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Dragon Ball Z: Kakarot",
         "sourceId": "jy0084"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0084",
+        "name": "Dragon Ball Z: Kakarot",
+        "sourceId": "jy0084",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7077,6 +8253,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "For The King",
         "sourceId": "jy0075"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0075",
+        "name": "For The King",
+        "sourceId": "jy0075",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7109,6 +8292,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Assassin's Creed: Odyssey",
         "sourceId": "jy0046"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0046",
+        "name": "Assassin’s Creed: Odyssey",
+        "sourceId": "jy0046",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7141,6 +8331,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Devil May Cry 5",
         "sourceId": "jy0039"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0039",
+        "name": "Devil May Cry 5",
+        "sourceId": "jy0039",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7173,6 +8370,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "FINAL FANTASY VII REMAKE INTERGRADE",
         "sourceId": "dg0158"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=dg0158",
+        "name": "FINAL FANTASY VII REMAKE INTERGRADE",
+        "sourceId": "dg0158",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7205,6 +8409,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "How to Train Your Dragon: Dawn of New Riders",
         "sourceId": "jy0015"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0015",
+        "name": "How to Train Your Dragon: Dawn of New Riders",
+        "sourceId": "jy0015",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7237,6 +8448,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "American Fugitive",
         "sourceId": "jy0012"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0012",
+        "name": "American Fugitive",
+        "sourceId": "jy0012",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7269,6 +8487,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Baldur's Gate 3",
         "sourceId": "kj0283"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0283",
+        "name": "Baldur's Gate 3",
+        "sourceId": "kj0283",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7301,6 +8526,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Devil May Cry 4",
         "sourceId": "jy0008"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0008",
+        "name": "Devil May Cry 4",
+        "sourceId": "jy0008",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7333,6 +8565,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Dead Cells",
         "sourceId": "jy0013"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0013",
+        "name": "Dead Cells",
+        "sourceId": "jy0013",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7365,6 +8604,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "PES 2017",
         "sourceId": "jy0017"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0017",
+        "name": "PES 2017",
+        "sourceId": "jy0017",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7397,6 +8643,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Final Fantasy XIII",
         "sourceId": "jy0005"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0005",
+        "name": "Final Fantasy XIII",
+        "sourceId": "jy0005",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7429,6 +8682,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Transformers: Rise of the Dark Spark",
         "sourceId": "jy0018"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0018",
+        "name": "Transformers: Rise of the Dark Spark",
+        "sourceId": "jy0018",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7455,6 +8715,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "DRAGON BALL: Sparking! ZERO",
         "sourceId": "bs0078"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0078",
+        "name": "DRAGON BALL: Sparking! ZERO",
+        "sourceId": "bs0078",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7481,6 +8748,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Red Dead Redemption",
         "sourceId": "bs0095"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0095",
+        "name": "Red Dead Redemption",
+        "sourceId": "bs0095",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7507,6 +8781,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "PRAGMATA",
         "sourceId": "bs0094"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0094",
+        "name": "PRAGMATA",
+        "sourceId": "bs0094",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7533,6 +8814,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Battlefield 6",
         "sourceId": "bs0093"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0093",
+        "name": "Battlefield 6",
+        "sourceId": "bs0093",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7559,6 +8847,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Mafia: The Old Country",
         "sourceId": "bs0092"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0092",
+        "name": "Mafia: The Old Country",
+        "sourceId": "bs0092",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7585,6 +8880,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Detroit: Become Human",
         "sourceId": "bs0087"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0087",
+        "name": "Detroit: Become Human",
+        "sourceId": "bs0087",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7611,6 +8913,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "INDUSTRIA 2",
         "sourceId": "bs0083"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0083",
+        "name": "INDUSTRIA 2",
+        "sourceId": "bs0083",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7637,6 +8946,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Far Cry 5",
         "sourceId": "bs0082"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0082",
+        "name": "Far Cry 5",
+        "sourceId": "bs0082",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7663,6 +8979,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Invincible VS",
         "sourceId": "bs0077"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0077",
+        "name": "Invincible VS",
+        "sourceId": "bs0077",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7689,6 +9012,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Commandos: Origins",
         "sourceId": "bs0074"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0074",
+        "name": "Commandos: Origins",
+        "sourceId": "bs0074",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7715,6 +9045,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Transformers: Battlegrounds",
         "sourceId": "bs0069"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0069",
+        "name": "Transformers: Battlegrounds",
+        "sourceId": "bs0069",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7741,6 +9078,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Persona 5 Strikers",
         "sourceId": "bs0067"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0067",
+        "name": "Persona 5 Strikers",
+        "sourceId": "bs0067",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7767,6 +9111,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Oddsparks: An Automation Adventure",
         "sourceId": "bs0064"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0064",
+        "name": "Oddsparks: An Automation Adventure",
+        "sourceId": "bs0064",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7793,6 +9144,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Burkina Faso: Radical Insurgency",
         "sourceId": "bs0063"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0063",
+        "name": "Burkina Faso: Radical Insurgency",
+        "sourceId": "bs0063",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7819,6 +9177,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "World War Z - Aftermath",
         "sourceId": "bs0062"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0062",
+        "name": "World War Z - Aftermath",
+        "sourceId": "bs0062",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7845,6 +9210,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "GOD FORSAKEN",
         "sourceId": "bs0061"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0061",
+        "name": "GOD FORSAKEN",
+        "sourceId": "bs0061",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7871,6 +9243,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Gym Manager",
         "sourceId": "bs0060"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0060",
+        "name": "Gym Manager",
+        "sourceId": "bs0060",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7897,6 +9276,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "FEROCIOUS",
         "sourceId": "bs0059"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0059",
+        "name": "FEROCIOUS",
+        "sourceId": "bs0059",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7923,6 +9309,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Cavalry Girls",
         "sourceId": "bs0058"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0058",
+        "name": "Cavalry Girls",
+        "sourceId": "bs0058",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7949,6 +9342,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Quarantine Zone - The Last Check",
         "sourceId": "bs0057"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0057",
+        "name": "Quarantine Zone - The Last Check",
+        "sourceId": "bs0057",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -7975,6 +9375,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Diablo II - Resurrected",
         "sourceId": "bs0056"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0056",
+        "name": "Diablo II - Resurrected",
+        "sourceId": "bs0056",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -8001,6 +9408,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "God of War",
         "sourceId": "bs0053"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0053",
+        "name": "God of War",
+        "sourceId": "bs0053",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -8027,6 +9441,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "I Am Jesus Christ",
         "sourceId": "bs0052"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0052",
+        "name": "I Am Jesus Christ",
+        "sourceId": "bs0052",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -8053,6 +9474,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "The Spirit of the Samurai",
         "sourceId": "bs0051"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0051",
+        "name": "The Spirit of the Samurai",
+        "sourceId": "bs0051",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -8079,6 +9507,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Wicked Seed",
         "sourceId": "bs0050"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0050",
+        "name": "Wicked Seed",
+        "sourceId": "bs0050",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -8105,6 +9540,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Taboo Trial",
         "sourceId": "bs0049"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=bs0049",
+        "name": "Taboo Trial",
+        "sourceId": "bs0049",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -8131,6 +9573,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "WWE 2K24",
         "sourceId": "kj0458"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kj0458",
+        "name": "WWE 2K24",
+        "sourceId": "kj0458",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -8157,6 +9606,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Resident Evil Village",
         "sourceId": "kp0175"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=kp0175",
+        "name": "Resident Evil Village",
+        "sourceId": "kp0175",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },
@@ -8183,6 +9639,13 @@
         "url": "https://gymbros.scarboroughgymelites.ca/launcher.html",
         "name": "Naruto Shippuden: Ultimate Ninja Storm 4",
         "sourceId": "jy0009"
+      },
+      "opium": {
+        "url": "/opium-cloud.html?game=jy0009",
+        "name": "Naruto Shippuden: Ultimate Ninja Storm 4",
+        "sourceId": "jy0009",
+        "nativeEmbed": true,
+        "source": "Opium"
       }
     }
   },

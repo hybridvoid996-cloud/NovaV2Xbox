@@ -1,6 +1,6 @@
 /* Provider selection is shared by standalone, Home and split-screen players. */
 (()=>{
-  const definitions={astra:{label:'Server 1',siteName:'Astra',detail:'Astra',mark:'1'},ghost:{label:'Server 2',siteName:'GhostCloud',detail:'GhostCloud',mark:'2'},achroma:{label:'Server 3',siteName:'Achroma',detail:'Achroma',mark:'3'},synapse:{label:'Server 4',siteName:'Synapse',detail:'Synapse',mark:'4'},luna:{label:'Server 5',siteName:'Luna',detail:'Luna',mark:'5'},niche:{label:'Server 6',siteName:'Niche',detail:'Niche',mark:'6'}};
+  const definitions={astra:{label:'Server 1',siteName:'Astra',detail:'Astra',mark:'1'},ghost:{label:'Server 2',siteName:'GhostCloud',detail:'GhostCloud',mark:'2'},achroma:{label:'Server 3',siteName:'Achroma',detail:'Achroma',mark:'3'},synapse:{label:'Server 4',siteName:'Synapse',detail:'Synapse',mark:'4'},luna:{label:'Server 5',siteName:'Luna',detail:'Luna',mark:'5'},niche:{label:'Server 6',siteName:'Niche',detail:'Niche',mark:'6'},opium:{label:'Server 7',siteName:'Opium',detail:'Opium',mark:'7'}};
   function entries(item){
     const source=item.providers||{astra:{url:item.url,name:item.name,sourceOccurrence:item.sourceOccurrence}};
     return Object.entries(definitions).filter(([id])=>source[id]?.url).map(([id,definition])=>({id,...definition,...source[id],...(id==='achroma'?{url:'https://achcroma.voudouris.org/pages/games.html'}:{}),...(id==='synapse'&&source[id].sourceId?{url:'https://bikesense.org/synapse/index.html?game='+encodeURIComponent(source[id].sourceId),nativeSynapse:true}:{})}));
