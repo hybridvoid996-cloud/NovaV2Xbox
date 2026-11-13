@@ -9222,5 +9222,48 @@
     "genres": [
       "Platformer"
     ]
+  },
+  {
+    "id": 1048,
+    "name": "Minecraft Rust Edition",
+    "url": "/content/noah-import/games/1048.html",
+    "art": "content/noah-import/covers/1048-noah.jpg",
+    "genres": [
+      "Sandbox",
+      "Survival"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1049,
+    "name": "R.E.P.O.",
+    "url": "/content/noah-import/games/1049.html",
+    "art": "content/noah-import/covers/1049-noah.jpg",
+    "genres": [
+      "Horror",
+      "Multiplayer"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1050,
+    "name": "Backyard Baseball '97",
+    "url": "/content/noah-import/games/1050.html",
+    "art": "content/noah-import/covers/1050-noah.jpg",
+    "genres": [
+      "Sports"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": 1051,
+    "name": "Turbo Dismount",
+    "url": "/content/noah-import/games/1051.html",
+    "art": "content/noah-import/covers/1051-noah.jpg",
+    "genres": [
+      "Simulation",
+      "Casual"
+    ],
+    "addedAt": "2026-11-12T00:00:00.000Z"
   }
 ]
