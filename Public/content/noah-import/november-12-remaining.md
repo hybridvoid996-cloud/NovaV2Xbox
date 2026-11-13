@@ -13,3 +13,17 @@ Validation:
 - Local Nova/Scramjet startup observations are recorded below. A loading screen does not certify a full playable session.
 
 Limits: many of these ports download hundreds of MB or more. Find the Needle reports approximately 1.68 GB; FNAF Into the Pit approximately 645 MB; Sally Face approximately 246 MB. Spore requires a recent browser with WebGPU, WebAssembly JSPI, cross-origin isolation, and OPFS. Upstream game data, multiplayer services, complete gameplay, and account-save syncing remain outside these startup checks. Missing monolithic URLs can be expected when a launcher fetches split chunks instead.
+
+## Browser startup observations
+
+- 1052: play spore. Page exceptions: 0.
+- 1053: 9% 173 / 1680 MB ~117s left. Page exceptions: 0.
+- 1054: 96% starting... credit to corbins for the port. Page exceptions: 0.
+- 1055: LOADING... (3/6) Downloading.... Page exceptions: 0.
+- 1056:  Downloading common — 39% Name . Page exceptions: 0.
+- 1057: The One Fish Loading game data… 44%. Page exceptions: 0.
+- 1058: LOADING... 167.67 MB / 645.25 MB. Page exceptions: 0.
+- 1059: LOADING... 246.04 MB / 246.03 MB. Page exceptions: 0.
+- 1060: Feed & Grow: Fish DOWNLOADING FeedAndGrow-Port.data.unityweb (5/28)... 12%. Page exceptions: 0.
+- 1061: Loading game.unx 49.1 MB. Page exceptions: 0.
+- 1062: Downloading the Java runtime 17.7 MB (57/68) vendor/java_home/lib/rt.jar. Page exceptions: 0.
