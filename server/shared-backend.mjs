@@ -1,11 +1,13 @@
 // Public address only; credentials stay on the primary deployment.
 export const SHARED_BACKEND='https://novaoffical1.vercel.app';
+export const REMOTE_BACKEND='https://main.dnw9x6dxqh8lf.amplifyapp.com';
 const endpoints=new Set(['account-support','account-recovery','account-login','owner-control','chat-owner','staff-users','voice','voice-account','remote','music']);
 export function withSharedBackend(endpoint,handler,{env=process.env,request=fetch}={}){
  if(!endpoints.has(endpoint))throw Error('Unsupported shared endpoint');
  return async(req,res)=>{
+  const primary=endpoint==='remote'?REMOTE_BACKEND:SHARED_BACKEND;
   const host=String(req.headers?.host||'').toLowerCase();
-  if(env.FIREBASE_SERVICE_ACCOUNT_JSON||host===new URL(SHARED_BACKEND).host)return handler(req,res);
+  if(env.FIREBASE_SERVICE_ACCOUNT_JSON||host===new URL(primary).host)return handler(req,res);
   const reply=(status,error)=>{res.statusCode=status;res.setHeader('Content-Type','application/json');res.setHeader('Cache-Control','no-store');res.end(JSON.stringify({error}))};
   if(req.headers?.['x-nova-shared-hop'])return reply(503,'The primary Nova backend needs its server configuration.');
   if(!['POST','GET'].includes(req.method))return reply(405,'Unsupported request method.');
@@ -19,7 +21,7 @@ export function withSharedBackend(endpoint,handler,{env=process.env,request=fetc
    const headers={'Content-Type':'application/json','X-Nova-Shared-Hop':'1'};
    if(req.headers?.authorization)headers.Authorization=req.headers.authorization;
    let aiGeneration=false;try{const payload=JSON.parse(body||'{}');aiGeneration=endpoint==='owner-control'&&payload.action==='aiWorkspace'&&payload.op==='generate'}catch{}
-   const response=await request(SHARED_BACKEND+'/api/'+endpoint,{method:req.method,headers,body,redirect:'error',signal:AbortSignal.timeout(aiGeneration?95000:endpoint==='account-support'?40000:endpoint==='owner-control'?35000:12000)});
+   const response=await request(primary+'/api/'+endpoint,{method:req.method,headers,body,redirect:'error',signal:AbortSignal.timeout(aiGeneration?95000:endpoint==='account-support'?40000:endpoint==='owner-control'?35000:12000)});
    const result=await response.text();
    try{const data=JSON.parse(result);if(!data||typeof data!=='object'||Array.isArray(data))throw Error('Invalid response')}catch{return reply(503,response.status===402||/^\s*Payment required/i.test(result)?'The main Nova backend is restricted by Vercel. The site owner needs to check Vercel usage and billing.':'The main Nova backend returned an unavailable response. Try again shortly.')}
    if(endpoint==='owner-control'&&response.status===400){
