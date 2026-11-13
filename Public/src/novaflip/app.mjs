@@ -4,7 +4,7 @@ import {HostedGame} from './session.mjs?v=9';
 import {botNames} from './bot.mjs?v=9';
 import {cardEl,colorHex} from './cards.mjs?v=9';
 import {sfx,setSound} from './sound.mjs?v=9';
-import {Room,watchLobbies,sendInvite,watchInvites,clearInvite,cleanCode,MAX_PLAYERS} from './online.mjs?v=9';
+import {Room,watchLobbies,sendInvite,watchInvites,clearInvite,cleanCode,MAX_PLAYERS} from './online.mjs?v=10';
 
 // ---------- tiny DOM helper ----------
 function h(tag,props={},...kids){

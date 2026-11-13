@@ -70,8 +70,8 @@ test('server runs the game: host and guest send moves, hands stay private, kick 
  const after=JSON.parse(tree().novaControl.flipTables[host.code].state);
  assert.ok(after.players[gs].hand.length>before,'server applied the guest draw');
  assert.equal(g.myHand.length,after.players[gs].hand.length,'guest hand synced from the server');
- // A move out of turn is refused by the server.
- if(after.turn!==gs)await assert.rejects(()=>g.act({type:'draw'}),/not your turn|Play the card/);
+ // A move out of turn is refused by the server; the client resyncs quietly instead of erroring.
+ if(after.turn!==gs){const rev=tree().novaControl.flipTables[host.code].rev;await g.act({type:'draw'});await tick(50);assert.equal(tree().novaControl.flipTables[host.code].rev,rev,'refused move changes nothing');assert.equal(g.view.turn,after.turn,'guest shows the real turn')}
  // Kick: guest is notified and banned from rejoining.
  as('host1','Hosty');await host.kick('guest1');await tick(50);
  assert.ok(guestEvents.includes('kicked'));
@@ -178,4 +178,23 @@ test('a result written into the room by a player is ignored: only the server res
  let now=1_800_000_000_000;const call=(uid,b)=>novaFlipAction({db,uid,account:{name:uid},b,now,initial});
  const {token}=await call('h',{op:'start',mode:'online',players:2,room:'ABCDE',gameId});now+=60_000;
  await assert.rejects(()=>call('h',{op:'claim',token}),/did not record you/);
+});
+
+test('a public view that fell behind the server is healed, and clients never step back to an older view',async()=>{
+ const {fb,admin,tree}=fakeDb();Object.assign(nova,{fb,db:{}});const clock={now:1_800_000_000_000};serve(admin,clock);
+ as('h','H');const host=await Room.create({visibility:'private',settings:{turnTimer:0}});await tick();
+ as('g','G');const guest=await Room.join(host.code);await tick();
+ as('h','H');await host.start();await tick(50);
+ const code=host.code,table=tree().novaControl.flipTables[code],st=JSON.parse(table.state);
+ // Simulate a lost publish: the server table moved on (turn + rev) but the public view did not.
+ const real=(st.turn+1)%st.players.length;Object.assign(st,{turn:real,drawn:null,pending:null});table.state=JSON.stringify(st);table.rev+=3;
+ const stale=tree().novaFlip.rooms[code].game.rev;assert.ok(stale<table.rev);
+ as('g','G');await guest.call('tableTick');await tick(50);
+ const view=tree().novaFlip.rooms[code].game;
+ assert.equal(view.rev,table.rev,'tick republished the newer view');assert.equal(view.turn,real,'public view shows the real turn');
+ assert.equal(guest.game.view.turn,real,'guest shows the real turn');
+ // An older view arriving late is ignored by clients.
+ const shown=guest.game.view.rev;guest.data={...guest.data,game:{...view,rev:shown-1,turn:(real+1)%st.players.length}};guest.clientTick();
+ assert.equal(guest.game.view.rev,shown,'older view ignored');
+ host.dispose();guest.dispose();delete nova.serverCall;
 });

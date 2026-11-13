@@ -128,11 +128,28 @@ export class Room{
     this.handStop=onValue(r('hands/'+this.code+'/'+this.me),snap=>{if(this.game===game)game.update(game.v,Object.values(snap.val()||{}))},()=>{});
     this.emit('game',{game});
    }
-   if(g&&g.gameId===this.game.gameId&&(g.rev!==this.game.v?.rev||!this.game.v)){this.viewAt=Date.now();this.game.update(localTime(g))}
+   // Only ever move forward: an older or repeated view must not replace what we already show.
+   if(g&&g.gameId===this.game.gameId&&(!this.game.v||(g.rev||0)>(this.game.v.rev||0))){this.viewAt=Date.now();this.game.update(localTime(g))}
   }
  }
  // Moves go to the server, which checks them against the rules; send only set fields.
- async sendMove(move){const clean={};for(const [k,v]of Object.entries(move||{}))if(v!==undefined&&v!==null)clean[k]=v;await this.call('tableMove',{gameId:this.data.gameId,move:clean})}
+ // One move at a time: a double click (or auto-draw racing a click) must not send twice.
+ async sendMove(move){
+  const clean={};for(const [k,v]of Object.entries(move||{}))if(v!==undefined&&v!==null)clean[k]=v;
+  if(this.sending&&clean.type!=='flip')return;
+  if(clean.type!=='flip')this.sending=true;
+  try{await this.call('tableMove',{gameId:this.data.gameId,move:clean})}
+  catch(e){
+   // Our view was behind the server. Ask it to republish and show the real turn instead of an error.
+   if(/not your turn/i.test(e?.message||'')){this.resync();return}
+   throw e;
+  }
+  finally{if(clean.type!=='flip')this.sending=false}
+ }
+ async resync(){
+  try{await this.call('tableTick')}catch{}
+  try{const {get}=fb();const g=(await get(r('rooms/'+this.code+'/game'))).val();if(g&&this.game&&g.gameId===this.game.gameId&&(g.rev||0)>=(this.game.v?.rev||0)){this.viewAt=Date.now();this.game.update(localTime(g))}}catch{}
+ }
  // Bots, turn timers and missed last-card calls advance when a client asks the server to "tick".
  // The host ticks; others step in only if the game has gone quiet (e.g. the host lagged).
  startTicker(){

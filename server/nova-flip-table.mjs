@@ -106,9 +106,13 @@ export function publishPatch(code,table){
 
 async function publish(db,room,table){
  // Only move the public view forward: a slower, older write must not replace a newer one.
- const res=await db.ref('novaFlip/rooms/'+room+'/game').transaction(v=>v&&v.gameId===table.gameId&&(v.rev||0)>=table.rev?undefined:{...v,rev:table.rev});
- if(!res.committed)return;
- await db.ref().update(publishPatch(room,table));
+ // The whole new view is written inside the guard. (Writing just the new rev onto the old
+ // view first made clients accept stale turns and then ignore the real update.)
+ const path='novaFlip/rooms/'+room+'/game',patch=publishPatch(room,table),view=patch[path];delete patch[path];
+ const res=await db.ref(path).transaction(v=>v&&v.gameId===table.gameId&&(v.rev||0)>=table.rev?undefined:view);
+ if(!res.committed)return false;
+ if(Object.keys(patch).length)await db.ref().update(patch);
+ return true;
 }
 
 export async function tableAction({db,uid,b,now,lockWagers}){
@@ -137,9 +141,18 @@ export async function tableAction({db,uid,b,now,lockWagers}){
    if(b.op==='tableMove'){if(t.gameId!==b.gameId)throw Error('That game has ended.');next=applyMove(t,uid,b.move,{now})}
    else next=applyTick(t,room,{now});
   }catch(e){failure=e.message;return t}
-  return next||undefined});   // nothing due (e.g. an early tick or a repeat call): write nothing
+  // Nothing due (an early tick or a repeat call): hand back the same value instead of aborting.
+  // Aborting would trust a possibly stale cached copy; an unchanged value makes Firebase check
+  // it against the server and rerun with the real table when it differs.
+  return next||t});
  if(failure)throw Error(failure);
- if(!next)return {ok:true,changed:false};
+ if(!next){
+  // Nothing new to do, but heal a public view that fell behind the table (e.g. a publish
+  // that lost a race), so clients stop waiting on a turn that already moved on.
+  const t=tx.snapshot?.val();
+  if(t&&!t.result&&(room.game?.gameId!==t.gameId||(room.game?.rev||0)<(t.rev||0)))await publish(db,b.room,t);
+  return {ok:true,changed:false,rev:t?.rev||0};
+ }
  if(!tx.committed)throw Error('The move could not be saved. Try again.');
  const table=tx.snapshot.val();
  if(next&&table)await publish(db,b.room,table);
