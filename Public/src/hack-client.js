@@ -1,4 +1,4 @@
-import {hackProducts} from './hack-products.mjs?v=20261112-hackfix1';
+import {hackProducts} from './hack-products.mjs?v=20261112-paused1';
 import {control} from './control-client.js';
 const product=hackProducts.find(p=>p.id===new URLSearchParams(location.search).get('product')&&p.client),status=document.getElementById('status'),retry=document.getElementById('retry');
 let view,loading=false,watch=0;
@@ -6,7 +6,7 @@ const el=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textCo
 
 // Opens the provider client as its own top-level tab (no proxy). Blooket's browser security
 // check only passes there, not through Nova's proxy or inside an embedded frame.
-function openDirect(){const tab=window.open(product.client,'_blank','noopener');if(!tab)say('Your browser blocked the new tab. Allow pop-ups for Nova, then try again.',true)}
+function openDirect(){const tab=window.open(product.client,'_blank');if(tab)try{tab.opener=null}catch{}else say('Your browser blocked the new tab. Allow pop-ups for Nova, then try again.',true)}
 function say(message,withDirect=false,withProxy=false){
  status.hidden=false;status.replaceChildren(el('span',message));
  const row=el('div');row.className='hc-actions';
@@ -40,8 +40,9 @@ async function launch(){
  document.getElementById('title').textContent=product.name;document.title='Nova · '+product.name;document.getElementById('art').src=product.art;
  const direct=document.getElementById('direct');if(direct){direct.hidden=false;direct.onclick=openDirect}
  say('Checking your Nova unlock…');
- try{const {owned}=await control('hackAccess');if(!owned?.[product.id])throw Error('This pack is locked. Unlock it in the Nova Hacks shop for '+product.price.toLocaleString()+' coins.')}
+ try{const {owned}=await control('hackAccess');if(!owned?.[product.id])throw Error(product.unavailable||'This pack is locked. Unlock it in the Nova Hacks shop for '+product.price.toLocaleString()+' coins.')}
  catch(e){say(e.message);retry.hidden=false;return}
+ if(product.unavailable){say(product.unavailable+' You keep access, so you can still try it.',true,!product.openInTab);return}
  if(product.openInTab){say(product.name+' opens in its own tab: Blooket’s security check blocks proxies. Join with your game PIN there, then use the X-GUI menu for cheats.',true,true);return}
  void proxy();
 }

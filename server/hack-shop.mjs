@@ -18,16 +18,34 @@ export function ownedHackProducts(purchases={},roles={},baseRole='',definitions=
   if(role)owned[product.id]={product:product.id,role,granted:true};
  }return owned;
 }
-export async function readHackOwnership(db,uid){const [purchases,roles,baseRole]=await Promise.all(['novaControl/hackPurchases/'+uid,'novaChatV2/memberRoles/'+uid,'novaChatV2/roles/'+uid].map(path=>db.ref(path).get().then(s=>s.val())));
+// Paid purchases of a pack that is marked unavailable are refunded exactly once.
+// Access stays with the player, so nothing is taken away if the provider recovers.
+export function settleHackRefunds(root,uid,now){
+ const refunds=[];const purchases=root?.hackPurchases?.[uid]||{};
+ for(const product of hackProducts){const row=purchases[product.id];if(!product.unavailable||!row||row.refunded||!(Number(row.paid)>0))continue;
+  root.progress||={};const progress=root.progress[uid]||={coins:0};if(!Number.isSafeInteger(progress.coins))progress.coins=0;
+  progress.coins+=row.paid;row.refunded=row.paid;row.refundedAt=now;refunds.push({product:product.id,name:product.name,coins:row.paid});}
+ return refunds;
+}
+async function refundUnavailableHacks(db,uid,purchases,now=Date.now()){
+ if(!hackProducts.some(p=>p.unavailable&&purchases?.[p.id]&&!purchases[p.id].refunded&&Number(purchases[p.id].paid)>0))return [];
+ let refunds=[];
+ const tx=await db.ref('novaControl').transaction(root=>{if(root===null)return null;refunds=settleHackRefunds(root,uid,now);return root});
+ if(!tx.committed)return [];
+ for(const r of refunds)await db.ref('novaChatV2/botMessages/'+uid+'/hack-refund-'+r.product).set({author:'nova-bot',kind:'shop-refund',subject:'Refund: '+r.name,text:r.name+' stopped working, so your '+r.coins.toLocaleString('en-US')+' Nova Coins were refunded. You keep access if it comes back.',createdAt:now}).catch(()=>{});
+ return refunds;
+}
+export async function readHackOwnership(db,uid){let [purchases,roles,baseRole]=await Promise.all(['novaControl/hackPurchases/'+uid,'novaChatV2/memberRoles/'+uid,'novaChatV2/roles/'+uid].map(path=>db.ref(path).get().then(s=>s.val())));
+ try{if((await refundUnavailableHacks(db,uid,purchases)).length)purchases=(await db.ref('novaControl/hackPurchases/'+uid).get()).val()}catch(error){console.warn('Hack refund will retry:',error?.message)}
  const ids=Object.keys(roles||{}).filter(id=>roles[id]&&!hackProducts.some(p=>p.role===id)&&/^[A-Za-z0-9_-]{1,80}$/.test(id));
  const definitions=Object.fromEntries(await Promise.all(ids.map(id=>db.ref('novaChatV2/customRoles/'+id).get().then(s=>[id,s.val()]))));
  return ownedHackProducts(purchases,roles,baseRole,definitions);}
-export function settleHackPurchase(root,uid,id,now,initial){const product=hackProducts.find(p=>p.id===id);if(!product)throw Error('Choose a valid hack pack.');root||={};root.hackPurchases||={};root.hackPurchases[uid]||={};if(root.hackPurchases[uid][id])return root;root.progress||={};const p=root.progress[uid]||initial();if(!Number.isSafeInteger(p.coins)||p.coins<product.price)throw Error('You need '+product.price.toLocaleString('en-US')+' Nova Coins.');root.progress[uid]=p;p.coins-=product.price;root.hackPurchases[uid][id]={product:id,role:product.role,paid:product.price,at:now};recordShopPurchase(root,uid,'hack-'+id,{label:product.name,cost:product.price,at:now});return root}
+export function settleHackPurchase(root,uid,id,now,initial){const product=hackProducts.find(p=>p.id===id);if(!product)throw Error('Choose a valid hack pack.');if(product.unavailable&&!root?.hackPurchases?.[uid]?.[id])throw Error(product.unavailable);root||={};root.hackPurchases||={};root.hackPurchases[uid]||={};if(root.hackPurchases[uid][id])return root;root.progress||={};const p=root.progress[uid]||initial();if(!Number.isSafeInteger(p.coins)||p.coins<product.price)throw Error('You need '+product.price.toLocaleString('en-US')+' Nova Coins.');root.progress[uid]=p;p.coins-=product.price;root.hackPurchases[uid][id]={product:id,role:product.role,paid:product.price,at:now};recordShopPurchase(root,uid,'hack-'+id,{label:product.name,cost:product.price,at:now});return root}
 export async function hackShopAction({db,uid,action,b,now,initial}){
  if(action==='hackAvailability')return hackAvailability(b.product);
  const owned=await readHackOwnership(db,uid);const grant=async(product,setName=false)=>{const [from,to]=product.colors||['#b8c6a4','#ffffff'];const patch={['novaChatV2/customRoles/'+product.role]:{name:product.name,color:from,from,to,purchaseOnly:true},['novaChatV2/memberRoles/'+uid+'/'+product.role]:true};if(setName&&product.colors)patch['novaChatV2/profiles/'+uid+'/nameColorRole']=product.role;await db.ref().update(patch)};
  if(action==='hackAccess')return {owned};
- const product=hackProducts.find(p=>p.id===b.product);if(!product)throw Error('Choose a valid hack pack.');
+ const product=hackProducts.find(p=>p.id===b.product);if(!product)throw Error('Choose a valid hack pack.');if(product.unavailable&&!owned[product.id])throw Error(product.unavailable);
  if(owned[product.id]){await grant(product);const progress=(await db.ref('novaControl/progress/'+uid).get()).val();return {ok:true,alreadyOwned:true,coins:progress?.coins||0,receipt:owned[product.id],owned};}
  const purchaseRef=db.ref('novaControl'),saved=(await purchaseRef.get()).val();let failure;
  const result=await purchaseRef.transaction(root=>{failure=null;try{return settleHackPurchase(root||structuredClone(saved),uid,product.id,now,initial)}catch(e){failure=e.message;return}});

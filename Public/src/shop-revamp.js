@@ -1,8 +1,8 @@
-import {showHackPreview} from './shop-hack-preview.mjs?v=20261112-hackfix1';
+import {showHackPreview} from './shop-hack-preview.mjs?v=20261112-paused1';
 import {activeGamePreview,mountActiveGames,openClassicGame} from './shop-active-games.mjs?v=20261112-gifts1';
 import {openMines} from './shop-mines.js?v=20261112-gifts1';import {mountRoundGames} from './shop-rounds-ui.mjs?v=20261112-gifts1';
 import {mountArcade,mountGambleBoard} from './shop-arcade.mjs?v=3';
-import {hackProducts} from './hack-products.mjs?v=20261112-hackfix1';
+import {hackProducts} from './hack-products.mjs?v=20261112-paused1';
 import {createShopModel} from './shop-models.js?v=20261112-gifts1';
 import {unboxReveal} from './shop-unbox.mjs?v=20261112-gifts1';
 import {openGiftDialog} from './shop-gift-ui.mjs?v=20261112-gifts1';
@@ -66,13 +66,13 @@ export function showStore(host,ctx){
  const refresh=()=>load(ctx,host);const hacks=node('section','shop-hacks');host.append(hacks);function drawHacks(data){hacks.replaceChildren(node('small','eyebrow','NOVA GAME TOOLS'),node('h2','','Hacks'),node('p','muted','Hover a pack for details · click to preview.'));
 const tiles=node('div','nova-hack-tiles');
 // Icon-only tiles: hover/focus shows the details card, click opens the preview.
-for(const product of hackProducts){const owned=!!data.hackPurchases?.[product.id],tile=node('button','nova-hack-tile'+(owned?' is-owned':'')),icon=node('span','nova-hack-icon'),image=node('img'),info=node('span','nova-hack-info'),infoId='hack-info-'+product.id;
-tile.type='button';tile.setAttribute('aria-label',product.name+(owned?' · owned':' · '+product.price.toLocaleString()+' Nova Coins')+' · open preview');tile.setAttribute('aria-describedby',infoId);
+for(const product of hackProducts){const owned=!!data.hackPurchases?.[product.id],tile=node('button','nova-hack-tile'+(owned?' is-owned':'')+(product.unavailable?' is-unavailable':'')),icon=node('span','nova-hack-icon'),image=node('img'),info=node('span','nova-hack-info'),infoId='hack-info-'+product.id;
+tile.type='button';tile.setAttribute('aria-label',product.name+(product.unavailable?' · unavailable':owned?' · owned':' · '+product.price.toLocaleString()+' Nova Coins')+' · open preview');tile.setAttribute('aria-describedby',infoId);
 if(product.colors)tile.style.setProperty('--hack',product.colors[0]);
 image.src=product.art;image.alt='';image.decoding='async';image.draggable=false;icon.append(image);
-if(owned)icon.append(node('i','nova-hack-owned','✓'));
+if(product.unavailable)icon.append(node('i','nova-hack-paused','Unavailable'));else if(owned)icon.append(node('i','nova-hack-owned','✓'));
 info.id=infoId;info.setAttribute('role','tooltip');
-info.append(node('b','',product.name),node('small','nova-hack-price',owned?'Owned · unlocked on your account':product.price.toLocaleString()+' Nova Coins · permanent'),node('span','',product.description),node('em','','Click to preview'));
+info.append(node('b','',product.name),node('small','nova-hack-price',product.unavailable?'Unavailable · purchases paused':owned?'Owned · unlocked on your account':product.price.toLocaleString()+' Nova Coins · permanent'),node('span','',product.unavailable||product.description),node('em','','Click to preview'));
 tile.append(icon,info);
 const buy=()=>{const d=ctx.modal('Unlock '+product.name),error=node('p','purchase-error');
 d.append(node('p','',product.price.toLocaleString()+' Nova Coins · permanent Nova access and the '+product.name+' role. Third-party client availability is not guaranteed.'),error);

@@ -10,3 +10,9 @@ test('owner-made hack roles with a random ID grant the pack their name describes
 assert.deepEqual(Object.keys(ownedHackProducts({}, {'5f1c':true},'',defs)),['pvz-original']);assert.deepEqual(Object.keys(ownedHackProducts({}, {'9a2b':true},'',defs)),['pvz-original']);
 assert.deepEqual(ownedHackProducts({}, {fan:true,vip:true},'',defs),{});assert.deepEqual(ownedHackProducts({}, {'5f1c':false},'',defs),{});
 assert.equal(hackRoleMatches({id:'pvz-original',name:'Plants vs. Zombies original hacks',role:'PvZOriginalHacks'},{name:'PvZOriginalHacks'}),true)});
+test('paused packs refuse new purchases and refund paid buyers exactly once',async()=>{const {settleHackRefunds,settleHackPurchase}=await import('../server/hack-shop.mjs');const {hackProducts}=await import('../Public/src/hack-products.mjs');
+for(const id of ['kahoot','blooket'])assert.ok(hackProducts.find(p=>p.id===id).unavailable);
+const root={progress:{u:{coins:100}},hackPurchases:{u:{kahoot:{product:'kahoot',paid:650000,at:1},blooket:{product:'blooket',role:'BlooketHacks',granted:true},'pvz-original':{product:'pvz-original',paid:150000,at:1}}}};
+const first=settleHackRefunds(root,'u',5);assert.deepEqual(first.map(r=>r.product),['kahoot']);assert.equal(root.progress.u.coins,650100);assert.equal(root.hackPurchases.u.kahoot.refunded,650000);
+assert.deepEqual(settleHackRefunds(root,'u',6),[]);assert.equal(root.progress.u.coins,650100);assert.ok(root.hackPurchases.u.kahoot);
+assert.throws(()=>settleHackPurchase({progress:{v:{coins:9e6}}},'v','blooket',1,()=>({coins:0})),/unavailable/);});

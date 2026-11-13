@@ -171,3 +171,9 @@ body.nova-shop-page .live-pick.picked .live-pick-add{border-color:#fff;backgroun
 @media(max-width:480px){.nova-hack-icon{width:88px;height:88px;border-radius:22px}.shop-hacks .nova-hack-tiles{gap:12px}}
 html.reduce-motion .nova-hack-icon,html.reduce-motion .nova-hack-info{transition:none}
 body.nova-shop-page .shop-hacks .nova-hack-tile{padding:0!important;margin:0!important;background:none!important;border:0!important;box-shadow:none!important;width:auto!important;height:auto!important;min-height:0!important;transform:none!important;border-radius:26px!important;backdrop-filter:none!important}
+
+/* Paused hack packs */
+.nova-hack-tile.is-unavailable .nova-hack-icon img{filter:grayscale(1) brightness(.6)}
+.nova-hack-paused{position:absolute;left:6px;right:6px;bottom:7px;padding:3px 0;border-radius:8px;background:#000c;color:#ffb3bd;font-size:10px;font-style:normal;font-weight:800;letter-spacing:.4px;text-align:center}
+.is-unavailable .nova-hack-price{color:#ff9aa8}
+.hack-unavailable{color:#ffb3bd}
