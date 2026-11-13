@@ -232,3 +232,5 @@ html.reduce-motion .nmc.skin-apple .nmc-lyrics-lines .active,html.reduce-motion 
 .nmc.skin-apple .nmc-search-view .nmc-search-top>section{min-width:0}
 
 .nmc-skin-mark img{width:100%;height:100%;object-fit:contain}.nmc-skin-choice .nmc-skin-mark img{filter:none}
+/* Brand images must remain icon-sized even when the asset has intrinsic dimensions. */
+.nmc .nmc-skin-trigger>img{display:block;width:24px!important;height:24px!important;max-width:24px!important;max-height:24px!important;object-fit:contain;flex:none}.nmc .nmc-skin-trigger.is-spotify{color:#1ed760}.nmc .nmc-skin-trigger.is-apple{color:#fa2d48}.nmc .nmc-skin-trigger.is-apple:hover>img,.nmc-skin-picker.is-open .nmc-skin-trigger.is-apple>img{filter:drop-shadow(0 0 7px #fa2d4870)}
