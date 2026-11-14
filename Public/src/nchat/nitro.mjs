@@ -1,5 +1,5 @@
 // Nova Nitro page (chat Perks + Settings → Nitro). Clean glass layout, no legacy markup.
-import {state,el,h,icon,avatar,nameNode,person,sheet,task,toast} from './core.mjs?v=9';
+import {state,el,h,icon,avatar,nameNode,person,sheet,task,toast} from './core.mjs?v=10';
 import {control} from '../control-client.js';
 import {showBadgeProgress} from '../nitro-badges.mjs?v=20261029-badge368';
 

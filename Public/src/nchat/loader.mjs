@@ -1,7 +1,7 @@
 // Nova Chat intro: the Nova logo appears in a glass tile while a progress ring fills
 // around it, "Nova Chat" rises in with a moving silver shine, the current step
 // cross-fades under it, then the whole scene zooms and blurs away into the chat.
-import {el,lowPower} from './core.mjs?v=9';
+import {el,lowPower} from './core.mjs?v=10';
 
 const R=58,C=2*Math.PI*R;
 

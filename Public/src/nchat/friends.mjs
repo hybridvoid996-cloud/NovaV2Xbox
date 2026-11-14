@@ -1,6 +1,6 @@
 // Friends hub: search everyone, who's online on Nova now, your friends, requests, and groups.
-import {state,el,h,icon,avatar,nameNode,person,online,activityText,statusOf,isBot,sheet,task,toast,fail} from './core.mjs?v=9';
-import {showMiniProfile} from './profile.mjs?v=9';
+import {state,el,h,icon,avatar,nameNode,person,online,activityText,statusOf,isBot,sheet,task,toast,fail} from './core.mjs?v=10';
+import {showMiniProfile} from './profile.mjs?v=10';
 
 export function friendsView(host,{api,control,openDM,openGroup,addFriend,acceptFriend,ignoreFriend,preview}){
  host.replaceChildren();

@@ -22,3 +22,15 @@ test('only the owner can clear public chat',async()=>{
  const db=memoryDb(seed());
  await assert.rejects(manageServer(db,'mod',{kind:'resetPublic',confirm:'CLEAR PUBLIC CHAT'}),/Only owners/);
 });
+
+test('staff can delete one inbox ticket or clear the inbox; players cannot',async()=>{
+ const db=memoryDb({novaChatV2:{roles:{own:'owner',mod:'moderator'},feedback:{u1:{t1:{kind:'report',text:'a'},t2:{kind:'suggestions',text:'b'}},u2:{t3:{kind:'report',text:'c'}}},feedbackReplies:{u1:{t1:{r:{text:'ok'}}}}}});
+ await assert.rejects(()=>manageServer(db,'player',{kind:'deleteTicket',uid:'u1',id:'t1'}),/Only staff/);
+ await manageServer(db,'mod',{kind:'deleteTicket',uid:'u1',id:'t1'});
+ assert.equal(db.tree.novaChatV2.feedback.u1.t1,undefined);assert.equal(db.tree.novaChatV2.feedbackReplies.u1?.t1,undefined);assert.ok(db.tree.novaChatV2.feedback.u1.t2);
+ await assert.rejects(()=>manageServer(db,'mod',{kind:'clearTickets'}),/CLEAR INBOX/);
+ const r=await manageServer(db,'mod',{kind:'clearTickets',confirm:'CLEAR INBOX',only:'report'});
+ assert.equal(r.deleted,1);assert.ok(db.tree.novaChatV2.feedback.u1.t2,'suggestions kept when clearing reports only');
+ await manageServer(db,'own',{kind:'clearTickets',confirm:'CLEAR INBOX'});
+ assert.equal(Object.keys(db.tree.novaChatV2.feedback.u1||{}).length,0);
+});

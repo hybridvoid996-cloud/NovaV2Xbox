@@ -2,6 +2,21 @@ import {randomUUID} from 'node:crypto';
 export const KEEP_CHANNELS=['welcome','announcements','updates','leaks','links','owner-lounge','report'];
 export const PUBLIC_CHANNELS=['general','community-links','ai-assistance','suggestions'];
 export async function manageServer(db,uid,b){
+ // Staff inbox clean-up: any staff member (owner, admin or moderator) can delete reports and suggestions.
+ if(b.kind==='deleteTicket'||b.kind==='clearTickets'){
+  const [role,access]=await Promise.all([db.ref('novaChatV2/roles/'+uid).get(),db.ref('novaChatV2/staffAccess/'+uid+'/moderator').get()]);
+  if(!['owner','admin','moderator'].includes(role.val())&&access.val()!==true)throw Error('Only staff can manage the inbox.');
+  const key=/^[A-Za-z0-9_-]{1,128}$/;
+  if(b.kind==='deleteTicket'){
+   if(!key.test(b.uid||'')||!key.test(b.id||''))throw Error('Choose a ticket.');
+   await db.ref().update({['novaChatV2/feedback/'+b.uid+'/'+b.id]:null,['novaChatV2/feedbackReplies/'+b.uid+'/'+b.id]:null});
+   return {ok:true,deleted:1};
+  }
+  if(b.confirm!=='CLEAR INBOX')throw Error('Type CLEAR INBOX to confirm.');
+  const all=(await db.ref('novaChatV2/feedback').get()).val()||{};const patch={};let n=0;
+  for(const [owner,tickets]of Object.entries(all))for(const id of Object.keys(tickets||{})){if(b.only&&tickets[id]?.kind!==b.only)continue;patch['novaChatV2/feedback/'+owner+'/'+id]=null;patch['novaChatV2/feedbackReplies/'+owner+'/'+id]=null;n++}
+  if(n)await db.ref().update(patch);return {ok:true,deleted:n};
+ }
  if((await db.ref('novaChatV2/roles/'+uid).get()).val()!=='owner')throw Error('Only owners can manage server roles and channels.');
  const root='novaChatV2/',valid=v=>typeof v==='string'&&/^[a-zA-Z0-9_-]{1,80}$/.test(v),name=String(b.name||'').trim();
  if(b.kind==='appearance'){const old=(await db.ref(root+'server').get()).val()||{};if(!name||name.length>40)throw Error('Use a server name of 1–40 characters.');const image=v=>typeof v==='string'&&v.length<=1000000&&(!v||/^https:\/\/|^data:image\/(png|jpeg|webp|gif);base64,/.test(v));if(!image(b.icon||'')||!image(b.banner||''))throw Error('Use an HTTPS image or uploaded image.');await db.ref(root+'server').set({...old,name,description:String(b.description||'').slice(0,400),icon:b.icon||'',banner:b.banner||''});return {ok:true}}

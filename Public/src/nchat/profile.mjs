@@ -1,5 +1,5 @@
 // Profiles: popover card, DM side panel, full profile, cosmetics (banner, effect, frame), roles and activity.
-import {state,el,h,icon,avatar,nameNode,person,isBot,botTag,badges,roleList,online,statusOf,asset,sheet,fail,task,toast,popover} from './core.mjs?v=9';
+import {state,el,h,icon,avatar,nameNode,person,isBot,botTag,badges,roleList,online,statusOf,asset,sheet,fail,task,toast,popover} from './core.mjs?v=10';
 import {mountProfileCosmetic} from '../cosmetic-renderer.mjs?v=20261029-frame1';
 import {playProfileEffect} from '../profile-effect.js';
 import {gradientFor} from '../nitro-themes.js';
@@ -63,7 +63,7 @@ function gameShelf(id){
 function cosmetics(card,p){
  const effect=asset(p.effect);
  if(effect){
-  if(effect.renderMode==='profile-frame'){mountProfileCosmetic(card,effect);card.classList.add('np-framed')}
+  if(effect.renderMode==='profile-frame'){mountProfileCosmetic(card,effect);card.classList.add('np-framed');const reach=pos=>Math.max(0,...(effect.layers||[]).filter(l=>(l.position||'top')===pos).map(l=>Math.max(0,(Number(l.height)||0)-Math.abs(Number(l.offset??l.top)||0))));card.style.setProperty('--frame-bottom',(reach('bottom')*100).toFixed(2)+'%');card.style.setProperty('--frame-top',(reach('top')*100).toFixed(2)+'%')}
   else if(effect.layers?.length)mountProfileCosmetic(card,effect);
   else{const i=el('img','np-effect');i.alt='';card.append(i);playProfileEffect(i,effect.src)}
  }

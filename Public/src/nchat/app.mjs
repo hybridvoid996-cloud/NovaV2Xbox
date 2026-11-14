@@ -1,14 +1,14 @@
 // Nova Chat app shell: data, layout, navigation and views.
-import {state,el,h,icon,avatar,nameNode,person,isBot,botTag,BOT_ID,isStaff,isOwner,online,statusOf,activityText,asset,topRole,toast,fail,task,sheet,popover,dmPath,lowPower,fmt,role} from './core.mjs?v=9';
-import {createLoader} from './loader.mjs?v=9';
-import {createMessageList} from './messages.mjs?v=9';
-import {createComposer} from './composer.mjs?v=9';
-import {showMiniProfile,openFullProfile,profileCard,setProfileActions,dmPanel} from './profile.mjs?v=9';
-import {friendsView,groupBuilder} from './friends.mjs?v=9';
-import {openSettings} from './settings.mjs?v=9';
+import {state,el,h,icon,avatar,nameNode,person,isBot,botTag,BOT_ID,isStaff,isOwner,online,statusOf,activityText,asset,topRole,toast,fail,task,sheet,popover,dmPath,lowPower,fmt,role} from './core.mjs?v=10';
+import {createLoader} from './loader.mjs?v=10';
+import {createMessageList} from './messages.mjs?v=10';
+import {createComposer} from './composer.mjs?v=10';
+import {showMiniProfile,openFullProfile,profileCard,setProfileActions,dmPanel} from './profile.mjs?v=10';
+import {friendsView,groupBuilder} from './friends.mjs?v=10';
+import {openSettings} from './settings.mjs?v=10';
 import {control} from '../control-client.js';
 import {rolesFor,paintName} from '../chat-server.js?v=20261029-chat387';
-import {nitroView} from './nitro.mjs?v=9';
+import {nitroView} from './nitro.mjs?v=10';
 import {startNotifications,applyPreferences} from '../chat-preferences.js?v=20261029-motion372';
 import {mountVoice} from '../../voice-chat.js';
 
@@ -238,12 +238,51 @@ function supportForm(kind){
  current={stop}
 }
 function staffInbox(){
- const page=el('div','nc-page nc-inbox');content.append(page);page.append(el('h1','','Staff inbox'));const listBox=el('div','nc-tickets');page.append(listBox);
- const stop=api.watch('feedback',all=>{listBox.replaceChildren();const items=[];for(const [uid,t]of Object.entries(all||{}))for(const [id,m]of Object.entries(t||{}))items.push([uid,id,m]);items.sort((a,b)=>b[2].createdAt-a[2].createdAt);
-  if(!items.length)listBox.append(el('p','ns-muted','No tickets.'));
-  for(const [uid,id,m]of items.slice(0,80)){const card=h('details',{class:'nc-ticket'},h('summary',{},avatar(uid,'xs',{dot:false}),nameNode(uid,'b'),el('span','nc-pill',m.kind||'report'),el('b','',m.subject||''),el('small','',new Date(m.createdAt).toLocaleString())),el('p','',m.text));
-   const reply=h('input',{class:'nc-field',placeholder:'Reply to '+person(uid).name}),send=h('button',{type:'button',class:'nc-btn primary sm'},'Reply');send.onclick=task(async()=>{if(!reply.value.trim())return;await api.send('feedbackReplies/'+uid+'/'+id,{author:state.me.uid,text:reply.value.trim()});reply.value='';toast('Reply sent.')});
-   card.append(h('div',{class:'nc-row'},reply,send));listBox.append(card)}},e=>listBox.replaceChildren(el('p','ns-muted','Inbox unavailable: '+e.message)));
+ const page=el('div','nc-page nc-inbox');content.append(page);
+ let filter='all',query='',items=[];const removed=new Set();
+ const head=el('header','nc-inbox-head'),titleBox=el('div','nc-inbox-title'),count=el('span','nc-inbox-count','0');
+ titleBox.append(h('h1',{},'Staff inbox'),count);
+ const clear=h('button',{type:'button',class:'nc-btn ghost sm nc-inbox-clear'},icon('trash'),'Clear inbox');
+ head.append(titleBox,clear);
+ const bar=el('div','nc-inbox-bar'),tabs=el('div','nc-inbox-tabs');
+ const tabBtn={};for(const [k,l]of [['all','All'],['report','Reports'],['suggestions','Suggestions']]){const b=h('button',{type:'button',class:'nc-inbox-tab'+(k==='all'?' on':'')},el('span','',l),el('b','','0'));b.onclick=()=>{filter=k;Object.values(tabBtn).forEach(x=>x.classList.toggle('on',x===b));paint()};tabBtn[k]=b;tabs.append(b)}
+ const search=h('label',{class:'nc-inbox-search'},icon('search'),h('input',{type:'search',placeholder:'Search reports'}));search.querySelector('input').oninput=e=>{query=e.target.value.trim().toLowerCase();paint()};
+ bar.append(tabs,search);
+ const listBox=el('div','nc-tickets');page.append(head,bar,listBox);
+ const kindOf=m=>m.kind==='suggestions'?'suggestions':'report';
+ const ago=t=>{const s=Math.max(0,(Date.now()-t)/1000);return s<60?'just now':s<3600?Math.floor(s/60)+'m ago':s<86400?Math.floor(s/3600)+'h ago':s<604800?Math.floor(s/86400)+'d ago':new Date(t).toLocaleDateString()};
+ async function remove(uid,id,card){
+  card.classList.add('leaving');
+  try{if(preview)await api.del('feedback/'+uid+'/'+id);else await control('serverManage',{kind:'deleteTicket',uid,id});removed.add(uid+'/'+id);setTimeout(()=>{card.remove();paint()},220);toast('Report deleted.')}
+  catch(e){card.classList.remove('leaving');fail(e)}
+ }
+ function paint(){
+  const live=items.filter(([u,i])=>!removed.has(u+'/'+i));
+  count.textContent=String(live.length);tabBtn.all.lastChild.textContent=live.length;tabBtn.report.lastChild.textContent=live.filter(x=>kindOf(x[2])==='report').length;tabBtn.suggestions.lastChild.textContent=live.filter(x=>kindOf(x[2])==='suggestions').length;
+  const shown=live.filter(([uid,,m])=>(filter==='all'||kindOf(m)===filter)&&(!query||[person(uid).name,m.subject,m.text].join(' ').toLowerCase().includes(query)));
+  listBox.replaceChildren();
+  if(!shown.length){listBox.append(h('div',{class:'nc-inbox-empty'},icon('inbox'),el('b','',live.length?'Nothing matches':'Inbox zero'),el('span','',live.length?'Try another filter or search.':'New reports and suggestions will show up here.')));return}
+  for(const [uid,id,m]of shown.slice(0,120)){
+   const k=kindOf(m),card=el('details','nc-ticket kind-'+k);
+   const del=h('button',{type:'button',class:'nc-icon-btn sm nc-ticket-del',title:'Delete','aria-label':'Delete this '+(k==='report'?'report':'suggestion')},icon('trash'));
+   del.onclick=e=>{e.preventDefault();e.stopPropagation();if(del.classList.contains('confirm')){remove(uid,id,card);return}del.classList.add('confirm');del.title='Click again to delete';setTimeout(()=>del.classList.remove('confirm'),2500)};
+   const sum=h('summary',{},avatar(uid,'sm',{dot:false}),h('div',{class:'nc-ticket-main'},h('div',{class:'nc-ticket-top'},nameNode(uid,'b'),el('span','nc-ticket-kind',k==='report'?'Report':'Suggestion'),el('small','nc-ticket-time',ago(m.createdAt))),el('strong','nc-ticket-subject',m.subject||'(no subject)')),del,icon('chev','nc-ticket-chev'));
+   const body=el('div','nc-ticket-body');
+   const text=String(m.text||''),ctx=text.match(/Context:\s*(https?:\/\/\S+)/);
+   body.append(el('p','nc-ticket-text',text.replace(/\n?Context:\s*https?:\/\/\S+/,'').trim()||'(no details)'));
+   if(ctx){const a=h('a',{class:'nc-ticket-ctx',href:ctx[1],target:'_blank',rel:'noopener noreferrer'},icon('file'),el('span','',ctx[1]));body.append(a)}
+   if(typeof m.image==='string'&&/^(https:\/\/|data:image\/)/.test(m.image)){const im=el('img','nc-ticket-img');im.src=m.image;im.alt='';im.loading='lazy';body.append(im)}
+   const reply=h('input',{class:'nc-field',placeholder:'Reply to '+person(uid).name+' (sent to their Nova Bot inbox)'}),send=h('button',{type:'button',class:'nc-btn primary sm'},icon('send'),'Reply');
+   send.onclick=task(async()=>{if(!reply.value.trim())return;await api.send('feedbackReplies/'+uid+'/'+id,{author:state.me.uid,text:reply.value.trim()});reply.value='';toast('Reply sent.')});
+   reply.onkeydown=e=>{if(e.key==='Enter')send.click()};
+   body.append(h('div',{class:'nc-row nc-ticket-reply'},reply,send));
+   card.append(sum,body);listBox.append(card)}
+ }
+ clear.onclick=()=>{const d=sheet('Clear the staff inbox');const what=filter==='all'?'every report and suggestion':filter==='report'?'every report':'every suggestion';const field=h('input',{class:'nc-field',placeholder:'CLEAR INBOX'});const go=h('button',{type:'button',class:'nc-btn danger'},icon('trash'),'Delete '+what);
+  go.onclick=task(async()=>{if(field.value.trim()!=='CLEAR INBOX')throw Error('Type CLEAR INBOX to confirm.');go.disabled=true;try{let n=0;if(preview){for(const [u,i,m]of items)if(filter==='all'||kindOf(m)===filter){await api.del('feedback/'+u+'/'+i);n++}}else n=(await control('serverManage',{kind:'clearTickets',confirm:'CLEAR INBOX',...(filter==='all'?{}:{only:filter})})).deleted;toast('Deleted '+n+' item'+(n===1?'':'s')+'.');d.close()}finally{go.disabled=false}});
+  d.body.append(el('p','ns-muted','This permanently deletes '+what+' in the staff inbox, along with their replies. It cannot be undone. Type CLEAR INBOX to confirm.'),field,h('div',{class:'nc-row end'},go))};
+ const stop=api.watch('feedback',all=>{items=[];for(const [uid,t]of Object.entries(all||{}))for(const [id,m]of Object.entries(t||{}))if(m)items.push([uid,id,m]);items.sort((a,b)=>b[2].createdAt-a[2].createdAt);paint()},e=>listBox.replaceChildren(el('p','ns-muted','Inbox unavailable: '+e.message)));
+
  current={stop};
 }
 
@@ -262,7 +301,7 @@ async function boot(){
  document.body.classList.toggle('nc-hide-members',localStorage.getItem('nova_chat_members')==='hidden');
  document.documentElement.style.setProperty('--nc-font',(localStorage.getItem('nova_chat_font')||'15')+'px');
  loader.step('Connecting to Nova…',.08);
- api=await import(preview?'../chat-v2-preview.js?v=nchat2':'../chat-v2-service.js?v=20261027-chat345');
+ api=await import(preview?'../chat-v2-preview.js?v=nchat4':'../chat-v2-service.js?v=20261027-chat345');
  state.me=await api.login();
  loader.step('Syncing your profile…',.22);
  if(preview){const old=await api.read('profiles/'+state.me.uid)||{};await api.patch({['profiles/'+state.me.uid+'/name']:old.name||state.me.name,['profiles/'+state.me.uid+'/joined']:old.joined||Date.now()})}else await control('syncChatProfile').catch(()=>{});

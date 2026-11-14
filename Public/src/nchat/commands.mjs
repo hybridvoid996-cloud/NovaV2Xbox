@@ -1,8 +1,8 @@
 // Slash commands: a searchable palette plus the command runner.
 // Moderator/owner commands from the previous chat still run through runCommand().
-import {state,el,h,icon,isStaff,isOwner,person,sheet,toast} from './core.mjs?v=9';
+import {state,el,h,icon,isStaff,isOwner,person,sheet,toast} from './core.mjs?v=10';
 import {runCommand} from '../chat-profile-redesign.js?v=20261029-name-sync394';
-import {pollText} from './messages.mjs?v=9';
+import {pollText} from './messages.mjs?v=10';
 
 const BALL=['It is certain.','Without a doubt.','Yes, definitely.','You may rely on it.','Most likely.','Outlook good.','Signs point to yes.','Reply hazy, try again.','Ask again later.','Cannot predict now.','Don\'t count on it.','My reply is no.','Outlook not so good.','Very doubtful.'];
 export function commandList(){

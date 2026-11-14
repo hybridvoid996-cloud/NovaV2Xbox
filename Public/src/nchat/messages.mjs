@@ -1,8 +1,8 @@
 // Message list: grouping, rich formatting, mentions, replies, reactions, media and polls.
 // Rows are keyed and only rebuilt when that message (or its reactions) changes.
-import {state,el,h,icon,avatar,nameNode,person,isBot,botTag,badges,topRole,isStaff,when,fail,task,popover,toast} from './core.mjs?v=9';
-import {openImage,videoPlayer} from './media.mjs?v=9';
-import {showMiniProfile} from './profile.mjs?v=9';
+import {state,el,h,icon,avatar,nameNode,person,isBot,botTag,badges,topRole,isStaff,when,fail,task,popover,toast} from './core.mjs?v=10';
+import {openImage,videoPlayer} from './media.mjs?v=10';
+import {showMiniProfile} from './profile.mjs?v=10';
 
 export const POLL_EMOJI=['1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟'];
 export const QUICK=['👍','❤️','😂','🔥','😮','😢','🎉','💀'];

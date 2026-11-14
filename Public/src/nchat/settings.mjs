@@ -1,9 +1,9 @@
 // Settings: same options as before in a new full-screen layout.
-import {state,el,h,icon,avatar,nameNode,person,isStaff,isOwner,task,toast,fail} from './core.mjs?v=9';
-import {profileCard} from './profile.mjs?v=9';
+import {state,el,h,icon,avatar,nameNode,person,isStaff,isOwner,task,toast,fail} from './core.mjs?v=10';
+import {profileCard} from './profile.mjs?v=10';
 import {preferenceSection} from '../chat-preferences.js?v=20261029-motion372';
 import {cosmeticsSettings} from '../chat-store.js?v=20261029-shop387';
-import {nitroView} from './nitro.mjs?v=9';
+import {nitroView} from './nitro.mjs?v=10';
 import {nitroProfileControls} from '../chat-identity.mjs?v=20261029-errors392';
 import {serverManager} from '../chat-server.js?v=20261029-chat387';
 

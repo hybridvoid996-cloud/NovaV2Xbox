@@ -3,7 +3,7 @@ const now=Date.now(),min=60e3;
 const data={
  profiles:{
   preview:{name:'Willusfav',joined:now-90*864e5,photo:'',bio:'Building Nova one feature at a time.',decoration:'decoration-88',effect:'effect-161',chatBanner:'discord-live-banner-1564419092574765086',nitroBooster:true,profileTheme:'midnight',novaTag:true},
-  zeros:{name:'Zeros',joined:now-95*864e5,bio:'Best Owner of Nova / Official Dev for Nova. DM if games don\'t work.',decoration:'discord-decoration-1212570617404981348',effect:'discord-frame-1564421748202410054',chatBanner:'discord-live-banner-1564419092574765086',nitroBooster:true,usernameFont:'rounded'},
+  zeros:{name:'Zeros',joined:now-95*864e5,bio:'Best Owner of Nova / Official Dev for Nova. DM if games don\'t work.',decoration:'discord-decoration-1212570617404981348',effect:'discord-frame-1531413463623139328',chatBanner:'discord-live-banner-1564419092574765086',nitroBooster:true,usernameFont:'rounded'},
   alex:{name:'Alex',joined:now-20*864e5,bio:'One more game.',effect:'discord-effect-1139323093114962021'},
   sam:{name:'Sam',joined:now-12*864e5},mia:{name:'Mia',joined:now-8*864e5,nitroBooster:true,profileTheme:'sunset'},
   leo:{name:'Leo',joined:now-6*864e5,usernameFont:'heavy'},kai:{name:'Kai',joined:now-30*864e5},
@@ -38,7 +38,7 @@ const data={
  },
  reactions:{channels:{general:{messages:{m1:{alex:{'1f525':'🔥'},mia:{'1f389':'🎉'},kai:{'1f525':'🔥'}},m5:{alex:{'31-fe0f-20e3':'1️⃣'},mia:{'32-fe0f-20e3':'2️⃣'},kai:{'31-fe0f-20e3':'1️⃣'}}}}}},
  botMessages:{preview:{b1:{author:'nova-bot',subject:'You received a gift 🎁',text:'Zeros sent you 3× Avatar crate V2. Open Nova to unwrap it.',createdAt:now-2*3600e3}}},
- feedback:{},feedbackReplies:{}
+ feedback:{saks:{t1:{author:'saks',kind:'report',subject:'Game broke · Plants vs Zombies',text:'ts laggy and is barely playable\n\nContext: https://novaoffical.vercel.app/player.html?kind=game&id=232',createdAt:now-3*864e5}},jun:{t2:{author:'jun',kind:'suggestions',subject:'Add a dark mode to Shop',text:'the shop is too bright at night',createdAt:now-5*3600e3}},alex:{t3:{author:'alex',kind:'report',subject:'Other · NovaMOVIE',text:'movies stop after 10 minutes',createdAt:now-26*60e3}}},feedbackReplies:{}
 };
 const listeners=[];const at=p=>p.split('/').filter(Boolean).reduce((n,k)=>n?.[k],data);
 function update(p,value){const parts=p.split('/').filter(Boolean);let n=data;for(const k of parts.slice(0,-1))n=n[k]??={};if(value===null)delete n[parts.at(-1)];else n[parts.at(-1)]=value;for(const l of [...listeners])if(p.startsWith(l.p)||l.p.startsWith(p))l.fn(structuredClone(at(l.p)||{}))}
