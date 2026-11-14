@@ -14,3 +14,10 @@ test('channel pages give banner, avatar, handle, counts and videos',async()=>{
  assert.equal(tubeChannelTarget('@nova'),'@nova');assert.equal(tubeChannelTarget('UCabcdefghijklmnopqrstuv'),'channel/UCabcdefghijklmnopqrstuv');
  assert.throws(()=>tubeChannelTarget('../etc'),/valid channel/);
 });
+
+
+test('modern channel lockups retain the displayed order instead of reversing newest and oldest',async()=>{
+ const {parseTubeChannel}=await import('../server/tube-youtube-search.mjs');const lockup=(id,title)=>({lockupViewModel:{contentId:id,metadata:{lockupMetadataViewModel:{title:{content:title}}}}});
+ const html='<script>var ytInitialData = '+JSON.stringify({contents:{items:[lockup('abcdefghijk','Newest'),lockup('lmnopqrstuv','Previous')]}})+';</script>';
+ assert.deepEqual(parseTubeChannel(html).videos.map(v=>v.title),['Newest','Previous']);
+});

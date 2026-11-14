@@ -244,3 +244,6 @@ html.tube-v2 #tube-channels .tube-creator-avatar{flex:0 0 24px!important;width:2
 html.tube-v2 #tube-channels .tube-creator-avatar img{width:100%!important;height:100%!important;border-radius:50%;object-fit:cover}
 html.tube-v2 #tube-channels>button>span:nth-child(2){flex:1 1 auto!important;min-width:0}
 html.tube-v2 #tube-channels .tube-followed-dot{margin-left:auto}
+
+/* Creator names are links independently of the video card. */
+.tube-card-author{display:block;font-size:11px;color:var(--muted);margin-top:4px}.tube-card-author[role=link]:hover{color:#fff;text-decoration:underline}.tube-card-author:focus-visible{outline:2px solid #ff6a7c;outline-offset:2px}
