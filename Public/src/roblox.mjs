@@ -1,4 +1,4 @@
-import {ROBLOX_LAUNCHER,ROBLOX_SESSION,TGLSC_LOGIN,launchURL,robloxLaunchMessage} from './roblox-launcher-compat.mjs?v=20261114-roblox3';
+import {ROBLOX_LAUNCHER,ROBLOX_SESSION,TGLSC_LOGIN,launchURL,robloxLaunchMessage} from './roblox-launcher-compat.mjs?v=20261114-roblox4';
 import {control} from './control-client.js';
 import {isAdRequest} from './ad-policy.mjs';
 const $=id=>document.getElementById(id),token=crypto.randomUUID();let controller,view,timer,leaving=false,noticeTimer;

@@ -30,3 +30,9 @@
 ## Staff-only revision checks
 - Backend role test: owner/admin allowed; member/moderator/suspended admin denied.
 - Browser checks with an explicitly mocked role response: denied users never create a proxy frame; allowed users see the notice before any proxy starts; Continue opens the real provider sign-in through Scramjet without a second toolbar.
+
+## Automatic Roblox sign-in return — 2026-11-14
+- The Session page now returns to Roblox Home when the provider's `#session-identity` label confirms a signed-in Roblox identity. It observes only that label, never password, email, OTP or session-value fields. Pending and expired sessions do not redirect; repeated identity updates trigger only one return.
+- The earlier TGLSC successful-login redirect also returns to the Roblox launcher. Authentication remains entirely with the provider inside Nova's proxy storage.
+- Seven regression tests passed, including asynchronous identity confirmation, expiry, duplicate updates, cookie preservation and popup handoff. Public sign-in endpoint returned HTTP 200; unauthenticated player correctly returned HTTP 401.
+- End-to-end sign-in inside Nova and successful gameplay remain unverified. The user's direct-provider gameplay test downloaded its client but remained at Joining server. This change does not claim to repair provider server capacity or availability.

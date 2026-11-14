@@ -21,3 +21,17 @@ const response={status:200,statusText:'OK',body:'<html><head><title>Home</title>
 test('launch URLs accept web pages and reject script, credential and app-scheme popups',()=>{assert.equal(launchURL('/game',ROBLOX_LAUNCHER),'https://321.tb2.net/game');for(const u of ['javascript:alert(1)','data:text/html,a','roblox://play','https://name:password@example.com/'])assert.equal(launchURL(u),null)});
 test('styling is scoped to the launcher and preserves non-HTML and authentication failures',async()=>{const result=await robloxLauncherResponse(new URL(ROBLOX_LAUNCHER),response,{token:'test'});assert.match(result.body,/Nova Roblox/);assert.match(result.body,/data-nova-roblox/);assert.equal(result.headers.length,1);for(const url of ['https://example.com/','https://321.tb2.net/api/user'])assert.equal(await robloxLauncherResponse(new URL(url),response),response);const denied={...response,status:401};assert.equal(await robloxLauncherResponse(new URL(ROBLOX_LAUNCHER),denied),denied)});
 test('popup bridge handles immediate URLs and delayed blank-window navigation without a real popup',async()=>{const result=await robloxLauncherResponse(new URL(ROBLOX_LAUNCHER),response,{token:'private-test'});const script=result.body.match(/<script>([\s\S]*?)<\/script>/)[1],messages=[];const window={};const doc={title:'Home · TGLSC',querySelector:()=>null,addEventListener(){}};vm.runInNewContext(script,{window,parent:{postMessage:d=>messages.push(d)},document:doc,location:{pathname:'/assets/applications/content/tglscrblx/index2.html'},addEventListener(){}});window.open('https://example.com/game');assert.equal(messages[0].url,'https://example.com/game');assert.equal(messages[0].token,'private-test');const popup=window.open('about:blank');assert.equal(messages.length,1);popup.location.href='https://example.com/play';assert.equal(messages[1].url,'https://example.com/play');popup.close();assert.equal(popup.closed,true)});
+test('Roblox session confirmation returns automatically, once, without inspecting credentials',async()=>{
+ const result=await robloxLauncherResponse(new URL(ROBLOX_LAUNCHER),response,{token:'verified-test'});
+ const script=result.body.match(/<script>([\s\S]*?)<\/script>/)[1],messages=[],events={};
+ let changed,disconnected=false;
+ const identity={textContent:'Checking the saved session…'},location={pathname:'/assets/applications/content/tglscrblx/index2.html',hash:'#session'};
+ const document={title:'Session · TGLSC',documentElement:{dataset:{}},addEventListener(){},querySelector(selector){assert(!/input|textarea/.test(selector));return selector==='#session-identity'?identity:null}};
+ class Observer{constructor(cb){changed=cb}observe(target){assert.equal(target,identity)}disconnect(){disconnected=true}}
+ vm.runInNewContext(script,{window:{},document,location,MutationObserver:Observer,parent:{postMessage:d=>messages.push(d)},addEventListener:(name,cb)=>events[name]=cb});
+ assert.equal(messages.length,0);
+ identity.textContent='Session expired';changed();assert.equal(messages.length,0);
+ identity.textContent='Signed in as TestPlayer (123456)';changed();changed();
+ assert.equal(messages.length,1);assert.equal(messages[0].url,ROBLOX_LAUNCHER);assert.equal(messages[0].token,'verified-test');
+ events.pagehide();assert(disconnected);
+});

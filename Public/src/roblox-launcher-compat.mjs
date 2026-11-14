@@ -16,8 +16,12 @@ function launcherRuntime(config){
  const popup=()=>{let value='about:blank',closed=false;const loc={};Object.defineProperty(loc,'href',{get:()=>value,set:v=>{value=String(v);notify(v)}});loc.assign=loc.replace=v=>{loc.href=v};loc.toString=()=>value;const result={focus(){},blur(){},close(){closed=true},postMessage(){},document:{open(){},write(){},close(){}}};Object.defineProperty(result,'closed',{get:()=>closed});Object.defineProperty(result,'location',{get:()=>loc,set:v=>{loc.href=v}});return result};
  window.open=function(url){const win=popup();if(url)win.location=url;return win};
  document.addEventListener('click',e=>{const a=e.target.closest?.('a[target="_blank"]');if(!a||!a.href)return;e.preventDefault();notify(a.href)},true);
+ // Observe only the provider's confirmed identity label, never login fields.
+ // Email/OTP and saved-session checks update this label asynchronously.
+ let identityObserver,observedIdentity,returning=false;
+ const finishRobloxSignIn=()=>{if(location.hash!=='#session'){returning=false;identityObserver?.disconnect();observedIdentity=null;return}const identity=document.querySelector('#session-identity');if(identity&&identity!==observedIdentity&&typeof MutationObserver!=='undefined'){identityObserver?.disconnect();observedIdentity=identity;identityObserver=new MutationObserver(finishRobloxSignIn);identityObserver.observe(identity,{childList:true,characterData:true,subtree:true})}if(!returning&&/^Signed in as\s+.+\s+\(\d+\)\s*$/.test(identity?.textContent?.trim()||'')){returning=true;notify(config.launcher)}};
  const brand=()=>{if(location.pathname==='/'&&document.querySelector('iframe[src*="/tglscrblx/"]'))notify(config.launcher);const logo=document.querySelector('#topbar a[aria-label="TGLSCRBLX home"]');if(logo){logo.textContent='Nova Roblox';logo.setAttribute('aria-label','Nova Roblox home')}if(document.title.endsWith(' · TGLSC'))document.title=document.title.replace(' · TGLSC',' · Nova Roblox')};
- document.addEventListener('DOMContentLoaded',brand,{once:true});addEventListener('hashchange',brand);brand();
+ const ready=()=>{brand();finishRobloxSignIn()};document.addEventListener('DOMContentLoaded',ready,{once:true});addEventListener('hashchange',ready);addEventListener('pagehide',()=>identityObserver?.disconnect(),{once:true});ready();
 }
 export async function robloxLauncherResponse(target,response,{token}={}){
  if(!launcherDocument(target.href)||response.status!==200||!response.headers.some(([k,v])=>k.toLowerCase()==='content-type'&&v.includes('text/html')))return response;
