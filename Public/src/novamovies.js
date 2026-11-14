@@ -5,7 +5,7 @@ import {mountMovieWallpaper} from './movie-wallpaper.mjs?v=20261029-errors392';
 import {readMoviePlayback} from './movie-playback-state.mjs?v=20261114-movies1';
 import {createMovieRecovery} from './movie-recovery.mjs?v=20261114-movies1';
 import {moviePlaybackRoutes,movieEntryFailed,isAchcromaBackup,orderMovieRoutes} from './movie-playback-routes.mjs?v=20261114-movies1';
-import {mountMovieCatalog} from './movie-catalog-ui.mjs?v=20261114-movies1';
+import {mountMovieCatalog} from './movie-catalog-ui.mjs?v=20261114-anime2';
 import {novaMovieLogo} from './movie-logo.mjs';
 import {decorateMovieDocument} from './movie-cinema-theme.mjs?v=20261029-motion374';
 const routeMemory=createMovieRouteMemory({getItem:key=>localStorage.getItem(key),setItem:(key,value)=>localStorage.setItem(key,value)});

@@ -68,3 +68,24 @@ test('Anime tab returns its bundled catalog promptly even when every service han
  assert.equal(res.statusCode,200);assert(data.rails.popular_anime.results.length>=24);
  assert(Date.now()-started<4000);assert(data.cached);
 });
+
+
+test('anime hub fetches the recent episode feed and retains update numbers and dates',async()=>{
+ const adapter=createAnimeProviders(async url=>String(url).includes('new-episodes')?Response.json({items:[{...row,newEpisode:{number:1181,landedAt:'2026-11-14T20:00:00Z'}}]}):Response.json({feed:{'/anime/top-watched?range=week':{items:[row]}}}));
+ const d=await adapter.catalog();assert.equal(d.rails.recently_updated_anime.results[0].latestEpisode,1181);assert.equal(d.rails.recently_updated_anime.results[0].updatedAt,'2026-11-14T20:00:00Z');assert.equal(d.cached,false);
+});
+test('recent episode feed can keep anime available when home feed fails',async()=>{
+ const adapter=createAnimeProviders(async url=>String(url).includes('new-episodes')?Response.json({items:[row]}):new Response('Down',{status:503}));assert.equal((await adapter.catalog()).rails.recently_updated_anime.results.length,1);
+});
+test('explicit refresh bypasses the provider detail cache and includes newly available episodes',async()=>{
+ let episode=1;const adapter=createAnimeProviders(async url=>String(url).includes('/api/anime/ani/')?Response.json({...row,episodeCount:episode,episodes:[{number:episode}],routeId:'one-piece-21-valid'}):new Response('No matches'));
+ assert.equal((await adapter.details('21')).episodes,1);episode=2;assert.equal((await adapter.details('21')).episodes,1);assert.equal((await adapter.details('21',{fresh:true})).episodes,2);
+});
+test('a fast stale primary response cannot beat live anime episode details',async()=>{
+ const primary=async(req,res)=>{res.statusCode=200;res.end(JSON.stringify({...row,id:'21',type:'anime',episodes:1,cached:true}))};
+ const handler=withMovieBackup(primary,{request:async url=>String(url).includes('/api/anime/ani/')?Response.json({...row,episodeCount:3,episodes:[{number:3}],routeId:'one-piece-21-valid'}):new Response('Down',{status:503})});let body;const res={setHeader(){},end(v){body=JSON.parse(v)}};await handler({method:'GET',url:'/api/movies?op=details&type=anime&id=21'},res);assert.equal(body.episodes,3);assert.equal(body.episodeItems[0].number,3);assert.equal(body.cached,false);
+});
+test('HiAnime counts only episodes belonging to the verified title',()=>{
+ const html='<a href="https://anilist.co/anime/21">AniList</a><a href="/watch-one-piece-episode-1-1a877">Watch</a><a href="/watch-one-piece-episode-1181-1a877">Newest</a><a href="/watch-other-episode-9999-abc">Other</a>';
+ assert.equal(hianimeIdentity(html,'21').episodeCount,1181);
+});
