@@ -2,3 +2,35 @@ export function parseYouTubeResults(html){const match=/\bytInitialData\s*=\s*/.e
 export async function searchYouTube(q,request=fetch){const r=await request('https://www.youtube.com/results?'+new URLSearchParams({search_query:q,hl:'en'}),{headers:{'User-Agent':'Mozilla/5.0','Accept-Language':'en-US,en;q=0.9',Accept:'text/html'},signal:AbortSignal.timeout(12000),redirect:'error'});if(!r.ok)throw Error('Video search is temporarily unavailable.');return parseYouTubeResults(await r.text())}
 
 export async function loadTubeHome(request=fetch){const results=await Promise.allSettled(['gaming','science documentary','music'].map(q=>searchYouTube(q,request)));const lists=results.filter(r=>r.status==='fulfilled').map(r=>r.value.videos.filter(v=>!v.isShort)),seen=new Set(),videos=[];for(let i=0;i<12;i++)for(const list of lists){const item=list[i];if(item&&!seen.has(item.id)){seen.add(item.id);videos.push(item)}}if(!videos.length)throw Error('The video feed could not connect. Please retry.');return {videos}}
+
+// Channel page: banner, avatar, name, @handle, subscribers, video count, description and its latest videos.
+const CHANNEL_ID=/^UC[A-Za-z0-9_-]{22}$/,CHANNEL_HANDLE=/^@[A-Za-z0-9._-]{3,40}$/;
+export function tubeChannelTarget(value){const v=String(value||'').trim();if(CHANNEL_ID.test(v))return 'channel/'+v;if(CHANNEL_HANDLE.test(v))return v;throw Error('Choose a valid channel.')}
+function initialData(html){const match=/\bytInitialData\s*=\s*/.exec(html);if(!match)throw Error('That channel page could not be read.');const start=html.indexOf('{',match.index+match[0].length);let depth=0,string=false,escape=false,end=-1;for(let i=start;i<html.length;i++){const c=html[i];if(string){if(escape)escape=false;else if(c==='\\')escape=true;else if(c==='"')string=false}else if(c==='"')string=true;else if(c==='{')depth++;else if(c==='}'&&--depth===0){end=i+1;break}}if(start<0||end<0)throw Error('That channel page was incomplete.');return JSON.parse(html.slice(start,end))}
+const best=sources=>{const list=(sources||[]).filter(s=>typeof s?.url==='string'&&/^https:\/\//.test(s.url));return list.length?list.reduce((a,b)=>(b.width||0)>(a.width||0)?b:a).url:''};
+export function parseTubeChannel(html){
+ const data=initialData(html),ph=data.header?.pageHeaderRenderer?.content?.pageHeaderViewModel,old=data.header?.c4TabbedHeaderRenderer,md=data.metadata?.channelMetadataRenderer||{};
+ const parts=(ph?.metadata?.contentMetadataViewModel?.metadataRows||[]).flatMap(r=>r.metadataParts||[]).map(p=>String(p?.text?.content||'')).filter(Boolean);
+ const channel={
+  id:md.externalId||old?.channelId||'',
+  title:String(ph?.title?.dynamicTextViewModel?.text?.content||md.title||old?.title||'Channel').slice(0,200),
+  handle:parts.find(p=>p.startsWith('@'))||(String(md.vanityChannelUrl||'').match(/@[A-Za-z0-9._-]+/)?.[0]||''),
+  subscribers:parts.find(p=>/subscriber/i.test(p))||'',
+  videoCount:parts.find(p=>/video/i.test(p))||'',
+  description:String(ph?.description?.descriptionPreviewViewModel?.description?.content||md.description||'').slice(0,1200),
+  avatar:best(ph?.image?.decoratedAvatarViewModel?.avatar?.avatarViewModel?.image?.sources)||best(md.avatar?.thumbnails)||best(old?.avatar?.thumbnails),
+  banner:best(ph?.banner?.imageBannerViewModel?.image?.sources)||best(old?.banner?.thumbnails),
+  verified:JSON.stringify(ph?.title||old?.badges||'').includes('CHECK_CIRCLE')
+ };
+ let videos=[];try{videos=parseYouTubeResults(html).videos}catch{}
+ // Newer channel pages list videos as lockups; pick those up too.
+ if(videos.length<4){const seen=new Set(videos.map(v=>v.id)),stack=[data];let n=0;while(stack.length&&n++<80000&&videos.length<40){const x=stack.pop();if(!x||typeof x!=='object')continue;const l=x.lockupViewModel;if(l&&/^[A-Za-z0-9_-]{11}$/.test(l.contentId||'')&&!seen.has(l.contentId)){seen.add(l.contentId);const meta=l.metadata?.lockupMetadataViewModel,rows=(meta?.metadata?.contentMetadataViewModel?.metadataRows||[]).flatMap(r=>r.metadataParts||[]).map(p=>p?.text?.content).filter(Boolean);const thumb=l.contentImage?.thumbnailViewModel;videos.push({id:l.contentId,title:String(meta?.title?.content||'Video').slice(0,300),viewLabel:rows.find(r=>/view/i.test(r))||'',publishedLabel:rows.find(r=>/ago/i.test(r))||'',durationLabel:JSON.stringify(thumb?.overlays||'').match(/"text":"(\d+:\d+(?::\d+)?)"/)?.[1]||'',thumbnail:best(thumb?.image?.sources)})}for(const v of Object.values(x))if(v&&typeof v==='object')stack.push(v)}}
+ videos=videos.map(v=>({...v,author:v.author||channel.title,channelId:v.channelId||channel.id,channelAvatar:v.channelAvatar||channel.avatar}));
+ return {channel,videos};
+}
+export async function loadTubeChannel(target,tab='videos',request=fetch){
+ const path=tubeChannelTarget(target),section=tab==='shorts'?'shorts':'videos';
+ const r=await request('https://www.youtube.com/'+path+'/'+section+'?'+new URLSearchParams({hl:'en'}),{headers:{'User-Agent':'Mozilla/5.0','Accept-Language':'en-US,en;q=0.9',Accept:'text/html'},signal:AbortSignal.timeout(12000),redirect:'follow'});
+ if(!r.ok)throw Error(r.status===404?'That channel was not found.':'The channel could not load. Please retry.');
+ const data=parseTubeChannel(await r.text());if(section==='shorts')data.videos=data.videos.map(v=>({...v,isShort:true}));return data;
+}
