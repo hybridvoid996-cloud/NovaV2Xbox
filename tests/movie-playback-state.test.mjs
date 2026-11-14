@@ -32,3 +32,19 @@ test('a failed player after playback remains recoverable',()=>{
  const broken=doc();broken.title='404: This page could not be found.';
  assert.equal(readMoviePlayback(frame(broken)).providerError,true);
 });
+
+test('a large empty video cannot hide a smaller working movie player',()=>{
+ const empty=video({readyState:0,currentTime:0,getBoundingClientRect:()=>rect(1400,900)});
+ const playing=video({getBoundingClientRect:()=>rect(480,270)});
+ const state=readMoviePlayback(frame(doc([empty],[frame(doc([playing]))])));
+ assert.equal(state.ready,true);assert.equal(state.currentTime,42);
+});
+
+test('the proxy DOM bridge accepts only fresh signals from the current launch',()=>{
+ const d=doc();d.documentElement={dataset:{novaMovieToken:'current',novaMovieAction:'novaMovieTime',novaMovieHeartbeat:String(Date.now()),novaMovieTime:'42',novaMovieDuration:'1200'}};
+ assert.equal(readMoviePlayback(frame(d),'current').currentTime,42);
+ assert.equal(readMoviePlayback(frame(d),'old'),null);
+ d.documentElement.dataset.novaMovieHeartbeat='1';assert.equal(readMoviePlayback(frame(d),'current'),null);
+ d.documentElement.dataset.novaMovieHeartbeat=String(Date.now());d.documentElement.dataset.novaMovieAction='novaMovieInteractive';d.documentElement.dataset.novaMovieAwaitingUser='true';
+ const state=readMoviePlayback(frame(d),'current');assert.equal(state.interactive,true);assert.equal(state.awaitingUser,true);assert(!state.ready);
+});

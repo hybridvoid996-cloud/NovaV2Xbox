@@ -7,3 +7,10 @@ test('recognizes provider deployment and soft 404 pages',()=>{
 test('ordinary titles, descriptions and missing optional resources are not player failures',()=>{
  for(const text of ['404','Buddy','Page not found in the diary of a missing person','Failed to load comments','No subtitles found','The available players','Vercel'])assert.equal(isMovieProviderError(text),false,text);
 });
+
+test('blocked and removed upstream players are recognized without confusing ordinary titles',()=>{
+ assert(isMovieProviderError('Sorry, you have been blocked. Cloudflare Ray ID: example'));
+ assert(isMovieProviderError("We can't find the file you are looking for. Error Code: 410"));
+ assert(!isMovieProviderError('Sorry, you have been blocked'));
+ assert(!isMovieProviderError('Error Code: 410'));
+});

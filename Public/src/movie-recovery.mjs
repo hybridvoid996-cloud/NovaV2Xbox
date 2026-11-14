@@ -11,10 +11,11 @@ export function createMovieRecovery({launch,onState,timeout=25000,maxStartup=600
    onState('reconnecting',attempt+1);timer=schedule(()=>{if(token===generation)run()},Math.min(2000,1000*attempt));
   }
   const ready=()=>{if(!current()||phase!=='loading')return;phase='ready';cancel(timer);cancel(limit);onState('ready',attempt)};
-  const hold=()=>{if(!current()||phase!=='loading')return;interactive=true;cancel(timer);onState('interactive',attempt)};
+  const hold=({awaitingUser=false}={})=>{if(!current()||phase!=='loading')return;interactive=true;cancel(timer);if(awaitingUser)cancel(limit);onState('interactive',attempt)};
+  const resume=()=>{if(!current()||phase!=='loading'||!interactive)return;interactive=false;cancel(limit);progress();limit=schedule(fail,maxStartup)};
   const progress=()=>{if(!current()||phase!=='loading'||interactive)return;cancel(timer);timer=schedule(fail,timeout)};
   onState('loading',attempt);progress();limit=schedule(fail,maxStartup);
-  Promise.resolve().then(()=>launch({attempt,current,ready,progress,hold,fail,lost:()=>fail(true)})).then(dispose=>{if(!current()){dispose?.();return}cleanup=dispose}).catch(()=>fail());
+  Promise.resolve().then(()=>launch({attempt,current,ready,progress,hold,resume,fail,lost:()=>fail(true)})).then(dispose=>{if(!current()){dispose?.();return}cleanup=dispose}).catch(()=>fail());
  }
  return {start(){stop();attempt=0;run()},stop};
 }

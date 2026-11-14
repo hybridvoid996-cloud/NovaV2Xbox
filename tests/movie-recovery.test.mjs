@@ -18,3 +18,9 @@ test('useful startup progress keeps a slow laptop player alive, with a bounded t
 });
 
 test('an interactive hint cannot disable the total startup deadline',async()=>{const c=clock(),launches=[],states=[];const player=createMovieRecovery({...c,launch:args=>{launches.push(args)},onState:s=>states.push(s)});player.start();await flush();launches[0].hold();launches[0].progress();c.advance(59000);await flush();assert.equal(launches.length,1);assert.equal(states.at(-1),'interactive');c.advance(1000);assert.equal(states.at(-1),'reconnecting');c.advance(1000);await flush();assert.equal(launches.length,2);launches[1].ready();c.advance(200000);assert.equal(states.at(-1),'ready');player.stop()});
+
+test('an explicit Play button waits for the user, then re-arms bounded startup',async()=>{
+ const c=clock(),launches=[],states=[],player=createMovieRecovery({...c,launch:args=>{launches.push(args)},onState:s=>states.push(s)});
+ player.start();await flush();launches[0].hold({awaitingUser:true});c.advance(300000);await flush();assert.equal(launches.length,1);assert.equal(states.at(-1),'interactive');
+ launches[0].resume();c.advance(25000);assert.equal(states.at(-1),'reconnecting');c.advance(1000);await flush();assert.equal(launches.length,2);player.stop();
+});

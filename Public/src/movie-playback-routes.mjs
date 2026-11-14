@@ -1,7 +1,7 @@
-import {movieEmbedPath} from './movie-title-view.mjs?v=20261102-movie469';
+import {movieEmbedPath} from './movie-title-view.mjs?v=20261114-movies1';
 export function moviePlaybackRoutes(item){
  const embed=movieEmbedPath(item);
- if(item.type==='anime')return ['https://framextv.xyz'+embed,...mappedAnimeRoutes(item)];
+ if(item.type==='anime')return ['https://framextv.xyz'+embed,...animeProviderRoutes(item),...mappedAnimeRoutes(item)];
  if(!['movie','tv'].includes(item.type))throw Error('Unsupported title type');
  const first=item.type==='tv'?'/watch/show/'+embed.split('/').slice(3).join('/'):'/watch/'+item.id;
  const cinejoy='https://cinejoy.pk'+(item.type==='tv'?'/watch/tv/'+embed.split('/').slice(3).join('/'):'/watch/movie/'+item.id);
@@ -26,3 +26,5 @@ export function movyPlaybackRoutes(item){const parts=movieEmbedPath(item).split(
 export function abstractMovieRoutes(item){if(!['movie','tv'].includes(item.type))return [];const parts=movieEmbedPath(item).split('/');return ['https://vidlink.pro/'+(item.type==='movie'?'movie/'+parts[3]:'tv/'+parts.slice(3).join('/'))+'?autoplay=true&title=true&poster=true&nextbutton=false'];}
 
 export function shuttlePlaybackRoutes(item){if(!['movie','tv'].includes(item.type))return [];const parts=movieEmbedPath(item).split('/');return ['https://shuttletv.pk/watch/'+parts[3]+(item.type==='tv'?'?s='+parts[4]+'&e='+parts[5]:'')];}
+
+export function animeProviderRoutes(item){const episode=Number(item.episode)||1;if(!Number.isInteger(episode)||episode<1||episode>9999)return [];return (Array.isArray(item.animePlayers)?item.animePlayers:[]).flatMap(p=>{if(String(p.id)!==String(item.id))return [];if(p.provider==='anipm'&&/^\/ani\/[a-z0-9][a-z0-9-]{1,160}$/i.test(p.path))return ['https://ani.pm'+p.path+'?ep='+episode+'&lang='+(item.audio==='dub'?'dub':'sub')];if(p.provider==='hianime'&&/^\/watch-[a-z0-9-]+-episode-\{episode\}-[a-z0-9]+$/i.test(p.path))return ['https://hianime.ms'+p.path.replace('{episode}',String(episode))+'?lang='+(item.audio==='dub'?'dub':'sub')];return []})}
