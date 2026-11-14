@@ -1,6 +1,7 @@
 # Nova Roblox launcher — 2026-11-13
 
 ## 2026-11-14 inspection and fixes
+- Sign-in handoff repair: the current provider register page's `finishAuth()` redirects to `/assets/applications/datapacks/profile/`. Nova now replaces only that successful destination with the Roblox launcher. Password/OTP API requests, error handling, and response cookies are preserved. This repair was matched against the current provider HTML and covered by regression tests; a real sign-in inside Nova's separate proxy storage still requires the user to enter credentials there.
 - Rechecked the signed-in provider UI. Its Session page now offers email/code sign-in as well as an optional session value; Nova's notice reflects both. No credentials or session storage were copied into Nova.
 - Confirmed the actual Play destination: `index.html?placeId=189707&loader=client&popup=1`. It loads `WebClient.js`, `WasmLoader.js`, and `WasmPlayer.js`, downloads a roughly 96 MB client, and reached **Joining server** in the provider tab. In-game rendering and gameplay have not been verified.
 - Added Scramjet window-envelope decoding and a launch-token-bound DOM signal fallback for popup destinations. Nova validates the source frame and launch token, rejects unsupported URLs, and routes allowed destinations into its existing game frame. Duplicate signals are coalesced briefly while later relaunches remain possible.

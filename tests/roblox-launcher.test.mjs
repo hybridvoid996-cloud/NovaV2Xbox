@@ -3,6 +3,19 @@ import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {ROBLOX_LAUNCHER,launchURL,robloxLauncherResponse} from '../Public/src/roblox-launcher-compat.mjs';
 import {robloxLaunchMessage} from '../Public/src/roblox-launcher-compat.mjs';
+import {launcherLoginHTML} from '../Public/src/roblox-launcher-compat.mjs';
+test('successful provider sign-in returns to Roblox without altering password or OTP requests',()=>{
+ const body="fetch('/api/user', { credentials: 'include' }); await apiCall('/api/login/verify', { identifier: cU, code: c }); function finishAuth() { window.location.replace(isEmbedded ? '/assets/applications/datapacks/profile/' : '/assets/applications/datapacks/profile/'); }";
+ const fixed=launcherLoginHTML(new URL('https://321.tb2.net/assets/applications/datapacks/register/'),body);
+ assert(fixed.includes(JSON.stringify(ROBLOX_LAUNCHER)));assert(fixed.includes("credentials: 'include'"));assert(fixed.includes("apiCall('/api/login/verify', { identifier: cU, code: c })"));
+ assert.equal(launcherLoginHTML(new URL('https://example.com/assets/applications/datapacks/register/'),body),body);
+});
+test('login response cookies remain intact for Scramjet session handling',async()=>{
+ const cookie='fixture_session=test-only; Path=/; Secure; HttpOnly; SameSite=Lax';
+ const input={...response,headers:[...response.headers,['Set-Cookie',cookie]]};
+ const output=await robloxLauncherResponse(new URL('https://321.tb2.net/assets/applications/datapacks/register/'),input,{token:'fixture'});
+ assert.equal(output.headers.find(([name])=>name==='Set-Cookie')[1],cookie);
+});
 test('Scramjet launch messages keep exact source and session checks',()=>{const source={},data={token:'launch',novaAction:'robloxLaunch',url:'https://example.com/play'},wrapped={$scramjet$messagetype:'window',$scramjet$data:data};assert.equal(robloxLaunchMessage({source,data:wrapped},source,'launch'),data.url);assert.equal(robloxLaunchMessage({source:{},data:wrapped},source,'launch'),null);assert.equal(robloxLaunchMessage({source,data:wrapped},source,'old'),null)});
 const response={status:200,statusText:'OK',body:'<html><head><title>Home</title></head><body></body></html>',headers:[['Content-Type','text/html'],['Content-Length','55'],['Content-Encoding','gzip']]};
 test('launch URLs accept web pages and reject script, credential and app-scheme popups',()=>{assert.equal(launchURL('/game',ROBLOX_LAUNCHER),'https://321.tb2.net/game');for(const u of ['javascript:alert(1)','data:text/html,a','roblox://play','https://name:password@example.com/'])assert.equal(launchURL(u),null)});
