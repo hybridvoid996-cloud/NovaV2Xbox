@@ -52,7 +52,7 @@ export function identity(p={},{size='md',effect=true,status}={}){
  return wrap;
 }
 // Profile card background: banner + animated profile effect.
-export function surface(host,p={}){const go=()=>window.NovaHomeCosmetics?.surface(host,p,true);go();loadCosmetics().then(()=>setTimeout(go,50));addEventListener('nova-profile-changed',go,{once:true})}
+export function surface(host,p={},{compact=false}={}){const go=()=>{const C=window.NovaHomeCosmetics;if(compact)C?.plate(host,p);else C?.surface(host,p,true)};go();loadCosmetics().then(()=>setTimeout(go,50));addEventListener('nova-profile-changed',go,{once:true})}
 
 export async function control(action,data){const {control}=await import('../control-client.js');return control(action,data)}
 

@@ -394,6 +394,11 @@ canvas.nf-confetti{position:fixed;inset:0;z-index:95;pointer-events:none}
 .nf-avatar .nova-home-face{position:relative;display:grid;place-items:center;width:100%;height:100%;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,#3a3a46,#14141a);font-weight:800}
 .nf-avatar .nova-home-presence{position:absolute;right:-1px;bottom:-1px;width:28%;height:28%;border-radius:50%;border:2px solid #0b0b0f;background:#64646e;z-index:4}
 .nf-avatar .nova-home-presence[data-status=online]{background:#3ce39b}
+/* Table badges use a compact banner, never full-height profile/frame artwork. */
+.nf-seat-card.nova-home-plated::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,#08080bdd,#08080b88),var(--plate) center/cover;z-index:-1;pointer-events:none}
+.nf-seat-card>.nf-id{position:relative;z-index:3;flex:1;min-width:0}
+.nf-seat-card>.nf-count{position:relative;z-index:3;flex-shrink:0}
+.nf-seat-card .nf-name{max-width:150px;text-shadow:0 1px 2px #000}
 
 /* Inside Nova the bottom Nova menu floats over the page: keep the hand clear of it. */
 html.nova-embedded-utility .nf-table{padding-bottom:82px}

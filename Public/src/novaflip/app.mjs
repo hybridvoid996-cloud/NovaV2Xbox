@@ -1,4 +1,5 @@
-import {connect,nova,identity,surface,refreshCoins,watchFriends,control,profileOf} from './nova.mjs?v=9';
+import {connect,nova,identity,surface,refreshCoins,watchFriends,control,profileOf} from './nova.mjs?v=10';
+import {createWagerNotice} from './wager-notice.mjs';
 import {createGame,canPlay,needsTarget,isWild,COLOR_NAMES,LABELS,cleanSettings,DEFAULT_SETTINGS,COLORS} from './engine.mjs?v=9';
 import {HostedGame} from './session.mjs?v=9';
 import {botNames} from './bot.mjs?v=9';
@@ -302,6 +303,7 @@ function showLobby(room){
  // ---- Wagers: every player stakes 5,000+ coins, the server holds them, the winner takes the pot.
  const potPanel=h('section',{class:'nf-panel nf-pot',hidden:true});
  let betBusy=false;
+ const wagerNotice=createWagerNotice(message=>toast(message,{timeout:9000}));
  const bet=async(op,amount)=>{if(betBusy)return;betBusy=true;try{const r=await control('novaFlip',{op,room:room.code,amount});if(Number.isFinite(r.coins)){nova.coins=r.coins;dispatchEvent(new Event('nf-wallet'))}sfx.click();toast(op==='unwager'?'Bet withdrawn · coins returned.':'Bet placed: '+fmt(r.amount)+' coins.')}catch(e){fail(e)}finally{betBusy=false}};
  function paintPot(s,players,stakes){
   potPanel.hidden=!s.wagers;if(!s.wagers)return;
@@ -331,6 +333,7 @@ function showLobby(room){
    return seat;
   }));
   const s=room.settings,stakes=room.data.wagers||{},unpaid=s.wagers?players.filter(p=>!p.bot&&!stakes[p.id]):[];
+  wagerNotice(s.wagers,!!stakes[nova.user.uid]);
   paintPot(s,players,stakes);
   status.textContent=room.data.status==='playing'?'Game in progress…':room.isHost?(players.length<2?'Add a bot or invite a friend to start.':'Ready when you are.'):'Waiting for the host to start…';
   controls.replaceChildren();
@@ -390,7 +393,7 @@ function playTable(session,{mode,room,profiles,onExit,again}){
  const me=h('div',{class:'nf-me'}),bar=h('div',{class:'nf-me-bar'}),hand=h('div',{class:'nf-hand',role:'list','aria-label':'Your hand'});
  const turnLabel=h('span',{class:'nf-turn-label'}),passBtn=h('button',{class:'nf-btn',hidden:true},'Pass'),flipBtn=h('button',{class:'nf-flip-btn',disabled:true,title:'Call UNO! when you are down to one card'},'UNO!');
  const myCard=h('div',{class:'nf-seat-card'}),myCount=h('span',{class:'nf-count'}),myTimer=h('div',{class:'nf-timer'},h('i'));
- myCard.append(identity(profileFor(session.meId||nova.user?.uid),{size:'sm'}),myCount,myTimer);surface(myCard,profileFor(session.meId||nova.user?.uid));
+ myCard.append(identity(profileFor(session.meId||nova.user?.uid),{size:'sm'}),myCount,myTimer);surface(myCard,profileFor(session.meId||nova.user?.uid),{compact:true});
  bar.append(myCard,turnLabel,passBtn,flipBtn);me.append(hand,bar);
  const opps=new Map();
  const leave=()=>{
@@ -411,7 +414,7 @@ function playTable(session,{mode,room,profiles,onExit,again}){
   order.forEach((seat,i)=>{
    const p=v.players[seat],prof=profileFor(p.id),pos=POSITIONS[n][i];
    const card=h('div',{class:'nf-seat-card'}),count=h('span',{class:'nf-count'}),timer=h('div',{class:'nf-timer'},h('i'));
-   card.append(identity({...prof,name:prof.name||p.name},{size:'sm'}),count,timer);if(!prof.bot)surface(card,prof);
+   card.append(identity({...prof,name:prof.name||p.name},{size:'sm'}),count,timer);if(!prof.bot)surface(card,prof,{compact:true});
    const backs=h('div',{class:'nf-backs'}),wrap=h('div',{class:'nf-opp','data-pos':pos},pos==='top'?[card,backs]:[card,backs]);
    table.append(wrap);opps.set(seat,{card,count,timer,backs,wrap});
   });
