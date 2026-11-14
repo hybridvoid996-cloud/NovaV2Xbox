@@ -62,7 +62,7 @@
       b.setAttribute('aria-label',(recent.length&&i===0?'Resume ':'Open ')+g.name);
       const img=document.createElement('img');img.src=g.art||'Nova12.png';img.alt='';img.onerror=()=>{img.onerror=null;img.src='Nova12.png';};
       const caption=document.createElement('span');const name=document.createElement('b');name.textContent=g.name;caption.append(name);
-      if(recent.length&&i===0){const label=document.createElement('small');label.textContent='▶ Resume '+(kind(g)==='system'?'page':kind(g)==='app'?'app':'game');caption.prepend(label);}
+      if(recent.length&&i===0){const label=document.createElement('small');label.className='resume-label';label.textContent='Resume '+(kind(g)==='system'?'page':kind(g)==='app'?'app':'game');caption.prepend(label);}
       b.append(img,caption);b.onclick=()=>window.NovaRecent.launch(g);const select=()=>{host.querySelectorAll('.tile').forEach(x=>x.classList.toggle('selected',x===b));};b.onmouseenter=select;b.onfocus=select;host.append(b);
     });renderContinue();
   }
@@ -84,7 +84,7 @@
       const label=(live?'Resume ':'Open ')+g.name;b.setAttribute('aria-label',label);b.title=label;
       const img=document.createElement('img');img.src=g.art||'Nova12.png';img.alt='';img.width=96;img.height=96;img.decoding='async';img.onerror=()=>{img.onerror=null;img.src='Nova12.png'};
       b.append(img);
-      if(live){const play=document.createElement('span');play.className='continue-play';play.textContent='▶ Resume';play.setAttribute('aria-hidden','true');b.append(play)}
+      if(live){const play=document.createElement('span');play.className='continue-play';play.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><span>Resume</span>';play.setAttribute('aria-hidden','true');b.append(play)}
       b.onclick=()=>launch(g);const entry=document.createElement('div');entry.className='continue-entry';entry.append(b);if(live){const close=document.createElement('button');close.type='button';close.className='continue-close';close.textContent='×';close.title='Close '+g.name+' fully';close.setAttribute('aria-label','Close '+g.name+' fully');close.onclick=e=>{e.preventDefault();e.stopPropagation();closeRetained(g)};entry.append(close)}row.append(entry);
     });host.append(row);
   }

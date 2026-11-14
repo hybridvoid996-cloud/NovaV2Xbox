@@ -1,0 +1,111 @@
+/* Top bar polish (loaded last on Home). Matching monochrome icons that light up in their
+   brand colour on hover / when open, grouped with thin dividers, a sliding glass pill for
+   the open page, a readable name and a proper coin pill. */
+
+/* the bar itself: lighter glass with a soft top highlight */
+html.nav-polished body header{background:linear-gradient(180deg,rgba(28,30,36,.72),rgba(14,15,19,.78))!important;-webkit-backdrop-filter:blur(22px) saturate(1.35);backdrop-filter:blur(22px) saturate(1.35);border:1px solid rgba(255,255,255,.09)!important;box-shadow:0 18px 50px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08)!important}
+
+/* groups */
+html.nav-polished header nav{position:relative;align-items:center}
+html.nav-polished header nav>.nav-sep{flex:none;width:1px;height:22px;margin:0 6px;border-radius:1px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.18),transparent);pointer-events:none}
+
+/* sliding pill behind the open page */
+html.nav-polished header nav>.nav-pill{position:absolute;left:0;top:0;z-index:0;border-radius:14px;pointer-events:none;opacity:0;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.06));box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),inset 0 1px 0 rgba(255,255,255,.14),0 6px 18px rgba(0,0,0,.35),0 0 18px color-mix(in srgb,var(--pill-accent,#fff) 22%,transparent);transition:transform .45s cubic-bezier(.2,1.1,.3,1),width .45s cubic-bezier(.2,1.1,.3,1),opacity .25s,box-shadow .4s}
+html.nav-polished header nav>.nav-pill.on{opacity:1}
+html.nav-polished header nav>.nav-pill::after{content:"";position:absolute;left:50%;bottom:3px;width:14px;height:3px;margin-left:-7px;border-radius:3px;background:var(--pill-accent,#fff);box-shadow:0 0 8px var(--pill-accent,#fff);opacity:.9}
+html.nav-polished header nav>button{position:relative;z-index:1}
+html.nav-polished header nav>button.active{background:transparent!important;box-shadow:none!important}
+
+/* one icon style: every icon is the same soft white until you point at it or open it */
+html.nav-polished body header nav>button[data-page]:not(.active){color:#d9dce4!important}
+html.nav-polished body header nav>button[data-page]:not(.active)>:is(svg,img){filter:grayscale(1) brightness(1.35)!important;opacity:.82!important;transition:filter .2s,opacity .2s,transform .25s cubic-bezier(.2,1.4,.3,1)!important}
+html.nav-polished body header nav>button[data-page]:is(:hover,:focus-visible,.active)>:is(svg,img){filter:none!important;opacity:1!important}
+html.nav-polished body header nav>button[data-page]:not(.active):is(:hover,:focus-visible){color:var(--service-accent,#fff)!important;background:rgba(255,255,255,.06)!important}
+html.nav-polished body header nav>button[data-page]:hover>:is(svg,img){transform:translateY(-1px) scale(1.08)}
+html.nav-polished body header nav>button[data-page].active{color:var(--service-accent,#fff)!important}
+/* the ChatGPT mark is white artwork; keep it visible */
+html.nav-polished body header nav>button[data-page][data-service-brand=chatgpt]:not(.active)>img,html.nav-polished body header nav>button[data-page][data-service-brand=chatgpt]>img{filter:brightness(0) invert(1)!important;opacity:.82!important}
+html.nav-polished body header nav>button[data-service-brand=chatgpt]:is(:hover,.active)>img{opacity:1!important}
+
+/* profile: readable name, coins in their own pill */
+html.nav-polished header .profile .nova-home-name{filter:brightness(1.45) saturate(1.15) drop-shadow(0 0 6px rgba(255,255,255,.12));font-weight:700}
+html.nav-polished header .profile small{display:flex;align-items:center;gap:6px;flex-wrap:nowrap}
+html.nav-polished header .profile .nova-home-coins:not([hidden]){display:inline-flex;align-items:center;gap:4px;height:18px;padding:0 7px 0 5px;border-radius:999px;background:rgba(255,207,92,.12);border:1px solid rgba(255,207,92,.28);color:#ffe3a3;font-size:10.5px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+html.nav-polished header .profile .nova-home-coins:not([hidden])::before{content:"";width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3c4,#ffcf5c 45%,#d99a1c);box-shadow:0 0 6px rgba(255,207,92,.6)}
+
+/* streak + rank chips match the glass */
+html.nav-polished header .nova-streak-topbar{border-radius:12px!important;background:rgba(255,140,60,.1)!important;border:1px solid rgba(255,150,70,.25)!important;transition:transform .2s,background .2s!important}
+html.nav-polished header .nova-streak-topbar:hover{transform:translateY(-1px);background:rgba(255,140,60,.18)!important}
+
+html.nova-low-power.nav-polished header nav>.nav-pill{transition-duration:.15s}
+html.nova-low-power.nav-polished body header{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(16,17,21,.94)!important}
+/* narrow windows: the bar must never clip the profile */
+@media (max-width:1100px){html.nav-polished header .profile small{font-size:0;gap:0}html.nav-polished header .profile small>i{display:none}html.nav-polished header .profile .nova-home-coins:not([hidden]){font-size:10.5px}}
+@media (max-width:860px){html.nav-polished header nav>.nav-sep{margin:0 2px}html.nav-polished header .profile .nova-home-coins{display:none!important}}
+
+/* =================== bottom dock =================== */
+html.nav-polished body .main-dock{gap:4px!important;padding:7px 10px!important;border-radius:22px!important;background:linear-gradient(180deg,rgba(30,32,38,.74),rgba(14,15,19,.82))!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 18px 50px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.09)!important;-webkit-backdrop-filter:blur(22px) saturate(1.35)!important;backdrop-filter:blur(22px) saturate(1.35)!important;animation:np-fade-up .7s cubic-bezier(.2,1.1,.3,1) both}
+@keyframes np-fade-up{from{opacity:0;translate:0 24px}to{opacity:1;translate:0 0}}
+html.nav-polished body .main-dock>button{position:relative;width:40px!important;min-width:40px!important;height:40px!important;flex-basis:40px;border-radius:12px!important;color:#cfd3dc!important;background:transparent!important;transition:transform .32s cubic-bezier(.2,1.5,.3,1),background .2s,color .2s!important;animation:np-pop .5s cubic-bezier(.2,1.4,.3,1) both}
+html.nav-polished body .main-dock>button:nth-child(2){animation-delay:.05s}html.nav-polished body .main-dock>button:nth-child(3){animation-delay:.09s}html.nav-polished body .main-dock>button:nth-child(4){animation-delay:.13s}html.nav-polished body .main-dock>button:nth-child(5){animation-delay:.17s}html.nav-polished body .main-dock>button:nth-child(6){animation-delay:.21s}html.nav-polished body .main-dock>button:nth-child(7){animation-delay:.25s}html.nav-polished body .main-dock>button:nth-child(8){animation-delay:.29s}html.nav-polished body .main-dock>button:nth-child(9){animation-delay:.33s}
+@keyframes np-pop{from{opacity:0;translate:0 10px;scale:.8}to{opacity:1;translate:0 0;scale:1}}
+/* macOS-style magnify: the hovered icon grows, its neighbours follow a little */
+html.nav-polished body .main-dock>button:hover{transform:translateY(-6px) scale(1.2)!important;background:rgba(255,255,255,.08)!important;color:#fff!important}
+html.nav-polished body .main-dock>button:has(+ button:hover),html.nav-polished body .main-dock>button:hover+button{transform:translateY(-3px) scale(1.08)!important}
+html.nav-polished body .main-dock>button:active{transform:translateY(-2px) scale(.95)!important;transition-duration:.1s!important}
+/* label pops up above the icon */
+html.nav-polished body .main-dock>button[data-tooltip]::after{content:attr(data-tooltip);position:absolute;left:50%;bottom:calc(100% + 12px);transform:translate(-50%,6px) scale(.92);padding:5px 10px;border-radius:9px;background:rgba(20,21,26,.96);border:1px solid rgba(255,255,255,.12);box-shadow:0 8px 24px rgba(0,0,0,.45);color:#f2f3f5;font:600 12px/1.2 Inter,"Segoe UI",sans-serif;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s,transform .2s cubic-bezier(.2,1.3,.3,1)}
+html.nav-polished body .main-dock>button[data-tooltip]:hover::after{opacity:1;transform:translate(-50%,0) scale(1)}
+/* open page gets a small glowing dot */
+html.nav-polished body .main-dock>button.active::before,html.nav-polished body .main-dock>button[aria-pressed=true]::before{content:"";position:absolute;left:50%;bottom:-4px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#fff;box-shadow:0 0 6px #fff}
+
+/* =================== status pill =================== */
+html.nav-polished body .main-home-status{border-radius:18px!important;padding:5px 6px!important;gap:2px!important;background:linear-gradient(180deg,rgba(30,32,38,.74),rgba(14,15,19,.82))!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 14px 40px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08)!important;-webkit-backdrop-filter:blur(20px) saturate(1.3)!important;backdrop-filter:blur(20px) saturate(1.3)!important;animation:np-fade-up .6s .15s cubic-bezier(.2,1.1,.3,1) both}
+html.nav-polished body .main-home-status>button{border-radius:12px!important;padding:6px 10px!important;transition:background .2s,transform .25s cubic-bezier(.2,1.4,.3,1),color .2s!important}
+html.nav-polished body .main-home-status>button:hover{background:rgba(255,255,255,.08)!important;transform:translateY(-1px)}
+html.nav-polished body .main-home-status .main-status-divider{opacity:.5}
+html.nav-polished body .main-version-status span{font-variant-numeric:tabular-nums;letter-spacing:.02em;background:linear-gradient(90deg,#fff,#aeb4c0);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* online dot: a soft ring breathes out of it (transform/opacity only, so it costs almost nothing) */
+html.nav-polished body .main-online-status{position:relative}
+html.nav-polished body .main-online-status::before{content:"";position:absolute;left:10px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:#3ddc84;opacity:0;will-change:transform,opacity;animation:np-ping 2.4s ease-out infinite;pointer-events:none}
+@keyframes np-ping{0%{transform:scale(1);opacity:.55}80%,100%{transform:scale(2.8);opacity:0}}
+
+/* =================== resume & recent =================== */
+html.nav-polished body .continue-heading{display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.16em}
+html.nav-polished body .continue-heading::before,html.nav-polished body .continue-heading::after{content:"";width:18px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4))}
+html.nav-polished body .continue-heading::after{transform:scaleX(-1)}
+html.nav-polished body .continue-card{overflow:visible;border:1px solid rgba(255,255,255,.14)!important;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 8px 22px rgba(0,0,0,.35)!important;transition:transform .35s cubic-bezier(.2,1.4,.3,1),box-shadow .3s,border-color .3s!important;animation:np-pop .5s cubic-bezier(.2,1.3,.3,1) both}
+html.nav-polished body .continue-entry:nth-child(2) .continue-card{animation-delay:.06s}html.nav-polished body .continue-entry:nth-child(3) .continue-card{animation-delay:.12s}html.nav-polished body .continue-entry:nth-child(4) .continue-card{animation-delay:.18s}html.nav-polished body .continue-entry:nth-child(5) .continue-card{animation-delay:.24s}
+html.nav-polished body .continue-card img{border-radius:inherit}
+html.nav-polished body .continue-card:hover{transform:translateY(-4px) scale(1.05)!important;border-color:rgba(255,255,255,.35)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 14px 30px rgba(0,0,0,.45),0 0 0 4px rgba(255,255,255,.05)!important}
+html.nav-polished body .continue-card:active{transform:scale(.97)!important}
+/* the game you can jump back into: a light that travels around its border */
+@property --np-angle{syntax:'<angle>';inherits:false;initial-value:0deg}
+html.nav-polished body .continue-card.is-resumable{isolation:isolate;border-color:transparent!important}
+html.nav-polished body .continue-card.is-resumable::before{content:"";position:absolute;inset:-2px;z-index:-1;border-radius:inherit;padding:2px;background:conic-gradient(from var(--np-angle),rgba(255,255,255,.08),rgba(255,255,255,.9) 18%,rgba(140,220,255,.6) 26%,rgba(255,255,255,.08) 40%,rgba(255,255,255,.08));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:np-orbit 3.2s linear infinite}
+@keyframes np-orbit{to{--np-angle:360deg}}
+html.nav-polished body .continue-play{display:inline-flex!important;align-items:center;gap:4px;width:auto!important;height:24px!important;right:50%!important;bottom:-12px!important;translate:50% 0;padding:0 10px 0 8px!important;border-radius:999px!important;border:0!important;background:#fff!important;color:#0d0e12!important;font:800 10.5px/1 Inter,"Segoe UI",sans-serif!important;letter-spacing:.02em;box-shadow:0 6px 16px rgba(0,0,0,.45),0 0 0 3px rgba(255,255,255,.12)!important;transition:scale .3s cubic-bezier(.2,1.4,.3,1)}
+html.nav-polished body .continue-play svg{width:11px;height:11px;fill:currentColor}
+html.nav-polished body .continue-card:hover .continue-play{scale:1.08}
+html.nav-polished body .continue-close{opacity:0;transform:scale(.7);transition:opacity .18s,transform .25s cubic-bezier(.2,1.4,.3,1)!important;background:rgba(20,21,26,.95)!important;border:1px solid rgba(255,255,255,.18)!important;color:#fff!important}
+html.nav-polished body .continue-entry:hover .continue-close,html.nav-polished body .continue-close:focus-visible{opacity:1;transform:none}
+html.nav-polished body .resume-label{display:inline-flex;align-items:center;gap:5px;color:#fff}
+html.nav-polished body .resume-label::before{content:"";width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 8px #3ddc84}
+
+/* low-power laptops: keep the look, drop the motion */
+html.nova-low-power.nav-polished body :is(.main-dock,.main-dock>button,.main-home-status,.continue-card){animation:none!important}
+html.nova-low-power.nav-polished body .continue-card.is-resumable::before,html.nova-low-power.nav-polished body .main-online-status::before{animation:none!important}
+html.nova-low-power.nav-polished body .main-dock>button:has(+ button:hover),html.nova-low-power.nav-polished body .main-dock>button:hover+button{transform:none!important}
+html.nova-low-power.nav-polished body :is(.main-dock,.main-home-status){-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(16,17,21,.95)!important}
+/* Resume & recent sits in a narrow column: show resume as a round play badge on the corner */
+html.nav-polished body .continue-play{right:-6px!important;bottom:-6px!important;left:auto!important;translate:none!important;width:26px!important;height:26px!important;padding:0!important;justify-content:center;border-radius:50%!important;gap:0}
+html.nav-polished body .continue-play>span{display:none}
+html.nav-polished body .continue-play svg{width:12px;height:12px;margin-left:1px}
+html.nav-polished body .continue-card.is-resumable .continue-play{animation:np-badge 2.4s ease-in-out infinite}
+@keyframes np-badge{0%,100%{box-shadow:0 6px 16px rgba(0,0,0,.45),0 0 0 3px rgba(255,255,255,.12)}50%{box-shadow:0 6px 16px rgba(0,0,0,.45),0 0 0 6px rgba(255,255,255,.05)}}
+html.nova-low-power.nav-polished body .continue-card.is-resumable .continue-play{animation:none}
+/* perf: no always-running paint animations (they kept laptops busy). The light orbits only on hover. */
+html.nav-polished body .continue-card.is-resumable .continue-play{animation:none}
+html.nav-polished body .continue-card.is-resumable::before{animation:none;background:linear-gradient(140deg,rgba(255,255,255,.85),rgba(140,220,255,.45) 40%,rgba(255,255,255,.12) 70%)}
+html.nav-polished body .continue-card.is-resumable:hover::before{background:conic-gradient(from var(--np-angle),rgba(255,255,255,.1),rgba(255,255,255,.95) 18%,rgba(140,220,255,.65) 26%,rgba(255,255,255,.1) 40%,rgba(255,255,255,.1));animation:np-orbit 1.6s linear infinite}
+html.nav-polished body .continue-play{right:3px!important;bottom:3px!important;width:20px!important;height:20px!important;box-shadow:0 3px 10px rgba(0,0,0,.5),0 0 0 2px rgba(255,255,255,.18)!important}html.nav-polished body .continue-play svg{width:10px;height:10px}
