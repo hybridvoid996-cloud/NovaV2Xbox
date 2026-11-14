@@ -1,6 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {repairGameAssetURL} from '../Public/src/game-asset-route.mjs';
+test('Postal 2 large chunks retain their exact source file on the working public host',()=>{
+ const original=new URL('https://cdn.jsdelivr.net/gh/web-ports/postal-2@master/chunks/postal2-0186.part?v=1');
+ assert.equal(repairGameAssetURL(original,1054).href,'https://raw.githubusercontent.com/web-ports/postal-2/master/chunks/postal2-0186.part?v=1');
+ assert.equal(repairGameAssetURL(original,1055),original);
+ for(const url of ['https://other.test/gh/web-ports/postal-2@master/chunks/postal2-0186.part','https://cdn.jsdelivr.net/gh/other/postal-2@master/chunks/postal2-0186.part']){
+  const other=new URL(url);assert.equal(repairGameAssetURL(other,1054),other);
+ }
+});
 test('Class of 09 media resolves from its matching original export rather than Nova page location',()=>{
  const url=new URL('https://nova-content.invalid/content/games/game/opening.webm?v=1');
  assert.equal(repairGameAssetURL(url,259).href,'https://raw.githubusercontent.com/giorgirick2-gif/game-webports-onawebsite/b3042ae7a56b2ede39ea4b4371b1d0ab3af8828a/class-of-09/game/opening.webm?v=1');

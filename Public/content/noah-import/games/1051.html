@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><base href="https://cdn.jsdelivr.net/gh/Nawsif/turbodismount@main/"><script>for (const name of ["ShowReminder", "SetLevelName", "SetLeaderboardEntries"]) {if (typeof window[name] !== "function") window[name] = () => {};}</script><link rel="stylesheet" href="web-display.css"><script src="web-display.js"></script><script src="web-parts.js"></script><script src="chunk-runtime.js"></script>
+  <head><base href="https://cdn.jsdelivr.net/gh/Nawsif/turbodismount@main/"><script>for (const name of ["ShowReminder", "SetLevelName", "SetLeaderboardEntries"]) {if (typeof window[name] !== "function") window[name] = () => {};}</script><link rel="stylesheet" href="web-display.css"><script src="web-display.js"></script><script src="web-parts.js"></script><script>
+// Recover only this public build's CDN-rejected split parts; keep integrity checks in chunk-runtime.
+(function turboPartRecovery() {
+  const originalFetch = window.fetch.bind(window);
+  window.fetch = async function(resource, options) {
+    const target = new URL(resource instanceof Request ? resource.url : resource, document.baseURI);
+    const method = options?.method || (resource instanceof Request ? resource.method : 'GET');
+    const isPart = method === 'GET' && target.origin === 'https://cdn.jsdelivr.net' && /^\/gh\/Nawsif\/turbodismount@main\/Build\/[^/]+\.part\d+$/.test(target.pathname);
+    if (!isPart) return originalFetch(resource, options);
+    const signal = options?.signal || (resource instanceof Request ? resource.signal : undefined);
+    try {
+      const response = await originalFetch(resource, options);
+      if (response.ok) return response;
+      await response.body?.cancel();
+    } catch (error) { if (signal?.aborted) throw error; }
+    return originalFetch('https://raw.githubusercontent.com/Nawsif/turbodismount/main/Build/' + target.pathname.split('/').pop(), {signal, credentials:'omit'});
+  };
+})();
+</script><script src="chunk-runtime.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | TurboDismount</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-    <script type="application/x-unity-deferred" data-original-type="text/javascript" src="TemplateData/UnityProgress.js"></script>  
+    <script>
+      // This build's optional TemplateData script is rejected by its CDN.
+      // Display the real Unity progress locally instead of blocking engine startup.
+      function UnityProgress(instance, progress) {
+        var host = instance.container || document.getElementById('gameContainer');
+        if (!host) return;
+        var meter = host.querySelector('.nova-unity-progress');
+        if (progress >= 1) { if (meter) meter.remove(); return; }
+        if (!meter) {
+          meter = document.createElement('progress');
+          meter.className = 'nova-unity-progress'; meter.max = 1;
+          meter.setAttribute('aria-label', 'Loading Turbo Dismount');
+          meter.style.cssText = 'position:absolute;left:25%;top:50%;width:50%;z-index:10;accent-color:white';
+          host.appendChild(meter);
+        }
+        meter.value = Math.max(0, Math.min(1, Number(progress) || 0));
+      }
+    </script>
     <script type="application/x-unity-deferred" data-original-type="text/javascript" src="Build/UnityLoader.js"></script>
     <script type="application/x-unity-deferred" data-original-type="text/javascript">
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/RawWebBuild32.json", {onProgress: UnityProgress, Module: {postMainLoop: TurboDisplay.frame}});
+      var gameInstance = UnityLoader.instantiate("gameContainer", new URL("/content/noah-import/runtime/turbo-build.json", location.origin).href, {onProgress: UnityProgress, Module: {postMainLoop: TurboDisplay.frame}});
     </script>
   </head>
     <body>

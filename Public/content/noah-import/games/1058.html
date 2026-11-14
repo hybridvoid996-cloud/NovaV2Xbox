@@ -176,6 +176,8 @@
       let loadedBytes = 0;
       async function fetchWithProgress(url) {
         const response = await fetch(url);
+        if (!response.ok) throw new Error('Could not download ' + url + ' (HTTP ' + response.status + ')');
+        if (/text\/html/i.test(response.headers.get('content-type') || '')) throw new Error('The game server returned a page instead of ' + url);
         const reader = response.body.getReader();
         let chunks = [];
         let received = 0;
@@ -189,13 +191,8 @@
           let mbTotal = "645.25";
           loadingText.textContent = `LOADING... ${mbDone} MB / ${mbTotal} MB`;
         }
-        let fullBuffer = new Uint8Array(received);
-        let offset = 0;
-        for (let chunk of chunks) {
-          fullBuffer.set(chunk, offset);
-          offset += chunk.length;
-        }
-        return fullBuffer.buffer;
+        if (!received) throw new Error('The game server returned an empty file: ' + url);
+        return new Blob(chunks);
       }
       async function mergeFiles(fileParts, cacheKey) {
         const cache = await caches.open("intothepit-cache");
@@ -204,12 +201,15 @@
           const blob = await cachedResponse.blob();
           return URL.createObjectURL(blob);
         }
-        const buffers = await Promise.all(
-          fileParts.map((part) => fetchWithProgress(part)),
-        );
+        const buffers = [];
+        // Bound concurrent requests instead of downloading every large part at once.
+        for (let i = 0; i < fileParts.length; i += 3) {
+          buffers.push(...await Promise.all(fileParts.slice(i, i + 3).map(fetchWithProgress)));
+        }
         const mergedBlob = new Blob(buffers);
         const response = new Response(mergedBlob);
-        await cache.put(cacheKey, response);
+        // Quota limits must not prevent an otherwise valid game from starting.
+        await cache.put(cacheKey, response).catch(() => {});
         return URL.createObjectURL(mergedBlob);
       }
       function getParts(file, start, end) {
@@ -289,8 +289,12 @@
               alert(message);
             });
         };
+        script.onerror = () => { loadingText.textContent = 'Could not load the game engine. Reload to retry.'; };
         document.body.appendChild(script);
-      })();
+      })().catch(error => {
+        console.error(error);
+        loadingText.textContent = 'Game download failed: ' + (error.message || error) + '. Reload to retry.';
+      });
     </script>
   </body>
 </html>

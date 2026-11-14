@@ -1,0 +1,8 @@
+{
+  "TOTAL_MEMORY": 805306368,
+  "dataUrl": "https://cdn.jsdelivr.net/gh/Nawsif/turbodismount@main/Build/RawWebBuild32.data.unityweb",
+  "wasmCodeUrl": "https://cdn.jsdelivr.net/gh/Nawsif/turbodismount@main/Build/RawWebBuild32.wasm.code.unityweb",
+  "wasmFrameworkUrl": "https://cdn.jsdelivr.net/gh/Nawsif/turbodismount@main/Build/RawWebBuild32.wasm.framework.unityweb",
+  "splashScreenStyle": "Dark",
+  "backgroundColor": "#222C36"
+}

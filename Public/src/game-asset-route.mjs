@@ -1,4 +1,9 @@
 export function repairGameAssetURL(target, gameId) {
+ // jsDelivr rejects this repository's large Postal chunk package. Keep the
+ // same repository, revision and file; only change its public delivery host.
+ if (String(gameId) === '1054' && target.hostname === 'cdn.jsdelivr.net' && /^\/gh\/web-ports\/postal-2@master\/chunks\/postal2-\d+\.part$/.test(target.pathname)) {
+  return new URL('https://raw.githubusercontent.com/web-ports/postal-2/master/chunks/' + target.pathname.split('/').pop() + target.search);
+ }
  if (String(gameId) === '259' && target.hostname === 'nova-content.invalid' && target.pathname.startsWith('/content/games/game/')) {
   return new URL('https://raw.githubusercontent.com/giorgirick2-gif/game-webports-onawebsite/b3042ae7a56b2ede39ea4b4371b1d0ab3af8828a/class-of-09/game/' + target.pathname.slice('/content/games/game/'.length) + target.search);
  }

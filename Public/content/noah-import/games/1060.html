@@ -217,14 +217,8 @@
             totalBytes += buf.byteLength;
           }
 
-          const combined = new Uint8Array(totalBytes);
-          let offset = 0;
-          for (const chunk of chunks) {
-            combined.set(new Uint8Array(chunk), offset);
-            offset += chunk.byteLength;
-          }
-
-          return URL.createObjectURL(new Blob([combined], { type: mimeType }));
+          // Blob accepts ordered parts without a second 550 MB contiguous copy.
+          return URL.createObjectURL(new Blob(chunks, { type: mimeType }));
         }
 
         async function loadGame() {
