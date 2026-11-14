@@ -107,3 +107,24 @@ test('Abstract retained recording starts directly with metadata and keeps catalo
  const audio=new Audio(),engine=new NovaMusicEngine({audio,request:async()=>{throw Error('No catalog lookup is needed')}});
  const selected={id:'sc:1',title:'Rock with You',artist:'Michael Jackson',duration:220,sources:[{id:'sc:1'},{id:'abs:19994076'}]};await engine.load(selected);const u=new URL(audio.currentSrc,'http://nova.local');assert.equal(u.searchParams.get('op'),'abs-audio');assert.equal(u.searchParams.get('title'),selected.title);assert.equal(u.searchParams.get('artist'),selected.artist);assert.equal(engine.track.id,'sc:1');assert.equal(engine.snapshot.provider,'abs');engine.destroy();
 });
+
+test('a dropped song reloads by itself from the same spot instead of waiting for Retry',async()=>{
+ const audio=new Audio();let loads=0;
+ const engine=new NovaMusicEngine({audio,request:async()=>{loads++;return reply(track(9))}});
+ await engine.load(track(9));assert.equal(engine.snapshot.playing,true);
+ audio.currentTime=42;engine.lastPosition=42;
+ const retried=[];const original=engine.retry.bind(engine);engine.retry=()=>{retried.push(engine.resumePosition());return original()};
+ engine.error='The audio connection stopped. Use Retry to reconnect.';engine.emit();
+ assert.equal(engine.error,'Reconnecting…','shows it is reconnecting');
+ await new Promise(r=>setTimeout(r,700));
+ assert.equal(retried.length,1,'reloaded automatically');assert.equal(retried[0],42,'from the same position');
+ engine.destroy();
+});
+test('prompts that need a click are not auto-retried, and retries stop after six tries',async()=>{
+ const audio=new Audio(),engine=new NovaMusicEngine({audio,request:async()=>reply(track(3))});
+ await engine.load(track(3));let retries=0;engine.retry=()=>{retries++;return Promise.resolve()};
+ engine.error='Press Play to enable audio in this browser.';engine.emit();assert.ok(!engine.healTimer,'no auto-retry for a click prompt');
+ engine.healAttempts=6;engine.error='The audio connection stopped. Use Retry to reconnect.';engine.emit();
+ assert.match(engine.error,/keeps dropping/);assert.equal(retries,0);
+ engine.destroy();
+});

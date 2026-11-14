@@ -1,3 +1,57 @@
 html{--nml-accent:#1ed760}html[data-music-skin=apple]{--nml-accent:#fa2d48}.nml.nmc-boot-intro{position:absolute;inset:0;z-index:40;display:grid;place-items:center;overflow:hidden;background:#090909!important;backdrop-filter:none!important;color:#eee;font-family:-apple-system,'Segoe UI',system-ui,sans-serif}.nml-center{display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}.nml-stage{width:88px;height:88px;color:#999;--brand-cutout:#090909;animation:nml-brand-reveal 1.15s cubic-bezier(.2,.7,.2,1) both;perspective:700px}.nml-stage svg{width:100%;height:100%;animation:nml-brand-spin 1.2s cubic-bezier(.2,.7,.2,1) both}.nml-copy strong{display:block;font-size:clamp(28px,4vw,42px);font-weight:750;letter-spacing:-1.5px;color:#bcbcbc;animation:nml-brand-reveal 1.2s .12s ease both}.nml-copy span{display:block;font-size:11px;color:#888;margin-top:9px;letter-spacing:.5px}.nml-meter{width:160px;height:3px;border-radius:8px;background:#ffffff12;overflow:hidden}.nml-meter i{display:block;width:40%;height:100%;border-radius:inherit;background:var(--nml-accent);animation:nml-loading 1.1s ease-in-out infinite}.nml.is-ready{animation:nml-exit .42s ease both;pointer-events:none}@keyframes nml-brand-reveal{0%,20%{color:#999;filter:grayscale(1);transform:translateY(5px) scale(.94)}100%{color:var(--nml-accent);filter:grayscale(0);transform:none}}@keyframes nml-brand-spin{from{transform:rotateY(-120deg) rotate(-12deg)}to{transform:rotateY(0) rotate(0)}}@keyframes nml-loading{from{transform:translateX(-110%)}to{transform:translateX(360%)}}@keyframes nml-exit{to{opacity:0;transform:scale(1.025)}}@media(prefers-reduced-motion:reduce){.nml-stage,.nml-stage svg,.nml-copy strong{animation:none;color:var(--nml-accent)}.nml-meter i{animation-duration:2s}.nml.is-ready{animation:nml-exit .12s ease both}}
 /* Personal album gallery behind the shared brand reveal. */
 .nml.nmc-boot-intro{perspective:1000px;background:#090909!important;isolation:isolate}.nml-center{position:relative;z-index:2;gap:28px}.nml-stage{width:110px;height:110px;border:1px solid #ffffff26;border-radius:30px;display:grid;place-items:center;background:linear-gradient(145deg,#ffffff16,#ffffff04);box-shadow:inset 0 1px #fff3,0 24px 55px #0008}.nml-stage img,.nml-stage svg{width:66px;height:66px;object-fit:contain;animation:nml-brand-spin 1.35s cubic-bezier(.2,.7,.2,1) both}.nml .gpt-mark{filter:brightness(0) invert(1)!important}.nml-copy small{display:block;color:#aaa;font-size:8px;letter-spacing:2.6px;margin-bottom:12px}.nml-copy strong{font-size:clamp(32px,4vw,46px);letter-spacing:-1.8px}.nml-wall{position:absolute;z-index:0;left:50%;top:50%;width:840px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;transform:translate(-50%,-50%) rotateX(28deg) rotateZ(-16deg) scale(1.35);opacity:.38;animation:nml-gallery-drift 24s ease-in-out infinite alternate;pointer-events:none}.nml-album{aspect-ratio:1;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#333,#151515);border:1px solid #ffffff18;box-shadow:0 15px 35px #0008}.nml-album img{display:block;width:100%;height:100%;object-fit:cover}.nml:before{content:'';position:absolute;z-index:1;inset:0;background:radial-gradient(ellipse at center,#090909ec 0,#090909c0 24%,#09090965 52%,#090909eb 90%);pointer-events:none}.nml:after{content:'';position:absolute;z-index:1;left:50%;top:50%;width:420px;height:420px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse,color-mix(in srgb,var(--nml-accent) 12%,transparent),transparent 66%);pointer-events:none}.nml[data-brand=claude]{--nml-accent:#d97757}.nml[data-brand=chatgpt]{--nml-accent:#fff}.nml[data-brand=claude] .nml-stage img{filter:none}.nml.is-ready .nml-stage{transform:scale(.9);transition:transform .4s}.ai-theme-splash.nml{position:fixed!important;display:grid!important;transition:opacity .4s;filter:none!important}.ai-theme-splash.nml.leaving{opacity:0;pointer-events:none}.ai-theme-splash.nml .nml-wall{opacity:.12}.ai-theme-splash.nml .nml-album{background:linear-gradient(135deg,#ffffff12,#ffffff03)}@keyframes nml-gallery-drift{from{transform:translate(-50%,-48%) rotateX(28deg) rotateZ(-16deg) scale(1.35)}to{transform:translate(-50%,-54%) rotateX(24deg) rotateZ(-12deg) scale(1.35)}}@media(max-width:700px){.nml-wall{width:620px;gap:14px}.nml-stage{width:94px;height:94px}.nml-stage img,.nml-stage svg{width:58px;height:58px}}@media(prefers-reduced-motion:reduce){.nml-wall{animation:none}.nml-stage img,.nml-stage svg{animation:none}}
+
+/* =================== Music loader v2 =================== */
+.nml.nml-v2{background:#07070a!important}
+.nml-v2:before{background:radial-gradient(ellipse at center,rgba(7,7,10,.55) 0,rgba(7,7,10,.8) 45%,#07070a 85%)!important}
+.nml-v2:after{display:none}
+/* soft brand-coloured light behind everything (transform-only drift) */
+.nml-v2 .nml-bg{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.nml-v2 .nml-blob{position:absolute;width:52vmax;height:52vmax;border-radius:50%;filter:blur(60px);opacity:.33;will-change:transform}
+.nml-v2 .nml-blob.a{left:-14vmax;top:-18vmax;background:radial-gradient(circle,var(--nml-accent),transparent 65%);animation:nml-blob-a 14s ease-in-out infinite alternate}
+.nml-v2 .nml-blob.b{right:-18vmax;bottom:-22vmax;background:radial-gradient(circle,color-mix(in srgb,var(--nml-accent) 70%,#6aa8ff),transparent 65%);opacity:.24;animation:nml-blob-b 17s ease-in-out infinite alternate}
+.nml-v2 .nml-blob.c{left:30%;top:40%;width:30vmax;height:30vmax;background:radial-gradient(circle,rgba(255,255,255,.5),transparent 65%);opacity:.08;animation:nml-blob-a 11s ease-in-out infinite alternate-reverse}
+@keyframes nml-blob-a{to{transform:translate(8vmax,6vmax) scale(1.1)}}
+@keyframes nml-blob-b{to{transform:translate(-7vmax,-5vmax) scale(.92)}}
+/* album wall: blurred, gently tilting; empty tiles become tinted placeholders */
+.nml-v2 .nml-wall{opacity:.3;filter:blur(1.5px) saturate(1.2)}
+.nml-v2 .nml-album{position:relative;background:linear-gradient(135deg,color-mix(in srgb,var(--nml-accent) 26%,#18181c),#101013)!important;border-color:rgba(255,255,255,.08)!important;opacity:0;transform:translateY(14px) scale(.96);animation:nml-tile .7s cubic-bezier(.2,1,.3,1) forwards;animation-delay:calc(var(--album,0) * 45ms)}
+.nml-v2 .nml-album.empty:before{content:"";position:absolute;inset:34%;background:rgba(255,255,255,.22);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 18V5l12-2v13' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='6' cy='18' r='3'/%3E%3Ccircle cx='18' cy='16' r='3'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 18V5l12-2v13' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='6' cy='18' r='3'/%3E%3Ccircle cx='18' cy='16' r='3'/%3E%3C/svg%3E") center/contain no-repeat}
+.nml-v2 .nml-album img{opacity:0;transition:opacity .5s}
+.nml-v2 .nml-album.loaded img{opacity:1}
+@keyframes nml-tile{to{opacity:1;transform:none}}
+/* centre: glass logo tile with a light that circles it */
+.nml-v2 .nml-center{gap:22px}
+.nml-v2 .nml-stage{position:relative;width:120px;height:120px;border-radius:34px;background:linear-gradient(150deg,rgba(255,255,255,.14),rgba(255,255,255,.03))!important;border:1px solid rgba(255,255,255,.16)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 30px 70px rgba(0,0,0,.6),0 0 60px color-mix(in srgb,var(--nml-accent) 22%,transparent)!important;animation:nml-stage-in .9s cubic-bezier(.2,1.3,.3,1) both!important;color:inherit}
+.nml-v2 .nml-logo{display:grid;place-items:center;width:100%;height:100%}
+.nml-v2 .nml-logo svg{width:70px;height:70px;filter:drop-shadow(0 6px 18px color-mix(in srgb,var(--nml-accent) 45%,transparent));animation:nml-logo-in 1s .1s cubic-bezier(.2,1.3,.3,1) both,nml-breathe 2.6s 1.1s ease-in-out infinite}
+.nml-v2 .nml-ring{position:absolute;inset:-9px;border-radius:40px;border:1.5px solid transparent;background:conic-gradient(from 0deg,transparent 0 62%,color-mix(in srgb,var(--nml-accent) 85%,#fff) 82%,transparent 92%) border-box;-webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:nml-spin 1.6s linear infinite;will-change:transform}
+@keyframes nml-stage-in{from{opacity:0;transform:scale(.7) translateY(14px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+@keyframes nml-logo-in{from{opacity:0;transform:scale(.5) rotate(-20deg)}to{opacity:1;transform:none}}
+@keyframes nml-breathe{50%{transform:scale(1.06)}}
+@keyframes nml-spin{to{transform:rotate(360deg)}}
+/* equalizer bars dance while it loads */
+.nml-v2 .nml-eq{display:flex;align-items:flex-end;gap:4px;height:22px;opacity:0;animation:nml-fade .5s .45s ease forwards}
+.nml-v2 .nml-eq i{width:4px;height:100%;border-radius:3px;background:var(--nml-accent);transform-origin:bottom;transform:scaleY(.25);animation:nml-eq 1s ease-in-out infinite;will-change:transform}
+.nml-v2 .nml-eq i:nth-child(2){animation-delay:-.2s;animation-duration:.85s}.nml-v2 .nml-eq i:nth-child(3){animation-delay:-.45s;animation-duration:1.15s}.nml-v2 .nml-eq i:nth-child(4){animation-delay:-.1s;animation-duration:.9s}.nml-v2 .nml-eq i:nth-child(5){animation-delay:-.6s;animation-duration:1.05s}
+@keyframes nml-eq{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
+@keyframes nml-fade{to{opacity:1}}
+/* text */
+.nml-v2 .nml-copy{animation:nml-copy-in .8s .2s cubic-bezier(.2,1,.3,1) both}
+.nml-v2 .nml-copy small{color:color-mix(in srgb,var(--nml-accent) 55%,#bbb);letter-spacing:3px;font-weight:700}
+.nml-v2 .nml-copy strong{color:#f4f4f6!important;animation:none!important;background:linear-gradient(100deg,#9a9aa2 0%,#fff 30%,#d5d5db 50%,#9a9aa2 70%,#fff 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:nml-shine 3s linear infinite!important}
+.nml-v2 .nml-step{display:block;margin-top:10px;font-size:12.5px;color:#a8a8b0;letter-spacing:.3px;transition:opacity .2s,transform .2s}
+.nml-v2 .nml-step.swap{opacity:0;transform:translateY(-5px)}
+@keyframes nml-copy-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes nml-shine{to{background-position:-250% 0}}
+/* progress */
+.nml-v2 .nml-meter{width:200px;height:4px;background:rgba(255,255,255,.08)}
+.nml-v2 .nml-meter i{width:35%;background:linear-gradient(90deg,transparent,var(--nml-accent),transparent);box-shadow:0 0 12px var(--nml-accent)}
+/* leaving */
+.nml-v2.is-ready{animation:nml-v2-exit .45s cubic-bezier(.4,0,.2,1) both!important}
+@keyframes nml-v2-exit{to{opacity:0;transform:scale(1.04);filter:blur(6px)}}
+@media(max-width:700px){.nml-v2 .nml-stage{width:100px;height:100px;border-radius:28px}.nml-v2 .nml-logo svg{width:58px;height:58px}}
+@media(prefers-reduced-motion:reduce){.nml-v2 .nml-blob,.nml-v2 .nml-ring,.nml-v2 .nml-eq i,.nml-v2 .nml-logo svg,.nml-v2 .nml-copy strong{animation:none!important}}
+html.nova-low-power .nml-v2 .nml-blob{animation:none;filter:blur(40px)}
+html.nova-low-power .nml-v2 .nml-wall{filter:none}
