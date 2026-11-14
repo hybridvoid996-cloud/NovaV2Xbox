@@ -1,5 +1,12 @@
 # Nova Roblox launcher — 2026-11-13
 
+## 2026-11-14 inspection and fixes
+- Rechecked the signed-in provider UI. Its Session page now offers email/code sign-in as well as an optional session value; Nova's notice reflects both. No credentials or session storage were copied into Nova.
+- Confirmed the actual Play destination: `index.html?placeId=189707&loader=client&popup=1`. It loads `WebClient.js`, `WasmLoader.js`, and `WasmPlayer.js`, downloads a roughly 96 MB client, and reached **Joining server** in the provider tab. In-game rendering and gameplay have not been verified.
+- Added Scramjet window-envelope decoding and a launch-token-bound DOM signal fallback for popup destinations. Nova validates the source frame and launch token, rejects unsupported URLs, and routes allowed destinations into its existing game frame. Duplicate signals are coalesced briefly while later relaunches remain possible.
+- The existing owner/admin restriction remains. Sign-in on the normal provider domain does not transfer credentials into Nova's proxy; the user must sign in there separately.
+- Four launcher regression tests pass, including wrapped launch messages and immediate/delayed popup destinations.
+
 ## Added
 - `roblox.html`: full-frame content without a second toolbar. After staff access is verified, a sign-in notice explains TGLSC and Roblox session-token requirements. Continue opens the provider sign-in first, not the guest Roblox catalog. The provider root returns to Roblox after TGLSC authentication. No token is collected by Nova.
 - Owner Studio → Roblox Launcher. Owners and admins can launch it in the normal Nova app/game player; public top-bar and Apps entries were removed. Admins see only this tool in Owner Studio; other owner APIs remain owner-only.

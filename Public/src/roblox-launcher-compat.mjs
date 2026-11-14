@@ -1,9 +1,11 @@
 export const ROBLOX_LAUNCHER='https://321.tb2.net/assets/applications/content/tglscrblx/index2.html#home';
 export const TGLSC_LOGIN='https://321.tb2.net/assets/applications/datapacks/register/';
+export const ROBLOX_SESSION=ROBLOX_LAUNCHER.replace('#home','#session');
+export function robloxLaunchMessage(event,source,token){if(!source||event.source!==source||!token)return null;let data=event.data;for(let i=0;i<4&&data?.$scramjet$messagetype==='window'&&Object.hasOwn(data,'$scramjet$data');i++)data=data.$scramjet$data;return data?.token===token&&data.novaAction==='robloxLaunch'?launchURL(data.url):null}
 export function launchURL(value,base=ROBLOX_LAUNCHER){try{const u=new URL(String(value),base);if(!['https:','http:'].includes(u.protocol)||u.username||u.password)return null;return u.href}catch{return null}}
 export function launcherDocument(url){try{const u=new URL(url);return u.hostname==='321.tb2.net'&&(u.pathname.startsWith('/assets/applications/content/tglscrblx/')||u.pathname==='/assets/applications/datapacks/register/'||u.pathname==='/')}catch{return false}}
 function launcherRuntime(config){
- const notify=(value)=>{if(!value||value==='about:blank')return;parent.postMessage({novaAction:'robloxLaunch',token:config.token,url:String(value)},'*')};
+ const notify=(value)=>{if(!value||value==='about:blank')return;const data={novaAction:'robloxLaunch',token:config.token,url:String(value)};try{if(document.documentElement)document.documentElement.dataset.novaRobloxLaunch=JSON.stringify(data)}catch{}parent.postMessage(data,'*')};
  // Some launchers open an empty window first, then assign its destination later.
  const popup=()=>{let value='about:blank',closed=false;const loc={};Object.defineProperty(loc,'href',{get:()=>value,set:v=>{value=String(v);notify(v)}});loc.assign=loc.replace=v=>{loc.href=v};loc.toString=()=>value;const result={focus(){},blur(){},close(){closed=true},postMessage(){},document:{open(){},write(){},close(){}}};Object.defineProperty(result,'closed',{get:()=>closed});Object.defineProperty(result,'location',{get:()=>loc,set:v=>{loc.href=v}});return result};
  window.open=function(url){const win=popup();if(url)win.location=url;return win};
