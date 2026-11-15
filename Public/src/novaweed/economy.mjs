@@ -4,7 +4,10 @@
 export const STRAINS={
  kush:{name:'Nova Kush',seed:'seed_kush',base:28,growHours:5,color:'#58c96b',rank:0},
  haze:{name:'Comet Haze',seed:'seed_haze',base:40,growHours:7,color:'#9ad94a',rank:1},
- star:{name:'Starlight OG',seed:'seed_star',base:58,growHours:9,color:'#5fd6c4',rank:3}
+ star:{name:'Starlight OG',seed:'seed_star',base:58,growHours:9,color:'#5fd6c4',bud:'#bff2e6',rank:3},
+ lemon:{name:'Lemon Drift',seed:'seed_lemon',base:46,growHours:6,color:'#a9d24a',bud:'#f0e45a',rank:1},
+ purple:{name:'Violet Tide',seed:'seed_purple',base:70,growHours:10,color:'#5f9a6a',bud:'#b07ae0',rank:2},
+ mint:{name:'Glacier Mint',seed:'seed_mint',base:92,growHours:12,color:'#6fd6b0',bud:'#e6fff6',rank:4}
 };
 
 // Effects: price multiplier + what happens on screen when used.
@@ -20,7 +23,7 @@ export const EFFECTS={
  giggly:{name:'Giggly',color:'#ffb347',value:.2},
  sleepy:{name:'Sleepy',color:'#8c8cff',value:.12}
 };
-export const STRAIN_EFFECT={kush:'calm',haze:'giggly',star:'focus'};
+export const STRAIN_EFFECT={kush:'calm',haze:'giggly',star:'focus',lemon:'energy',purple:'sleepy',mint:'fresh'};
 
 // Mixers sold at Quick Stop. Each adds its effect; a few also transform one.
 export const MIXERS={
@@ -34,20 +37,54 @@ export const MIXERS={
  mix_salt:{name:'Sea Salt',price:2,effect:'focus',turns:{fizzy:'fresh'}}
 };
 
+// Disposable vapes: each purchase adds hits. Flavours give a short effect; the Nova Cart also gets you lifted.
+export const VAPES={
+ vape_mint:{name:'Frost Mint Vape',short:'Frost Mint',price:18,shop:'quick',hits:25,effect:'fresh',body:'#7fe3ff',cloud:'#eefbff',seconds:25},
+ vape_berry:{name:'Berry Cloud Vape',short:'Berry Cloud',price:18,shop:'quick',hits:25,effect:'fruity',body:'#ff7ad9',cloud:'#fff0f8',seconds:25},
+ vape_mango:{name:'Mango Rush Vape',short:'Mango Rush',price:20,shop:'quick',hits:25,effect:'energy',body:'#ffb347',cloud:'#fff6e6',seconds:25},
+ vape_nova:{name:'Nova Cart (THC)',short:'Nova Cart',price:45,shop:'garden',rank:1,hits:30,effect:'calm',high:true,body:'#2f8f4e',cloud:'#f0fff3',seconds:35}
+};
+
+// Guns only hurt NPCs, rival crews and police. Players can't be shot.
+export const GUNS={
+ gun_pistol:{name:'Nova 9 Pistol',short:'Pistol',price:320,rank:1,dmg:34,rate:.3,mag:12,reload:1.2,spread:.012,auto:false,range:70,kick:1},
+ gun_smg:{name:'Viper SMG',short:'SMG',price:950,rank:2,dmg:17,rate:.09,mag:30,reload:1.7,spread:.035,auto:true,range:50,kick:.55}
+};
+
 export const ITEMS={
  seed_kush:{name:'Nova Kush Seed',price:25,shop:'garden',icon:'🌱'},
  seed_haze:{name:'Comet Haze Seed',price:40,shop:'garden',icon:'🌱',rank:1},
  seed_star:{name:'Starlight OG Seed',price:65,shop:'garden',icon:'🌱',rank:3},
+ seed_lemon:{name:'Lemon Drift Seed',price:48,shop:'garden',icon:'🌱',rank:1},
+ seed_purple:{name:'Violet Tide Seed',price:80,shop:'garden',icon:'🌱',rank:2},
+ seed_mint:{name:'Glacier Mint Seed',price:120,shop:'garden',icon:'🌱',rank:4},
  soil:{name:'Bag of Soil',price:12,shop:'garden',icon:'🟫'},
  fertilizer:{name:'Fertilizer',price:18,shop:'garden',icon:'🧪'},
  pot:{name:'Grow Pot',price:70,shop:'garden',icon:'🪴'},
  baggies:{name:'Baggies (×10)',price:8,shop:'garden',icon:'👜',gives:{baggie:10}},
  baggie:{name:'Baggie',icon:'👜'},
- drink_energy:{name:'Volt Energy',price:6,shop:'quick',icon:'⚡',drink:'energy'},
- drink_cola:{name:'Nova Cola Can',price:3,shop:'quick',icon:'🥤',drink:'fizzy'},
- drink_water:{name:'Water',price:1,shop:'quick',icon:'💧',drink:'fresh'},
+ drink_energy:{name:'Volt Energy',price:6,shop:'quick',shops:['gas'],icon:'⚡',drink:'energy'},
+ drink_cola:{name:'Nova Cola Can',price:3,shop:'quick',shops:['gas'],icon:'🥤',drink:'fizzy'},
+ drink_water:{name:'Water',price:1,shop:'quick',shops:['gas'],icon:'💧',drink:'fresh'},
+ snack_chips:{name:'Sea Salt Chips',price:3,shop:'gas',icon:'🥔',drink:'focus'},
+ snack_bar:{name:'Protein Bar',price:4,shop:'gas',icon:'🍫',heal:20},
+ ...Object.fromEntries(Object.entries(GUNS).map(([id,g])=>[id,{name:g.name,price:g.price,shop:'arms',rank:g.rank,icon:'🔫',gun:true}])),
+ ammo:{name:'Ammo Box (×24)',price:24,shop:'arms',icon:'🧰',gives:{ammo:24}},
+ med_kit:{name:'Med Kit',price:30,shop:'arms',icon:'🩹'},
+ ...Object.fromEntries(Object.entries(VAPES).map(([id,v])=>[id,{name:v.name,price:v.price,shop:v.shop,shops:v.shop==='quick'?['gas']:undefined,rank:v.rank,icon:'💨',vape:true,gives:{[id]:v.hits}}])),
  ...Object.fromEntries(Object.entries(MIXERS).map(([id,m])=>[id,{name:m.name,price:m.price,shop:'quick',icon:'🧂',mixer:true}]))
 };
+
+// Skateboards from The Board Room
+export const BOARDS={
+ cheap:{name:'Driftwood Deck',price:75,speed:7.2,jump:1,glide:.35,color:'#c9a86b',desc:'Scuffed but it rolls.'},
+ street:{name:'Street Deck',price:250,speed:8.2,jump:1.08,glide:.45,color:'#3fae68',desc:'A solid all-rounder.'},
+ light:{name:'Featherlight',price:500,speed:9,jump:1.28,glide:.45,color:'#e8443a',desc:'Pops higher than anything.'},
+ cruiser:{name:'Long Cruiser',price:500,speed:9.4,jump:1,glide:.8,color:'#e9d9b0',desc:'Glides forever on one push.'},
+ gold:{name:'Gold Deck',price:1500,speed:10.6,jump:1.2,glide:.65,color:'#ffd23f',desc:'Fast, flashy, and very gold.'}
+};
+// Custom product names the player picks (filled from the save)
+let NAMES={};export function setProductNames(n){NAMES=n||{}}
 
 export const SHIRTS=[
  {id:'tee_white',name:'Plain Tee',price:0,color:'#e9e9ee'},
@@ -69,6 +106,7 @@ export function productKey(strain,effects){return strain+'|'+[...effects].sort()
 export function parseKey(key){const [strain,list]=key.split('|');return {strain,effects:list?list.split(',').filter(Boolean):[]}}
 const ADJ={calm:'Chill',energy:'Turbo',glow:'Neon',spicy:'Blaze',fruity:'Berry',focus:'Laser',fresh:'Frost',fizzy:'Fizz',giggly:'Goofy',sleepy:'Dream'};
 export function productName(key){
+ if(NAMES[key])return NAMES[key];
  const {strain,effects}=parseKey(key);const base=STRAINS[strain]?.name||'Mystery';
  const extra=effects.filter(e=>e!==STRAIN_EFFECT[strain]);
  if(!extra.length)return base;

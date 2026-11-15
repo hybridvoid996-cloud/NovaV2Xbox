@@ -999,6 +999,12 @@
             ".validate": "!newData.exists() || (newData.hasChildren(['code','name','at']) && newData.child('code').val().matches(/^[A-Z0-9]{5}$/) && newData.child('name').isString() && newData.child('name').val().length <= 64)"
           }
         }
+      },
+      "lobbies": {
+        ".read": "auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaControl/siteBans').child(auth.uid).exists()",
+        "$code": {
+          ".write": "(auth != null && auth.token.firebase.sign_in_provider !== 'anonymous' && root.child('novaAccounts').child(auth.uid).exists() && !root.child('novaControl/siteBans').child(auth.uid).exists()) && root.child('novaWeed/rooms').child($code).child('host').val() === auth.uid"
+        }
       }
     }
   }
