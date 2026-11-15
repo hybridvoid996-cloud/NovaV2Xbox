@@ -1,0 +1,32 @@
+✔ DeepSeek uses its own server key, endpoint and model (4.3539ms)
+✔ DeepSeek balance failures are explained without exposing provider details (0.9458ms)
+✔ text sends Markdown instructions and text model (1.0377ms)
+✔ uploaded images reach the vision model (0.4769ms)
+✔ screenshots and upload can be sent together with screen context (0.7138ms)
+✔ invalid images and excess images never reach provider (0.366ms)
+✔ missing key gives an actionable setup error (0.4536ms)
+✔ unavailable vision model gives a specific error (0.3147ms)
+✔ answer-only mode is enforced for both image and text requests (0.6334ms)
+✔ provider rate limiting includes an actionable retry delay (0.4365ms)
+✔ long conversations retain recent context within 8000 characters without altering saved history (5.5562ms)
+✔ old image history is bounded while latest attachments keep their budget (0.2823ms)
+(node:17864) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/willi/OneDrive/Documents/NovaV2/Public/nova-ai-markdown.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\willi\OneDrive\Documents\NovaV2\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ math supports exponents, fractions and display delimiters with untrusted commands disabled (2.4429ms)
+✔ code and ordinary prices remain literal (0.5044ms)
+✔ initial allowance is once per account, balances are isolated (1.6167ms)
+✔ coin refill is atomic and duplicate purchase does not charge twice (1.4415ms)
+✔ provider usage debits server balance and cooldown rejects immediate requests (0.4522ms)
+✔ failed provider refunds reservation; concurrent request cannot spend lease (2.6656ms)
+✔ code results validate files, preview has restrictive network policy and escaped script terminator (0.7163ms)
+✔ retired editor and publishing operations cannot spend coins or call AI (0.3356ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 234.3079

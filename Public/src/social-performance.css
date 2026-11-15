@@ -1,0 +1,20 @@
+/* Keep long social lists cheap to scroll without hiding messages or effects. */
+.main-dm-message,.main-person-row,.nova-chat-v3 .message,.nova-chat-v3 .member-list>.dm{
+ content-visibility:auto;
+ contain-intrinsic-size:auto 68px;
+}
+/* One translucent surface rather than nested live wallpaper blurs. */
+.main-friends-window,.main-messages-window{
+ background:rgba(23,25,30,.96)!important;
+ backdrop-filter:none!important;
+ -webkit-backdrop-filter:none!important;
+}
+.main-friends-window::backdrop,.main-messages-window::backdrop{
+ backdrop-filter:none!important;
+ -webkit-backdrop-filter:none!important;
+}
+.main-person-row,.main-dm-message,.nova-chat-v3 .message,.nova-chat-v3 .member-list .dm{
+ backdrop-filter:none!important;
+ -webkit-backdrop-filter:none!important;
+}
+.main-dm-log,.nova-chat-v3 .messages{overflow-anchor:auto}

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script nonce="zUWQ+TuZOiIb3QsGVJgTGQ==">if(window.top!==window.self){window.top.location.href=window.location.href;}try{if(localStorage.getItem('hk-look')==='light')document.documentElement.setAttribute('data-hk-look','light');var hkA=localStorage.getItem('hk-accent');if(hkA==='violet'||hkA==='ocean'||hkA==='mint'||hkA==='sunset'||hkA==='lime')document.documentElement.setAttribute('data-hk-accent',hkA);var hkB=localStorage.getItem('hk-bg');if(hkB==='midnight'||hkB==='plum')document.documentElement.setAttribute('data-hk-bg',hkB);}catch(e){}</script>
+<meta charset="UTF-8">
+<meta http-equiv="content-language" content="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14151a">
+<title>Page not found | Hianime</title>
+<meta name="description" content="That link leads nowhere on Hianime. Search for the show, or go back to the home page.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://hianime.ms/one-piece-100">
+<link rel="alternate" hreflang="en" href="https://hianime.ms/one-piece-100">
+<link rel="alternate" hreflang="x-default" href="https://hianime.ms/one-piece-100">
+<meta property="article:modified_time" content="2026-11-13T21:52:05+00:00">
+<meta property="og:site_name" content="Hianime">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Page not found | Hianime">
+<meta property="og:description" content="That link leads nowhere on Hianime. Search for the show, or go back to the home page.">
+<meta property="og:url" content="https://hianime.ms/one-piece-100">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Page not found | Hianime">
+<meta name="twitter:description" content="That link leads nowhere on Hianime. Search for the show, or go back to the home page.">
+<meta name="csrf-token" content="">
+<script type="speculationrules" nonce="zUWQ+TuZOiIb3QsGVJgTGQ==">{"prefetch":[{"source":"document","eagerness":"conservative"}]}</script>
+<link rel="icon" href="/templates/hianimev2/assets/images/favicon/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/templates/hianimev2/assets/images/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/templates/hianimev2/assets/images/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/templates/hianimev2/assets/images/favicon/manifest.json">
+<link rel="preload" href="/templates/hianimev2/assets/fonts/jakarta-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/templates/hianimev2/assets/css/core.css?v=1794339311">
+<link rel="stylesheet" href="/templates/hianimev2/assets/css/profile.css?v=1794317530">
+</head>
+<body class="hk-body">
+<script nonce="zUWQ+TuZOiIb3QsGVJgTGQ==">
+document.addEventListener('DOMContentLoaded', function () {
+    var meta = document.querySelector('meta[name="csrf-token"]');
+    if (!meta) return;
+    document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function (f) {
+        if (f.querySelector('input[name="_csrf_token"]')) return;
+        var i = document.createElement('input');
+        i.type = 'hidden'; i.name = '_csrf_token'; i.value = meta.getAttribute('content');
+        f.prepend(i);
+    });
+});
+</script>
+<a href="#main-content" class="hk-skip">Skip to content</a>
+<svg xmlns="http://www.w3.org/2000/svg" class="hk-sprite" aria-hidden="true" focusable="false">
+<symbol id="hk-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></symbol>
+<symbol id="hk-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></symbol>
+<symbol id="hk-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+<symbol id="hk-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+<symbol id="hk-az" viewBox="0 0 24 24"><path d="M4 18 7.5 6 11 18M5.2 14h4.6M14 6h6l-6 12h6"/></symbol>
+<symbol id="hk-dice" viewBox="0 0 24 24"><path d="M3 7h3.5c1.6 0 2.9.8 3.7 2.1l3.6 5.8c.8 1.3 2.1 2.1 3.7 2.1H21"/><path d="M3 17h3.5c1.6 0 2.9-.8 3.7-2.1M13.8 9.1c.8-1.3 2.1-2.1 3.7-2.1H21"/><path d="m18.5 4.5 2.5 2.5-2.5 2.5M18.5 14.5l2.5 2.5-2.5 2.5"/></symbol>
+<symbol id="hk-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol>
+<symbol id="hk-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></symbol>
+<symbol id="hk-phonebell" viewBox="0 0 24 24"><rect x="5" y="2.5" width="11" height="19" rx="2.5"/><path d="M9.5 18.5h2"/><path d="M15.5 9.5a3 3 0 0 1 5 2.2V14l1 1h-7l1-1v-2.3z"/><path d="M17.2 17h1.6"/></symbol>
+<symbol id="hk-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="hk-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="hk-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+<symbol id="hk-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></symbol>
+<symbol id="hk-star" viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.8z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="hk-left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+<symbol id="hk-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+<symbol id="hk-down" viewBox="0 0 24 24"><path d="m5 9 7 7 7-7"/></symbol>
+<symbol id="hk-up" viewBox="0 0 24 24"><path d="m5 15 7-7 7 7"/></symbol>
+<symbol id="hk-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="hk-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+<symbol id="hk-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+<symbol id="hk-cc" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.5 10.2a2.2 2.2 0 1 0 0 3.6M17.5 10.2a2.2 2.2 0 1 0 0 3.6"/></symbol>
+<symbol id="hk-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></symbol>
+<symbol id="hk-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+<symbol id="hk-tv" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="m8 2.5 4 3.5 4-3.5"/></symbol>
+<symbol id="hk-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol>
+<symbol id="hk-flame" viewBox="0 0 24 24"><path d="M12 21c-3.9 0-6.5-2.7-6.5-6.2 0-3.4 2.4-5.4 3.6-8.3.5 1.9 1.6 3 2.7 3.4C12 7 13 4.6 15 3c.2 3.1 3.5 5.6 3.5 10.6 0 4.2-2.7 7.4-6.5 7.4z"/></symbol>
+<symbol id="hk-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+<symbol id="hk-eyeoff" viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 6.2A9.6 9.6 0 0 1 12 6c5 0 8.5 4 9.5 6-.4.8-1.3 2.2-2.6 3.5M6.6 7.6C4.6 8.9 3.2 10.7 2.5 12c1 2 4.5 6 9.5 6 1.6 0 3-.4 4.2-1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+<symbol id="hk-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1" fill="currentColor"/><circle cx="4.5" cy="12" r="1" fill="currentColor"/><circle cx="4.5" cy="18" r="1" fill="currentColor"/></symbol>
+<symbol id="hk-history" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7L4 8.5"/><path d="M4 4v4.5h4.5M12 8v4l3 2"/></symbol>
+<symbol id="hk-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 13.5a7.7 7.7 0 0 0 0-3l2-1.5-2-3.4-2.4 1a7.6 7.6 0 0 0-2.6-1.5L14 2.5h-4l-.4 2.6A7.6 7.6 0 0 0 7 6.6l-2.4-1-2 3.4 2 1.5a7.7 7.7 0 0 0 0 3l-2 1.5 2 3.4 2.4-1a7.6 7.6 0 0 0 2.6 1.5l.4 2.6h4l.4-2.6a7.6 7.6 0 0 0 2.6-1.5l2.4 1 2-3.4z"/></symbol>
+<symbol id="hk-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+<symbol id="hk-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+<symbol id="hk-spark" viewBox="0 0 24 24"><path d="M12 3c.6 4.2 2.4 6.3 7 7-4.6.7-6.4 2.8-7 7-.6-4.2-2.4-6.3-7-7 4.6-.7 6.4-2.8 7-7z"/><path d="M19 15c.3 1.9 1 2.7 2.5 3-1.5.3-2.2 1.1-2.5 3-.3-1.9-1-2.7-2.5-3 1.5-.3 2.2-1.1 2.5-3z"/></symbol>
+<symbol id="hk-back" viewBox="0 0 24 24"><path d="M19 5v14L9 12zM6 5v14"/></symbol>
+<symbol id="hk-next" viewBox="0 0 24 24"><path d="M5 5v14l10-7zM18 5v14"/></symbol>
+<symbol id="hk-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></symbol>
+<symbol id="hk-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></symbol>
+<symbol id="hk-send" viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></symbol>
+<symbol id="hk-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5h.01"/></symbol>
+<symbol id="hk-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4.5a3.5 3.5 0 0 0 3.6 4M16 6h3.5a3.5 3.5 0 0 1-3.6 4M12 13v4M8.5 21h7M9.5 17h5"/></symbol>
+<symbol id="hk-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+<symbol id="hk-light" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3z"/></symbol>
+<symbol id="hk-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+<symbol id="hk-facebook" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></symbol>
+<symbol id="hk-xlogo" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></symbol>
+<symbol id="hk-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+<symbol id="hk-telegram" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></symbol>
+<symbol id="hk-reddit" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12C24 5.373 18.627 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></symbol>
+<symbol id="hk-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></symbol>
+<symbol id="hk-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m8.8 12.2 2.3 2.3 4.3-4.6"/></symbol>
+</svg>
+<div class="hk-nb" id="hk-nb" role="region" aria-label="Announcement">
+  <div class="hk-wrap hk-nb__in">
+    <span class="hk-nb__badge"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-bell"/></svg><span>New</span></span>
+    <p class="hk-nb__txt">New on Hianime, <span class="hk-nb__date">updated Nov 3</span>. See what&#039;s new!</p>
+    <div class="hk-nb__acts">
+      <button type="button" class="hk-nb__go" data-hk-nb-more>See what&#039;s new<svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-right"/></svg></button>
+      <button type="button" class="hk-nb__ok" data-hk-nb-ok aria-label="Close announcement" title="Close"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-x"/></svg></button>
+    </div>
+  </div>
+</div>
+<dialog class="hk-nbd" id="hk-nb-dlg" aria-labelledby="hk-nbd-h">
+  <div class="hk-nbd__head">
+    <span class="hk-nbd__ico"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-bell"/></svg></span>
+    <h2 class="hk-nbd__h" id="hk-nbd-h">What&rsquo;s new on <span>Hianime</span></h2>
+    <button type="button" class="hk-nbd__x" data-hk-nb-shut aria-label="Close"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-x"/></svg></button>
+  </div>
+  <div class="hk-nbd__body"><h3>Help Hianime grow</h3><p>Share the site with your friends. Make a short <strong>TikTok</strong>, <strong>Instagram</strong> or <strong>YouTube Shorts</strong> video with Hianime in it.</p><h3>Updated Nov 3</h3><ul><li>x on Continue watching</li><li>Select mode in My List</li><li>Show my time in schedule</li><li>Better dub search</li></ul><h3>Oct 25</h3><ul><li>Pick your accent colour</li><li>Install the app</li><li>All favorites now show</li><li>Switch player, keep place</li><li>More dubs found</li></ul><h3>Oct 22</h3><ul><li>Resume your episode</li><li>Skip filler in auto next</li><li>Smarter search</li></ul><h3>Earlier</h3><ul><li><a class="hk-nbd__link" href="/whats-new" target="_blank" rel="noopener">New episode pop-ups</a></li><li>Light look: tap the bulb</li><li><a class="hk-nbd__link" href="/help-me-pick" target="_blank" rel="noopener">Help me pick a show</a></li><li>Top 10 on genre pages</li><li>Posters in the schedule</li><li>Sub/dub counts in My List</li><li>Hide genres you skip</li></ul><p>Got an idea? Open My Anime, tap Requests and send it.</p><h3>Thank you!</h3></div>
+  <div class="hk-nbd__foot">
+    <a class="hk-btn" href="https://hianime.ms/my-board#requests" target="_blank" rel="noopener">Take me there <svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-arrow"/></svg></a>
+    <button type="button" class="hk-btn hk-btn--soft" data-hk-nb-shut>Got it</button>
+  </div>
+</dialog>
+<script nonce="zUWQ+TuZOiIb3QsGVJgTGQ==">
+(function () {
+  var bar = document.getElementById('hk-nb');
+  if (!bar) return;
+  try { if (sessionStorage.getItem('hk.nb.seen') === '1') { bar.remove(); var d0 = document.getElementById('hk-nb-dlg'); if (d0) d0.remove(); return; } } catch (e) {}
+  var dlg = document.getElementById('hk-nb-dlg');
+  bar.addEventListener('click', function (e) {
+    if (e.target.closest('[data-hk-nb-ok]')) {
+      try { sessionStorage.setItem('hk.nb.seen', '1'); } catch (x) {}
+      bar.remove();
+    } else if (e.target.closest('[data-hk-nb-more]') && dlg) {
+      if (dlg.showModal) { dlg.showModal(); } else { dlg.classList.add('hk-nbd--fb'); dlg.setAttribute('open', ''); }
+    }
+  });
+  if (dlg) {
+    dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target.closest('[data-hk-nb-shut]')) { if (dlg.close) { dlg.close(); } else { dlg.removeAttribute('open'); } } });
+  }
+})();
+</script>
+<script nonce="zUWQ+TuZOiIb3QsGVJgTGQ==">
+/* Popup link button waits until the visitor has read to the end of the message (short messages: shown at once). */
+(function () {
+  var dlg = document.getElementById('hk-nb-dlg');
+  if (!dlg) return;
+  var sc = dlg.querySelector('.hk-nbd__body');
+  var go = dlg.querySelector('.hk-nbd__foot a[target]');
+  if (!sc || !go) return;
+  var shown = false;
+  var calm = false;
+  try { calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  go.style.transition = calm ? 'none' : 'opacity .25s ease';
+  go.style.visibility = 'hidden';
+  go.style.opacity = '0';
+  go.style.pointerEvents = 'none';
+  var show = function () {
+    if (shown) return;
+    shown = true;
+    go.style.visibility = '';
+    go.style.pointerEvents = '';
+    go.style.opacity = '1';
+  };
+  var check = function () {
+    if (shown || !dlg.hasAttribute('open') || sc.clientHeight < 1) return;
+    if (sc.scrollHeight - sc.scrollTop - sc.clientHeight <= 6) show();
+  };
+  sc.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+  if (window.ResizeObserver) { new ResizeObserver(check).observe(sc); }
+  document.addEventListener('click', function () { setTimeout(check, 80); setTimeout(check, 350); });
+  if ('MutationObserver' in window) { new MutationObserver(check).observe(dlg, { attributes: true, attributeFilter: ['open'] }); }
+})();
+</script>
+<div id="wrapper">
+<header class="hk-top" id="hk-top">
+  <div class="hk-wrap hk-top__in">
+    <button type="button" class="hk-ibtn hk-ibtn--menu" data-hk-open="drawer" aria-controls="hk-drawer" aria-expanded="false" aria-label="Open menu"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-menu"/></svg></button>
+    <a class="hk-logo" href="/" aria-label="Hianime home">
+      <img src="/templates/hianimev2/assets/images/logo.png" alt="Hianime logo" title="Hianime" width="140" height="34">
+    </a>
+
+    <nav class="hk-nav" aria-label="Main">
+      <a class="hk-nav__a" href="https://hianime.ms/home" title="Watch anime online">Home</a>
+      <details class="hk-pop">
+        <summary>Browse <svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-down"/></svg></summary>
+        <div class="hk-mega">
+          <div>
+            <h3>Types</h3>
+            <div class="hk-mega__list">
+                            <a href="/tv"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-tv"/></svg>TV series</a>
+                            <a href="/movies"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-film"/></svg>Movies</a>
+                            <a href="/ova"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-layers"/></svg>OVA</a>
+                            <a href="/ona"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-globe"/></svg>ONA</a>
+                            <a href="/special"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-spark"/></svg>Specials</a>
+                            <a href="/browse"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-sliders"/></svg>All filters</a>
+            </div>
+          </div>
+          <div>
+            <h3>Charts</h3>
+            <div class="hk-mega__list">
+                            <a href="/top-airing"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-flame"/></svg>Top airing</a>
+                            <a href="/updates"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-clock"/></svg>New episodes</a>
+                            <a href="/most-popular"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-trophy"/></svg>Most popular</a>
+                            <a href="/most-favorite"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-heart"/></svg>Most favorite</a>
+                            <a href="/completed"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-check"/></svg>Completed</a>
+                            <a href="/top-upcoming"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-bell"/></svg>Coming soon</a>
+                          </div>
+          </div>
+          <div>
+            <h3>Genres</h3>
+            <div class="hk-mega__genres">
+                            <a href="https://hianime.ms/genre/action" title="Action anime">Action</a>
+                            <a href="https://hianime.ms/genre/action-adventure" title="Action &amp; Adventure anime">Action &amp; Adventure</a>
+                            <a href="https://hianime.ms/genre/adventure" title="Adventure anime">Adventure</a>
+                            <a href="https://hianime.ms/genre/animation" title="Animation anime">Animation</a>
+                            <a href="https://hianime.ms/genre/avant-garde" title="Avant Garde anime">Avant Garde</a>
+                            <a href="https://hianime.ms/genre/award-winning" title="Award Winning anime">Award Winning</a>
+                            <a href="https://hianime.ms/genre/boys-love" title="Boys Love anime">Boys Love</a>
+                            <a href="https://hianime.ms/genre/cars" title="Cars anime">Cars</a>
+                            <a href="https://hianime.ms/genre/comedy" title="Comedy anime">Comedy</a>
+                            <a href="https://hianime.ms/genre/dementia" title="Dementia anime">Dementia</a>
+                            <a href="https://hianime.ms/genre/demons" title="Demons anime">Demons</a>
+                            <a href="https://hianime.ms/genre/drama" title="Drama anime">Drama</a>
+                            <a href="https://hianime.ms/genre/fantasy" title="Fantasy anime">Fantasy</a>
+                            <a href="https://hianime.ms/genre/game" title="Game anime">Game</a>
+                            <a href="https://hianime.ms/genre/girls-love" title="Girls Love anime">Girls Love</a>
+                            <a href="https://hianime.ms/genre/gourmet" title="Gourmet anime">Gourmet</a>
+                            <a href="https://hianime.ms/genre/harem" title="Harem anime">Harem</a>
+                            <a href="https://hianime.ms/genre/historical" title="Historical anime">Historical</a>
+                            <a href="https://hianime.ms/genre/horror" title="Horror anime">Horror</a>
+                            <a href="https://hianime.ms/genre/isekai" title="Isekai anime">Isekai</a>
+                            <a href="https://hianime.ms/genre/josei" title="Josei anime">Josei</a>
+                            <a href="https://hianime.ms/genre/kids" title="Kids anime">Kids</a>
+                            <a href="https://hianime.ms/genre/magic" title="Magic anime">Magic</a>
+                            <a href="https://hianime.ms/genre/mahou-shoujo" title="Mahou Shoujo anime">Mahou Shoujo</a>
+                            <a href="https://hianime.ms/genre/martial-arts" title="Martial Arts anime">Martial Arts</a>
+                            <a href="https://hianime.ms/genre/mecha" title="Mecha anime">Mecha</a>
+                            <a href="https://hianime.ms/genre/military" title="Military anime">Military</a>
+                            <a href="https://hianime.ms/genre/music" title="Music anime">Music</a>
+                            <a href="https://hianime.ms/genre/mystery" title="Mystery anime">Mystery</a>
+                            <a href="https://hianime.ms/genre/parody" title="Parody anime">Parody</a>
+                            <a href="https://hianime.ms/genre/performing-arts" title="Performing Arts anime">Performing Arts</a>
+                            <a href="https://hianime.ms/genre/police" title="Police anime">Police</a>
+                            <a href="https://hianime.ms/genre/psychological" title="Psychological anime">Psychological</a>
+                            <a href="https://hianime.ms/genre/racing" title="Racing anime">Racing</a>
+                            <a href="https://hianime.ms/genre/romance" title="Romance anime">Romance</a>
+                            <a href="https://hianime.ms/genre/samurai" title="Samurai anime">Samurai</a>
+                            <a href="https://hianime.ms/genre/school" title="School anime">School</a>
+                            <a href="https://hianime.ms/genre/sci-fi" title="Sci Fi anime">Sci Fi</a>
+                            <a href="https://hianime.ms/genre/sci-fi-fantasy" title="Sci-Fi &amp; Fantasy anime">Sci-Fi &amp; Fantasy</a>
+                            <a href="https://hianime.ms/genre/seinen" title="Seinen anime">Seinen</a>
+                            <a href="https://hianime.ms/genre/shoujo" title="Shoujo anime">Shoujo</a>
+                            <a href="https://hianime.ms/genre/shoujo-ai" title="Shoujo Ai anime">Shoujo Ai</a>
+                            <a href="https://hianime.ms/genre/shounen" title="Shounen anime">Shounen</a>
+                            <a href="https://hianime.ms/genre/shounen-ai" title="Shounen Ai anime">Shounen Ai</a>
+                            <a href="https://hianime.ms/genre/slice-of-life" title="Slice of Life anime">Slice of Life</a>
+                            <a href="https://hianime.ms/genre/space" title="Space anime">Space</a>
+                            <a href="https://hianime.ms/genre/sports" title="Sports anime">Sports</a>
+                            <a href="https://hianime.ms/genre/super-power" title="Super Power anime">Super Power</a>
+                            <a href="https://hianime.ms/genre/supernatural" title="Supernatural anime">Supernatural</a>
+                            <a href="https://hianime.ms/genre/suspense" title="Suspense anime">Suspense</a>
+                            <a href="https://hianime.ms/genre/thriller" title="Thriller anime">Thriller</a>
+                            <a href="https://hianime.ms/genre/vampire" title="Vampire anime">Vampire</a>
+                          </div>
+          </div>
+        </div>
+      </details>
+      <a class="hk-nav__a" href="/schedule" title="Anime airing schedule">Schedule</a>
+      <a class="hk-nav__a" href="/az-list" title="Anime list A to Z">A-Z</a>
+      <a class="hk-nav__a" href="/help-me-pick" title="Find an anime by mood, genre or a show you liked">Help me pick</a>
+    </nav>
+
+    <div class="hk-find">
+      <form action="/search" method="get" role="search">
+        <label class="hk-sr" for="hk-q">Search anime</label>
+        <span class="hk-find__ico"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-search"/></svg></span>
+        <input id="hk-q" type="search" name="q" placeholder="Search anime, movies, studios..." autocomplete="off" enterkeyhint="search">
+        <a class="hk-find__filter" href="/browse" title="Filters" aria-label="Open filters"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-sliders"/></svg></a>
+        <button class="hk-find__go" type="submit" aria-label="Search"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-arrow"/></svg></button>
+      </form>
+    </div>
+
+    <div class="hk-tools">
+      <button type="button" class="hk-ibtn hk-ibtn--find" data-hk-open="sheet" aria-controls="hk-sheet" aria-expanded="false" aria-label="Search"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-search"/></svg></button>
+      <a class="hk-ibtn" href="/random" title="Surprise me" aria-label="Random anime" rel="nofollow"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-dice"/></svg></a>
+      <button type="button" class="hk-ibtn hk-look" data-hk-look-btn aria-pressed="false" aria-label="Light look" title="Light look"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-light"/></svg></button>
+      <div class="hk-lang-wrap">
+        <div class="hk-lang" role="group" aria-label="Anime names">
+          <button type="button" data-hk-names="en" class="lit" aria-pressed="true">EN</button>
+          <button type="button" data-hk-names="jp" aria-pressed="false">JP</button>
+        </div>
+      </div>
+      <div class="hk-me hk-me--top">
+        <button type="button" class="hk-me__btn" id="hk-me-btn" aria-haspopup="true" aria-expanded="false" aria-controls="hk-me-menu">
+          <svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-user"/></svg><span class="hk-me__label">My Anime</span>
+          <span class="hk-me__badge" data-hk-unread hidden></span>
+          <span class="hk-me__dot" data-hk-newdot hidden></span>
+        </button>
+        <div class="hk-me__menu" id="hk-me-menu" hidden>
+          <a href="/my-board#continue"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-history"/></svg>Continue watching</a>
+          <a href="/my-board#list"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-list"/></svg>My list</a>
+          <a href="/my-board#favorites"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-heart"/></svg>Favorites</a>
+          <a href="/my-board#alerts"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-bell"/></svg>Notifications <span class="hk-me__n" data-hk-unread-n></span></a>
+          <a href="/whats-new"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-phonebell"/></svg>Device pop-ups <span class="hk-me__state" data-push-menu-state></span></a>
+          <a href="/my-board#requests"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-chat"/></svg>Ask us something</a>
+          <a href="/my-board#settings"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-gear"/></svg>Settings and import</a>
+        </div>
+        <div class="hk-me__tip" data-hk-tip role="dialog" aria-label="My Anime" hidden>
+          <p><b>My Anime is here.</b> Save shows, pick up where you stopped and get told about new episodes. No sign-up needed.</p>
+          <button type="button" data-hk-tip-close>Got it</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="hk-sheet" id="hk-sheet" role="dialog" aria-label="Search">
+  <form action="/search" method="get" role="search">
+    <div class="hk-searchbox">
+      <span class="hk-find__ico"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-search"/></svg></span>
+      <label class="hk-sr" for="hk-q2">Search anime</label>
+      <input id="hk-q2" type="search" name="q" placeholder="Search anime..." autocomplete="off" enterkeyhint="search">
+    </div>
+    <button type="submit" class="hk-btn hk-btn--sm">Go</button>
+    <button type="button" class="hk-ibtn" data-hk-close aria-label="Close search"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-x"/></svg></button>
+  </form>
+</div>
+
+<div class="hk-veil" data-hk-close></div>
+<aside class="hk-drawer" id="hk-drawer" aria-label="Menu">
+  <div class="hk-drawer__head">
+    <img src="/templates/hianimev2/assets/images/logo.png" alt="" width="124" height="30">
+    <button type="button" class="hk-ibtn" data-hk-close aria-label="Close menu"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-x"/></svg></button>
+  </div>
+  <div class="hk-drawer__links">
+    <a href="https://hianime.ms/home"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-home"/></svg>Home</a>
+    <a href="/schedule"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-calendar"/></svg>Schedule</a>
+    <a href="/az-list"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-az"/></svg>A-Z list</a>
+    <a href="/random" rel="nofollow"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-dice"/></svg>Random</a>
+    <a href="/help-me-pick"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-spark"/></svg>Help me pick</a>
+    <a href="/my-board"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-user"/></svg>My Anime</a>
+    <a href="/my-board#alerts"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-bell"/></svg>Notifications</a>
+    <a href="/whats-new"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-phonebell"/></svg>Device pop-ups <span class="hk-me__state" data-push-menu-state></span></a>
+    <button type="button" class="hk-drawer__btn" data-hk-install hidden><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-down"/></svg>Install the app</button>
+  </div>
+  <p class="hk-drawer__note" data-hk-install-note hidden></p>
+  <h3>Types</h3>
+  <div class="hk-drawer__links">
+        <a href="/tv"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-tv"/></svg>TV series</a>
+        <a href="/movies"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-film"/></svg>Movies</a>
+        <a href="/ova"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-layers"/></svg>OVA</a>
+        <a href="/ona"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-globe"/></svg>ONA</a>
+        <a href="/special"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-spark"/></svg>Specials</a>
+        <a href="/browse"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-sliders"/></svg>Filters</a>
+  </div>
+  <h3>Charts</h3>
+  <div class="hk-drawer__links">
+        <a href="/top-airing"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-flame"/></svg>Top airing</a>
+        <a href="/updates"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-clock"/></svg>New episodes</a>
+        <a href="/most-popular"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-trophy"/></svg>Most popular</a>
+        <a href="/most-favorite"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-heart"/></svg>Most favorite</a>
+        <a href="/completed"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-check"/></svg>Completed</a>
+        <a href="/top-upcoming"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-bell"/></svg>Coming soon</a>
+      </div>
+  <h3>Look</h3>
+  <div class="hk-drawer__row">
+    <span>Colours</span>
+    <div class="hk-lang" role="group" aria-label="Look">
+      <button type="button" data-hk-look-set="dark" class="lit" aria-pressed="true">Dark</button>
+      <button type="button" data-hk-look-set="light" aria-pressed="false">Light</button>
+    </div>
+  </div>
+  <div class="hk-drawer__row">
+    <span>Accent</span>
+    <div class="hk-accents" role="group" aria-label="Accent colour">
+      <button type="button" class="hk-accent hk-accent--pink lit" data-hk-accent-set="pink" aria-pressed="true" aria-label="Pink" title="Pink"></button>
+      <button type="button" class="hk-accent hk-accent--violet" data-hk-accent-set="violet" aria-pressed="false" aria-label="Violet" title="Violet"></button>
+      <button type="button" class="hk-accent hk-accent--ocean" data-hk-accent-set="ocean" aria-pressed="false" aria-label="Ocean" title="Ocean"></button>
+      <button type="button" class="hk-accent hk-accent--mint" data-hk-accent-set="mint" aria-pressed="false" aria-label="Mint" title="Mint"></button>
+      <button type="button" class="hk-accent hk-accent--sunset" data-hk-accent-set="sunset" aria-pressed="false" aria-label="Sunset" title="Sunset"></button>
+      <button type="button" class="hk-accent hk-accent--lime" data-hk-accent-set="lime" aria-pressed="false" aria-label="Lime" title="Lime"></button>
+    </div>
+  </div>
+  <div class="hk-drawer__row">
+    <span>Dark background</span>
+    <div class="hk-accents" role="group" aria-label="Dark background">
+      <button type="button" class="hk-accent hk-accent--graphite lit" data-hk-bg-set="default" aria-pressed="true" aria-label="Graphite" title="Graphite"></button>
+      <button type="button" class="hk-accent hk-accent--midnight" data-hk-bg-set="midnight" aria-pressed="false" aria-label="Midnight" title="Midnight"></button>
+      <button type="button" class="hk-accent hk-accent--plum" data-hk-bg-set="plum" aria-pressed="false" aria-label="Plum" title="Plum"></button>
+    </div>
+  </div>
+  <h3>Anime names</h3>
+  <div class="hk-drawer__row">
+    <span>Show titles in</span>
+    <div class="hk-lang" role="group" aria-label="Anime names">
+      <button type="button" data-hk-names="en" class="lit" aria-pressed="true">EN</button>
+      <button type="button" data-hk-names="jp" aria-pressed="false">JP</button>
+    </div>
+  </div>
+  <h3>Genres</h3>
+  <div class="hk-chips">
+        <a class="hk-chip" href="https://hianime.ms/genre/action">Action</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/action-adventure">Action &amp; Adventure</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/adventure">Adventure</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/animation">Animation</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/avant-garde">Avant Garde</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/award-winning">Award Winning</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/boys-love">Boys Love</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/cars">Cars</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/comedy">Comedy</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/dementia">Dementia</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/demons">Demons</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/drama">Drama</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/fantasy">Fantasy</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/game">Game</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/girls-love">Girls Love</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/gourmet">Gourmet</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/harem">Harem</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/historical">Historical</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/horror">Horror</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/isekai">Isekai</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/josei">Josei</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/kids">Kids</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/magic">Magic</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/mahou-shoujo">Mahou Shoujo</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/martial-arts">Martial Arts</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/mecha">Mecha</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/military">Military</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/music">Music</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/mystery">Mystery</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/parody">Parody</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/performing-arts">Performing Arts</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/police">Police</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/psychological">Psychological</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/racing">Racing</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/romance">Romance</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/samurai">Samurai</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/school">School</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/sci-fi">Sci Fi</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/sci-fi-fantasy">Sci-Fi &amp; Fantasy</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/seinen">Seinen</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/shoujo">Shoujo</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/shoujo-ai">Shoujo Ai</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/shounen">Shounen</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/shounen-ai">Shounen Ai</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/slice-of-life">Slice of Life</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/space">Space</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/sports">Sports</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/super-power">Super Power</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/supernatural">Supernatural</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/suspense">Suspense</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/thriller">Thriller</a>
+        <a class="hk-chip" href="https://hianime.ms/genre/vampire">Vampire</a>
+      </div>
+</aside>
+<div class="hk-npromo">
+  <a href="/whats-new" title="Get new-episode notifications"><picture><source media="(max-width: 600px)" srcset="/whats-new/img/notify-strip-phone" width="360" height="100"><img src="/whats-new/img/notify-strip-wide" width="728" height="90" alt="New: get a pop-up when your show's next episode is out. See how." decoding="async"></picture></a>
+</div>
+<main id="main-content" class="hk-main">
+<div class="hk-wrap hk-page">
+  <section class="hk-lost" aria-labelledby="hk-lost-h">
+    <div class="hk-lost__art" aria-hidden="true">
+      <svg viewBox="0 0 220 160" width="220" height="160">
+        <rect x="20" y="22" width="180" height="116" rx="18" fill="none" stroke="currentColor" stroke-width="3" opacity=".35"/>
+        <path d="M20 52h180" stroke="currentColor" stroke-width="3" opacity=".35"/>
+        <circle cx="40" cy="37" r="4" fill="currentColor" opacity=".5"/><circle cx="54" cy="37" r="4" fill="currentColor" opacity=".5"/>
+        <text x="110" y="112" text-anchor="middle" font-size="54" font-weight="800" fill="currentColor">404</text>
+      </svg>
+    </div>
+    <h1 id="hk-lost-h">This page wandered off</h1>
+    <p>The link may be old, or the show moved to a new address. Search for it, or start again from the home page.</p>
+    <form class="hk-seek__box hk-searchbox" action="/search" method="get" role="search">
+      <label class="hk-sr" for="hk-lost-q">Search anime</label>
+      <span class="hk-find__ico"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-search"/></svg></span>
+      <input id="hk-lost-q" type="search" name="q" placeholder="Search anime..." autocomplete="off">
+      <button type="submit" class="hk-btn hk-btn--sm">Search</button>
+    </form>
+    <div class="hk-chips">
+      <a class="hk-chip lit" href="https://hianime.ms/home">Home</a>
+      <a class="hk-chip" href="/browse">Browse</a>
+      <a class="hk-chip" href="/top-airing">Top airing</a>
+      <a class="hk-chip" href="/schedule">Schedule</a>
+      <a class="hk-chip" href="/random" rel="nofollow">Random pick</a>
+    </div>
+  </section>
+</div>
+</main>
+<footer class="hk-foot" role="contentinfo">
+  <div class="hk-wrap">
+    <nav class="hk-foot__az" aria-label="Titles by letter">
+      <strong>A-Z</strong>
+      <div class="hk-chips">
+        <a href="/az-list">All</a>
+                <a href="/az-list?letter=a">A</a>
+                <a href="/az-list?letter=b">B</a>
+                <a href="/az-list?letter=c">C</a>
+                <a href="/az-list?letter=d">D</a>
+                <a href="/az-list?letter=e">E</a>
+                <a href="/az-list?letter=f">F</a>
+                <a href="/az-list?letter=g">G</a>
+                <a href="/az-list?letter=h">H</a>
+                <a href="/az-list?letter=i">I</a>
+                <a href="/az-list?letter=j">J</a>
+                <a href="/az-list?letter=k">K</a>
+                <a href="/az-list?letter=l">L</a>
+                <a href="/az-list?letter=m">M</a>
+                <a href="/az-list?letter=n">N</a>
+                <a href="/az-list?letter=o">O</a>
+                <a href="/az-list?letter=p">P</a>
+                <a href="/az-list?letter=q">Q</a>
+                <a href="/az-list?letter=r">R</a>
+                <a href="/az-list?letter=s">S</a>
+                <a href="/az-list?letter=t">T</a>
+                <a href="/az-list?letter=u">U</a>
+                <a href="/az-list?letter=v">V</a>
+                <a href="/az-list?letter=w">W</a>
+                <a href="/az-list?letter=x">X</a>
+                <a href="/az-list?letter=y">Y</a>
+                <a href="/az-list?letter=z">Z</a>
+              </div>
+    </nav>
+    <div class="hk-foot__grid">
+      <div class="hk-foot__brand">
+        <a href="/" aria-label="Hianime home" title="Hianime"><img src="/templates/hianimev2/assets/images/logo.png" alt="Hianime logo" width="148" height="36" loading="lazy"></a>
+        <p>Hianime is where we keep anime easy: one search box, sub or dub on every page that has it, and a free My Anime list that remembers where you stopped.</p>
+      </div>
+      <div class="hk-foot__col">
+        <h3>Watch</h3>
+        <a href="https://hianime.ms/home" title="Hianime home">Watch anime online</a>
+        <a href="/tv" title="All anime series">Anime series</a>
+        <a href="/movies" title="All anime movies">Anime movies</a>
+        <a href="/browse" title="Filter by type, year, genre and score">Browse with filters</a>
+      </div>
+      <div class="hk-foot__col">
+        <h3>Charts</h3>
+        <a href="/top-airing" title="Top airing anime">Top airing anime</a>
+        <a href="/updates" title="Newest anime episodes">New anime episodes</a>
+        <a href="/most-popular" title="Most popular anime">Most popular anime</a>
+        <a href="/completed" title="Completed anime series">Completed anime</a>
+      </div>
+      <div class="hk-foot__col">
+        <h3>Handy</h3>
+        <a href="/schedule" title="This week's anime airing schedule">Anime airing schedule</a>
+        <a href="/az-list" title="Every anime from A to Z">Anime list A-Z</a>
+        <a href="/my-board">My Anime</a>
+        <a href="/my-board#requests">Request an anime</a>
+        <a href="/random" rel="nofollow">Random pick</a>
+      </div>
+      <div class="hk-foot__col">
+        <h3>Genres</h3>
+        <a href="https://hianime.ms/genre/action" title="Action anime online">Action anime</a>
+        <a href="https://hianime.ms/genre/romance" title="Romance anime online">Romance anime</a>
+        <a href="https://hianime.ms/genre/comedy" title="Comedy anime online">Comedy anime</a>
+        <a href="https://hianime.ms/genre/fantasy" title="Fantasy anime online">Fantasy anime</a>
+        <a href="https://hianime.ms/genre/isekai" title="Isekai anime online">Isekai anime</a>
+      </div>
+    </div>
+    <div class="hk-foot__base">
+      <p>Hianime does not host any video. Every episode on this site is streamed from outside players that are already public on the web, and we simply point to them. Copyright stays with the people who made the shows.</p>
+      <p>&copy; 2026 Hianime</p>
+    </div>
+  </div>
+</footer>
+
+<nav class="hk-dock" aria-label="Quick">
+  <a href="https://hianime.ms/home" class=""><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-home"/></svg>Home</a>
+  <button type="button" data-hk-open="drawer" aria-controls="hk-drawer" aria-expanded="false"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-grid"/></svg>Browse</button>
+  <button type="button" data-hk-open="sheet" aria-controls="hk-sheet" aria-expanded="false"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-search"/></svg>Search</button>
+  <a href="/schedule" class=""><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-calendar"/></svg>Schedule</a>
+  <a href="/my-board" class=""><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-user"/></svg>My Anime<span class="hk-me__badge" data-hk-unread hidden></span></a>
+</nav>
+<button type="button" class="hk-totop" data-hk-top aria-label="Back to top"><svg class="hk-i" aria-hidden="true" focusable="false"><use href="#hk-up"/></svg></button>
+</div>
+<script type="application/ld+json" nonce="zUWQ+TuZOiIb3QsGVJgTGQ==">{"@context":"https://schema.org","@type":"Organization","@id":"https://hianime.ms/#organization","name":"Hianime","url":"https://hianime.ms","logo":"https://hianime.ms/templates/hianimev2/assets/images/logo.png","alternateName":["Hi Anime"]}</script>
+<script src="/templates/hianimev2/assets/js/main.js?v=1794339311" defer></script>
+<div id="pf-root" hidden
+     data-api="/api/drerkf"
+     data-page="/my-board"
+     data-name-key="hk.names"
+     data-push="BCqkZV0vsLjjtC8JyRk23GP4yPvYMaNkDPd-Wt4gy_m99eXXKrcbR2TQW9vlYY0HvDLSiPUDh2aOfpiDqMc0YRM"
+     data-guide="/whats-new"
+     data-servers="[[&quot;backup&quot;,&quot;Ryu&quot;],[&quot;vidnest&quot;,&quot;Volt&quot;],[&quot;tryembed&quot;,&quot;Warp&quot;],[&quot;vidnest-pahe&quot;,&quot;Ayame&quot;]]"></div>
+<script src="/templates/hianimev2/assets/js/profile.js?v=1794507967" defer></script>
+</body>
+</html>

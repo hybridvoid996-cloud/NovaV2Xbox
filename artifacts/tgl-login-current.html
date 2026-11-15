@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TGLSC | Register</title>
+<link rel="stylesheet" href="/assets/data/css/data.nv.css">
+<style>
+@font-face { font-family: 'Figtree'; src: url('/assets/data/webfonts/Figtree-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Figtree'; src: url('/assets/data/webfonts/Figtree-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Figtree'; src: url('/assets/data/webfonts/Figtree-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Figtree'; src: url('/assets/data/webfonts/Figtree-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Figtree'; src: url('/assets/data/webfonts/Figtree-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Figtree'; src: url('/assets/data/webfonts/Figtree-ExtraBold.woff2') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Figtree'; src: url('/assets/data/webfonts/Figtree-Black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+
+:root {
+  --text: #ffffff;
+  --text-2: #aaaaaa;
+  --accent: #22d3ee;
+  --accent-dim: rgba(34,211,238,0.12);
+  --accent-border: rgba(34,211,238,0.3);
+  --border-3: rgba(255,255,255,0.08);
+  --err: #ef4444;
+  --err-dim: rgba(239,68,68,0.1);
+  --err-border: rgba(239,68,68,0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, *, *::before, *::after {
+  font-family: "Figtree", system-ui, sans-serif !important;
+}
+
+html, body {
+  height: 100%; width: 100%;
+  background: transparent;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.page-wrap {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.left-panel {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  background-image: url('image_reg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.left-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.right-panel {
+  width: 420px;
+  min-width: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 28px;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-left: 1px solid var(--border-3);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 360px;
+}
+
+.box { width: 100%; }
+
+.logo {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.logo h1 {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo p {
+  font-size: 12px;
+  color: var(--text-2);
+  margin-top: 6px;
+  letter-spacing: 0.04em;
+}
+
+.tabs {
+  display: flex;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-3);
+  border-radius: 14px;
+  padding: 4px;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.tab {
+  flex: 1;
+  padding: 9px 14px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+  cursor: pointer;
+  border-radius: 10px;
+  transition: color 0.2s ease;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 0.03em;
+  border: 1px solid transparent;
+}
+
+.tab.active {
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-color: var(--accent-border);
+}
+
+.views-viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+.views-track {
+  display: flex;
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.view-slide {
+  min-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.view { display: none; flex-direction: column; }
+.view.active { display: flex; animation: fadeIn 0.3s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.form-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  min-height: 190px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+}
+
+.field label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrap input {
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-3);
+  border-radius: 11px;
+  padding: 12px 40px 12px 14px;
+  font-size: 13px;
+  color: var(--text);
+  transition: background 0.2s ease, border-color 0.2s ease;
+  outline: none;
+}
+
+.input-wrap input::placeholder { color: rgba(255,255,255,0.3); }
+.input-wrap input:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12); }
+.input-wrap input:focus { background: var(--accent-dim); border-color: var(--accent-border); }
+
+.input-spinner {
+  position: absolute;
+  right: 12px;
+  width: 15px;
+  height: 15px;
+  border: 2px solid transparent;
+  border-top-color: var(--accent);
+  border-right-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s cubic-bezier(0.4,0,0.2,1) infinite;
+  display: none;
+}
+
+.input-wrap.loading .input-spinner { display: block; }
+
+.otp-boxes {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+}
+
+.otp-box {
+  width: 44px;
+  height: 50px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-3);
+  border-radius: 11px;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  outline: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  caret-color: var(--accent);
+}
+
+.otp-box::placeholder { color: rgba(255,255,255,0.15); }
+.otp-box:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12); }
+.otp-box:focus { background: var(--accent-dim); border-color: var(--accent-border); }
+.otp-box.filled { border-color: var(--accent-border); }
+
+.btn-area {
+  margin-top: auto;
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.btn {
+  width: 100%;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  border-radius: 11px;
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+}
+
+.btn:hover:not(:disabled) {
+  background: rgba(34,211,238,0.18);
+  border-color: rgba(34,211,238,0.45);
+}
+
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-ghost {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--border-3);
+  border-radius: 11px;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.12);
+  color: var(--text);
+}
+
+.row { display: flex; gap: 7px; }
+.row .btn-ghost { flex: 1; }
+.row .btn { flex: 1; }
+
+.spinner {
+  width: 17px; height: 17px;
+  border: 2px solid transparent;
+  border-top-color: var(--accent);
+  border-right-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s cubic-bezier(0.4,0,0.2,1) infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.res {
+  font-size: 12px;
+  padding: 9px 11px;
+  border-radius: 9px;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.res.err {
+  background: var(--err-dim);
+  border: 1px solid var(--err-border);
+  color: var(--err);
+}
+
+.res:empty { display: none; }
+
+.forgot-link { text-align: center; }
+.forgot-link a {
+  font-size: 11px;
+  color: var(--text-2);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  letter-spacing: 0.03em;
+}
+.forgot-link a:hover { color: var(--accent); }
+
+.info {
+  font-size: 12px;
+  color: var(--text-2);
+  text-align: center;
+  line-height: 1.5;
+  padding: 0 4px;
+}
+.info b { color: var(--text); font-weight: 600; }
+
+.legal {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 11px;
+  color: var(--text-2);
+  letter-spacing: 0.02em;
+}
+
+.legal a {
+  color: var(--accent);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-weight: 600;
+}
+.legal a:hover { color: #67e8f9; }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modal.open { display: flex; animation: fadeIn 0.2s ease; }
+
+.modal-inner {
+  width: 100%;
+  max-width: 720px;
+  height: 82vh;
+  background: rgba(10,10,10,0.97);
+  border: 1px solid var(--border-3);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-3);
+  flex-shrink: 0;
+}
+
+.modal-close {
+  width: 34px; height: 34px;
+  border-radius: 11px;
+  background: transparent;
+  border: 1px solid var(--border-3);
+  color: var(--text-2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.modal-close:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+
+.modal-iframe-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-iframe-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.18); }
+
+@media (max-width: 900px) {
+  .left-panel { display: none; }
+  .right-panel { width: 100%; min-width: unset; border-left: none; }
+}
+
+@media (max-width: 480px) {
+  .right-panel { padding: 28px 18px; }
+  .logo h1 { font-size: 22px; }
+  .otp-box { width: 38px; height: 46px; font-size: 17px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <div class="left-panel">
+  </div>
+
+  <div class="right-panel">
+    <div class="wrap">
+      <div class="box" id="mainBox">
+
+        <div class="logo">
+          <h1>TGLSC</h1>
+          <p>Sign in or create an account to continue your progress and access the TGLSC ecosystem.</p>
+          <p>Do not use your school email address.</p>
+        </div>
+
+        <div class="tabs" id="mainTabs">
+          <div class="tab active" id="tLi" onclick="mode('login')">Sign In</div>
+          <div class="tab" id="tSu" onclick="mode('signup')">Sign Up</div>
+        </div>
+
+        <div class="views-viewport" id="viewsViewport">
+          <div class="views-track" id="viewsTrack">
+            <div class="view-slide" id="slideLogin">
+              <div class="view active" id="l1">
+                <div class="form-inner">
+                  <div class="field-group">
+                    <div class="field">
+                      <label for="lu">Username or Email</label>
+                      <div class="input-wrap" id="iw-lu">
+                        <input type="text" id="lu" placeholder="Username or email" required autocomplete="username">
+                        <div class="input-spinner"></div>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label for="lp">Password</label>
+                      <div class="input-wrap" id="iw-lp">
+                        <input type="password" id="lp" placeholder="••••••••" required autocomplete="current-password">
+                        <div class="input-spinner"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="res" id="mL1"></div>
+                  <div class="btn-area">
+                    <button type="button" class="btn" id="bL1" onclick="submitL1()">Continue</button>
+                    <div class="forgot-link">
+                      <a onclick="mode('forgot')">Forgot your password?</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="view" id="l2">
+                <div class="form-inner">
+                  <div class="field-group">
+                    <p class="info">We sent a 6-digit code to your email. Enter it below to sign in.</p>
+                    <div class="field">
+                      <label>Verification Code</label>
+                      <div class="otp-boxes" id="otp-l2">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="res" id="mL2"></div>
+                  <div class="btn-area">
+                    <button type="button" class="btn" id="bL2" onclick="submitL2()">Continue</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="view-slide" id="slideSignup">
+              <div class="view active" id="s1">
+                <div class="form-inner">
+                  <div class="field-group">
+                    <div class="field">
+                      <label for="u">Username</label>
+                      <div class="input-wrap" id="iw-u">
+                        <input type="text" id="u" placeholder="yourname" required autocomplete="username">
+                        <div class="input-spinner"></div>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label for="e">Email</label>
+                      <div class="input-wrap" id="iw-e">
+                        <input type="email" id="e" placeholder="you@glseries.net" required autocomplete="email">
+                        <div class="input-spinner"></div>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label for="p">Password</label>
+                      <div class="input-wrap" id="iw-p">
+                        <input type="password" id="p" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password">
+                        <div class="input-spinner"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="res" id="mS1"></div>
+                  <div class="btn-area">
+                    <button type="button" class="btn" id="bS1" onclick="submitS1()">Continue</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="view" id="s2">
+                <div class="form-inner">
+                  <div class="field-group">
+                    <p class="info">Check your inbox for a 6-digit verification code, then enter it below to finish creating your account.</p>
+                    <div class="field">
+                      <label>Verification Code</label>
+                      <div class="otp-boxes" id="otp-s2">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="res" id="mS2"></div>
+                  <div class="btn-area">
+                    <div class="row">
+                      <button type="button" class="btn-ghost" onclick="backToS1()">Back</button>
+                      <button type="button" class="btn" id="bS2" onclick="submitS2()">Continue</button>
+                    </div>
+                    <button type="button" class="btn-ghost" id="bR">Resend Code</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="view-slide" id="slideForgot">
+              <div class="view active" id="fp1">
+                <div class="form-inner">
+                  <div class="field-group">
+                    <p class="info">Enter your email and we'll send you a code to reset your password.</p>
+                    <div class="field">
+                      <label for="fe">Email</label>
+                      <div class="input-wrap" id="iw-fe">
+                        <input type="email" id="fe" placeholder="you@glseries.net" required>
+                        <div class="input-spinner"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="res" id="mF1"></div>
+                  <div class="btn-area">
+                    <div class="row">
+                      <button type="button" class="btn-ghost" onclick="mode('login')">Back</button>
+                      <button type="button" class="btn" id="bF1" onclick="submitF1()">Continue</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="view" id="fp2">
+                <div class="form-inner">
+                  <div class="field-group">
+                    <p class="info">Enter the 6-digit code we sent to your email.</p>
+                    <div class="field">
+                      <label>Verification Code</label>
+                      <div class="otp-boxes" id="otp-fp2">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                        <input class="otp-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="res" id="mF2"></div>
+                  <div class="btn-area">
+                    <div class="row">
+                      <button type="button" class="btn-ghost" onclick="backToF1()">Back</button>
+                      <button type="button" class="btn" id="bF2" onclick="submitF2()">Continue</button>
+                    </div>
+                    <button type="button" class="btn-ghost" id="bFR">Resend Code</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="view" id="fpDecision">
+                <div class="form-inner">
+                  <div class="field-group">
+                    <p class="info">Your recovery code is verified. You can reset your password or continue without changing it.</p>
+                  </div>
+                  <div class="res" id="mFDecision"></div>
+                  <div class="btn-area">
+                    <button type="button" class="btn" onclick="showForgotReset()">Reset Password</button>
+                    <button type="button" class="btn-ghost" onclick="continueAfterForgot()">Continue</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="view" id="fp3">
+                <div class="form-inner">
+                <div class="field-group">
+                    <p class="info">Choose a new password for your account.</p>
+                    <div class="field">
+                      <label for="fpw">New Password</label>
+                      <div class="input-wrap" id="iw-fp">
+                        <input type="password" id="fpw" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password">
+                        <div class="input-spinner"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="res" id="mF3"></div>
+                  <div class="btn-area">
+                    <button type="button" class="btn" id="bF3" onclick="submitF3()">Continue</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="legal">
+          By continuing, you agree to our
+          <a onclick="openLegal()">Terms &amp; Privacy Policy</a>.
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="legalModal">
+  <div class="modal-head">
+    <button class="modal-close" onclick="closeLegal()"><i class="fas fa-x"></i></button>
+  </div>
+  <div class="modal-iframe-wrap">
+    <iframe id="legal-iframe" src="about:blank" title="Terms & Privacy Policy"></iframe>
+  </div>
+</div>
+
+<script>
+const LEGAL_URL = '/assets/applications/datapacks/legal/';
+
+const SLIDE = { login: 0, signup: 1, forgot: 2 };
+let currentMode = 'login';
+
+(function() {
+  try {
+    fetch('/api/user', { credentials: 'include' }).then(r => { if (r.ok) finishAuth(); });
+  } catch {}
+})();
+
+let cE = '', cU = '', fE = '';
+
+function slideTrackTo(index) {
+  document.getElementById('viewsTrack').style.transform = `translateX(-${index * 100}%)`;
+}
+
+function mode(m) {
+  const prev = currentMode;
+  currentMode = m;
+
+  const tabs = document.getElementById('mainTabs');
+
+  if (m === 'forgot') {
+    tabs.style.display = 'none';
+  } else {
+    tabs.style.display = 'flex';
+    document.getElementById('tLi').classList.toggle('active', m === 'login');
+    document.getElementById('tSu').classList.toggle('active', m === 'signup');
+  }
+
+  slideTrackTo(SLIDE[m]);
+
+  if (m === 'forgot') {
+    document.getElementById('fp1').classList.add('active');
+    document.getElementById('fp2').classList.remove('active');
+    document.getElementById('fp3').classList.remove('active');
+    document.getElementById('fpDecision').classList.remove('active');
+  }
+}
+
+function wireOtp(containerId) {
+  const boxes = document.querySelectorAll(`#${containerId} .otp-box`);
+  boxes.forEach((box, i) => {
+    box.addEventListener('input', () => {
+      box.value = box.value.replace(/\D/g, '').slice(-1);
+      box.classList.toggle('filled', box.value !== '');
+      if (box.value && i < boxes.length - 1) boxes[i + 1].focus();
+    });
+    box.addEventListener('keydown', e => {
+      if (e.key === 'Backspace' && !box.value && i > 0) boxes[i - 1].focus();
+    });
+    box.addEventListener('paste', e => {
+      e.preventDefault();
+      const digits = (e.clipboardData.getData('text') || '').replace(/\D/g, '').slice(0, 6);
+      [...digits].forEach((d, j) => {
+        if (boxes[j]) { boxes[j].value = d; boxes[j].classList.add('filled'); }
+      });
+      const next = boxes[Math.min(digits.length, boxes.length - 1)];
+      if (next) next.focus();
+    });
+  });
+}
+
+function getOtp(containerId) {
+  return [...document.querySelectorAll(`#${containerId} .otp-box`)].map(b => b.value).join('');
+}
+
+function clearOtp(containerId) {
+  document.querySelectorAll(`#${containerId} .otp-box`).forEach(b => {
+    b.value = ''; b.classList.remove('filled');
+  });
+}
+
+wireOtp('otp-l2');
+wireOtp('otp-s2');
+wireOtp('otp-fp2');
+
+function openLegal() {
+  const iframe = document.getElementById('legal-iframe');
+  if (iframe.src === 'about:blank' || iframe.src === location.href) iframe.src = LEGAL_URL;
+  document.getElementById('legalModal').classList.add('open');
+}
+
+function closeLegal() {
+  document.getElementById('legalModal').classList.remove('open');
+}
+
+document.getElementById('legalModal').addEventListener('click', function(e) {
+  if (e.target === this) closeLegal();
+});
+
+function msg(id, text) {
+  const el = document.getElementById(id);
+  el.textContent = text;
+  el.className = 'res err';
+}
+
+function clearMsg(id) {
+  const el = document.getElementById(id);
+  el.textContent = '';
+  el.className = 'res';
+}
+
+function setLoading(btnId, loading, label) {
+  const b = document.getElementById(btnId);
+  b.disabled = loading;
+  b.innerHTML = loading ? '<div class="spinner"></div>' : label;
+}
+
+function setInputLoading(wrapId, loading) {
+  const w = document.getElementById(wrapId);
+  if (w) w.classList.toggle('loading', loading);
+}
+
+function finishAuth() {
+  const isEmbedded = new URLSearchParams(window.location.search).get('embedded') === 'true';
+  window.location.replace(isEmbedded ? '/assets/applications/datapacks/profile/' : '/assets/applications/datapacks/profile/');
+}
+
+function backToS1() {
+  document.getElementById('s2').classList.remove('active');
+  document.getElementById('s1').classList.add('active');
+  clearOtp('otp-s2');
+}
+
+function backToF1() {
+  document.getElementById('fp2').classList.remove('active');
+  document.getElementById('fp1').classList.add('active');
+  clearOtp('otp-fp2');
+}
+
+async function apiCall(url, body) {
+  const r = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify(body)
+  });
+  if (r.ok) return true;
+  let err = 'Error';
+  try { err = (await r.json()).error; } catch {}
+  throw new Error(err);
+}
+
+async function submitL1() {
+  const u = document.getElementById('lu').value.trim();
+  const p = document.getElementById('lp').value;
+  clearMsg('mL1');
+  setLoading('bL1', true, 'Continue');
+  setInputLoading('iw-lu', true);
+  setInputLoading('iw-lp', true);
+  try {
+    await apiCall('/api/login/init', { identifier: u, password: p });
+    cU = u;
+    document.getElementById('l1').classList.remove('active');
+    document.getElementById('l2').classList.add('active');
+    document.querySelector('#otp-l2 .otp-box').focus();
+  } catch (err) { msg('mL1', err.message); }
+  setLoading('bL1', false, 'Continue');
+  setInputLoading('iw-lu', false);
+  setInputLoading('iw-lp', false);
+}
+
+async function submitL2() {
+  const c = getOtp('otp-l2');
+  if (c.length < 6) { msg('mL2', 'Please enter the full 6-digit code.'); return; }
+  clearMsg('mL2');
+  setLoading('bL2', true, 'Continue');
+  try {
+    await apiCall('/api/login/verify', { identifier: cU, code: c });
+    setTimeout(finishAuth, 500);
+  } catch (err) {
+    msg('mL2', err.message);
+    setLoading('bL2', false, 'Continue');
+  }
+}
+
+async function submitS1() {
+  const u  = document.getElementById('u').value.trim();
+  const em = document.getElementById('e').value.trim();
+  const p  = document.getElementById('p').value;
+  clearMsg('mS1');
+  setLoading('bS1', true, 'Continue');
+  setInputLoading('iw-u', true);
+  setInputLoading('iw-e', true);
+  setInputLoading('iw-p', true);
+  try {
+    await apiCall('/api/register/init', { username: u, email: em, password: p });
+    cE = em; cU = u;
+    document.getElementById('s1').classList.remove('active');
+    document.getElementById('s2').classList.add('active');
+    document.querySelector('#otp-s2 .otp-box').focus();
+  } catch (err) { msg('mS1', err.message); }
+  setLoading('bS1', false, 'Continue');
+  setInputLoading('iw-u', false);
+  setInputLoading('iw-e', false);
+  setInputLoading('iw-p', false);
+}
+
+async function submitS2() {
+  const c = getOtp('otp-s2');
+  if (c.length < 6) { msg('mS2', 'Please enter the full 6-digit code.'); return; }
+  clearMsg('mS2');
+  setLoading('bS2', true, 'Continue');
+  try {
+    await apiCall('/api/register/verify', { email: cE, code: c });
+    setTimeout(finishAuth, 500);
+  } catch (err) {
+    msg('mS2', err.message);
+    setLoading('bS2', false, 'Continue');
+  }
+}
+
+async function submitF1() {
+  const em = document.getElementById('fe').value.trim();
+  clearMsg('mF1');
+  setLoading('bF1', true, 'Continue');
+  setInputLoading('iw-fe', true);
+  try {
+    await apiCall('/api/forgot/init', { email: em });
+    fE = em;
+    document.getElementById('fp1').classList.remove('active');
+    document.getElementById('fp2').classList.add('active');
+    document.querySelector('#otp-fp2 .otp-box').focus();
+  } catch (err) { msg('mF1', err.message); }
+  setLoading('bF1', false, 'Continue');
+  setInputLoading('iw-fe', false);
+}
+
+async function submitF2() {
+  const c = getOtp('otp-fp2');
+  if (c.length < 6) { msg('mF2', 'Please enter the full 6-digit code.'); return; }
+  clearMsg('mF2');
+  setLoading('bF2', true, 'Continue');
+  try {
+    await apiCall('/api/forgot/verify', { email: fE, code: c });
+    document.getElementById('fp2').classList.remove('active');
+    document.getElementById('fpDecision').classList.add('active');
+  } catch (err) {
+    msg('mF2', err.message);
+    setLoading('bF2', false, 'Continue');
+  }
+}
+
+function showForgotReset() {
+  document.getElementById('fpDecision').classList.remove('active');
+  document.getElementById('fp3').classList.add('active');
+  document.getElementById('fpw').focus();
+}
+
+function continueAfterForgot() {
+  finishAuth();
+}
+
+async function submitF3() {
+  const p = document.getElementById('fpw').value;
+  clearMsg('mF3');
+  setLoading('bF3', true, 'Continue');
+  setInputLoading('iw-fp', true);
+  try {
+    await apiCall('/api/forgot/reset', { password: p });
+    finishAuth();
+  } catch (err) {
+    msg('mF3', err.message);
+    setLoading('bF3', false, 'Continue');
+    setInputLoading('iw-fp', false);
+  }
+}
+
+let cd = false;
+document.getElementById('bR').onclick = async () => {
+  if (cd) return; cd = true;
+  try { await apiCall('/api/register/resend', { email: cE }); } catch {}
+  setTimeout(() => { cd = false; }, 60000);
+};
+
+let fcd = false;
+document.getElementById('bFR').onclick = async () => {
+  if (fcd) return; fcd = true;
+  try { await apiCall('/api/forgot/resend', { email: fE }); } catch {}
+  setTimeout(() => { fcd = false; }, 60000);
+};
+</script>
+</body>
+</html>

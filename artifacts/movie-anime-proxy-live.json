@@ -1,0 +1,15 @@
+[
+  {
+    "provider": "framex",
+    "overlay": true,
+    "errors": [],
+    "requests": [],
+    "states": [
+      {
+        "url": "http://127.0.0.1:8796/novamovies.html",
+        "text": "Back to browsing\n\nReconnecting automatically · attempt 2 of 3\n\nBack to browsing\nOne Piece\n\nS1 · E1 — Episode 1",
+        "media": []
+      }
+    ]
+  }
+]

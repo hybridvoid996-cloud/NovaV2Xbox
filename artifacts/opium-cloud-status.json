@@ -1,0 +1,1 @@
+{"pool":{"idle":19,"creating":1,"targetIdle":20,"createdTotal":3646,"limitStreak":0,"health":{"down":false,"consecutiveFailures":1,"secondsSinceSuccess":47}},"sessions":{"active":8,"queued":0,"total":8},"config":{"max_session_seconds":1140,"sessions_per_ip":5,"session_refill_seconds":12}}

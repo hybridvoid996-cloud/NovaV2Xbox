@@ -1,0 +1,140 @@
+✔ Achcroma preserves movie/TV IDs and anime metadata without disguising TMDB IDs as AniList (1.808ms)
+✔ catalog remains usable when the old sources fail, with TV, anime and pagination reachable (31.3544ms)
+✔ new playback hosts come after every existing provider and preserve TV episode numbering (0.6081ms)
+✔ anime backup matching refuses wrong years, ambiguous titles and incompatible episode layouts (1.456ms)
+✔ recovery reaches the last backup and never switches a successful player (0.8311ms)
+✔ remembered backups remain last, while working primary preferences are retained (0.8268ms)
+✔ site-local anime identifiers are never mistaken for AniList identifiers (1.7782ms)
+✔ anime artwork proxy accepts only the discovered artwork routes (0.4609ms)
+✔ HiAnime playback requires an exact external title identity (0.4972ms)
+✔ provider details retain episode identity and cache verified playback links (31.6062ms)
+✔ mismatched provider details cannot enter playback (0.9693ms)
+✔ anime players receive the selected language before their scripts run (2.3946ms)
+✔ dedicated anime catalog normalizes real metadata and requests a fixed host (33.9138ms)
+✔ empty anime responses are errors rather than successful blank catalogs (1.0222ms)
+✔ anime API caches a successful catalog (3.4534ms)
+✔ anime details require a real title and provide the actual episode count (1.4211ms)
+✔ episode previews use numbered episode metadata and reject unrelated artwork (1.374ms)
+✔ anime falls back through Nova server providers when AniList cannot connect (3.9057ms)
+✔ total provider outage still returns bundled anime listings and known episode details (12.5928ms)
+✔ movie catalog fails over between fixed providers and caches successful results (38.418ms)
+✔ search rejects empty or oversized queries and never accepts arbitrary upstream endpoints (0.4183ms)
+✔ artwork relay permits only movie artwork and rejects credential, redirect-host and local URLs (0.8825ms)
+✔ real catalog and search metadata normalize safely for cards and saved lists (0.5989ms)
+✔ anime artwork is limited to the catalog image host and known cover paths (0.5099ms)
+✔ episode thumbnails allow only the dedicated Crunchyroll thumbnail path (0.2585ms)
+✔ Cno catalog maps into Nova shelves, seasons and episode names (0.9808ms)
+✔ TV catalog preserves distinct comedy, crime, animation and documentary shelves (0.4812ms)
+✔ same-site episode links work while new-tab and external links stay blocked (2.1654ms)
+✔ South Park S29 E4 keeps its typed series and episode on every fallback (2.5041ms)
+✔ wrong show and season episode responses are rejected before rendering (0.3942ms)
+✔ movie guard runs before provider scripts and stops scripted, ordinary and middle-click ads (1.5064ms)
+✔ Continue Watching uses real progress, excludes finished titles, and is private per account (1.3821ms)
+✔ saved episode and timestamp survive reopening and collection edits remain account scoped (4.482ms)
+✔ invalid playback samples do not replace saved progress (0.4252ms)
+✔ catalog merging deduplicates by type and ID and fills missing metadata (0.7573ms)
+✔ watch stats count elapsed playback, ignore seeks, and include movies, TV and anime (0.6898ms)
+✔ Movy metadata preserves typed identity and maps artwork to approved image host (1.0407ms)
+✔ public page parser rejects login/error pages and combines typed shelves (0.6783ms)
+✔ Movy details reject a mismatched title and cache requests (1.6722ms)
+✔ fallback routes keep movie and episode IDs separate and do not send AniList IDs to Movy (1.1439ms)
+✔ Movy keeps the Nova catalog available when other catalogs fail (4.3775ms)
+✔ Spider-Man and other movies have distinct fallback player routes (1.8519ms)
+✔ series preserve the episode and sanitize invalid episode numbers consistently (0.722ms)
+✔ only the failed entry page triggers immediate fallback, not unrelated requests (0.3552ms)
+✔ Cinejoy is reached only after both earlier movie players fail (0.9989ms)
+✔ a missing movie entry advances to fallback and successful playback stays there (0.7284ms)
+✔ readiness and playback progress are detected inside nested provider frames without messages (1.7275ms)
+✔ hidden and tiny advertising frames cannot mark the movie ready (1.039ms)
+✔ inaccessible frames do not prevent checking another provider frame (0.2592ms)
+✔ a nested Vercel error is detected even without provider scripts (0.1679ms)
+✔ a broken secondary frame cannot interrupt healthy playback (0.1998ms)
+✔ a failed player after playback remains recoverable (0.141ms)
+✔ a large empty video cannot hide a smaller working movie player (0.1333ms)
+✔ embedded movie document installs its own theme and session-bound readiness signal (1.6205ms)
+✔ profile text cannot terminate the embedded script, and non-HTML responses remain untouched (0.893ms)
+✔ nested player progress and errors relay only from child frames with the current session (2.7374ms)
+✔ nested provider HTML errors signal recovery for real and soft 404 responses (4.0734ms)
+✖ visible movie shares its title and stable elapsed start, and clears after closing (2.3165ms)
+✖ activity privacy hides movie title and kind, while apps and games retain timed identities (1.6606ms)
+✔ successful provider discovery updates the address without starting a duplicate stream lookup (2.4416ms)
+✔ a working video blocks automatic provider failover while a broken one can recover (2.9237ms)
+✔ recognizes provider deployment and soft 404 pages (0.9335ms)
+✔ ordinary titles, descriptions and missing optional resources are not player failures (0.3244ms)
+✔ a slow first player reconnects automatically, and loaded playback never restarts (1.1383ms)
+✔ repeated connection failures stop after three attempts (1.496ms)
+✔ leaving during a connection disposes its late frame and cancels pending retries (0.2828ms)
+✔ a confirmed lost player can reconnect after readiness, while ordinary late request failures do not interrupt it (0.2719ms)
+✔ useful startup progress keeps a slow laptop player alive, with a bounded total wait (0.2671ms)
+✔ an interactive hint cannot disable the total startup deadline (0.3482ms)
+✔ a transient provider gateway failure retries once within the startup deadline (2.7337ms)
+✔ a stalled startup request expires and aborts its underlying connection (25.7844ms)
+✔ media and range requests retain their original signal without a startup deadline (0.8016ms)
+✔ leaving playback propagates cancellation to startup requests (0.577ms)
+✔ metadata requests share in-flight work and remain reusable as responses (28.0842ms)
+✔ temporary metadata failures recover before returning and cache only the successful retry (1.8102ms)
+✔ HTML deployment pages are retried and never cached as catalog data (2.3885ms)
+✔ a transient missing watch page retries once without retrying missing media (0.4416ms)
+✔ movie metadata retries browser network failures once (1.6093ms)
+✔ confirmed title route goes first while all fallbacks remain and other titles stay independent (1.602ms)
+✔ old results expire and unavailable browser storage does not block playback (0.5157ms)
+✔ movie suggestions prefer exact and prefix matches and rank close spelling ahead of unrelated names (3.2831ms)
+✔ public list metadata preserves typed IDs and validates artwork (1.0732ms)
+✔ only fixed public endpoints are read, cached and filtered (32.3253ms)
+✔ ShuttleTV fallback keeps exact TV season and episode, with no raw AniList routing (0.8711ms)
+✔ ShuttleTV public shelves keep home usable when other catalogs fail (4.6735ms)
+✔ slow sibling catalogs do not hide a ready ShuttleTV catalog (1204.8146ms)
+✔ a stalled native movie retries and reconnects at the same position within 24 seconds (1.4851ms)
+✔ paused, seeking, progressing and ended movies are left alone; HLS blobs are never reloaded (0.4154ms)
+✔ persistent HLS stalls request one player reconnect, while real progress resets the deadline (0.3049ms)
+✔ watch routes embed only the requested movie or episode (0.9382ms)
+✔ anime dub selection is explicit and rejects unsupported audio values (0.3119ms)
+✔ a provider cannot substitute another movie or an anime with a colliding ID (0.3547ms)
+✔ movies share uploaded wallpaper and Nova gradients (1.479ms)
+✔ video wallpapers use their Nova poster to avoid an extra playing video behind movies (0.2491ms)
+ℹ tests 94
+ℹ suites 0
+ℹ pass 92
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1990.267
+
+✖ failing tests:
+
+test at tests\movie-presence.test.mjs:4:1
+✖ visible movie shares its title and stable elapsed start, and clears after closing (2.3165ms)
+  evalmachine.<anonymous>:1
+  (()=>{if(presenceBusy||Date.now()<presenceRetryAt)return;const movieFrame=[...document.querySelectorAll('iframe')].find(f=>f.contentWindow===window.novaWatching?.source&&f.getClientRects().length>0&&getComputedStyle(f).visibility!=='hidden');const source=movieFrame||[...document.querySelectorAll('iframe')].find(f=>/(?:player\.html[?]|search\.html(?:[?#]|$)|novamovies\.html(?:[?#]|$))/.test(f.getAttribute('src')||'')&&!f.hidden&&f.getClientRects().length>0&&getComputedStyle(f).visibility!=='hidden')||document.getElementById('system'),title=source?.title||document.getElementById('panel-title')?.textContent||'',url=source?.getAttribute('src')||'';const visible=source&&!source.hidden&&source.getClientRects().length>0&&getComputedStyle(source).visibility!=='hidden';let active=null;try{const parsed=new URL(url,location.href);if(parsed.pathname.endsWith('/player.html')&&visible&&localStorage.getItem('nova_chat_activity')!=='false')active={kind:parsed.searchParams.get('kind')||'game',id:parsed.searchParams.get('id')||''}}catch{}if(visible&&!active&&/search\.html(?:[?#]|$)/.test(url))active={kind:'search',id:'nova-search'};const watching=window.novaWatching;if(watching&&movieFrame===source&&visible&&/novamovies\.html(?:[?#]|$)/.test(url))active={kind:'movie',id:watching.id,title:watching.title};if(localStorage.getItem('nova_chat_activity')==='false')active=null;const identity=active?active.kind+':'+active.id:'';if(identity!==playingIdentity){playingIdentity=identity;playingSince=Date.now()}const value={online:true,updatedAt:serverTimestamp(),activity:localStorage.getItem('nova_chat_activity')==='false'?'':active?(active.title||title).slice(0,150):visible?title.slice(0,150):!document.getElementById('panel')?.hidden&&document.getElementById('panel')?.dataset.view==='music'?'Nova Music':''};Object.assign(value,sharedActivity(window.NovaRecent?.list()||[],window.NovaMusic?.activity,localStorage.getItem('nova_chat_activity')!=='false'&&chatProfiles[user.uid]?.status!=='offline'));if(chatProfiles[user.uid]?.status==='offline'){value.activity='';active=null}if(active)Object.assign(value,{activityId:active.id.slice(0,128),activityKind:active.kind,activityStartedAt:playingSince});presenceBusy=true;set(p,value).catch(async()=>{presenceRetryAt=Date.now()+60000;const {control}=await import('./control-client.js');await control('presenceUpdate',{presence:value}).catch(()=>{})}).finally(()=>{presenceBusy=false})})();
+        ^
+  
+  ReferenceError: presenceBusy is not defined
+      at evalmachine.<anonymous>:1:7
+      at evalmachine.<anonymous>:1:2434
+      at Script.runInContext (node:vm:149:12)
+      at Script.runInNewContext (node:vm:154:17)
+      at Object.runInNewContext (node:vm:310:38)
+      at fixture (file:///C:/Users/willi/OneDrive/Documents/NovaV2/tests/movie-presence.test.mjs:3:831)
+      at TestContext.<anonymous> (file:///C:/Users/willi/OneDrive/Documents/NovaV2/tests/movie-presence.test.mjs:4:103)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.start (node:internal/test_runner/test:1257:17)
+
+test at tests\movie-presence.test.mjs:5:1
+✖ activity privacy hides movie title and kind, while apps and games retain timed identities (1.6606ms)
+  evalmachine.<anonymous>:1
+  (()=>{if(presenceBusy||Date.now()<presenceRetryAt)return;const movieFrame=[...document.querySelectorAll('iframe')].find(f=>f.contentWindow===window.novaWatching?.source&&f.getClientRects().length>0&&getComputedStyle(f).visibility!=='hidden');const source=movieFrame||[...document.querySelectorAll('iframe')].find(f=>/(?:player\.html[?]|search\.html(?:[?#]|$)|novamovies\.html(?:[?#]|$))/.test(f.getAttribute('src')||'')&&!f.hidden&&f.getClientRects().length>0&&getComputedStyle(f).visibility!=='hidden')||document.getElementById('system'),title=source?.title||document.getElementById('panel-title')?.textContent||'',url=source?.getAttribute('src')||'';const visible=source&&!source.hidden&&source.getClientRects().length>0&&getComputedStyle(source).visibility!=='hidden';let active=null;try{const parsed=new URL(url,location.href);if(parsed.pathname.endsWith('/player.html')&&visible&&localStorage.getItem('nova_chat_activity')!=='false')active={kind:parsed.searchParams.get('kind')||'game',id:parsed.searchParams.get('id')||''}}catch{}if(visible&&!active&&/search\.html(?:[?#]|$)/.test(url))active={kind:'search',id:'nova-search'};const watching=window.novaWatching;if(watching&&movieFrame===source&&visible&&/novamovies\.html(?:[?#]|$)/.test(url))active={kind:'movie',id:watching.id,title:watching.title};if(localStorage.getItem('nova_chat_activity')==='false')active=null;const identity=active?active.kind+':'+active.id:'';if(identity!==playingIdentity){playingIdentity=identity;playingSince=Date.now()}const value={online:true,updatedAt:serverTimestamp(),activity:localStorage.getItem('nova_chat_activity')==='false'?'':active?(active.title||title).slice(0,150):visible?title.slice(0,150):!document.getElementById('panel')?.hidden&&document.getElementById('panel')?.dataset.view==='music'?'Nova Music':''};Object.assign(value,sharedActivity(window.NovaRecent?.list()||[],window.NovaMusic?.activity,localStorage.getItem('nova_chat_activity')!=='false'&&chatProfiles[user.uid]?.status!=='offline'));if(chatProfiles[user.uid]?.status==='offline'){value.activity='';active=null}if(active)Object.assign(value,{activityId:active.id.slice(0,128),activityKind:active.kind,activityStartedAt:playingSince});presenceBusy=true;set(p,value).catch(async()=>{presenceRetryAt=Date.now()+60000;const {control}=await import('./control-client.js');await control('presenceUpdate',{presence:value}).catch(()=>{})}).finally(()=>{presenceBusy=false})})();
+        ^
+  
+  ReferenceError: presenceBusy is not defined
+      at evalmachine.<anonymous>:1:7
+      at evalmachine.<anonymous>:1:2434
+      at Script.runInContext (node:vm:149:12)
+      at Script.runInNewContext (node:vm:154:17)
+      at Object.runInNewContext (node:vm:310:38)
+      at fixture (file:///C:/Users/willi/OneDrive/Documents/NovaV2/tests/movie-presence.test.mjs:3:831)
+      at TestContext.<anonymous> (file:///C:/Users/willi/OneDrive/Documents/NovaV2/tests/movie-presence.test.mjs:5:111)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)

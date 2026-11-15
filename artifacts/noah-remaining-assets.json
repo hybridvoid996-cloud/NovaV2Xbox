@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Spore",
+    "url": "https://noahstutoring.academy/library/spore/sporeweb.js?v=20261106-2105",
+    "status": 200,
+    "bytes": 5029
+  },
+  {
+    "name": "Find the Needle",
+    "url": "https://cdn.jsdelivr.net/gh/Nawsif/FindTheNeedle@96ef2302a69bf7b305454708db2d6b41f88d4849/web-browser-controls.js?v=ee19df007ee198d0",
+    "status": 200,
+    "bytes": 1237
+  },
+  {
+    "name": "Find the Needle",
+    "url": "https://cdn.jsdelivr.net/gh/Nawsif/FindTheNeedle@96ef2302a69bf7b305454708db2d6b41f88d4849/split-assets.js?v=e825cb062b0758c3",
+    "status": 200,
+    "bytes": 14911
+  },
+  {
+    "name": "Find the Needle",
+    "url": "https://cdn.jsdelivr.net/gh/Nawsif/FindTheNeedle@96ef2302a69bf7b305454708db2d6b41f88d4849/index.js",
+    "status": 200,
+    "bytes": 2859484
+  },
+  {
+    "name": "POSTAL 2",
+    "url": "https://cdn.jsdelivr.net/gh/thirstygithub/postal2@8b9487aca31a558c5ed1eda7a161a64b361e4912/postal2-data.js?v=896efe0b8ab1",
+    "status": 200,
+    "bytes": 10280
+  },
+  {
+    "name": "POSTAL 2",
+    "url": "https://cdn.jsdelivr.net/gh/thirstygithub/postal2@8b9487aca31a558c5ed1eda7a161a64b361e4912/postal2.js",
+    "status": 200,
+    "bytes": 317169
+  },
+  {
+    "name": "POSTAL 2",
+    "url": "https://cdn.jsdelivr.net/gh/thirstygithub/postal2@8b9487aca31a558c5ed1eda7a161a64b361e4912/postal2-controls.js",
+    "status": 200,
+    "bytes": 7230
+  },
+  {
+    "name": "Team Fortress 2",
+    "url": "https://cdn.jsdelivr.net/gh/ytsodacan/tf2-build@main/tf2_launcher.js",
+    "status": 200,
+    "bytes": 580019
+  }
+]

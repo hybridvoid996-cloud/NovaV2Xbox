@@ -1,0 +1,17 @@
+[
+  {
+    "file": "spore.js",
+    "status": 200,
+    "type": "text/javascript; charset=utf-8"
+  },
+  {
+    "file": "spore.wasm",
+    "status": 200,
+    "type": "application/wasm"
+  },
+  {
+    "file": "sporeweb.js?v=20261106-2105",
+    "status": 200,
+    "type": "text/javascript; charset=utf-8"
+  }
+]

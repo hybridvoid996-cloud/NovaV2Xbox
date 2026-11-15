@@ -1,5 +1,22 @@
 # Nova Roblox launcher — 2026-11-13
 
+## Independent implementation investigation — 2026-11-14
+
+The current request is to reproduce the browser-play architecture on Nova without depending on TGLSC/321. The experimental direct-provider launch button from this investigation was removed before any commit or publication; it does not meet that requirement.
+
+Observed in the signed-in provider's rendered documents:
+
+- The game page loads Roblox `WebClient.js` and `WasmPlayer.js` from an encoded Roblox CDN route, a `WasmLoader.js`, and provider-specific `cobalt.js`, `tglscrblx-cobalt-bridge.js`, `hook.js` and `launcher/loader-client.js`. The page configures a worker stub and a WebAssembly memory limit. This is an in-browser engine, not just an iframe around an installed desktop player.
+- Its loader requires a service worker whose script URL includes `tglscrblx-sw.js`; the bridge's readiness promise and active worker are prerequisites for starting. Nova's pinned Scramjet implementation removes `Navigator.prototype.serviceWorker` in `packages/core/src/client/shared/chrome.ts`. Thus wrapping this player in the existing proxy cannot provide the worker it expects. Exposing the host's real worker interface to proxied content is not a substitute for safe worker emulation.
+- The visible client calls provider-owned `/_rbx/` endpoints for launch information and session handling. The browser document is not the implementation of these backend endpoints. No backend source repository or supported self-hosting package was identified in the focused search.
+- The launcher validates a Place ID and a signed-in identity before constructing the observed `index.html?placeId=189707&loader=client&popup=1` destination. The query parameters select a game and loader; they do not replace authentication or the provider's bridge.
+- The direct provider route reached Natural Disaster Survival's live world; the welcome dialog was dismissed and movement input was exercised. This verifies the provider route only, not an independent Nova engine or proxied gameplay. The provider also rejects a second concurrent game tab.
+- Unauthenticated player responses advertise `frame-ancestors 'self'`, `X-Frame-Options: SAMEORIGIN`, COOP `same-origin`, and COEP `require-corp`.
+
+An independent implementation needs an authorized way to host/use Roblox's web client, a dedicated worker and asset transport, and a supported authenticated join flow. The public announcement currently describes creator testing of owned/authorized experiences, not a third-party all-games embedding SDK: https://devforum.roblox.com/t/creators-can-test-games-on-the-web/4964592 . The official route previously returned 524 for the example game. The observed private bridge does not establish how that difference is handled server-side. Do not claim that a standalone Nova implementation works, or substitute a provider link for it.
+
+No credentials, cookies, session values, join tickets, or private account storage were extracted during this inspection. Existing staff access checks and the previously deployed launcher are unchanged.
+
 ## Official Web Play option — 2026-11-14
 - Owner/admin launcher now offers **Official Web Play** after the existing server access check. Accepts a numeric Place ID or a Roblox experience URL and constructs only `https://play.roblox.com/games/start?placeId=...`; unrelated parameters and credentials are never forwarded.
 - Opens directly in a user-initiated new tab, keeping official Roblox authentication first-party and separate from Nova's proxy. The existing TGLSC proxied launcher is unchanged. No Roblox account cookies, session tokens, client code or service credentials were copied.

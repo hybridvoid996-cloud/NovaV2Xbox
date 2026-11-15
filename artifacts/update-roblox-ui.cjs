@@ -1,0 +1,5 @@
+const fs=require('fs');
+let f='Public/src/roblox.mjs',s=fs.readFileSync(f,'utf8');
+s=s.replace('This provider requires TGLSC sign-in and your Roblox session token to play. Your token grants account access: enter it only on the provider’s Session page, never in Nova chat.','Sign into the provider, then connect Roblox on its Session page. It offers email/code sign-in and an optional session value. Enter account information only on that provider page; never send passwords, codes or session tokens in Nova chat.');fs.writeFileSync(f,s);
+f='Public/roblox.html';s=fs.readFileSync(f,'utf8').replace('<button id="signin">Provider sign-in</button>','<button id="signin">Provider sign-in</button><button id="roblox-signin">Connect Roblox</button>').replace('connection.js?v=20261113-roblox','connection.js?v=20261114-roblox2').replace('src="/src/roblox.mjs"','src="/src/roblox.mjs?v=20261114-roblox2"');fs.writeFileSync(f,s);
+f='Public/src/connection.js';s=fs.readFileSync(f,'utf8').replace('roblox-launcher-compat.mjs?v=20261113','roblox-launcher-compat.mjs?v=20261114-roblox2');fs.writeFileSync(f,s);

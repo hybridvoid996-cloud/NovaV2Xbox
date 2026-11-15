@@ -17,17 +17,19 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
   async function start() {
     if (stream) { panel.classList.remove('minimized'); return; }
     if (starting) return;
-    if (!navigator.mediaDevices?.getDisplayMedia) throw Error('Screen sharing needs a supported desktop browser on HTTPS or localhost.');
+    const captureHost=screenHost(window).window;
+    if (!captureHost.navigator.mediaDevices?.getDisplayMedia) throw Error('Screen sharing needs a supported desktop browser on HTTPS or localhost.');
     starting = true;
     let captured, floatingRequest;
     try {
       // The browser picker is always opened by an explicit button click.
       hostDoc = screenHost(window).document;
+      if(!hostDoc.querySelector('script[data-nova-float-host]')&&!screenHost(window).window.NovaOpenScreenFloat){const bridge=hostDoc.createElement('script');bridge.dataset.novaFloatHost='true';bridge.src=new URL('/src/ai-floating-host.js?v=1',location.href).href;hostDoc.head.append(bridge);}
       // Start both browser requests during the Share screen button's user activation.
-      const captureRequest = navigator.mediaDevices.getDisplayMedia({video: {frameRate: {ideal: 5, max: 10}}, audio: false});
+      const captureRequest = captureHost.navigator.mediaDevices.getDisplayMedia({video: {frameRate: {ideal: 5, max: 10}}, audio: false});
       // Reserve the floating window during the user's click, before capture awaits a picker.
       // Browsers without Document PiP keep the in-Nova panel and its explicit float control.
-      if(screenHost(window).canFloat)floatingRequest=screenHost(window).window.documentPictureInPicture.requestWindow({width:380,height:490}).catch(()=>null);
+      // Floating mode is requested by its own button after capture permission.
       captured = await captureRequest;
       stream = captured;
       stream.getVideoTracks()[0].addEventListener('ended', stop, {once: true});
@@ -60,7 +62,7 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
       const timerControls=make('div',null,'screen-timer-controls'),intervalLabel=make('label','Snapshot every'),seconds=make('input');seconds.type='number';seconds.min='10';seconds.max='86400';seconds.step='1';seconds.value='20';seconds.setAttribute('aria-label','Snapshot interval in seconds');intervalLabel.append(seconds,make('span','seconds'));timerButton=make('button','Start timer');timerButton.type='button';countdown=make('div','Timer off','screen-countdown');countdown.setAttribute('role','timer');timerButton.onclick=()=>{if(automatic.active){automatic.stop();status.textContent='Timed snapshots paused.';return}try{automatic.start(seconds.value);status.textContent='Timed snapshots are on. Keep the shared screen free of anything you do not want sent.'}catch(error){status.textContent=error.message}};seconds.onchange=()=>{if(automatic.active)automatic.stop()};const autoLabel=make('label',null,'screen-auto-scroll'),auto=make('input');auto.type='checkbox';auto.checked=getAutoScroll();auto.setAttribute('aria-label','Auto-scroll to new answers');auto.onchange=()=>setAutoScroll(auto.checked);autoLabel.append(auto,make('span','Follow new answers'));snapshotToggle=make('input');snapshotToggle.type='checkbox';snapshotToggle.setAttribute('role','switch');snapshotToggle.setAttribute('aria-label','Automatic snapshots');const toggleRow=make('label',null,'screen-snapshot-toggle'),toggleCopy=make('span');toggleCopy.append(make('strong','Automatic snapshots'),make('small','Off until you turn it on'));toggleRow.append(toggleCopy,snapshotToggle);timerDetails=make('div',null,'screen-timer-details');timerDetails.hidden=true;timerButton.hidden=true;timerDetails.append(intervalLabel,countdown);snapshotToggle.onchange=()=>{if(snapshotToggle.checked){timerButton.onclick();snapshotToggle.checked=automatic.active}else{automatic.stop();status.textContent='Automatic snapshots off. You can still ask about your screen.'}};seconds.onchange=()=>{if(automatic.active){try{automatic.start(seconds.value)}catch(error){automatic.stop();status.textContent=error.message}}};timerControls.append(toggleRow,timerDetails,autoLabel);
       const footer = make('div', null, 'screen-assistant-footer'), full = make('button', 'Open full chat'), end = make('button', 'Stop sharing'); full.type = end.type = 'button'; end.onclick = stop;
       full.onclick = () => { if (hostDoc !== document) hostDoc.querySelector('nav [data-page="ai"]')?.click(); else panel.classList.add('minimized'); };
-      const popout = make('button', 'Float over websites'); popout.type = 'button'; popout.onclick = floatPanel;
+      const popout = make('button', 'Float over websites'); popout.type = 'button'; popout.onclick = () => floatPanel();
       footer.append(popout, full, end); const previewHeading=make('div',null,'screen-preview-heading'),previewLabel=make('small','YOUR SHARED SCREEN'),hidePreview=make('button','Hide preview');hidePreview.type='button';hidePreview.onclick=()=>{preview.hidden=!preview.hidden;hidePreview.textContent=preview.hidden?'Show preview':'Hide preview'};previewHeading.append(previewLabel,hidePreview);const solve=make('button','✧ Solve this page','screen-solve');solve.type='button';solve.onclick=async()=>{if(getBusy())return;try{status.textContent='';await send('Solve the question visible on this screen. Show clear steps and the final answer. If there is no question, explain what is visible.')}catch(error){status.textContent=error.message}};body.append(previewHeading,preview, notice, reply,solve, form, status, footer); panel.append(bar, body); hostDoc.body.append(panel);
       await video.play();
       if(!video.videoWidth) await new Promise((resolve,reject)=>{const timeout=setTimeout(()=>reject(Error('The selected screen did not start. Stop sharing and choose it again.')),10000);video.addEventListener('loadeddata',()=>{clearTimeout(timeout);resolve()},{once:true})});
@@ -94,7 +96,7 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
       return;
     }
     try {
-      const floating = reservedWindow || await hostWindow.documentPictureInPicture.requestWindow({width: 380, height: 490});
+      const floating = reservedWindow || await (hostWindow.NovaOpenScreenFloat ? hostWindow.NovaOpenScreenFloat() : Promise.reject(Error("Floating window is still preparing. Click Float over websites again.")));
       if (!panel || !stream) { floating.close(); return; }
       floatingWindow = floating;
       const style = floating.document.createElement('link'); style.rel = 'stylesheet'; style.href = new URL('nova-ai-screen.css?v=20261111', location.href).href; floating.document.head.append(style);
@@ -109,7 +111,7 @@ export function screenAssistant({send, onChange, getMessages, getBusy, getAutoSc
       }, {once: true});
       video.play().catch(() => {});
       status.textContent = 'Keep Nova open in its tab. Share your entire screen to follow you between websites.';
-    } catch (e) { status.textContent = 'Screen help is still working in Nova. The browser could not open a floating window. Open Nova directly in Chrome or Edge and click Float over websites again.'; }
+    } catch (e) { status.textContent = 'Could not float screen help: '+(e.message||'Please click Float over websites again.'); }
   }
   async function capture() {
     if (!stream || stream.getVideoTracks()[0]?.readyState !== 'live') throw Error('Screen sharing has stopped. Share your screen again.');

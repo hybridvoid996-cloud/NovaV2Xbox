@@ -14,6 +14,7 @@ export function launchBlank({open=window.open.bind(window),url=location.href,sto
  }catch{try{popup.close()}catch{}return false}
 }
 export async function openSignedInBlank(){
+ if(/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname))return false;
  if(!shouldOpenBlank({authenticated:true,complete:true,topLevel:window===top,hosted:window.NovaBlankHosted,enabled:localStorage.getItem('nova_auto_blank')!=='false',regular:new URLSearchParams(location.search).get('nova-regular')==='1'}))return false;
  window.NovaBlankLaunching=true;window.NovaHomeBoot?.stage('Loading about:blank…');
  const complete=()=>{window.NovaDynoStoper?.allowNextNavigation();try{window.close()}catch{}location.replace('about:blank')};

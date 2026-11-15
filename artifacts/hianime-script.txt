@@ -1,0 +1,554 @@
+/* Site behaviour. One object, one boot call; every part is optional and checks its own markup. */
+(function () {
+  'use strict';
+
+  var script = document.currentScript;
+  var ASSETS = script ? script.src.replace(/\/js\/main\.js.*$/, '') : '';
+  var NAME_KEY = 'hk.names';
+
+  var store = {
+    get: function (k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { window.localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
+  };
+  var $$ = function (sel, el) { return Array.prototype.slice.call((el || document).querySelectorAll(sel)); };
+  var narrowMq = window.matchMedia('(max-width: 767.98px)');
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var Site = {
+    boot: function () {
+      this.ads();
+      this.pictures();
+      this.azbar();
+      this.names.init();
+      this.look.init();
+      this.accent.init();
+      this.install.init();
+      this.chrome();
+      this.searchForms();
+      this.rails();
+      this.tabs();
+      this.spotlight();
+      this.clamps();
+      this.episodeGrid();
+      this.autoSubmit();
+      this.genrePick();
+      this.toTop();
+      this.randomAgain();
+    },
+
+    /* ---- ad places: device-only codes, the grid banner's row, the sticky bar ---- */
+    ads: function () {
+      // A desktop- or mobile-only code waits in a <template>; only the matching device loads it.
+      var desktop = !narrowMq.matches;
+      $$('template[data-hk-ad-dev]').forEach(function (t) {
+        if ((t.getAttribute('data-hk-ad-dev') === 'desktop') !== desktop) return;
+        var frag = t.content.cloneNode(true);
+        // scripts copied out of a template do not run; rebuild them so they do
+        $$('script', frag).forEach(function (old) {
+          var s = document.createElement('script');
+          Array.prototype.forEach.call(old.attributes, function (a) { s.setAttribute(a.name, a.value); });
+          s.text = old.textContent;
+          old.parentNode.replaceChild(s, old);
+        });
+        t.parentNode.insertBefore(frag, t);
+      });
+      // The grid banner sits after the second row, whatever the column count.
+      $$('[data-hk-adp="grid"]').forEach(function (ad) {
+        var grid = ad.parentNode;
+        if (!grid || !grid.classList.contains('hk-grid')) return;
+        var cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length || 2;
+        var tiles = $$(':scope > .hk-tile', grid);
+        if (tiles.length > cols * 2) grid.insertBefore(ad, tiles[cols * 2]);
+      });
+      // Sticky bar: room for it at the end of the page, and a close button for the visit.
+      var bar = document.querySelector('[data-hk-adp="sticky"]');
+      if (bar) {
+        var closed = false;
+        try { closed = window.sessionStorage.getItem('hk.adx') === '1'; } catch (e) { /* storage off */ }
+        if (closed) { bar.remove(); return; }
+        document.body.classList.add('hk-has-sticky');
+        var x = bar.querySelector('[data-hk-adp-x]');
+        if (x) x.addEventListener('click', function () {
+          bar.remove();
+          document.body.classList.remove('hk-has-sticky');
+          try { window.sessionStorage.setItem('hk.adx', '1'); } catch (e) { /* storage off */ }
+        });
+      }
+    },
+
+    /* ---- broken artwork falls back to the theme placeholder ---- */
+    pictures: function () {
+      var spare = ASSETS + '/images/no-poster.svg';
+      var swap = function (img) {
+        // a missing backdrop falls back to the title's poster first, then to the spare
+        var alt = img.getAttribute('data-hk-alt');
+        if (alt && !img.getAttribute('data-hk-alt-used')) {
+          img.setAttribute('data-hk-alt-used', '1');
+          if (img.hasAttribute('data-hk-alt-fit') && img.parentNode) {
+            img.parentNode.classList.add('hk-bgp');
+            img.parentNode.style.setProperty('--hk-bgp', 'url("' + alt.replace(/"/g, '%22') + '")');
+          }
+          img.src = alt;
+          return;
+        }
+        if (img.getAttribute('data-hk-swapped')) return;
+        img.setAttribute('data-hk-swapped', '1');
+        if (img.parentNode) img.parentNode.classList.remove('hk-bgp');
+        img.src = spare;
+      };
+      var ART = '.hk-tile__art, .hk-rank__art, .hk-top10__art, .hk-title__art, .hk-winfo__art';
+      var standIn = function (img) {
+        // the server's own grey stand-in: exactly 300x450 for a poster, 780x440 for a backdrop
+        var w = img.naturalWidth, h = img.naturalHeight;
+        return !!w && ((w === 300 && h === 450) || (w === 780 && h === 440));
+      };
+      var frame = function (img) {
+        // landscape art in a poster slot (title cards, screenshots): show it whole on a blurred copy of itself
+        var box = img.closest(ART);
+        if (!box || box.classList.contains('hk-bgp')) return;
+        box.classList.add('hk-bgp');
+        box.style.setProperty('--hk-bgp', 'url("' + (img.currentSrc || img.src).replace(/"/g, '%22') + '")');
+      };
+      var check = function (img) {
+        if (!img.naturalWidth) return;
+        if (standIn(img)) swap(img);
+        else if (img.naturalWidth > img.naturalHeight && img.closest(ART)) frame(img);
+      };
+      $$('img[data-hk-fallback]').forEach(function (img) {
+        if (img.complete && img.getAttribute('src')) { if (img.naturalWidth === 0) swap(img); else check(img); }
+        img.addEventListener('error', function () { swap(img); });
+        img.addEventListener('load', function () { check(img); });
+      });
+    },
+
+    /* ---- A-Z letter bar: bring the current letter into view ---- */
+    azbar: function () {
+      var cur = document.querySelector('.hk-az [aria-current]');
+      var ul = cur && cur.closest('ul');
+      if (ul && ul.scrollWidth > ul.clientWidth) ul.scrollLeft = Math.max(0, cur.offsetLeft - (ul.clientWidth - cur.offsetWidth) / 2);
+    },
+
+    /* ---- dark or light look (visitor #417 #453); the <head> script applies it before paint ---- */
+    look: {
+      init: function () {
+        var self = this;
+        this.paint(document.documentElement.getAttribute('data-hk-look') === 'light' || store.get('hk-look') === 'light' ? 'light' : 'dark');
+        document.addEventListener('click', function (e) {
+          var b = e.target.closest && e.target.closest('[data-hk-look-btn], [data-hk-look-set]');
+          if (!b) return;
+          var v = b.hasAttribute('data-hk-look-set') ? b.getAttribute('data-hk-look-set')
+            : (document.documentElement.getAttribute('data-hk-look') === 'light' ? 'dark' : 'light');
+          store.set('hk-look', v);
+          self.paint(v);
+        });
+      },
+      paint: function (v) {
+        var light = v === 'light';
+        if (light) document.documentElement.setAttribute('data-hk-look', 'light');
+        else document.documentElement.removeAttribute('data-hk-look');
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', light ? '#f8f4f8' : '#14151a');
+        $$('[data-hk-look-btn]').forEach(function (b) {
+          b.setAttribute('aria-pressed', light ? 'true' : 'false');
+          b.setAttribute('aria-label', light ? 'Dark look' : 'Light look');
+          b.title = light ? 'Dark look' : 'Light look';
+        });
+        $$('[data-hk-look-set]').forEach(function (b) {
+          var on = b.getAttribute('data-hk-look-set') === (light ? 'light' : 'dark');
+          b.classList.toggle('lit', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+      }
+    },
+
+    /* ---- accent colour (visitors #567 #572 #586, 2026-10-25): pink, violet, ocean or mint, saved per browser
+       (localStorage hk-accent); the <head> script applies it before paint, like the light look ---- */
+    accent: {
+      list: ['pink', 'violet', 'ocean', 'mint', 'sunset', 'lime'],
+      init: function () {
+        var self = this, v = store.get('hk-accent');
+        this.paint(this.list.indexOf(v) > 0 ? v : 'pink');
+        document.addEventListener('click', function (e) {
+          var b = e.target.closest && e.target.closest('[data-hk-accent-set]');
+          if (!b) return;
+          var c = b.getAttribute('data-hk-accent-set');
+          if (self.list.indexOf(c) < 0) return;
+          store.set('hk-accent', c);
+          self.paint(c);
+        });
+      },
+      paint: function (c) {
+        if (c === 'pink') document.documentElement.removeAttribute('data-hk-accent');
+        else document.documentElement.setAttribute('data-hk-accent', c);
+        $$('[data-hk-accent-set]').forEach(function (b) {
+          var on = b.getAttribute('data-hk-accent-set') === c;
+          b.classList.toggle('lit', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+      }
+    },
+
+    /* ---- "Install the app" (visitors #568 #570 #573, 2026-10-25): the site already has a web app manifest, so
+       Chrome, Edge and Android can add it to the home screen. Their own install prompt is used when the browser
+       offers one; otherwise (Safari, Firefox) the button says where the browser keeps "Add to Home Screen". ---- */
+    install: {
+      ev: null,
+      init: function () {
+        var self = this;
+        var installed = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+        if (installed) return;   // already opened as the app: buttons stay hidden
+        $$('[data-hk-install], [data-hk-install-box]').forEach(function (b) { b.hidden = false; });
+        window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); self.ev = e; });
+        window.addEventListener('appinstalled', function () { self.ev = null; self.say('Done, the app is on your home screen now.'); });
+        document.addEventListener('click', function (e) {
+          var b = e.target.closest && e.target.closest('[data-hk-install]');
+          if (!b) return;
+          if (self.ev) {
+            var ev = self.ev;
+            self.ev = null;
+            ev.prompt();
+            return;
+          }
+          self.say(self.howTo());
+        });
+      },
+      howTo: function () {
+        var ua = navigator.userAgent || '';
+        if (/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && 'ontouchend' in document)) {
+          return 'On iPhone or iPad: open this site in Safari, tap the Share button, then Add to Home Screen.';
+        }
+        if (/Android/.test(ua)) return 'Open your browser menu (the three dots) and tap Install app or Add to Home screen.';
+        return 'In Chrome or Edge: click the install icon at the right end of the address bar, or open the browser menu and choose Install. Safari on Mac: File, Add to Dock.';
+      },
+      say: function (text) {
+        $$('[data-hk-install-note]').forEach(function (n) { n.textContent = text; n.hidden = false; });
+      }
+    },
+
+    /* ---- English or Japanese titles ---- */
+    names: {
+      value: 'en',
+      init: function () {
+        var v = store.get(NAME_KEY);
+        if (!v) {
+          var old = store.get('titleLang') || store.get('anime_name_type');
+          v = (old === 'jp' || old === 'jn') ? 'jp' : 'en';
+        }
+        this.set(v === 'jp' ? 'jp' : 'en', true);
+        var self = this;
+        document.addEventListener('click', function (e) {
+          var b = e.target.closest('[data-hk-names]');
+          if (!b) return;
+          self.set(b.getAttribute('data-hk-names'), false);
+        });
+      },
+      set: function (v, quiet) {
+        this.value = v;
+        store.set(NAME_KEY, v);
+        this.paint(document);
+        $$('[data-hk-names]').forEach(function (b) {
+          var on = b.getAttribute('data-hk-names') === v;
+          b.classList.toggle('lit', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        if (!quiet) document.dispatchEvent(new CustomEvent('hk:names', { detail: { value: v } }));
+      },
+      paint: function (root) {
+        var key = this.value === 'jp' ? 'data-jp' : 'data-en';
+        $$('.hk-dual[data-en]', root).forEach(function (el) {
+          var t = el.getAttribute(key) || el.getAttribute('data-en');
+          if (t && el.textContent !== t) el.textContent = t;
+        });
+      }
+    },
+
+    /* ---- drawer, search sheet, browse menu ---- */
+    chrome: function () {
+      var drawer = document.getElementById('hk-drawer');
+      var sheet = document.getElementById('hk-sheet');
+      var veil = document.querySelector('.hk-veil');
+      var lastOpener = null;
+      var close = function () {
+        [drawer, sheet].forEach(function (p) { if (p) p.classList.remove('open'); });
+        if (veil) veil.classList.remove('open');
+        document.documentElement.style.overflow = '';
+        $$('[data-hk-open]').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+        if (lastOpener) { lastOpener.focus(); lastOpener = null; }
+      };
+      var open = function (which, opener) {
+        close();
+        var panel = which === 'drawer' ? drawer : sheet;
+        if (!panel) return;
+        lastOpener = opener;
+        panel.classList.add('open');
+        if (veil) veil.classList.add('open');
+        if (which === 'drawer') document.documentElement.style.overflow = 'hidden';
+        $$('[data-hk-open="' + which + '"]').forEach(function (b) { b.setAttribute('aria-expanded', 'true'); });
+        var focusable = panel.querySelector(which === 'sheet' ? 'input' : 'button, a');
+        if (focusable) setTimeout(function () { focusable.focus(); }, 60);
+      };
+      document.addEventListener('click', function (e) {
+        var o = e.target.closest('[data-hk-open]');
+        if (o) { e.preventDefault(); open(o.getAttribute('data-hk-open'), o); return; }
+        if (e.target.closest('[data-hk-close]')) { e.preventDefault(); close(); return; }
+        $$('details.hk-pop[open]').forEach(function (d) { if (!d.contains(e.target)) d.removeAttribute('open'); });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        close();
+        $$('details.hk-pop[open]').forEach(function (d) { d.removeAttribute('open'); d.querySelector('summary').focus(); });
+      });
+      $$('details.hk-pop').forEach(function (d) {
+        d.addEventListener('toggle', function () {
+          if (!d.open) return;
+          $$('details.hk-pop[open]').forEach(function (x) { if (x !== d) x.removeAttribute('open'); });
+        });
+      });
+    },
+
+    /* ---- an empty search goes to the search page instead of "?q=" ---- */
+    searchForms: function () {
+      $$('form[role="search"]').forEach(function (f) {
+        f.addEventListener('submit', function (e) {
+          var q = f.querySelector('input[name="q"]');
+          if (q && !q.value.trim()) {
+            e.preventDefault();
+            window.location.href = f.getAttribute('action') || '/search';
+          }
+        });
+      });
+    },
+
+    /* ---- horizontal rows with arrow buttons ---- */
+    rails: function () {
+      var sync = function (track) {
+        var max = track.scrollWidth - track.clientWidth - 2;
+        $$('[data-hk-rail][aria-controls="' + track.id + '"]').forEach(function (b) {
+          var dir = parseInt(b.getAttribute('data-hk-rail'), 10);
+          b.disabled = dir < 0 ? track.scrollLeft <= 2 : track.scrollLeft >= max;
+        });
+      };
+      $$('[data-hk-rail]').forEach(function (b) {
+        var track = document.getElementById(b.getAttribute('aria-controls'));
+        if (!track) return;
+        if (b.getAttribute('data-hk-bound')) { sync(track); return; }
+        b.setAttribute('data-hk-bound', '1');
+        b.addEventListener('click', function () {
+          var dir = parseInt(b.getAttribute('data-hk-rail'), 10);
+          track.scrollBy({ left: dir * track.clientWidth * 0.85, behavior: calm ? 'auto' : 'smooth' });
+        });
+        if (!track.getAttribute('data-hk-watched')) {
+          track.setAttribute('data-hk-watched', '1');
+          track.addEventListener('scroll', function () { window.requestAnimationFrame(function () { sync(track); }); }, { passive: true });
+          window.addEventListener('resize', function () { sync(track); });
+          sync(track);
+        }
+      });
+    },
+
+    /* ---- tab strips that switch server-rendered panels ---- */
+    tabs: function () {
+      // Genre page Top 10 (visitor #448): phones show 5 rows until "Show 6 to 10" is pressed.
+      document.addEventListener('click', function (e) {
+        var b = e.target.closest && e.target.closest('[data-hk-gtop-more]');
+        if (!b) return;
+        $$('.hk-gtop__board').forEach(function (x) { x.classList.add('hk-gtop__board--all'); });
+      });
+      $$('[data-hk-tabs]').forEach(function (box) {
+        var tabs = $$('[role="tab"]', box);
+        var pick = function (tab, focus) {
+          tabs.forEach(function (t) {
+            var on = t === tab;
+            t.setAttribute('aria-selected', on ? 'true' : 'false');
+            t.tabIndex = on ? 0 : -1;
+            var p = document.getElementById(t.getAttribute('aria-controls'));
+            if (p) { p.hidden = !on; p.removeAttribute('data-hk-hide-narrow'); }
+          });
+          if (focus) tab.focus();
+          Site.rails();
+        };
+        tabs.forEach(function (t, i) {
+          t.addEventListener('click', function () { pick(t, false); });
+          t.addEventListener('keydown', function (e) {
+            var n = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+            if (!n) return;
+            e.preventDefault();
+            pick(tabs[(i + n + tabs.length) % tabs.length], true);
+          });
+        });
+        var first = tabs.filter(function (t) { return t.getAttribute('aria-selected') === 'true'; })[0] || tabs[0];
+        if (first) pick(first, false);
+      });
+    },
+
+    /* ---- home spotlight ---- */
+    spotlight: function () {
+      var box = document.querySelector('[data-hk-spot]');
+      if (!box) return;
+      var track = box.querySelector('[data-hk-spot-track]');
+      var slides = $$('.hk-spot__slide', track);
+      if (slides.length < 2) return;
+      var at = 0, timer = null, paused = false;
+      var mark = function (i) {
+        at = i;
+        var n = box.querySelector('[data-hk-spot-n]');
+        if (n) n.textContent = String(i + 1);
+        $$('[data-hk-spot-go]', box).forEach(function (b) {
+          var on = parseInt(b.getAttribute('data-hk-spot-go'), 10) === i;
+          if (b.getAttribute('role') === 'tab') b.setAttribute('aria-selected', on ? 'true' : 'false');
+          else b.classList.toggle('lit', on);
+        });
+      };
+      var go = function (i) {
+        i = (i + slides.length) % slides.length;
+        track.scrollTo({ left: i * track.clientWidth, behavior: calm ? 'auto' : 'smooth' });
+        mark(i);
+      };
+      var tick = function () {
+        clearInterval(timer);
+        if (calm) return;
+        timer = setInterval(function () { if (!paused && !document.hidden) go(at + 1); }, 6500);
+      };
+      track.addEventListener('scroll', function () {
+        window.requestAnimationFrame(function () {
+          var i = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+          if (i !== at) mark(i);
+        });
+      }, { passive: true });
+      box.addEventListener('click', function (e) {
+        var g = e.target.closest('[data-hk-spot-go]');
+        var s = e.target.closest('[data-hk-spot-step]');
+        if (g) { go(parseInt(g.getAttribute('data-hk-spot-go'), 10)); tick(); }
+        if (s) { go(at + parseInt(s.getAttribute('data-hk-spot-step'), 10)); tick(); }
+      });
+      ['mouseenter', 'focusin', 'touchstart'].forEach(function (ev) { box.addEventListener(ev, function () { paused = true; }, { passive: true }); });
+      ['mouseleave', 'focusout', 'touchend'].forEach(function (ev) { box.addEventListener(ev, function () { paused = false; }, { passive: true }); });
+      window.addEventListener('resize', function () { track.scrollTo({ left: at * track.clientWidth }); });
+      tick();
+    },
+
+    /* ---- long text with a "read more" switch ---- */
+    clamps: function () {
+      $$('[data-hk-clamp]').forEach(function (box) {
+        var btn = box.parentNode.querySelector('[data-hk-clamp-btn]');
+        if (!btn) return;
+        if (box.scrollHeight <= box.clientHeight + 4) { btn.hidden = true; return; }
+        btn.hidden = false;
+        btn.addEventListener('click', function () {
+          var open = box.classList.toggle('open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          btn.textContent = open ? 'Show less' : 'Read more';
+        });
+      });
+    },
+
+    /* ---- episode grids on title pages: range chips + number search ---- */
+    episodeGrid: function () {
+      $$('[data-hk-eps]').forEach(function (box) {
+        var items = $$('[data-ep]', box);
+        var find = box.querySelector('[data-hk-eps-find]');
+        var range = '0';
+        var paint = function () {
+          var q = find ? find.value.trim().toLowerCase() : '';
+          items.forEach(function (a) {
+            var hit = q ? (a.getAttribute('data-ep') === q || (a.getAttribute('data-name') || '').toLowerCase().indexOf(q) !== -1 || a.getAttribute('data-ep').indexOf(q) === 0)
+                        : a.getAttribute('data-range') === range;
+            a.hidden = !hit;
+          });
+        };
+        $$('[data-hk-range]', box).forEach(function (b) {
+          b.addEventListener('click', function () {
+            range = b.getAttribute('data-hk-range');
+            $$('[data-hk-range]', box).forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); x.classList.toggle('lit', x === b); });
+            if (find) find.value = '';
+            paint();
+          });
+        });
+        if (find) find.addEventListener('input', paint);
+        var start = box.querySelector('[data-hk-range].lit');
+        if (start) range = start.getAttribute('data-hk-range');
+        paint();
+      });
+    },
+
+    autoSubmit: function () {
+      $$('[data-hk-autosubmit]').forEach(function (el) {
+        el.addEventListener('change', function () { if (el.form) el.form.submit(); });
+      });
+    },
+
+    /* ---- Random: a show opened with the dice gets an "Another random" button, so visitors can keep flipping ---- */
+    randomAgain: function () {
+      var key = 'hk-rnd';
+      var store = { get: function () { try { return sessionStorage.getItem(key); } catch (e) { return null; } },
+                    set: function (v) { try { if (v) sessionStorage.setItem(key, v); else sessionStorage.removeItem(key); } catch (e) { /* private window */ } } };
+      var again = document.querySelector('[data-hk-rnd]');
+      if (again && store.get() === '1') again.hidden = false;
+      store.set(null); // only the page the dice opened shows the button
+      var rnd = again ? again.getAttribute('href') : null;
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        var href = a.getAttribute('href') || '';
+        if (a.hasAttribute('data-hk-rnd') || (rnd && href === rnd) || /\/random\/?$/.test(href)) store.set('1');
+      }, true);
+    },
+
+    /* #447: Browse filters, pick up to 5 genres; the summary line shows what is picked. */
+    genrePick: function () {
+      var box = document.querySelector('.hk-gpick__box');
+      if (!box) return;
+      var sum = box.querySelector('[data-hk-gpick-sum]');
+      var boxes = Array.prototype.slice.call(box.querySelectorAll('input[type=checkbox]'));
+      var sync = function () {
+        var on = boxes.filter(function (b) { return b.checked; });
+        sum.textContent = on.length ? on.map(function (b) { return b.value; }).join(', ') : 'Any genre';
+        boxes.forEach(function (b) { b.disabled = !b.checked && on.length >= 5; });
+      };
+      box.addEventListener('change', sync);
+      sync();
+    },
+
+    toTop: function () {
+      var b = document.querySelector('[data-hk-top]');
+      if (!b) return;
+      var on = false;
+      window.addEventListener('scroll', function () {
+        var want = window.scrollY > 700;
+        if (want !== on) { on = want; b.classList.toggle('lit', on); }
+      }, { passive: true });
+      b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: calm ? 'auto' : 'smooth' }); });
+    }
+  };
+
+  window.hkNames = Site.names;
+  window.hkRefresh = function (root) { Site.names.paint(root || document); };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { Site.boot(); });
+  else Site.boot();
+  /* Dark background (visitor wishes #567 #572 #621 #651, 2026-11-10): two tinted versions of the dark look.
+     Saved per browser (localStorage hk-bg); the <head> script sets <html data-hk-bg> before paint. The light look ignores it. */
+  (function () {
+    var KEY = 'hk-bg', ATTR = 'data-hk-bg', SET = 'data-hk-bg-set', ALL = ['midnight', 'plum'];
+    var get = function () { try { return localStorage.getItem(KEY) || ''; } catch (e) { return ''; } };
+    var put = function (v) { try { if (v) localStorage.setItem(KEY, v); else localStorage.removeItem(KEY); } catch (e) { /* private window */ } };
+    var paint = function (v) {
+      if (ALL.indexOf(v) < 0) v = '';
+      if (v) document.documentElement.setAttribute(ATTR, v); else document.documentElement.removeAttribute(ATTR);
+      Array.prototype.forEach.call(document.querySelectorAll('[' + SET + ']'), function (b) {
+        var on = b.getAttribute(SET) === (v || 'default');
+        b.classList.toggle('lit', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { paint(get()); });
+    else paint(get());
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest && e.target.closest('[' + SET + ']');
+      if (!b) return;
+      var v = b.getAttribute(SET) === 'default' ? '' : b.getAttribute(SET);
+      put(v);
+      paint(v);
+    });
+  })();
+})();

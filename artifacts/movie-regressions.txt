@@ -1,0 +1,36 @@
+✔ site-local anime identifiers are never mistaken for AniList identifiers (1.8486ms)
+✔ anime artwork proxy accepts only the discovered artwork routes (0.4392ms)
+✔ HiAnime playback requires an exact external title identity (0.4505ms)
+✔ provider details retain episode identity and cache verified playback links (26.1474ms)
+✔ mismatched provider details cannot enter playback (0.5634ms)
+✔ anime players receive the selected language before their scripts run (2.2587ms)
+✔ Anime tab returns its bundled catalog promptly even when every service hangs (2818.854ms)
+✔ same-site episode links work while new-tab and external links stay blocked (1.422ms)
+✔ South Park S29 E4 keeps its typed series and episode on every fallback (2.5965ms)
+✔ wrong show and season episode responses are rejected before rendering (0.6465ms)
+✔ movie guard runs before provider scripts and stops scripted, ordinary and middle-click ads (1.0036ms)
+✔ readiness and playback progress are detected inside nested provider frames without messages (1.5802ms)
+✔ hidden and tiny advertising frames cannot mark the movie ready (0.9483ms)
+✔ inaccessible frames do not prevent checking another provider frame (0.2508ms)
+✔ a nested Vercel error is detected even without provider scripts (0.1875ms)
+✔ a broken secondary frame cannot interrupt healthy playback (0.1996ms)
+✔ a failed player after playback remains recoverable (0.1402ms)
+✔ a large empty video cannot hide a smaller working movie player (0.1961ms)
+✔ embedded movie document installs its own theme and session-bound readiness signal (1.2499ms)
+✔ profile text cannot terminate the embedded script, and non-HTML responses remain untouched (0.3741ms)
+✔ nested player progress and errors relay only from child frames with the current session (1.8596ms)
+✔ nested provider HTML errors signal recovery for real and soft 404 responses (2.8685ms)
+✔ a slow first player reconnects automatically, and loaded playback never restarts (0.9882ms)
+✔ repeated connection failures stop after three attempts (0.8771ms)
+✔ leaving during a connection disposes its late frame and cancels pending retries (0.2486ms)
+✔ a confirmed lost player can reconnect after readiness, while ordinary late request failures do not interrupt it (0.2674ms)
+✔ useful startup progress keeps a slow laptop player alive, with a bounded total wait (0.3146ms)
+✔ an interactive hint cannot disable the total startup deadline (0.5928ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2975.2778

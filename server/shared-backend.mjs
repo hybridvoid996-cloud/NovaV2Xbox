@@ -1,5 +1,5 @@
 // Public address only; credentials stay on the primary deployment.
-export const SHARED_BACKEND='https://novaoffical1.vercel.app';
+export const SHARED_BACKEND='https://main.dnw9x6dxqh8lf.amplifyapp.com';
 export const REMOTE_BACKEND='https://main.dnw9x6dxqh8lf.amplifyapp.com';
 const endpoints=new Set(['account-support','account-recovery','account-login','owner-control','chat-owner','staff-users','voice','voice-account','remote','music']);
 export function withSharedBackend(endpoint,handler,{env=process.env,request=fetch}={}){

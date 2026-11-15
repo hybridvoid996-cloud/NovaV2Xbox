@@ -1,0 +1,35 @@
+✔ site-local anime identifiers are never mistaken for AniList identifiers (1.9214ms)
+✔ anime artwork proxy accepts only the discovered artwork routes (0.4461ms)
+✔ HiAnime playback requires an exact external title identity (0.5265ms)
+✔ provider details retain episode identity and cache verified playback links (30.2757ms)
+✔ mismatched provider details cannot enter playback (0.7862ms)
+✔ anime players receive the selected language before their scripts run (3.0295ms)
+✔ Anime tab returns its bundled catalog promptly even when every service hangs (2814.0054ms)
+✔ readiness and playback progress are detected inside nested provider frames without messages (1.3875ms)
+✔ hidden and tiny advertising frames cannot mark the movie ready (0.3316ms)
+✔ inaccessible frames do not prevent checking another provider frame (0.3235ms)
+✔ a nested Vercel error is detected even without provider scripts (0.2661ms)
+✔ a broken secondary frame cannot interrupt healthy playback (0.2892ms)
+✔ a failed player after playback remains recoverable (0.2305ms)
+✔ a large empty video cannot hide a smaller working movie player (0.2261ms)
+✔ the proxy DOM bridge accepts only fresh signals from the current launch (0.3173ms)
+✔ embedded movie document installs its own theme and session-bound readiness signal (1.7758ms)
+✔ profile text cannot terminate the embedded script, and non-HTML responses remain untouched (0.5349ms)
+✔ nested player progress and errors relay only from child frames with the current session (2.6069ms)
+✔ nested provider HTML errors signal recovery for real and soft 404 responses (4.5192ms)
+✔ native and Scramjet window envelopes deliver only current-frame playback events (0.9667ms)
+✔ a slow first player reconnects automatically, and loaded playback never restarts (1.7002ms)
+✔ repeated connection failures stop after three attempts (0.5334ms)
+✔ leaving during a connection disposes its late frame and cancels pending retries (0.3082ms)
+✔ a confirmed lost player can reconnect after readiness, while ordinary late request failures do not interrupt it (0.2858ms)
+✔ useful startup progress keeps a slow laptop player alive, with a bounded total wait (0.5435ms)
+✔ an interactive hint cannot disable the total startup deadline (0.5051ms)
+✔ an explicit Play button waits for the user, then re-arms bounded startup (0.5201ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2949.9184

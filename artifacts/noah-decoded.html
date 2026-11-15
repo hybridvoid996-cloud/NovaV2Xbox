@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noah's Tutoring Hub</title>
+  <meta name="description" content="Noah's Tutoring Hub - math lessons, study tools, practice sets and a student arcade. Free resources for middle and high school students.">
+  <meta name="keywords" content="tutoring, math help, study tools, educational games, student resources, online learning, homework help">
+  <meta name="theme-color" content="#c27c15">
+  <meta property="og:site_name" content="Noah's Tutoring Hub">
+  <meta property="og:title" content="Noah's Tutoring Hub | Math Help, Study Tools &amp; Games">
+  <meta property="og:description" content="Math lessons, study tools and a student arcade. Free resources for middle and high school students.">
+  <meta property="og:url" content="https://noahstutoring.academy/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://noahstutoring.academy/images/og-400.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:image:alt" content="Over 400 unblocked games with proxy, AI and music on Noah's Tutoring Hub">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Noah's Tutoring Hub | Math Help &amp; Study Tools">
+  <meta name="twitter:description" content="Math lessons, study tools and a student arcade.">
+  <meta name="twitter:image" content="https://noahstutoring.academy/images/og-400.jpg">
+  <meta name="twitter:image:alt" content="Over 400 unblocked games with proxy, AI and music">
+  <script>(adsbygoogle=window.adsbygoogle||[]).pauseAdRequests=1;</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6233004140854685" crossorigin="anonymous"></script>
+  <link rel="icon" href="images/cuh.png?v=192">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css?v=213">
+  <link rel="stylesheet" href="css/games-reveal.css?v=2">
+  <link rel="stylesheet" href="css/home.css?v=195">
+  <link rel="stylesheet" href="css/chat.css?v=217">
+  <link rel="stylesheet" href="css/ai.css?v=203">
+  <link rel="stylesheet" href="css/web.css?v=205">
+  <link rel="stylesheet" href="css/web-settings.css?v=3">
+  <link rel="stylesheet" href="css/music.css?v=192">
+  <link rel="stylesheet" href="css/friends.css?v=2">
+  <link rel="stylesheet" href="css/admin-console.css?v=9">
+  <link rel="stylesheet" href="css/music-next.css?v=20">
+  <link rel="stylesheet" href="css/movies-view.css?v=7">
+  <link rel="stylesheet" href="css/plus.css?v=203">
+  <link rel="stylesheet" href="css/settings.css?v=210">
+  <link rel="stylesheet" href="css/ad-cover.css?v=13">
+  <link rel="stylesheet" href="css/bg-settings.css?v=3">
+  <link rel="stylesheet" href="css/shop.css?v=4">
+  <link rel="stylesheet" href="css/ban-gate.css?v=2">
+</head>
+<body>
+  
+  <div id="nusdSplash" class="splash" aria-hidden="true"><iframe src="/nusd.html?v=191" title="NUSD"></iframe></div>
+  <script>
+    (function () {
+      var s = document.getElementById('nusdSplash'); if (!s) return;
+      var t = document.title; document.title = 'NUSD | Homepage';
+      setTimeout(function () {
+        s.classList.add('is-out'); if (document.title === 'NUSD | Homepage') document.title = t;
+        setTimeout(function () { if (s.parentNode) s.parentNode.removeChild(s); }, 380);
+      }, 2000);
+    })();
+  </script>
+  
+  <canvas id="snowfall" aria-hidden="true" style="position:fixed;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:-1"></canvas>
+  <div id="main-container">
+    
+    <aside class="rail">
+      <nav class="rail-nav" aria-label="Primary navigation">
+        <a class="rail-btn is-active" href="./" id="navHome">
+          <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></span>
+          <span class="rail-lbl">Home</span>
+        </a>
+        <button class="rail-btn" type="button" id="navGames">
+          <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+          <span class="rail-lbl">Games</span>
+        </button>
+        <button class="rail-btn" type="button" id="navLeaderboard">
+          <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M6 4h12v5a6 6 0 0 1-12 0V4zM6 5H3v2a3 3 0 0 0 3 3M18 5h3v2a3 3 0 0 1-3 3"/></svg></span>
+          <span class="rail-lbl">Leaderboard</span>
+        </button>
+        <button class="rail-btn" type="button" id="navShop" aria-label="Shop">
+          <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h16l-1 12H5L4 9z"/><path d="M8 9V7a4 4 0 0 1 8 0v2"/><path d="M9 13h.01M15 13h.01"/></svg></span>
+          <span class="rail-lbl">Shop</span>
+        </button>
+        <a class="rail-btn" href="#" id="navChat">
+          <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.5a8.38 8.38 0 0 1-8.5 8.5 9 9 0 0 1-4-1L3 21l1.5-5.5a8.38 8.38 0 0 1-1-4A8.5 8.5 0 0 1 12 3a8.38 8.38 0 0 1 9 9.5z"/></svg></span>
+          <span class="rail-lbl">Chat</span>
+        </a>
+        <button class="rail-btn" type="button" id="navAI" aria-label="AI assistant">
+          <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9Z"/><path d="M19 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8Z"/></svg></span>
+          <span class="rail-lbl">AI</span>
+        </button>
+        <button class="rail-btn" type="button" id="navWeb" aria-label="Web browser">
+          <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg></span>
+          <span class="rail-lbl">Web</span>
+        </button>
+        <button class="rail-btn" type="button" id="navMusic" aria-label="Music">
+          <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+          <span class="rail-lbl">Music</span>
+        </button>
+        <button class="rail-btn" type="button" id="navMovies" aria-label="Movies">
+          <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M7 5v14M17 5v14M2.5 12h19"/></svg></span>
+          <span class="rail-lbl">Movies</span>
+        </button>
+        
+        <button class="rail-btn" type="button" id="navSupport" aria-label="Support">
+          <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M14.5 9.5l3-3M6.5 17.5l3-3M14.5 14.5l3 3M6.5 6.5l3 3"/></svg></span>
+          <span class="rail-lbl">Support</span>
+        </button>
+        <button class="rail-btn" type="button" id="navSettings" aria-label="Site settings">
+          <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.1A1.7 1.7 0 0 0 8.5 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.6-1H3v-4h.1A1.7 1.7 0 0 0 4.6 8.5a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.6V3h4v.1A1.7 1.7 0 0 0 15.5 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9a1.7 1.7 0 0 0 1.6 1h.1v4H21a1.7 1.7 0 0 0-1.6 1z"/></svg></span>
+          <span class="rail-lbl">Settings</span>
+        </button>
+        <button class="rail-btn" type="button" id="navMod" aria-label="Mod panel" hidden>
+          <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <span class="rail-lbl">Mod Panel</span>
+        </button>
+        <button class="rail-btn" type="button" id="navAdmin" aria-label="Admin panel" hidden>
+          <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M10.9 12.1L21 2M15 8l3 3M18 5l3 3"/></svg></span>
+          <span class="rail-lbl">Admin</span>
+        </button>
+      </nav>
+      <div class="rail-foot">
+        <div class="rail-signin" id="railSignin" role="button" tabindex="0">
+          <div class="rs-title">Create an account</div>
+          <div class="rs-sub">Save your playtime, rank &amp; chat.</div>
+          <span class="rs-btn">Sign in / Sign up</span>
+        </div>
+        <button class="rail-acct" type="button" id="railAccount" aria-label="Your account">
+          <span class="rail-acct-av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+          <span class="rail-lbl">Account</span>
+        </button>
+      </div>
+    </aside>
+
+    <main>
+      
+      <section id="homeView" aria-label="Home">
+        <div class="home-shell">
+          <aside class="home-ad" aria-label="Advertisement">
+            <span class="home-ad-label">Advertisement</span>
+            <div class="home-ad-frame">
+              <script data-cfasync="false">!function(){var a=Math.random()<.75?"170c79bb1045f57d677b87d88e421704":"5b6bd40b72ed392c3f8d7f6ffc68aa77";atOptions={key:a,format:"iframe",height:600,width:160,params:{}},document.write('<script data-cfasync="false" src="https://bauval.org/22/'+a+'"><\/script>')}();</script>
+            </div>
+          </aside>
+
+          <div class="home-core">
+            <img class="home-logo" src="images/logo.png?v=191" alt="Noah's Tutoring Hub">
+
+            <p class="home-quote" aria-hidden="true"><span id="homeQuoteText"></span><span class="home-caret"></span></p>
+
+            <form id="proxyForm" class="home-search" role="search" autocomplete="off">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
+              <input id="proxySearch" type="search" placeholder="Search the web…" spellcheck="false" aria-label="Search the web">
+            </form>
+            <div class="home-notice-slot" role="status">
+              <p id="proxyNotice" class="home-notice" hidden></p>
+            </div>
+
+            <nav class="home-links" aria-label="Quick links">
+              <button class="home-link" type="button" id="qlGames">
+                <span class="home-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+                <span>Games</span>
+              </button>
+              <button class="home-link" type="button" id="qlChat">
+                <span class="home-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.5a8.38 8.38 0 0 1-8.5 8.5 9 9 0 0 1-4-1L3 21l1.5-5.5a8.38 8.38 0 0 1-1-4A8.5 8.5 0 0 1 12 3a8.38 8.38 0 0 1 9 9.5z"/></svg></span>
+                <span>Chat</span>
+              </button>
+              <button class="home-link" type="button" id="qlAI">
+                <span class="home-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9Z"/><path d="M19 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8Z"/></svg></span>
+                <span>AI</span>
+              </button>
+              <button class="home-link" type="button" id="qlWeb">
+                <span class="home-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg></span>
+                <span>Browser</span>
+              </button>
+              <button class="home-link" type="button" id="qlMusic">
+                <span class="home-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+                <span>Music</span>
+              </button>
+              <button class="home-link" type="button" id="qlLeaderboard">
+                <span class="home-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M6 4h12v5a6 6 0 0 1-12 0V4zM6 5H3v2a3 3 0 0 0 3 3M18 5h3v2a3 3 0 0 1-3 3"/></svg></span>
+                <span>Leaderboard</span>
+              </button>
+            </nav>
+
+            <p class="home-online" id="homeOnline" hidden>
+              <span class="home-online-dot" aria-hidden="true"></span>
+              <span id="homeOnlineText">— online now</span>
+            </p>
+          </div>
+
+          <aside class="home-ad" aria-label="Advertisement">
+            <span class="home-ad-label">Advertisement</span>
+            <div class="home-ad-frame">
+              <script data-cfasync="false">!function(){var a=Math.random()<.75?"170c79bb1045f57d677b87d88e421704":"5b6bd40b72ed392c3f8d7f6ffc68aa77";atOptions={key:a,format:"iframe",height:600,width:160,params:{}},document.write('<script data-cfasync="false" src="https://bauval.org/22/'+a+'"><\/script>')}();</script>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="gamesView" hidden>
+        <div class="topsearch">
+          <div class="search-row" style="display:flex; gap:10px; width:min(720px,100%); justify-content:center; align-items:center; margin-bottom:8px;">
+            <div class="search" role="search" style="flex:1;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
+              <input id="search" type="search" placeholder="Search games…" autocomplete="off" spellcheck="false" aria-label="Search games">
+            </div>
+            <select id="gridPickerSelect" class="grid-dropdown" aria-label="Grid size" title="Grid columns">
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+            </select>
+          </div>
+          <nav id="gamesSeg" class="ftabs" aria-label="Filter games">
+            <button class="ftab is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="ftab" type="button" data-filter="favs" aria-pressed="false">Favorites</button>
+            <button class="ftab" type="button" data-filter="recent" aria-pressed="false">Recents</button>
+          </nav>
+        </div>
+        <div class="hero" hidden>
+          <span class="count" id="gameCount"></span>
+        </div>
+
+        <div class="grid" id="allLessonsGrid" style="padding-top: 6px;"></div>
+      </section>
+
+      
+      <section id="lbView" hidden aria-label="Leaderboard"></section>
+
+      
+      <section id="supportView" class="staff-view" hidden aria-label="Support"><div class="staff-inner" id="supportInner"></div></section>
+      <section id="modView" class="staff-view" hidden aria-label="Mod panel"><div class="staff-inner" id="modInner"></div></section>
+      <section id="adminView" class="staff-view" hidden aria-label="Admin panel"><div class="staff-inner" id="adminInner"></div></section>
+
+      
+      <section id="musicView" hidden aria-label="Music">
+        <div class="music-shell">
+          <aside id="musicSide" class="music-side" aria-label="Library and queue">
+            <div class="music-side-scroll">
+              <section class="music-side-sec">
+                <div class="music-side-head">
+                  <span class="music-side-title">Your Library</span>
+                  <button id="musicImport" class="music-side-add" type="button" aria-label="Import a playlist" title="Import a playlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="m8 10 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+                  </button>
+                  <button id="musicNewPlaylist" class="music-side-add" type="button" aria-label="New playlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                  </button>
+                </div>
+                <button id="musicBrowseBtn" class="music-side-browse" type="button" aria-current="page">Browse</button>
+                <div id="musicPlaylists" class="music-playlists" role="list"></div>
+                <div id="musicSideSignin" class="music-signin" hidden>
+                  <p class="music-signin-text">Sign in to make playlists — one account works across games, chat, and music.</p>
+                  <button id="musicSigninBtn" class="music-signin-btn" type="button">Sign in</button>
+                </div>
+              </section>
+              <section class="music-side-sec music-side-queue" aria-label="Queue">
+                <div class="music-side-head"><span class="music-side-title">Queue</span></div>
+                <div id="musicQueueNow" class="mqueue-now"></div>
+                <div id="musicQueueList" class="mqueue-list" role="list"></div>
+                <div id="musicQueueEmpty" class="mqueue-empty" hidden></div>
+              </section>
+            </div>
+          </aside>
+
+          <div class="music-main">
+            
+            <header class="music-topbar">
+              <div class="music-topbar-row">
+                <button id="musicSideToggle" class="music-pane-toggle" type="button" aria-label="Library and queue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h5v14H4zM13 5h7v14h-7z"/></svg><span>Library</span></button>
+                <form id="musicSearchForm" class="music-searchwrap" role="search" autocomplete="off">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
+                  <input id="musicSearch" class="music-search" type="search" placeholder="Search songs, artists, albums…" spellcheck="false" aria-label="Search music">
+                </form>
+                <p id="musicBusy" class="music-busy" role="status" hidden></p>
+                <button id="musicLyricsToggleTop" class="music-pane-toggle music-pane-toggle--right" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h11M4 12h16M4 17h9"/></svg><span>Lyrics</span></button>
+              </div>
+              <nav id="musicScopes" class="ftabs music-scopes" aria-label="Filter results" hidden>
+                <button class="ftab is-active" type="button" data-scope="all" aria-pressed="true">All</button>
+                <button class="ftab" type="button" data-scope="tracks" aria-pressed="false">Tracks</button>
+                <button class="ftab" type="button" data-scope="albums" aria-pressed="false">Albums</button>
+                <button class="ftab" type="button" data-scope="artists" aria-pressed="false">Artists</button>
+              </nav>
+            </header>
+            <div class="music-body">
+              <div id="musicBrowse" class="music-browse">
+                <div id="musicResults" class="music-results"></div>
+                <div id="musicEmpty" class="music-empty" hidden></div>
+              </div>
+              <div id="musicPlaylist" class="music-detail" hidden aria-label="Playlist"></div>
+              <p id="musicErr" class="music-err" role="status" hidden></p>
+            </div>
+          </div>
+
+          <aside id="musicLyricsPane" class="music-lyricspane" aria-label="Lyrics">
+            <div class="mlyrics-head">
+              <span id="musicLyricsArt" class="mlyrics-art" aria-hidden="true"></span>
+              <span class="mlyrics-meta">
+                <span id="musicLyricsTitle" class="mlyrics-title">Lyrics</span>
+                <span class="mlyrics-sub">
+                  <span id="musicLyricsArtist" class="mlyrics-artist">Nothing playing</span>
+                  <span id="musicLyricsBadge" class="mtag mlyrics-badge" hidden></span>
+                </span>
+              </span>
+              <button id="musicLyricsPaneClose" class="mlyrics-close" type="button" aria-label="Close lyrics">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+              </button>
+            </div>
+            <div id="musicLyrics" class="music-lyrics" tabindex="0" aria-label="Lyrics">
+              <p id="musicLyricsStatus" class="mlyrics-status" role="status"></p>
+              <ol id="musicLyricsList" class="mlyrics-list"></ol>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      
+      <section id="aiView" hidden aria-label="AI assistant">
+        <aside class="ai-side">
+          <button id="aiNewChat" class="ai-new" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            New chat
+          </button>
+          <div id="aiConvoList" class="ai-convos"></div>
+          <div class="ai-side-foot">
+            <button id="aiPlanChip" class="ai-plan" type="button" aria-label="Your AI usage today">
+              <span id="aiPlanName" class="ai-plan-name">Free plan</span>
+              <span id="aiPlanLeft" class="ai-plan-left">15 of 15 left today</span>
+              <span class="ai-plan-track" aria-hidden="true"><span id="aiPlanFill" class="ai-plan-fill"></span></span>
+            </button>
+            <button id="aiClearAll" class="ai-danger-btn" type="button">Clear conversations</button>
+            <div id="aiClearConfirm" class="ai-clear-confirm" hidden>
+              <span>Delete every conversation? This can’t be undone.</span>
+              <div class="ai-clear-row">
+                <button id="aiClearYes" class="ai-danger-solid" type="button">Delete all</button>
+                <button id="aiClearNo" class="ai-ghost-btn" type="button">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <div class="ai-main">
+          <header class="ai-top">
+            <button id="aiHome" class="ai-icon-btn ai-home-btn" type="button" title="Back to Home" aria-label="Back to Home">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+            </button>
+            <button id="aiSideToggle" class="ai-icon-btn" type="button" title="Conversations" aria-label="Toggle conversations">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M9.5 4v16"/></svg>
+            </button>
+            <span id="aiConvoTitle" class="ai-convo-title" title="Double-click to rename" aria-label="Rename conversation">New chat</span>
+            <span class="ai-top-spacer"></span>
+            <button id="aiIncognitoBtn" class="ai-incog" type="button" aria-pressed="false" title="Start an incognito chat" aria-label="Start an incognito chat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7v11l2.8-2.2L10.6 21l1.4-2 1.4 2 2.8-2.2L19 21V10a7 7 0 0 0-7-7z"/><circle cx="9.5" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="11" r="1" fill="currentColor" stroke="none"/></svg>
+            </button>
+          </header>
+
+          <div id="aiHistoryMenu" class="ai-history" hidden></div>
+
+          <div id="aiHero" class="ai-hero">
+            <div class="ai-greet">
+              <svg id="aiGreetSpark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1.1 4.6 3.4 6.9 8 8-4.6 1.1-6.9 3.4-8 8-1.1-4.6-3.4-6.9-8-8 4.6-1.1 6.9-3.4 8-8z"/></svg>
+              <svg id="aiGreetGhost" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><path d="M12 3a7 7 0 0 0-7 7v11l2.8-2.2L10.6 21l1.4-2 1.4 2 2.8-2.2L19 21V10a7 7 0 0 0-7-7z"/><circle cx="9.5" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="11" r="1" fill="currentColor" stroke="none"/></svg>
+              <span id="aiGreetText" class="ai-greet-text">What's on your mind?</span>
+            </div>
+            <p id="aiIncogNote" class="ai-incog-note" hidden>Not saved to your history, not used for anything else. Gone when you close it.</p>
+            <div id="aiHeroSlot" class="ai-hero-slot"></div>
+          </div>
+
+          <div class="ai-body">
+            <div id="aiScroll" class="ai-scroll">
+              <div id="aiMessages" class="ai-messages"></div>
+            </div>
+            <button id="aiJump" class="ai-jump" type="button" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m5 12 7 7 7-7"/></svg>
+              Jump to latest
+            </button>
+          </div>
+
+          <div id="aiComposer" class="ai-composer">
+            <div id="aiQuote" class="ai-quote" hidden>
+              <span class="ai-quote-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 14-5-5 5-5"/><path d="M4 9h10a6 6 0 0 1 6 6v4"/></svg></span>
+              <span class="ai-quote-label">Replying to</span>
+              <span id="aiQuoteText" class="ai-quote-text"></span>
+              <button id="aiQuoteX" class="ai-quote-x" type="button" title="Remove quote" aria-label="Remove quote">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              </button>
+            </div>
+            <div class="ai-card">
+              <div id="aiAttachRow" class="ai-attach-row" hidden></div>
+              <textarea id="aiInput" class="ai-input" rows="1" maxlength="2000" placeholder="How can I help you today?" aria-label="How can I help you today?"></textarea>
+              <div class="ai-card-row">
+                <button id="aiPlusBtn" class="ai-plus" type="button" aria-label="Upload a file" title="Upload a file">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+                <div id="aiModeSeg" class="ai-mode-seg" role="group" aria-label="Response type">
+                  <button id="aiModeChat" class="ai-mode-btn is-active" type="button" aria-pressed="true">Chat</button>
+                  <button id="aiModeImage" class="ai-mode-btn" type="button" aria-pressed="false">Image</button>
+                </div>
+                <span class="ai-card-spacer"></span>
+                <button id="aiModelBtn" class="ai-model-btn" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Choose a model">
+                  <span id="aiModelName">Standard</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <button id="aiSend" class="ai-send" type="button" aria-label="Send message" disabled>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+                </button>
+              </div>
+            </div>
+            <div id="aiModelMenu" class="ai-model-menu" hidden></div>
+            <input id="aiFileInput" type="file" multiple hidden
+              accept=".txt,.md,.markdown,.json,.csv,.tsv,.log,.xml,.yml,.yaml,.toml,.ini,.html,.htm,.css,.js,.mjs,.cjs,.jsx,.ts,.tsx,.py,.java,.c,.h,.cpp,.hpp,.cs,.go,.rs,.rb,.php,.sh,.bash,.bat,.ps1,.sql,.lua,.swift,.kt,.png,.jpg,.jpeg,.webp,.gif,.pdf,text/plain,image/png,image/jpeg,image/webp,image/gif,application/pdf">
+            <div id="aiAttachErr" class="ai-attach-err" role="status"></div>
+            <div id="aiCapLine" class="ai-cap-line" role="status" hidden></div>
+          </div>
+
+          <div class="ai-foot">
+            <div class="ai-disclaimer">Noah AI can make mistakes. Check important stuff.</div>
+          </div>
+        </div>
+
+        <aside id="aiFileViewer" class="ai-fviewer" hidden aria-label="File viewer">
+          <header class="ai-fviewer-head">
+            <span class="ai-fviewer-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span>
+            <div class="ai-fviewer-meta">
+              <span id="aiFviewerName" class="ai-fviewer-name"></span>
+              <span id="aiFviewerInfo" class="ai-fviewer-info"></span>
+            </div>
+            <span id="aiFviewerFlash" class="ai-flash" aria-live="polite"></span>
+            <button id="aiFviewerCopy" class="ai-icon-btn" type="button" title="Copy contents" aria-label="Copy file contents">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            </button>
+            <button id="aiFviewerX" class="ai-icon-btn" type="button" title="Close" aria-label="Close file viewer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <pre id="aiFviewerBody" class="ai-fviewer-body" tabindex="0"></pre>
+        </aside>
+      </section>
+
+      
+      <section id="webView" hidden aria-label="Web browser">
+        
+        <svg class="web-filters" aria-hidden="true" focusable="false">
+          <filter id="webRefract" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+            <feImage href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='160'%3E%3Cdefs%3E%3ClinearGradient id='x' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23000'/%3E%3Cstop offset='1' stop-color='%23f00'/%3E%3C/linearGradient%3E%3ClinearGradient id='y' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23000'/%3E%3Cstop offset='1' stop-color='%230f0'/%3E%3C/linearGradient%3E%3Cfilter id='s'%3E%3CfeGaussianBlur stdDeviation='11'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='240' height='160' fill='%23000'/%3E%3Crect width='240' height='160' fill='url(%23x)' style='mix-blend-mode:screen'/%3E%3Crect width='240' height='160' fill='url(%23y)' style='mix-blend-mode:screen'/%3E%3Crect x='15' y='15' width='210' height='130' rx='24' fill='%23808080' filter='url(%23s)'/%3E%3C/svg%3E" result="map" preserveAspectRatio="none"/>
+            
+            <feDisplacementMap in="SourceGraphic" in2="map" scale="66" xChannelSelector="R" yChannelSelector="G" result="dR"/>
+            <feDisplacementMap in="SourceGraphic" in2="map" scale="58" xChannelSelector="R" yChannelSelector="G" result="dG"/>
+            <feDisplacementMap in="SourceGraphic" in2="map" scale="50" xChannelSelector="R" yChannelSelector="G" result="dB"/>
+            <feColorMatrix in="dR" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="cR"/>
+            <feColorMatrix in="dG" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="cG"/>
+            <feColorMatrix in="dB" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="cB"/>
+            <feBlend in="cR" in2="cG" mode="screen" result="rg"/>
+            <feBlend in="rg" in2="cB" mode="screen" result="rgb"/>
+            
+            <feGaussianBlur in="rgb" stdDeviation="1.6"/>
+          </filter>
+        </svg>
+        
+        <div class="web-backdrop" aria-hidden="true"></div>
+        <div class="web-chrome">
+          <div id="webTabs" class="web-tabs" role="tablist" aria-label="Browser tabs">
+            <button id="webNewTab" class="web-newtab" type="button" title="New tab" aria-label="New tab">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+          <div class="web-toolbar">
+            <button id="webHubHome" class="web-navbtn" type="button" title="Back to Home" aria-label="Back to Home">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+            </button>
+            <button id="webBack" class="web-navbtn" type="button" title="Back" aria-label="Back" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button id="webFwd" class="web-navbtn" type="button" title="Forward" aria-label="Forward" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+            <button id="webReload" class="web-navbtn" type="button" title="Reload" aria-label="Reload">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+            </button>
+            <form id="webOmniForm" class="web-omni" role="search" autocomplete="off">
+              <span class="web-omni-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg></span>
+              <input id="webOmni" type="text" inputmode="url" spellcheck="false" placeholder="Search or enter a web address" aria-label="Search or enter a web address">
+            </form>
+            <button id="webHome" class="web-navbtn" type="button" title="New tab page" aria-label="New tab page">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+            </button>
+            <button id="webFullscreen" class="web-navbtn" type="button" title="Fullscreen browser" aria-label="Fullscreen browser" aria-pressed="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+            </button>
+            <button id="webSettings" class="web-navbtn" type="button" title="Settings (hub://settings)" aria-label="Settings">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 14.5a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.56V21a2 2 0 1 1-4 0v-.1A1.7 1.7 0 0 0 8.9 19.3a1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.56-1.03H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.7 8.9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H9.1A1.7 1.7 0 0 0 10.13 3V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87v.08A1.7 1.7 0 0 0 21 10.13H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1.03z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="web-viewport">
+          <iframe id="webFrame" class="web-frame" title="Web content" sandbox="allow-scripts allow-same-origin allow-forms" referrerpolicy="no-referrer" hidden></iframe>
+          
+          <div id="webInternal" class="web-internal" hidden></div>
+          <div id="webStart" class="web-start" hidden>
+            <div class="web-start-inner">
+              <h1 class="web-start-title">Where to?</h1>
+              <p id="webStartSub" class="web-start-sub">Type an address in the bar above, or save one you use often.</p>
+              <div id="webLinks" class="web-links" role="list"></div>
+            </div>
+          </div>
+          <div id="webStatus" class="web-status" hidden>
+            <span class="web-status-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg></span>
+            <div id="webStatusTitle" class="web-status-title">Where would you like to go?</div>
+            <p id="webStatusSub" class="web-status-sub">Type a web address or search the web from the bar above.</p>
+            <div id="webStatusAddr" class="web-status-addr" hidden></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="settingsView" class="site-settings" hidden aria-label="Site settings">
+        <div class="site-settings-shell">
+          <header class="site-settings-head">
+            <div>
+              <h1>Appearance</h1>
+            </div>
+            <div class="theme-preview" aria-hidden="true">
+              <span class="theme-preview-dot"></span>
+              <span class="theme-preview-line"></span>
+              <span class="theme-preview-pill"></span>
+            </div>
+          </header>
+
+          <div class="site-settings-grid">
+            <fieldset class="site-settings-card">
+              <legend>Background</legend>
+              <div id="themeChoices" class="theme-choices">
+                <button class="theme-choice" type="button" data-theme="midnight" aria-pressed="false"><span class="theme-choice-preview theme-choice-midnight"><i></i><i></i><i></i></span><strong>Midnight</strong></button>
+                <button class="theme-choice" type="button" data-theme="obsidian" aria-pressed="false"><span class="theme-choice-preview theme-choice-obsidian"><i></i><i></i><i></i></span><strong>Obsidian</strong></button>
+                <button class="theme-choice" type="button" data-theme="slate" aria-pressed="false"><span class="theme-choice-preview theme-choice-slate"><i></i><i></i><i></i></span><strong>Slate</strong></button>
+                <button class="theme-choice" type="button" data-theme="mocha" aria-pressed="false"><span class="theme-choice-preview theme-choice-mocha"><i></i><i></i><i></i></span><strong>Mocha</strong></button>
+              </div>
+            </fieldset>
+
+            <fieldset class="site-settings-card">
+              <legend>Accent color</legend>
+              <div id="accentChoices" class="accent-choices">
+                <button class="accent-choice" type="button" data-accent="#ff7a1a" style="--swatch:#ff7a1a" aria-label="Orange" aria-pressed="false"></button>
+                <button class="accent-choice" type="button" data-accent="#8b7bff" style="--swatch:#8b7bff" aria-label="Violet" aria-pressed="false"></button>
+                <button class="accent-choice" type="button" data-accent="#3b9cff" style="--swatch:#3b9cff" aria-label="Blue" aria-pressed="false"></button>
+                <button class="accent-choice" type="button" data-accent="#ff5f87" style="--swatch:#ff5f87" aria-label="Rose" aria-pressed="false"></button>
+                <button class="accent-choice" type="button" data-accent="#28c78f" style="--swatch:#28c78f" aria-label="Mint" aria-pressed="false"></button>
+                <button id="accentCustomTrigger" class="accent-custom" type="button" aria-haspopup="dialog" aria-expanded="false">
+                  <span id="accentCustomSwatch" class="accent-custom-swatch" aria-hidden="true"></span>
+                  <span class="accent-custom-copy"><strong>Custom color</strong><small id="accentCustomValue">#FF7A1A</small></span>
+                </button>
+              </div>
+              <div id="accentPicker" class="accent-picker" role="dialog" aria-labelledby="accentPickerTitle" hidden>
+                <header class="accent-picker-head">
+                  <strong id="accentPickerTitle">Create a color</strong>
+                  <button id="accentPickerClose" class="accent-picker-close" type="button">Close</button>
+                </header>
+                <div id="accentField" class="accent-field" tabindex="0" role="group" aria-label="Saturation and brightness. Use arrow keys to adjust."><span id="accentFieldThumb" class="accent-field-thumb"></span></div>
+                <label class="accent-hue-row" for="accentHue"><span>Hue</span><input id="accentHue" type="range" min="0" max="360" step="1" value="24"></label>
+                <div class="accent-value-row">
+                  <span id="accentPickerPreview" class="accent-picker-preview" aria-hidden="true"></span>
+                  <label class="accent-hex"><span>HEX</span><input id="accentHex" type="text" value="#FF7A1A" maxlength="7" spellcheck="false" autocomplete="off"></label>
+                </div>
+                <div class="accent-rgb-row">
+                  <label><span>R</span><input id="accentRed" type="number" min="0" max="255" inputmode="numeric"></label>
+                  <label><span>G</span><input id="accentGreen" type="number" min="0" max="255" inputmode="numeric"></label>
+                  <label><span>B</span><input id="accentBlue" type="number" min="0" max="255" inputmode="numeric"></label>
+                </div>
+                <div class="accent-picker-actions">
+                  <button id="accentPickerCancel" type="button">Cancel</button>
+                  <button id="accentPickerApply" type="button">Apply color</button>
+                </div>
+              </div>
+            </fieldset>
+            
+                        <fieldset class="site-settings-card site-settings-card--full">
+              <legend>Tab appearance</legend>
+              <p class="settings-card-desc">Set the name and icon this tab shows while you are in another window. Your own title and icon come back the moment you return.</p>
+
+              <div class="settings-toggle-row">
+                <div class="settings-toggle-copy">
+                  <strong>Use these in the background</strong>
+                  <small>Applies only while this tab is not focused</small>
+                </div>
+                <label class="settings-pill" for="tabStyleEnabled" aria-label="Tab appearance in the background">
+                  <input type="checkbox" id="tabStyleEnabled" role="switch">
+                  <span class="settings-pill-track"><span class="settings-pill-thumb"></span></span>
+                </label>
+              </div>
+
+              <div id="tabStyleFields" class="tabstyle-fields" hidden>
+                <div class="tabstyle-field-row">
+                  <label class="tabstyle-field-label" for="tabStylePreset">Preset</label>
+                  <select id="tabStylePreset" class="tabstyle-input tabstyle-select" aria-label="Tab appearance preset"></select>
+                </div>
+                <div class="tabstyle-field-row">
+                  <label class="tabstyle-field-label" for="tabStyleTitle">Tab title</label>
+                  <input id="tabStyleTitle" class="tabstyle-input" type="text" placeholder="e.g. Google Classroom" maxlength="80" spellcheck="false" autocomplete="off">
+                </div>
+
+                <div class="tabstyle-field-row">
+                  <span class="tabstyle-field-label">Tab icon</span>
+                  <div class="tabstyle-favicon-row">
+                    <span id="tabStyleFaviconPreview" class="tabstyle-preview-swatch" aria-hidden="true"></span>
+                    <input id="tabStyleFaviconUrl" class="tabstyle-input tabstyle-input--url" type="url" placeholder="https://example.com/favicon.ico" spellcheck="false" autocomplete="off">
+                    <label class="tabstyle-upload-btn" for="tabStyleFaviconFile" title="Upload an image file">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                      Upload
+                    </label>
+                    <input id="tabStyleFaviconFile" type="file" accept=".png,.jpg,.jpeg,.gif,.ico,.svg,image/png,image/jpeg,image/gif,image/x-icon,image/svg+xml" hidden>
+                  </div>
+                </div>
+
+                <div class="tabstyle-field-row">
+                  <span class="tabstyle-field-label">Open elsewhere</span>
+                  <div style="display:flex;gap:8px;flex-wrap:wrap">
+                    <button id="tabStyleBlankBtn" class="theme-reset" type="button">Open in a blank tab</button>
+                    <button id="tabStyleBlobBtn" class="theme-reset" type="button">Open in a clean tab</button>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="site-settings-card site-settings-card--full">
+              <legend>Ads</legend>
+              <div class="settings-toggle-row">
+                <div class="settings-toggle-copy">
+                  <strong>Popup ads</strong>
+                  <small>Opens one sponsored tab now and then. Banner ads stay on either way.</small>
+                </div>
+                <label class="settings-pill" for="popunderToggle" aria-label="Toggle popup ads">
+                  <input type="checkbox" id="popunderToggle" role="switch">
+                  <span class="settings-pill-track"><span class="settings-pill-thumb"></span></span>
+                </label>
+              </div>
+            </fieldset>
+            <fieldset class="site-settings-card site-settings-card--full">
+              <legend>Obfuscation</legend>
+              <div class="settings-toggle-row">
+                <div class="settings-toggle-copy">
+                  <strong>Text Obfuscation</strong>
+                  <small>Changes words like "game" to "assignment" to disguise the site.</small>
+                </div>
+                <label class="settings-pill" for="obfuscateText" aria-label="Toggle text obfuscation">
+                  <input type="checkbox" id="obfuscateText" role="switch">
+                  <span class="settings-pill-track"><span class="settings-pill-thumb"></span></span>
+                </label>
+              </div>
+              <div class="settings-toggle-row">
+                <div class="settings-toggle-copy">
+                  <strong>Anti-Close Warning</strong>
+                  <small>Asks for confirmation before you close or reload the tab.</small>
+                </div>
+                <label class="settings-pill" for="antiClose" aria-label="Toggle anti-close">
+                  <input type="checkbox" id="antiClose" role="switch" checked>
+                  <span class="settings-pill-track"><span class="settings-pill-thumb"></span></span>
+                </label>
+              </div>
+            </fieldset>
+
+          </div>
+
+          <div class="site-settings-actions">
+            <button id="themeReset" class="theme-reset" type="button">Reset to default</button>
+            <span id="themeStatus" class="theme-status" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+      </section>
+
+      <section id="shopView" hidden aria-label="Shop">
+        <div class="shop-shell">
+          <aside class="shop-sidebar" aria-label="Shop categories">
+            <div class="shop-brand">
+              <span>Shop</span>
+            </div>
+            <nav class="shop-nav">
+              <button class="shop-nav-item is-active" type="button" data-shop-page="general"><span>General</span></button>
+              <button class="shop-nav-item" type="button" data-shop-page="usernames"><span>Usernames</span></button>
+              <button class="shop-nav-item" type="button" data-shop-page="levels"><span>Levels</span></button>
+            </nav>
+          </aside>
+          <div class="shop-main">
+            <header class="shop-header">
+              <div>
+                <h1 id="shopTitle">General</h1>
+              </div>
+              <div class="shop-wallet" aria-label="Your balance">
+                <strong id="shopTokens">—</strong><span>Tokens</span>
+              </div>
+            </header>
+            <div id="shopStatus" class="shop-status" role="status" aria-live="polite" hidden></div>
+            <div id="shopContent" class="shop-content"></div>
+          </div>
+        </div>
+      </section>
+      <aside class="ad-slot" aria-label="Advertisement" hidden>
+        <span class="ad-slot-label">Advertisement</span>
+        <div class="ad-slot-frame">
+          <iframe class="ad-banner" data-src="https://ads-noahhub.51-81-220-179.sslip.io/ads/slot.html?v=193" data-local-path="/ads/slot.html?v=193" title="Banner advertisement" width="728" height="90"
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                  referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <span>Noah's Tutoring Hub · <a href="/terms/">Terms</a> · <a href="/privacy/">Privacy</a> · <a href="/refunds/">Refunds</a></span>
+    </footer>
+  </div>
+
+  
+  <div id="gamePage" role="dialog" aria-modal="true" aria-label="Game player">
+    <div class="game-bar">
+      <span id="gameSessionTitle">Game</span>
+      <button class="icon-btn" id="gameRefresh" type="button" title="Restart game" aria-label="Restart game">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button class="icon-btn" id="gameFullscreen" type="button" title="Fullscreen" aria-label="Fullscreen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3"/></svg>
+      </button>
+      <button class="icon-btn" id="gameDownload" type="button" title="Download game" aria-label="Download game">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </button>
+      <button class="icon-btn close" id="gameClose" type="button" title="Close (Esc)" aria-label="Close game">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div id="gameViewStack"></div>
+  </div>
+
+  
+  <div id="chatApp" hidden>
+    
+    <div id="chatShell" class="chat-shell" hidden>
+      <aside class="channel-sidebar">
+        <header id="serverHeader" class="server-header">
+          <button id="mobileChatClose" class="mobile-chat-back" type="button" aria-label="Back to the hub" title="Back to the hub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button id="serverSwitchBtn" class="server-switch-btn" type="button" aria-haspopup="menu" aria-expanded="false" title="Switch server">
+            <span id="serverName">Select a server</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <button id="serverMenuBtn" class="icon-ghost" type="button" aria-label="Server menu" hidden>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+          </button>
+        </header>
+        
+        <div id="serverSwitch" class="server-switch" hidden>
+          <div id="guildList" class="ss-list"></div>
+          <div class="ss-sep" aria-hidden="true"></div>
+          <button id="dmRailBtn" class="ss-item" type="button">
+            <span class="ss-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 19a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v11l3.5-3z"/><circle cx="9.5" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="11" r="1" fill="currentColor" stroke="none"/></svg></span>
+            Messages
+          </button>
+          <button id="createServerBtn" class="ss-item" type="button">
+            <span class="ss-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+            Add a server
+          </button>
+          <button id="discoverBtn" class="ss-item" type="button">
+            <span class="ss-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" fill="currentColor" stroke="none"/></svg></span>
+            Discover servers
+          </button>
+        </div>
+        <div id="serverMenu" class="server-menu" hidden></div>
+        <div id="channelList" class="channel-list"></div>
+      </aside>
+
+      <main class="chat-main">
+        <header class="channel-header">
+          <button id="mobileChatBack" class="mobile-chat-back" type="button" aria-label="Back to conversations" title="Back to conversations">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <span class="ch-hash">#</span><span id="channelName">—</span>
+          <div class="spacer"></div>
+          <button id="inviteBtn" class="header-btn" type="button" title="Invite people">Invite</button>
+          <button id="groupExitBtn" class="header-btn group-exit-btn" type="button" hidden></button>
+          <button id="membersToggle" class="icon-ghost" type="button" title="Members" aria-label="Toggle member list">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </button>
+        </header>
+        <div id="messageScroll" class="message-scroll">
+          <div id="messageList" class="message-list"></div>
+          <div id="chatEmpty" class="chat-empty" hidden></div>
+        </div>
+        <form id="composerForm" class="composer">
+          <input id="attachInput" type="file" hidden accept="image/*,application/pdf,text/plain,.zip,.txt">
+          <button id="attachBtn" class="composer-tool" type="button" title="Attach a file" aria-label="Attach a file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.44 11.05 12.25 20.24a5 5 0 0 1-7.07-7.07l9.19-9.19a3.5 3.5 0 0 1 4.95 4.95l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+          </button>
+          <button id="formatBtn" class="composer-tool" type="button" title="Formatting" aria-label="Text formatting">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7V5h9v2"/><path d="M9.5 5v13"/><path d="M7.5 18h4"/></svg>
+          </button>
+          <button id="emojiBtn" class="composer-tool" type="button" title="Emoji" aria-label="Emoji">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg>
+          </button>
+          <div id="messageInput" class="composer-input is-disabled" contenteditable="false" role="textbox" aria-multiline="true" aria-label="Message" data-placeholder="Message"></div>
+          <button id="sendBtn" class="composer-send" type="submit" aria-label="Send message">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.4 20.4 21 12 3.4 3.6 3 10l12 2-12 2z"/></svg>
+          </button>
+        </form>
+      </main>
+
+      <aside id="memberList" class="member-list" hidden></aside>
+    </div>
+
+    
+    <div id="chatSettings" class="settings-overlay" hidden></div>
+
+    
+    <div id="discoverPage" class="discover-page" hidden></div>
+
+    
+    <div id="boostPage" class="boost-page" hidden></div>
+
+  </div>
+
+  
+  <div id="chatModal" class="modal-overlay" hidden>
+    <div id="chatModalCard" class="modal-card"></div>
+  </div>
+
+  
+  <section id="chatAuth" class="chat-auth" hidden>
+    <form id="authForm" class="auth-card">
+      <div class="auth-logo">
+        <img class="auth-logo-img" src="images/logo.png?v=191" alt="Noah's Tutoring Hub">
+      </div>
+      <h2 id="authTitle">Welcome back</h2>
+      <p id="authSubtitle">Log in to keep playing with your friends.</p>
+      <input id="authUsername" class="auth-input" placeholder="Username" autocomplete="username" autocapitalize="none" spellcheck="false">
+      <input id="authPassword" class="auth-input" type="password" placeholder="Password" autocomplete="current-password">
+      <input id="authConfirm" class="auth-input" type="password" placeholder="Confirm password" autocomplete="new-password" hidden>
+      
+      <div class="auth-hp" aria-hidden="true">
+        <label for="authHpCheck">Leave this field empty</label>
+        <input id="authHpCheck" name="hp_check" type="text" tabindex="-1" autocomplete="off" spellcheck="false">
+      </div>
+      <p id="authError" class="auth-error" role="alert"></p>
+      <button id="authSubmit" class="btn btn-primary" type="submit">Log in</button>
+      <button id="authToggle" class="auth-link" type="button">Need an account? Sign up</button>
+      <button id="chatBackToGames" class="auth-back" type="button">← Back to games</button>
+    </form>
+  </section>
+
+  <script src="js/prefs-sync.js?v=5"></script>
+  <script src="js/games.js?v=225"></script>
+  <script src="js/games-reveal.js?v=4"></script>
+  <script src="js/game-launch.js?v=194"></script>
+  <script src="js/app.js?v=214"></script>
+  <script src="js/settings.js?v=205"></script>
+  <script src="js/bg-settings.js?v=4"></script>
+  <script src="js/home.js?v=205"></script>
+  <script src="js/live-users.js?v=1"></script>
+<script src="js/view-scroll.js?v=1"></script>
+  <script src="js/shop.js?v=4"></script>
+  <script src="js/msg-tools.js?v=2"></script>
+  <script src="js/chat.js?v=217"></script>
+<script src="js/friends.js?v=2"></script>
+<script src="js/admin-console.js?v=12"></script>
+<script src="js/member-search.js?v=1"></script>
+  <script src="js/playtime.js?v=193"></script>
+  <script src="js/bg-effects.js?v=5"></script>
+  <script src="js/ai-197.js"></script>
+  <script src="js/web.js?v=206"></script>
+<script src="js/web-settings.js?v=2"></script>
+<script src="js/web-settings-badge.js?v=1"></script>
+  <script src="js/nav-badges.js?v=1"></script>
+<script src="js/hls.min.js?v=1"></script>
+<script src="js/movies-view.js?v=27"></script>
+  
+  <script src="/study/lesson.js?v=1"></script>
+<script src="/study/lib/index.js?v=1"></script>
+    <script src="js/browse-ui.js?v=401" defer></script>
+  <script src="js/browse-heal.js?v=4"></script>
+  <script src="js/browse.js?v=402" defer></script>
+  
+  <div id="musicBar" class="music-bar" role="region" aria-label="Now playing" hidden>
+    
+    <div class="mbar-left">
+      <span id="musicBarArt" class="music-bar-art" hidden></span>
+      <div class="music-bar-info">
+        <span id="musicBarName" class="music-bar-name"></span>
+        <span class="music-bar-stateline">
+          <span id="musicBarState" class="music-bar-state"></span>
+          <span id="musicBarTag" class="mtag" hidden></span>
+        </span>
+      </div>
+    </div>
+    <div class="mbar-center">
+      <div class="mbar-transport">
+        <button id="musicPrev" class="music-skip" type="button" aria-label="Previous" hidden></button>
+        <button id="musicBarToggle" class="music-bar-toggle" type="button" aria-label="Play"></button>
+        <button id="musicNext" class="music-skip" type="button" aria-label="Next" hidden></button>
+      </div>
+      <div id="musicSeek" class="music-seek" hidden>
+        <span id="musicTimeCur" class="music-time">0:00</span>
+        <span id="musicSeekTrack" class="music-seek-track" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0"><span id="musicSeekFill" class="music-seek-fill"></span></span>
+        <span id="musicTimeTot" class="music-time">0:00</span>
+      </div>
+    </div>
+    <div class="mbar-right">
+      <button id="musicClose" class="mbar-close" type="button" aria-label="Stop playback and close the player">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="music-vol">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>
+        <input id="musicVol" type="range" min="0" max="100" step="1" aria-label="Volume">
+      </div>
+    </div>
+  </div>
+
+  <script src="js/dash-audio.js?v=191"></script>
+  <script src="js/lyrics.js?v=191"></script>
+  <script src="js/music.js?v=198"></script>
+  <script src="js/music-next.js?v=23"></script>
+  <script src="js/music-art.js?v=1"></script>
+  <script src="js/music-bar.js?v=3"></script>
+<script src="js/player-tools.js?v=2"></script>
+  <script src="js/plus.js?v=191"></script>
+  <script>
+  !function(){
+    function p(h){
+      var r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16);
+      var R=r/255,G=g/255,B=b/255;
+      var max=Math.max(R,G,B),min=Math.min(R,G,B),d=max-min,hue=0,sat=0;
+      if(d){
+        sat=d/max*100;
+        if(max===R)hue=(((G-B)/d)%6)*60;
+        else if(max===G)hue=((B-R)/d+2)*60;
+        else hue=((R-G)/d+4)*60;
+        if(hue<0)hue+=360;
+      }
+      return{h:hue,s:sat,r:r,g:g,b:b,max:max};
+    }
+    function tint(accent){
+      var isOrange=!accent||/^#?ff7a1a$/i.test(accent.trim());
+      var style=document.getElementById('hub-logo-tint');
+      if(!style){style=document.createElement('style');style.id='hub-logo-tint';document.head.appendChild(style);}
+      if(isOrange){
+        style.textContent='.home-logo, .auth-logo-img, img[src*="cuh.png"] { filter: drop-shadow(0 8px 28px rgba(255,122,26,.32)); }';
+        return;
+      }
+      try{
+        var c=p(accent);
+        if(c.s<15){
+          var b=Math.round(c.max*250);
+          style.textContent='.home-logo, .auth-logo-img, img[src*="cuh.png"] { filter: grayscale(100%) brightness('+b+'%) drop-shadow(0 8px 28px rgba('+c.r+','+c.g+','+c.b+',.32)) !important; }';
+        }else{
+          var rot=Math.round(c.h-24);
+          var br=100;
+          if(c.h>80&&c.h<220)rot-=35;
+          else if(c.h>=280&&c.h<330)rot-=25;
+          else if(c.h<25||c.h>=330){rot-=15;br=85;}
+          var sat=Math.round(Math.max(140,c.s*1.8));
+          style.textContent='.home-logo, .auth-logo-img, img[src*="cuh.png"] { filter: hue-rotate('+rot+'deg) saturate('+sat+'%) brightness('+br+'%) drop-shadow(0 8px 28px rgba('+c.r+','+c.g+','+c.b+',.32)) !important; }';
+        }
+      }catch(e){style.textContent='';}
+    }
+    window.addEventListener('hub:theme',function(e){if(e&&e.detail&&e.detail.accent)tint(e.detail.accent);});
+    setTimeout(function(){try{tint(window.hubTheme&&window.hubTheme.get?window.hubTheme.get().accent:'#ff7a1a');}catch(e){}},0);
+  }();
+  </script>
+  <script src="js/obfuscate.js?v=1"></script>
+  <script src="js/tabstyle.js?v=2"></script>
+  <script src="js/ad-cover.js?v=14" defer></script>
+<script data-cfasync="false">!function(){
+  var KEY="hub_popunder_at";
+  var COOLDOWN=6e5;
+  var ARM_DELAY=4e3;
+  var SRC="https://abscloud.org/1/62d4ba4a5e6660053b4929656a2293b0";
+  var fired=false;
+  function off(){
+    try{return localStorage.getItem("hub_popunder")==="0";}catch(e){return false;}
+  }
+  function due(){
+    var last=0;
+    try{last=Number(localStorage.getItem(KEY))||0;}catch(e){}
+    return !last||Date.now()-last>=COOLDOWN;
+  }
+  function go(){
+    if(fired||off())return;
+    fired=true;
+    try{localStorage.setItem(KEY,String(Date.now()));}catch(e){}
+    var s=document.createElement("script");
+    s.setAttribute("data-cfasync","false");
+    s.src=SRC;
+    document.head.appendChild(s);
+  }
+  function arm(){
+    if(fired||off()||!due())return;
+    ["click","touchstart","keydown"].forEach(function(t){
+      document.addEventListener(t,go,{once:true,passive:true});
+    });
+  }
+  function schedule(){
+    setTimeout(arm,ARM_DELAY);
+  }
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",schedule,{once:true});
+  }else{
+    schedule();
+  }
+  document.addEventListener("visibilitychange",function(){
+    if(!document.hidden)schedule();
+  });
+  var toggle=document.getElementById("popunderToggle");
+  if(toggle){
+    toggle.checked=!off();
+    toggle.addEventListener("change",function(){
+      try{localStorage.setItem("hub_popunder",toggle.checked?"1":"0");}catch(e){}
+      if(toggle.checked){
+        try{localStorage.removeItem(KEY);}catch(e){}
+        fired=false;
+        arm();
+      }else{
+        fired=true;
+      }
+    });
+  }
+}();</script>
+  <script src="js/ban-gate.js?v=2" defer></script>
+<script src="/js/reading.js?v=2"></script>
+<script src="js/shop-test.js?v=1" defer></script>
+</body>
+</html>
+

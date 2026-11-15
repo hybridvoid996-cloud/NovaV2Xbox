@@ -1,0 +1,34 @@
+✔ site-local anime identifiers are never mistaken for AniList identifiers (1.5628ms)
+✔ anime artwork proxy accepts only the discovered artwork routes (0.6021ms)
+✔ HiAnime playback requires an exact external title identity (0.6091ms)
+✔ provider details retain episode identity and cache verified playback links (30.9209ms)
+✔ mismatched provider details cannot enter playback (0.6581ms)
+✔ dedicated anime catalog normalizes real metadata and requests a fixed host (26.6136ms)
+✔ empty anime responses are errors rather than successful blank catalogs (1.2604ms)
+✔ anime API caches a successful catalog (2.6334ms)
+✔ anime details require a real title and provide the actual episode count (1.3656ms)
+✔ episode previews use numbered episode metadata and reject unrelated artwork (1.8536ms)
+✔ anime falls back through Nova server providers when AniList cannot connect (3.8953ms)
+✔ total provider outage still returns bundled anime listings and known episode details (10.0218ms)
+✔ South Park S29 E4 keeps its typed series and episode on every fallback (2.6998ms)
+✔ wrong show and season episode responses are rejected before rendering (0.3346ms)
+✔ movie guard runs before provider scripts and stops scripted, ordinary and middle-click ads (1.3109ms)
+✔ readiness and playback progress are detected inside nested provider frames without messages (1.4554ms)
+✔ hidden and tiny advertising frames cannot mark the movie ready (1.0258ms)
+✔ inaccessible frames do not prevent checking another provider frame (0.4258ms)
+✔ a nested Vercel error is detected even without provider scripts (0.5132ms)
+✔ a broken secondary frame cannot interrupt healthy playback (0.3991ms)
+✔ a failed player after playback remains recoverable (0.246ms)
+✔ a large empty video cannot hide a smaller working movie player (0.2075ms)
+✔ embedded movie document installs its own theme and session-bound readiness signal (1.6485ms)
+✔ profile text cannot terminate the embedded script, and non-HTML responses remain untouched (0.4185ms)
+✔ nested player progress and errors relay only from child frames with the current session (1.9625ms)
+✔ nested provider HTML errors signal recovery for real and soft 404 responses (3.5608ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 266.115

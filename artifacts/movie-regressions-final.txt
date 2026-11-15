@@ -1,0 +1,26 @@
+✔ site-local anime identifiers are never mistaken for AniList identifiers (1.3921ms)
+✔ anime artwork proxy accepts only the discovered artwork routes (0.3327ms)
+✔ HiAnime playback requires an exact external title identity (0.4007ms)
+✔ provider details retain episode identity and cache verified playback links (20.423ms)
+✔ mismatched provider details cannot enter playback (0.4569ms)
+✔ anime players receive the selected language before their scripts run (2.0554ms)
+✔ Anime tab returns its bundled catalog promptly even when every service hangs (2809.077ms)
+✔ embedded movie document installs its own theme and session-bound readiness signal (1.0951ms)
+✔ profile text cannot terminate the embedded script, and non-HTML responses remain untouched (0.3568ms)
+✔ nested player progress and errors relay only from child frames with the current session (1.7682ms)
+✔ nested provider HTML errors signal recovery for real and soft 404 responses (3.0529ms)
+✔ a slow first player reconnects automatically, and loaded playback never restarts (1.5943ms)
+✔ repeated connection failures stop after three attempts (0.3164ms)
+✔ leaving during a connection disposes its late frame and cancels pending retries (0.2377ms)
+✔ a confirmed lost player can reconnect after readiness, while ordinary late request failures do not interrupt it (0.2276ms)
+✔ useful startup progress keeps a slow laptop player alive, with a bounded total wait (0.441ms)
+✔ an interactive hint cannot disable the total startup deadline (0.4814ms)
+✔ an explicit Play button waits for the user, then re-arms bounded startup (0.3611ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2947.0622
