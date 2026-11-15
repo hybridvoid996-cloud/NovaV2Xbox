@@ -1,9 +1,14 @@
 <!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Loading about:blank</title>
-<style>html{color-scheme:dark;background:#08090b;color:#eee;font:14px system-ui}body{min-height:90vh;display:grid;place-content:center;text-align:center}button{padding:14px 24px;border-radius:14px;border:1px solid #ffffff30;background:#ffffff12;color:inherit;cursor:pointer}</style>
-<body><p>Loading about:blank…</p><button hidden>Open Nova</button>
+<style>html{color-scheme:dark;background:#08090b;color:#eee;font:14px system-ui}body{min-height:90vh;display:grid;place-content:center;text-align:center}</style>
+<body><p role="status">Opening Nova…</p>
 <script type="module">
-import {launchBlank} from '/src/blank-tab.mjs';
-const target=new URL('/home.html'+location.search,location.origin);
-function start(){if(launchBlank({url:target.href})){location.replace('about:blank');return true}return false}
-if(/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)){target.searchParams.set('nova-regular','1');location.replace(target.href)}else if(!start()){const button=document.querySelector('button');button.hidden=false;button.onclick=start;document.querySelector('p').textContent='Open Nova in about:blank to continue.'}
+// The regular fallback also covers module/network failures and cannot loop.
+const fallback=new URL('/home.html',location.origin);fallback.search=location.search;fallback.hash=location.hash;fallback.searchParams.set('nova-regular','1');
+let expired=false;const safety=setTimeout(()=>{expired=true;location.replace(fallback.href)},6000);
+try{
+ const [{launchBlank},{routeBlankEntry}]=await Promise.all([import('/src/blank-tab.mjs?v=20261115-auto1'),import('/src/blank-entry-route.mjs?v=20261115-auto1')]);
+ if(expired)throw Error('Startup already continued in this tab');
+ let enabled=true;try{enabled=localStorage.getItem('nova_auto_blank')!=='false'}catch{}
+ routeBlankEntry({href:location.href,enabled,launch:launchBlank,navigate:url=>{clearTimeout(safety);location.replace(url)}});
+}catch{clearTimeout(safety);location.replace(fallback.href)}
 </script></body></html>

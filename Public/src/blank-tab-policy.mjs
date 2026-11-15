@@ -1,5 +1,6 @@
 export const classroomTitle='Home - Google Classroom';
 export const classroomIcon='https://ssl.gstatic.com/classroom/favicon.png';
+export function isLocalNova(hostname){return /^(localhost|127\.0\.0\.1|\[?::1\]?)$/i.test(String(hostname||''))}
 export function blankTabStyle(title,icon,origin){
  let url;try{url=new URL(icon||classroomIcon,origin);if(!['https:','http:'].includes(url.protocol)&&!url.href.startsWith('data:image/'))throw Error()}catch{url=new URL(classroomIcon)}
  return {title:String(title||classroomTitle).slice(0,100),icon:url.href};
