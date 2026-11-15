@@ -2,7 +2,7 @@ import {mountWorkspace} from './src/ai-chat-account.mjs?v=20261111-tokens25k';
 import {boundedAIHistory} from './src/ai-context.mjs?v=20261029-ai387';
 import {answerMode} from './src/ai-answer-modes.mjs';
 import {renderMarkdown} from './nova-ai-markdown.js?v=20261107';
-import {screenAssistant} from './nova-ai-screen.js?v=20261111';
+import {screenAssistant} from './nova-ai-screen.js?v=20261115-float2';
 const $=id=>document.getElementById(id);
 let chats=[],current=null,image=null,busy=false;
 try{$('answer-mode').value=answerMode(localStorage.getItem('nova-ai-answer-mode'));$('auto-scroll').checked=localStorage.getItem('nova-ai-auto-scroll')!=='false'}catch{}

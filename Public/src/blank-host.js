@@ -1,5 +1,5 @@
 (()=>{
- const floatHost=document.createElement('script');floatHost.src=new URL('/src/ai-floating-host.js?v=1',document.currentScript.src).href;document.head.append(floatHost);
+ const floatHost=document.createElement('script');floatHost.src=new URL('/src/ai-floating-host.js?v=2',document.currentScript.src).href;document.head.append(floatHost);
  const script=document.currentScript,origin=new URL(script.src).origin,frame=document.getElementById('nova-blank-frame');
  // The outer blank document controls iframe CSS width on mobile browsers.
  let viewport=document.querySelector('meta[name=viewport]');if(!viewport){viewport=document.createElement('meta');viewport.name='viewport';document.head.append(viewport)}viewport.content='width=device-width, initial-scale=1, viewport-fit=cover';
