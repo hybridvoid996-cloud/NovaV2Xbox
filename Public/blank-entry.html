@@ -1,14 +1,1 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Loading about:blank</title>
-<style>html{color-scheme:dark;background:#08090b;color:#eee;font:14px system-ui}body{min-height:90vh;display:grid;place-content:center;text-align:center}</style>
-<body><p role="status">Opening Nova…</p>
-<script type="module">
-// The regular fallback also covers module/network failures and cannot loop.
-const fallback=new URL('/home.html',location.origin);fallback.search=location.search;fallback.hash=location.hash;fallback.searchParams.set('nova-regular','1');
-let expired=false;const safety=setTimeout(()=>{expired=true;location.replace(fallback.href)},6000);
-try{
- const [{launchBlank},{routeBlankEntry}]=await Promise.all([import('/src/blank-tab.mjs?v=20261115-auto1'),import('/src/blank-entry-route.mjs?v=20261115-auto1')]);
- if(expired)throw Error('Startup already continued in this tab');
- let enabled=true;try{enabled=localStorage.getItem('nova_auto_blank')!=='false'}catch{}
- routeBlankEntry({href:location.href,enabled,launch:launchBlank,navigate:url=>{clearTimeout(safety);location.replace(url)}});
-}catch{clearTimeout(safety);location.replace(fallback.href)}
-</script></body></html>
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Loading Nova</title><style>html{color-scheme:dark;background:#08090b}</style><script>const home=new URL('/home.html',location.origin);home.search=location.search;home.hash=location.hash;location.replace(home.href);</script></html>

@@ -9,7 +9,8 @@ export function launchBlank({open=window.open.bind(window),url=location.href,sto
   const icon=doc.createElement('link');icon.rel='icon';icon.href=style.icon;doc.head.append(icon);
   const frame=doc.createElement('iframe');frame.id='nova-blank-frame';frame.title='Your Nova workspace';frame.setAttribute('data-nova-src',target.href);frame.allow='autoplay; fullscreen; microphone; camera; clipboard-read; clipboard-write; display-capture; cross-origin-isolated';frame.allowFullscreen=true;frame.style.cssText='position:fixed;inset:0;width:100%;height:100%;border:0';doc.body.append(frame);
   const runtime=doc.createElement('script');runtime.src=new URL('/src/blank-host.js?v=20261115-auto1',location.origin).href;
-  runtime.onerror=()=>{const fallback=new URL(target);fallback.searchParams.set('nova-regular','1');popup.location.replace(fallback.href)};doc.head.append(runtime);
+  // If the outer helper fails, still load Home inside the blank tab's frame.
+  runtime.onerror=()=>{frame.src=target.href};doc.head.append(runtime);
   popup.opener=null;popup.focus();return true;
  }catch{try{popup.close()}catch{}return false}
 }
@@ -19,9 +20,20 @@ export async function openSignedInBlank(){
  window.NovaBlankLaunching=true;window.NovaHomeBoot?.stage('Loading about:blank…');
  const complete=()=>{window.NovaDynoStoper?.allowNextNavigation();try{window.close()}catch{}location.replace('about:blank')};
  if(launchBlank()){complete();return true}
- // Popups are a browser permission, not a loading prerequisite. Let the
- // caller finish normal startup instead of waiting indefinitely for a click.
- window.NovaBlankLaunching=false;
- window.NovaHomeBoot?.stage('Loading Nova assets…');
- return false;
+ // Keep the original Nova loader until the blank workspace opens. Browser
+ // permissions cannot be overridden; retry when focus returns after allowing
+ // popups, or synchronously during a genuine interaction (no extra button).
+ window.NovaHomeBoot?.stage('Waiting for your browser to allow about:blank…');
+ const pending=new AbortController();
+ return new Promise(resolve=>{
+  const retry=event=>{
+   if(event?.isTrusted===false||window.document?.hidden)return;
+   if(event?.type==='keydown'&&(event.repeat||event.ctrlKey||event.metaKey||event.altKey||!['Enter',' '].includes(event.key)))return;
+   if(localStorage.getItem('nova_auto_blank')==='false'){pending.abort();window.NovaBlankLaunching=false;resolve(false);return}
+   if(!launchBlank())return;
+   pending.abort();event?.preventDefault?.();event?.stopImmediatePropagation?.();resolve(true);complete();
+  };
+  for(const type of ['pointerdown','keydown','focus','pageshow'])addEventListener(type,retry,{capture:true,signal:pending.signal});
+  addEventListener('pagehide',()=>pending.abort(),{once:true,signal:pending.signal});
+ });
 }

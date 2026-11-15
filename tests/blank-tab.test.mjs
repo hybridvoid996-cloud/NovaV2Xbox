@@ -6,9 +6,35 @@ test('only a completed signed-in top-level home can automatically open',()=>{
  const yes={authenticated:true,complete:true,topLevel:true,hosted:false};assert.equal(shouldOpenBlank(yes),true);
  for(const patch of [{authenticated:false},{complete:false},{topLevel:false},{hosted:true},{enabled:false},{regular:true}])assert.equal(shouldOpenBlank({...yes,...patch}),false);
 });
-test('blocked automatic opening finishes startup without a click or pending cover',async()=>{
+test('blocked popup keeps the Nova loader and never automatically falls back to Home',async()=>{
+ const keys=['window','top','localStorage','location','addEventListener'],before=Object.fromEntries(keys.map(k=>[k,Object.getOwnPropertyDescriptor(globalThis,k)])),handlers=[];
+ try{
+  const stages=[],win={open:()=>null,NovaHomeBoot:{stage:text=>stages.push(text)}};
+  globalThis.window=win;globalThis.top=win;globalThis.localStorage={getItem:()=>null};globalThis.location={href:'https://nova.example/home.html',origin:'https://nova.example',hostname:'nova.example',search:''};globalThis.addEventListener=(type,fn)=>handlers.push({type,fn});
+  let settled=false;const opening=openSignedInBlank().then(value=>{settled=true;return value});await Promise.resolve();
+  assert.equal(settled,false);assert.equal(win.NovaBlankLaunching,true);assert.match(stages.at(-1),/browser to allow about:blank/);
+  assert.deepEqual(handlers.map(h=>h.type),['pointerdown','keydown','focus','pageshow','pagehide']);
+  handlers[0].fn({isTrusted:false,type:'pointerdown'});await Promise.resolve();assert.equal(settled,false);
+  handlers.find(h=>h.type==='focus').fn({isTrusted:true,type:'focus'});await Promise.resolve();assert.equal(settled,false);
+  // Only explicitly disabling the user's blank-tab preference may resume Home.
+  globalThis.localStorage={getItem:()=> 'false'};handlers[0].fn({isTrusted:true,type:'pointerdown'});
+  assert.equal(await opening,false);assert.equal(win.NovaBlankLaunching,false);
+ }finally{for(const key of keys){if(before[key])Object.defineProperty(globalThis,key,before[key]);else delete globalThis[key]}}
+});
+
+test('returning focus retries the automatic launch after popup permission changes',async()=>{
  const keys=['window','top','localStorage','location','addEventListener'],before=Object.fromEntries(keys.map(k=>[k,Object.getOwnPropertyDescriptor(globalThis,k)]));
- try{const stages=[];const win={open:()=>null,NovaHomeBoot:{stage:text=>stages.push(text)}};globalThis.window=win;globalThis.top=win;globalThis.localStorage={getItem:()=>null};globalThis.location={href:'https://nova.example/home.html',origin:'https://nova.example',hostname:'nova.example',search:''};globalThis.addEventListener=()=>assert.fail('No click gate should be installed');assert.equal(await openSignedInBlank(),false);assert.equal(win.NovaBlankLaunching,false);assert.match(stages.at(-1),/Loading Nova assets/)}finally{for(const key of keys){if(before[key])Object.defineProperty(globalThis,key,before[key]);else delete globalThis[key]}}
+ try{
+  let allowed=false,closed=0;const destinations=[],handlers={},nodes=[];
+  const make=tag=>({tag,style:{},setAttribute(k,v){this[k]=v}});
+  const popup={closed:false,document:{documentElement:{style:{}},body:{style:{},append:n=>nodes.push(n)},head:{append:n=>nodes.push(n)},createElement:make},focus(){}};
+  const win={open:()=>allowed?popup:null,close:()=>closed++,NovaHomeBoot:{stage(){}}};
+  globalThis.window=win;globalThis.top=win;globalThis.localStorage={getItem:()=>null};globalThis.location={href:'https://nova.example/home.html',origin:'https://nova.example',hostname:'nova.example',search:'',replace:url=>destinations.push(url)};globalThis.addEventListener=(type,fn)=>handlers[type]=fn;
+  const opening=openSignedInBlank();allowed=true;handlers.focus({isTrusted:true,type:'focus'});
+  assert.equal(await opening,true);assert.equal(closed,1);assert.deepEqual(destinations,['about:blank']);
+  const frame=nodes.find(n=>n.tag==='iframe');assert.equal(frame['data-nova-src'],'https://nova.example/home.html');
+  nodes.find(n=>n.tag==='script').onerror();assert.equal(frame.src,'https://nova.example/home.html');
+ }finally{for(const key of keys){if(before[key])Object.defineProperty(globalThis,key,before[key]);else delete globalThis[key]}}
 });
 
 test('Classroom is default, custom tab styles survive, and unsafe icons are rejected',()=>{
