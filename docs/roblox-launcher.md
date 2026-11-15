@@ -1,5 +1,12 @@
 # Nova Roblox launcher — 2026-11-13
 
+## Official Web Play option — 2026-11-14
+- Owner/admin launcher now offers **Official Web Play** after the existing server access check. Accepts a numeric Place ID or a Roblox experience URL and constructs only `https://play.roblox.com/games/start?placeId=...`; unrelated parameters and credentials are never forwarded.
+- Opens directly in a user-initiated new tab, keeping official Roblox authentication first-party and separate from Nova's proxy. The existing TGLSC proxied launcher is unchanged. No Roblox account cookies, session tokens, client code or service credentials were copied.
+- Inspected the user's signed-in 321 launcher: Play opened `index.html?placeId=189707&loader=client&popup=1`; its script elements include Roblox `WebClient.js`, `WasmLoader.js` and `WasmPlayer.js` plus provider bridge code. Its direct-provider test reached Natural Disaster Survival's rendered welcome screen. This does not establish successful gameplay inside Nova's separate proxy session.
+- Browser-tested Nova's dialog and official new-tab destination. The official player loaded Natural Disaster Survival metadata and returned **Not authorized to join this experience (524)**. Official Web Play is creator testing per Roblox's announcement: https://devforum.roblox.com/t/creators-can-test-games-on-the-web/4964592 . Nova does not bypass that restriction. A successful official gameplay test requires an experience the signed-in Roblox account is permitted to test.
+- Nine tests pass across launcher compatibility and official destination validation.
+
 ## 2026-11-14 inspection and fixes
 - Sign-in handoff repair: the current provider register page's `finishAuth()` redirects to `/assets/applications/datapacks/profile/`. Nova now replaces only that successful destination with the Roblox launcher. Password/OTP API requests, error handling, and response cookies are preserved. This repair was matched against the current provider HTML and covered by regression tests; a real sign-in inside Nova's separate proxy storage still requires the user to enter credentials there.
 - Rechecked the signed-in provider UI. Its Session page now offers email/code sign-in as well as an optional session value; Nova's notice reflects both. No credentials or session storage were copied into Nova.
