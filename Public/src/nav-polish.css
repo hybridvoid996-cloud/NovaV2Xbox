@@ -150,3 +150,18 @@ html.nav-polished body .main-dm-log{contain:content;overscroll-behavior:contain}
 html.nav-polished body .main-dm-log .main-person-avatar,html.nav-polished body .main-person-row .main-person-avatar{contain:layout paint}
 html.nav-polished body header nav>button[data-service-brand=chatgpt]:not(.active):not(:hover)>img{filter:brightness(0) invert(1)!important;opacity:.82!important}
 html.nav-polished body header nav>button:is([data-page=novatube],[data-page=novamovies]):not(.active):not(:hover)>:is(svg,img){filter:grayscale(1) brightness(2.6) contrast(1.05)!important;opacity:.85!important}
+
+/* Service artwork stays coloured; hover changes the surrounding glow only.
+   Older monochrome rules could make both the Tube shape and triangle white. */
+html.nav-polished body.nova-main header nav>button[data-page][data-page]:is([data-page=music],[data-page=novatube],[data-page=novamovies]):is(:hover,:focus-visible,.active,:not(.active)){
+ color:var(--service-accent,var(--nav-brand))!important;
+}
+html.nav-polished body.nova-main header nav>button[data-page=novatube]{--service-accent:#ff0033;--nav-brand-cutout:#fff}
+html.nav-polished body.nova-main header nav>button[data-page=novamovies]{--service-accent:#e50914}
+html.nav-polished body.nova-main header nav>button[data-page=music]{--nav-brand:#1ed760}
+html.nav-polished body.nova-main header nav>button[data-page][data-page]:is([data-page=music],[data-page=novatube],[data-page=novamovies]):is(:hover,:focus-visible,.active,:not(.active))>:is(svg,img){filter:none!important;opacity:1!important}
+html.nav-polished body.nova-main header nav>button[data-page=novatube] svg path:last-child{fill:#fff!important;stroke:none!important}
+html.nav-polished body.nova-main header nav>button[data-page][data-page]:is([data-page=music],[data-page=novatube],[data-page=novamovies]):is(:hover,:focus-visible){
+ background:#ffffff08!important;
+ box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--service-accent,var(--nav-brand)) 25%,transparent),0 0 14px color-mix(in srgb,var(--service-accent,var(--nav-brand)) 18%,transparent)!important;
+}
