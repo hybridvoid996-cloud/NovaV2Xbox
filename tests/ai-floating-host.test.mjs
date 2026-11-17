@@ -8,17 +8,18 @@ function host({capture=async()=>({id:'capture'}),floating=async()=>({id:'floatin
  if(supported)window.documentPictureInPicture={requestWindow:floating};
  vm.runInNewContext(source,{window,Error});return window;
 }
-test('capture permission resolves before automatic floating is requested',async()=>{
+test('capture and floating start in the original click before awaiting permission',async()=>{
  const calls=[],stream={},floating={};let grant;
  const window=host({capture:options=>{calls.push(['capture',options]);return new Promise(resolve=>grant=resolve)},floating:async options=>{calls.push(['floating',options]);return floating}});
  const options={video:{displaySurface:'monitor'},audio:false},pending=window.NovaCaptureAndFloat(options);
- assert.equal(calls.length,1);grant(stream);const result=await pending;
+ assert.equal(calls.length,2);grant(stream);const result=await pending;
  assert.deepEqual(calls.map(c=>c[0]),['capture','floating']);assert.equal(calls[0][1],options);assert.equal(result.stream,stream);assert.equal(result.floating,floating);assert.equal(result.floatError,'');
 });
-test('capture cancellation never opens an empty floating window',async()=>{
+test('capture cancellation closes the reserved floating window',async()=>{
  const denied=Object.assign(Error('Cancelled'),{name:'NotAllowedError'});
- const window=host({capture:async()=>{throw denied},floating:()=>assert.fail('No floating window without capture consent')});
- await assert.rejects(window.NovaCaptureAndFloat({}),error=>error===denied);
+ let closed=false;
+ const window=host({capture:async()=>{throw denied},floating:async()=>({close(){closed=true}})});
+ await assert.rejects(window.NovaCaptureAndFloat({}),error=>error===denied);assert.equal(closed,true);
 });
 test('browser activation rejection preserves the stream and supplies a retry reason',async()=>{
  const stream={};const window=host({capture:async()=>stream,floating:async()=>{throw Error('User activation required')}});

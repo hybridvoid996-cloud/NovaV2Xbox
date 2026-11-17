@@ -27,3 +27,6 @@
 
 /* Make an activation-required retry visible before users leave the Nova tab. */
 .nova-screen-assistant.needs-float .screen-assistant-footer button:first-child{background:#eee!important;color:#171717!important;font-weight:700!important;padding:10px 12px!important;flex:1}.nova-screen-assistant.needs-float .screen-assistant-status{font-size:11px!important;color:#f3d6a3!important}.nova-screen-popout body{padding:0!important;overflow:hidden}.nova-screen-popout .screen-assistant-body{max-height:calc(100dvh - 48px)!important}
+
+/* Floating controls stay in the header; no extra bottom toolbar. */
+.nova-screen-popout .screen-assistant-footer{display:none!important}
