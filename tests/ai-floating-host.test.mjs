@@ -32,3 +32,22 @@ test('unsupported floating API returns a useful capability error',async()=>{
 test('iframe scripts never register an iframe-owned floating API',()=>{
  const window={top:{}};vm.runInNewContext(source,{window,Error});assert.equal(window.NovaOpenScreenFloat,undefined);assert.equal(window.NovaCaptureAndFloat,undefined);
 });
+
+
+test('simultaneous float clicks share one request and reuse the live window',async()=>{
+ let calls=0,grant;
+ const window=host({floating:()=>{calls++;return new Promise(resolve=>grant=resolve)}});
+ const first=window.NovaOpenScreenFloat(),second=window.NovaOpenScreenFloat();
+ assert.equal(calls,1);assert.equal(first,second);
+ const floating={closed:false};window.documentPictureInPicture.window=floating;grant(floating);
+ assert.equal(await first,floating);assert.equal(await window.NovaOpenScreenFloat(),floating);assert.equal(calls,1);
+});
+test('Chrome automatic PiP reattaches screen help instead of opening a separate video player',async()=>{
+ const actions=new Map(),floating={closed:false};let opened=0,attached;
+ const window=host({floating:async()=>{opened++;return floating}});
+ window.navigator.mediaSession={setActionHandler:(name,callback)=>actions.set(name,callback)};
+ const unbind=window.NovaBindScreenFloat(value=>{attached=value});
+ await actions.get('enterpictureinpicture')();assert.equal(attached,floating);assert.equal(opened,1);
+ window.documentPictureInPicture.window=floating;await actions.get('enterpictureinpicture')();assert.equal(opened,1);
+ unbind();assert.equal(actions.get('enterpictureinpicture'),null);
+});

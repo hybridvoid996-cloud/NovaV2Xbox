@@ -1,6 +1,6 @@
-import {createTubeLoadingGuard} from './novatube-loading.mjs?v=20261116-loader1';
+import {createTubeLoadingGuard,observeTubePlayback} from './novatube-loading.mjs?v=20261116-player2';
 import {attachTubeTheater} from './novatube-theater.mjs?v=20261029-theater376';
-import {postTubeMessage,decodeTubeMessage,normalizeTubeChannelTarget,createTubeHandshake} from './novatube-handshake.mjs?v=20261114-playback1';
+import {postTubeMessage,decodeTubeMessage,normalizeTubeChannelTarget,createTubeHandshake} from './novatube-handshake.mjs?v=20261116-player2';
 import {attachTubeSearch} from './novatube-search.mjs?v=20261114-v2';
 import {createTubeShell} from './novatube-shell.mjs?v=20261114-playback1';
 import {tubeImage} from './novatube-library.mjs?v=20261114-merge';
@@ -42,14 +42,22 @@ async function watch(item){if(!normalizeTubeVideo(item))return;const turn=++gene
 let directAttempted=false,proxyAttempted=false;
 let playbackMode='regular',preferredMode='regular',regularStandard=false;const PLAYER_NAMES={compatible:'Nova Player',regular:'YouTube Player',proxy:'Proxy Player'},PLAYER_ORDER=['compatible','regular','proxy'];const playerLabel=()=>'Switch player · '+PLAYER_NAMES[PLAYER_ORDER[(PLAYER_ORDER.indexOf(playbackMode)+1)%3]];
 function prepareTubeProxy(){if(!window.NovaConnection?.create)return null;if(!proxyPreparation){const pending=window.NovaConnection.create({videoBrand:'novatube'});proxyPreparation=pending;pending.catch(()=>{if(proxyPreparation===pending)proxyPreparation=null})}return proxyPreparation}
-function setupPlayerLoading(turn){playerLoading?.stop();playerLoading=createTubeLoadingGuard({isCurrent:()=>turn===playerTurn,setLoading:value=>shell.buffer(value),onTimeout:()=>{if(playbackMode==='regular')regularFailed(turn);else if(playbackMode==='compatible')directUnavailable(turn);else officialUnavailable()}});return playerLoading}
+function setupPlayerLoading(turn){playerLoading?.stop();playerLoading=createTubeLoadingGuard({isCurrent:()=>turn===playerTurn,setLoading:value=>shell.buffer(value),onTimeout:()=>{if(playbackMode==='regular')regularFailed(turn);else if(playbackMode==='compatible')directUnavailable(turn);else officialUnavailable()}});playerLoading.wait({overlay:true});return playerLoading}
 function attachHandshake(player,origin,turn){setupPlayerLoading(turn);playerHandshake?.stop();playerHandshake=createTubeHandshake({frame:player,origin});playerHandshake.start();if(turn===playerTurn)$('tube-play-status').textContent='Waiting for the video player…'}
 
 function regularFailed(turn){if(turn!==playerTurn||playbackMode!=='regular')return;if(!regularStandard){regularStandard=true;openRegularPlayer();return}openDirectPlayer();}
 function openRegularPlayer(){clearPlayer();shell.buffer(true);const turn=playerTurn;$('tube-official').hidden=false;$('tube-play-status').textContent='Connecting to YouTube… switching to Nova Player if it can\'t connect.';const player=frame=el('iframe');player.setAttribute('credentialless','');player.title=current.title;player.allow='autoplay; encrypted-media; fullscreen; picture-in-picture';player.allowFullscreen=true;player.referrerPolicy='strict-origin-when-cross-origin';player.src=tubeNativeEmbed(current.id,location.origin,regularStandard);const playerOrigin=new URL(player.src).origin;player.onerror=()=>regularFailed(turn);player.onload=()=>{if(turn!==playerTurn)return;playerHandshake?.start();playerLoading?.reveal();setVolume(volume)};$('tube-player').replaceChildren(player);attachHandshake(player,playerOrigin,turn);playerTimer=setTimeout(()=>regularFailed(turn),18000)}
 function clearPlayer(){playerHandshake?.stop();playerHandshake=null;playerLoading?.stop();playerLoading=null;lastPlayerTime=0;shell.buffer(false);++playerTurn;playbackController?.abort();clearTimeout(playerTimer);if(video){video.pause();video.removeAttribute('src');video.load();video.remove();video=null}frame?.remove();frame=null}
 async function openPlayer(){if(playbackMode==='regular')return openRegularPlayer();if(playbackMode==='compatible')return openDirectPlayer();return openOfficialPlayer()}
-function officialUnavailable(){clearTimeout(playerTimer);playerLoading?.ready();shell.buffer(false);$('tube-official').hidden=false;$('tube-play-status').textContent='The player is taking longer to connect. You can wait, switch player, or open on YouTube.';if(!frame&&!video)$('tube-player').replaceChildren(el('div','tube-player-message','No player connection. Use Reload player to retry.'))}
+function showPlayerFailure(message){
+ clearPlayer();$('tube-play-status').textContent=message;
+ const card=el('div','tube-player-message tube-player-failure');
+ const image=el('img');image.src=current.thumbnail||'https://i.ytimg.com/vi/'+current.id+'/hqdefault.jpg';image.alt='';image.onerror=()=>image.remove();
+ const title=el('strong','',current.title||'Video');
+ const retry=button('Retry video',()=>{regularStandard=false;directAttempted=false;proxyAttempted=false;playbackMode='regular';openPlayer()});
+ card.append(image,title,el('p','',message),retry);$('tube-player').replaceChildren(card);
+}
+function officialUnavailable(){proxyPreparation=null;showPlayerFailure('This video could not connect. Retry the video, switch player, or open it on YouTube.')}
 function directUnavailable(turn){if(turn!==playerTurn)return;if(!proxyAttempted){playbackMode='proxy';$('tube-official').textContent=playerLabel();openOfficialPlayer('Nova Player could not connect. Trying another player…')}else officialUnavailable()}
 async function openDirectPlayer(){directAttempted=true;playbackMode='compatible';$('tube-official').textContent=playerLabel();clearPlayer();shell.buffer(true);const turn=playerTurn;setupPlayerLoading(turn);$('tube-play-status').textContent='Loading video…';playbackController=new AbortController();try{const data=await api('playback',{id:current.id},playbackController.signal);if(turn!==playerTurn)return;if(!/^\/api\/novatube\?op=stream&id=[A-Za-z0-9_-]{11}$/.test(data.src||''))throw Error('Invalid video route');const native=video=el('video');native.controls=true;native.playsInline=true;native.preload='auto';native.volume=volume;native.src=data.src;native.oncanplay=()=>{if(turn!==playerTurn)return;clearTimeout(playerTimer);playerLoading?.ready();shell.buffer(false);$('tube-play-status').textContent=''};native.onplaying=native.oncanplay;native.onwaiting=native.onstalled=()=>{if(turn!==playerTurn)return;playerLoading?.wait();$('tube-play-status').textContent='Buffering video…'};native.onerror=()=>directUnavailable(turn);native.onended=()=>{if(turn===playerTurn)shell.ended()};$('tube-player').replaceChildren(native);playerTimer=setTimeout(()=>directUnavailable(turn),12000);native.play().catch(error=>{if(turn!==playerTurn||error.name!=='NotAllowedError')return;clearTimeout(playerTimer);playerLoading?.ready();$('tube-play-status').textContent='Press play to watch.'})}catch{directUnavailable(turn)}}
 async function openOfficialPlayer(reason){proxyAttempted=true;clearPlayer();shell.buffer(true);const turn=playerTurn;$('tube-official').hidden=false;$('tube-play-status').textContent=(typeof reason==='string'?reason+' ':'')+'Connecting the official player through Nova…';playerTimer=setTimeout(()=>{if(turn===playerTurn)officialUnavailable()},30000);try{const prepared=await prepareTubeProxy();if(turn!==playerTurn)return;const connection=window.NovaConnection.ensure?await window.NovaConnection.ensure(prepared):prepared;if(turn!==playerTurn)return;const view=connection.createFrame();frame=view.element;frame.title=current.title;frame.allow='autoplay; encrypted-media; fullscreen; picture-in-picture';frame.allowFullscreen=true;frame.onload=()=>{if(turn!==playerTurn)return;try{const body=frame.contentDocument?.body?.innerText||'';if(/DEPLOYMENT_NOT_FOUND|404: NOT_FOUND|This page could not be found|page doesn.t exist/i.test(body)){officialUnavailable();return}}catch{}playerHandshake?.start();playerLoading?.reveal();setVolume(volume)};$('tube-player').replaceChildren(frame);attachHandshake(frame,'*',turn);view.go(tubeNativeEmbed(current.id,location.origin));clearTimeout(playerTimer);playerTimer=setTimeout(()=>{if(turn===playerTurn)officialUnavailable()},20000);const routed=new URL(frame.getAttribute('src'),location.href);if(routed.origin!==location.origin||!routed.pathname.startsWith('/~/sj/p/'))throw Error('Invalid proxy route')}catch{if(turn===playerTurn)officialUnavailable()}}
@@ -61,31 +69,27 @@ addEventListener('message',e=>{
  if(!frame||e.source!==frame.contentWindow||![location.origin,'https://www.youtube-nocookie.com','https://www.youtube.com'].includes(e.origin))return;
  const d=decodeTubeMessage(e.data);if(!d)return;
  if(playerHandshake?.accept(d)||d.event==='onReady'){
-  playerLoading?.ready();clearTimeout(playerTimer);$('tube-play-status').textContent='Press play to watch.';
+  playerLoading?.reveal();$('tube-play-status').textContent='Starting video…';
+  if(d.event==='onReady')postTubeMessage(frame,{event:'command',func:'playVideo',args:[]},'*');
  }
  if(d.event==='onError'){
   playerLoading?.ready();clearTimeout(playerTimer);
+  const code=Number(d.info);
+  if(code===100){showPlayerFailure('YouTube reports this video is unavailable or private.');return}
   if(playbackMode==='regular'){
-   const code=Number(d.info);
-   if(code===100){$('tube-play-status').textContent='YouTube reports this video is unavailable or private.';return}
    if([101,150].includes(code)){openDirectPlayer();return}
    regularFailed(playerTurn);return;
   }
-  $('tube-play-status').textContent='This video could not play in the embedded player. It may be private, region-restricted, or unavailable for embedding. Try another video or Open on YouTube.';return;
+  showPlayerFailure('This video could not play here. It may be private, region-restricted, or unavailable for embedding. Retry or open it on YouTube.');return;
  }
- const delivery=['infoDelivery','initialDelivery'].includes(d.event);
- const state=d.event==='onStateChange'?Number(d.info):delivery&&d.info?.playerState!=null?Number(d.info.playerState):NaN;
- if(state===3){
-  playerLoading?.wait();$('tube-play-status').textContent='Buffering video…';
- }else if([-1,0,1,2,5].includes(state)){
-  playerLoading?.ready();clearTimeout(playerTimer);
-  $('tube-play-status').textContent=[-1,5].includes(state)?'Press play to watch.':'';
+ const observed=observeTubePlayback(playerLoading,d,lastPlayerTime);
+ const {state,progress,blocked}=observed;lastPlayerTime=observed.time;
+ if(state===3)$('tube-play-status').textContent='Buffering video…';
+ if([0,1,2].includes(state)||progress||blocked){
+  clearTimeout(playerTimer);$('tube-play-status').textContent=blocked?'Autoplay is paused. Press Play in the video to watch.':'';
   if(state===1&&d.event==='onStateChange')setVolume(volume);
   if(state===0&&d.event==='onStateChange')shell.ended();
  }
- if(delivery&&Number.isFinite(d.info?.currentTime)){
-  if(d.info.currentTime>lastPlayerTime){playerLoading?.ready();clearTimeout(playerTimer);$('tube-play-status').textContent=''}
-  lastPlayerTime=d.info.currentTime;
- }
+
 });addEventListener('message',e=>{if(e.origin!==location.origin||e.source!==parent||e.data?.novaAction!=='novaTubeVolume')return;const volume=Number(e.data.volume);if(Number.isFinite(volume))setVolume(volume)});addEventListener('pagehide',()=>{controller?.abort();clearPlayer()});const startChannel=new URLSearchParams(location.search).get('channel');const id=new URLSearchParams(location.search).get('v');if(startChannel)openChannel(startChannel,{tab:new URLSearchParams(location.search).get('tab')==='shorts'?'shorts':'videos'});else if(/^[A-Za-z0-9_-]{11}$/.test(id||''))watch({id,title:'Video',author:''});else browse(new URLSearchParams(location.search).get('q')||'');
 }

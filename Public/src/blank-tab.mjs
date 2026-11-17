@@ -8,7 +8,7 @@ export function launchBlank({open=window.open.bind(window),url=location.href,sto
   const viewport=doc.createElement('meta');viewport.name='viewport';viewport.content='width=device-width, initial-scale=1, viewport-fit=cover';doc.head.append(viewport);
   const icon=doc.createElement('link');icon.rel='icon';icon.href=style.icon;doc.head.append(icon);
   const frame=doc.createElement('iframe');frame.id='nova-blank-frame';frame.title='Your Nova workspace';frame.setAttribute('data-nova-src',target.href);frame.allow='autoplay; fullscreen; microphone; camera; clipboard-read; clipboard-write; display-capture; cross-origin-isolated';frame.allowFullscreen=true;frame.style.cssText='position:fixed;inset:0;width:100%;height:100%;border:0';doc.body.append(frame);
-  const runtime=doc.createElement('script');runtime.src=new URL('/src/blank-host.js?v=20261116-float3',location.origin).href;
+  const runtime=doc.createElement('script');runtime.src=new URL('/src/blank-host.js?v=20261116-float4',location.origin).href;
   // If the outer helper fails, still load Home inside the blank tab's frame.
   runtime.onerror=()=>{frame.src=target.href};doc.head.append(runtime);
   popup.opener=null;popup.focus();return true;

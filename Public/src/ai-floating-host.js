@@ -3,10 +3,26 @@
 // incumbent context and Chromium can reject Document Picture-in-Picture.
 (()=>{
  if(window!==window.top)return;
- window.NovaScreenFloatVersion=3;
+ if(window.NovaScreenFloatVersion===4)return;
+ window.NovaScreenFloatVersion=4;
+ let opening=null,attached=null;
+ window.NovaBindScreenFloat=function(callback){
+  attached=callback;
+  try{window.navigator.mediaSession?.setActionHandler('enterpictureinpicture',async()=>{
+   if(attached!==callback)return;
+   try{const floating=await window.NovaOpenScreenFloat();if(attached===callback)await callback(floating)}catch{}
+  })}catch{}
+  return ()=>{if(attached!==callback)return;attached=null;try{window.navigator.mediaSession?.setActionHandler('enterpictureinpicture',null)}catch{}};
+ };
  window.NovaOpenScreenFloat=function(){
   if(!window.documentPictureInPicture?.requestWindow)throw Error('Floating screen help needs Chrome or Edge with Document Picture-in-Picture support.');
-  return window.documentPictureInPicture.requestWindow({width:380,height:490,disallowReturnToOpener:true,preferInitialWindowPlacement:true});
+  const current=window.documentPictureInPicture.window;
+  if(current&&!current.closed)return Promise.resolve(current);
+  if(opening)return opening;
+  const pending=window.documentPictureInPicture.requestWindow({width:380,height:490,disallowReturnToOpener:true,preferInitialWindowPlacement:true});
+  opening=Promise.resolve(pending);
+  opening.then(()=>{opening=null},()=>{opening=null});
+  return opening;
  };
  window.NovaCaptureAndFloat=async function(options){
   // Start capture first (it checks activation), then reserve the floating

@@ -247,3 +247,5 @@ html.tube-v2 #tube-channels .tube-followed-dot{margin-left:auto}
 
 /* Creator names are links independently of the video card. */
 .tube-card-author{display:block;font-size:11px;color:var(--muted);margin-top:4px}.tube-card-author[role=link]:hover{color:#fff;text-decoration:underline}.tube-card-author:focus-visible{outline:2px solid #ff6a7c;outline-offset:2px}
+
+.tube-player-failure{align-content:center;justify-items:center;gap:12px;padding:24px;background:#101010;color:#eee}.tube-player-failure img{width:min(240px,45%);max-height:125px;object-fit:cover;border-radius:12px;opacity:.65}.tube-player-failure strong{max-width:90%;text-align:center}.tube-player-failure p{max-width:430px;margin:0;color:#aaa;line-height:1.5}.tube-player-failure button{padding:11px 22px;border-radius:22px;border:1px solid #ffffff30;background:#eee;color:#111;cursor:pointer}
