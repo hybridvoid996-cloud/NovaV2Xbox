@@ -1,0 +1,12 @@
+import {cp,mkdir,readFile,writeFile,access} from 'node:fs/promises';
+import path from 'node:path';
+import {homedir} from 'node:os';
+const research=path.resolve(process.argv[2]||path.join(homedir(),'Documents/Nova-Game-Research/Schedule-I-Demo/BrowserPort'));
+const {revision}=JSON.parse(await readFile(path.join(research,'Build/current-release.json'),'utf8'));
+if(!/^\d{14}$/.test(revision))throw Error('Select a complete browser release first.');
+const source=path.join(research,'Build/Releases',revision),destination=path.resolve('Public/content/local-schedule-i');
+await access(path.join(source,'index.html'));
+await mkdir(destination,{recursive:true});
+await cp(source,destination,{recursive:true});
+await writeFile(path.join(destination,'nova-local-build.json'),JSON.stringify({revision,addedAt:new Date().toISOString()}));
+console.log('Installed Schedule I Demo in the local Nova Games library. Release '+revision+'.');

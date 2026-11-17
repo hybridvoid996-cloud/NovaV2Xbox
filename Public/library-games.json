@@ -9386,5 +9386,16 @@
       "Adventure"
     ],
     "addedAt": "2026-11-12T00:00:00.000Z"
+  },
+  {
+    "id": "schedule-i-demo",
+    "name": "Schedule I Demo",
+    "art": "Img/games/schedule-i-demo.jpg",
+    "url": "content/schedule-i/index.html",
+    "genres": [
+      "Simulation",
+      "Open World"
+    ],
+    "addedAt": "2026-11-17T05:07:48.162Z"
   }
 ]

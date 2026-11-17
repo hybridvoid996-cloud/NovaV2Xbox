@@ -19,3 +19,8 @@ docs/game-audit/
 .aws-stage/
 .amplify-public/
 .amplify-hosting/
+
+# Locally recovered browser preview; large files are installed separately.
+Public/content/local-schedule-i/
+Public/content/schedule-i/Build/
+Public/content/schedule-i/StreamingAssets/

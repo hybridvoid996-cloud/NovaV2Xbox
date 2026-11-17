@@ -1,8 +1,13 @@
 import {stat} from 'node:fs/promises';
 import {createReadStream} from 'node:fs';
 import path from 'node:path';
+import {localGameCatalog} from './local-game-catalog.mjs';
 export async function serveLocalStatic(req,res,root){
  let name;try{name=decodeURIComponent(new URL(req.url,'http://local').pathname)}catch{res.writeHead(400);res.end();return}
+ if(name==='/library-games.json'&&['GET','HEAD'].includes(req.method)){
+  const games=await localGameCatalog(req,root);
+  if(games){const body=JSON.stringify(games);res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store','Content-Length':Buffer.byteLength(body)});res.end(req.method==='HEAD'?undefined:body);return}
+ }
  const base=path.resolve(root),file=path.resolve(base,'.'+(name==='/'?'/home.html':name==='/computer'?'/computer.html':name));
  if(!file.startsWith(base+path.sep)){res.writeHead(404);res.end('Not found');return}
  let info;try{info=await stat(file);if(!info.isFile())throw Error()}catch{res.writeHead(404);res.end('Not found');return}
