@@ -1,7 +1,7 @@
 import {movieEmbedPath} from './movie-title-view.mjs?v=20261114-movies1';
 export function moviePlaybackRoutes(item){
  const embed=movieEmbedPath(item);
- if(item.type==='anime')return ['https://framextv.xyz'+embed,...animeProviderRoutes(item),...mappedAnimeRoutes(item)];
+ if(item.type==='anime')return [...animeProviderRoutes(item),'https://framextv.xyz'+embed,...mappedAnimeRoutes(item)];
  if(!['movie','tv'].includes(item.type))throw Error('Unsupported title type');
  const first=item.type==='tv'?'/watch/show/'+embed.split('/').slice(3).join('/'):'/watch/'+item.id;
  const cinejoy='https://cinejoy.pk'+(item.type==='tv'?'/watch/tv/'+embed.split('/').slice(3).join('/'):'/watch/movie/'+item.id);

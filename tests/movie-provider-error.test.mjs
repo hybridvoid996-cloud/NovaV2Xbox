@@ -14,3 +14,9 @@ test('blocked and removed upstream players are recognized without confusing ordi
  assert(!isMovieProviderError('Sorry, you have been blocked'));
  assert(!isMovieProviderError('Error Code: 410'));
 });
+
+test('visible stream fetch failures request recovery without treating unrelated text as a failure',()=>{
+ assert(isMovieProviderError('Playback Error: Failed to fetch the video stream.'));
+ assert(isMovieProviderError('Failed to fetch. Try again or switch server.'));
+ assert(!isMovieProviderError('Failed to fetch comments'));
+});

@@ -41,3 +41,7 @@ test('anime metadata refresh bypasses cached responses and normal reads expire a
  const url='/api/movies?op=details&type=anime&id=21';assert.equal((await (await request(url)).json()).episodes,1);assert.equal((await (await request(url)).json()).episodes,1);
  assert.equal((await (await request(url+'&fresh=1')).json()).episodes,2);time=60001;assert.equal((await (await request(url)).json()).episodes,3);
 });
+
+test('transient provider fetch failure retries once within the startup deadline',async()=>{
+ let calls=0;const r=await requestMovieResource(async()=>{if(++calls===1)throw TypeError('Failed to fetch');return {status:200}},[new URL('https://cno.to/api/stream/550'),'GET',null,[],undefined]);assert.equal(r.status,200);assert.equal(calls,2);
+});

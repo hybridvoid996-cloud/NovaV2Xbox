@@ -10,7 +10,7 @@ export function providerAnimeItem(row){
 }
 export function normalizeAnimeFeed(payload){
  const feed=payload?.feed||{},pick=(pattern)=>{const entry=Object.entries(feed).find(([key])=>pattern.test(key));return {results:(entry?.[1]?.items||[]).map(providerAnimeItem).filter(Boolean)}};
- const rails={popular_anime:pick(/top-watched\?range=week/),trending_anime:pick(/browse\?sort=trending/),airing_anime:pick(/catalog\?sort=newest/),upcoming_anime:pick(/\/anime\/upcoming/)};
+ const rails={popular_anime:pick(/top-watched\?range=week/),trending_anime:pick(/browse\?sort=trending/),airing_anime:pick(/catalog\?sort=newest/),upcoming_anime:pick(/\/anime\/upcoming/),anime_movies:pick(/top-watched\?range=week&format=MOVIE/),new_anime:pick(/catalog\?sort=newest&year=/)};
  if(!Object.values(rails).some(r=>r.results.length))throw Error('Anime provider returned no identified titles');return {rails,source:'ani.pm'};
 }
 export function hianimeIdentity(html,id){

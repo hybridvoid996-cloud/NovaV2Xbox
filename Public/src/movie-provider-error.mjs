@@ -1,7 +1,8 @@
 // Require the provider error's distinctive wording, not an ordinary movie title.
 export function isMovieProviderError(text,title=''){
  const content=(String(title)+' '+String(text)).replace(/\s+/g,' ').trim().slice(0,12000);
- return /No available servers found/i.test(content)&&/Playback Error|No alternative servers available/i.test(content)||
+ return /(?:playback error|video (?:could not|failed to) load|error loading (?:video|player))[\s\S]{0,300}(?:failed to fetch|network error)|(?:failed to fetch)[\s\S]{0,150}(?:retry|try again|switch server)/i.test(content)||
+  /No available servers found/i.test(content)&&/Playback Error|No alternative servers available/i.test(content)||
   /Sorry, you have been blocked|You are unable to access/i.test(content)&&/Cloudflare Ray ID/i.test(content)||
   /(?:can't|cannot) find the file you are looking for/i.test(content)&&/Error Code:\s*410/i.test(content)||
   /(?:DEPLOYMENT_NOT_FOUND|DEPLOYMENT_DISABLED|FUNCTION_INVOCATION_FAILED|FUNCTION_INVOCATION_TIMEOUT)/.test(content)||

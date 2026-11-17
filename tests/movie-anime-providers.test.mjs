@@ -89,3 +89,15 @@ test('HiAnime counts only episodes belonging to the verified title',()=>{
  const html='<a href="https://anilist.co/anime/21">AniList</a><a href="/watch-one-piece-episode-1-1a877">Watch</a><a href="/watch-one-piece-episode-1181-1a877">Newest</a><a href="/watch-other-episode-9999-abc">Other</a>';
  assert.equal(hianimeIdentity(html,'21').episodeCount,1181);
 });
+
+test('slow anime search is merged even after movie catalogs have already answered',async()=>{
+ const primary=async(req,res)=>{res.statusCode=200;res.end(JSON.stringify({results:[{id:7,type:'movie',title:'Naruto movie'}]}))};
+ const handler=withMovieBackup(primary,{request:async url=>{if(String(url).includes('ani.pm/api/anime/search')){await new Promise(resolve=>setTimeout(resolve,1450));return Response.json({items:[row]})}return new Response('Down',{status:503})}});
+ let data;await handler({method:'GET',url:'/api/movies?op=search&q=One%20Piece'},{setHeader(){},end(v){data=JSON.parse(v)}});
+ assert(data.results.some(x=>x.type==='anime'&&x.id==='21'));assert(data.results.some(x=>x.type==='movie'&&x.id===7));
+});
+
+test('anime feed retains movie and new-library categories',()=>{
+ const d=normalizeAnimeFeed({feed:{'/anime/top-watched?range=week&format=MOVIE&view=rail':{items:[row]},'/anime/catalog?sort=newest&year=2026&avail=sourced':{items:[row]}}});
+ assert.equal(d.rails.anime_movies.results[0].id,'21');assert.equal(d.rails.new_anime.results[0].id,'21');
+});

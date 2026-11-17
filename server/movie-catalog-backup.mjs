@@ -12,6 +12,7 @@ export function withMovieBackup(primary,{request=fetch,now=Date.now}={}){const a
  const reply=(code,data)=>{res.statusCode=code;res.setHeader('Content-Type','application/json');res.setHeader('Cache-Control','no-store');res.end(JSON.stringify(data))};
  const fresh=p.get('fresh')==='1';const stable=new URLSearchParams(p);stable.delete('fresh');const key=stable.toString(),old=cache.get(key);if(!fresh&&old&&old.until>now())return reply(200,old.data);
  if(op==='achcromaList'){try{const data=await backup(op,p);return reply(200,data)}catch(e){return reply(400,{error:e.message})}}
+ const animeSearch=op==='search'?bounded(animeProviders.search(q),3800):Promise.resolve(null);
  const original=(async()=>{let status=200,body;await primary(req,{set statusCode(v){status=v},get statusCode(){return status},setHeader(){},end(v){body=v}});if(status!==200)throw Error('Primary catalog unavailable');const data=JSON.parse(body);return data})();
  original.catch(()=>{});
  if(op==='anime'){
@@ -34,13 +35,15 @@ export function withMovieBackup(primary,{request=fetch,now=Date.now}={}){const a
   if(cache.size>100)cache.delete(cache.keys().next().value);return reply(200,result);
  }
  // AniList IDs are never sent to a TMDB player or title endpoint.
- const extra=type==='anime'&&op==='details'?Promise.reject(Error('AniList identifier')):(async()=>{const attempts=[backup(op,p),movy(op,p),...(['home','browse','search'].includes(op)?[shuttle(op,p)]:[]),...(op==='search'?[animeProviders.search(q)]:[])];const results=await Promise.all(attempts.map(task=>bounded(task,1200)));const available=results.filter(Boolean);if(!available.length)return Promise.any(attempts);if(['home','browse'].includes(op))return mergeMovieShelves(available);if(op==='search'){const map=new Map();for(const data of available)for(const item of data.results||[])map.set(item.type+':'+item.id,item);return {results:[...map.values()]}}return available[0]})();
+ const extra=type==='anime'&&op==='details'?Promise.reject(Error('AniList identifier')):(async()=>{const attempts=[backup(op,p),movy(op,p),...(['home','browse','search'].includes(op)?[shuttle(op,p)]:[])];const results=await Promise.all(attempts.map(task=>bounded(task,1200)));const available=results.filter(Boolean);if(!available.length)return Promise.any(attempts);if(['home','browse'].includes(op))return mergeMovieShelves(available);if(op==='search'){const map=new Map();for(const data of available)for(const item of data.results||[])map.set(item.type+':'+item.id,item);return {results:[...map.values()]}}return available[0]})();
  const [base,add]=await Promise.all([bounded(original,1800),bounded(extra,1800)]);
  let data;if(p.get('source')==='achcroma'&&add)data=add;else if(op==='search'&&base&&add){const map=new Map();for(const item of [...add.results,...base.results])map.set((item.type||'movie')+':'+item.id,item);data={...base,results:[...map.values()]}}
  else if(['home','browse','anime'].includes(op)&&base&&add)data=mergeMovieShelves([base,add]);else data=base||add;
  if(!data)data=await bounded(Promise.any([original,extra]),6500);
+ if(!data&&op==='search')data=await animeSearch;
  if(!data)return reply(502,{error:'The movie catalogs could not connect. Please retry shortly.'});
  if(op==='details'&&type==='anime'){const mapped=await bounded(resolveAnimeBackup(data,backup),2500);if(mapped)data={...data,playbackBackup:mapped}}
- cache.set(key,{data,until:now()+120000});if(cache.size>100)cache.delete(cache.keys().next().value);return reply(200,data);
+ if(op==='search'){const anime=await animeSearch;if(anime?.results?.length){const merged=new Map();for(const item of [...(data.results||[]),...anime.results])merged.set((item.type||'movie')+':'+item.id,item);data={...data,results:[...merged.values()]}}}
+ cache.set(key,{data,until:now()+(op==='search'?30000:120000)});if(cache.size>100)cache.delete(cache.keys().next().value);return reply(200,data);
  };
 }

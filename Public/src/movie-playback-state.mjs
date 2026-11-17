@@ -1,4 +1,4 @@
-import {isMovieProviderError} from './movie-provider-error.mjs?v=20261114-movies1';
+import {isMovieProviderError} from './movie-provider-error.mjs?v=20261117-movies2';
 // Provider players can live several frames below the watch page.
 export function readMoviePlayback(frame,session=''){
  const visited=new Set();let best=null,providerError=false,interactive=false,awaitingUser=false,userPlay=false;

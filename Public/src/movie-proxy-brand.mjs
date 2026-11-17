@@ -1,7 +1,7 @@
 import {injectMoviePopupGuard} from './movie-popup-guard.mjs?v=20261114-movies1';
-import {isMovieProviderError} from './movie-provider-error.mjs?v=20261114-movies1';
+import {isMovieProviderError} from './movie-provider-error.mjs?v=20261117-movies2';
 import {novaMovieLogo} from './movie-logo.mjs';
-import {animePlayerHTML} from './movie-anime-player-compat.mjs?v=20261114-movies1';
+import {animePlayerHTML} from './movie-anime-player-compat.mjs?v=20261117-movies2';
 import {createMovieStallRecovery} from './movie-stall.mjs';
 import {movieCinemaCSS} from './movie-cinema-theme.mjs?v=20261029-motion374';
 function movieRuntime(config,createMovieStallRecovery,isMovieProviderError){
@@ -29,7 +29,7 @@ function movieRuntime(config,createMovieStallRecovery,isMovieProviderError){
  document.addEventListener('error',e=>{if(e.target instanceof HTMLMediaElement&&e.target.tagName==='VIDEO'&&e.target.error)send('novaMovieError')},true);
  addEventListener('message',e=>{const child=Array.from(document.querySelectorAll('iframe')).find(f=>f.contentWindow===e.source);if(!child)return;const rect=child.getBoundingClientRect?.();if(rect&&(rect.width<160||rect.height<90))return;const d=e.data;if(d?.token===config.session&&['novaMovieReady','novaMovieInteractive','novaMovieUserPlay','novaMovieTime','novaMovieError','novaMovieStalled','novaMovieProfile'].includes(d.novaAction)){if(d.novaAction==='novaMovieTime'&&!Number.isFinite(d.currentTime))return;if(d.novaAction==='novaMovieReady'||d.novaAction==='novaMovieTime'&&d.currentTime>0)nestedHealthyAt=Date.now();send(d.novaAction,d)}else if(d?.type==='timeupdate'&&Number.isFinite(d.currentTime))send('novaMovieTime',{currentTime:d.currentTime,duration:Number.isFinite(d.duration)?d.duration:null,ended:d.ended===true})});
  addEventListener('message',e=>{if(e.source===parent&&e.data?.novaAction==='novaMoviePause')document.querySelectorAll('video,audio').forEach(m=>m.pause())});
- brand();setInterval(()=>{brand();audio();for(const video of document.querySelectorAll('video')){resume(video);recoverStall(video)}},1500);
+ brand();setInterval(()=>{brand();audio();for(const video of document.querySelectorAll('video')){if(meaningful(video)){resume(video);recoverStall(video)}}},1500);
 }
 export async function brandMovieResponse(response,target={}){
  if(!response.headers.some(([k,v])=>k.toLowerCase()==='content-type'&&v.includes('text/html')))return response;
